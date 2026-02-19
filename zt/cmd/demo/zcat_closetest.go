@@ -52,7 +52,7 @@ func newZcatCloseTestCmd() *cobra.Command {
 	cmd.Flags().SetInterspersed(true)
 	cmd.Flags().BoolVarP(&action.verbose, "verbose", "v", false, "Enable verbose logging")
 	cmd.Flags().StringVar(&action.logFormatter, "log-formatter", "", "Specify log formatter [json|pfxlog|text]")
-	cmd.Flags().StringVarP(&action.configFile, "identity", "i", "", "Specify the Ziti identity to use. If not specified the Ziti listener won't be started")
+	cmd.Flags().StringVarP(&action.configFile, "identity", "i", "", "Specify the Hanzo ZT identity to use. If not specified the Hanzo ZT listener won't be started")
 	cmd.Flags().SetInterspersed(true)
 
 	return cmd

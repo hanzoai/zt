@@ -25,7 +25,7 @@ import (
 func newReEnrollCmd(out io.Writer, errOut io.Writer) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "re-enroll",
-		Short: "re-enrolls various entities managed by the Ziti Edge Controller",
+		Short: "re-enrolls various entities managed by the Hanzo ZT Edge Controller",
 	}
 
 	cmd.AddCommand(newReEnrollEdgeRouterCmd(out, errOut))

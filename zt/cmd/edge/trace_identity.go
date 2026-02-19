@@ -37,7 +37,7 @@ type traceIdentityOptions struct {
 func newTraceCmd(out io.Writer, errOut io.Writer) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "trace",
-		Short: "manages tracing by the Ziti Edge Controller",
+		Short: "manages tracing by the Hanzo ZT Edge Controller",
 	}
 
 	cmd.AddCommand(newTraceIdentityCmd(out, errOut))
@@ -54,7 +54,7 @@ func newTraceIdentityCmd(out io.Writer, errOut io.Writer) *cobra.Command {
 
 	cmd := &cobra.Command{
 		Use:   "identity",
-		Short: "enables/disables tracing for sessions from an identity managed by the Ziti Edge Controller",
+		Short: "enables/disables tracing for sessions from an identity managed by the Hanzo ZT Edge Controller",
 		Args:  cobra.MinimumNArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			options.Cmd = cmd

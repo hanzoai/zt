@@ -25,11 +25,11 @@ import (
 )
 
 func NewCmdDb(out io.Writer, errOut io.Writer) *cobra.Command {
-	cmd := util.NewEmptyParentCmd("db", "Interact with Ziti database files")
+	cmd := util.NewEmptyParentCmd("db", "Interact with Hanzo ZT database files")
 
 	exploreCmd := &cobra.Command{
 		Use:   "explore <ctrl.db>|help|version",
-		Short: "Interactive CLI to explore Ziti database files",
+		Short: "Interactive CLI to explore Hanzo ZT database files",
 		Args:  cobra.ExactArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			return zdecli.Run("zt db explore", args[0])

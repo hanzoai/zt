@@ -41,7 +41,7 @@ func NewListCmd(p common.OptionsProvider) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "list",
 		Short: "List zt processes",
-		Long:  "Show information about currently running Ziti processes",
+		Long:  "Show information about currently running Hanzo ZT processes",
 		RunE: func(cmd *cobra.Command, args []string) error {
 			action.Cmd = cmd
 			action.Args = args

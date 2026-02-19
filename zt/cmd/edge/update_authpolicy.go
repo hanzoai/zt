@@ -71,8 +71,8 @@ func newUpdateAuthPolicySignerCmd(out io.Writer, errOut io.Writer) *cobra.Comman
 
 	cmd := &cobra.Command{
 		Use:   "auth-policy <id|name>",
-		Short: "updates an authentication policy managed by the Ziti Edge Controller",
-		Long:  "updates an authentication policy managed by the Ziti Edge Controller",
+		Short: "updates an authentication policy managed by the Hanzo ZT Edge Controller",
+		Long:  "updates an authentication policy managed by the Hanzo ZT Edge Controller",
 		Args: func(cmd *cobra.Command, args []string) error {
 			switch {
 			case len(args) == 0:

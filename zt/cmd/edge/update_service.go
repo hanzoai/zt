@@ -46,8 +46,8 @@ func newUpdateServiceCmd(out io.Writer, errOut io.Writer) *cobra.Command {
 
 	cmd := &cobra.Command{
 		Use:   "service <idOrName>",
-		Short: "updates a service managed by the Ziti Edge Controller",
-		Long:  "updates a service managed by the Ziti Edge Controller",
+		Short: "updates a service managed by the Hanzo ZT Edge Controller",
+		Long:  "updates a service managed by the Hanzo ZT Edge Controller",
 		Args:  cobra.ExactArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			options.Cmd = cmd
@@ -75,7 +75,7 @@ func newUpdateServiceCmd(out io.Writer, errOut io.Writer) *cobra.Command {
 	return cmd
 }
 
-// runUpdateService update a new service on the Ziti Edge Controller
+// runUpdateService update a new service on the Hanzo ZT Edge Controller
 func runUpdateService(o *updateServiceOptions) error {
 	id, err := mapNameToID("services", o.Args[0], o.Options)
 	if err != nil {

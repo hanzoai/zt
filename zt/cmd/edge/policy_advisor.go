@@ -31,7 +31,7 @@ import (
 func newPolicyAdivsorCmd(out io.Writer, errOut io.Writer) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "policy-advisor",
-		Short: "runs sanity checks on various policy related entities managed by the Ziti Edge Controller",
+		Short: "runs sanity checks on various policy related entities managed by the Hanzo ZT Edge Controller",
 	}
 
 	cmd.AddCommand(newPolicyAdvisorIdentitiesCmd(out, errOut))
@@ -101,7 +101,7 @@ func newPolicyAdvisorServicesCmd(out io.Writer, errOut io.Writer) *cobra.Command
 	return cmd
 }
 
-// runIdentitiesPolicyAdvisor create a new policyAdvisor on the Ziti Edge Controller
+// runIdentitiesPolicyAdvisor create a new policyAdvisor on the Hanzo ZT Edge Controller
 func runIdentitiesPolicyAdvisor(o *policyAdvisorOptions) error {
 	if len(o.Args) > 0 {
 		identityId, err := mapNameToID("identities", o.Args[0], o.Options)
@@ -131,7 +131,7 @@ func runIdentitiesPolicyAdvisor(o *policyAdvisorOptions) error {
 	return runPolicyAdvisorForIdentities(o)
 }
 
-// runServicesPolicyAdvisor create a new policyAdvisor on the Ziti Edge Controller
+// runServicesPolicyAdvisor create a new policyAdvisor on the Hanzo ZT Edge Controller
 func runServicesPolicyAdvisor(o *policyAdvisorOptions) error {
 	if len(o.Args) > 0 {
 		serviceId, err := mapNameToID("services", o.Args[0], o.Options)

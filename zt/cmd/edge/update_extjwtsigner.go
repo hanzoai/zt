@@ -72,8 +72,8 @@ func newUpdateExtJwtSignerCmd(out io.Writer, errOut io.Writer) *cobra.Command {
 
 	cmd := &cobra.Command{
 		Use:   "ext-jwt-signer <id|name> [-u <jwksEndpoint>|-p <cert pem>|-f <cert file>] [-n <nameName> -a <audience> -c <claimProperty> --client-id <clientId> --scope <scope1> --scope <scopeN> -xe --target-token=ACCESS|ID]",
-		Short: "updates an external jwt signer managed by the Ziti Edge Controller",
-		Long:  "updates an external jwt signer managed by the Ziti Edge Controller",
+		Short: "updates an external jwt signer managed by the Hanzo ZT Edge Controller",
+		Long:  "updates an external jwt signer managed by the Hanzo ZT Edge Controller",
 		Args: func(cmd *cobra.Command, args []string) error {
 			switch {
 			case len(args) == 0:

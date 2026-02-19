@@ -57,9 +57,9 @@ func newUpdateConfigAddressableCmd(p common.OptionsProvider) *cobra.Command {
 
 	// allow interspersing positional args and flags
 	cmd.Flags().SetInterspersed(true)
-	cmd.Flags().StringVar(&options.ControllerUrl, "controller-url", "", "The Ziti controller URL to use")
-	cmd.Flags().StringVarP(&options.Username, "username", "u", "", "The Ziti controller username to use")
-	cmd.Flags().StringVarP(&options.Password, "password", "p", "", "The Ziti controller password to use")
+	cmd.Flags().StringVar(&options.ControllerUrl, "controller-url", "", "The Hanzo ZT controller URL to use")
+	cmd.Flags().StringVarP(&options.Username, "username", "u", "", "The Hanzo ZT controller username to use")
+	cmd.Flags().StringVarP(&options.Password, "password", "p", "", "The Hanzo ZT controller password to use")
 	cmd.Flags().DurationVar(&options.NewlinePause, "newline-pause", time.Millisecond*10, "How long to pause between lines when scrolling")
 	cmd.Flags().BoolVar(&options.interactive, "interactive", false, "Interactive mode, waiting for user input")
 	options.AddCommonFlags(cmd)

@@ -49,8 +49,8 @@ func NewPsCmd(p common.OptionsProvider) *cobra.Command {
 
 	cmd := &cobra.Command{
 		Use:   "ps",
-		Short: "Show Ziti process info",
-		Long:  "Show information about currently running Ziti processes",
+		Short: "Show Hanzo ZT process info",
+		Long:  "Show information about currently running Hanzo ZT processes",
 		RunE: func(cmd *cobra.Command, args []string) error {
 			action.Cmd = cmd
 			action.Args = args

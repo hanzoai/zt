@@ -41,8 +41,8 @@ func NewCreateEdgeRouterPolicyCmd(out io.Writer, errOut io.Writer) *cobra.Comman
 	cmd := &cobra.Command{
 		Use:     "edge-router-policy <name>",
 		Aliases: []string{"erp"},
-		Short:   "creates an edge-router-policy managed by the Ziti Edge Controller",
-		Long:    "creates an edge-router-policy managed by the Ziti Edge Controller",
+		Short:   "creates an edge-router-policy managed by the Hanzo ZT Edge Controller",
+		Long:    "creates an edge-router-policy managed by the Hanzo ZT Edge Controller",
 		Args:    cobra.ExactArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			options.Cmd = cmd
@@ -62,7 +62,7 @@ func NewCreateEdgeRouterPolicyCmd(out io.Writer, errOut io.Writer) *cobra.Comman
 	return cmd
 }
 
-// runCreateEdgeRouterPolicy create a new edgeRouterPolicy on the Ziti Edge Controller
+// runCreateEdgeRouterPolicy create a new edgeRouterPolicy on the Hanzo ZT Edge Controller
 func runCreateEdgeRouterPolicy(o *createEdgeRouterPolicyOptions) error {
 	edgeRouterRoles, err := convertNamesToIds(o.edgeRouterRoles, "edge-routers", o.Options)
 	if err != nil {

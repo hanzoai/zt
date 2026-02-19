@@ -27,7 +27,7 @@ import (
 func NewDemoCmd(p common.OptionsProvider) *cobra.Command {
 	demoCmd := &cobra.Command{
 		Use:   "demo",
-		Short: "Demos and examples for learning about Ziti",
+		Short: "Demos and examples for learning about Hanzo ZT",
 	}
 
 	setupCmd := &cobra.Command{

@@ -48,8 +48,8 @@ func newUpdateEdgeRouterCmd(out io.Writer, errOut io.Writer) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:     "edge-router <idOrName>",
 		Aliases: []string{"er"},
-		Short:   "updates an edge router managed by the Ziti Edge Controller",
-		Long:    "updates an edge router managed by the Ziti Edge Controller",
+		Short:   "updates an edge router managed by the Hanzo ZT Edge Controller",
+		Long:    "updates an edge router managed by the Hanzo ZT Edge Controller",
 		Args:    cobra.ExactArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			options.Cmd = cmd
@@ -76,7 +76,7 @@ func newUpdateEdgeRouterCmd(out io.Writer, errOut io.Writer) *cobra.Command {
 	return cmd
 }
 
-// runUpdateEdgeRouter update a new edgeRouter on the Ziti Edge Controller
+// runUpdateEdgeRouter update a new edgeRouter on the Hanzo ZT Edge Controller
 func runUpdateEdgeRouter(o *updateEdgeRouterOptions) error {
 	id, err := mapNameToID("edge-routers", o.Args[0], o.Options)
 	if err != nil {

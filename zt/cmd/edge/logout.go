@@ -40,7 +40,7 @@ func newLogoutCmd(out io.Writer, errOut io.Writer) *cobra.Command {
 
 	cmd := &cobra.Command{
 		Use:   "logout",
-		Short: "logs out of a Ziti Edge Controller instance",
+		Short: "logs out of a Hanzo ZT Edge Controller instance",
 		Long:  `logout removes stored credentials for a given identity`,
 		Args:  cobra.ExactArgs(0),
 		RunE: func(cmd *cobra.Command, args []string) error {

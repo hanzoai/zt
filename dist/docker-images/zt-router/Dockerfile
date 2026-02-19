@@ -7,8 +7,8 @@ ARG ROUTER_PACKAGE=./dist/dist-packages/linux/hanzozt-router
 
 ### Required OpenShift Labels
 LABEL name="hanzozt/zt-router" \
-      maintainer="developers@hanzozt.org" \
-      vendor="NetFoundry" \
+      maintainer="dev@hanzo.ai" \
+      vendor="Hanzo AI" \
       summary="Run the Hanzo ZT Router" \
       description="Run the Hanzo ZT Router"
 

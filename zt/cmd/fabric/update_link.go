@@ -40,7 +40,7 @@ func newUpdateLinkCmd(p common.OptionsProvider) *cobra.Command {
 
 	cmd := &cobra.Command{
 		Use:   "link <idOrName>",
-		Short: "updates a link managed by the Ziti Controller",
+		Short: "updates a link managed by the Hanzo ZT Controller",
 		Args:  cobra.ExactArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			options.Cmd = cmd

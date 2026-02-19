@@ -38,7 +38,7 @@ func newReEnrollEdgeRouterCmd(out io.Writer, errOut io.Writer) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:     "edge-router <idOrName>",
 		Aliases: []string{"er"},
-		Short:   "re-enrolls an edge router managed by the Ziti Edge Controller",
+		Short:   "re-enrolls an edge router managed by the Hanzo ZT Edge Controller",
 		Args:    cobra.ExactArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			options.Cmd = cmd

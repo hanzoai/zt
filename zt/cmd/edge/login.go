@@ -94,13 +94,13 @@ func AddLoginFlags(cmd *cobra.Command, options *LoginOptions) {
 	// allow interspersing positional args and flags
 	cmd.Flags().SetInterspersed(true)
 
-	cmd.Flags().StringVarP(&options.Username, "username", "u", "", "username to use for authenticating to the Ziti Edge Controller ")
+	cmd.Flags().StringVarP(&options.Username, "username", "u", "", "username to use for authenticating to the Hanzo ZT Edge Controller ")
 	addLoginAnnotation(cmd, "username")
-	cmd.Flags().StringVarP(&options.Password, "password", "p", "", "password to use for authenticating to the Ziti Edge Controller, if -u is supplied and -p is not, a value will be prompted for")
+	cmd.Flags().StringVarP(&options.Password, "password", "p", "", "password to use for authenticating to the Hanzo ZT Edge Controller, if -u is supplied and -p is not, a value will be prompted for")
 	addLoginAnnotation(cmd, "password")
 	cmd.Flags().StringVarP(&options.Token, "token", "t", "", "if an api token has already been acquired, it can be set in the config with this option. This will set the session to read only by default")
 	addLoginAnnotation(cmd, "token")
-	cmd.Flags().StringVarP(&options.CaCert, "ca", "", "", "additional root certificates used by the Ziti Edge Controller")
+	cmd.Flags().StringVarP(&options.CaCert, "ca", "", "", "additional root certificates used by the Hanzo ZT Edge Controller")
 	addLoginAnnotation(cmd, "ca")
 	cmd.Flags().BoolVar(&options.ReadOnly, "read-only", false, "marks this login as read-only. Note: this is not a guarantee that nothing can be changed on the server. Care should still be taken!")
 	addLoginAnnotation(cmd, "read-only")
@@ -134,8 +134,8 @@ func NewLoginCmd(out io.Writer, errOut io.Writer) *cobra.Command {
 
 	cmd := &cobra.Command{
 		Use:   "login my.controller.hostname[:port]/path",
-		Short: "logs into a Ziti Edge Controller instance",
-		Long:  `login allows the zt command to establish a session with a Ziti Edge Controller, allowing more commands to be run against the controller.`,
+		Short: "logs into a Hanzo ZT Edge Controller instance",
+		Long:  `login allows the zt command to establish a session with a Hanzo ZT Edge Controller, allowing more commands to be run against the controller.`,
 		Args:  cobra.RangeArgs(0, 1),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			options.Cmd = cmd

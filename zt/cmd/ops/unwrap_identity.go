@@ -40,7 +40,7 @@ func NewUnwrapIdentityFileCommand(out io.Writer, errOut io.Writer) *cobra.Comman
 
 	cmd := &cobra.Command{
 		Use:   "unwrap <identity_file>",
-		Short: "unwrap a Ziti Identity file into its separate pieces (supports PEM only)",
+		Short: "unwrap a Hanzo ZT Identity file into its separate pieces (supports PEM only)",
 		Args:  cobra.ExactArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			identityFile := args[0]

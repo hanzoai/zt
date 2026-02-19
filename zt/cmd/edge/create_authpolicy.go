@@ -66,8 +66,8 @@ func newCreateAuthPolicyCmd(out io.Writer, errOut io.Writer) *cobra.Command {
 
 	cmd := &cobra.Command{
 		Use:   "auth-policy <name>",
-		Short: "creates an authentication policy managed by the Ziti Edge Controller",
-		Long:  "creates an authentication policy managed by the Ziti Edge Controller",
+		Short: "creates an authentication policy managed by the Hanzo ZT Edge Controller",
+		Long:  "creates an authentication policy managed by the Hanzo ZT Edge Controller",
 		Args: func(cmd *cobra.Command, args []string) error {
 			if len(args) != 1 {
 				return fmt.Errorf("requires 1 arg, received %d", len(args))

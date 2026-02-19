@@ -55,8 +55,8 @@ func newUpdateIdentityCmd(out io.Writer, errOut io.Writer) *cobra.Command {
 
 	cmd := &cobra.Command{
 		Use:   "identity <idOrName>",
-		Short: "updates a identity managed by the Ziti Edge Controller",
-		Long:  "updates a identity managed by the Ziti Edge Controller",
+		Short: "updates a identity managed by the Hanzo ZT Edge Controller",
+		Long:  "updates a identity managed by the Hanzo ZT Edge Controller",
 		Args:  cobra.ExactArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			options.Cmd = cmd
@@ -88,7 +88,7 @@ func newUpdateIdentityCmd(out io.Writer, errOut io.Writer) *cobra.Command {
 	return cmd
 }
 
-// runUpdateIdentity update a new identity on the Ziti Edge Controller
+// runUpdateIdentity update a new identity on the Hanzo ZT Edge Controller
 func runUpdateIdentity(o *updateIdentityOptions) error {
 	id, err := mapNameToID("identities", o.Args[0], o.Options)
 	if err != nil {

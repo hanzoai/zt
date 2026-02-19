@@ -45,7 +45,7 @@ func newCreateTerminatorCmd(p common.OptionsProvider) *cobra.Command {
 
 	cmd := &cobra.Command{
 		Use:   "terminator service router address",
-		Short: "creates a service terminator managed by the Ziti Controller",
+		Short: "creates a service terminator managed by the Hanzo ZT Controller",
 		Args:  cobra.ExactArgs(3),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			options.Cmd = cmd

@@ -59,7 +59,7 @@ func newUpdateIdentityConfigsCmd(out io.Writer, errOut io.Writer) *cobra.Command
 	return cmd
 }
 
-// runupdateIdentityConfigs update a new identity on the Ziti Edge Controller
+// runupdateIdentityConfigs update a new identity on the Hanzo ZT Edge Controller
 func runupdateIdentityConfigs(o *updateIdentityConfigsOptions) error {
 	id, err := mapNameToID("identities", o.Args[0], o.Options)
 	if err != nil {

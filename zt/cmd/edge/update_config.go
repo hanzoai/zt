@@ -44,8 +44,8 @@ func newUpdateConfigCmd(out io.Writer, errOut io.Writer) *cobra.Command {
 
 	cmd := &cobra.Command{
 		Use:   "config <idOrName>",
-		Short: "updates a config managed by the Ziti Edge Controller",
-		Long:  "updates a config managed by the Ziti Edge Controller",
+		Short: "updates a config managed by the Hanzo ZT Edge Controller",
+		Long:  "updates a config managed by the Hanzo ZT Edge Controller",
 		Args:  cobra.ExactArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			options.Cmd = cmd
@@ -66,7 +66,7 @@ func newUpdateConfigCmd(out io.Writer, errOut io.Writer) *cobra.Command {
 	return cmd
 }
 
-// runUpdateConfig update a new config on the Ziti Edge Controller
+// runUpdateConfig update a new config on the Hanzo ZT Edge Controller
 func runUpdateConfig(o *updateConfigOptions) error {
 	id, err := mapNameToID("configs", o.Args[0], o.Options)
 	if err != nil {

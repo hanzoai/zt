@@ -11,8 +11,8 @@ ARG DOCKER_BUILD_DIR=./dist/docker-images/zt-tunnel
 
 ### Required OpenShift Labels 
 LABEL name="hanzozt/zt-tunnel" \
-      maintainer="developers@hanzozt.org" \
-      vendor="NetFoundry" \
+      maintainer="dev@hanzo.ai" \
+      vendor="Hanzo AI" \
       summary="Run the Hanzo ZT Go Tunneler" \
       description="Run the Hanzo ZT Go Tunneler"
 
@@ -23,7 +23,7 @@ RUN   INSTALL_PKGS="util-linux iptables" && \
       microdnf -y install --setopt=install_weak_deps=0 --setopt=tsflags=nodocs ${INSTALL_PKGS} && \
       microdnf clean all
 
-WORKDIR /netfoundry
+WORKDIR /hanzoai
 COPY --chmod=0755 ${DOCKER_BUILD_DIR}/entrypoint.sh /
 ENTRYPOINT [ "/entrypoint.sh" ]
 CMD [ "run" ]

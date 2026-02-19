@@ -83,7 +83,7 @@ func NewCmdPKI(out io.Writer, errOut io.Writer) *cobra.Command {
 
 	cmd := &cobra.Command{
 		Use:   "pki",
-		Short: "Manage a Ziti PKI",
+		Short: "Manage a Hanzo ZT PKI",
 		Long:  pkiLong,
 		RunE: func(cmd *cobra.Command, args []string) error {
 			options.Cmd = cmd

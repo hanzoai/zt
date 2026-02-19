@@ -43,7 +43,7 @@ func newCreateServiceCmd(p common.OptionsProvider) *cobra.Command {
 
 	cmd := &cobra.Command{
 		Use:        "service <name>",
-		Short:      "creates a service managed by the Ziti Controller",
+		Short:      "creates a service managed by the Hanzo ZT Controller",
 		Args:       cobra.MinimumNArgs(1),
 		RunE:       options.createService,
 		SuggestFor: []string{},

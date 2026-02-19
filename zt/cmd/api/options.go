@@ -66,9 +66,9 @@ func addCommonFlag(cmd *cobra.Command, flagName string) {
 func (options *Options) AddCommonFlags(cmd *cobra.Command) {
 	cmd.Flags().StringVarP(&common.CliIdentity, "cli-identity", "i", "", "Specify the saved identity you want the CLI to use when connect to the controller with")
 	addCommonFlag(cmd, "cli-identity")
-	cmd.Flags().BoolVarP(&options.OutputJSONResponse, "output-json", "j", false, "Output the full JSON response from the Ziti Edge Controller")
+	cmd.Flags().BoolVarP(&options.OutputJSONResponse, "output-json", "j", false, "Output the full JSON response from the Hanzo ZT Edge Controller")
 	addCommonFlag(cmd, "output-json")
-	cmd.Flags().BoolVar(&options.OutputJSONRequest, "output-request-json", false, "Output the full JSON request to the Ziti Edge Controller")
+	cmd.Flags().BoolVar(&options.OutputJSONRequest, "output-request-json", false, "Output the full JSON request to the Hanzo ZT Edge Controller")
 	addCommonFlag(cmd, "output-request-json")
 	cmd.Flags().IntVarP(&options.Timeout, "timeout", "", 5, "Timeout for REST operations (specified in seconds)")
 	addCommonFlag(cmd, "timeout")

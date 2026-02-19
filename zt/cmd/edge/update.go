@@ -30,8 +30,8 @@ import (
 func newUpdateCmd(out io.Writer, errOut io.Writer) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "update",
-		Short: "updates various entities managed by the Ziti Edge Controller",
-		Long:  "updates various entities managed by the Ziti Edge Controller",
+		Short: "updates various entities managed by the Hanzo ZT Edge Controller",
+		Long:  "updates various entities managed by the Hanzo ZT Edge Controller",
 	}
 
 	cmd.AddCommand(newUpdateAuthenticatorCmd(out, errOut))
@@ -69,7 +69,7 @@ func deleteEntityOfTypeWithBody(entityType string, body string, options *api.Opt
 	return updateEntityOfType(entityType, body, options, resty.MethodDelete)
 }
 
-// updateEntityOfType updates an entity of the given type on the Ziti Edge Controller
+// updateEntityOfType updates an entity of the given type on the Hanzo ZT Edge Controller
 func updateEntityOfType(entityType string, body string, options *api.Options, method string) (*gabs.Container, error) {
 	return util.ControllerUpdate(util.EdgeAPI, entityType, body, options.Out, method, options.OutputJSONRequest, options.OutputJSONResponse, options.Timeout, options.Verbose)
 }

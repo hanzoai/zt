@@ -34,8 +34,8 @@ func Ptr[T any](sub T) *T {
 func newCreateCmd(out io.Writer, errOut io.Writer) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "create",
-		Short: "creates various entities managed by the Ziti Edge Controller",
-		Long:  "Creates various entities managed by the Ziti Edge Controller",
+		Short: "creates various entities managed by the Hanzo ZT Edge Controller",
+		Long:  "Creates various entities managed by the Hanzo ZT Edge Controller",
 	}
 
 	cmd.AddCommand(newCreateAuthenticatorCmd(out, errOut))

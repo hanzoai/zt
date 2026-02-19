@@ -73,9 +73,9 @@ func GetRootCommand() *cobra.Command {
 var rootCommand = RootCmd{
 	cobraCommand: &cobra.Command{
 		Use:   "zt",
-		Short: "zt is a CLI for working with Ziti",
+		Short: "zt is a CLI for working with Hanzo ZT",
 		Long: `
-'zt' is a CLI for working with a Ziti deployment.
+'zt' is a CLI for working with a Hanzo ZT deployment.
 `},
 }
 
@@ -162,7 +162,7 @@ func NewV1CmdRoot(in io.Reader, out, err io.Writer, cmd *cobra.Command) *cobra.C
 
 	opsCommands := &cobra.Command{
 		Use:   "ops",
-		Short: "Various utilities useful when operating a Ziti network",
+		Short: "Various utilities useful when operating a Hanzo ZT network",
 	}
 
 	opsCommands.AddCommand(database.NewCmdDb(out, err))
@@ -175,13 +175,13 @@ func NewV1CmdRoot(in io.Reader, out, err io.Writer, cmd *cobra.Command) *cobra.C
 
 	groups := templates.CommandGroups{
 		{
-			Message: "Working with Ziti resources:",
+			Message: "Working with Hanzo ZT resources:",
 			Commands: []*cobra.Command{
 				createCommands,
 			},
 		},
 		{
-			Message: "Executing Ziti components:",
+			Message: "Executing Hanzo ZT components:",
 			Commands: []*cobra.Command{
 				runCmd,
 				enrollCmd,
@@ -193,7 +193,7 @@ func NewV1CmdRoot(in io.Reader, out, err io.Writer, cmd *cobra.Command) *cobra.C
 			},
 		},
 		{
-			Message: "Interacting with the Ziti controller",
+			Message: "Interacting with the Hanzo ZT controller",
 			Commands: []*cobra.Command{
 				fabricCommand,
 				edgeCommand,
@@ -207,7 +207,7 @@ func NewV1CmdRoot(in io.Reader, out, err io.Writer, cmd *cobra.Command) *cobra.C
 			},
 		},
 		{
-			Message: "Learning Ziti",
+			Message: "Learning Hanzo ZT",
 			Commands: []*cobra.Command{
 				demoCmd,
 			},
@@ -273,7 +273,7 @@ func NewV2CmdRoot(in io.Reader, out, err io.Writer, cmd *cobra.Command) *cobra.C
 
 	opsCommands := &cobra.Command{
 		Use:   "ops",
-		Short: "Various utilities useful when operating a Ziti network",
+		Short: "Various utilities useful when operating a Hanzo ZT network",
 	}
 
 	opsCommands.AddCommand(database.NewCmdDb(out, err))
@@ -286,13 +286,13 @@ func NewV2CmdRoot(in io.Reader, out, err io.Writer, cmd *cobra.Command) *cobra.C
 
 	groups := templates.CommandGroups{
 		{
-			Message: "Working with Ziti resources:",
+			Message: "Working with Hanzo ZT resources:",
 			Commands: []*cobra.Command{
 				createCommands,
 			},
 		},
 		{
-			Message: "Executing Ziti components:",
+			Message: "Executing Hanzo ZT components:",
 			Commands: []*cobra.Command{
 				runCmd,
 				enrollCmd,
@@ -304,7 +304,7 @@ func NewV2CmdRoot(in io.Reader, out, err io.Writer, cmd *cobra.Command) *cobra.C
 			},
 		},
 		{
-			Message: "Interacting with the Ziti controller",
+			Message: "Interacting with the Hanzo ZT controller",
 			Commands: []*cobra.Command{
 				fabricCommand,
 				edgeCommand,
@@ -318,7 +318,7 @@ func NewV2CmdRoot(in io.Reader, out, err io.Writer, cmd *cobra.Command) *cobra.C
 			},
 		},
 		{
-			Message: "Learning Ziti",
+			Message: "Learning Hanzo ZT",
 			Commands: []*cobra.Command{
 				demoCmd,
 			},
@@ -344,7 +344,7 @@ func NewControllerCmd() *cobra.Command {
 
 	cmd := &cobra.Command{
 		Use:   "controller",
-		Short: "Ziti Controller",
+		Short: "Hanzo ZT Controller",
 		PersistentPreRun: func(cmd *cobra.Command, args []string) {
 			if verbose {
 				logrus.SetLevel(logrus.DebugLevel)
@@ -393,7 +393,7 @@ func NewRouterCmd() *cobra.Command {
 
 	cmd := &cobra.Command{
 		Use:   "router",
-		Short: "Ziti Router",
+		Short: "Hanzo ZT Router",
 		PersistentPreRun: func(cmd *cobra.Command, args []string) {
 			if verbose {
 				logrus.SetLevel(logrus.DebugLevel)
@@ -469,9 +469,9 @@ func NewRootCommand(in io.Reader, out, err io.Writer) *cobra.Command {
 	//need to make new CMD every time because the flags are not thread safe...
 	ret := &cobra.Command{
 		Use:   "zt",
-		Short: "zt is a CLI for working with Ziti",
+		Short: "zt is a CLI for working with Hanzo ZT",
 		Long: `
-'zt' is a CLI for working with a Ziti deployment.
+'zt' is a CLI for working with a Hanzo ZT deployment.
 `}
 	NewCmdRoot(in, out, err, ret)
 	return ret

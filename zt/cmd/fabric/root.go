@@ -29,7 +29,7 @@ import (
 
 // NewFabricCmd creates a command object for the fabric command
 func NewFabricCmd(p common.OptionsProvider) *cobra.Command {
-	fabricCmd := util.NewEmptyParentCmd("fabric", "Manage the Fabric components of a Ziti network using the Ziti Fabric REST and WebSocket APIs")
+	fabricCmd := util.NewEmptyParentCmd("fabric", "Manage the Fabric components of a Hanzo ZT network using the Hanzo ZT Fabric REST and WebSocket APIs")
 
 	fabricCmd.AddCommand(newCreateCommand(p), newListCmd(p), newUpdateCommand(p), newDeleteCmd(p))
 	fabricCmd.AddCommand(newInspectCmd(p))
@@ -42,7 +42,7 @@ func NewFabricCmd(p common.OptionsProvider) *cobra.Command {
 func newCreateCommand(p common.OptionsProvider) *cobra.Command {
 	createCmd := &cobra.Command{
 		Use:   "create",
-		Short: "creates various entities managed by the Ziti Controller",
+		Short: "creates various entities managed by the Hanzo ZT Controller",
 	}
 
 	createCmd.AddCommand(newCreateRouterCmd(p))
@@ -55,7 +55,7 @@ func newCreateCommand(p common.OptionsProvider) *cobra.Command {
 func newUpdateCommand(p common.OptionsProvider) *cobra.Command {
 	updateCmd := &cobra.Command{
 		Use:   "update",
-		Short: "update various entities managed by the Ziti Controller",
+		Short: "update various entities managed by the Hanzo ZT Controller",
 	}
 
 	updateCmd.AddCommand(newUpdateLinkCmd(p))
@@ -102,7 +102,7 @@ func newValidateCommand(p common.OptionsProvider) *cobra.Command {
 	return validateCmd
 }
 
-// createEntityOfType create an entity of the given type on the Ziti Controller
+// createEntityOfType create an entity of the given type on the Hanzo ZT Controller
 func createEntityOfType(entityType string, body string, options *api.Options) (*gabs.Container, error) {
 	return util.ControllerCreate("fabric", entityType, body, options.Out, options.OutputJSONRequest, options.OutputJSONResponse, options.Timeout, options.Verbose)
 }

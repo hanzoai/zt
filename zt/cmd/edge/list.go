@@ -60,7 +60,7 @@ const filterExamplesTemplate = "  # use skip and limit for paging\n" +
 func newListCmd(out io.Writer, errOut io.Writer) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:     "list",
-		Short:   "Lists various entities managed by the Ziti Edge Controller",
+		Short:   "Lists various entities managed by the Hanzo ZT Edge Controller",
 		Aliases: []string{"ls"},
 		Example: fmt.Sprintf(filterExamplesTemplate, "services"),
 	}
@@ -180,7 +180,7 @@ type listCommandRunner func(*api.Options) error
 type outputFunction func(o *api.Options, children []*gabs.Container, pagingInfo *api.Paging) error
 
 func newEntityListRootCmd(entityType string, aliases ...string) *cobra.Command {
-	desc := fmt.Sprintf("list entities related to a %v instance managed by the Ziti Edge Controller", entityType)
+	desc := fmt.Sprintf("list entities related to a %v instance managed by the Hanzo ZT Edge Controller", entityType)
 	return &cobra.Command{
 		Use:     entityType,
 		Aliases: aliases,
@@ -193,7 +193,7 @@ func newEntityListRootCmd(entityType string, aliases ...string) *cobra.Command {
 func newListCmdForEntityType(entityType string, command listCommandRunner, options *api.Options, aliases ...string) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:     entityType + " <filter>?",
-		Short:   "lists " + entityType + " managed by the Ziti Edge Controller",
+		Short:   "lists " + entityType + " managed by the Hanzo ZT Edge Controller",
 		Args:    cobra.MaximumNArgs(1),
 		Aliases: aliases,
 		RunE: func(cmd *cobra.Command, args []string) error {
@@ -222,8 +222,8 @@ func newListServicesCmd(options *api.Options) *cobra.Command {
 
 	cmd := &cobra.Command{
 		Use:   "services <filter>?",
-		Short: "lists services managed by the Ziti Edge Controller",
-		Long:  "lists services managed by the Ziti Edge Controller",
+		Short: "lists services managed by the Hanzo ZT Edge Controller",
+		Long:  "lists services managed by the Hanzo ZT Edge Controller",
 		Args:  cobra.MaximumNArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			options.Cmd = cmd
@@ -253,8 +253,8 @@ func newListEdgeRoutersCmd(options *api.Options) *cobra.Command {
 
 	cmd := &cobra.Command{
 		Use:     "edge-routers <filter>?",
-		Short:   "lists edge routers managed by the Ziti Edge Controller",
-		Long:    "lists edge routers managed by the Ziti Edge Controller",
+		Short:   "lists edge routers managed by the Hanzo ZT Edge Controller",
+		Long:    "lists edge routers managed by the Hanzo ZT Edge Controller",
 		Args:    cobra.MaximumNArgs(1),
 		Aliases: []string{"ers"},
 		RunE: func(cmd *cobra.Command, args []string) error {
@@ -283,8 +283,8 @@ func newListIdentitiesCmd(options *api.Options) *cobra.Command {
 
 	cmd := &cobra.Command{
 		Use:   "identities <filter>?",
-		Short: "lists identities managed by the Ziti Edge Controller",
-		Long:  "lists identities managed by the Ziti Edge Controller",
+		Short: "lists identities managed by the Hanzo ZT Edge Controller",
+		Long:  "lists identities managed by the Hanzo ZT Edge Controller",
 		Args:  cobra.MaximumNArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			options.Cmd = cmd
@@ -307,7 +307,7 @@ func newListIdentitiesCmd(options *api.Options) *cobra.Command {
 
 // newSubListCmdForEntityType creates the list command for the given entity type
 func newSubListCmdForEntityType(entityType string, subType string, outputF outputFunction, options *api.Options) *cobra.Command {
-	desc := fmt.Sprintf("lists %v related to a %v instanced managed by the Ziti Edge Controller", subType, entityType)
+	desc := fmt.Sprintf("lists %v related to a %v instanced managed by the Hanzo ZT Edge Controller", subType, entityType)
 	cmd := &cobra.Command{
 		Use:   fmt.Sprintf("%v <id or name>", subType),
 		Short: desc,

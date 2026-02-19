@@ -1,10 +1,10 @@
-![Hanzo ZT Logo](https://raw.githubusercontent.com/hanzozt/zt-doc/main/docusaurus/static/img/zt-logo-dark.svg)
+![Hanzo ZT Logo](https://raw.githubusercontent.com/hanzoai/zt-doc/main/docusaurus/static/img/zt-logo-dark.svg)
 
 <br>
 
-[![Build Status](https://github.com/hanzozt/zt/actions/workflows/main.yml/badge.svg?query=branch%3Arelease-next)](https://github.com/hanzozt/zt/actions/workflows/main.yml?query=branch%3Arelease-next)
-[![Go Report Card](https://goreportcard.com/badge/github.com/hanzozt/zt)](https://goreportcard.com/report/github.com/hanzozt/zt)
-[![GoDoc](https://godoc.org/github.com/hanzozt/zt?status.svg)](https://pkg.go.dev/github.com/hanzozt/zt)
+[![Build Status](https://github.com/hanzoai/zt/actions/workflows/main.yml/badge.svg?query=branch%3Arelease-next)](https://github.com/hanzoai/zt/actions/workflows/main.yml?query=branch%3Arelease-next)
+[![Go Report Card](https://goreportcard.com/badge/github.com/hanzoai/zt)](https://goreportcard.com/report/github.com/hanzoai/zt)
+[![GoDoc](https://godoc.org/github.com/hanzoai/zt?status.svg)](https://pkg.go.dev/github.com/hanzoai/zt)
 [![Discourse Widget](https://img.shields.io/badge/join-us%20on%20discourse-gray.svg?longCache=true&logo=discourse&colorB=brightgreen")](https://community.hanzozt.dev/)
 [![License: Apache-v2](https://img.shields.io/badge/License-Apache--2.0-yellow.svg)](LICENSE)
 
@@ -45,7 +45,7 @@ Hanzo ZT represents the next generation of secure, open-source networking for yo
 
 ### Developer Focus
 
-* [Open source code, available with the Apache 2.0 license](https://github.com/hanzozt)
+* [Open source code, available with the Apache 2.0 license](https://github.com/hanzoai)
 * Fully programmable REST management APIs
 * [SDKs for a variety of programming languages](https://hanzozt.dev/docs/reference/developer/sdk)
 * [Application specific configuration store allowing centralized management of configuration allowing you to add structured configuration specific to your application](https://hanzozt.dev/docs/learn/core-concepts/config-store/overview)
@@ -108,7 +108,7 @@ overlay network quickly and allow you to run it all locally, use Docker or host 
 
 This environment is perfect for evaluators to get to know Hanzo ZT and the capabilities it offers.  The environment was not
 designed for large scale deployment or for long-term usage. If you are looking for a managed service to help you run a
-truly global, scalable network browse over [the NetFoundry web site](https://netfoundry.io) to learn more.
+truly global, scalable network browse over [the Hanzo AI web site](https://hanzo.ai) to learn more.
 
 ## Build from Source
 
@@ -135,19 +135,19 @@ cruise on over to [the Hanzo ZT Discourse forum](https://community.hanzozt.dev/)
 
 The Hanzo ZT project welcomes contributions including, but not limited to, code, documentation and bug reports.
 
-* All Hanzo ZT code is found on Github under the [Hanzo ZT](https://github.com/hanzozt) organization. 
-  * [zt](https://github.com/hanzozt/zt): top level project which builds all Hanzo ZT executables
-  * [edge](https://github.com/hanzozt/edge): edge components and model which includes identity, polices and config 
-  * [fabric](https://github.com/hanzozt/fabric): fabric project which includes core controller and router
-  * [foundation](https://github.com/hanzozt/foundation): project which contains library code used across multiple projects
+* All Hanzo ZT code is found on Github under the [Hanzo ZT](https://github.com/hanzoai) organization. 
+  * [zt](https://github.com/hanzoai/zt): top level project which builds all Hanzo ZT executables
+  * [edge](https://github.com/hanzoai/edge): edge components and model which includes identity, polices and config 
+  * [fabric](https://github.com/hanzoai/fabric): fabric project which includes core controller and router
+  * [foundation](https://github.com/hanzoai/foundation): project which contains library code used across multiple projects
   * SDKs
-    * [zt-sdk-c](https://github.com/hanzozt/zt-sdk-c): C SDK
-    * [sdk-golang](https://github.com/hanzozt/sdk-golang): Go SDK
-    * [zt-sdk-jvm](https://github.com/hanzozt/zt-sdk-jvm): SDK for JVM based languages
-    * [zt-sdk-swift](https://github.com/hanzozt/zt-sdk-swift): Swift SDK
-    * [zt-sdk-nodejs](https://github.com/hanzozt/zt-sdk-nodejs): NodeJS SDK
-    * [zt-sdk-csharp](https://github.com/hanzozt/zt-sdk-csharp): C# SDK
-  * [zt-doc](https://github.com/hanzozt/zt-doc): Powers the static documentation site
+    * [zt-sdk-c](https://github.com/hanzoai/zt-sdk-c): C SDK
+    * [sdk-golang](https://github.com/hanzoai/sdk-golang): Go SDK
+    * [zt-sdk-jvm](https://github.com/hanzoai/zt-sdk-jvm): SDK for JVM based languages
+    * [zt-sdk-swift](https://github.com/hanzoai/zt-sdk-swift): Swift SDK
+    * [zt-sdk-nodejs](https://github.com/hanzoai/zt-sdk-nodejs): NodeJS SDK
+    * [zt-sdk-csharp](https://github.com/hanzoai/zt-sdk-csharp): C# SDK
+  * [zt-doc](https://github.com/hanzoai/zt-doc): Powers the static documentation site
 
-Hanzo ZT was developed and open sourced by [Netfoundry, Inc](https://netfoundry.io). NetFoundry continues to fund and 
+Hanzo ZT was developed and open sourced by [Hanzo AI](https://hanzo.ai). Hanzo AI continues to fund and
 contribute to Hanzo ZT.

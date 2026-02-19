@@ -62,8 +62,8 @@ func newCreateCaCmd(out io.Writer, errOut io.Writer) *cobra.Command {
 
 	cmd := &cobra.Command{
 		Use:   "ca <name> <pemCertFile> [--autoca, --ottca, --auth]",
-		Short: "creates a ca managed by the Ziti Edge Controller",
-		Long:  "creates a ca managed by the Ziti Edge Controller",
+		Short: "creates a ca managed by the Hanzo ZT Edge Controller",
+		Long:  "creates a ca managed by the Hanzo ZT Edge Controller",
 		Args: func(cmd *cobra.Command, args []string) error {
 			if len(args) < 2 {
 				return fmt.Errorf("requires at least %d arg(s), only received %d", 2, len(args))

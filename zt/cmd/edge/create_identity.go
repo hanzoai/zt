@@ -59,8 +59,8 @@ func newCreateIdentityCmd(out io.Writer, errOut io.Writer) *cobra.Command {
 
 	cmd := &cobra.Command{
 		Use:   "identity <name>",
-		Short: "creates a new identity managed by the Ziti Edge Controller",
-		Long:  "creates a new identity managed by the Ziti Edge Controller",
+		Short: "creates a new identity managed by the Hanzo ZT Edge Controller",
+		Long:  "creates a new identity managed by the Hanzo ZT Edge Controller",
 		Args:  cobra.ExactArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			options.Cmd = cmd

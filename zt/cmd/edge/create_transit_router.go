@@ -41,8 +41,8 @@ func newCreateTransitRouterCmd(out io.Writer, errOut io.Writer) *cobra.Command {
 
 	cmd := &cobra.Command{
 		Use:   "transit-router <name>",
-		Short: "creates a transit router managed by the Ziti Edge Controller",
-		Long:  "creates a transit router managed by the Ziti Edge Controller",
+		Short: "creates a transit router managed by the Hanzo ZT Edge Controller",
+		Long:  "creates a transit router managed by the Hanzo ZT Edge Controller",
 		Args:  cobra.ExactArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			options.Cmd = cmd

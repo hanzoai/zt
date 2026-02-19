@@ -42,8 +42,8 @@ func newCreateConfigCmd(out io.Writer, errOut io.Writer) *cobra.Command {
 
 	cmd := &cobra.Command{
 		Use:   "config <name> <type> [JSON configuration data]",
-		Short: "creates a config managed by the Ziti Edge Controller",
-		Long:  "creates a config managed by the Ziti Edge Controller",
+		Short: "creates a config managed by the Hanzo ZT Edge Controller",
+		Long:  "creates a config managed by the Hanzo ZT Edge Controller",
 		Args:  cobra.RangeArgs(2, 3),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			options.Cmd = cmd
@@ -61,7 +61,7 @@ func newCreateConfigCmd(out io.Writer, errOut io.Writer) *cobra.Command {
 	return cmd
 }
 
-// runCreateConfig create a new config on the Ziti Edge Controller
+// runCreateConfig create a new config on the Hanzo ZT Edge Controller
 func runCreateConfig(o *createConfigOptions) error {
 	var jsonBytes []byte
 

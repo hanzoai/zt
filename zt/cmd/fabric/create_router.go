@@ -47,7 +47,7 @@ func newCreateRouterCmd(p common.OptionsProvider) *cobra.Command {
 
 	cmd := &cobra.Command{
 		Use:        "router <path-to-cert>",
-		Short:      "creates a router managed by the Ziti Controller",
+		Short:      "creates a router managed by the Hanzo ZT Controller",
 		Args:       cobra.MinimumNArgs(1),
 		RunE:       options.createRouter,
 		SuggestFor: []string{},

@@ -42,8 +42,8 @@ func newCreateConfigTypeCmd(out io.Writer, errOut io.Writer) *cobra.Command {
 
 	cmd := &cobra.Command{
 		Use:   "config-type <name> <JSON schema>",
-		Short: "creates a config type managed by the Ziti Edge Controller",
-		Long:  "creates a config type managed by the Ziti Edge Controller",
+		Short: "creates a config type managed by the Hanzo ZT Edge Controller",
+		Long:  "creates a config type managed by the Hanzo ZT Edge Controller",
 		Args:  cobra.RangeArgs(1, 2),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			options.Cmd = cmd
@@ -61,7 +61,7 @@ func newCreateConfigTypeCmd(out io.Writer, errOut io.Writer) *cobra.Command {
 	return cmd
 }
 
-// runCreateConfigType create a new configType on the Ziti Edge Controller
+// runCreateConfigType create a new configType on the Hanzo ZT Edge Controller
 func runCreateConfigType(o *createConfigTypeOptions) error {
 	var schemaMap map[string]interface{}
 

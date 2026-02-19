@@ -26,8 +26,8 @@ import (
 func newVerifyCmd(out io.Writer, errOut io.Writer) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "verify",
-		Short: "verifies various entities managed by the Ziti Edge Controller",
-		Long:  "Verifies various entities managed by the Ziti Edge Controller",
+		Short: "verifies various entities managed by the Hanzo ZT Edge Controller",
+		Long:  "Verifies various entities managed by the Hanzo ZT Edge Controller",
 	}
 
 	cmd.AddCommand(newVerifyCaCmd(out, errOut))

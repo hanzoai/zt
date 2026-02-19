@@ -22,8 +22,8 @@ ARG HOME=/home/ziggy
 
 ### Required OpenShift Labels 
 LABEL name="hanzozt/zt-cli" \
-      maintainer="developers@hanzozt.org" \
-      vendor="NetFoundry" \
+      maintainer="dev@hanzo.ai" \
+      vendor="Hanzo AI" \
       summary="Run the Hanzo ZT CLI" \
       description="Run the Hanzo ZT CLI"
 

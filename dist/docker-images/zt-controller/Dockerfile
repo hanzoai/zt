@@ -12,12 +12,12 @@ ARG CONTROLLER_PACKAGE=./dist/dist-packages/linux/hanzozt-controller
 
 ### Required Labels for OpenShift 
 LABEL name="hanzozt/zt-controller" \
-      maintainer="developers@hanzozt.org" \
-      vendor="NetFoundry" \
+      maintainer="dev@hanzo.ai" \
+      vendor="Hanzo AI" \
       summary="Run the Hanzo ZT Controller" \
       description="Run the Hanzo ZT Controller" \
       org.opencontainers.image.description="Run the Hanzo ZT Controller" \
-      org.opencontainers.image.source="https://github.com/hanzozt/zt"
+      org.opencontainers.image.source="https://github.com/hanzoai/zt"
 
 # set up image as root, then drop privs to ziggy
 USER root

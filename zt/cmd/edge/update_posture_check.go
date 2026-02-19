@@ -111,7 +111,7 @@ func newUpdatePostureCheckMacCmd(out io.Writer, errOut io.Writer) *cobra.Command
 	return cmd
 }
 
-// runUpdatePostureCheckMac update a new identity on the Ziti Edge Controller
+// runUpdatePostureCheckMac update a new identity on the Hanzo ZT Edge Controller
 func runUpdatePostureCheckMac(o *updatePostureCheckMacOptions) error {
 	id, err := mapNameToID("posture-checks", o.Args[0], o.Options)
 	if err != nil {
@@ -291,7 +291,7 @@ func runUpdatePostureCheckMfa(o *updatePostureCheckMfaOptions) error {
 	return err
 }
 
-// runUpdatePostureCheckDomain update a new identity on the Ziti Edge Controller
+// runUpdatePostureCheckDomain update a new identity on the Hanzo ZT Edge Controller
 func runUpdatePostureCheckDomain(o *updatePostureCheckDomainOptions) error {
 	id, err := mapNameToID("posture-checks", o.Args[0], o.Options)
 	if err != nil {
@@ -372,7 +372,7 @@ func newUpdatePostureCheckProcessCmd(out io.Writer, errOut io.Writer) *cobra.Com
 	return cmd
 }
 
-// runUpdatePostureCheckProcess update a new identity on the Ziti Edge Controller
+// runUpdatePostureCheckProcess update a new identity on the Hanzo ZT Edge Controller
 func runUpdatePostureCheckProcess(o *updatePostureCheckProcessOptions) error {
 	id, err := mapNameToID("posture-checks", o.Args[0], o.Options)
 	if err != nil {
@@ -476,7 +476,7 @@ func newUpdatePostureCheckOsCmd(out io.Writer, errOut io.Writer) *cobra.Command 
 	return cmd
 }
 
-// runUpdatePostureCheckOs update a new identity on the Ziti Edge Controller
+// runUpdatePostureCheckOs update a new identity on the Hanzo ZT Edge Controller
 func runUpdatePostureCheckOs(o *updatePostureCheckOsOptions) error {
 	id, err := mapNameToID("posture-checks", o.Args[0], o.Options)
 	if err != nil {

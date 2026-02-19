@@ -52,7 +52,7 @@ func (self *deleteOptions) GetBody() string {
 func newDeleteCmd(p common.OptionsProvider) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "delete",
-		Short: "deletes various entities managed by the Ziti Controller",
+		Short: "deletes various entities managed by the Hanzo ZT Controller",
 	}
 
 	newOptions := func(isCircuit bool) *deleteOptions {
@@ -75,7 +75,7 @@ func newDeleteCmd(p common.OptionsProvider) *cobra.Command {
 func newDeleteCmdForEntityType(entityType string, options *deleteOptions, aliases ...string) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:     entityType + " <id>",
-		Short:   "deletes " + api.GetPlural(entityType) + " managed by the Ziti Controller",
+		Short:   "deletes " + api.GetPlural(entityType) + " managed by the Hanzo ZT Controller",
 		Args:    cobra.MinimumNArgs(1),
 		Aliases: append(aliases, api.GetPlural(entityType)),
 		RunE: func(cmd *cobra.Command, args []string) error {
@@ -98,7 +98,7 @@ func newDeleteCmdForEntityType(entityType string, options *deleteOptions, aliase
 func newDeleteWhereCmdForEntityType(entityType string, options *deleteOptions) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "where <filter>",
-		Short: "deletes " + api.GetPlural(entityType) + " matching the filter managed by the Ziti Controller",
+		Short: "deletes " + api.GetPlural(entityType) + " matching the filter managed by the Hanzo ZT Controller",
 		Args:  cobra.MinimumNArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			options.Cmd = cmd

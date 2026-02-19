@@ -63,8 +63,8 @@ func newUpdateCaCmd(out io.Writer, errOut io.Writer) *cobra.Command {
 
 	cmd := &cobra.Command{
 		Use:   "ca <id|name>",
-		Short: "updates a ca managed by the Ziti Edge Controller",
-		Long:  "updates an ca managed by the Ziti Edge Controller",
+		Short: "updates a ca managed by the Hanzo ZT Edge Controller",
+		Long:  "updates an ca managed by the Hanzo ZT Edge Controller",
 		Args: func(cmd *cobra.Command, args []string) error {
 			switch {
 			case len(args) == 0:

@@ -45,8 +45,8 @@ func newCreateServicePolicyCmd(out io.Writer, errOut io.Writer) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:     "service-policy <name> <type>",
 		Aliases: []string{"sp"},
-		Short:   "creates a service-policy managed by the Ziti Edge Controller",
-		Long:    "creates a service-policy managed by the Ziti Edge Controller",
+		Short:   "creates a service-policy managed by the Hanzo ZT Edge Controller",
+		Long:    "creates a service-policy managed by the Hanzo ZT Edge Controller",
 		Args:    cobra.ExactArgs(2),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			options.Cmd = cmd
@@ -67,7 +67,7 @@ func newCreateServicePolicyCmd(out io.Writer, errOut io.Writer) *cobra.Command {
 	return cmd
 }
 
-// runCreateServicePolicy create a new servicePolicy on the Ziti Edge Controller
+// runCreateServicePolicy create a new servicePolicy on the Hanzo ZT Edge Controller
 func runCreateServicePolicy(o *createServicePolicyOptions) error {
 	policyType := o.Args[1]
 	if policyType != "Bind" && policyType != "Dial" {

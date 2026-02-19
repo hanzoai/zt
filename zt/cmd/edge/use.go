@@ -40,7 +40,7 @@ func newUseCmd(out io.Writer, errOut io.Writer) *cobra.Command {
 
 	cmd := &cobra.Command{
 		Use:   "use <identity>",
-		Short: "changes which saved login to use with a Ziti Edge Controller instance",
+		Short: "changes which saved login to use with a Hanzo ZT Edge Controller instance",
 		Args:  cobra.RangeArgs(0, 1),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			options.Cmd = cmd

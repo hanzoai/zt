@@ -73,8 +73,8 @@ func newVerifyCaCmd(out io.Writer, errOut io.Writer) *cobra.Command {
 
 	cmd := &cobra.Command{
 		Use:   "ca <name> ( --cert <pemCertFile> | --cacert <signingCaCert> --cakey <signingCaKey> [--password <caKeyPassword>])",
-		Short: "verifies a ca managed by the Ziti Edge Controller",
-		Long: "verifies a ca managed by the Ziti Edge Controller. If --cert is supplied, it is expected that it is a certificate with the " +
+		Short: "verifies a ca managed by the Hanzo ZT Edge Controller",
+		Long: "verifies a ca managed by the Hanzo ZT Edge Controller. If --cert is supplied, it is expected that it is a certificate with the " +
 			"common name set to the proper verificationToken value from the target CA. If not set, --cakey and --cacert can be provided to " +
 			"generate the signed certificate and submit it.",
 		Args: func(cmd *cobra.Command, args []string) error {

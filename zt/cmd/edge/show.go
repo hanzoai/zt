@@ -31,7 +31,7 @@ import (
 func newShowCmd(out io.Writer, errOut io.Writer) *cobra.Command {
 	showCmd := &cobra.Command{
 		Use:   "show",
-		Short: "displays various entities managed by the Ziti Edge Controller",
+		Short: "displays various entities managed by the Hanzo ZT Edge Controller",
 	}
 
 	showCmd.AddCommand(newShowConfigTypeAction(out, errOut))

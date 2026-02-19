@@ -43,7 +43,7 @@ import (
 func newListCmd(p common.OptionsProvider) *cobra.Command {
 	listCmd := &cobra.Command{
 		Use:     "list",
-		Short:   "Lists various entities managed by the Ziti Controller",
+		Short:   "Lists various entities managed by the Hanzo ZT Controller",
 		Aliases: []string{"ls"},
 	}
 
@@ -67,7 +67,7 @@ type listCommandRunner func(*api.Options) error
 func newListCmdForEntityType(entityType string, command listCommandRunner, options *api.Options, aliases ...string) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:     entityType + " <filter>?",
-		Short:   "lists " + entityType + " managed by the Ziti Controller",
+		Short:   "lists " + entityType + " managed by the Hanzo ZT Controller",
 		Args:    cobra.MaximumNArgs(1),
 		Aliases: aliases,
 		RunE: func(cmd *cobra.Command, args []string) error {

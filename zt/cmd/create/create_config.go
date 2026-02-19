@@ -215,7 +215,7 @@ type RouterListenerTemplateValues struct {
 func NewCmdCreateConfig() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:     "config",
-		Short:   "Creates a config file for specified Ziti component using environment variables",
+		Short:   "Creates a config file for specified Hanzo ZT component using environment variables",
 		Aliases: []string{"cfg"},
 	}
 

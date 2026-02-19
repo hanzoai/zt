@@ -9,7 +9,7 @@ import (
 func newDbCmd(out io.Writer, errOut io.Writer) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "db",
-		Short: "Database management operations for the Ziti Edge Controller",
+		Short: "Database management operations for the Hanzo ZT Edge Controller",
 	}
 
 	cmd.AddCommand(newDbSnapshotCmd(out, errOut))

@@ -33,8 +33,8 @@ func newCreateAuthenticatorCmd(out io.Writer, errOut io.Writer) *cobra.Command {
 
 	cmd := &cobra.Command{
 		Use:   "authenticator",
-		Short: "creates an authenticator for an identity managed by the Ziti Edge Controller",
-		Long:  "creates an authenticator for an identity managed by the Ziti Edge Controller",
+		Short: "creates an authenticator for an identity managed by the Hanzo ZT Edge Controller",
+		Long:  "creates an authenticator for an identity managed by the Hanzo ZT Edge Controller",
 	}
 
 	cmd.AddCommand(newCreateAuthenticatorUpdb("updb", options))

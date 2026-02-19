@@ -39,8 +39,8 @@ type deleteOptions struct {
 func newDeleteCmd(out io.Writer, errOut io.Writer) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "delete",
-		Short: "deletes various entities managed by the Ziti Edge Controller",
-		Long:  "deletes various entities managed by the Ziti Edge Controller",
+		Short: "deletes various entities managed by the Hanzo ZT Edge Controller",
+		Long:  "deletes various entities managed by the Hanzo ZT Edge Controller",
 	}
 
 	newOptions := func() *deleteOptions {
@@ -80,7 +80,7 @@ func newDeleteCmd(out io.Writer, errOut io.Writer) *cobra.Command {
 func newDeleteCmdForEntityType(entityType string, options *deleteOptions, aliases ...string) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:     entityType + " <id>",
-		Short:   "deletes " + getPlural(entityType) + " managed by the Ziti Edge Controller",
+		Short:   "deletes " + getPlural(entityType) + " managed by the Hanzo ZT Edge Controller",
 		Args:    cobra.MinimumNArgs(1),
 		Aliases: append(aliases, getPlural(entityType)),
 		RunE: func(cmd *cobra.Command, args []string) error {
@@ -104,7 +104,7 @@ func newDeleteCmdForEntityType(entityType string, options *deleteOptions, aliase
 func newDeleteWhereCmdForEntityType(entityType string, options *deleteOptions) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "where <filter>",
-		Short: "deletes " + getPlural(entityType) + " matching the filter managed by the Ziti Edge Controller",
+		Short: "deletes " + getPlural(entityType) + " matching the filter managed by the Hanzo ZT Edge Controller",
 		Args:  cobra.MinimumNArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			options.Cmd = cmd
