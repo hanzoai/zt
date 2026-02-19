@@ -25,15 +25,15 @@ import (
 	"time"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/channel/v4"
-	"github.com/openziti/channel/v4/protobufs"
-	"github.com/openziti/foundation/v2/concurrenz"
-	"github.com/openziti/foundation/v2/debugz"
-	"github.com/openziti/ziti/v2/common/inspect"
-	"github.com/openziti/ziti/v2/common/pb/ctrl_pb"
-	"github.com/openziti/ziti/v2/controller/model"
-	"github.com/openziti/ziti/v2/controller/raft"
-	"github.com/openziti/ziti/v2/controller/xt"
+	"github.com/hanzozt/channel/v4"
+	"github.com/hanzozt/channel/v4/protobufs"
+	"github.com/hanzozt/foundation/v2/concurrenz"
+	"github.com/hanzozt/foundation/v2/debugz"
+	"github.com/hanzozt/ziti/v2/common/inspect"
+	"github.com/hanzozt/ziti/v2/common/pb/ctrl_pb"
+	"github.com/hanzozt/ziti/v2/controller/model"
+	"github.com/hanzozt/ziti/v2/controller/raft"
+	"github.com/hanzozt/ziti/v2/controller/xt"
 )
 
 type InspectResultValue struct {

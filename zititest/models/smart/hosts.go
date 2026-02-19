@@ -16,7 +16,7 @@
 
 package main
 
-import "github.com/openziti/fablab/kernel/model"
+import "github.com/hanzozt/fablab/kernel/model"
 
 func newHostsFactory() model.Factory {
 	return &hostsFactory{}

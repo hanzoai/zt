@@ -2,24 +2,24 @@
 #
 # check https://nfpm.goreleaser.com/configuration for detailed usage
 #
-name: openziti
+name: hanzozt
 arch: ${TARGETARCH}
 platform: linux
 version: ${ZITI_VERSION}
 prerelease: ${ZITI_REV}
 maintainer: ${ZITI_MAINTAINER}
 description: >
-  The openziti package provides the ziti executable binary as a command line
+  The hanzozt package provides the ziti executable binary as a command line
   interface for Ziti.
 vendor: ${ZITI_VENDOR}
 homepage: ${ZITI_HOMEPAGE}
 license: Apache-2.0
 contents:
   - src: ./release/ziti
-    dst: /opt/openziti/bin/ziti
+    dst: /opt/hanzozt/bin/ziti
     file_info:
       mode: 0755
-  - src: /opt/openziti/bin/ziti
+  - src: /opt/hanzozt/bin/ziti
     dst: /usr/bin/ziti
     type: symlink
 replaces:

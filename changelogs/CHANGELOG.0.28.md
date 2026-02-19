@@ -12,44 +12,44 @@ Bug fix
 
 ## Component Updates and Bug Fixes
 
-* github.com/openziti/ziti: [v0.28.2 -> v0.28.3](https://github.com/openziti/ziti/compare/v0.28.2...v0.28.3)
+* github.com/hanzozt/ziti: [v0.28.2 -> v0.28.3](https://github.com/hanzozt/ziti/compare/v0.28.2...v0.28.3)
 
 # Release 0.28.2
 
 ## What's New
 
-* IMPORTANT: If you update your OpenZiti binaries to this version or later (which can be done easily with the `getZiti()` function, you will need to migrate any existing network that has been developed using OpenZiti v0.27.5 or earlier binaries as the new binaries will expect the new environment variable names. A function `performMigration()` has been provided in the `ziti-cli-script.sh` for this purpose. Simply source the latest `ziti-cli-script.sh`, and your current network's .env file, then run `performMigration()` to update environment variable name references. If the migration process cannot find your existing environment file in the default location, you will need to provide the path to the migration function, ex: `performMigration <path-to-environment-file>`
+* IMPORTANT: If you update your Hanzo ZT binaries to this version or later (which can be done easily with the `getZiti()` function, you will need to migrate any existing network that has been developed using Hanzo ZT v0.27.5 or earlier binaries as the new binaries will expect the new environment variable names. A function `performMigration()` has been provided in the `ziti-cli-script.sh` for this purpose. Simply source the latest `ziti-cli-script.sh`, and your current network's .env file, then run `performMigration()` to update environment variable name references. If the migration process cannot find your existing environment file in the default location, you will need to provide the path to the migration function, ex: `performMigration <path-to-environment-file>`
 * If you were using the `ZITI_HOME` environment variable to configure where your ziti CLI profiles were stored, you should now use `ZITI_CONFIG_DIR` instead.
 
 
 ## Component Updates and Bug Fixes
 
-* github.com/openziti/channel/v2: [v2.0.80 -> v2.0.81](https://github.com/openziti/channel/compare/v2.0.80...v2.0.81)
-* github.com/openziti/edge: [v0.24.326 -> v0.24.345](https://github.com/openziti/edge/compare/v0.24.326...v0.24.345)
-  * [Issue #1528](https://github.com/openziti/edge/issues/1528) - edge unbind returns incorrect message if token is not supplied or invalid
-  * [Issue #1416](https://github.com/openziti/edge/issues/1416) - Allow MFA token name to be configured
+* github.com/hanzozt/channel/v2: [v2.0.80 -> v2.0.81](https://github.com/hanzozt/channel/compare/v2.0.80...v2.0.81)
+* github.com/hanzozt/edge: [v0.24.326 -> v0.24.345](https://github.com/hanzozt/edge/compare/v0.24.326...v0.24.345)
+  * [Issue #1528](https://github.com/hanzozt/edge/issues/1528) - edge unbind returns incorrect message if token is not supplied or invalid
+  * [Issue #1416](https://github.com/hanzozt/edge/issues/1416) - Allow MFA token name to be configured
 
-* github.com/openziti/edge-api: [v0.25.25 -> v0.25.29](https://github.com/openziti/edge-api/compare/v0.25.25...v0.25.29)
-* github.com/openziti/fabric: [v0.23.35 -> v0.23.39](https://github.com/openziti/fabric/compare/v0.23.35...v0.23.39)
-  * [Issue #751](https://github.com/openziti/fabric/issues/751) - Use of Fprintf causing buffer pool corruption with amqp event output
+* github.com/hanzozt/edge-api: [v0.25.25 -> v0.25.29](https://github.com/hanzozt/edge-api/compare/v0.25.25...v0.25.29)
+* github.com/hanzozt/fabric: [v0.23.35 -> v0.23.39](https://github.com/hanzozt/fabric/compare/v0.23.35...v0.23.39)
+  * [Issue #751](https://github.com/hanzozt/fabric/issues/751) - Use of Fprintf causing buffer pool corruption with amqp event output
 
-* github.com/openziti/foundation/v2: [v2.0.25 -> v2.0.26](https://github.com/openziti/foundation/compare/v2.0.25...v2.0.26)
-* github.com/openziti/identity: [v1.0.56 -> v1.0.57](https://github.com/openziti/identity/compare/v1.0.56...v1.0.57)
-* github.com/openziti/runzmd: [v1.0.25 -> v1.0.26](https://github.com/openziti/runzmd/compare/v1.0.25...v1.0.26)
-* github.com/openziti/sdk-golang: [v0.20.58 -> v0.20.67](https://github.com/openziti/sdk-golang/compare/v0.20.58...v0.20.67)
-* github.com/openziti/storage: [v0.2.7 -> v0.2.8](https://github.com/openziti/storage/compare/v0.2.7...v0.2.8)
-* github.com/openziti/transport/v2: [v2.0.90 -> v2.0.91](https://github.com/openziti/transport/compare/v2.0.90...v2.0.91)
-* github.com/openziti/metrics: [v1.2.26 -> v1.2.27](https://github.com/openziti/metrics/compare/v1.2.26...v1.2.27)
-* github.com/openziti/secretstream: [v0.1.8 -> v0.1.9](https://github.com/openziti/secretstream/compare/v0.1.8...v0.1.9)
-* github.com/openziti/ziti: [v0.28.1 -> v0.28.2](https://github.com/openziti/ziti/compare/v0.28.1...v0.28.2)
-  * [Issue #1144](https://github.com/openziti/ziti/issues/1144) - DB explore subcommand panic
-  * [Issue #986](https://github.com/openziti/ziti/issues/986) - Updated default ports in `.env` file to match documentation.
-  * [Issue #920](https://github.com/openziti/ziti/issues/920) - Fixed bug causing failure when re-running quickstart.
-  * [Issue #779](https://github.com/openziti/ziti/issues/779) - Add ability to upgrade ziti binaries using a quickstart function.
-  * [Issue #761](https://github.com/openziti/ziti/issues/761) - Remove Management Listener section from controller config.
-  * [Issue #650](https://github.com/openziti/ziti/issues/650) - Removed/Updated references to `ZITI_EDGE_CONTROLLER_API`
+* github.com/hanzozt/foundation/v2: [v2.0.25 -> v2.0.26](https://github.com/hanzozt/foundation/compare/v2.0.25...v2.0.26)
+* github.com/hanzozt/identity: [v1.0.56 -> v1.0.57](https://github.com/hanzozt/identity/compare/v1.0.56...v1.0.57)
+* github.com/hanzozt/runzmd: [v1.0.25 -> v1.0.26](https://github.com/hanzozt/runzmd/compare/v1.0.25...v1.0.26)
+* github.com/hanzozt/sdk-golang: [v0.20.58 -> v0.20.67](https://github.com/hanzozt/sdk-golang/compare/v0.20.58...v0.20.67)
+* github.com/hanzozt/storage: [v0.2.7 -> v0.2.8](https://github.com/hanzozt/storage/compare/v0.2.7...v0.2.8)
+* github.com/hanzozt/transport/v2: [v2.0.90 -> v2.0.91](https://github.com/hanzozt/transport/compare/v2.0.90...v2.0.91)
+* github.com/hanzozt/metrics: [v1.2.26 -> v1.2.27](https://github.com/hanzozt/metrics/compare/v1.2.26...v1.2.27)
+* github.com/hanzozt/secretstream: [v0.1.8 -> v0.1.9](https://github.com/hanzozt/secretstream/compare/v0.1.8...v0.1.9)
+* github.com/hanzozt/ziti: [v0.28.1 -> v0.28.2](https://github.com/hanzozt/ziti/compare/v0.28.1...v0.28.2)
+  * [Issue #1144](https://github.com/hanzozt/ziti/issues/1144) - DB explore subcommand panic
+  * [Issue #986](https://github.com/hanzozt/ziti/issues/986) - Updated default ports in `.env` file to match documentation.
+  * [Issue #920](https://github.com/hanzozt/ziti/issues/920) - Fixed bug causing failure when re-running quickstart.
+  * [Issue #779](https://github.com/hanzozt/ziti/issues/779) - Add ability to upgrade ziti binaries using a quickstart function.
+  * [Issue #761](https://github.com/hanzozt/ziti/issues/761) - Remove Management Listener section from controller config.
+  * [Issue #650](https://github.com/hanzozt/ziti/issues/650) - Removed/Updated references to `ZITI_EDGE_CONTROLLER_API`
   * Quickstart environment variable names have been cleaned up.
-  * [Issue #1030](https://github.com/openziti/ziti/issues/1030) - Provide an upgrade path for quickstart cleanup
+  * [Issue #1030](https://github.com/hanzozt/ziti/issues/1030) - Provide an upgrade path for quickstart cleanup
 
 # Release 0.28.1
 
@@ -126,34 +126,34 @@ events:
 
 ## Component Updates and Bug Fixes
 
-* github.com/openziti/agent: [v1.0.13 -> v1.0.14](https://github.com/openziti/agent/compare/v1.0.13...v1.0.14)
-* github.com/openziti/channel/v2: [v2.0.78 -> v2.0.80](https://github.com/openziti/channel/compare/v2.0.78...v2.0.80)
-* github.com/openziti/edge: [v0.24.309 -> v0.24.326](https://github.com/openziti/edge/compare/v0.24.309...v0.24.326)
-  * [Issue #1512](https://github.com/openziti/edge/issues/1512) - Panic when removing edge terminator with expired session
-  * [Issue #1509](https://github.com/openziti/edge/issues/1509) - SDK hosted terminators are being removed twice, causing spurious errors
-  * [Issue #1507](https://github.com/openziti/edge/issues/1507) - edge-router with encryption disabled fails
-  * [Issue #1517](https://github.com/openziti/edge/issues/1517) - allow wildcard domains in intercept.v1 addresses
+* github.com/hanzozt/agent: [v1.0.13 -> v1.0.14](https://github.com/hanzozt/agent/compare/v1.0.13...v1.0.14)
+* github.com/hanzozt/channel/v2: [v2.0.78 -> v2.0.80](https://github.com/hanzozt/channel/compare/v2.0.78...v2.0.80)
+* github.com/hanzozt/edge: [v0.24.309 -> v0.24.326](https://github.com/hanzozt/edge/compare/v0.24.309...v0.24.326)
+  * [Issue #1512](https://github.com/hanzozt/edge/issues/1512) - Panic when removing edge terminator with expired session
+  * [Issue #1509](https://github.com/hanzozt/edge/issues/1509) - SDK hosted terminators are being removed twice, causing spurious errors
+  * [Issue #1507](https://github.com/hanzozt/edge/issues/1507) - edge-router with encryption disabled fails
+  * [Issue #1517](https://github.com/hanzozt/edge/issues/1517) - allow wildcard domains in intercept.v1 addresses
 
-* github.com/openziti/edge-api: [v0.25.24 -> v0.25.25](https://github.com/openziti/edge-api/compare/v0.25.24...v0.25.25)
-* github.com/openziti/fabric: [v0.23.29 -> v0.23.35](https://github.com/openziti/fabric/compare/v0.23.29...v0.23.35)
-  * [Issue #538](https://github.com/openziti/fabric/issues/538) - Allow quiescing/dequiescing routers
-  * [Issue #738](https://github.com/openziti/fabric/issues/738) - Timeout from routing is getting reported as conn refused instead of timeout
-  * [Issue #737](https://github.com/openziti/fabric/issues/737) - Router link check should support initial delay configuration
-  * [Issue #735](https://github.com/openziti/fabric/issues/735) - router link health check should only be passing initially if min links is zero
-  * [Issue #733](https://github.com/openziti/fabric/issues/733) - Show link addresses in health check
-  * [Issue #732](https://github.com/openziti/fabric/issues/732) - Added new `bufferSize` config option to amqp handler. Connection handling now happens in the background with exponential retries.
+* github.com/hanzozt/edge-api: [v0.25.24 -> v0.25.25](https://github.com/hanzozt/edge-api/compare/v0.25.24...v0.25.25)
+* github.com/hanzozt/fabric: [v0.23.29 -> v0.23.35](https://github.com/hanzozt/fabric/compare/v0.23.29...v0.23.35)
+  * [Issue #538](https://github.com/hanzozt/fabric/issues/538) - Allow quiescing/dequiescing routers
+  * [Issue #738](https://github.com/hanzozt/fabric/issues/738) - Timeout from routing is getting reported as conn refused instead of timeout
+  * [Issue #737](https://github.com/hanzozt/fabric/issues/737) - Router link check should support initial delay configuration
+  * [Issue #735](https://github.com/hanzozt/fabric/issues/735) - router link health check should only be passing initially if min links is zero
+  * [Issue #733](https://github.com/hanzozt/fabric/issues/733) - Show link addresses in health check
+  * [Issue #732](https://github.com/hanzozt/fabric/issues/732) - Added new `bufferSize` config option to amqp handler. Connection handling now happens in the background with exponential retries.
 
-* github.com/openziti/foundation/v2: [v2.0.24 -> v2.0.25](https://github.com/openziti/foundation/compare/v2.0.24...v2.0.25)
-* github.com/openziti/identity: [v1.0.54 -> v1.0.56](https://github.com/openziti/identity/compare/v1.0.54...v1.0.56)
-* github.com/openziti/runzmd: [v1.0.24 -> v1.0.25](https://github.com/openziti/runzmd/compare/v1.0.24...v1.0.25)
-* github.com/openziti/sdk-golang: [v0.20.51 -> v0.20.58](https://github.com/openziti/sdk-golang/compare/v0.20.51...v0.20.58)
-  * [Issue #409](https://github.com/openziti/sdk-golang/issues/409) - sdk-golang v0.20.49 loops forever with older 'ws://' edge router
+* github.com/hanzozt/foundation/v2: [v2.0.24 -> v2.0.25](https://github.com/hanzozt/foundation/compare/v2.0.24...v2.0.25)
+* github.com/hanzozt/identity: [v1.0.54 -> v1.0.56](https://github.com/hanzozt/identity/compare/v1.0.54...v1.0.56)
+* github.com/hanzozt/runzmd: [v1.0.24 -> v1.0.25](https://github.com/hanzozt/runzmd/compare/v1.0.24...v1.0.25)
+* github.com/hanzozt/sdk-golang: [v0.20.51 -> v0.20.58](https://github.com/hanzozt/sdk-golang/compare/v0.20.51...v0.20.58)
+  * [Issue #409](https://github.com/hanzozt/sdk-golang/issues/409) - sdk-golang v0.20.49 loops forever with older 'ws://' edge router
 
-* github.com/openziti/storage: [v0.2.6 -> v0.2.7](https://github.com/openziti/storage/compare/v0.2.6...v0.2.7)
-* github.com/openziti/transport/v2: [v2.0.88 -> v2.0.90](https://github.com/openziti/transport/compare/v2.0.88...v2.0.90)
-* github.com/openziti/metrics: [v1.2.25 -> v1.2.26](https://github.com/openziti/metrics/compare/v1.2.25...v1.2.26)
-* github.com/openziti/ziti: [v0.28.0 -> v0.28.1](https://github.com/openziti/ziti/compare/v0.28.0...v0.28.1)
-  * [Issue #1132](https://github.com/openziti/ziti/issues/1132) - Updated `ws` protocol to `wss` as `ws` is no longer supported.
+* github.com/hanzozt/storage: [v0.2.6 -> v0.2.7](https://github.com/hanzozt/storage/compare/v0.2.6...v0.2.7)
+* github.com/hanzozt/transport/v2: [v2.0.88 -> v2.0.90](https://github.com/hanzozt/transport/compare/v2.0.88...v2.0.90)
+* github.com/hanzozt/metrics: [v1.2.25 -> v1.2.26](https://github.com/hanzozt/metrics/compare/v1.2.25...v1.2.26)
+* github.com/hanzozt/ziti: [v0.28.0 -> v0.28.1](https://github.com/hanzozt/ziti/compare/v0.28.0...v0.28.1)
+  * [Issue #1132](https://github.com/hanzozt/ziti/issues/1132) - Updated `ws` protocol to `wss` as `ws` is no longer supported.
 
 # Release 0.28.0
 
@@ -198,7 +198,7 @@ events:
 ```
 
 ### Entity Change Events
-OpenZiti can now be configured to emit entity change events. These events describe the changes when entities stored in the
+Hanzo ZT can now be configured to emit entity change events. These events describe the changes when entities stored in the
 bbolt database are created, updated or deleted.
 
 Note that events are emitted during the transaction. They are emitted at the end, so it's unlikely, but possible that an event will be emitted for a change which is rolled back. For this reason a following event will emitted when the change is committed. If a system crashes after commit, but before the committed event can be emitted, it will be emitted on the next startup.
@@ -219,7 +219,7 @@ events:
       path: /tmp/ziti-events.log
 ```
 
-See the related issue for discussion: https://github.com/openziti/fabric/issues/562
+See the related issue for discussion: https://github.com/hanzozt/fabric/issues/562
 
 Example output:
 
@@ -358,48 +358,48 @@ listeners:
 ```
 
 ## Component Updates and Bug Fixes
-* github.com/openziti/agent: [v1.0.10 -> v1.0.13](https://github.com/openziti/agent/compare/v1.0.10...v1.0.13)
-* github.com/openziti/channel/v2: [v2.0.58 -> v2.0.78](https://github.com/openziti/channel/compare/v2.0.58...v2.0.78)
-  * [Issue #98](https://github.com/openziti/channel/issues/98) - Set default connect timeout to 5 seconds
+* github.com/hanzozt/agent: [v1.0.10 -> v1.0.13](https://github.com/hanzozt/agent/compare/v1.0.10...v1.0.13)
+* github.com/hanzozt/channel/v2: [v2.0.58 -> v2.0.78](https://github.com/hanzozt/channel/compare/v2.0.58...v2.0.78)
+  * [Issue #98](https://github.com/hanzozt/channel/issues/98) - Set default connect timeout to 5 seconds
 
-* github.com/openziti/edge: [v0.24.239 -> v0.24.309](https://github.com/openziti/edge/compare/v0.24.239...v0.24.309)
-  * [Issue #1503](https://github.com/openziti/edge/issues/1503) - Support configurable UDP idle timeout and check interval for tproxy in edge router tunneler
-  * [Issue #1471](https://github.com/openziti/edge/issues/1471) - UDP intercept connections report incorrect local/remote addresses, making confusing events
-  * [Issue #629](https://github.com/openziti/edge/issues/629) - emit entity change events
-  * [Issue #1295](https://github.com/openziti/edge/issues/1295) - Ensure DB migrations work properly in a clustered setup (edge)
-  * [Issue #1418](https://github.com/openziti/edge/issues/1418) - Checks for session edge router availability are inefficient
+* github.com/hanzozt/edge: [v0.24.239 -> v0.24.309](https://github.com/hanzozt/edge/compare/v0.24.239...v0.24.309)
+  * [Issue #1503](https://github.com/hanzozt/edge/issues/1503) - Support configurable UDP idle timeout and check interval for tproxy in edge router tunneler
+  * [Issue #1471](https://github.com/hanzozt/edge/issues/1471) - UDP intercept connections report incorrect local/remote addresses, making confusing events
+  * [Issue #629](https://github.com/hanzozt/edge/issues/629) - emit entity change events
+  * [Issue #1295](https://github.com/hanzozt/edge/issues/1295) - Ensure DB migrations work properly in a clustered setup (edge)
+  * [Issue #1418](https://github.com/hanzozt/edge/issues/1418) - Checks for session edge router availability are inefficient
 
-* github.com/openziti/edge-api: [v0.25.11 -> v0.25.24](https://github.com/openziti/edge-api/compare/v0.25.11...v0.25.24)
-* github.com/openziti/fabric: [v0.22.87 -> v0.23.29](https://github.com/openziti/fabric/compare/v0.22.87...v0.23.29)
-  * [Issue #724](https://github.com/openziti/fabric/issues/724) - Controller should be notified of forwarding faults on links
-  * [Issue #725](https://github.com/openziti/fabric/issues/725) - If reroute fails, circuit should be torn down
-  * [Issue #706](https://github.com/openziti/fabric/issues/706) - Fix panic in link close
-  * [Issue #700](https://github.com/openziti/fabric/issues/700) - Additional Health Checks exposed on Edge Router
-  * [Issue #595](https://github.com/openziti/fabric/issues/595) - Add include filtering for V3 usage metrics
-  * [Issue #684](https://github.com/openziti/fabric/issues/684) - Add tag annotations to circuit events, similar to usage events
-  * [Issue #562](https://github.com/openziti/fabric/issues/562) - Add entity change events
-  * [Issue #677](https://github.com/openziti/fabric/issues/677) - Rework raft startup
-  * [Issue #582](https://github.com/openziti/fabric/issues/582) - Ensure DB migrations work properly in a clustered setup (fabric)
-  * [Issue #668](https://github.com/openziti/fabric/issues/668) - Add network.Run watchdog, to warn if processing is delayed
+* github.com/hanzozt/edge-api: [v0.25.11 -> v0.25.24](https://github.com/hanzozt/edge-api/compare/v0.25.11...v0.25.24)
+* github.com/hanzozt/fabric: [v0.22.87 -> v0.23.29](https://github.com/hanzozt/fabric/compare/v0.22.87...v0.23.29)
+  * [Issue #724](https://github.com/hanzozt/fabric/issues/724) - Controller should be notified of forwarding faults on links
+  * [Issue #725](https://github.com/hanzozt/fabric/issues/725) - If reroute fails, circuit should be torn down
+  * [Issue #706](https://github.com/hanzozt/fabric/issues/706) - Fix panic in link close
+  * [Issue #700](https://github.com/hanzozt/fabric/issues/700) - Additional Health Checks exposed on Edge Router
+  * [Issue #595](https://github.com/hanzozt/fabric/issues/595) - Add include filtering for V3 usage metrics
+  * [Issue #684](https://github.com/hanzozt/fabric/issues/684) - Add tag annotations to circuit events, similar to usage events
+  * [Issue #562](https://github.com/hanzozt/fabric/issues/562) - Add entity change events
+  * [Issue #677](https://github.com/hanzozt/fabric/issues/677) - Rework raft startup
+  * [Issue #582](https://github.com/hanzozt/fabric/issues/582) - Ensure DB migrations work properly in a clustered setup (fabric)
+  * [Issue #668](https://github.com/hanzozt/fabric/issues/668) - Add network.Run watchdog, to warn if processing is delayed
 
-* github.com/openziti/foundation/v2: [v2.0.21 -> v2.0.24](https://github.com/openziti/foundation/compare/v2.0.21...v2.0.24)
-* github.com/openziti/identity: [v1.0.45 -> v1.0.54](https://github.com/openziti/identity/compare/v1.0.45...v1.0.54)
-* github.com/openziti/runzmd: [v1.0.20 -> v1.0.24](https://github.com/openziti/runzmd/compare/v1.0.20...v1.0.24)
-* github.com/openziti/sdk-golang: [v0.18.76 -> v0.20.51](https://github.com/openziti/sdk-golang/compare/v0.18.76...v0.20.51)
-  * [Issue #407](https://github.com/openziti/sdk-golang/issues/407) - Allowing filtering which edge router urls the sdk uses
-  * [Issue #394](https://github.com/openziti/sdk-golang/issues/394) - SDK does not recover from API session expiration (during app/computer suspend)
+* github.com/hanzozt/foundation/v2: [v2.0.21 -> v2.0.24](https://github.com/hanzozt/foundation/compare/v2.0.21...v2.0.24)
+* github.com/hanzozt/identity: [v1.0.45 -> v1.0.54](https://github.com/hanzozt/identity/compare/v1.0.45...v1.0.54)
+* github.com/hanzozt/runzmd: [v1.0.20 -> v1.0.24](https://github.com/hanzozt/runzmd/compare/v1.0.20...v1.0.24)
+* github.com/hanzozt/sdk-golang: [v0.18.76 -> v0.20.51](https://github.com/hanzozt/sdk-golang/compare/v0.18.76...v0.20.51)
+  * [Issue #407](https://github.com/hanzozt/sdk-golang/issues/407) - Allowing filtering which edge router urls the sdk uses
+  * [Issue #394](https://github.com/hanzozt/sdk-golang/issues/394) - SDK does not recover from API session expiration (during app/computer suspend)
 
-* github.com/openziti/storage: [v0.1.49 -> v0.2.6](https://github.com/openziti/storage/compare/v0.1.49...v0.2.6)
-* github.com/openziti/transport/v2: [v2.0.72 -> v2.0.88](https://github.com/openziti/transport/compare/v2.0.72...v2.0.88)
-* github.com/openziti/metrics: [v1.2.19 -> v1.2.25](https://github.com/openziti/metrics/compare/v1.2.19...v1.2.25)
-* github.com/openziti/secretstream: v0.1.8 (new)
-* github.com/openziti/ziti: [v0.27.9 -> v0.28.0](https://github.com/openziti/ziti/compare/v0.27.9...v0.28.0)
-  * [Issue #1112](https://github.com/openziti/ziti/issues/1112) - `ziti pki create` creates CA's and intermediates w/ the same DN
-  * [Issue #1087](https://github.com/openziti/ziti/issues/1087) - re-enable CI in forks
-  * [Issue #1013](https://github.com/openziti/ziti/issues/1013) - docker env password is renewed at each `docker-compose up`
-  * [Issue #1077](https://github.com/openziti/ziti/issues/1077) - Show auth-policy name on identity list instead of id
-  * [Issue #1119](https://github.com/openziti/ziti/issues/1119) - intercept.v1 config should permit underscores in the address
-  * [Issue #1123](https://github.com/openziti/ziti/issues/1123) - cannot update config types with ziti cli
+* github.com/hanzozt/storage: [v0.1.49 -> v0.2.6](https://github.com/hanzozt/storage/compare/v0.1.49...v0.2.6)
+* github.com/hanzozt/transport/v2: [v2.0.72 -> v2.0.88](https://github.com/hanzozt/transport/compare/v2.0.72...v2.0.88)
+* github.com/hanzozt/metrics: [v1.2.19 -> v1.2.25](https://github.com/hanzozt/metrics/compare/v1.2.19...v1.2.25)
+* github.com/hanzozt/secretstream: v0.1.8 (new)
+* github.com/hanzozt/ziti: [v0.27.9 -> v0.28.0](https://github.com/hanzozt/ziti/compare/v0.27.9...v0.28.0)
+  * [Issue #1112](https://github.com/hanzozt/ziti/issues/1112) - `ziti pki create` creates CA's and intermediates w/ the same DN
+  * [Issue #1087](https://github.com/hanzozt/ziti/issues/1087) - re-enable CI in forks
+  * [Issue #1013](https://github.com/hanzozt/ziti/issues/1013) - docker env password is renewed at each `docker-compose up`
+  * [Issue #1077](https://github.com/hanzozt/ziti/issues/1077) - Show auth-policy name on identity list instead of id
+  * [Issue #1119](https://github.com/hanzozt/ziti/issues/1119) - intercept.v1 config should permit underscores in the address
+  * [Issue #1123](https://github.com/hanzozt/ziti/issues/1123) - cannot update config types with ziti cli
 
 # Archived Changelogs
 

@@ -22,8 +22,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/openziti/ziti/v2/controller/rest_client/terminator"
-	"github.com/openziti/ziti/v2/zitirest"
+	"github.com/hanzozt/ziti/v2/controller/rest_client/terminator"
+	"github.com/hanzozt/ziti/v2/zitirest"
 )
 
 func waitForTerminators(t *testing.T, timeout time.Duration, services ...string) {

@@ -26,7 +26,7 @@ if ! (( $# )) || [[ "${1}" == run && -z "${2:-}" ]]; then
 fi
 
 # shellcheck disable=SC1090 # path is set by the systemd service and Dockerfile
-source "${ZITI_CTRL_BOOTSTRAP_BASH:-/opt/openziti/etc/controller/bootstrap.bash}"
+source "${ZITI_CTRL_BOOTSTRAP_BASH:-/opt/hanzozt/etc/controller/bootstrap.bash}"
 
 # * Linux service ExecStartPre uses 'check' to pre-flight the config and renew certs
 # * Container uses 'run' to call bootstrap() and ziti
@@ -42,7 +42,7 @@ elif [[ "${1}" =~ check ]]; then
     hintLinuxBootstrap "${PWD}"
     exit 1
   elif [[ "${ZITI_BOOTSTRAP:-}" == true && "${ZITI_BOOTSTRAP_PKI:-}" == true ]]; then
-    loadEnvFiles /opt/openziti/etc/controller/bootstrap.env
+    loadEnvFiles /opt/hanzozt/etc/controller/bootstrap.env
     issueLeafCerts
     exit
   else

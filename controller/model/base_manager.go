@@ -18,12 +18,12 @@ package model
 
 import (
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/storage/ast"
-	"github.com/openziti/storage/boltz"
-	"github.com/openziti/ziti/v2/common/eid"
-	"github.com/openziti/ziti/v2/controller/change"
-	"github.com/openziti/ziti/v2/controller/command"
-	"github.com/openziti/ziti/v2/controller/models"
+	"github.com/hanzozt/storage/ast"
+	"github.com/hanzozt/storage/boltz"
+	"github.com/hanzozt/ziti/v2/common/eid"
+	"github.com/hanzozt/ziti/v2/controller/change"
+	"github.com/hanzozt/ziti/v2/controller/command"
+	"github.com/hanzozt/ziti/v2/controller/models"
 	"github.com/pkg/errors"
 	"go.etcd.io/bbolt"
 )

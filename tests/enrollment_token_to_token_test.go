@@ -22,9 +22,9 @@ import (
 	"testing"
 
 	"github.com/golang-jwt/jwt/v5"
-	"github.com/openziti/edge-api/rest_model"
-	edgeApis "github.com/openziti/sdk-golang/edge-apis"
-	"github.com/openziti/ziti/v2/controller/apierror"
+	"github.com/hanzozt/edge-api/rest_model"
+	edgeApis "github.com/hanzozt/sdk-golang/edge-apis"
+	"github.com/hanzozt/ziti/v2/controller/apierror"
 )
 
 // Test_EnrollmentToken_Certificate uses a token issued from a 3rd party IdP, usually a JWT, in order to enroll a client

@@ -23,9 +23,9 @@ import (
 	"time"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/channel/v4"
-	"github.com/openziti/storage/boltz"
-	"github.com/openziti/ziti/v2/controller/xctrl"
+	"github.com/hanzozt/channel/v4"
+	"github.com/hanzozt/storage/boltz"
+	"github.com/hanzozt/ziti/v2/controller/xctrl"
 	"github.com/sirupsen/logrus"
 )
 

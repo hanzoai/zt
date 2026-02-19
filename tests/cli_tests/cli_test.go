@@ -28,12 +28,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/openziti/sdk-golang/ziti"
-	"github.com/openziti/ziti/v2/tests/testutil"
-	"github.com/openziti/ziti/v2/ziti/cmd"
-	"github.com/openziti/ziti/v2/ziti/cmd/api"
-	"github.com/openziti/ziti/v2/ziti/cmd/common"
-	"github.com/openziti/ziti/v2/ziti/util"
+	"github.com/hanzozt/sdk-golang/ziti"
+	"github.com/hanzozt/ziti/v2/tests/testutil"
+	"github.com/hanzozt/ziti/v2/ziti/cmd"
+	"github.com/hanzozt/ziti/v2/ziti/cmd/api"
+	"github.com/hanzozt/ziti/v2/ziti/cmd/common"
+	"github.com/hanzozt/ziti/v2/ziti/util"
 	"github.com/stretchr/testify/require"
 )
 

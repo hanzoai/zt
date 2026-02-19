@@ -25,7 +25,7 @@ import (
 	"github.com/go-acme/lego/v4/certcrypto"
 	"github.com/go-acme/lego/v4/certificate"
 	"github.com/go-acme/lego/v4/lego"
-	"github.com/openziti/ziti/v2/ziti/internal/log"
+	"github.com/hanzozt/ziti/v2/ziti/internal/log"
 	"github.com/spf13/cobra"
 )
 
@@ -64,7 +64,7 @@ func newRenewCmd(out io.Writer, errOut io.Writer) *cobra.Command {
 	}
 	cmd.Flags().IntVarP(&options.days, "days", "", 14, "The number of days left on a certificate to renew it")
 	cmd.Flags().BoolVarP(&options.reuseKey, "reuse-key", "r", true, "Used to indicate you want to reuse your current private key for the renewed certificate")
-	cmd.Flags().StringVarP(&options.email, "email", "e", "openziti@netfoundry.io", "Email used for registration and recovery contact")
+	cmd.Flags().StringVarP(&options.email, "email", "e", "hanzozt@netfoundry.io", "Email used for registration and recovery contact")
 	if err := options.keyType.Set("RSA4096"); err != nil { // set default
 		panic(err)
 	}

@@ -22,14 +22,14 @@ import (
 
 	"github.com/go-openapi/runtime/middleware"
 	"github.com/michaelquigley/pfxlog"
-	clientSession "github.com/openziti/edge-api/rest_client_api_server/operations/session"
-	managementSession "github.com/openziti/edge-api/rest_management_api_server/operations/session"
-	"github.com/openziti/edge-api/rest_model"
-	"github.com/openziti/metrics"
-	"github.com/openziti/ziti/v2/controller/env"
-	"github.com/openziti/ziti/v2/controller/model"
-	"github.com/openziti/ziti/v2/controller/permissions"
-	"github.com/openziti/ziti/v2/controller/response"
+	clientSession "github.com/hanzozt/edge-api/rest_client_api_server/operations/session"
+	managementSession "github.com/hanzozt/edge-api/rest_management_api_server/operations/session"
+	"github.com/hanzozt/edge-api/rest_model"
+	"github.com/hanzozt/metrics"
+	"github.com/hanzozt/ziti/v2/controller/env"
+	"github.com/hanzozt/ziti/v2/controller/model"
+	"github.com/hanzozt/ziti/v2/controller/permissions"
+	"github.com/hanzozt/ziti/v2/controller/response"
 )
 
 func init() {

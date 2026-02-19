@@ -3,7 +3,7 @@ package db
 import (
 	"time"
 
-	"github.com/openziti/storage/boltz"
+	"github.com/hanzozt/storage/boltz"
 )
 
 func (m *Migrations) addProcessMultiPostureCheck(step *boltz.MigrationStep) {

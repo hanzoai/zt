@@ -25,11 +25,11 @@ import (
 	"net/http"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/identity"
-	"github.com/openziti/identity/dotziti"
-	"github.com/openziti/transport/v2"
-	"github.com/openziti/ziti/v2/router/xgress_transport"
-	"github.com/openziti/ziti/zititest/ziti-traffic-test/subcmd"
+	"github.com/hanzozt/identity"
+	"github.com/hanzozt/identity/dotziti"
+	"github.com/hanzozt/transport/v2"
+	"github.com/hanzozt/ziti/v2/router/xgress_transport"
+	"github.com/hanzozt/ziti/zititest/ziti-traffic-test/subcmd"
 	"github.com/spf13/cobra"
 )
 

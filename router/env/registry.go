@@ -21,8 +21,8 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/openziti/foundation/v2/concurrenz"
-	"github.com/openziti/ziti/v2/router/xgress_router"
+	"github.com/hanzozt/foundation/v2/concurrenz"
+	"github.com/hanzozt/ziti/v2/router/xgress_router"
 )
 
 // Registry manages xgress protocol factories. It provides a two-phase initialization system:

@@ -21,8 +21,8 @@ import (
 	"math/rand"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/foundation/v2/info"
-	"github.com/openziti/ziti/zititest/ziti-traffic-test/loop2/pb"
+	"github.com/hanzozt/foundation/v2/info"
+	"github.com/hanzozt/ziti/zititest/ziti-traffic-test/loop2/pb"
 )
 
 type generator struct {

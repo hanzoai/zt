@@ -20,15 +20,15 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/openziti/ziti/v2/controller/change"
-	"github.com/openziti/ziti/v2/controller/model"
+	"github.com/hanzozt/ziti/v2/controller/change"
+	"github.com/hanzozt/ziti/v2/controller/model"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/channel/v4/protobufs"
-	"github.com/openziti/ziti/v2/common/ctrl_msg"
-	"github.com/openziti/ziti/v2/common/logcontext"
-	"github.com/openziti/ziti/v2/common/pb/ctrl_pb"
-	"github.com/openziti/ziti/v2/controller/xt"
+	"github.com/hanzozt/channel/v4/protobufs"
+	"github.com/hanzozt/ziti/v2/common/ctrl_msg"
+	"github.com/hanzozt/ziti/v2/common/logcontext"
+	"github.com/hanzozt/ziti/v2/common/pb/ctrl_pb"
+	"github.com/hanzozt/ziti/v2/controller/xt"
 	cmap "github.com/orcaman/concurrent-map/v2"
 	"github.com/sirupsen/logrus"
 )

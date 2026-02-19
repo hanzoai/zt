@@ -5,7 +5,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/openziti/ziti/v2/controller/event"
+	"github.com/hanzozt/ziti/v2/controller/event"
 	"github.com/stretchr/testify/require"
 )
 

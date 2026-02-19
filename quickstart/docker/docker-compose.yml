@@ -31,7 +31,7 @@ services:
     volumes:
       - ziti-fs:/persistent
     entrypoint:
-      - "/var/openziti/scripts/run-controller.sh"
+      - "/var/hanzozt/scripts/run-controller.sh"
 
   ziti-controller-init-container:
     image: "${ZITI_IMAGE}:${ZITI_VERSION}"
@@ -53,9 +53,9 @@ services:
     volumes:
       - ziti-fs:/persistent
     entrypoint:
-      - "/var/openziti/scripts/run-with-ziti-cli.sh"
+      - "/var/hanzozt/scripts/run-with-ziti-cli.sh"
     command:
-      - "/var/openziti/scripts/access-control.sh"
+      - "/var/hanzozt/scripts/access-control.sh"
 
   ziti-edge-router:
     image: "${ZITI_IMAGE}:${ZITI_VERSION}"
@@ -83,7 +83,7 @@ services:
     volumes:
       - ziti-fs:/persistent
     entrypoint: /bin/bash
-    command: "/var/openziti/scripts/run-router.sh edge"
+    command: "/var/hanzozt/scripts/run-router.sh edge"
 
   ziti-edge-router-wss:
     image: "${ZITI_IMAGE}:${ZITI_VERSION}"
@@ -113,7 +113,7 @@ services:
     volumes:
       - ziti-fs:/persistent
     entrypoint: /bin/bash
-    command: "/var/openziti/scripts/run-router.sh wss"
+    command: "/var/hanzozt/scripts/run-router.sh wss"
 
   ziti-fabric-router-br:
     image: "${ZITI_IMAGE}:${ZITI_VERSION}"
@@ -136,7 +136,7 @@ services:
     volumes:
       - ziti-fs:/persistent
     entrypoint: /bin/bash
-    command: "/var/openziti/scripts/run-router.sh fabric"
+    command: "/var/hanzozt/scripts/run-router.sh fabric"
 
   ziti-private-red:
     image: "${ZITI_IMAGE}:${ZITI_VERSION}"
@@ -158,7 +158,7 @@ services:
     volumes:
       - ziti-fs:/persistent
     entrypoint: /bin/bash
-    command: "/var/openziti/scripts/run-router.sh private"
+    command: "/var/hanzozt/scripts/run-router.sh private"
 
   ziti-private-blue:
     image: "${ZITI_IMAGE}:${ZITI_VERSION}"
@@ -180,10 +180,10 @@ services:
     volumes:
       - ziti-fs:/persistent
     entrypoint: /bin/bash
-    command: "/var/openziti/scripts/run-router.sh private"
+    command: "/var/hanzozt/scripts/run-router.sh private"
 
   web-test-blue:
-    image: openziti/hello-world
+    image: hanzozt/hello-world
     ports:
       - ${ZITI_INTERFACE:-0.0.0.0}:80:8000
     networks:
@@ -194,7 +194,7 @@ services:
           - web.test.blue
 
   ziti-console:
-    image: openziti/zac
+    image: hanzozt/zac
     working_dir: /usr/src/app
     environment:
       - ZAC_SERVER_CERT_CHAIN=/persistent/pki/${ZITI_CTRL_EDGE_ADVERTISED_ADDRESS:-ziti-edge-controller}-intermediate/certs/${ZITI_CTRL_EDGE_ADVERTISED_ADDRESS:-ziti-edge-controller}-server.cert

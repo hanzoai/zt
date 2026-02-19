@@ -5,8 +5,8 @@ import (
 	"time"
 
 	"github.com/golang-jwt/jwt/v5"
-	edge_apis "github.com/openziti/sdk-golang/edge-apis"
-	"github.com/openziti/ziti/v2/common"
+	edge_apis "github.com/hanzozt/sdk-golang/edge-apis"
+	"github.com/hanzozt/ziti/v2/common"
 )
 
 func Test_API_Session_TOTP_Tokens(t *testing.T) {

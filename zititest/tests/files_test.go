@@ -21,7 +21,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/openziti/ziti/zititest/models/smoke"
+	"github.com/hanzozt/ziti/zititest/models/smoke"
 	"github.com/stretchr/testify/require"
 )
 

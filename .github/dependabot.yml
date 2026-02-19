@@ -6,13 +6,13 @@ updates:
     interval: daily
   open-pull-requests-limit: 10
   groups:
-    openziti:
+    hanzozt:
       applies-to: version-updates
       update-types:
         - minor
         - patch
       patterns:
-        - "*openziti*"
+        - "*hanzozt*"
 
     third-party:
       applies-to: version-updates
@@ -20,7 +20,7 @@ updates:
         - minor
         - patch
       exclude-patterns:
-        - "*openziti*"
+        - "*hanzozt*"
         - "*rabbitmq*"
         - "*blackfriday*"
         - "*zitadel*"

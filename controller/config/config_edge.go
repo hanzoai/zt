@@ -32,9 +32,9 @@ import (
 	"time"
 
 	"github.com/michaelquigley/pfxlog"
-	nfpem "github.com/openziti/foundation/v2/pem"
-	"github.com/openziti/identity"
-	"github.com/openziti/ziti/v2/controller/command"
+	nfpem "github.com/hanzozt/foundation/v2/pem"
+	"github.com/hanzozt/identity"
+	"github.com/hanzozt/ziti/v2/controller/command"
 	"github.com/pkg/errors"
 )
 
@@ -57,7 +57,7 @@ const (
 	DefaultHttpReadHeaderTimeout = 5000 * time.Millisecond
 	DefaultHttpWriteTimeout      = 100000 * time.Millisecond
 
-	DefaultTotpDomain = "openziti.io"
+	DefaultTotpDomain = "hanzozt.dev"
 
 	DefaultAuthRateLimiterEnabled = true
 	DefaultAuthRateLimiterMaxSize = 250

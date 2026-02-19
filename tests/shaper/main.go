@@ -7,8 +7,8 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/openziti/metrics"
-	"github.com/openziti/transport/v2/shaper"
+	"github.com/hanzozt/metrics"
+	"github.com/hanzozt/transport/v2/shaper"
 )
 
 type metricsWriter struct {

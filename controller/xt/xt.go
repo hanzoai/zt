@@ -20,8 +20,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/openziti/identity"
-	"github.com/openziti/ziti/v2/common/logcontext"
+	"github.com/hanzozt/identity"
+	"github.com/hanzozt/ziti/v2/common/logcontext"
 )
 
 type Registry interface {

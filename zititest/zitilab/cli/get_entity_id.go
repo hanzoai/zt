@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/Jeffail/gabs"
-	"github.com/openziti/fablab/kernel/model"
+	"github.com/hanzozt/fablab/kernel/model"
 	"github.com/pkg/errors"
 )
 

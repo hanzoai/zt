@@ -5,9 +5,9 @@ import (
 	"net/http"
 
 	"github.com/Jeffail/gabs"
-	"github.com/openziti/ziti/v2/ziti/cmd/api"
-	"github.com/openziti/ziti/v2/ziti/cmd/common"
-	"github.com/openziti/ziti/v2/ziti/util"
+	"github.com/hanzozt/ziti/v2/ziti/cmd/api"
+	"github.com/hanzozt/ziti/v2/ziti/cmd/common"
+	"github.com/hanzozt/ziti/v2/ziti/util"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
 )

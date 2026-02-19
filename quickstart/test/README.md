@@ -5,7 +5,7 @@ edge HTTP/API plane, then obtains a valid http response by dialing that service.
 
 ## Automated
 
-The automated test starts up an ephemeral OpenZiti network and runs `performQuickstartTest`.
+The automated test starts up an ephemeral Hanzo ZT network and runs `performQuickstartTest`.
 
 To run the automated edge test, execute the following from the project root (environment variables are auto populated)
 

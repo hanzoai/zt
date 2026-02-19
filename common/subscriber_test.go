@@ -27,9 +27,9 @@ import (
 	"time"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/agent"
-	"github.com/openziti/ziti/v2/common/pb/edge_ctrl_pb"
-	"github.com/openziti/ziti/v2/common/version"
+	"github.com/hanzozt/agent"
+	"github.com/hanzozt/ziti/v2/common/pb/edge_ctrl_pb"
+	"github.com/hanzozt/ziti/v2/common/version"
 )
 
 type testState struct {

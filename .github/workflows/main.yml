@@ -47,7 +47,7 @@ jobs:
         uses: ./.github/actions/setup-go
 
       - name: Install Ziti CI
-        uses: openziti/ziti-ci@v1
+        uses: hanzozt/ziti-ci@v1
 
       - name: Build and Test
         shell: bash
@@ -83,7 +83,7 @@ jobs:
         uses: ./.github/actions/setup-go
 
       - name: Install Ziti CI
-        uses: openziti/ziti-ci@v1
+        uses: hanzozt/ziti-ci@v1
 
       - name: Build and Test
         shell: bash
@@ -105,7 +105,7 @@ jobs:
   linux-build:
     name: Build Linux binaries
     runs-on: ubuntu-22.04  # pin oldest available Docker host for ABI compatibility
-    container: openziti/ziti-builder:v2  # pin v2 (Ubuntu Focal) for glibc compatibility while leveraging Actions's Node.js
+    container: hanzozt/ziti-builder:v2  # pin v2 (Ubuntu Focal) for glibc compatibility while leveraging Actions's Node.js
     steps:
       - name: Git Checkout
         uses: actions/checkout@v6
@@ -116,7 +116,7 @@ jobs:
         uses: ./.github/actions/setup-go
 
       - name: Install Ziti CI
-        uses: openziti/ziti-ci@v1
+        uses: hanzozt/ziti-ci@v1
 
       - name: Build and Test
         shell: bash
@@ -154,7 +154,7 @@ jobs:
         uses: ./.github/actions/setup-go
 
       - name: Install Ziti CI
-        uses: openziti/ziti-ci@v1
+        uses: hanzozt/ziti-ci@v1
 
       - name: Run Go Quickstart Test
         timeout-minutes: 5
@@ -191,7 +191,7 @@ jobs:
   fablab-smoketest:
     name: Fablab Smoketest
     # not applicable to forks. shouldn't run on release build
-    if: github.repository_owner == 'openziti' && !startsWith(github.ref_name, 'release-v') && !contains(github.actor, 'dependabot')
+    if: github.repository_owner == 'hanzozt' && !startsWith(github.ref_name, 'release-v') && !contains(github.actor, 'dependabot')
     runs-on: ubuntu-24.04
     steps:
       - name: Git Checkout
@@ -203,7 +203,7 @@ jobs:
         uses: ./.github/actions/setup-go
 
       - name: Install Ziti CI
-        uses: openziti/ziti-ci@v1
+        uses: hanzozt/ziti-ci@v1
 
       - name: Install Terraform CLI
         uses: hashicorp/setup-terraform@v3
@@ -316,7 +316,7 @@ jobs:
   fablab-ha-smoketest:
     name: Fablab HA Smoketest
     # not applicable to forks. shouldn't run on release build
-    if: github.repository_owner == 'openziti' && !startsWith(github.ref_name, 'release-v') && !contains(github.actor, 'dependabot')
+    if: github.repository_owner == 'hanzozt' && !startsWith(github.ref_name, 'release-v') && !contains(github.actor, 'dependabot')
     runs-on: ubuntu-24.04
     steps:
       - name: Git Checkout
@@ -328,7 +328,7 @@ jobs:
         uses: ./.github/actions/setup-go
 
       - name: Install Ziti CI
-        uses: openziti/ziti-ci@v1
+        uses: hanzozt/ziti-ci@v1
 
       - name: Install Terraform CLI
         uses: hashicorp/setup-terraform@v3
@@ -468,7 +468,7 @@ jobs:
           python-version: '3.13'
 
       - name: Install Ziti CI
-        uses: openziti/ziti-ci@v1
+        uses: hanzozt/ziti-ci@v1
 
       - name: Download linux release artifact
         uses: actions/download-artifact@v7

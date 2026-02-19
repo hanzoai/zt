@@ -17,7 +17,7 @@
 package bindpoints
 
 import (
-	"github.com/openziti/xweb/v3"
+	"github.com/hanzozt/xweb/v3"
 )
 
 // BindPointListenerFactory implements the xweb.BindPointListenerFactory.

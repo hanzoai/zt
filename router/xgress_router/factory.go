@@ -3,10 +3,10 @@ package xgress_router
 import (
 	"time"
 
-	"github.com/openziti/identity"
-	"github.com/openziti/sdk-golang/xgress"
-	"github.com/openziti/ziti/v2/common/logcontext"
-	"github.com/openziti/ziti/v2/controller/xt"
+	"github.com/hanzozt/identity"
+	"github.com/hanzozt/sdk-golang/xgress"
+	"github.com/hanzozt/ziti/v2/common/logcontext"
+	"github.com/hanzozt/ziti/v2/controller/xt"
 )
 
 type Listener interface {

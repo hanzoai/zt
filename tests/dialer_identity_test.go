@@ -22,9 +22,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/openziti/sdk-golang/ziti"
-	"github.com/openziti/sdk-golang/ziti/edge"
-	"github.com/openziti/ziti/v2/controller/xt_smartrouting"
+	"github.com/hanzozt/sdk-golang/ziti"
+	"github.com/hanzozt/sdk-golang/ziti/edge"
+	"github.com/hanzozt/ziti/v2/controller/xt_smartrouting"
 )
 
 func Test_DialerIdentityInfo(t *testing.T) {

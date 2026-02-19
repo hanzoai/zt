@@ -20,9 +20,9 @@ import (
 	"fmt"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/foundation/v2/errorz"
-	"github.com/openziti/storage/ast"
-	"github.com/openziti/storage/boltz"
+	"github.com/hanzozt/foundation/v2/errorz"
+	"github.com/hanzozt/storage/ast"
+	"github.com/hanzozt/storage/boltz"
 	"go.etcd.io/bbolt"
 )
 

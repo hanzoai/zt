@@ -9,13 +9,13 @@ import (
 	"github.com/golang-jwt/jwt/v5"
 	"github.com/google/uuid"
 	"github.com/michaelquigley/pfxlog"
-	enrollment_client "github.com/openziti/edge-api/rest_client_api_server/operations/enrollment"
-	enrollment_management "github.com/openziti/edge-api/rest_management_api_server/operations/enrollment"
-	"github.com/openziti/edge-api/rest_model"
-	"github.com/openziti/sdk-golang/ziti"
-	"github.com/openziti/ziti/v2/controller/env"
-	"github.com/openziti/ziti/v2/controller/permissions"
-	"github.com/openziti/ziti/v2/controller/response"
+	enrollment_client "github.com/hanzozt/edge-api/rest_client_api_server/operations/enrollment"
+	enrollment_management "github.com/hanzozt/edge-api/rest_management_api_server/operations/enrollment"
+	"github.com/hanzozt/edge-api/rest_model"
+	"github.com/hanzozt/sdk-golang/ziti"
+	"github.com/hanzozt/ziti/v2/controller/env"
+	"github.com/hanzozt/ziti/v2/controller/permissions"
+	"github.com/hanzozt/ziti/v2/controller/response"
 )
 
 func init() {

@@ -21,14 +21,14 @@ import (
 	"os"
 	"strings"
 
-	"github.com/openziti/ziti/v2/common/getziti"
-	"github.com/openziti/ziti/v2/ziti/constants"
+	"github.com/hanzozt/ziti/v2/common/getziti"
+	"github.com/hanzozt/ziti/v2/ziti/constants"
 
 	"github.com/fatih/color"
 
 	"github.com/blang/semver"
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/ziti/v2/common/version"
+	"github.com/hanzozt/ziti/v2/common/version"
 )
 
 func LogReleaseVersionCheck() {
@@ -36,7 +36,7 @@ func LogReleaseVersionCheck() {
 	if strings.ToLower(os.Getenv("ZITI_CHECK_VERSION")) == "true" {
 		logger.Debug("ZITI_CHECK_VERSION is true. starting version check")
 		developmentSemver, _ := semver.Parse("0.0.0")
-		latestGithubRelease, err := getziti.GetHighestVersionGitHubReleaseInfo(constants.OpenZitiOrg, constants.ZITI, false)
+		latestGithubRelease, err := getziti.GetHighestVersionGitHubReleaseInfo(constants.Hanzo ZTOrg, constants.ZITI, false)
 		if err != nil {
 			logger.Debugf("failed to find latest GitHub version with error: %s", err)
 			return // soft-fail version check if GitHub API is unavailable
@@ -61,8 +61,8 @@ func LogReleaseVersionCheck() {
 				`
 *********************************************************************************
 
-An updated version of OpenZiti (%s), is available to replace the running version (%s) from 
-https://github.com/openziti/%s/releases/latest/
+An updated version of Hanzo ZT (%s), is available to replace the running version (%s) from 
+https://github.com/hanzozt/%s/releases/latest/
 
 *********************************************************************************
 `,
@@ -71,13 +71,13 @@ https://github.com/openziti/%s/releases/latest/
 				constants.ZITI,
 			)
 			logger.Debugf(
-				"this v%s build of OpenZiti is superseded by v%s",
+				"this v%s build of Hanzo ZT is superseded by v%s",
 				currentBuildSemver,
 				latestGithubRelease,
 			)
 		} else if latestGithubRelease.SemVer.EQ(currentBuildSemver) {
 			logger.Debugf(
-				"this build of OpenZiti is the latest release v%s",
+				"this build of Hanzo ZT is the latest release v%s",
 				currentBuildSemver,
 			)
 		}

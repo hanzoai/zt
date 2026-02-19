@@ -23,7 +23,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/openziti/identity"
+	"github.com/hanzozt/identity"
 	"github.com/spf13/cobra"
 )
 

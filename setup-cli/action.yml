@@ -18,9 +18,9 @@ runs:
       run: |
         ver=${{ inputs.version }}
         if [[ ${{ inputs.version }} == "stable" ]]; then
-           ver=$(gh release view --repo openziti/ziti | awk '/^tag/{ print $2 }')
+           ver=$(gh release view --repo hanzozt/ziti | awk '/^tag/{ print $2 }')
         elif [[ ${{ inputs.version }} == "latest" ]]; then
-           ver=$(gh release list --limit 1 --repo openziti/ziti --json "tagName" --jq ".[0].tagName")
+           ver=$(gh release list --limit 1 --repo hanzozt/ziti --json "tagName" --jq ".[0].tagName")
         fi
         echo "using version = $ver"
         echo "ZITI_VERSION=$ver" >> $GITHUB_ENV
@@ -44,7 +44,7 @@ runs:
         echo "downloading ziti-${os}-${arch} ${ZITI_VERSION} tarball"
         mkdir -p '${{ runner.temp }}'
         cd '${{ runner.temp }}'
-        gh release download ${ZITI_VERSION} --repo openziti/ziti --pattern "ziti-${os}-${arch}-*" --output ziti.bundle
+        gh release download ${ZITI_VERSION} --repo hanzozt/ziti --pattern "ziti-${os}-${arch}-*" --output ziti.bundle
 
     - name: extract ziti CLI and add to PATH
       shell: bash

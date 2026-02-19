@@ -8,15 +8,15 @@ Ziti 0.14.13 includes the following:
 
 Ziti 0.14.12 includes the following:
 
-* Fix the logging prefix to be github.com/openziti
+* Fix the logging prefix to be github.com/hanzozt
 
 # Release 0.14.11
 
 Ziti 0.14.11 includes the following:
 
-* [Ziti-Tunnel - Bind terminators are only created during startup](https://github.com/openziti/sdk-golang/issues/56)
-* [Close on one side of connection doesn't propagate to other side](https://github.com/openziti/edge/issues/189)
-* [Simplify sequencer close logic](https://github.com/openziti/foundation/issues/81)
+* [Ziti-Tunnel - Bind terminators are only created during startup](https://github.com/hanzozt/sdk-golang/issues/56)
+* [Close on one side of connection doesn't propagate to other side](https://github.com/hanzozt/edge/issues/189)
+* [Simplify sequencer close logic](https://github.com/hanzozt/foundation/issues/81)
 * Misc Fixes
     * PEM decoding returns error when not able to decode
     * Ziti enrolment capabilities now supports `plain/text`, `application/x-pem-file`,
@@ -35,7 +35,7 @@ Ziti 0.14.10 includes the following:
 
 Ziti 0.14.9 includes the following:
 
-* [Move ziti edge controller commands to ziti edge](https://github.com/openziti/ziti/issues/108)
+* [Move ziti edge controller commands to ziti edge](https://github.com/hanzozt/ziti/issues/108)
     * Note: for now `ziti edge` and `ziti edge controller` will both have edge controller related
       commands. `ziti edge controller` is deprecated and will be removed in a future release. Please
       update your scripts.
@@ -50,8 +50,8 @@ Ziti 0.14.8 includes the following:
 
 Ziti 0.14.7 includes the following:
 
-* [Add CLI support for updating terminators](https://github.com/openziti/ziti/issues/106)
-* [Add CLI support for managing identity service config overrides](https://github.com/openziti/ziti/issues/105)
+* [Add CLI support for updating terminators](https://github.com/hanzozt/ziti/issues/106)
+* [Add CLI support for managing identity service config overrides](https://github.com/hanzozt/ziti/issues/105)
 
 NOTE: 0.14.6 was released with the same code as 0.14.5 due to CI re-running
 
@@ -64,8 +64,8 @@ Ziti 0.14.5 includes the following:
 ### Features
 
 * Ziti Edge API
-    * [CA Identity Name Format](https://github.com/openziti/edge/issues/147)
-* [Remove sourceType from metrics](https://github.com/openziti/foundation/issues/68)
+    * [CA Identity Name Format](https://github.com/hanzozt/edge/issues/147)
+* [Remove sourceType from metrics](https://github.com/hanzozt/foundation/issues/68)
 * Fix name of metric from `egress.tx.Msgrate` to `egress.tx.msgrate`
 
 ## Ziti Edge API
@@ -108,7 +108,7 @@ Ziti 0.14.4 includes the following:
 
 ### Misc
 
-* Migration to github.com/openziti
+* Migration to github.com/hanzozt
 
 # Release 0.14.3
 
@@ -118,7 +118,7 @@ Ziti 0.14.3 includes the following:
 
 ### Fixes
 
-* [orphaned enrollments/authenticators post identity PUT](https://github.com/openziti/edge/issues/158)
+* [orphaned enrollments/authenticators post identity PUT](https://github.com/hanzozt/edge/issues/158)
 
 ## Orphaned Enrollments/Authenticators
 
@@ -134,10 +134,10 @@ target identities, addresses the root cause, and adds regression tests.
 Ziti 0.14.2 includes the following:
 
 * CLI enhancements
-    * [can't create service policy with @ identity name](https://github.com/openziti/ziti/issues/93)
-    * [Add CLI commands to allow updating policies and role attributes](https://github.com/openziti/ziti/issues/94)
-    * [CLI: read config/config-type JSON from file](https://github.com/openziti/ziti/issues/90)
-* [Not found errors for assigned/related ids do not say which resource was not found](https://github.com/openziti/edge/issues/148)
+    * [can't create service policy with @ identity name](https://github.com/hanzozt/ziti/issues/93)
+    * [Add CLI commands to allow updating policies and role attributes](https://github.com/hanzozt/ziti/issues/94)
+    * [CLI: read config/config-type JSON from file](https://github.com/hanzozt/ziti/issues/90)
+* [Not found errors for assigned/related ids do not say which resource was not found](https://github.com/hanzozt/edge/issues/148)
 * Fixes to connection setup timing
 
 ## CLI Updates
@@ -187,11 +187,11 @@ Ziti 0.14.1 includes the following:
 
 ### Features
 
-* [Enable graceful shutdown of bound connections](https://github.com/openziti/edge/issues/149)
+* [Enable graceful shutdown of bound connections](https://github.com/hanzozt/edge/issues/149)
 
 ### Fixes
 
-* [Enrollments w/ 0 length bodies cause enrollment errors](https://github.com/openziti/edge/issues/150)
+* [Enrollments w/ 0 length bodies cause enrollment errors](https://github.com/hanzozt/edge/issues/150)
 * Fixed race condition in end-to-end encryption setup
 * Xt fixes
     * Fixed strategies missing session ended events
@@ -238,7 +238,7 @@ Ziti 0.14.0 includes the following:
 
 ### Fixes
 
-* [When using index scanner, wrong count is returned when using skip](https://github.com/openziti/foundation/issues/62)
+* [When using index scanner, wrong count is returned when using skip](https://github.com/hanzozt/foundation/issues/62)
 * fabric now includes migration to extract terminators from services
 * more errors which were returning 500 now return appropriate 404 or 400 field errors
 * terminators are now validated when routers connect, and invalid ones can be removed

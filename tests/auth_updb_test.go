@@ -24,7 +24,7 @@ import (
 	"testing"
 
 	"github.com/Jeffail/gabs"
-	"github.com/openziti/ziti/v2/controller/env"
+	"github.com/hanzozt/ziti/v2/controller/env"
 	"github.com/stretchr/testify/require"
 )
 

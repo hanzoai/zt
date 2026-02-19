@@ -32,27 +32,27 @@ ziti create config router edge --routerName myRouter --tunnelerMode tproxy --lan
 
 ## Component Updates and Bug Fixes
 
-* github.com/openziti/agent: [v1.0.4 -> v1.0.5](https://github.com/openziti/agent/compare/v1.0.4...v1.0.5)
-* github.com/openziti/channel/v2: [v2.0.9 -> v2.0.12](https://github.com/openziti/channel/compare/v2.0.9...v2.0.12)
-* github.com/openziti/edge: [v0.24.12 -> v0.24.36](https://github.com/openziti/edge/compare/v0.24.12...v0.24.36)
-    * [Issue #1217](https://github.com/openziti/edge/issues/1217) - Ziti Edge lists the edge router to be offline after recovering from an internet fluctuation
+* github.com/hanzozt/agent: [v1.0.4 -> v1.0.5](https://github.com/hanzozt/agent/compare/v1.0.4...v1.0.5)
+* github.com/hanzozt/channel/v2: [v2.0.9 -> v2.0.12](https://github.com/hanzozt/channel/compare/v2.0.9...v2.0.12)
+* github.com/hanzozt/edge: [v0.24.12 -> v0.24.36](https://github.com/hanzozt/edge/compare/v0.24.12...v0.24.36)
+    * [Issue #1217](https://github.com/hanzozt/edge/issues/1217) - Ziti Edge lists the edge router to be offline after recovering from an internet fluctuation
 
-* github.com/openziti/fabric: [v0.21.9 -> v0.21.17](https://github.com/openziti/fabric/compare/v0.21.9...v0.21.17)
-* github.com/openziti/foundation/v2: [v2.0.6 -> v2.0.7](https://github.com/openziti/foundation/compare/v2.0.6...v2.0.7)
-* github.com/openziti/identity: [v1.0.18 -> v1.0.20](https://github.com/openziti/identity/compare/v1.0.18...v1.0.20)
-* github.com/openziti/runzmd: v1.0.3 (new)
-* github.com/openziti/sdk-golang: [v0.16.135 -> v0.16.146](https://github.com/openziti/sdk-golang/compare/v0.16.135...v0.16.146)
-    * [Issue #328](https://github.com/openziti/sdk-golang/issues/328) - enrollment has no 'verbose' option for debugging
-    * [Issue #314](https://github.com/openziti/sdk-golang/issues/314) - Incorrect documentation for grpc-example
-    * [Issue #317](https://github.com/openziti/sdk-golang/issues/317) - No documentation for call example
-    * [Issue #311](https://github.com/openziti/sdk-golang/issues/311) - Chat Client and Server needs documentation
+* github.com/hanzozt/fabric: [v0.21.9 -> v0.21.17](https://github.com/hanzozt/fabric/compare/v0.21.9...v0.21.17)
+* github.com/hanzozt/foundation/v2: [v2.0.6 -> v2.0.7](https://github.com/hanzozt/foundation/compare/v2.0.6...v2.0.7)
+* github.com/hanzozt/identity: [v1.0.18 -> v1.0.20](https://github.com/hanzozt/identity/compare/v1.0.18...v1.0.20)
+* github.com/hanzozt/runzmd: v1.0.3 (new)
+* github.com/hanzozt/sdk-golang: [v0.16.135 -> v0.16.146](https://github.com/hanzozt/sdk-golang/compare/v0.16.135...v0.16.146)
+    * [Issue #328](https://github.com/hanzozt/sdk-golang/issues/328) - enrollment has no 'verbose' option for debugging
+    * [Issue #314](https://github.com/hanzozt/sdk-golang/issues/314) - Incorrect documentation for grpc-example
+    * [Issue #317](https://github.com/hanzozt/sdk-golang/issues/317) - No documentation for call example
+    * [Issue #311](https://github.com/hanzozt/sdk-golang/issues/311) - Chat Client and Server needs documentation
 
-* github.com/openziti/storage: [v0.1.25 -> v0.1.26](https://github.com/openziti/storage/compare/v0.1.25...v0.1.26)
-* github.com/openziti/transport/v2: [v2.0.36 -> v2.0.38](https://github.com/openziti/transport/compare/v2.0.36...v2.0.38)
-* github.com/openziti/metrics: [v1.1.4 -> v1.1.5](https://github.com/openziti/metrics/compare/v1.1.4...v1.1.5)
-* github.com/openziti/ziti: [v0.26.10 -> v0.26.11](https://github.com/openziti/ziti/compare/v0.26.10...v0.26.11)
-    * [Issue 868](https://github.com/openziti/ziti/issues/868): `ZITI_EDGE_ROUTER_IP_OVERRIDE` does not override the edge router advertise hostname
-    * [Issue 882](https://github.com/openziti/ziti/issues/882): `ZITI_EDGE_ROUTER_RAWNAME` not stored in quickstart .env file
+* github.com/hanzozt/storage: [v0.1.25 -> v0.1.26](https://github.com/hanzozt/storage/compare/v0.1.25...v0.1.26)
+* github.com/hanzozt/transport/v2: [v2.0.36 -> v2.0.38](https://github.com/hanzozt/transport/compare/v2.0.36...v2.0.38)
+* github.com/hanzozt/metrics: [v1.1.4 -> v1.1.5](https://github.com/hanzozt/metrics/compare/v1.1.4...v1.1.5)
+* github.com/hanzozt/ziti: [v0.26.10 -> v0.26.11](https://github.com/hanzozt/ziti/compare/v0.26.10...v0.26.11)
+    * [Issue 868](https://github.com/hanzozt/ziti/issues/868): `ZITI_EDGE_ROUTER_IP_OVERRIDE` does not override the edge router advertise hostname
+    * [Issue 882](https://github.com/hanzozt/ziti/issues/882): `ZITI_EDGE_ROUTER_RAWNAME` not stored in quickstart .env file
 
 # Release 0.26.10
 
@@ -61,19 +61,19 @@ This release has a single fix for a panic in edge routers with embedded tunneler
 The only other changes are build updates.
 
 ## Ziti Component Updates and Bug Fixes
-* github.com/openziti/agent: [v1.0.3 -> v1.0.4](https://github.com/openziti/agent/compare/v1.0.3...v1.0.4)
-* github.com/openziti/channel/v2: [v2.0.5 -> v2.0.9](https://github.com/openziti/channel/compare/v2.0.5...v2.0.9)
-* github.com/openziti/edge: [v0.24.7 -> v0.24.12](https://github.com/openziti/edge/compare/v0.24.7...v0.24.12)
-    * [Issue #1209](https://github.com/openziti/edge/issues/1209) - edge router with embedded tunneler panics when intercepting services 
+* github.com/hanzozt/agent: [v1.0.3 -> v1.0.4](https://github.com/hanzozt/agent/compare/v1.0.3...v1.0.4)
+* github.com/hanzozt/channel/v2: [v2.0.5 -> v2.0.9](https://github.com/hanzozt/channel/compare/v2.0.5...v2.0.9)
+* github.com/hanzozt/edge: [v0.24.7 -> v0.24.12](https://github.com/hanzozt/edge/compare/v0.24.7...v0.24.12)
+    * [Issue #1209](https://github.com/hanzozt/edge/issues/1209) - edge router with embedded tunneler panics when intercepting services 
 
-* github.com/openziti/fabric: [v0.21.3 -> v0.21.9](https://github.com/openziti/fabric/compare/v0.21.3...v0.21.9)
-* github.com/openziti/foundation/v2: [v2.0.5 -> v2.0.6](https://github.com/openziti/foundation/compare/v2.0.5...v2.0.6)
-* github.com/openziti/identity: [v1.0.16 -> v1.0.18](https://github.com/openziti/identity/compare/v1.0.16...v1.0.18)
-* github.com/openziti/sdk-golang: [v0.16.129 -> v0.16.135](https://github.com/openziti/sdk-golang/compare/v0.16.129...v0.16.135)
-* github.com/openziti/storage: [v0.1.23 -> v0.1.25](https://github.com/openziti/storage/compare/v0.1.23...v0.1.25)
-* github.com/openziti/transport/v2: [v2.0.33 -> v2.0.36](https://github.com/openziti/transport/compare/v2.0.33...v2.0.36)
-* github.com/openziti/metrics: [v1.1.2 -> v1.1.4](https://github.com/openziti/metrics/compare/v1.1.2...v1.1.4)
-* github.com/openziti/ziti: [v0.26.9 -> v0.26.10](https://github.com/openziti/ziti/compare/v0.26.9...v0.26.10)
+* github.com/hanzozt/fabric: [v0.21.3 -> v0.21.9](https://github.com/hanzozt/fabric/compare/v0.21.3...v0.21.9)
+* github.com/hanzozt/foundation/v2: [v2.0.5 -> v2.0.6](https://github.com/hanzozt/foundation/compare/v2.0.5...v2.0.6)
+* github.com/hanzozt/identity: [v1.0.16 -> v1.0.18](https://github.com/hanzozt/identity/compare/v1.0.16...v1.0.18)
+* github.com/hanzozt/sdk-golang: [v0.16.129 -> v0.16.135](https://github.com/hanzozt/sdk-golang/compare/v0.16.129...v0.16.135)
+* github.com/hanzozt/storage: [v0.1.23 -> v0.1.25](https://github.com/hanzozt/storage/compare/v0.1.23...v0.1.25)
+* github.com/hanzozt/transport/v2: [v2.0.33 -> v2.0.36](https://github.com/hanzozt/transport/compare/v2.0.33...v2.0.36)
+* github.com/hanzozt/metrics: [v1.1.2 -> v1.1.4](https://github.com/hanzozt/metrics/compare/v1.1.2...v1.1.4)
+* github.com/hanzozt/ziti: [v0.26.9 -> v0.26.10](https://github.com/hanzozt/ziti/compare/v0.26.9...v0.26.10)
 
 # Release 0.26.9
 
@@ -139,26 +139,26 @@ ziti create config controller --routerEnrollmentDuration 1h
 
 ### Ziti Component Updates and Bug Fixes
 
-* github.com/openziti/channel/v2: [v1.0.3 -> v2.0.4](https://github.com/openziti/channel/compare/v1.0.3...v2.0.4)
-* github.com/openziti/edge: [v0.23.0 -> v0.24.3](https://github.com/openziti/edge/compare/v0.23.0...v0.24.3)
-    * [Issue #1189](https://github.com/openziti/edge/issues/1189) - router embedded tunneler can create redundant api session if initial requests come in a flood
-    * [Issue #1186](https://github.com/openziti/edge/issues/1186) - Panic when creating sdk hosted terminator
+* github.com/hanzozt/channel/v2: [v1.0.3 -> v2.0.4](https://github.com/hanzozt/channel/compare/v1.0.3...v2.0.4)
+* github.com/hanzozt/edge: [v0.23.0 -> v0.24.3](https://github.com/hanzozt/edge/compare/v0.23.0...v0.24.3)
+    * [Issue #1189](https://github.com/hanzozt/edge/issues/1189) - router embedded tunneler can create redundant api session if initial requests come in a flood
+    * [Issue #1186](https://github.com/hanzozt/edge/issues/1186) - Panic when creating sdk hosted terminator
 
-* github.com/openziti/fabric: [v0.20.0 -> v0.21.2](https://github.com/openziti/fabric/compare/v0.20.0...v0.21.2)
-    * [Issue #469](https://github.com/openziti/fabric/issues/469) - Initial support for multiple control channels in routers
+* github.com/hanzozt/fabric: [v0.20.0 -> v0.21.2](https://github.com/hanzozt/fabric/compare/v0.20.0...v0.21.2)
+    * [Issue #469](https://github.com/hanzozt/fabric/issues/469) - Initial support for multiple control channels in routers
 
-* github.com/openziti/foundation/v2: [v2.0.4 -> v2.0.5](https://github.com/openziti/foundation/compare/v2.0.4...v2.0.5)
-* github.com/openziti/identity: [v1.0.12 -> v1.0.16](https://github.com/openziti/identity/compare/v1.0.12...v1.0.16)
-* github.com/openziti/sdk-golang: [v0.16.121 -> v0.16.128](https://github.com/openziti/sdk-golang/compare/v0.16.121...v0.16.128)
-* github.com/openziti/storage: [v0.1.21 -> v0.1.23](https://github.com/openziti/storage/compare/v0.1.21...v0.1.23)
-    * [Issue #23](https://github.com/openziti/storage/issues/23) - fix panic: IterateLink on ref counted link collection should never return a nil cursor 
+* github.com/hanzozt/foundation/v2: [v2.0.4 -> v2.0.5](https://github.com/hanzozt/foundation/compare/v2.0.4...v2.0.5)
+* github.com/hanzozt/identity: [v1.0.12 -> v1.0.16](https://github.com/hanzozt/identity/compare/v1.0.12...v1.0.16)
+* github.com/hanzozt/sdk-golang: [v0.16.121 -> v0.16.128](https://github.com/hanzozt/sdk-golang/compare/v0.16.121...v0.16.128)
+* github.com/hanzozt/storage: [v0.1.21 -> v0.1.23](https://github.com/hanzozt/storage/compare/v0.1.21...v0.1.23)
+    * [Issue #23](https://github.com/hanzozt/storage/issues/23) - fix panic: IterateLink on ref counted link collection should never return a nil cursor 
 
-* github.com/openziti/transport/v2: [v2.0.29 -> v2.0.33](https://github.com/openziti/transport/compare/v2.0.29...v2.0.33)
-* github.com/openziti/jwks: [v1.0.1 -> v1.0.2](https://github.com/openziti/jwks/compare/v1.0.1...v1.0.2)
-* github.com/openziti/metrics: [v1.1.0 -> v1.1.2](https://github.com/openziti/metrics/compare/v1.1.0...v1.1.2)
-* github.com/openziti/x509-claims: [v1.0.2 -> v1.0.3](https://github.com/openziti/x509-claims/compare/v1.0.2...v1.0.3)
-* github.com/openziti/ziti: [0.26.8 -> 0.26.9](https://github.com/openziti/ziti/compare/0.26.8...0.26.9)
-    * [Issue #845](https://github.com/openziti/ziti/issues/845) - Setting ZITI_EDGE_ROUTER_IP_OVERRIDE now adds the IP to the CSR SANs of the router config
+* github.com/hanzozt/transport/v2: [v2.0.29 -> v2.0.33](https://github.com/hanzozt/transport/compare/v2.0.29...v2.0.33)
+* github.com/hanzozt/jwks: [v1.0.1 -> v1.0.2](https://github.com/hanzozt/jwks/compare/v1.0.1...v1.0.2)
+* github.com/hanzozt/metrics: [v1.1.0 -> v1.1.2](https://github.com/hanzozt/metrics/compare/v1.1.0...v1.1.2)
+* github.com/hanzozt/x509-claims: [v1.0.2 -> v1.0.3](https://github.com/hanzozt/x509-claims/compare/v1.0.2...v1.0.3)
+* github.com/hanzozt/ziti: [0.26.8 -> 0.26.9](https://github.com/hanzozt/ziti/compare/0.26.8...0.26.9)
+    * [Issue #845](https://github.com/hanzozt/ziti/issues/845) - Setting ZITI_EDGE_ROUTER_IP_OVERRIDE now adds the IP to the CSR SANs of the router config
 
 # Release 0.26.8
 
@@ -278,7 +278,7 @@ In the example above the event has tags for `clientId`, `hostId` and `serviceId`
 ## Edge
 ### Bug Fixes
 
-* [Issue 1176](https://github.com/openziti/edge/issues/1176): Patching CA `externalIdClaim` Does Not Work
+* [Issue 1176](https://github.com/hanzozt/edge/issues/1176): Patching CA `externalIdClaim` Does Not Work
 
 ## Ziti CLI
 
@@ -361,28 +361,28 @@ Example:
 
 ## Ziti Library Updates
 
-* github.com/openziti/channel: [v1.0.2 -> v1.0.3](https://github.com/openziti/channel/compare/v1.0.2...v1.0.3)
-* github.com/openziti/edge: [v0.22.91 -> v0.23.0](https://github.com/openziti/edge/compare/v0.22.91...v0.23.0)
-    * [Issue #1173](https://github.com/openziti/edge/issues/1173) - Add session_type and service_id to edge session events
-    * [Issue #1176](https://github.com/openziti/edge/issues/1176) - Patching CA ExternalIdClaim Does Not Work
-    * [Issue #1174](https://github.com/openziti/edge/issues/1174) - Fix patching tags on services and transit routers
-    * [Issue #1154](https://github.com/openziti/edge/issues/1154) - Additional filters for service list endpoint
+* github.com/hanzozt/channel: [v1.0.2 -> v1.0.3](https://github.com/hanzozt/channel/compare/v1.0.2...v1.0.3)
+* github.com/hanzozt/edge: [v0.22.91 -> v0.23.0](https://github.com/hanzozt/edge/compare/v0.22.91...v0.23.0)
+    * [Issue #1173](https://github.com/hanzozt/edge/issues/1173) - Add session_type and service_id to edge session events
+    * [Issue #1176](https://github.com/hanzozt/edge/issues/1176) - Patching CA ExternalIdClaim Does Not Work
+    * [Issue #1174](https://github.com/hanzozt/edge/issues/1174) - Fix patching tags on services and transit routers
+    * [Issue #1154](https://github.com/hanzozt/edge/issues/1154) - Additional filters for service list endpoint
 
-* github.com/openziti/fabric: [v0.19.67 -> v0.20.0](https://github.com/openziti/fabric/compare/v0.19.67...v0.20.0)
-    * [Issue #496](https://github.com/openziti/fabric/issues/496) - Reduce utiliztion messages by combining directionality
-    * [Issue #499](https://github.com/openziti/fabric/issues/499) - Fix tag patching tags on service and router
+* github.com/hanzozt/fabric: [v0.19.67 -> v0.20.0](https://github.com/hanzozt/fabric/compare/v0.19.67...v0.20.0)
+    * [Issue #496](https://github.com/hanzozt/fabric/issues/496) - Reduce utiliztion messages by combining directionality
+    * [Issue #499](https://github.com/hanzozt/fabric/issues/499) - Fix tag patching tags on service and router
 
-* github.com/openziti/identity: [v1.0.11 -> v1.0.12](https://github.com/openziti/identity/compare/v1.0.11...v1.0.12)
-* github.com/openziti/metrics: [v1.0.7 -> v1.1.0](https://github.com/openziti/metrics/compare/v1.0.7...v1.1.0)
-    * [Issue #15](https://github.com/openziti/metrics/issues/15) - Support tags and multiple values on usage
+* github.com/hanzozt/identity: [v1.0.11 -> v1.0.12](https://github.com/hanzozt/identity/compare/v1.0.11...v1.0.12)
+* github.com/hanzozt/metrics: [v1.0.7 -> v1.1.0](https://github.com/hanzozt/metrics/compare/v1.0.7...v1.1.0)
+    * [Issue #15](https://github.com/hanzozt/metrics/issues/15) - Support tags and multiple values on usage
 
-* github.com/openziti/sdk-golang: [v0.16.119 -> v0.16.121](https://github.com/openziti/sdk-golang/compare/v0.16.119...v0.16.121)
-* github.com/openziti/storage: [v0.1.20 -> v0.1.21](https://github.com/openziti/storage/compare/v0.1.20...v0.1.21)
-    * [Issue #21](https://github.com/openziti/storage/issues/21) - Support querying tags by default
+* github.com/hanzozt/sdk-golang: [v0.16.119 -> v0.16.121](https://github.com/hanzozt/sdk-golang/compare/v0.16.119...v0.16.121)
+* github.com/hanzozt/storage: [v0.1.20 -> v0.1.21](https://github.com/hanzozt/storage/compare/v0.1.20...v0.1.21)
+    * [Issue #21](https://github.com/hanzozt/storage/issues/21) - Support querying tags by default
 
-* github.com/openziti/transport/v2: [v2.0.28 -> v2.0.29](https://github.com/openziti/transport/compare/v2.0.28...v2.0.29)
-* github.com/openziti/ziti: [0.26.7 -> 0.26.8](https://github.com/openziti/ziti/compare/0.26.7...0.26.8)
-    * [Issue #835](https://github.com/openziti/ziti/issues/835) - Ensure model entity tags can be updated via CLI where appropriate
+* github.com/hanzozt/transport/v2: [v2.0.28 -> v2.0.29](https://github.com/hanzozt/transport/compare/v2.0.28...v2.0.29)
+* github.com/hanzozt/ziti: [0.26.7 -> 0.26.8](https://github.com/hanzozt/ziti/compare/0.26.7...0.26.8)
+    * [Issue #835](https://github.com/hanzozt/ziti/issues/835) - Ensure model entity tags can be updated via CLI where appropriate
 
 # Release 0.26.7
 
@@ -450,7 +450,7 @@ Example:
 ## Ziti CLI
 ### Bug Fixes
 
-* [Issue 823](https://github.com/openziti/ziti/issues/843): Fixed quickstart bug with architecture detection not supporting `aarch64`
+* [Issue 823](https://github.com/hanzozt/ziti/issues/843): Fixed quickstart bug with architecture detection not supporting `aarch64`
 
 ## Identity
 
@@ -462,30 +462,30 @@ Identity is a low-level library within Ziti and affects all Ziti components.
 
 ## Ziti Library Updates
 
-* github.com/openziti/agent: [v1.0.1 -> v1.0.3](https://github.com/openziti/agent/compare/v1.0.1...v1.0.3)
-* github.com/openziti/channel: [v0.18.58 -> v1.0.2](https://github.com/openziti/channel/compare/v0.18.58...v1.0.2)
-    * [Issue #68](https://github.com/openziti/channel/issues/68) - Allow send with no wait, if queue is full
-    * [Issue #69](https://github.com/openziti/channel/issues/69) - Respect OutQueueSize option
+* github.com/hanzozt/agent: [v1.0.1 -> v1.0.3](https://github.com/hanzozt/agent/compare/v1.0.1...v1.0.3)
+* github.com/hanzozt/channel: [v0.18.58 -> v1.0.2](https://github.com/hanzozt/channel/compare/v0.18.58...v1.0.2)
+    * [Issue #68](https://github.com/hanzozt/channel/issues/68) - Allow send with no wait, if queue is full
+    * [Issue #69](https://github.com/hanzozt/channel/issues/69) - Respect OutQueueSize option
 
-* github.com/openziti/edge: [v0.22.54 -> v0.22.91](https://github.com/openziti/edge/compare/v0.22.54...v0.22.91)
-    * [Issue #1167](https://github.com/openziti/edge/issues/1167) - Send remote addr of dialed connection for xgress_edge_tunnel and xgress_edge_transport
-    * [Issue #1169](https://github.com/openziti/edge/issues/1169) - Update of service policy with patch fails if service policy type is not provided
-    * [Issue #1163](https://github.com/openziti/edge/issues/1163) - Support flushing dns cache with resolvectl
-    * [Issue #1164](https://github.com/openziti/edge/issues/1164) - Fix panic in xgress conn LogContext()
+* github.com/hanzozt/edge: [v0.22.54 -> v0.22.91](https://github.com/hanzozt/edge/compare/v0.22.54...v0.22.91)
+    * [Issue #1167](https://github.com/hanzozt/edge/issues/1167) - Send remote addr of dialed connection for xgress_edge_tunnel and xgress_edge_transport
+    * [Issue #1169](https://github.com/hanzozt/edge/issues/1169) - Update of service policy with patch fails if service policy type is not provided
+    * [Issue #1163](https://github.com/hanzozt/edge/issues/1163) - Support flushing dns cache with resolvectl
+    * [Issue #1164](https://github.com/hanzozt/edge/issues/1164) - Fix panic in xgress conn LogContext()
 
-* github.com/openziti/fabric: [v0.19.34 -> v0.19.67](https://github.com/openziti/fabric/compare/v0.19.34...v0.19.67)
-    * [Issue #484](https://github.com/openziti/fabric/issues/484) - Don't let slow/stalled links block other links
-    * [Issue #459](https://github.com/openziti/fabric/issues/459) - Add destination IP to fabric.circuits created message
-    * [Issue #492](https://github.com/openziti/fabric/issues/492) - Add HostId to terminator events
-    * [Issue #485](https://github.com/openziti/fabric/issues/485) - Metrics events timestamp format changed 
+* github.com/hanzozt/fabric: [v0.19.34 -> v0.19.67](https://github.com/hanzozt/fabric/compare/v0.19.34...v0.19.67)
+    * [Issue #484](https://github.com/hanzozt/fabric/issues/484) - Don't let slow/stalled links block other links
+    * [Issue #459](https://github.com/hanzozt/fabric/issues/459) - Add destination IP to fabric.circuits created message
+    * [Issue #492](https://github.com/hanzozt/fabric/issues/492) - Add HostId to terminator events
+    * [Issue #485](https://github.com/hanzozt/fabric/issues/485) - Metrics events timestamp format changed 
 
-* github.com/openziti/foundation/v2: [v2.0.2 -> v2.0.4](https://github.com/openziti/foundation/compare/v2.0.2...v2.0.4)
-* github.com/openziti/identity: [v1.0.5 -> v1.0.11](https://github.com/openziti/identity/compare/v1.0.5...v1.0.11)
-* github.com/openziti/metrics: [v1.0.3 -> v1.0.7](https://github.com/openziti/metrics/compare/v1.0.3...v1.0.7)
-* github.com/openziti/sdk-golang: [v0.16.104 -> v0.16.119](https://github.com/openziti/sdk-golang/compare/v0.16.104...v0.16.119)
-* github.com/openziti/storage: [v0.1.16 -> v0.1.20](https://github.com/openziti/storage/compare/v0.1.16...v0.1.20)
-* github.com/openziti/transport/v2: [v2.0.20 -> v2.0.28](https://github.com/openziti/transport/compare/v2.0.20...v2.0.28)
-* github.com/openziti/ziti: [0.26.5 -> 0.26.6](https://github.com/openziti/ziti/compare/0.26.5...0.26.6)
+* github.com/hanzozt/foundation/v2: [v2.0.2 -> v2.0.4](https://github.com/hanzozt/foundation/compare/v2.0.2...v2.0.4)
+* github.com/hanzozt/identity: [v1.0.5 -> v1.0.11](https://github.com/hanzozt/identity/compare/v1.0.5...v1.0.11)
+* github.com/hanzozt/metrics: [v1.0.3 -> v1.0.7](https://github.com/hanzozt/metrics/compare/v1.0.3...v1.0.7)
+* github.com/hanzozt/sdk-golang: [v0.16.104 -> v0.16.119](https://github.com/hanzozt/sdk-golang/compare/v0.16.104...v0.16.119)
+* github.com/hanzozt/storage: [v0.1.16 -> v0.1.20](https://github.com/hanzozt/storage/compare/v0.1.16...v0.1.20)
+* github.com/hanzozt/transport/v2: [v2.0.20 -> v2.0.28](https://github.com/hanzozt/transport/compare/v2.0.20...v2.0.28)
+* github.com/hanzozt/ziti: [0.26.5 -> 0.26.6](https://github.com/hanzozt/ziti/compare/0.26.5...0.26.6)
 
 # Release 0.26.5
 
@@ -505,7 +505,7 @@ This changes the oldest supported operating system versions for ziti-controller 
 listed above, due to dependencies on system shared libraries that may not be available on older operating 
 system versions.
 
-If this change negatively impacts you, please let us on [Discourse](https://openziti.discourse.group).
+If this change negatively impacts you, please let us on [Discourse](https://hanzozt.discourse.group).
 
 # Release 0.26.4
 
@@ -523,7 +523,7 @@ If this change negatively impacts you, please let us on [Discourse](https://open
 ## Fabric
 ### Bug Fixes
 
-* [Issue 463](https://github.com/openziti/fabric/issues/463): fix for panic when dial service with instanceId and service has terminators but non for requested instanceId
+* [Issue 463](https://github.com/hanzozt/fabric/issues/463): fix for panic when dial service with instanceId and service has terminators but non for requested instanceId
 
 # Release 0.26.3
 
@@ -716,8 +716,8 @@ identitied.
 
 ### Bug Fixes
 
-* [Circuits on single router which is deleted are ophaned](https://github.com/openziti/fabric/issues/452)
-* [API Session Certs not updated on ERs](https://github.com/openziti/edge/issues/1096)
+* [Circuits on single router which is deleted are ophaned](https://github.com/hanzozt/fabric/issues/452)
+* [API Session Certs not updated on ERs](https://github.com/hanzozt/edge/issues/1096)
 
 # Release 0.26.2
 
@@ -741,7 +741,7 @@ identitied.
 The binding `ws` and `wss` in the transport library now use identity for server certificates. Prior to this release
 `ws` and `wss` would load the `server_cert` and `key` field from files only. Both now support an optional field named
 `identity`. If not specified, the root `identity` field will be used. If specified it will be used for the specified
-`ws` or `wss` binding. Since this field is processed by the [identity library](https://github.com/openziti/identity)
+`ws` or `wss` binding. Since this field is processed by the [identity library](https://github.com/hanzozt/identity)
 it supports all the private key and certificate sources that the identity framework supports (file, pem, hsm, etc.).
 Additionally it also enables SNI support for `ws` and `wss` listeners.
 
@@ -792,7 +792,7 @@ transport:
 ## Identity
 ### Alternate Server Certificate Support
 
-The [identity library](https://github.com/openziti/identity) has been updated to support a new field: `alt_server_certs`
+The [identity library](https://github.com/hanzozt/identity) has been updated to support a new field: `alt_server_certs`
 . This field is an array of objects with `server_cert` and `server_key` fields. `alt_server_certs` is not touched by
 higher level Ziti automations to renew certificates and is intended for manual or externally automated use. It allows
 additional server certificates to be used for the controller and routers with separate private keys. It is useful in
@@ -872,11 +872,11 @@ affect SNI support for all REST APIs.
 
 ## Edge
 ### Bug Fixes
-* [Fix panic on remote resolve connections](https://github.com/openziti/edge/pull/1088)
+* [Fix panic on remote resolve connections](https://github.com/hanzozt/edge/pull/1088)
 
 ## Fabric
 ### Bug Fixes
-* [Logging erroneously indicates conflicting conditions returned from route attempt](https://github.com/openziti/fabric/issues/446)
+* [Logging erroneously indicates conflicting conditions returned from route attempt](https://github.com/hanzozt/fabric/issues/446)
 
 # Release 0.26.0
 
@@ -903,7 +903,7 @@ affect SNI support for all REST APIs.
 - SDK Golang
   - N/A
 - Identity
-  - All OpenZiti implementations now support multiple certificate chains in the `server_cert` field to enable SNI scenarios
+  - All Hanzo ZT implementations now support multiple certificate chains in the `server_cert` field to enable SNI scenarios
 
 ## Fabric
 ### Terminator fields name changes

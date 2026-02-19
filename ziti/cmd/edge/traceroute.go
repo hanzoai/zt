@@ -6,9 +6,9 @@ import (
 	"math"
 	"time"
 
-	"github.com/openziti/sdk-golang/ziti"
-	"github.com/openziti/ziti/v2/ziti/cmd/api"
-	"github.com/openziti/ziti/v2/ziti/cmd/common"
+	"github.com/hanzozt/sdk-golang/ziti"
+	"github.com/hanzozt/ziti/v2/ziti/cmd/api"
+	"github.com/hanzozt/ziti/v2/ziti/cmd/common"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"

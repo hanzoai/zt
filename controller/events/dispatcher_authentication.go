@@ -20,8 +20,8 @@ import (
 	"fmt"
 	"reflect"
 
-	"github.com/openziti/foundation/v2/stringz"
-	"github.com/openziti/ziti/v2/controller/event"
+	"github.com/hanzozt/foundation/v2/stringz"
+	"github.com/hanzozt/ziti/v2/controller/event"
 	"github.com/pkg/errors"
 )
 

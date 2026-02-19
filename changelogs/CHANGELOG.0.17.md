@@ -5,13 +5,13 @@
 * Builds have been moved from travis.org to Github Actions
 * IDs generated for entities in the Edge no longer use underscores and instead use periods to avoid
   issues when used as a common name in CSRs
-* [edge#424](https://github.com/openziti/edge/issues/424) Authenticated, non-admin, clients can
+* [edge#424](https://github.com/hanzozt/edge/issues/424) Authenticated, non-admin, clients can
   query service terminators
-* [sdk-golang#112](https://github.com/openziti/sdk-golang/issues/112) Process checks for Windows are
+* [sdk-golang#112](https://github.com/hanzozt/sdk-golang/issues/112) Process checks for Windows are
   case-insensitive
 * The CLI agent now runs over unix sockets and is enabled by default. See doc/ops-agent.md for
   details in the ziti repository.
-* [ziti#245](https://github.com/openziti/ziti/issues/245) Make timeout used by CLI's internal REST
+* [ziti#245](https://github.com/hanzozt/ziti/issues/245) Make timeout used by CLI's internal REST
   client configurable via cmd line arg
 
   All `ziti edge controller` subcommands now support the `--timeout=n` flag which controls the
@@ -41,15 +41,15 @@
 
 ## What's New
 
-* [edge/#392](https://github.com/openziti/edge/issues/392) Pass AppData message headers
-* [edge/#394](https://github.com/openziti/edge/issues/394) Posture Checks evaluate to false for
+* [edge/#392](https://github.com/hanzozt/edge/issues/392) Pass AppData message headers
+* [edge/#394](https://github.com/hanzozt/edge/issues/394) Posture Checks evaluate to false for
   existing sessions that lose all checks
-* [edge/#396](https://github.com/openziti/edge/issues/396) Process checks can incorrectly pass
-* [edge/#403](https://github.com/openziti/edge/issues/403) Support multiple executable signers
+* [edge/#396](https://github.com/hanzozt/edge/issues/396) Process checks can incorrectly pass
+* [edge/#403](https://github.com/hanzozt/edge/issues/403) Support multiple executable signers
   signatures per process
-* [edge/#401](https://github.com/openziti/edge/issues/401) Improve OS checks to support X.Y.Z semver
+* [edge/#401](https://github.com/hanzozt/edge/issues/401) Improve OS checks to support X.Y.Z semver
   comparisons
-* [edge/#406](https://github.com/openziti/edge/issues/406) Adds `WindowsServer` in addition
+* [edge/#406](https://github.com/hanzozt/edge/issues/406) Adds `WindowsServer` in addition
   to `Windows` for server vs desktop os checks
 
 ### Improve OS checks to support X.Y.Z semver comparisons
@@ -116,7 +116,7 @@ ziti edge create posture-check os $postureCheckOsName -o "windows:>=10.0.19041" 
 
 * Posture Check CLI Commands
 * Posture Check Enforcement
-* [edge/#382](https://github.com/openziti/edge/issues/382) Add configuration types that support
+* [edge/#382](https://github.com/hanzozt/edge/issues/382) Add configuration types that support
   VoIP, SCTP use cases
 
 ## Posture Check CLI Commands
@@ -165,7 +165,7 @@ addresses.
 
 ## What's New
 
-* [TCP half-close](#tcp-half-close-support-in-ziti-tunnel) [edge#368 Implement half-close support](https://github.com/openziti/edge/issues/368)
+* [TCP half-close](#tcp-half-close-support-in-ziti-tunnel) [edge#368 Implement half-close support](https://github.com/hanzozt/edge/issues/368)
 
 ### TCP half close support in ziti tunnel
 

@@ -19,19 +19,19 @@ package handler_ctrl
 import (
 	"time"
 
-	"github.com/openziti/ziti/v2/common/pb/ctrl_pb"
-	"github.com/openziti/ziti/v2/controller/model"
+	"github.com/hanzozt/ziti/v2/common/pb/ctrl_pb"
+	"github.com/hanzozt/ziti/v2/controller/model"
 	"github.com/sirupsen/logrus"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/channel/v4"
-	"github.com/openziti/channel/v4/latency"
-	"github.com/openziti/foundation/v2/concurrenz"
-	"github.com/openziti/metrics"
-	"github.com/openziti/ziti/v2/common/trace"
-	"github.com/openziti/ziti/v2/controller/network"
-	"github.com/openziti/ziti/v2/controller/xctrl"
-	metrics2 "github.com/openziti/ziti/v2/router/metrics"
+	"github.com/hanzozt/channel/v4"
+	"github.com/hanzozt/channel/v4/latency"
+	"github.com/hanzozt/foundation/v2/concurrenz"
+	"github.com/hanzozt/metrics"
+	"github.com/hanzozt/ziti/v2/common/trace"
+	"github.com/hanzozt/ziti/v2/controller/network"
+	"github.com/hanzozt/ziti/v2/controller/xctrl"
+	metrics2 "github.com/hanzozt/ziti/v2/router/metrics"
 )
 
 type bindHandler struct {

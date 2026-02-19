@@ -19,9 +19,9 @@ package metrics
 import (
 	"time"
 
-	"github.com/openziti/metrics"
-	"github.com/openziti/sdk-golang/xgress"
-	"github.com/openziti/ziti/v2/router/env"
+	"github.com/hanzozt/metrics"
+	"github.com/hanzozt/sdk-golang/xgress"
+	"github.com/hanzozt/ziti/v2/router/env"
 )
 
 func NewXgressMetrics(registry metrics.UsageRegistry) *XgressMetrics {

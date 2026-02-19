@@ -23,9 +23,9 @@ import (
 	"strings"
 	"time"
 
-	edge "github.com/openziti/ziti/v2/controller/config"
-	"github.com/openziti/ziti/v2/router/xgress_edge_tunnel"
-	"github.com/openziti/ziti/v2/ziti/constants"
+	edge "github.com/hanzozt/ziti/v2/controller/config"
+	"github.com/hanzozt/ziti/v2/router/xgress_edge_tunnel"
+	"github.com/hanzozt/ziti/v2/ziti/constants"
 	"github.com/pkg/errors"
 )
 

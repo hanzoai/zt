@@ -3,19 +3,19 @@ package getziti
 import (
 	"fmt"
 
-	c "github.com/openziti/ziti/v2/ziti/constants"
+	c "github.com/hanzozt/ziti/v2/ziti/constants"
 )
 
 func InstallZiti(targetVersion, targetOS, targetArch, binDir string, verbose bool) error {
 	fmt.Println("Attempting to install '" + c.ZITI + "' version: " + targetVersion)
 	return FindVersionAndInstallGitHubRelease(
-		c.OpenZitiOrg, c.ZITI, c.ZITI, targetOS, targetArch, binDir, targetVersion, verbose)
+		c.Hanzo ZTOrg, c.ZITI, c.ZITI, targetOS, targetArch, binDir, targetVersion, verbose)
 }
 
 func InstallZrok(targetVersion, targetOS, targetArch, binDir string, verbose bool) error {
 	fmt.Println("Attempting to install '" + c.ZROK + "' version: " + targetVersion)
 	return FindVersionAndInstallGitHubRelease(
-		c.OpenZitiOrg, c.ZROK, c.ZROK, targetOS, targetArch, binDir, targetVersion, verbose)
+		c.Hanzo ZTOrg, c.ZROK, c.ZROK, targetOS, targetArch, binDir, targetVersion, verbose)
 }
 
 func InstallCaddy(targetVersion, targetOS, targetArch, binDir string, verbose bool) error {

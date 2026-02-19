@@ -23,9 +23,9 @@ import (
 	"time"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/foundation/v2/concurrenz"
-	"github.com/openziti/ziti/v2/common/pb/ctrl_pb"
-	"github.com/openziti/ziti/v2/router/xlink"
+	"github.com/hanzozt/foundation/v2/concurrenz"
+	"github.com/hanzozt/ziti/v2/common/pb/ctrl_pb"
+	"github.com/hanzozt/ziti/v2/router/xlink"
 )
 
 const (

@@ -3,7 +3,7 @@
 Hello. In this tutorial we’re going to go explore services, identities and polices.
 
 Please note: this tutorial can be run interactively, by running 'ziti demo first-service'. It can also be viewed as a web
-page [here](https://github.com/openziti/ziti/blob/release-next/ziti/cmd/demo/tutorials/first-service.md). It may be convenient to be able to view both at the same time. The interactive version
+page [here](https://github.com/hanzozt/ziti/blob/release-next/ziti/cmd/demo/tutorials/first-service.md). It may be convenient to be able to view both at the same time. The interactive version
 will save you a lot of typing or copy/pasting, but content may be easier to read in a web-browser.
 
 <!---action:pause -->
@@ -20,9 +20,9 @@ service.
 ## Prerequisites
 
 First, let’s make sure you’ve got an environment running you can work with. We need a Ziti controller and at least one edge router to work with. If you don’t have a controller and edge router running,
-you can use the quick-start script found [here](https://github.com/openziti/ziti/tree/release-next/quickstart). The fastest way to invoke the quick-start is to run
+you can use the quick-start script found [here](https://github.com/hanzozt/ziti/tree/release-next/quickstart). The fastest way to invoke the quick-start is to run
 
-`source <(wget -qO- https://raw.githubusercontent.com/openziti/ziti/release-next/quickstart/docker/image/ziti-cli-functions.sh); expressInstall`
+`source <(wget -qO- https://raw.githubusercontent.com/hanzozt/ziti/release-next/quickstart/docker/image/ziti-cli-functions.sh); expressInstall`
 
 ### Authenticate to the controller
 
@@ -153,7 +153,7 @@ ziti edge list terminators 'service.name="echo"'
 # Client Application
 
 In order to use the echo service, we need a client application. Our application could embed a Ziti SDK, but unmodified applications can also access Ziti services using a tunneler application.
-See [Tunnelers](https://openziti.github.io/ziti/clients/tunneler.html) for more information. Even though we're not covering tunnelers here, they are built with the Ziti SDKs. Therefore, all the
+See [Tunnelers](https://hanzozt.github.io/ziti/clients/tunneler.html) for more information. Even though we're not covering tunnelers here, they are built with the Ziti SDKs. Therefore, all the
 following setup and configuration applies to them.
 
 <!---action:pause -->
@@ -273,7 +273,7 @@ First we need to grant access to use the service via a service policy. There are
 For now, we just need a dial policy. Later, when we try hosting the echo service with an SDK embedded application, we’ll need a bind policy as well. We're going to explicitly add our service and
 identity to this policy. The service we'll reference by name. The identity we'll include by role attribute.
 
-For a deep dive into policies, see [here](https://docs.openziti.io/docs/learn/core-concepts/security/authorization/policies/overview/).
+For a deep dive into policies, see [here](https://docs.hanzozt.dev/docs/learn/core-concepts/security/authorization/policies/overview/).
 
 ```action:ziti
 ziti edge create service-policy echo-clients Dial --service-roles '@echo' --identity-roles '#management'
@@ -511,4 +511,4 @@ Hopefully you’ve gotten a better idea of:
 * How edge routers can be assigned across identities with edge router policies
 * How edge routers can be assigned across services with service edge router polices
 
-See the [Documentation Hub](https://openziti.github.io/) for more resources.
+See the [Documentation Hub](https://hanzozt.github.io/) for more resources.

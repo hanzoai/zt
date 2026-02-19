@@ -13,7 +13,7 @@ import (
 	"time"
 
 	"github.com/google/uuid"
-	nfpem "github.com/openziti/foundation/v2/pem"
+	nfpem "github.com/hanzozt/foundation/v2/pem"
 	"github.com/stretchr/testify/require"
 )
 

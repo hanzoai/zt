@@ -1,8 +1,8 @@
 package metrics
 
 import (
-	"github.com/openziti/channel/v4"
-	"github.com/openziti/metrics"
+	"github.com/hanzozt/channel/v4"
+	"github.com/hanzozt/metrics"
 )
 
 // NewCtrlChannelPeekHandler creates a channel PeekHandler which tracks message rate and message size distribution

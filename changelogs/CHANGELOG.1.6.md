@@ -18,33 +18,33 @@ certificate than the controller's root identity certificate.
 
 The v1.2.3 release of the Go SDK made OIDC the default, if the controller supported it. Since the
 quickstart uses separate certs certs, this was quickly noticed. If using the v1.2.3 release of
-the Go SDK, and affected by this issue, updating to OpenZiti controller v1.6.8 should resolve the 
+the Go SDK, and affected by this issue, updating to Hanzo ZT controller v1.6.8 should resolve the 
 problem.
 
 ## Component Updates and Bug Fixes
 
-* github.com/openziti/agent: [v1.0.30 -> v1.0.31](https://github.com/openziti/agent/compare/v1.0.30...v1.0.31)
-* github.com/openziti/channel/v4: [v4.2.21 -> v4.2.28](https://github.com/openziti/channel/compare/v4.2.21...v4.2.28)
-* github.com/openziti/foundation/v2: [v2.0.70 -> v2.0.72](https://github.com/openziti/foundation/compare/v2.0.70...v2.0.72)
-* github.com/openziti/identity: [v1.0.109 -> v1.0.111](https://github.com/openziti/identity/compare/v1.0.109...v1.0.111)
-* github.com/openziti/runzmd: [v1.0.77 -> v1.0.80](https://github.com/openziti/runzmd/compare/v1.0.77...v1.0.80)
-* github.com/openziti/sdk-golang: [v1.2.2 -> v1.2.3](https://github.com/openziti/sdk-golang/compare/v1.2.2...v1.2.3)
-    * [Issue #779](https://github.com/openziti/sdk-golang/issues/779) - Remove need to EnableHA flag in Go SDK
+* github.com/hanzozt/agent: [v1.0.30 -> v1.0.31](https://github.com/hanzozt/agent/compare/v1.0.30...v1.0.31)
+* github.com/hanzozt/channel/v4: [v4.2.21 -> v4.2.28](https://github.com/hanzozt/channel/compare/v4.2.21...v4.2.28)
+* github.com/hanzozt/foundation/v2: [v2.0.70 -> v2.0.72](https://github.com/hanzozt/foundation/compare/v2.0.70...v2.0.72)
+* github.com/hanzozt/identity: [v1.0.109 -> v1.0.111](https://github.com/hanzozt/identity/compare/v1.0.109...v1.0.111)
+* github.com/hanzozt/runzmd: [v1.0.77 -> v1.0.80](https://github.com/hanzozt/runzmd/compare/v1.0.77...v1.0.80)
+* github.com/hanzozt/sdk-golang: [v1.2.2 -> v1.2.3](https://github.com/hanzozt/sdk-golang/compare/v1.2.2...v1.2.3)
+    * [Issue #779](https://github.com/hanzozt/sdk-golang/issues/779) - Remove need to EnableHA flag in Go SDK
 
-* github.com/openziti/secretstream: [v0.1.38 -> v0.1.39](https://github.com/openziti/secretstream/compare/v0.1.38...v0.1.39)
-* github.com/openziti/storage: [v0.4.22 -> v0.4.26](https://github.com/openziti/storage/compare/v0.4.22...v0.4.26)
-* github.com/openziti/transport/v2: [v2.0.183 -> v2.0.188](https://github.com/openziti/transport/compare/v2.0.183...v2.0.188)
-* github.com/openziti/ziti: [v1.6.7 -> v1.6.8](https://github.com/openziti/ziti/compare/v1.6.7...v1.6.8)
-    * [Issue #3207](https://github.com/openziti/ziti/issues/3207) - Allow router embedders to customize config before start
-    * [Issue #3241](https://github.com/openziti/ziti/issues/3241) - Disconnecting Routers May Have Nil Fingerprint, causes panic
-    * [Issue #3248](https://github.com/openziti/ziti/issues/3248) - let cluster agent also support unix domain sockets
-    * [Issue #3219](https://github.com/openziti/ziti/issues/3219) - AuthenticatorManager ReadByFingerprint/Username should use indexes
-    * [Issue #3225](https://github.com/openziti/ziti/issues/3225) - JWT edge sessions should generate events
-    * [Issue #3245](https://github.com/openziti/ziti/issues/3245) - Revocation time check is checking wrong entity
-    * [Issue #3231](https://github.com/openziti/ziti/issues/3231) - OIDC authentication fails if the client api has a separate cert chain
-    * [Issue #3239](https://github.com/openziti/ziti/issues/3239) - Router JWTs use Identity expiration configuration value
-    * [Issue #3226](https://github.com/openziti/ziti/issues/3226) - Only report router network interfaces if controller supports receiving those events
-    * [Issue #3164](https://github.com/openziti/ziti/issues/3164) - Router data model doesn't work correctly if the edge listener isn't enabled
+* github.com/hanzozt/secretstream: [v0.1.38 -> v0.1.39](https://github.com/hanzozt/secretstream/compare/v0.1.38...v0.1.39)
+* github.com/hanzozt/storage: [v0.4.22 -> v0.4.26](https://github.com/hanzozt/storage/compare/v0.4.22...v0.4.26)
+* github.com/hanzozt/transport/v2: [v2.0.183 -> v2.0.188](https://github.com/hanzozt/transport/compare/v2.0.183...v2.0.188)
+* github.com/hanzozt/ziti: [v1.6.7 -> v1.6.8](https://github.com/hanzozt/ziti/compare/v1.6.7...v1.6.8)
+    * [Issue #3207](https://github.com/hanzozt/ziti/issues/3207) - Allow router embedders to customize config before start
+    * [Issue #3241](https://github.com/hanzozt/ziti/issues/3241) - Disconnecting Routers May Have Nil Fingerprint, causes panic
+    * [Issue #3248](https://github.com/hanzozt/ziti/issues/3248) - let cluster agent also support unix domain sockets
+    * [Issue #3219](https://github.com/hanzozt/ziti/issues/3219) - AuthenticatorManager ReadByFingerprint/Username should use indexes
+    * [Issue #3225](https://github.com/hanzozt/ziti/issues/3225) - JWT edge sessions should generate events
+    * [Issue #3245](https://github.com/hanzozt/ziti/issues/3245) - Revocation time check is checking wrong entity
+    * [Issue #3231](https://github.com/hanzozt/ziti/issues/3231) - OIDC authentication fails if the client api has a separate cert chain
+    * [Issue #3239](https://github.com/hanzozt/ziti/issues/3239) - Router JWTs use Identity expiration configuration value
+    * [Issue #3226](https://github.com/hanzozt/ziti/issues/3226) - Only report router network interfaces if controller supports receiving those events
+    * [Issue #3164](https://github.com/hanzozt/ziti/issues/3164) - Router data model doesn't work correctly if the edge listener isn't enabled
 
 # Release 1.6.7
 
@@ -54,21 +54,21 @@ problem.
 
 ## Component Updates and Bug Fixes
 
-* github.com/openziti/channel/v4: [v4.2.18 -> v4.2.21](https://github.com/openziti/channel/compare/v4.2.18...v4.2.21)
-    * [Issue #203](https://github.com/openziti/channel/issues/203) - Track last dial time in UnderlayConstraints
+* github.com/hanzozt/channel/v4: [v4.2.18 -> v4.2.21](https://github.com/hanzozt/channel/compare/v4.2.18...v4.2.21)
+    * [Issue #203](https://github.com/hanzozt/channel/issues/203) - Track last dial time in UnderlayConstraints
 
-* github.com/openziti/edge-api: [v0.26.46 -> v0.26.47](https://github.com/openziti/edge-api/compare/v0.26.46...v0.26.47)
-* github.com/openziti/sdk-golang: [v1.2.1 -> v1.2.2](https://github.com/openziti/sdk-golang/compare/v1.2.1...v1.2.2)
-    * [Issue #786](https://github.com/openziti/sdk-golang/issues/786) - Slow down dials to an ER if they happen too quickly
-    * [Issue #784](https://github.com/openziti/sdk-golang/issues/784) - Drop retransmit error to debug
+* github.com/hanzozt/edge-api: [v0.26.46 -> v0.26.47](https://github.com/hanzozt/edge-api/compare/v0.26.46...v0.26.47)
+* github.com/hanzozt/sdk-golang: [v1.2.1 -> v1.2.2](https://github.com/hanzozt/sdk-golang/compare/v1.2.1...v1.2.2)
+    * [Issue #786](https://github.com/hanzozt/sdk-golang/issues/786) - Slow down dials to an ER if they happen too quickly
+    * [Issue #784](https://github.com/hanzozt/sdk-golang/issues/784) - Drop retransmit error to debug
 
-* github.com/openziti/secretstream: [v0.1.37 -> v0.1.38](https://github.com/openziti/secretstream/compare/v0.1.37...v0.1.38)
-* github.com/openziti/transport/v2: [v2.0.182 -> v2.0.183](https://github.com/openziti/transport/compare/v2.0.182...v2.0.183)
-* github.com/openziti/ziti: [v1.6.6 -> v1.6.7](https://github.com/openziti/ziti/compare/v1.6.6...v1.6.7)
-    * [Issue #3199](https://github.com/openziti/ziti/issues/3199) - Other routers don't react to link listener address changes
-    * [Issue #3178](https://github.com/openziti/ziti/issues/3178) - Controller List Edge APIs Missing
-    * [Issue #3193](https://github.com/openziti/ziti/issues/3193) - Add flag to TOTP auth query with enrollment state
-    * [Issue #3162](https://github.com/openziti/ziti/issues/3162) - Update go tunnel implementation to support multiple interfaces
+* github.com/hanzozt/secretstream: [v0.1.37 -> v0.1.38](https://github.com/hanzozt/secretstream/compare/v0.1.37...v0.1.38)
+* github.com/hanzozt/transport/v2: [v2.0.182 -> v2.0.183](https://github.com/hanzozt/transport/compare/v2.0.182...v2.0.183)
+* github.com/hanzozt/ziti: [v1.6.6 -> v1.6.7](https://github.com/hanzozt/ziti/compare/v1.6.6...v1.6.7)
+    * [Issue #3199](https://github.com/hanzozt/ziti/issues/3199) - Other routers don't react to link listener address changes
+    * [Issue #3178](https://github.com/hanzozt/ziti/issues/3178) - Controller List Edge APIs Missing
+    * [Issue #3193](https://github.com/hanzozt/ziti/issues/3193) - Add flag to TOTP auth query with enrollment state
+    * [Issue #3162](https://github.com/hanzozt/ziti/issues/3162) - Update go tunnel implementation to support multiple interfaces
 
 # Release 1.6.6
 
@@ -229,36 +229,36 @@ $ ziti edge update identity test --app-data-json-file test-app-data.json
 
 ## Component Updates and Bug Fixes
 
-* github.com/openziti/agent: [v1.0.29 -> v1.0.30](https://github.com/openziti/agent/compare/v1.0.29...v1.0.30)
-    * [Issue #27](https://github.com/openziti/agent/issues/27) - Add support for generating heap dumps
+* github.com/hanzozt/agent: [v1.0.29 -> v1.0.30](https://github.com/hanzozt/agent/compare/v1.0.29...v1.0.30)
+    * [Issue #27](https://github.com/hanzozt/agent/issues/27) - Add support for generating heap dumps
 
-* github.com/openziti/channel/v4: [v4.2.13 -> v4.2.18](https://github.com/openziti/channel/compare/v4.2.13...v4.2.18)
-    * [Issue #201](https://github.com/openziti/channel/issues/201) - SendAndWait methods should return an error if the channel closes instead of blocking
-    * [Issue #199](https://github.com/openziti/channel/issues/199) - Reject multi-underlay connections that are the first connection for a channel, but aren't marked as such.
-    * [Issue #197](https://github.com/openziti/channel/issues/197) - Break out of dial loop if channel is closed
+* github.com/hanzozt/channel/v4: [v4.2.13 -> v4.2.18](https://github.com/hanzozt/channel/compare/v4.2.13...v4.2.18)
+    * [Issue #201](https://github.com/hanzozt/channel/issues/201) - SendAndWait methods should return an error if the channel closes instead of blocking
+    * [Issue #199](https://github.com/hanzozt/channel/issues/199) - Reject multi-underlay connections that are the first connection for a channel, but aren't marked as such.
+    * [Issue #197](https://github.com/hanzozt/channel/issues/197) - Break out of dial loop if channel is closed
 
-* github.com/openziti/foundation/v2: [v2.0.69 -> v2.0.70](https://github.com/openziti/foundation/compare/v2.0.69...v2.0.70)
-* github.com/openziti/identity: [v1.0.108 -> v1.0.109](https://github.com/openziti/identity/compare/v1.0.108...v1.0.109)
-* github.com/openziti/runzmd: [v1.0.76 -> v1.0.77](https://github.com/openziti/runzmd/compare/v1.0.76...v1.0.77)
-* github.com/openziti/sdk-golang: [v1.1.2 -> v1.2.1](https://github.com/openziti/sdk-golang/compare/v1.1.2...v1.2.1)
-    * [Issue #777](https://github.com/openziti/sdk-golang/issues/777) - OIDC auth token refresh doesn't fall back to re-auth if token has expired
-    * [Issue #772](https://github.com/openziti/sdk-golang/issues/772) - xgress close tweaks
-    * [Issue #769](https://github.com/openziti/sdk-golang/issues/769) - Require sdk flow control when using more than one default connection
-    * [Issue #765](https://github.com/openziti/sdk-golang/issues/765) - Allow independent close of xgress send and receive
-    * [Issue #763](https://github.com/openziti/sdk-golang/issues/763) - Use a go-routine pool for payload ingest
-    * [Issue #761](https://github.com/openziti/sdk-golang/issues/761) - Use cmap.ConcurrentMap for message multiplexer
-    * [Issue #754](https://github.com/openziti/sdk-golang/issues/754) - panic: unaligned 64-bit atomic operation when running on 32-bit raspberry pi
-    * [Issue #757](https://github.com/openziti/sdk-golang/issues/757) - Not authenticated check fails on session create when using OIDC
+* github.com/hanzozt/foundation/v2: [v2.0.69 -> v2.0.70](https://github.com/hanzozt/foundation/compare/v2.0.69...v2.0.70)
+* github.com/hanzozt/identity: [v1.0.108 -> v1.0.109](https://github.com/hanzozt/identity/compare/v1.0.108...v1.0.109)
+* github.com/hanzozt/runzmd: [v1.0.76 -> v1.0.77](https://github.com/hanzozt/runzmd/compare/v1.0.76...v1.0.77)
+* github.com/hanzozt/sdk-golang: [v1.1.2 -> v1.2.1](https://github.com/hanzozt/sdk-golang/compare/v1.1.2...v1.2.1)
+    * [Issue #777](https://github.com/hanzozt/sdk-golang/issues/777) - OIDC auth token refresh doesn't fall back to re-auth if token has expired
+    * [Issue #772](https://github.com/hanzozt/sdk-golang/issues/772) - xgress close tweaks
+    * [Issue #769](https://github.com/hanzozt/sdk-golang/issues/769) - Require sdk flow control when using more than one default connection
+    * [Issue #765](https://github.com/hanzozt/sdk-golang/issues/765) - Allow independent close of xgress send and receive
+    * [Issue #763](https://github.com/hanzozt/sdk-golang/issues/763) - Use a go-routine pool for payload ingest
+    * [Issue #761](https://github.com/hanzozt/sdk-golang/issues/761) - Use cmap.ConcurrentMap for message multiplexer
+    * [Issue #754](https://github.com/hanzozt/sdk-golang/issues/754) - panic: unaligned 64-bit atomic operation when running on 32-bit raspberry pi
+    * [Issue #757](https://github.com/hanzozt/sdk-golang/issues/757) - Not authenticated check fails on session create when using OIDC
 
-* github.com/openziti/secretstream: [v0.1.36 -> v0.1.37](https://github.com/openziti/secretstream/compare/v0.1.36...v0.1.37)
-* github.com/openziti/storage: [v0.4.20 -> v0.4.22](https://github.com/openziti/storage/compare/v0.4.20...v0.4.22)
-* github.com/openziti/transport/v2: [v2.0.180 -> v2.0.182](https://github.com/openziti/transport/compare/v2.0.180...v2.0.182)
-* github.com/openziti/ziti: [v1.6.5 -> v1.6.6](https://github.com/openziti/ziti/compare/v1.6.5...v1.6.6)
-    * [Issue #3183](https://github.com/openziti/ziti/issues/3183) - Add support for generating heap dumps using the agent
-    * [Issue #3161](https://github.com/openziti/ziti/issues/3161) - Allow setting structured data in identity appData from CLI
-    * [Issue #3169](https://github.com/openziti/ziti/issues/3169) - Allow identity app data to be a full JSON document, rather than just a flat map
-    * [Issue #3134](https://github.com/openziti/ziti/issues/3134) - Support multi-underlay links
-    * [Issue #3165](https://github.com/openziti/ziti/issues/3165) - Docker controller doesn't renew identity
+* github.com/hanzozt/secretstream: [v0.1.36 -> v0.1.37](https://github.com/hanzozt/secretstream/compare/v0.1.36...v0.1.37)
+* github.com/hanzozt/storage: [v0.4.20 -> v0.4.22](https://github.com/hanzozt/storage/compare/v0.4.20...v0.4.22)
+* github.com/hanzozt/transport/v2: [v2.0.180 -> v2.0.182](https://github.com/hanzozt/transport/compare/v2.0.180...v2.0.182)
+* github.com/hanzozt/ziti: [v1.6.5 -> v1.6.6](https://github.com/hanzozt/ziti/compare/v1.6.5...v1.6.6)
+    * [Issue #3183](https://github.com/hanzozt/ziti/issues/3183) - Add support for generating heap dumps using the agent
+    * [Issue #3161](https://github.com/hanzozt/ziti/issues/3161) - Allow setting structured data in identity appData from CLI
+    * [Issue #3169](https://github.com/hanzozt/ziti/issues/3169) - Allow identity app data to be a full JSON document, rather than just a flat map
+    * [Issue #3134](https://github.com/hanzozt/ziti/issues/3134) - Support multi-underlay links
+    * [Issue #3165](https://github.com/hanzozt/ziti/issues/3165) - Docker controller doesn't renew identity
 
 
 # Release 1.6.5
@@ -269,20 +269,20 @@ Bugfixes and dependency updates.
 
 ## Component Updates and Bug Fixes
 
-* github.com/openziti/channel/v4: [v4.2.8 -> v4.2.13](https://github.com/openziti/channel/compare/v4.2.8...v4.2.13)
-    * [Issue #194](https://github.com/openziti/channel/issues/194) - Add GetUnderlays and GetUnderlayCountsByType to Channel
+* github.com/hanzozt/channel/v4: [v4.2.8 -> v4.2.13](https://github.com/hanzozt/channel/compare/v4.2.8...v4.2.13)
+    * [Issue #194](https://github.com/hanzozt/channel/issues/194) - Add GetUnderlays and GetUnderlayCountsByType to Channel
 
-* github.com/openziti/foundation/v2: [v2.0.66 -> v2.0.69](https://github.com/openziti/foundation/compare/v2.0.66...v2.0.69)
-    * [Issue #443](https://github.com/openziti/foundation/issues/443) - Allow injecting custom method into go-routine pools, to allow identifying them in stack dumps
+* github.com/hanzozt/foundation/v2: [v2.0.66 -> v2.0.69](https://github.com/hanzozt/foundation/compare/v2.0.66...v2.0.69)
+    * [Issue #443](https://github.com/hanzozt/foundation/issues/443) - Allow injecting custom method into go-routine pools, to allow identifying them in stack dumps
 
-* github.com/openziti/identity: [v1.0.105 -> v1.0.108](https://github.com/openziti/identity/compare/v1.0.105...v1.0.108)
-* github.com/openziti/metrics: [v1.4.1 -> v1.4.2](https://github.com/openziti/metrics/compare/v1.4.1...v1.4.2)
-* github.com/openziti/runzmd: [v1.0.73 -> v1.0.76](https://github.com/openziti/runzmd/compare/v1.0.73...v1.0.76)
-* github.com/openziti/storage: [v0.4.17 -> v0.4.20](https://github.com/openziti/storage/compare/v0.4.17...v0.4.20)
-* github.com/openziti/transport/v2: [v2.0.177 -> v2.0.180](https://github.com/openziti/transport/compare/v2.0.177...v2.0.180)
-* github.com/openziti/xweb/v2: [v2.3.3 -> v2.3.4](https://github.com/openziti/xweb/compare/v2.3.3...v2.3.4)
-* github.com/openziti/ziti: [v1.6.3 -> v1.6.5](https://github.com/openziti/ziti/compare/v1.6.3...v1.6.5)
-    * [Issue #3149](https://github.com/openziti/ziti/pull/3149) - add dial/bind type column to sp list
+* github.com/hanzozt/identity: [v1.0.105 -> v1.0.108](https://github.com/hanzozt/identity/compare/v1.0.105...v1.0.108)
+* github.com/hanzozt/metrics: [v1.4.1 -> v1.4.2](https://github.com/hanzozt/metrics/compare/v1.4.1...v1.4.2)
+* github.com/hanzozt/runzmd: [v1.0.73 -> v1.0.76](https://github.com/hanzozt/runzmd/compare/v1.0.73...v1.0.76)
+* github.com/hanzozt/storage: [v0.4.17 -> v0.4.20](https://github.com/hanzozt/storage/compare/v0.4.17...v0.4.20)
+* github.com/hanzozt/transport/v2: [v2.0.177 -> v2.0.180](https://github.com/hanzozt/transport/compare/v2.0.177...v2.0.180)
+* github.com/hanzozt/xweb/v2: [v2.3.3 -> v2.3.4](https://github.com/hanzozt/xweb/compare/v2.3.3...v2.3.4)
+* github.com/hanzozt/ziti: [v1.6.3 -> v1.6.5](https://github.com/hanzozt/ziti/compare/v1.6.3...v1.6.5)
+    * [Issue #3149](https://github.com/hanzozt/ziti/pull/3149) - add dial/bind type column to sp list
 
 # Release 1.6.4
 
@@ -447,37 +447,37 @@ Note that addresses have been sanitized.
 
 ## Component Updates and Bug Fixes
 
-* github.com/openziti/agent: [v1.0.27 -> v1.0.29](https://github.com/openziti/agent/compare/v1.0.27...v1.0.29)
-* github.com/openziti/channel/v4: [v4.2.0 -> v4.2.8](https://github.com/openziti/channel/compare/v4.2.0...v4.2.8)
-* github.com/openziti/edge-api: [v0.26.45 -> v0.26.46](https://github.com/openziti/edge-api/compare/v0.26.45...v0.26.46)
-    * [Issue #155](https://github.com/openziti/edge-api/issues/155) - Add network interface list to routers and identities
+* github.com/hanzozt/agent: [v1.0.27 -> v1.0.29](https://github.com/hanzozt/agent/compare/v1.0.27...v1.0.29)
+* github.com/hanzozt/channel/v4: [v4.2.0 -> v4.2.8](https://github.com/hanzozt/channel/compare/v4.2.0...v4.2.8)
+* github.com/hanzozt/edge-api: [v0.26.45 -> v0.26.46](https://github.com/hanzozt/edge-api/compare/v0.26.45...v0.26.46)
+    * [Issue #155](https://github.com/hanzozt/edge-api/issues/155) - Add network interface list to routers and identities
 
-* github.com/openziti/foundation/v2: [v2.0.63 -> v2.0.66](https://github.com/openziti/foundation/compare/v2.0.63...v2.0.66)
-* github.com/openziti/identity: [v1.0.101 -> v1.0.105](https://github.com/openziti/identity/compare/v1.0.101...v1.0.105)
-* github.com/openziti/runzmd: [v1.0.72 -> v1.0.73](https://github.com/openziti/runzmd/compare/v1.0.72...v1.0.73)
-* github.com/openziti/sdk-golang: [v1.1.1 -> v1.1.2](https://github.com/openziti/sdk-golang/compare/v1.1.1...v1.1.2)
-    * [Issue #742](https://github.com/openziti/sdk-golang/issues/742) - Additional CtrlId and GetDestinationType for inspect support
-    * [Issue #739](https://github.com/openziti/sdk-golang/issues/739) - go-jose v2.6.3 CVE-2025-27144 resolution
-    * [Issue #735](https://github.com/openziti/sdk-golang/issues/735) - Ensure Authenticate can't be called in parallel
+* github.com/hanzozt/foundation/v2: [v2.0.63 -> v2.0.66](https://github.com/hanzozt/foundation/compare/v2.0.63...v2.0.66)
+* github.com/hanzozt/identity: [v1.0.101 -> v1.0.105](https://github.com/hanzozt/identity/compare/v1.0.101...v1.0.105)
+* github.com/hanzozt/runzmd: [v1.0.72 -> v1.0.73](https://github.com/hanzozt/runzmd/compare/v1.0.72...v1.0.73)
+* github.com/hanzozt/sdk-golang: [v1.1.1 -> v1.1.2](https://github.com/hanzozt/sdk-golang/compare/v1.1.1...v1.1.2)
+    * [Issue #742](https://github.com/hanzozt/sdk-golang/issues/742) - Additional CtrlId and GetDestinationType for inspect support
+    * [Issue #739](https://github.com/hanzozt/sdk-golang/issues/739) - go-jose v2.6.3 CVE-2025-27144 resolution
+    * [Issue #735](https://github.com/hanzozt/sdk-golang/issues/735) - Ensure Authenticate can't be called in parallel
 
-* github.com/openziti/secretstream: [v0.1.34 -> v0.1.36](https://github.com/openziti/secretstream/compare/v0.1.34...v0.1.36)
-* github.com/openziti/storage: [v0.4.11 -> v0.4.17](https://github.com/openziti/storage/compare/v0.4.11...v0.4.17)
-    * [Issue #106](https://github.com/openziti/storage/issues/106) - panic in TypedBucket.GetList
+* github.com/hanzozt/secretstream: [v0.1.34 -> v0.1.36](https://github.com/hanzozt/secretstream/compare/v0.1.34...v0.1.36)
+* github.com/hanzozt/storage: [v0.4.11 -> v0.4.17](https://github.com/hanzozt/storage/compare/v0.4.11...v0.4.17)
+    * [Issue #106](https://github.com/hanzozt/storage/issues/106) - panic in TypedBucket.GetList
 
-* github.com/openziti/transport/v2: [v2.0.171 -> v2.0.177](https://github.com/openziti/transport/compare/v2.0.171...v2.0.177)
-* github.com/openziti/xweb/v2: [v2.3.2 -> v2.3.3](https://github.com/openziti/xweb/compare/v2.3.2...v2.3.3)
-* github.com/openziti/ziti: [v1.6.2 -> v1.6.3](https://github.com/openziti/ziti/compare/v1.6.2...v1.6.3)
-    * [Issue #3124](https://github.com/openziti/ziti/issues/3124) - ids used by circuits and ingress/egress can conflict in an HA setup
-    * [Issue #3117](https://github.com/openziti/ziti/issues/3117) - authenticators LastAuthResolvedToRoot not set, createdAt/lastUpdateAt zero zulu
-    * [Issue #3111](https://github.com/openziti/ziti/issues/3111) - Add API for xgress router factories allowing router env injection
-    * [Issue #3119](https://github.com/openziti/ziti/issues/3119) - Using the same heartbeatmsg instance across channels causes data race
-    * [Issue #3115](https://github.com/openziti/ziti/issues/3115) - Fix racy link state access in router link registry
-    * [Issue #3113](https://github.com/openziti/ziti/issues/3113) - Close links when link groups no longer indicate that a link should be allowed
-    * [Issue #3082](https://github.com/openziti/ziti/issues/3082) - Add network interfaces to controller data model
-    * [Issue #3083](https://github.com/openziti/ziti/issues/3083) - Add optional network interface discovery to routers
-    * [Issue #2862](https://github.com/openziti/ziti/issues/2862) - Large scale data-flow test
-    * [Issue #3102](https://github.com/openziti/ziti/issues/3102) - Implement remote control for ziti-traffic-test/loop4
-    * [Issue #3098](https://github.com/openziti/ziti/issues/3098) - Implement circuit validation API and CLI
+* github.com/hanzozt/transport/v2: [v2.0.171 -> v2.0.177](https://github.com/hanzozt/transport/compare/v2.0.171...v2.0.177)
+* github.com/hanzozt/xweb/v2: [v2.3.2 -> v2.3.3](https://github.com/hanzozt/xweb/compare/v2.3.2...v2.3.3)
+* github.com/hanzozt/ziti: [v1.6.2 -> v1.6.3](https://github.com/hanzozt/ziti/compare/v1.6.2...v1.6.3)
+    * [Issue #3124](https://github.com/hanzozt/ziti/issues/3124) - ids used by circuits and ingress/egress can conflict in an HA setup
+    * [Issue #3117](https://github.com/hanzozt/ziti/issues/3117) - authenticators LastAuthResolvedToRoot not set, createdAt/lastUpdateAt zero zulu
+    * [Issue #3111](https://github.com/hanzozt/ziti/issues/3111) - Add API for xgress router factories allowing router env injection
+    * [Issue #3119](https://github.com/hanzozt/ziti/issues/3119) - Using the same heartbeatmsg instance across channels causes data race
+    * [Issue #3115](https://github.com/hanzozt/ziti/issues/3115) - Fix racy link state access in router link registry
+    * [Issue #3113](https://github.com/hanzozt/ziti/issues/3113) - Close links when link groups no longer indicate that a link should be allowed
+    * [Issue #3082](https://github.com/hanzozt/ziti/issues/3082) - Add network interfaces to controller data model
+    * [Issue #3083](https://github.com/hanzozt/ziti/issues/3083) - Add optional network interface discovery to routers
+    * [Issue #2862](https://github.com/hanzozt/ziti/issues/2862) - Large scale data-flow test
+    * [Issue #3102](https://github.com/hanzozt/ziti/issues/3102) - Implement remote control for ziti-traffic-test/loop4
+    * [Issue #3098](https://github.com/hanzozt/ziti/issues/3098) - Implement circuit validation API and CLI
 
 # Release 1.6.2
 
@@ -547,7 +547,7 @@ SDKs that support enrollment request/key rolling.
 
 ## Useful Authenticator Values
 
-Authenticators are an entity within OpenZiti and can be queried via the CLI (`ziti edge list authenticators`) or
+Authenticators are an entity within Hanzo ZT and can be queried via the CLI (`ziti edge list authenticators`) or
 Edge Management API (`GET https://<host>/edge/management/v1/authenticators`). Below are properties that are 
 useful for determining clients with improper chains.
 
@@ -582,7 +582,7 @@ POST /edge/management/v1/authenticators/:id/re-enroll
 ```
 
 Both of the above provide an enrollment id and or enrollment JWT token as output. These can be consumed in various
-OpenZiti applications or CLI commands.
+Hanzo ZT applications or CLI commands.
 
 **CLI Enrollment**
 
@@ -608,7 +608,7 @@ Flags:
   -v, --verbose           Enable verbose logging
 ```
 
-**OpenZiti Tunneler Enrollment**
+**Hanzo ZT Tunneler Enrollment**
 
 `ziti-edge-tunnel add --jwt "$(< ./in-file.jwt)" --identity myIdentityName`
 
@@ -712,31 +712,31 @@ edge:
 
 ## Component Updates and Bug Fixes
 
-* github.com/openziti/agent: [v1.0.26 -> v1.0.27](https://github.com/openziti/agent/compare/v1.0.26...v1.0.27)
-* github.com/openziti/channel/v4: [v4.0.6 -> v4.2.0](https://github.com/openziti/channel/compare/v4.0.6...v4.2.0)
-    * [Issue #190](https://github.com/openziti/channel/issues/190) - Allow setting a context.Context for channel send timeouts/cancellation
-    * [Issue #187](https://github.com/openziti/channel/issues/187) - Allow fallback to regular channel when 'is grouped' isn't set when using multi-listener
-    * [Issue #185](https://github.com/openziti/channel/issues/185) - Add group secret for multi-underlay channels
+* github.com/hanzozt/agent: [v1.0.26 -> v1.0.27](https://github.com/hanzozt/agent/compare/v1.0.26...v1.0.27)
+* github.com/hanzozt/channel/v4: [v4.0.6 -> v4.2.0](https://github.com/hanzozt/channel/compare/v4.0.6...v4.2.0)
+    * [Issue #190](https://github.com/hanzozt/channel/issues/190) - Allow setting a context.Context for channel send timeouts/cancellation
+    * [Issue #187](https://github.com/hanzozt/channel/issues/187) - Allow fallback to regular channel when 'is grouped' isn't set when using multi-listener
+    * [Issue #185](https://github.com/hanzozt/channel/issues/185) - Add group secret for multi-underlay channels
 
-* github.com/openziti/edge-api: [v0.26.43 -> v0.26.45](https://github.com/openziti/edge-api/compare/v0.26.43...v0.26.45)
-* github.com/openziti/foundation/v2: [v2.0.59 -> v2.0.63](https://github.com/openziti/foundation/compare/v2.0.59...v2.0.63)
-* github.com/openziti/runzmd: [v1.0.67 -> v1.0.72](https://github.com/openziti/runzmd/compare/v1.0.67...v1.0.72)
-* github.com/openziti/sdk-golang: [v1.1.0 -> v1.1.1](https://github.com/openziti/sdk-golang/compare/v1.1.0...v1.1.1)
-    * [Issue #735](https://github.com/openziti/sdk-golang/issues/735) - Ensure Authenticate can't be called in parallel
+* github.com/hanzozt/edge-api: [v0.26.43 -> v0.26.45](https://github.com/hanzozt/edge-api/compare/v0.26.43...v0.26.45)
+* github.com/hanzozt/foundation/v2: [v2.0.59 -> v2.0.63](https://github.com/hanzozt/foundation/compare/v2.0.59...v2.0.63)
+* github.com/hanzozt/runzmd: [v1.0.67 -> v1.0.72](https://github.com/hanzozt/runzmd/compare/v1.0.67...v1.0.72)
+* github.com/hanzozt/sdk-golang: [v1.1.0 -> v1.1.1](https://github.com/hanzozt/sdk-golang/compare/v1.1.0...v1.1.1)
+    * [Issue #735](https://github.com/hanzozt/sdk-golang/issues/735) - Ensure Authenticate can't be called in parallel
 
-* github.com/openziti/secretstream: [v0.1.32 -> v0.1.34](https://github.com/openziti/secretstream/compare/v0.1.32...v0.1.34)
-* github.com/openziti/storage: [v0.4.7 -> v0.4.11](https://github.com/openziti/storage/compare/v0.4.7...v0.4.11)
-* github.com/openziti/transport/v2: [v2.0.168 -> v2.0.171](https://github.com/openziti/transport/compare/v2.0.168...v2.0.171)
-* github.com/openziti/xweb/v2: [v2.3.1 -> v2.3.2](https://github.com/openziti/xweb/compare/v2.3.1...v2.3.2)
-* github.com/openziti/ziti: [v1.6.1 -> v1.6.2](https://github.com/openziti/ziti/compare/v1.6.1...v1.6.2)
-    * [Issue #3072](https://github.com/openziti/ziti/issues/3072) - router active channel map is using client supplied id, which can cause map collisions
-    * [Issue #3068](https://github.com/openziti/ziti/issues/3068) - Auto CA enrollments do not dispatch events in HA
-    * [Issue #3063](https://github.com/openziti/ziti/issues/3063) - Allow disabling posture check functionality
-    * [Issue #3052](https://github.com/openziti/ziti/issues/3052) - Terminator Create events for addressable terminators
-    * [Issue #3059](https://github.com/openziti/ziti/issues/3059) - Refresh JWTs can desync internal validation token
-    * [Issue #3008](https://github.com/openziti/ziti/issues/3008) - UPDB Enroll w/ 1.5.1 `ziti` panics against 1.5.0 and lower controllers
-    * [Issue #3048](https://github.com/openziti/ziti/issues/3048) - Add improper client cert chain flag
-    * [Issue #2614](https://github.com/openziti/ziti/issues/2614) - Add Configuration for OIDC RefreshToken/Access Token
+* github.com/hanzozt/secretstream: [v0.1.32 -> v0.1.34](https://github.com/hanzozt/secretstream/compare/v0.1.32...v0.1.34)
+* github.com/hanzozt/storage: [v0.4.7 -> v0.4.11](https://github.com/hanzozt/storage/compare/v0.4.7...v0.4.11)
+* github.com/hanzozt/transport/v2: [v2.0.168 -> v2.0.171](https://github.com/hanzozt/transport/compare/v2.0.168...v2.0.171)
+* github.com/hanzozt/xweb/v2: [v2.3.1 -> v2.3.2](https://github.com/hanzozt/xweb/compare/v2.3.1...v2.3.2)
+* github.com/hanzozt/ziti: [v1.6.1 -> v1.6.2](https://github.com/hanzozt/ziti/compare/v1.6.1...v1.6.2)
+    * [Issue #3072](https://github.com/hanzozt/ziti/issues/3072) - router active channel map is using client supplied id, which can cause map collisions
+    * [Issue #3068](https://github.com/hanzozt/ziti/issues/3068) - Auto CA enrollments do not dispatch events in HA
+    * [Issue #3063](https://github.com/hanzozt/ziti/issues/3063) - Allow disabling posture check functionality
+    * [Issue #3052](https://github.com/hanzozt/ziti/issues/3052) - Terminator Create events for addressable terminators
+    * [Issue #3059](https://github.com/hanzozt/ziti/issues/3059) - Refresh JWTs can desync internal validation token
+    * [Issue #3008](https://github.com/hanzozt/ziti/issues/3008) - UPDB Enroll w/ 1.5.1 `ziti` panics against 1.5.0 and lower controllers
+    * [Issue #3048](https://github.com/hanzozt/ziti/issues/3048) - Add improper client cert chain flag
+    * [Issue #2614](https://github.com/hanzozt/ziti/issues/2614) - Add Configuration for OIDC RefreshToken/Access Token
 
 
 # Release 1.6.1
@@ -751,7 +751,7 @@ edge:
 
 It is now possible for administrators to flag specific certificate authenticators as needed to `extend` their current
 certificate early and/or optionally roll the keypair that underpins the certificate. This capability only works for
-certificates issued by the OpenZiti network. If '3rd party CAs' are in use, those certificate authenticators will not
+certificates issued by the Hanzo ZT network. If '3rd party CAs' are in use, those certificate authenticators will not
 work with this system.
 
 SDKs must support this capability for it to have any effect, and the application utilizing the SDK must respond to the 
@@ -793,10 +793,10 @@ application.
 
 ## Component Updates and Bug Fixes
 
-* github.com/openziti/edge-api: [v0.26.42 -> v0.26.43](https://github.com/openziti/edge-api/compare/v0.26.42...v0.26.43)
-* github.com/openziti/ziti: [v1.6.0 -> v1.6.1](https://github.com/openziti/ziti/compare/v1.6.0...v1.6.1)
-  * [Issue #2996](https://github.com/openziti/ziti/issues/2996) - Add ability to signal SDKs to extend cert authenticator
-  * [Issue #2963](https://github.com/openziti/ziti/issues/2963) - support intercept.v1 --> host.v1 address translation
+* github.com/hanzozt/edge-api: [v0.26.42 -> v0.26.43](https://github.com/hanzozt/edge-api/compare/v0.26.42...v0.26.43)
+* github.com/hanzozt/ziti: [v1.6.0 -> v1.6.1](https://github.com/hanzozt/ziti/compare/v1.6.0...v1.6.1)
+  * [Issue #2996](https://github.com/hanzozt/ziti/issues/2996) - Add ability to signal SDKs to extend cert authenticator
+  * [Issue #2963](https://github.com/hanzozt/ziti/issues/2963) - support intercept.v1 --> host.v1 address translation
 
 
 # Release 1.6.0
@@ -831,45 +831,45 @@ or be removed.
 
 ## Component Updates and Bug Fixes
 
-* github.com/openziti/channel/v4: [v3.0.39 -> v4.0.6](https://github.com/openziti/channel/compare/v3.0.39...v4.0.6)
-    * [Issue #182](https://github.com/openziti/channel/issues/182) - MultiListener can deadlock
-    * [Issue #180](https://github.com/openziti/channel/issues/180) - Add GetUserData to Channel interface
-    * [Issue #176](https://github.com/openziti/channel/issues/176) - Multi-channel need a mechanism to notify the txer that the underlay has closed
-    * [Issue #172](https://github.com/openziti/channel/issues/172) - Support multi-underlay channels
+* github.com/hanzozt/channel/v4: [v3.0.39 -> v4.0.6](https://github.com/hanzozt/channel/compare/v3.0.39...v4.0.6)
+    * [Issue #182](https://github.com/hanzozt/channel/issues/182) - MultiListener can deadlock
+    * [Issue #180](https://github.com/hanzozt/channel/issues/180) - Add GetUserData to Channel interface
+    * [Issue #176](https://github.com/hanzozt/channel/issues/176) - Multi-channel need a mechanism to notify the txer that the underlay has closed
+    * [Issue #172](https://github.com/hanzozt/channel/issues/172) - Support multi-underlay channels
 
-* github.com/openziti/identity: [v1.0.100 -> v1.0.101](https://github.com/openziti/identity/compare/v1.0.100...v1.0.101)
-    * [Issue #64](https://github.com/openziti/identity/issues/64) - Support a way to check if a cert/serverCert can be saved
+* github.com/hanzozt/identity: [v1.0.100 -> v1.0.101](https://github.com/hanzozt/identity/compare/v1.0.100...v1.0.101)
+    * [Issue #64](https://github.com/hanzozt/identity/issues/64) - Support a way to check if a cert/serverCert can be saved
 
-* github.com/openziti/metrics: [v1.3.0 -> v1.4.1](https://github.com/openziti/metrics/compare/v1.3.0...v1.4.1)
-    * [Issue #53](https://github.com/openziti/metrics/issues/53) - Add reporter useful for emitting metrics to stdout
+* github.com/hanzozt/metrics: [v1.3.0 -> v1.4.1](https://github.com/hanzozt/metrics/compare/v1.3.0...v1.4.1)
+    * [Issue #53](https://github.com/hanzozt/metrics/issues/53) - Add reporter useful for emitting metrics to stdout
 
-* github.com/openziti/sdk-golang: [v0.25.1 -> v1.1.0](https://github.com/openziti/sdk-golang/compare/v0.25.1...v1.1.0)
-    * [Issue #702](https://github.com/openziti/sdk-golang/issues/702) - [Go SDK] Support xgress flow control from the SDK
-    * [Issue #722](https://github.com/openziti/sdk-golang/issues/722) - Move xgress impl to SDK
-    * [Issue #717](https://github.com/openziti/sdk-golang/issues/717) - ER connection race condition can leak connections
-    * [Issue #689](https://github.com/openziti/sdk-golang/issues/689) - Concurrent map iteration and modification in getEdgeRouterConn causes panic
-    * [Issue #701](https://github.com/openziti/sdk-golang/issues/701) - Support multi-underlay channels for edge router connections
+* github.com/hanzozt/sdk-golang: [v0.25.1 -> v1.1.0](https://github.com/hanzozt/sdk-golang/compare/v0.25.1...v1.1.0)
+    * [Issue #702](https://github.com/hanzozt/sdk-golang/issues/702) - [Go SDK] Support xgress flow control from the SDK
+    * [Issue #722](https://github.com/hanzozt/sdk-golang/issues/722) - Move xgress impl to SDK
+    * [Issue #717](https://github.com/hanzozt/sdk-golang/issues/717) - ER connection race condition can leak connections
+    * [Issue #689](https://github.com/hanzozt/sdk-golang/issues/689) - Concurrent map iteration and modification in getEdgeRouterConn causes panic
+    * [Issue #701](https://github.com/hanzozt/sdk-golang/issues/701) - Support multi-underlay channels for edge router connections
 
-* github.com/openziti/transport/v2: [v2.0.167 -> v2.0.168](https://github.com/openziti/transport/compare/v2.0.167...v2.0.168)
-* github.com/openziti/xweb/v2: [v2.3.0 -> v2.3.1](https://github.com/openziti/xweb/compare/v2.3.0...v2.3.1)
-* github.com/openziti/ziti: [v1.5.4 -> v1.6.0](https://github.com/openziti/ziti/compare/v1.5.4...v1.6.0)
-    * [Issue #3005](https://github.com/openziti/ziti/issues/3005) - Always check that a controller is reachable and valid before adding it to an HA controller cluster
-    * [Issue #2986](https://github.com/openziti/ziti/issues/2986) - [Router] Support xgress flow control from the SDK
-    * [Issue #2999](https://github.com/openziti/ziti/issues/2999) - OIDC JWT backed sessions cannot verify extended certs
-    * [Issue #2997](https://github.com/openziti/ziti/issues/2997) - Add Authenticator Id to OIDC JWTs/return for current-api-session
-    * [Issue #2904](https://github.com/openziti/ziti/issues/2904) - Support client certificate authorities in TLS handshake
-    * [Issue #2973](https://github.com/openziti/ziti/issues/2973) - CLI: add a subcommand to retrieve network JWT
-    * [Issue #2984](https://github.com/openziti/ziti/issues/2984) - Extend enrollments does not return a full chain
-    * [Issue #2930](https://github.com/openziti/ziti/issues/2930) - Support multi-underlay channels for the edge SDK
-    * [Issue #2978](https://github.com/openziti/ziti/issues/2978) - Create loop4 sim for testing circuit contention and scale
-    * [Issue #2981](https://github.com/openziti/ziti/issues/2981) - Remove PayloadBufferForwarder API from xgress retransmitter
-    * [Issue #2906](https://github.com/openziti/ziti/issues/2906) - Controller not removed from DB controller store when removed from controller
-    * [Issue #2922](https://github.com/openziti/ziti/issues/2922) - Validate node address before adding to cluster
-    * [Issue #2932](https://github.com/openziti/ziti/issues/2932) - Fix router data model 'create public key' related errors
-    * [Issue #2919](https://github.com/openziti/ziti/issues/2919) - Make xgress pluggable, so it can be used from the SDK
-    * [Issue #2955](https://github.com/openziti/ziti/issues/2955) - Extract xgress inspection types
-    * [Issue #2954](https://github.com/openziti/ziti/issues/2954) - Encapsulate xgress metrics
-    * [Issue #2952](https://github.com/openziti/ziti/issues/2952) - Remove global payload ingester
-    * [Issue #2951](https://github.com/openziti/ziti/issues/2951) - Remove global xgress retransmitter
-    * [Issue #2950](https://github.com/openziti/ziti/issues/2950) - Move router specific xgress code to a new xgress_router package
-    * [Issue #2920](https://github.com/openziti/ziti/issues/2920) - Make xgress acker configurable
+* github.com/hanzozt/transport/v2: [v2.0.167 -> v2.0.168](https://github.com/hanzozt/transport/compare/v2.0.167...v2.0.168)
+* github.com/hanzozt/xweb/v2: [v2.3.0 -> v2.3.1](https://github.com/hanzozt/xweb/compare/v2.3.0...v2.3.1)
+* github.com/hanzozt/ziti: [v1.5.4 -> v1.6.0](https://github.com/hanzozt/ziti/compare/v1.5.4...v1.6.0)
+    * [Issue #3005](https://github.com/hanzozt/ziti/issues/3005) - Always check that a controller is reachable and valid before adding it to an HA controller cluster
+    * [Issue #2986](https://github.com/hanzozt/ziti/issues/2986) - [Router] Support xgress flow control from the SDK
+    * [Issue #2999](https://github.com/hanzozt/ziti/issues/2999) - OIDC JWT backed sessions cannot verify extended certs
+    * [Issue #2997](https://github.com/hanzozt/ziti/issues/2997) - Add Authenticator Id to OIDC JWTs/return for current-api-session
+    * [Issue #2904](https://github.com/hanzozt/ziti/issues/2904) - Support client certificate authorities in TLS handshake
+    * [Issue #2973](https://github.com/hanzozt/ziti/issues/2973) - CLI: add a subcommand to retrieve network JWT
+    * [Issue #2984](https://github.com/hanzozt/ziti/issues/2984) - Extend enrollments does not return a full chain
+    * [Issue #2930](https://github.com/hanzozt/ziti/issues/2930) - Support multi-underlay channels for the edge SDK
+    * [Issue #2978](https://github.com/hanzozt/ziti/issues/2978) - Create loop4 sim for testing circuit contention and scale
+    * [Issue #2981](https://github.com/hanzozt/ziti/issues/2981) - Remove PayloadBufferForwarder API from xgress retransmitter
+    * [Issue #2906](https://github.com/hanzozt/ziti/issues/2906) - Controller not removed from DB controller store when removed from controller
+    * [Issue #2922](https://github.com/hanzozt/ziti/issues/2922) - Validate node address before adding to cluster
+    * [Issue #2932](https://github.com/hanzozt/ziti/issues/2932) - Fix router data model 'create public key' related errors
+    * [Issue #2919](https://github.com/hanzozt/ziti/issues/2919) - Make xgress pluggable, so it can be used from the SDK
+    * [Issue #2955](https://github.com/hanzozt/ziti/issues/2955) - Extract xgress inspection types
+    * [Issue #2954](https://github.com/hanzozt/ziti/issues/2954) - Encapsulate xgress metrics
+    * [Issue #2952](https://github.com/hanzozt/ziti/issues/2952) - Remove global payload ingester
+    * [Issue #2951](https://github.com/hanzozt/ziti/issues/2951) - Remove global xgress retransmitter
+    * [Issue #2950](https://github.com/hanzozt/ziti/issues/2950) - Move router specific xgress code to a new xgress_router package
+    * [Issue #2920](https://github.com/hanzozt/ziti/issues/2920) - Make xgress acker configurable

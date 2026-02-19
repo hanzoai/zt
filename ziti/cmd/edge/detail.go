@@ -20,7 +20,7 @@ import (
 	"io"
 
 	"github.com/Jeffail/gabs"
-	"github.com/openziti/ziti/v2/ziti/util"
+	"github.com/hanzozt/ziti/v2/ziti/util"
 )
 
 func DetailEntityOfType(entityType, entityId string, logJSON bool, out io.Writer, timeout int, verbose bool) (*gabs.Container, error) {

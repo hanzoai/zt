@@ -63,16 +63,16 @@ else
   exit 1
 fi
 
-ZITI_CTRL_SVC_ENV_FILE=/opt/openziti/etc/controller/service.env
-ZITI_CTRL_BOOT_ENV_FILE=/opt/openziti/etc/controller/bootstrap.env
+ZITI_CTRL_SVC_ENV_FILE=/opt/hanzozt/etc/controller/service.env
+ZITI_CTRL_BOOT_ENV_FILE=/opt/hanzozt/etc/controller/bootstrap.env
 
 case "$action" in
   "install")
-    printf "\033[32m completed clean install of openziti-controller\033[0m\n"
+    printf "\033[32m completed clean install of hanzozt-controller\033[0m\n"
     install
     ;;
   "upgrade")
-    printf "\033[32m completed upgrade of openziti-controller\033[0m\n"
+    printf "\033[32m completed upgrade of hanzozt-controller\033[0m\n"
     upgrade
     ;;
 esac

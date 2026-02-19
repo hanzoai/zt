@@ -6,12 +6,12 @@ a Docker named volume.
 ## Run Ziti
 
 This is the primary use case for this project: running the `ziti edge quickstart` command in the
-`openziti/ziti-controller` container image.
+`hanzozt/ziti-controller` container image.
 
 1. You need only the `compose.yml` file in this directory to run your own Ziti network.
 
     ```bash
-    wget https://get.openziti.io/dock/all-in-one/compose.yml
+    wget https://get.hanzozt.dev/dock/all-in-one/compose.yml
     ```
 
 1. In this "all-in-one" sub-directory, pull the container images. This makes the latest official release image available

@@ -24,9 +24,9 @@ import (
 	"time"
 
 	"github.com/google/uuid"
-	"github.com/openziti/edge-api/rest_model"
-	nfpem "github.com/openziti/foundation/v2/pem"
-	"github.com/openziti/ziti/v2/controller/db"
+	"github.com/hanzozt/edge-api/rest_model"
+	nfpem "github.com/hanzozt/foundation/v2/pem"
+	"github.com/hanzozt/ziti/v2/controller/db"
 )
 
 func Test_ExternalJWTSigner(t *testing.T) {

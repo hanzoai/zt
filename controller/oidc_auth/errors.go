@@ -19,7 +19,7 @@ package oidc_auth
 import (
 	"fmt"
 
-	"github.com/openziti/foundation/v2/errorz"
+	"github.com/hanzozt/foundation/v2/errorz"
 )
 
 func newNotAcceptableError(acceptHeader string) *errorz.ApiError {

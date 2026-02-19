@@ -20,13 +20,13 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/openziti/identity"
-	"github.com/openziti/storage/boltz"
-	"github.com/openziti/storage/objectz"
-	"github.com/openziti/ziti/v2/common/datastructures"
-	"github.com/openziti/ziti/v2/common/logcontext"
-	"github.com/openziti/ziti/v2/controller/models"
-	"github.com/openziti/ziti/v2/controller/xt"
+	"github.com/hanzozt/identity"
+	"github.com/hanzozt/storage/boltz"
+	"github.com/hanzozt/storage/objectz"
+	"github.com/hanzozt/ziti/v2/common/datastructures"
+	"github.com/hanzozt/ziti/v2/common/logcontext"
+	"github.com/hanzozt/ziti/v2/controller/models"
+	"github.com/hanzozt/ziti/v2/controller/xt"
 	"github.com/orcaman/concurrent-map/v2"
 )
 

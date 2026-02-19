@@ -92,13 +92,13 @@ You will find the built artifacts in `./release`.
     ziti-go-builder           
 Number of parallel builds: 4
 
--->       linux/arm: github.com/openziti/ziti/ziti
+-->       linux/arm: github.com/hanzozt/ziti/ziti
 Number of parallel builds: 4
 
--->     linux/arm64: github.com/openziti/ziti/ziti
+-->     linux/arm64: github.com/hanzozt/ziti/ziti
 Number of parallel builds: 4
 
--->     linux/amd64: github.com/openziti/ziti/ziti
+-->     linux/amd64: github.com/hanzozt/ziti/ziti
 Building for amd64 finished with result 0
 Building for arm64 finished with result 0
 Building for arm finished with result 0

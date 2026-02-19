@@ -24,7 +24,7 @@ import (
 	"syscall"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/ziti/v2/router/forwarder"
+	"github.com/hanzozt/ziti/v2/router/forwarder"
 )
 
 type routerMonitor struct {

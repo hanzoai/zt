@@ -21,8 +21,8 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/openziti/foundation/v2/concurrenz"
-	"github.com/openziti/ziti/v2/common/pb/ctrl_pb"
+	"github.com/hanzozt/foundation/v2/concurrenz"
+	"github.com/hanzozt/ziti/v2/common/pb/ctrl_pb"
 )
 
 // TODO: Add CreateDate

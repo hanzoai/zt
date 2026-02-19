@@ -5,10 +5,10 @@ import (
 	"strings"
 	"time"
 
-	fablib_5_operation "github.com/openziti/fablab/kernel/lib/runlevel/5_operation"
-	"github.com/openziti/fablab/kernel/model"
-	"github.com/openziti/ziti/zititest/zitilab/models"
-	zitilib_5_operation "github.com/openziti/ziti/zititest/zitilab/runlevel/5_operation"
+	fablib_5_operation "github.com/hanzozt/fablab/kernel/lib/runlevel/5_operation"
+	"github.com/hanzozt/fablab/kernel/model"
+	"github.com/hanzozt/ziti/zititest/zitilab/models"
+	zitilib_5_operation "github.com/hanzozt/ziti/zititest/zitilab/runlevel/5_operation"
 )
 
 func newStageFactory() model.Factory {

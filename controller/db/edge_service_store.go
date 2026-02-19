@@ -19,10 +19,10 @@ package db
 import (
 	"fmt"
 
-	"github.com/openziti/foundation/v2/errorz"
-	"github.com/openziti/storage/ast"
-	"github.com/openziti/storage/boltz"
-	"github.com/openziti/ziti/v2/common/eid"
+	"github.com/hanzozt/foundation/v2/errorz"
+	"github.com/hanzozt/storage/ast"
+	"github.com/hanzozt/storage/boltz"
+	"github.com/hanzozt/ziti/v2/common/eid"
 	"go.etcd.io/bbolt"
 )
 

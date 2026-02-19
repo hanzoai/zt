@@ -19,8 +19,8 @@ package change
 import (
 	"context"
 
-	"github.com/openziti/storage/boltz"
-	"github.com/openziti/ziti/v2/common/pb/cmd_pb"
+	"github.com/hanzozt/storage/boltz"
+	"github.com/hanzozt/ziti/v2/common/pb/cmd_pb"
 )
 
 type ContextKeyType string

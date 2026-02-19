@@ -5,8 +5,8 @@ import (
 	"io"
 	"net/http"
 
-	"github.com/openziti/ziti/v2/common/eid"
-	"github.com/openziti/ziti/v2/controller/response"
+	"github.com/hanzozt/ziti/v2/common/eid"
+	"github.com/hanzozt/ziti/v2/controller/response"
 )
 
 func NewRequestContext(rw http.ResponseWriter, r *http.Request) *response.RequestContext {

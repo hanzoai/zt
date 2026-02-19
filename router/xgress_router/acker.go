@@ -5,8 +5,8 @@ import (
 
 	"github.com/ef-ds/deque"
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/metrics"
-	"github.com/openziti/sdk-golang/xgress"
+	"github.com/hanzozt/metrics"
+	"github.com/hanzozt/sdk-golang/xgress"
 )
 
 type AckForwarder interface {

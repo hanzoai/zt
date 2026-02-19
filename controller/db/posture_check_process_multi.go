@@ -18,7 +18,7 @@ package db
 
 import (
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/storage/boltz"
+	"github.com/hanzozt/storage/boltz"
 )
 
 const (

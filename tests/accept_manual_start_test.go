@@ -24,10 +24,10 @@ import (
 	"time"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/sdk-golang/ziti"
-	"github.com/openziti/sdk-golang/ziti/edge"
-	"github.com/openziti/ziti/v2/controller/change"
-	"github.com/openziti/ziti/v2/controller/xt"
+	"github.com/hanzozt/sdk-golang/ziti"
+	"github.com/hanzozt/sdk-golang/ziti/edge"
+	"github.com/hanzozt/ziti/v2/controller/change"
+	"github.com/hanzozt/ziti/v2/controller/xt"
 	"github.com/pkg/errors"
 )
 

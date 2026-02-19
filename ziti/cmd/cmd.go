@@ -26,31 +26,31 @@ import (
 	"strings"
 
 	"github.com/michaelquigley/pfxlog"
-	edgeSubCmd "github.com/openziti/ziti/v2/controller/subcmd"
-	"github.com/openziti/ziti/v2/ziti/cmd/ascode/importer"
-	"github.com/openziti/ziti/v2/ziti/cmd/ops"
-	"github.com/openziti/ziti/v2/ziti/cmd/ops/database"
-	"github.com/openziti/ziti/v2/ziti/cmd/ops/verify"
-	"github.com/openziti/ziti/v2/ziti/enroll"
-	"github.com/openziti/ziti/v2/ziti/run"
+	edgeSubCmd "github.com/hanzozt/ziti/v2/controller/subcmd"
+	"github.com/hanzozt/ziti/v2/ziti/cmd/ascode/importer"
+	"github.com/hanzozt/ziti/v2/ziti/cmd/ops"
+	"github.com/hanzozt/ziti/v2/ziti/cmd/ops/database"
+	"github.com/hanzozt/ziti/v2/ziti/cmd/ops/verify"
+	"github.com/hanzozt/ziti/v2/ziti/enroll"
+	"github.com/hanzozt/ziti/v2/ziti/run"
 	"github.com/sirupsen/logrus"
 
-	"github.com/openziti/cobra-to-md"
-	"github.com/openziti/ziti/v2/ziti/cmd/agentcli"
-	"github.com/openziti/ziti/v2/ziti/cmd/ascode/exporter"
-	"github.com/openziti/ziti/v2/ziti/cmd/common"
-	"github.com/openziti/ziti/v2/ziti/cmd/create"
-	"github.com/openziti/ziti/v2/ziti/cmd/demo"
-	"github.com/openziti/ziti/v2/ziti/cmd/edge"
-	"github.com/openziti/ziti/v2/ziti/cmd/fabric"
-	"github.com/openziti/ziti/v2/ziti/cmd/pki"
-	"github.com/openziti/ziti/v2/ziti/cmd/templates"
-	c "github.com/openziti/ziti/v2/ziti/constants"
-	"github.com/openziti/ziti/v2/ziti/internal/log"
-	"github.com/openziti/ziti/v2/ziti/tunnel"
-	"github.com/openziti/ziti/v2/ziti/util"
+	"github.com/hanzozt/cobra-to-md"
+	"github.com/hanzozt/ziti/v2/ziti/cmd/agentcli"
+	"github.com/hanzozt/ziti/v2/ziti/cmd/ascode/exporter"
+	"github.com/hanzozt/ziti/v2/ziti/cmd/common"
+	"github.com/hanzozt/ziti/v2/ziti/cmd/create"
+	"github.com/hanzozt/ziti/v2/ziti/cmd/demo"
+	"github.com/hanzozt/ziti/v2/ziti/cmd/edge"
+	"github.com/hanzozt/ziti/v2/ziti/cmd/fabric"
+	"github.com/hanzozt/ziti/v2/ziti/cmd/pki"
+	"github.com/hanzozt/ziti/v2/ziti/cmd/templates"
+	c "github.com/hanzozt/ziti/v2/ziti/constants"
+	"github.com/hanzozt/ziti/v2/ziti/internal/log"
+	"github.com/hanzozt/ziti/v2/ziti/tunnel"
+	"github.com/hanzozt/ziti/v2/ziti/util"
 
-	"github.com/openziti/ziti/v2/common/version"
+	"github.com/hanzozt/ziti/v2/common/version"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )
@@ -352,7 +352,7 @@ func NewControllerCmd() *cobra.Command {
 
 			switch logFormatter {
 			case "pfxlog":
-				pfxlog.SetFormatter(pfxlog.NewFormatter(pfxlog.DefaultOptions().SetTrimPrefix("github.com/openziti/").StartingToday()))
+				pfxlog.SetFormatter(pfxlog.NewFormatter(pfxlog.DefaultOptions().SetTrimPrefix("github.com/hanzozt/").StartingToday()))
 			case "json":
 				pfxlog.SetFormatter(&logrus.JSONFormatter{TimestampFormat: "2006-01-02T15:04:05.000Z"})
 			case "text":
@@ -401,7 +401,7 @@ func NewRouterCmd() *cobra.Command {
 
 			switch logFormatter {
 			case "pfxlog":
-				pfxlog.SetFormatter(pfxlog.NewFormatter(pfxlog.DefaultOptions().SetTrimPrefix("github.com/openziti/").StartingToday()))
+				pfxlog.SetFormatter(pfxlog.NewFormatter(pfxlog.DefaultOptions().SetTrimPrefix("github.com/hanzozt/").StartingToday()))
 			case "json":
 				pfxlog.SetFormatter(&logrus.JSONFormatter{TimestampFormat: "2006-01-02T15:04:05.000Z"})
 			case "text":

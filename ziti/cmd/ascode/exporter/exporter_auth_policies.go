@@ -19,10 +19,10 @@ package exporter
 import (
 	"slices"
 
-	"github.com/openziti/edge-api/rest_management_api_client/auth_policy"
-	"github.com/openziti/edge-api/rest_management_api_client/external_jwt_signer"
-	"github.com/openziti/edge-api/rest_model"
-	"github.com/openziti/ziti/v2/internal/ascode"
+	"github.com/hanzozt/edge-api/rest_management_api_client/auth_policy"
+	"github.com/hanzozt/edge-api/rest_management_api_client/external_jwt_signer"
+	"github.com/hanzozt/edge-api/rest_model"
+	"github.com/hanzozt/ziti/v2/internal/ascode"
 )
 
 func (exporter Exporter) IsAuthPolicyExportRequired(args []string) bool {

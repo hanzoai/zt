@@ -26,10 +26,10 @@ import (
 
 	"github.com/michaelquigley/pfxlog"
 	"github.com/mitchellh/mapstructure"
-	"github.com/openziti/identity"
-	"github.com/openziti/transport/v2"
-	"github.com/openziti/ziti/v2/common"
-	"github.com/openziti/ziti/v2/common/pb/edge_ctrl_pb"
+	"github.com/hanzozt/identity"
+	"github.com/hanzozt/transport/v2"
+	"github.com/hanzozt/ziti/v2/common"
+	"github.com/hanzozt/ziti/v2/common/pb/edge_ctrl_pb"
 	"github.com/pkg/errors"
 )
 

@@ -20,8 +20,8 @@ import (
 	"path"
 
 	"github.com/go-openapi/strfmt"
-	"github.com/openziti/ziti/v2/controller/models"
-	"github.com/openziti/ziti/v2/controller/rest_model"
+	"github.com/hanzozt/ziti/v2/controller/models"
+	"github.com/hanzozt/ziti/v2/controller/rest_model"
 )
 
 func FabricEntityToRestModel(entity models.Entity, linkFactory FabricLinksFactory) rest_model.BaseEntity {

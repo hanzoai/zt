@@ -20,10 +20,10 @@ import (
 	_ "embed"
 	"time"
 
-	"github.com/openziti/runzmd"
-	"github.com/openziti/runzmd/actionz"
-	"github.com/openziti/ziti/v2/ziti/cmd/api"
-	"github.com/openziti/ziti/v2/ziti/cmd/common"
+	"github.com/hanzozt/runzmd"
+	"github.com/hanzozt/runzmd/actionz"
+	"github.com/hanzozt/ziti/v2/ziti/cmd/api"
+	"github.com/hanzozt/ziti/v2/ziti/cmd/common"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )

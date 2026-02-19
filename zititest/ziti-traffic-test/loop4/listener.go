@@ -22,7 +22,7 @@ import (
 	"net/http"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/sdk-golang/ziti/edge"
+	"github.com/hanzozt/sdk-golang/ziti/edge"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )

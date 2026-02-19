@@ -27,11 +27,11 @@ import (
 	"time"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/foundation/v2/debugz"
-	"github.com/openziti/foundation/v2/info"
-	"github.com/openziti/metrics"
-	"github.com/openziti/sdk-golang/ziti/edge"
-	loopPb "github.com/openziti/ziti/zititest/ziti-traffic-test/loop4/pb"
+	"github.com/hanzozt/foundation/v2/debugz"
+	"github.com/hanzozt/foundation/v2/info"
+	"github.com/hanzozt/metrics"
+	"github.com/hanzozt/sdk-golang/ziti/edge"
+	loopPb "github.com/hanzozt/ziti/zititest/ziti-traffic-test/loop4/pb"
 	"github.com/pkg/errors"
 	"google.golang.org/protobuf/proto"
 )

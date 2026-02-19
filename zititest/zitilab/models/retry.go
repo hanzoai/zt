@@ -8,9 +8,9 @@ import (
 
 	"github.com/go-openapi/runtime"
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/fablab/kernel/lib/parallel"
-	"github.com/openziti/foundation/v2/errorz"
-	"github.com/openziti/ziti/v2/ziti/util"
+	"github.com/hanzozt/fablab/kernel/lib/parallel"
+	"github.com/hanzozt/foundation/v2/errorz"
+	"github.com/hanzozt/ziti/v2/ziti/util"
 )
 
 var RetryPolicy = func(task parallel.LabeledTask, attempt int, err error) parallel.ErrorAction {

@@ -6,7 +6,7 @@ set -o pipefail
 # set -o xtrace
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
-: "${ZITI_QUICKSTART_IMAGE:=openziti/quickstart}"
+: "${ZITI_QUICKSTART_IMAGE:=hanzozt/quickstart}"
 
 if [ -z "${ZITI_VERSION:-}" ]; then
   DOCKER_IMAGE_ROOT="$(realpath ${SCRIPT_DIR}/image)"

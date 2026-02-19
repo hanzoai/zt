@@ -36,41 +36,41 @@ import (
 	"github.com/google/uuid"
 	"github.com/lucsky/cuid"
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/channel/v4"
-	clientServer "github.com/openziti/edge-api/rest_client_api_server"
-	clientOperations "github.com/openziti/edge-api/rest_client_api_server/operations"
-	managementServer "github.com/openziti/edge-api/rest_management_api_server"
-	managementOperations "github.com/openziti/edge-api/rest_management_api_server/operations"
-	"github.com/openziti/edge-api/rest_model"
-	"github.com/openziti/foundation/v2/concurrenz"
-	"github.com/openziti/foundation/v2/errorz"
-	"github.com/openziti/foundation/v2/rate"
-	"github.com/openziti/foundation/v2/stringz"
-	"github.com/openziti/identity"
-	"github.com/openziti/metrics"
-	"github.com/openziti/sdk-golang/ziti"
-	"github.com/openziti/storage/boltz"
-	"github.com/openziti/xweb/v3"
-	"github.com/openziti/ziti/v2/common"
-	"github.com/openziti/ziti/v2/common/cert"
-	"github.com/openziti/ziti/v2/common/eid"
-	"github.com/openziti/ziti/v2/common/pb/edge_ctrl_pb"
-	"github.com/openziti/ziti/v2/controller/api"
-	"github.com/openziti/ziti/v2/controller/command"
-	"github.com/openziti/ziti/v2/controller/config"
-	"github.com/openziti/ziti/v2/controller/db"
-	"github.com/openziti/ziti/v2/controller/event"
-	"github.com/openziti/ziti/v2/controller/events"
-	"github.com/openziti/ziti/v2/controller/jwtsigner"
-	"github.com/openziti/ziti/v2/controller/model"
-	"github.com/openziti/ziti/v2/controller/models"
-	"github.com/openziti/ziti/v2/controller/network"
-	"github.com/openziti/ziti/v2/controller/permissions"
-	"github.com/openziti/ziti/v2/controller/response"
-	fabricServer "github.com/openziti/ziti/v2/controller/rest_server"
-	fabricOperations "github.com/openziti/ziti/v2/controller/rest_server/operations"
-	"github.com/openziti/ziti/v2/controller/xctrl"
-	"github.com/openziti/ziti/v2/controller/xmgmt"
+	"github.com/hanzozt/channel/v4"
+	clientServer "github.com/hanzozt/edge-api/rest_client_api_server"
+	clientOperations "github.com/hanzozt/edge-api/rest_client_api_server/operations"
+	managementServer "github.com/hanzozt/edge-api/rest_management_api_server"
+	managementOperations "github.com/hanzozt/edge-api/rest_management_api_server/operations"
+	"github.com/hanzozt/edge-api/rest_model"
+	"github.com/hanzozt/foundation/v2/concurrenz"
+	"github.com/hanzozt/foundation/v2/errorz"
+	"github.com/hanzozt/foundation/v2/rate"
+	"github.com/hanzozt/foundation/v2/stringz"
+	"github.com/hanzozt/identity"
+	"github.com/hanzozt/metrics"
+	"github.com/hanzozt/sdk-golang/ziti"
+	"github.com/hanzozt/storage/boltz"
+	"github.com/hanzozt/xweb/v3"
+	"github.com/hanzozt/ziti/v2/common"
+	"github.com/hanzozt/ziti/v2/common/cert"
+	"github.com/hanzozt/ziti/v2/common/eid"
+	"github.com/hanzozt/ziti/v2/common/pb/edge_ctrl_pb"
+	"github.com/hanzozt/ziti/v2/controller/api"
+	"github.com/hanzozt/ziti/v2/controller/command"
+	"github.com/hanzozt/ziti/v2/controller/config"
+	"github.com/hanzozt/ziti/v2/controller/db"
+	"github.com/hanzozt/ziti/v2/controller/event"
+	"github.com/hanzozt/ziti/v2/controller/events"
+	"github.com/hanzozt/ziti/v2/controller/jwtsigner"
+	"github.com/hanzozt/ziti/v2/controller/model"
+	"github.com/hanzozt/ziti/v2/controller/models"
+	"github.com/hanzozt/ziti/v2/controller/network"
+	"github.com/hanzozt/ziti/v2/controller/permissions"
+	"github.com/hanzozt/ziti/v2/controller/response"
+	fabricServer "github.com/hanzozt/ziti/v2/controller/rest_server"
+	fabricOperations "github.com/hanzozt/ziti/v2/controller/rest_server/operations"
+	"github.com/hanzozt/ziti/v2/controller/xctrl"
+	"github.com/hanzozt/ziti/v2/controller/xmgmt"
 	cmap "github.com/orcaman/concurrent-map/v2"
 	"github.com/pkg/errors"
 	"github.com/teris-io/shortid"
@@ -83,7 +83,7 @@ const (
 	ZitiSession      = "zt-session"
 	ClientApiBinding = "edge-client"
 
-	JwtAudEnrollment = "openziti-enroller"
+	JwtAudEnrollment = "hanzozt-enroller"
 )
 
 const (
@@ -205,8 +205,8 @@ func (ae *AppEnv) ValidateAccessToken(token string) (*common.AccessClaims, error
 		return nil, errors.New("access token is invalid")
 	}
 
-	if !accessClaims.HasAudience(common.ClaimAudienceOpenZiti) && !accessClaims.HasAudience(common.ClaimLegacyNative) {
-		return nil, fmt.Errorf("invalid audience, expected an instance of %s or %s, got %v", common.ClaimAudienceOpenZiti, common.ClaimLegacyNative, accessClaims.Audience)
+	if !accessClaims.HasAudience(common.ClaimAudienceHanzo ZT) && !accessClaims.HasAudience(common.ClaimLegacyNative) {
+		return nil, fmt.Errorf("invalid audience, expected an instance of %s or %s, got %v", common.ClaimAudienceHanzo ZT, common.ClaimLegacyNative, accessClaims.Audience)
 	}
 
 	if accessClaims.Type != common.TokenTypeAccess {
@@ -251,8 +251,8 @@ func (ae *AppEnv) ValidateServiceAccessToken(token string, apiSessionId *string)
 		return nil, errors.New("service access token is invalid")
 	}
 
-	if !serviceAccessClaims.HasAudience(common.ClaimAudienceOpenZiti) && !serviceAccessClaims.HasAudience(common.ClaimLegacyNative) {
-		return nil, fmt.Errorf("invalid audience, expected an instance of %s or %s, got %v", common.ClaimAudienceOpenZiti, common.ClaimLegacyNative, serviceAccessClaims.Audience)
+	if !serviceAccessClaims.HasAudience(common.ClaimAudienceHanzo ZT) && !serviceAccessClaims.HasAudience(common.ClaimLegacyNative) {
+		return nil, fmt.Errorf("invalid audience, expected an instance of %s or %s, got %v", common.ClaimAudienceHanzo ZT, common.ClaimLegacyNative, serviceAccessClaims.Audience)
 	}
 
 	if serviceAccessClaims.TokenType != common.TokenTypeServiceAccess {

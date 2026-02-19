@@ -25,9 +25,9 @@ import (
 	"time"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/edge-api/rest_model"
-	"github.com/openziti/sdk-golang/ziti"
-	"github.com/openziti/ziti/v2/common/eid"
+	"github.com/hanzozt/edge-api/rest_model"
+	"github.com/hanzozt/sdk-golang/ziti"
+	"github.com/hanzozt/ziti/v2/common/eid"
 	cmap "github.com/orcaman/concurrent-map/v2"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
@@ -69,12 +69,12 @@ func (self *simpleSimAction) initLogging() {
 		logLevel = logrus.DebugLevel
 	}
 
-	options := pfxlog.DefaultOptions().SetTrimPrefix("github.com/openziti/").NoColor()
+	options := pfxlog.DefaultOptions().SetTrimPrefix("github.com/hanzozt/").NoColor()
 	pfxlog.GlobalInit(logLevel, options)
 
 	switch self.logFormatter {
 	case "pfxlog":
-		pfxlog.SetFormatter(pfxlog.NewFormatter(pfxlog.DefaultOptions().SetTrimPrefix("github.com/openziti/").StartingToday()))
+		pfxlog.SetFormatter(pfxlog.NewFormatter(pfxlog.DefaultOptions().SetTrimPrefix("github.com/hanzozt/").StartingToday()))
 	case "json":
 		pfxlog.SetFormatter(&logrus.JSONFormatter{TimestampFormat: "2006-01-02T15:04:05.000Z"})
 	case "text":

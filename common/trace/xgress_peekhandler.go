@@ -21,11 +21,11 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/openziti/channel/v4"
-	"github.com/openziti/channel/v4/trace/pb"
-	"github.com/openziti/foundation/v2/concurrenz"
-	"github.com/openziti/identity"
-	"github.com/openziti/sdk-golang/xgress"
+	"github.com/hanzozt/channel/v4"
+	"github.com/hanzozt/channel/v4/trace/pb"
+	"github.com/hanzozt/foundation/v2/concurrenz"
+	"github.com/hanzozt/identity"
+	"github.com/hanzozt/sdk-golang/xgress"
 )
 
 type XgressPeekHandler struct {

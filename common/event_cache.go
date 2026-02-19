@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/openziti/ziti/v2/common/pb/edge_ctrl_pb"
+	"github.com/hanzozt/ziti/v2/common/pb/edge_ctrl_pb"
 )
 
 type ReplayResult int

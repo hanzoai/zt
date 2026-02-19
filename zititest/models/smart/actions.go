@@ -17,10 +17,10 @@
 package main
 
 import (
-	"github.com/openziti/fablab/kernel/model"
-	"github.com/openziti/ziti/zititest/models/smart/actions"
-	zitilab_actions "github.com/openziti/ziti/zititest/zitilab/actions"
-	"github.com/openziti/ziti/zititest/zitilab/console"
+	"github.com/hanzozt/fablab/kernel/model"
+	"github.com/hanzozt/ziti/zititest/models/smart/actions"
+	zitilab_actions "github.com/hanzozt/ziti/zititest/zitilab/actions"
+	"github.com/hanzozt/ziti/zititest/zitilab/console"
 )
 
 func newActionsFactory() model.Factory {

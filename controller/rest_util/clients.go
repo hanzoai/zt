@@ -23,8 +23,8 @@ import (
 
 	"github.com/go-openapi/runtime"
 	httptransport "github.com/go-openapi/runtime/client"
-	"github.com/openziti/identity"
-	fabric_rest_client "github.com/openziti/ziti/v2/controller/rest_client"
+	"github.com/hanzozt/identity"
+	fabric_rest_client "github.com/hanzozt/ziti/v2/controller/rest_client"
 )
 
 // TransportConfig provides information about how to access a REST API

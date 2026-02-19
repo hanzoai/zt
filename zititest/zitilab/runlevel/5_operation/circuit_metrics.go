@@ -6,12 +6,12 @@ import (
 
 	"github.com/Jeffail/gabs/v2"
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/channel/v4"
-	"github.com/openziti/channel/v4/protobufs"
-	"github.com/openziti/fablab/kernel/model"
-	"github.com/openziti/ziti/v2/common/pb/mgmt_pb"
-	"github.com/openziti/ziti/v2/controller/event"
-	"github.com/openziti/ziti/v2/ziti/cmd/api"
+	"github.com/hanzozt/channel/v4"
+	"github.com/hanzozt/channel/v4/protobufs"
+	"github.com/hanzozt/fablab/kernel/model"
+	"github.com/hanzozt/ziti/v2/common/pb/mgmt_pb"
+	"github.com/hanzozt/ziti/v2/controller/event"
+	"github.com/hanzozt/ziti/v2/ziti/cmd/api"
 	"github.com/sirupsen/logrus"
 )
 

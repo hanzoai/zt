@@ -20,10 +20,10 @@ import (
 	"time"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/foundation/v2/errorz"
-	"github.com/openziti/storage/ast"
-	"github.com/openziti/storage/boltz"
-	"github.com/openziti/storage/objectz"
+	"github.com/hanzozt/foundation/v2/errorz"
+	"github.com/hanzozt/storage/ast"
+	"github.com/hanzozt/storage/boltz"
+	"github.com/hanzozt/storage/objectz"
 	"github.com/pkg/errors"
 	"go.etcd.io/bbolt"
 )

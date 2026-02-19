@@ -26,8 +26,8 @@ import (
 	"strings"
 	"text/template"
 
-	"github.com/openziti/ziti/v2/ziti/cmd/templates"
-	"github.com/openziti/ziti/v2/ziti/constants"
+	"github.com/hanzozt/ziti/v2/ziti/cmd/templates"
+	"github.com/hanzozt/ziti/v2/ziti/constants"
 
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"

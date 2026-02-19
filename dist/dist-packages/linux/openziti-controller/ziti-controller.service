@@ -1,5 +1,5 @@
 [Unit]
-Description=OpenZiti Controller
+Description=Hanzo ZT Controller
 After=network-online.target
 
 [Service]
@@ -9,15 +9,15 @@ Type=simple
 DynamicUser=yes
 
 # this env file configures the service, including whether or not to perform bootstrapping
-EnvironmentFile=/opt/openziti/etc/controller/service.env
+EnvironmentFile=/opt/hanzozt/etc/controller/service.env
 
 # relative to /var/lib
 StateDirectory=ziti-controller
 WorkingDirectory=/var/lib/ziti-controller
-ReadOnlyPaths=/opt/openziti/share/console
+ReadOnlyPaths=/opt/hanzozt/share/console
 
-ExecStartPre=/opt/openziti/etc/controller/entrypoint.bash check config.yml
-ExecStart=/opt/openziti/bin/ziti controller run config.yml ${ZITI_ARGS}
+ExecStartPre=/opt/hanzozt/etc/controller/entrypoint.bash check config.yml
+ExecStart=/opt/hanzozt/bin/ziti controller run config.yml ${ZITI_ARGS}
 
 Restart=always
 RestartSec=3

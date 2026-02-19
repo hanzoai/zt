@@ -17,10 +17,10 @@
 package xgress_transport_udp
 
 import (
-	"github.com/openziti/identity"
-	"github.com/openziti/sdk-golang/xgress"
-	"github.com/openziti/ziti/v2/router/env"
-	"github.com/openziti/ziti/v2/router/xgress_router"
+	"github.com/hanzozt/identity"
+	"github.com/hanzozt/sdk-golang/xgress"
+	"github.com/hanzozt/ziti/v2/router/env"
+	"github.com/hanzozt/ziti/v2/router/xgress_router"
 	"github.com/pkg/errors"
 )
 

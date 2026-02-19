@@ -36,11 +36,11 @@ import (
 	"github.com/Jeffail/gabs"
 	"github.com/golang-jwt/jwt/v5"
 	"github.com/google/uuid"
-	"github.com/openziti/channel/v4"
-	"github.com/openziti/sdk-golang/ziti"
-	"github.com/openziti/transport/v2"
+	"github.com/hanzozt/channel/v4"
+	"github.com/hanzozt/sdk-golang/ziti"
+	"github.com/hanzozt/transport/v2"
 
-	identity2 "github.com/openziti/identity"
+	identity2 "github.com/hanzozt/identity"
 	"github.com/pkg/errors"
 )
 
@@ -678,7 +678,7 @@ func createEnrollmentClientCsrPem(commonName string, key crypto.PrivateKey) (str
 		Country:            []string{"US"},
 		Province:           []string{"NC"},
 		Locality:           []string{},
-		Organization:       []string{"OpenZiti"},
+		Organization:       []string{"Hanzo ZT"},
 		OrganizationalUnit: []string{"CoolCrew"},
 	}
 
@@ -703,7 +703,7 @@ func createEnrollmentServerCsrPem(commonName string, key crypto.PrivateKey) (str
 		Country:            []string{"US"},
 		Province:           []string{"NC"},
 		Locality:           []string{},
-		Organization:       []string{"OpenZiti"},
+		Organization:       []string{"Hanzo ZT"},
 		OrganizationalUnit: []string{"CoolCrew"},
 	}
 

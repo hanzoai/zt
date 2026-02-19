@@ -22,13 +22,13 @@ import (
 	"time"
 
 	"github.com/golang-jwt/jwt/v5"
-	"github.com/openziti/edge-api/rest_model"
+	"github.com/hanzozt/edge-api/rest_model"
 	"github.com/zitadel/oidc/v3/pkg/oidc"
 )
 
 const (
-	ClaimClientIdOpenZiti = "openziti"
-	ClaimAudienceOpenZiti = "openziti"
+	ClaimClientIdHanzo ZT = "hanzozt"
+	ClaimAudienceHanzo ZT = "hanzozt"
 
 	//ClaimLegacyNative - to remove after SDKs stop using this as a client id
 	ClaimLegacyNative = "native"

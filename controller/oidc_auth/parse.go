@@ -25,8 +25,8 @@ import (
 	"strings"
 	"unicode/utf8"
 
-	"github.com/openziti/edge-api/rest_model"
-	"github.com/openziti/foundation/v2/errorz"
+	"github.com/hanzozt/edge-api/rest_model"
+	"github.com/hanzozt/foundation/v2/errorz"
 )
 
 type TotpRequestBody struct {

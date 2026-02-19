@@ -26,11 +26,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/openziti/foundation/v2/concurrenz"
-	"github.com/openziti/foundation/v2/errorz"
-	"github.com/openziti/metrics"
-	"github.com/openziti/sdk-golang/ziti"
-	"github.com/openziti/ziti/v2/controller/apierror"
+	"github.com/hanzozt/foundation/v2/concurrenz"
+	"github.com/hanzozt/foundation/v2/errorz"
+	"github.com/hanzozt/metrics"
+	"github.com/hanzozt/sdk-golang/ziti"
+	"github.com/hanzozt/ziti/v2/controller/apierror"
 	"github.com/stretchr/testify/assert"
 )
 

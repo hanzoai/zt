@@ -21,9 +21,9 @@ import (
 	"regexp"
 
 	"github.com/google/uuid"
-	"github.com/openziti/metrics/metrics_pb"
-	"github.com/openziti/ziti/v2/controller/event"
-	"github.com/openziti/ziti/v2/controller/network"
+	"github.com/hanzozt/metrics/metrics_pb"
+	"github.com/hanzozt/ziti/v2/controller/event"
+	"github.com/hanzozt/ziti/v2/controller/network"
 	"github.com/pkg/errors"
 )
 

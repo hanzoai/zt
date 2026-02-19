@@ -1,23 +1,23 @@
-# this Dockerfile builds docker.io/openziti/ziti-controller
+# this Dockerfile builds docker.io/hanzozt/ziti-controller
 
 ARG ZITI_CLI_TAG="latest"
-ARG ZITI_CLI_IMAGE="docker.io/openziti/ziti-cli"
+ARG ZITI_CLI_IMAGE="docker.io/hanzozt/ziti-cli"
 
 # dependabot bumps this version based on release to Hub
-FROM openziti/ziti-console-assets:4.0.3 AS ziti-console
+FROM hanzozt/ziti-console-assets:4.0.3 AS ziti-console
 
 FROM ${ZITI_CLI_IMAGE}:${ZITI_CLI_TAG}
 
-ARG CONTROLLER_PACKAGE=./dist/dist-packages/linux/openziti-controller
+ARG CONTROLLER_PACKAGE=./dist/dist-packages/linux/hanzozt-controller
 
 ### Required Labels for OpenShift 
-LABEL name="openziti/ziti-controller" \
-      maintainer="developers@openziti.org" \
+LABEL name="hanzozt/ziti-controller" \
+      maintainer="developers@hanzozt.org" \
       vendor="NetFoundry" \
-      summary="Run the OpenZiti Controller" \
-      description="Run the OpenZiti Controller" \
-      org.opencontainers.image.description="Run the OpenZiti Controller" \
-      org.opencontainers.image.source="https://github.com/openziti/ziti"
+      summary="Run the Hanzo ZT Controller" \
+      description="Run the Hanzo ZT Controller" \
+      org.opencontainers.image.description="Run the Hanzo ZT Controller" \
+      org.opencontainers.image.source="https://github.com/hanzozt/ziti"
 
 # set up image as root, then drop privs to ziggy
 USER root

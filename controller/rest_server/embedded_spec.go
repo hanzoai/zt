@@ -53,12 +53,12 @@ func init() {
   ],
   "swagger": "2.0",
   "info": {
-    "description": "OpenZiti Fabric API",
+    "description": "Hanzo ZT Fabric API",
     "title": "Ziti Fabric",
     "contact": {
-      "name": "OpenZiti",
-      "url": "https://openziti.discourse.group",
-      "email": "help@openziti.org"
+      "name": "Hanzo ZT",
+      "url": "https://hanzozt.discourse.group",
+      "email": "help@hanzozt.dev"
     },
     "license": {
       "name": "Apache 2.0",
@@ -2943,12 +2943,12 @@ func init() {
   ],
   "swagger": "2.0",
   "info": {
-    "description": "OpenZiti Fabric API",
+    "description": "Hanzo ZT Fabric API",
     "title": "Ziti Fabric",
     "contact": {
-      "name": "OpenZiti",
-      "url": "https://openziti.discourse.group",
-      "email": "help@openziti.org"
+      "name": "Hanzo ZT",
+      "url": "https://hanzozt.discourse.group",
+      "email": "help@hanzozt.dev"
     },
     "license": {
       "name": "Apache 2.0",

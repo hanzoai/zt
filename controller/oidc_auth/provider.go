@@ -23,9 +23,9 @@ import (
 
 	"github.com/gorilla/mux"
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/ziti/v2/common"
-	"github.com/openziti/ziti/v2/controller/db"
-	"github.com/openziti/ziti/v2/controller/model"
+	"github.com/hanzozt/ziti/v2/common"
+	"github.com/hanzozt/ziti/v2/controller/db"
+	"github.com/hanzozt/ziti/v2/controller/model"
 	"github.com/pkg/errors"
 	"github.com/zitadel/oidc/v3/pkg/op"
 	"golang.org/x/text/language"
@@ -74,10 +74,10 @@ func NewNativeOnlyOP(ctx context.Context, env model.Env, config Config) (http.Ha
 	rootSigner := env.GetRootTlsJwtSigner()
 	config.Storage = NewStorage(rootSigner, &config, env)
 
-	openzitiClient := NativeClient(common.ClaimClientIdOpenZiti, config.RedirectURIs, config.PostLogoutURIs)
-	openzitiClient.idTokenDuration = config.IdTokenDuration
-	openzitiClient.loginURL = newLoginResolver(config.Storage)
-	config.Storage.AddClient(openzitiClient)
+	hanzoztClient := NativeClient(common.ClaimClientIdHanzo ZT, config.RedirectURIs, config.PostLogoutURIs)
+	hanzoztClient.idTokenDuration = config.IdTokenDuration
+	hanzoztClient.loginURL = newLoginResolver(config.Storage)
+	config.Storage.AddClient(hanzoztClient)
 
 	//backwards compatibility client w/ early HA SDKs. Should be removed by the time HA is GA'ed.
 	nativeClient := NativeClient(common.ClaimLegacyNative, config.RedirectURIs, config.PostLogoutURIs)

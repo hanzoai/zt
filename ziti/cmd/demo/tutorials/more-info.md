@@ -29,7 +29,7 @@ This comes into play when you have multiple ways to route traffic to the applica
 * A combination of the two
 
 The strategy determines how we pick which application gets a particular connection attempt via which route.
-See [Ziti Services | Terminators](https://openziti.github.io/ziti/services/overview.html?tabs=create-service-ui#terminators) for more information.
+See [Ziti Services | Terminators](https://hanzozt.github.io/ziti/services/overview.html?tabs=create-service-ui#terminators) for more information.
 
 ### role attributes
 

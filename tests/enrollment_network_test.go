@@ -22,9 +22,9 @@ import (
 	"testing"
 
 	"github.com/golang-jwt/jwt/v5"
-	enrollment_client "github.com/openziti/edge-api/rest_client_api_client/enrollment"
-	enrollment_management "github.com/openziti/edge-api/rest_management_api_client/enrollment"
-	"github.com/openziti/sdk-golang/ziti"
+	enrollment_client "github.com/hanzozt/edge-api/rest_client_api_client/enrollment"
+	enrollment_management "github.com/hanzozt/edge-api/rest_management_api_client/enrollment"
+	"github.com/hanzozt/sdk-golang/ziti"
 )
 
 func Test_EnrollmentNetwork(t *testing.T) {

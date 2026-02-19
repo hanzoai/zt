@@ -1,5 +1,5 @@
 {
-    "$id": "http://edge.openziti.org/schemas/intercept.v1.config.json",
+    "$id": "http://edge.hanzozt.org/schemas/intercept.v1.config.json",
     "additionalProperties": false,
     "definitions": {
         "dialAddress": {

@@ -20,7 +20,7 @@ import (
 	"io"
 	"net"
 
-	"github.com/openziti/sdk-golang/xgress"
+	"github.com/hanzozt/sdk-golang/xgress"
 )
 
 type Listener interface {

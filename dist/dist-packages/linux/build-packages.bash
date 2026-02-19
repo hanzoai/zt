@@ -7,7 +7,7 @@ set -o pipefail
 exec 3>/dev/null             # suppress debug on 3
 exec 4>&1; exec 1>/dev/null  # stash stdout on 4
 
-declare -a ARTIFACTS=(openziti{-{controller,router},})
+declare -a ARTIFACTS=(hanzozt{-{controller,router},})
 declare -a ARCHS=(amd64)
 : "${TMPDIR:=$(mktemp -d)}"
 : "${INSTALL:=false}"
@@ -25,7 +25,7 @@ while (( $# )); do
 			ARTIFACTS=()
 			while (( $# )) && ! [[ $1 =~ ^-- ]]
 			do
-				if [[ $1 =~ ^openziti(-(controller|router))?$ ]]; then
+				if [[ $1 =~ ^hanzozt(-(controller|router))?$ ]]; then
 					ARTIFACTS+=("$1")
 					shift
 				else
@@ -64,7 +64,7 @@ while (( $# )); do
 		--help)
 			exec 1>&4  # restore stdout from 4
 			echo -e "Usage: ${BASENAME} FLAGS"\
-				"\n\t--artifacts\tbuild space-separated - any of openziti, openziti-controller, openziti-router (default: all)"\
+				"\n\t--artifacts\tbuild space-separated - any of hanzozt, hanzozt-controller, hanzozt-router (default: all)"\
 				"\n\t--install\tinstall Debian packages"\
 				"\n\t--clean\t\tpurge Debian package files"\
 				"\n\t--docker\tbuild docker images"\
@@ -81,7 +81,7 @@ while (( $# )); do
 done
 
 # Track the explicitly requested artifacts. Some artifacts may be auto-added later
-# (for example, openziti as a docker base image dependency).
+# (for example, hanzozt as a docker base image dependency).
 declare -a EXPLICIT_ARTIFACTS=("${ARTIFACTS[@]}")
 
 ARTIFACTS_DIR=./release
@@ -144,19 +144,19 @@ function runZitiGoBuilder {
 
 function setArtifactVars {
 	case ${1} in
-		openziti)
+		hanzozt)
 			ARTIFACT_SHORT=ziti-cli
 			;;
-		openziti-controller)
+		hanzozt-controller)
 			ARTIFACT_SHORT=ziti-controller
-			ZITI_ENV_FILE=/opt/openziti/etc/controller/bootstrap.env
-			ZITI_CRED_FILE=/opt/openziti/etc/controller/.pwd
+			ZITI_ENV_FILE=/opt/hanzozt/etc/controller/bootstrap.env
+			ZITI_CRED_FILE=/opt/hanzozt/etc/controller/.pwd
 			ZITI_HOME=/var/lib/ziti-controller
 			;;
-		openziti-router)
+		hanzozt-router)
 			ARTIFACT_SHORT=ziti-router
-			ZITI_ENV_FILE=/opt/openziti/etc/router/bootstrap.env
-			ZITI_CRED_FILE=/opt/openziti/etc/router/.token
+			ZITI_ENV_FILE=/opt/hanzozt/etc/router/bootstrap.env
+			ZITI_CRED_FILE=/opt/hanzozt/etc/router/.token
 			ZITI_HOME=/var/lib/ziti-router
 			;;
 	esac
@@ -164,21 +164,21 @@ function setArtifactVars {
 
 # Build order for packages/binaries:
 # - If CLEAN is requested, clean dependent services before rebuilding the CLI.
-# - Otherwise, ensure openziti (CLI) is built first so other artifacts can use the built
+# - Otherwise, ensure hanzozt (CLI) is built first so other artifacts can use the built
 #   binary for versioning/packaging.
 ARTIFACTS_BUILD=()
 if [[ "${CLEAN}" == true ]]
 then
 	for ARTIFACT in "${ARTIFACTS[@]}"
 	do
-		if [[ "${ARTIFACT}" != openziti ]]
+		if [[ "${ARTIFACT}" != hanzozt ]]
 		then
 			ARTIFACTS_BUILD+=("${ARTIFACT}")
 		fi
 	done
 	for ARTIFACT in "${ARTIFACTS[@]}"
 	do
-		if [[ "${ARTIFACT}" == openziti ]]
+		if [[ "${ARTIFACT}" == hanzozt ]]
 		then
 			ARTIFACTS_BUILD+=("${ARTIFACT}")
 			break
@@ -187,7 +187,7 @@ then
 else
 	for ARTIFACT in "${ARTIFACTS[@]}"
 	do
-		if [[ "${ARTIFACT}" == openziti ]]
+		if [[ "${ARTIFACT}" == hanzozt ]]
 		then
 			ARTIFACTS_BUILD+=("${ARTIFACT}")
 			break
@@ -195,7 +195,7 @@ else
 	done
 	for ARTIFACT in "${ARTIFACTS[@]}"
 	do
-		if [[ "${ARTIFACT}" != openziti ]]
+		if [[ "${ARTIFACT}" != hanzozt ]]
 		then
 			ARTIFACTS_BUILD+=("${ARTIFACT}")
 		fi
@@ -209,7 +209,7 @@ do
 	setArtifactVars "$ARTIFACT"
 	for ARCH in "${ARCHS[@]}"
 	do
-		if [[ ${ARTIFACT} == openziti ]]
+		if [[ ${ARTIFACT} == hanzozt ]]
 		then
 			buildZitiGoBuilder
 			runZitiGoBuilder "$ARCH"
@@ -219,7 +219,7 @@ do
 
 		ZITI_VERSION="$($ARTIFACTS_DIR/ziti --version)" || {
 			echo "ERROR: Failed to get version from $ARTIFACTS_DIR/ziti" >&2
-			echo "INFO: try building only artifact 'openziti' first" >&2
+			echo "INFO: try building only artifact 'hanzozt' first" >&2
 			exit 1
 		}
 		ZITI_REV="$(git rev-parse --short HEAD)"
@@ -227,9 +227,9 @@ do
 
 		for PKG in deb rpm
 		do
-			ZITI_HOMEPAGE="https://openziti.io" \
+			ZITI_HOMEPAGE="https://hanzozt.io" \
 			ZITI_VENDOR=netfoundry \
-			ZITI_MAINTAINER="Maintainers <developers@openziti.org>" \
+			ZITI_MAINTAINER="Maintainers <developers@hanzozt.org>" \
 			GOARCH=$ARCH \
 			MINIMUM_SYSTEMD_VERSION=232 \
 			docker run --rm \
@@ -251,7 +251,7 @@ do
 		done
 	done
 	[[ "${CLEAN}" == true ]] && {
-		if [[ "${ARTIFACT}" =~ openziti-(controller|router) ]]
+		if [[ "${ARTIFACT}" =~ hanzozt-(controller|router) ]]
 		then
 			for SVC in ${ARTIFACT_SHORT}.service
 			do
@@ -288,10 +288,10 @@ do
 		sudo apt-get install --reinstall --yes --allow-downgrades "${TMPDIR}/${ARTIFACT}_${ZITI_VERSION#v}~${ZITI_REV}_${ARCH}.deb"
 		echo "INFO: apt installed ${TMPDIR}/${ARTIFACT}_${ZITI_VERSION#v}~${ZITI_REV}_amd64.deb"
 
-		if [[ ${ARTIFACT} == openziti ]]
+		if [[ ${ARTIFACT} == hanzozt ]]
 		then
 			BUILDSUM=$(sha256sum $ARTIFACTS_DIR/$ARCH/linux/ziti | awk '{print $1}')
-			INSTALLSUM=$(sha256sum /opt/openziti/bin/ziti | awk '{print $1}')
+			INSTALLSUM=$(sha256sum /opt/hanzozt/bin/ziti | awk '{print $1}')
 			if [[ $BUILDSUM != "$INSTALLSUM" ]]
 			then
 				echo "Checksums do not match"
@@ -304,11 +304,11 @@ done
 if [[ ${DOCKER} == true ]]
 then
 	# Ensure dependent docker images can reference a locally-built ziti-cli image.
-	# If the requested artifacts include controller or router, make sure openziti is built first.
+	# If the requested artifacts include controller or router, make sure hanzozt is built first.
 	needs_cli=false
 	for ARTIFACT in "${ARTIFACTS[@]}"
 	do
-		if [[ ${ARTIFACT} == openziti-controller || ${ARTIFACT} == openziti-router ]]
+		if [[ ${ARTIFACT} == hanzozt-controller || ${ARTIFACT} == hanzozt-router ]]
 		then
 			needs_cli=true
 			break
@@ -319,7 +319,7 @@ then
 		found_cli=false
 		for ARTIFACT in "${ARTIFACTS[@]}"
 		do
-			if [[ ${ARTIFACT} == openziti ]]
+			if [[ ${ARTIFACT} == hanzozt ]]
 			then
 				found_cli=true
 				break
@@ -327,8 +327,8 @@ then
 		done
 		if [[ ${found_cli} == false ]]
 		then
-			echo "INFO: Adding 'openziti' to artifacts to satisfy docker image dependency (controller/router require ziti-cli base image)" >&4
-			ARTIFACTS=(openziti "${ARTIFACTS[@]}")
+			echo "INFO: Adding 'hanzozt' to artifacts to satisfy docker image dependency (controller/router require ziti-cli base image)" >&4
+			ARTIFACTS=(hanzozt "${ARTIFACTS[@]}")
 		fi
 	fi
 
@@ -336,14 +336,14 @@ then
 	ARTIFACTS_ASC=()
 	for ARTIFACT in "${ARTIFACTS[@]}"
 	do
-		if [[ ${ARTIFACT} != openziti ]]
+		if [[ ${ARTIFACT} != hanzozt ]]
 		then
 			ARTIFACTS_ASC+=("${ARTIFACT}")
 		fi
 	done
 	if [[ ${needs_cli} == true ]]
 	then
-		ARTIFACTS_ASC=(openziti "${ARTIFACTS_ASC[@]}")
+		ARTIFACTS_ASC=(hanzozt "${ARTIFACTS_ASC[@]}")
 	fi
 	echo "DEBUG: ARTIFACTS_ASC=${ARTIFACTS_ASC[*]}" >&3
 
@@ -359,7 +359,7 @@ then
 			# image (built earlier in this loop) to avoid failing on missing registry tags.
 			ZITI_CLI_IMAGE_BUILD_ARG="${HUB_USER}/ziti-cli"
 			ZITI_CLI_TAG_BUILD_ARG="${ZITI_VERSION#v}-${ZITI_REV}"
-			if [[ ${ARTIFACT} == openziti-controller || ${ARTIFACT} == openziti-router ]]
+			if [[ ${ARTIFACT} == hanzozt-controller || ${ARTIFACT} == hanzozt-router ]]
 			then
 				ZITI_CLI_IMAGE_BUILD_ARG="${LOCAL_ZITI_CLI_IMAGE}"
 				ZITI_CLI_TAG_BUILD_ARG="${LOCAL_ZITI_CLI_TAG}"
@@ -367,7 +367,7 @@ then
 
 			# ziti-cli Dockerfile expects the ziti-builder image to exist locally. Build it first,
 			# and ensure it is used during the build.
-			if [[ ${ARTIFACT} == openziti ]]
+			if [[ ${ARTIFACT} == hanzozt ]]
 			then
 				buildZitiGoBuilder
 				runZitiGoBuilder "$ARCH"
@@ -386,7 +386,7 @@ then
 			echo "INFO: Built Docker image ${HUB_USER}/${ARTIFACT_SHORT}:${ZITI_VERSION#v}-${ZITI_REV}"
 
 			# Ensure the local cli tag exists for dependent builds, even if HUB_USER differs.
-			if [[ ${ARTIFACT} == openziti ]]
+			if [[ ${ARTIFACT} == hanzozt ]]
 			then
 				docker tag "${ARTIFACT_SHORT}:${ZITI_VERSION#v}-${ZITI_REV}" "${LOCAL_ZITI_CLI_IMAGE}:${LOCAL_ZITI_CLI_TAG}" 2>&3 || true
 			fi

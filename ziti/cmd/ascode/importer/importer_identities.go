@@ -23,12 +23,12 @@ import (
 	"strings"
 
 	"github.com/Jeffail/gabs/v2"
-	"github.com/openziti/edge-api/rest_management_api_client/identity"
-	"github.com/openziti/edge-api/rest_model"
-	"github.com/openziti/edge-api/rest_util"
-	"github.com/openziti/ziti/v2/internal"
-	"github.com/openziti/ziti/v2/internal/ascode"
-	"github.com/openziti/ziti/v2/internal/rest/mgmt"
+	"github.com/hanzozt/edge-api/rest_management_api_client/identity"
+	"github.com/hanzozt/edge-api/rest_model"
+	"github.com/hanzozt/edge-api/rest_util"
+	"github.com/hanzozt/ziti/v2/internal"
+	"github.com/hanzozt/ziti/v2/internal/ascode"
+	"github.com/hanzozt/ziti/v2/internal/rest/mgmt"
 )
 
 func (importer *Importer) IsIdentityImportRequired(args []string) bool {

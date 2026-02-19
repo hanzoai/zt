@@ -18,11 +18,11 @@ package fabric
 
 import (
 	"github.com/Jeffail/gabs"
-	"github.com/openziti/edge-api/rest_management_api_client"
-	restClient "github.com/openziti/ziti/v2/controller/rest_client"
-	"github.com/openziti/ziti/v2/ziti/cmd/api"
-	"github.com/openziti/ziti/v2/ziti/cmd/common"
-	"github.com/openziti/ziti/v2/ziti/util"
+	"github.com/hanzozt/edge-api/rest_management_api_client"
+	restClient "github.com/hanzozt/ziti/v2/controller/rest_client"
+	"github.com/hanzozt/ziti/v2/ziti/cmd/api"
+	"github.com/hanzozt/ziti/v2/ziti/cmd/common"
+	"github.com/hanzozt/ziti/v2/ziti/util"
 	"github.com/spf13/cobra"
 	"gopkg.in/resty.v1"
 )

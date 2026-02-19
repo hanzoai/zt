@@ -23,7 +23,7 @@ import (
 	"net/http"
 	"testing"
 
-	"github.com/openziti/edge-api/rest_model"
+	"github.com/hanzozt/edge-api/rest_model"
 )
 
 func Test_Router_ReEnroll(t *testing.T) {

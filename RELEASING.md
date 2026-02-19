@@ -9,7 +9,7 @@ a candidate for release.
     1. Ensure you have downloaded the `@latest` artifact from the dependency(ies) you are updating in the main Ziti project, e.g.,
 
         ```bash
-        go get -u github.com/openziti/edge@latest
+        go get -u github.com/hanzozt/edge@latest
         ```
 
     2. Run `go mod tidy` in the main Ziti project and in the `./zititest` sub-tree.
@@ -87,13 +87,13 @@ A hotfix is released from a prior release, so it has a lower version than the hi
 These downstreams are built on push to the default branch **main** and release tags.
 
 - Linux packages
-  - `openziti` - provides `/usr/bin/ziti`
-  - `openziti-controller` - provides `ziti-controller.service`
-  - `openziti-router` - provides `ziti-router.service`
+  - `hanzozt` - provides `/usr/bin/ziti`
+  - `hanzozt-controller` - provides `ziti-controller.service`
+  - `hanzozt-router` - provides `ziti-router.service`
 - Container Images
-  - `openziti/ziti-cli` - provides `/usr/local/bin/ziti`
-  - `openziti/ziti-controller` - built from `ziti-cli` (`/usr/local/bin/ziti`) and `ziti-console-assets` (`/ziti-console`) and executes `ziti controller run`
-  - `openziti/ziti-router` - built from `ziti-cli`and executes `ziti router run`
+  - `hanzozt/ziti-cli` - provides `/usr/local/bin/ziti`
+  - `hanzozt/ziti-controller` - built from `ziti-cli` (`/usr/local/bin/ziti`) and `ziti-console-assets` (`/ziti-console`) and executes `ziti controller run`
+  - `hanzozt/ziti-router` - built from `ziti-cli`and executes `ziti router run`
 
 ### Promoting Downstreams
 
@@ -119,14 +119,14 @@ The first step is to ensure the GitHub release is not marked "latest," and the h
 
     Once the bad semver is removed from the stable repo, it must not be reused.
 
-    You must target one or more artifact names, e.g., `--artifacts openziti openziti-console`.
+    You must target one or more artifact names, e.g., `--artifacts hanzozt hanzozt-console`.
 
     ```bash
     # dry run without confirmation prompts in all stable repos
-    ./housekeeper-artifactory-zitipax.bash --stages release --artifacts openziti --version 2.3.4 --dry-run --quiet
+    ./housekeeper-artifactory-zitipax.bash --stages release --artifacts hanzozt --version 2.3.4 --dry-run --quiet
     
     # destructive run with confirmation prompts in all stable repos
-    ./housekeeper-artifactory-zitipax.bash --stages release --artifacts openziti --version 2.3.4
+    ./housekeeper-artifactory-zitipax.bash --stages release --artifacts hanzozt --version 2.3.4
     ```
 
 - Container images - The `:latest` tag is moved to the last good release semver. To ready the script, set `GOOD_VERSION`.
@@ -136,7 +136,7 @@ The first step is to ensure the GitHub release is not marked "latest," and the h
       GOOD_VERSION=1.0.0
 
       for REPO in ziti-{cli,controller,router,tunnel}; do
-          docker buildx imagetools create --tag openziti/${REPO}:latest openziti/${REPO}:${GOOD_VERSION}
+          docker buildx imagetools create --tag hanzozt/${REPO}:latest hanzozt/${REPO}:${GOOD_VERSION}
       done
     )
     ```
@@ -147,16 +147,16 @@ If downstream promotion failed for any reason, e.g., a check failure on the same
 is probably best to create a new release that fixes the problem. Manually promoting downstreams is possible, but error
 prone and tedious.
 
-The first step is to identify the version that *should* be available in the downstream repos. In GitHub, find [the latest stable release](https://github.com/openziti/ziti/releases/latest). This is the highest version that's not a pre-release, and should be available in the downstream repos, i.e., Linux packages, Docker images, etc.
+The first step is to identify the version that *should* be available in the downstream repos. In GitHub, find [the latest stable release](https://github.com/hanzozt/ziti/releases/latest). This is the highest version that's not a pre-release, and should be available in the downstream repos, i.e., Linux packages, Docker images, etc.
 
 #### Manually Promoting Linux Packages
 
 In Artifactory, explore the available non-tunneler packages. They're organized together because they are OS
 version-neutral, while the tunneler packages are organized separately by OS version. DEB and RPM repos have distinct
-layouts, but these links alone can answer "Is the latest stable CLI available?" by identifying the highest version of the `openziti` package, e.g., `openziti_1.5.4_amd64.deb`.
+layouts, but these links alone can answer "Is the latest stable CLI available?" by identifying the highest version of the `hanzozt` package, e.g., `hanzozt_1.5.4_amd64.deb`.
 
-- [the `debian` tree](https://packages.openziti.org/zitipax-openziti-deb-stable/pool/openziti/amd64/)
-- [the `redhat` tree](https://packages.openziti.org/zitipax-openziti-rpm-stable/redhat/x86_64/)
+- [the `debian` tree](https://packages.hanzozt.org/zitipax-hanzozt-deb-stable/pool/hanzozt/amd64/)
+- [the `redhat` tree](https://packages.hanzozt.org/zitipax-hanzozt-rpm-stable/redhat/x86_64/)
 
 ##### Manually Promoting RedHat Packages
 
@@ -164,16 +164,16 @@ Modify this example script to suit your needs.
 
 ```bash
 (set -euxo pipefail
-# curl -sSf https://api.github.com/repos/openziti/ziti/releases/latest | jq -r '.tag_name'
+# curl -sSf https://api.github.com/repos/hanzozt/ziti/releases/latest | jq -r '.tag_name'
 V=1.5.4
 test -n "${V}"
 for A in x86_64 aarch64 armv7hl; do
-  for P in openziti{,-controller,-router}; do
+  for P in hanzozt{,-controller,-router}; do
     jf rt cp \
       --recursive=false \
       --flat=true \
       --fail-no-op=true \
-      zitipax-openziti-rpm-{test,stable}/redhat/${A}/${P}-${V}-1.${A}.rpm
+      zitipax-hanzozt-rpm-{test,stable}/redhat/${A}/${P}-${V}-1.${A}.rpm
   done
 done
 )
@@ -185,23 +185,23 @@ Modify this example script to suit your needs.
 
 ```bash
 (set -euxo pipefail
-# V=$(curl -sSf https://api.github.com/repos/openziti/ziti/releases/latest | jq -r '.tag_name')
+# V=$(curl -sSf https://api.github.com/repos/hanzozt/ziti/releases/latest | jq -r '.tag_name')
 V=1.5.4
 test -n "${V}"
 
 for A in amd64 arm64 armhf; do
-  for P in openziti{,-controller,-router}; do
+  for P in hanzozt{,-controller,-router}; do
     jf rt cp \
       --recursive=false \
       --flat=true \
       --fail-no-op=true \
-      zitipax-openziti-deb-{test,stable}/pool/${P}/${A}/${P}_${V}_${A}.deb
+      zitipax-hanzozt-deb-{test,stable}/pool/${P}/${A}/${P}_${V}_${A}.deb
   done
 done
 )
 ```
 
-The `openziti-console` package is controlled separately by that project's release process in [openziti/ziti-console](https://github.com/openziti/ziti-console/blob/app-ziti-console-v3.12.3/.github/workflows/linux-publish.yml#L143).
+The `hanzozt-console` package is controlled separately by that project's release process in [hanzozt/ziti-console](https://github.com/hanzozt/ziti-console/blob/app-ziti-console-v3.12.3/.github/workflows/linux-publish.yml#L143).
 
 #### Manually Promoting Docker Images
 
@@ -211,16 +211,16 @@ Modify this example script to suit your needs.
 
 ```bash
 (set -euxo pipefail
-# V=$(curl -sSf https://api.github.com/repos/openziti/ziti/releases/latest | jq -r '.tag_name')
+# V=$(curl -sSf https://api.github.com/repos/hanzozt/ziti/releases/latest | jq -r '.tag_name')
 V=1.5.4
 test -n "${V}"
 for R in ziti-{cli,controller,router,tunnel}; do
-  docker buildx imagetools create --tag openziti/${R}:latest openziti/${R}:${V}
+  docker buildx imagetools create --tag hanzozt/${R}:latest hanzozt/${R}:${V}
 done
 )
 ```
 
-Note: The `openziti/ziti-console-assets` image is controlled separately by the workflow in [openziti/ziti-console](https://github.com/openziti/ziti-console/blob/app-ziti-console-v3.12.3/.github/workflows/docker-publish.yml#L48).
+Note: The `hanzozt/ziti-console-assets` image is controlled separately by the workflow in [hanzozt/ziti-console](https://github.com/hanzozt/ziti-console/blob/app-ziti-console-v3.12.3/.github/workflows/docker-publish.yml#L48).
 
 ## Quickstart Releases
 

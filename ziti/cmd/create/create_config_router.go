@@ -21,7 +21,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/openziti/ziti/v2/ziti/constants"
+	"github.com/hanzozt/ziti/v2/ziti/constants"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )

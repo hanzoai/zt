@@ -4,8 +4,8 @@ import (
 	"time"
 
 	"github.com/hashicorp/go-hclog"
-	"github.com/openziti/transport/v2"
-	"github.com/openziti/ziti/v2/controller/command"
+	"github.com/hanzozt/transport/v2"
+	"github.com/hanzozt/ziti/v2/controller/command"
 )
 
 type RaftConfig struct {

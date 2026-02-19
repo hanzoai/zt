@@ -21,7 +21,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/openziti/ziti/v2/controller/db"
+	"github.com/hanzozt/ziti/v2/controller/db"
 	"github.com/stretchr/testify/require"
 )
 

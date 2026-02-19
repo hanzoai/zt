@@ -2,9 +2,9 @@
 # Visit https://bit.ly/cffinit to generate yours today!
 
 cff-version: 1.2.0
-title: OpenZiti
+title: Hanzo ZT
 message: >-
-  Thanks for using OpenZiti. Please cite it using this
+  Thanks for using Hanzo ZT. Please cite it using this
   metadata.
 type: software
 authors:
@@ -13,10 +13,10 @@ authors:
     city: Charlotte
     country: US
     post-code: '28280'
-repository-code: 'https://github.com/openziti/ziti'
-url: 'https://openziti.io'
+repository-code: 'https://github.com/hanzozt/ziti'
+url: 'https://hanzozt.io'
 abstract: >-
-  OpenZiti is a free and open source project focused on
+  Hanzo ZT is a free and open source project focused on
   bringing zero trust networking principles directly into
   applications.
 keywords:

@@ -11,13 +11,13 @@ import (
 
 	"github.com/michaelquigley/pfxlog"
 	"github.com/mitchellh/mapstructure"
-	"github.com/openziti/edge-api/rest_model"
-	"github.com/openziti/foundation/v2/genext"
-	"github.com/openziti/foundation/v2/stringz"
-	"github.com/openziti/transport/v2"
-	"github.com/openziti/ziti/v2/tunnel"
-	"github.com/openziti/ziti/v2/tunnel/health"
-	"github.com/openziti/ziti/v2/tunnel/utils"
+	"github.com/hanzozt/edge-api/rest_model"
+	"github.com/hanzozt/foundation/v2/genext"
+	"github.com/hanzozt/foundation/v2/stringz"
+	"github.com/hanzozt/transport/v2"
+	"github.com/hanzozt/ziti/v2/tunnel"
+	"github.com/hanzozt/ziti/v2/tunnel/health"
+	"github.com/hanzozt/ziti/v2/tunnel/utils"
 	"github.com/pkg/errors"
 )
 

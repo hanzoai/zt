@@ -28,13 +28,13 @@ import (
 	"time"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/agent"
-	"github.com/openziti/channel/v4"
-	"github.com/openziti/foundation/v2/debugz"
-	"github.com/openziti/identity"
-	"github.com/openziti/sdk-golang/ziti"
-	"github.com/openziti/sdk-golang/ziti/edge"
-	"github.com/openziti/ziti/v2/common/version"
+	"github.com/hanzozt/agent"
+	"github.com/hanzozt/channel/v4"
+	"github.com/hanzozt/foundation/v2/debugz"
+	"github.com/hanzozt/identity"
+	"github.com/hanzozt/sdk-golang/ziti"
+	"github.com/hanzozt/sdk-golang/ziti/edge"
+	"github.com/hanzozt/ziti/v2/common/version"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
@@ -98,12 +98,12 @@ func (self *echoServer) initLogging() {
 		logLevel = logrus.DebugLevel
 	}
 
-	options := pfxlog.DefaultOptions().SetTrimPrefix("github.com/openziti/").NoColor()
+	options := pfxlog.DefaultOptions().SetTrimPrefix("github.com/hanzozt/").NoColor()
 	pfxlog.GlobalInit(logLevel, options)
 
 	switch self.logFormatter {
 	case "pfxlog":
-		pfxlog.SetFormatter(pfxlog.NewFormatter(pfxlog.DefaultOptions().SetTrimPrefix("github.com/openziti/").StartingToday()))
+		pfxlog.SetFormatter(pfxlog.NewFormatter(pfxlog.DefaultOptions().SetTrimPrefix("github.com/hanzozt/").StartingToday()))
 	case "json":
 		pfxlog.SetFormatter(&logrus.JSONFormatter{TimestampFormat: "2006-01-02T15:04:05.000Z"})
 	case "text":

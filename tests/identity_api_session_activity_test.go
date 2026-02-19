@@ -6,11 +6,11 @@ import (
 	"testing"
 	"time"
 
-	restidentity "github.com/openziti/edge-api/rest_management_api_client/identity"
-	"github.com/openziti/edge-api/rest_model"
-	edgeapis "github.com/openziti/sdk-golang/edge-apis"
-	"github.com/openziti/sdk-golang/ziti"
-	"github.com/openziti/ziti/v2/controller/webapis"
+	restidentity "github.com/hanzozt/edge-api/rest_management_api_client/identity"
+	"github.com/hanzozt/edge-api/rest_model"
+	edgeapis "github.com/hanzozt/sdk-golang/edge-apis"
+	"github.com/hanzozt/sdk-golang/ziti"
+	"github.com/hanzozt/ziti/v2/controller/webapis"
 )
 
 func Test_Identity_HasErConnection(t *testing.T) {

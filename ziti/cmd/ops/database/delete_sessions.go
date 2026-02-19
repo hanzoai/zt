@@ -18,10 +18,10 @@ package database
 
 import (
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/storage/boltz"
-	"github.com/openziti/ziti/v2/common/version"
-	"github.com/openziti/ziti/v2/controller/config"
-	fabricdb "github.com/openziti/ziti/v2/controller/db"
+	"github.com/hanzozt/storage/boltz"
+	"github.com/hanzozt/ziti/v2/common/version"
+	"github.com/hanzozt/ziti/v2/controller/config"
+	fabricdb "github.com/hanzozt/ziti/v2/controller/db"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"

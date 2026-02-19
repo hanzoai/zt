@@ -19,15 +19,15 @@ package env
 import (
 	"time"
 
-	"github.com/openziti/channel/v4"
-	"github.com/openziti/foundation/v2/goroutines"
-	"github.com/openziti/foundation/v2/rate"
-	"github.com/openziti/foundation/v2/versions"
-	"github.com/openziti/identity"
-	"github.com/openziti/metrics"
-	"github.com/openziti/sdk-golang/xgress"
-	"github.com/openziti/ziti/v2/common"
-	"github.com/openziti/ziti/v2/router/xlink"
+	"github.com/hanzozt/channel/v4"
+	"github.com/hanzozt/foundation/v2/goroutines"
+	"github.com/hanzozt/foundation/v2/rate"
+	"github.com/hanzozt/foundation/v2/versions"
+	"github.com/hanzozt/identity"
+	"github.com/hanzozt/metrics"
+	"github.com/hanzozt/sdk-golang/xgress"
+	"github.com/hanzozt/ziti/v2/common"
+	"github.com/hanzozt/ziti/v2/router/xlink"
 )
 
 type RouterEnv interface {

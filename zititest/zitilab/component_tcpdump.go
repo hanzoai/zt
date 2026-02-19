@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/openziti/fablab/kernel/model"
+	"github.com/hanzozt/fablab/kernel/model"
 	"github.com/sirupsen/logrus"
 )
 

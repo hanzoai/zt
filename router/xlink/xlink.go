@@ -19,13 +19,13 @@ package xlink
 import (
 	"time"
 
-	"github.com/openziti/channel/v4"
-	"github.com/openziti/identity"
-	"github.com/openziti/metrics"
-	"github.com/openziti/sdk-golang/xgress"
-	"github.com/openziti/transport/v2"
-	"github.com/openziti/ziti/v2/common/inspect"
-	"github.com/openziti/ziti/v2/common/pb/ctrl_pb"
+	"github.com/hanzozt/channel/v4"
+	"github.com/hanzozt/identity"
+	"github.com/hanzozt/metrics"
+	"github.com/hanzozt/sdk-golang/xgress"
+	"github.com/hanzozt/transport/v2"
+	"github.com/hanzozt/ziti/v2/common/inspect"
+	"github.com/hanzozt/ziti/v2/common/pb/ctrl_pb"
 )
 
 // Registry contains known link instances and manages link de-duplication

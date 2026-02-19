@@ -25,14 +25,14 @@
 
 // Package rest_server Ziti Fabric
 //
-//  OpenZiti Fabric API
+//  Hanzo ZT Fabric API
 //  Schemes:
 //    https
 //  Host: demo.ziti.dev
 //  BasePath: /fabric/v1
 //  Version: 0.16.54
 //  License: Apache 2.0 http://www.apache.org/licenses/LICENSE-2.0.html
-//  Contact: OpenZiti<help@openziti.org> https://openziti.discourse.group
+//  Contact: Hanzo ZT<help@hanzozt.dev> https://hanzozt.discourse.group
 //
 //  Consumes:
 //    - application/json

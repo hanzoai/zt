@@ -21,12 +21,12 @@ import (
 
 	"github.com/go-openapi/strfmt"
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/edge-api/rest_model"
-	"github.com/openziti/foundation/v2/stringz"
-	"github.com/openziti/ziti/v2/controller/env"
-	"github.com/openziti/ziti/v2/controller/model"
-	"github.com/openziti/ziti/v2/controller/models"
-	"github.com/openziti/ziti/v2/controller/response"
+	"github.com/hanzozt/edge-api/rest_model"
+	"github.com/hanzozt/foundation/v2/stringz"
+	"github.com/hanzozt/ziti/v2/controller/env"
+	"github.com/hanzozt/ziti/v2/controller/model"
+	"github.com/hanzozt/ziti/v2/controller/models"
+	"github.com/hanzozt/ziti/v2/controller/response"
 )
 
 const EntityNamePostureCheck = "posture-checks"

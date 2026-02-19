@@ -23,8 +23,8 @@ import (
 	"strings"
 	"text/template"
 
-	cmdhelper "github.com/openziti/ziti/v2/ziti/cmd/helpers"
-	"github.com/openziti/ziti/v2/ziti/cmd/templates"
+	cmdhelper "github.com/hanzozt/ziti/v2/ziti/cmd/helpers"
+	"github.com/hanzozt/ziti/v2/ziti/cmd/templates"
 
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"

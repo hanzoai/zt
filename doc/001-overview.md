@@ -86,5 +86,5 @@ All of the above binaries are cross platform compatible, except `ziti tunnel` wh
 
 ## Further Exploration
 
-Continue your OpenZiti exploration in [the next article about getting set up for local development](./002-local-dev.md)
+Continue your Hanzo ZT exploration in [the next article about getting set up for local development](./002-local-dev.md)
 and building the apps from source.

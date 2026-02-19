@@ -5,7 +5,7 @@ You can use this container image to run a Ziti Router in a Docker container.
 
 ## Container Image
 
-The `openziti/ziti-router` image is thin and is based on the `openziti/ziti-cli` image, which only provides the `ziti`
+The `hanzozt/ziti-router` image is thin and is based on the `hanzozt/ziti-cli` image, which only provides the `ziti`
 CLI. This `ziti-router` image adds an entrypoint that provides router bootstrapping when `ZITI_BOOTSTRAP=true` and uses
 the same defaults and options as the Linux package.
 
@@ -22,7 +22,7 @@ ziti edge create edge-router "router1" \
    --jwt-output-file=./router1.jwt
 
 # fetch the compose file for the ziti-router image
-wget https://get.openziti.io/dist/docker-images/ziti-router/compose.yml
+wget https://get.hanzozt.dev/dist/docker-images/ziti-router/compose.yml
 
 ZITI_ENROLL_TOKEN="$(<./router1.jwt)" \
 ZITI_ROUTER_ADVERTISED_ADDRESS=router1.127.0.0.1.sslip.io \
@@ -39,11 +39,11 @@ healthy before running.
 
 ```text
 # fetch the compose file for the ziti-router image
-wget -O ./compose.router.yml https://get.openziti.io/dist/docker-images/ziti-router/compose.yml
+wget -O ./compose.router.yml https://get.hanzozt.dev/dist/docker-images/ziti-router/compose.yml
 # fetch the router tproxy compose overrides files
-wget -O ./compose.tproxy.yml https://get.openziti.io/dist/docker-images/ziti-router/compose.override.yml
+wget -O ./compose.tproxy.yml https://get.hanzozt.dev/dist/docker-images/ziti-router/compose.override.yml
 # fetch the all-in-one quickstart compose file
-wget -O ./compose.quickstart.yml https://get.openziti.io/dock/all-in-one/compose.yml
+wget -O ./compose.quickstart.yml https://get.hanzozt.dev/dock/all-in-one/compose.yml
 ```
 
 Patch the Compose project to use the quickstart network and provide a web server to test the hello service.
@@ -56,7 +56,7 @@ cat <<EOF >>./compose.tproxy.yml
 
   # add a hello web server to use for a Ziti service target
   hello:
-    image: openziti/hello-world
+    image: hanzozt/hello-world
     expose:
       - 8000
     networks:
@@ -88,7 +88,7 @@ services:
       - quickstart
 
   hello:
-    image: openziti/hello-world
+    image: hanzozt/hello-world
     expose:
       - 8000
     networks:

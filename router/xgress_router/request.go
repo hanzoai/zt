@@ -22,14 +22,14 @@ import (
 	"time"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/channel/v4"
-	"github.com/openziti/channel/v4/protobufs"
-	"github.com/openziti/identity"
-	"github.com/openziti/sdk-golang/xgress"
-	"github.com/openziti/transport/v2"
-	"github.com/openziti/ziti/v2/common/ctrl_msg"
-	"github.com/openziti/ziti/v2/common/ctrlchan"
-	"github.com/openziti/ziti/v2/common/pb/ctrl_pb"
+	"github.com/hanzozt/channel/v4"
+	"github.com/hanzozt/channel/v4/protobufs"
+	"github.com/hanzozt/identity"
+	"github.com/hanzozt/sdk-golang/xgress"
+	"github.com/hanzozt/transport/v2"
+	"github.com/hanzozt/ziti/v2/common/ctrl_msg"
+	"github.com/hanzozt/ziti/v2/common/ctrlchan"
+	"github.com/hanzozt/ziti/v2/common/pb/ctrl_pb"
 	"github.com/pkg/errors"
 )
 

@@ -5,15 +5,15 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/openziti/edge-api/rest_management_api_client/config"
-	"github.com/openziti/edge-api/rest_management_api_client/edge_router"
-	"github.com/openziti/edge-api/rest_management_api_client/identity"
-	"github.com/openziti/edge-api/rest_management_api_client/posture_checks"
-	"github.com/openziti/edge-api/rest_management_api_client/service"
-	"github.com/openziti/edge-api/rest_management_api_client/service_policy"
-	"github.com/openziti/edge-api/rest_model"
-	"github.com/openziti/ziti/v2/ziti/util"
-	"github.com/openziti/ziti/v2/zitirest"
+	"github.com/hanzozt/edge-api/rest_management_api_client/config"
+	"github.com/hanzozt/edge-api/rest_management_api_client/edge_router"
+	"github.com/hanzozt/edge-api/rest_management_api_client/identity"
+	"github.com/hanzozt/edge-api/rest_management_api_client/posture_checks"
+	"github.com/hanzozt/edge-api/rest_management_api_client/service"
+	"github.com/hanzozt/edge-api/rest_management_api_client/service_policy"
+	"github.com/hanzozt/edge-api/rest_model"
+	"github.com/hanzozt/ziti/v2/ziti/util"
+	"github.com/hanzozt/ziti/v2/zitirest"
 )
 
 func ListServices(clients *zitirest.Clients, filter string, timeout time.Duration) ([]*rest_model.ServiceDetail, error) {

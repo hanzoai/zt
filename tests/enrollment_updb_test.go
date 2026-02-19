@@ -24,7 +24,7 @@ import (
 
 	"github.com/Jeffail/gabs"
 	"github.com/google/uuid"
-	"github.com/openziti/edge-api/rest_model"
+	"github.com/hanzozt/edge-api/rest_model"
 )
 
 // Test_EnrollmentUpdb uses the generic legacy and deprecated /enroll endpoint. These test ensure it remains

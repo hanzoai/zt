@@ -19,7 +19,7 @@ package db
 import (
 	"fmt"
 
-	"github.com/openziti/storage/boltz"
+	"github.com/hanzozt/storage/boltz"
 )
 
 const (

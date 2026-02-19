@@ -4,10 +4,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/openziti/storage/boltztest"
-	"github.com/openziti/ziti/v2/common/eid"
-	"github.com/openziti/ziti/v2/controller/change"
-	"github.com/openziti/ziti/v2/controller/db"
+	"github.com/hanzozt/storage/boltztest"
+	"github.com/hanzozt/ziti/v2/common/eid"
+	"github.com/hanzozt/ziti/v2/controller/change"
+	"github.com/hanzozt/ziti/v2/controller/db"
 	"github.com/stretchr/testify/require"
 )
 

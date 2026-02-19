@@ -2,7 +2,7 @@
 
 ![transwarp](transwarp.png)
 
-`openziti/ziti@v0.19.8`
+`hanzozt/ziti@v0.19.8`
 
 ## Goal: Long-haul, High-performance Data Plane for Ziti
 
@@ -551,7 +551,7 @@ Here's the relevant log output when starting the second `ziti router`, configure
 
 Ziti links currently require 2 underlay connections, with one of them dedicated to flow control processing. This is why there are 2 `westworld3` connections established above.
 
-> There is currently an open issue in the `openziti/fabric` project to allow the ACK channel to operate on a protocol other than the data channel. Running the ACK channel over TCP and the data channel over `westworld3` will make analyzing the metrics simpler in Ziti-enabled cases. Coming soon.
+> There is currently an open issue in the `hanzozt/fabric` project to allow the ACK channel to operate on a protocol other than the data channel. Running the ACK channel over TCP and the data channel over `westworld3` will make analyzing the metrics simpler in Ziti-enabled cases. Coming soon.
 
 After running our workload over the Ziti fabric with a Transwarp data plane, we can retrieve the `westworld3` analysis dataset in the same way we did in the plain `dilithium` scenario above. Both routers emit log messages advertising their metrics instrument control socket:
 
@@ -589,7 +589,7 @@ This is the first Transwarp beta release (`beta_1`). Building a protocol like `w
 
 Happy Transwarp-ing.
 
-[dilithium]: https://github.com/openziti/dilithium
-[dilithium-concepts]: https://github.com/openziti/dilithium/blob/main/docs/concepts.md
-[tuning-guide]: https://github.com/openziti/dilithium/blob/main/docs/tuning.md
-[fabric]: https://github.com/openziti/fabric
+[dilithium]: https://github.com/hanzozt/dilithium
+[dilithium-concepts]: https://github.com/hanzozt/dilithium/blob/main/docs/concepts.md
+[tuning-guide]: https://github.com/hanzozt/dilithium/blob/main/docs/tuning.md
+[fabric]: https://github.com/hanzozt/fabric

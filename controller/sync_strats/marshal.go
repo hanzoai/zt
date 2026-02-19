@@ -18,8 +18,8 @@ package sync_strats
 
 import (
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/ziti/v2/common/pb/edge_ctrl_pb"
-	"github.com/openziti/ziti/v2/controller/env"
+	"github.com/hanzozt/ziti/v2/common/pb/edge_ctrl_pb"
+	"github.com/hanzozt/ziti/v2/controller/env"
 	"go.etcd.io/bbolt"
 )
 

@@ -25,16 +25,16 @@ import (
 	"strings"
 	"time"
 
-	"github.com/openziti/edge-api/rest_model"
-	"github.com/openziti/fablab/kernel/lib"
-	"github.com/openziti/fablab/kernel/lib/parallel"
-	"github.com/openziti/fablab/kernel/model"
-	"github.com/openziti/foundation/v2/concurrenz"
-	"github.com/openziti/foundation/v2/util"
-	"github.com/openziti/ziti/v2/zitirest"
-	zitilib_actions "github.com/openziti/ziti/zititest/zitilab/actions"
-	"github.com/openziti/ziti/zititest/zitilab/models"
-	"github.com/openziti/ziti/zititest/zitilab/stageziti"
+	"github.com/hanzozt/edge-api/rest_model"
+	"github.com/hanzozt/fablab/kernel/lib"
+	"github.com/hanzozt/fablab/kernel/lib/parallel"
+	"github.com/hanzozt/fablab/kernel/model"
+	"github.com/hanzozt/foundation/v2/concurrenz"
+	"github.com/hanzozt/foundation/v2/util"
+	"github.com/hanzozt/ziti/v2/zitirest"
+	zitilib_actions "github.com/hanzozt/ziti/zititest/zitilab/actions"
+	"github.com/hanzozt/ziti/zititest/zitilab/models"
+	"github.com/hanzozt/ziti/zititest/zitilab/stageziti"
 )
 
 var _ model.ComponentType = (*RouterType)(nil)

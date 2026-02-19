@@ -20,13 +20,13 @@ import (
 	"crypto"
 	"sync"
 
-	"github.com/openziti/channel/v4"
-	"github.com/openziti/foundation/v2/versions"
-	"github.com/openziti/storage/boltz"
-	"github.com/openziti/ziti/v2/common"
-	"github.com/openziti/ziti/v2/common/pb/edge_ctrl_pb"
-	"github.com/openziti/ziti/v2/controller/db"
-	"github.com/openziti/ziti/v2/controller/model"
+	"github.com/hanzozt/channel/v4"
+	"github.com/hanzozt/foundation/v2/versions"
+	"github.com/hanzozt/storage/boltz"
+	"github.com/hanzozt/ziti/v2/common"
+	"github.com/hanzozt/ziti/v2/common/pb/edge_ctrl_pb"
+	"github.com/hanzozt/ziti/v2/controller/db"
+	"github.com/hanzozt/ziti/v2/controller/model"
 )
 
 // RouterSyncStrategyType aliased type for router strategies

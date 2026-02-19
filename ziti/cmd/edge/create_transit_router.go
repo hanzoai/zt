@@ -21,7 +21,7 @@ import (
 	"io"
 	"os"
 
-	"github.com/openziti/ziti/v2/ziti/cmd/api"
+	"github.com/hanzozt/ziti/v2/ziti/cmd/api"
 
 	"github.com/Jeffail/gabs"
 	"github.com/spf13/cobra"

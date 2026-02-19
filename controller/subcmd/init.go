@@ -22,11 +22,11 @@ import (
 	"strings"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/foundation/v2/term"
-	"github.com/openziti/foundation/v2/versions"
-	"github.com/openziti/ziti/v2/controller"
-	"github.com/openziti/ziti/v2/controller/config"
-	"github.com/openziti/ziti/v2/controller/server"
+	"github.com/hanzozt/foundation/v2/term"
+	"github.com/hanzozt/foundation/v2/versions"
+	"github.com/hanzozt/ziti/v2/controller"
+	"github.com/hanzozt/ziti/v2/controller/config"
+	"github.com/hanzozt/ziti/v2/controller/server"
 	"github.com/spf13/cobra"
 )
 

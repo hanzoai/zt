@@ -11,10 +11,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/openziti/foundation/v2/concurrenz"
-	"github.com/openziti/metrics"
-	"github.com/openziti/ziti/v2/controller/db"
-	"github.com/openziti/ziti/v2/controller/model"
+	"github.com/hanzozt/foundation/v2/concurrenz"
+	"github.com/hanzozt/metrics"
+	"github.com/hanzozt/ziti/v2/controller/db"
+	"github.com/hanzozt/ziti/v2/controller/model"
 	"go.etcd.io/bbolt"
 )
 

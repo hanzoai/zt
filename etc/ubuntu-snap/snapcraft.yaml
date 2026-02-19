@@ -1,4 +1,4 @@
-name: openziti
+name: hanzozt
 version: 0.22.5
 base: core18
 summary: Netfoundry ziti application suite

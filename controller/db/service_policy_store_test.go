@@ -6,11 +6,11 @@ import (
 	"sort"
 	"testing"
 
-	"github.com/openziti/foundation/v2/errorz"
-	"github.com/openziti/foundation/v2/stringz"
-	"github.com/openziti/storage/boltz"
-	"github.com/openziti/storage/boltztest"
-	"github.com/openziti/ziti/v2/common/eid"
+	"github.com/hanzozt/foundation/v2/errorz"
+	"github.com/hanzozt/foundation/v2/stringz"
+	"github.com/hanzozt/storage/boltz"
+	"github.com/hanzozt/storage/boltztest"
+	"github.com/hanzozt/ziti/v2/common/eid"
 	"go.etcd.io/bbolt"
 )
 

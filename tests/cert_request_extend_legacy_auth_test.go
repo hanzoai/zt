@@ -3,9 +3,9 @@ package tests
 import (
 	"testing"
 
-	mangementAuthenticator "github.com/openziti/edge-api/rest_management_api_client/authenticator"
-	"github.com/openziti/edge-api/rest_model"
-	edge_apis "github.com/openziti/sdk-golang/edge-apis"
+	mangementAuthenticator "github.com/hanzozt/edge-api/rest_management_api_client/authenticator"
+	"github.com/hanzozt/edge-api/rest_model"
+	edge_apis "github.com/hanzozt/sdk-golang/edge-apis"
 )
 
 func Test_Cert_Request_Extend_Legacy_Auth(t *testing.T) {

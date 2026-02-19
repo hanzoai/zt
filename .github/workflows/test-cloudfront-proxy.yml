@@ -6,7 +6,7 @@ on:
       - main
       - release-v*
     paths:
-      - 'dist/cloudfront/get.openziti.io/**'
+      - 'dist/cloudfront/get.hanzozt.dev/**'
 
 # cancel older, redundant runs of same workflow on same branch
 concurrency:
@@ -16,7 +16,7 @@ concurrency:
 jobs:
   test-cloudfront-proxy-function:
     name: CloudFront Proxy Function Dry Run
-    if: github.repository_owner == 'openziti'
+    if: github.repository_owner == 'hanzozt'
     runs-on: ubuntu-24.04
     steps:
       - name: Shallow checkout
@@ -25,12 +25,12 @@ jobs:
       - name: Configure Python
         shell: bash
         run: |
-          pip install --requirement ./dist/cloudfront/get.openziti.io/requirements.txt
+          pip install --requirement ./dist/cloudfront/get.hanzozt.dev/requirements.txt
           python --version
         
-      - name: Dry Run Deploy CloudFront Function for get.openziti.io
+      - name: Dry Run Deploy CloudFront Function for get.hanzozt.dev
         shell: bash
-        run: python ./dist/cloudfront/get.openziti.io/deploy-cloudfront-function.py --no-publish
+        run: python ./dist/cloudfront/get.hanzozt.dev/deploy-cloudfront-function.py --no-publish
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}

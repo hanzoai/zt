@@ -1,16 +1,16 @@
 ARG ZITI_CLI_TAG="latest"
-ARG ZITI_CLI_IMAGE="docker.io/openziti/ziti-cli"
-# this builds docker.io/openziti/ziti-router
+ARG ZITI_CLI_IMAGE="docker.io/hanzozt/ziti-cli"
+# this builds docker.io/hanzozt/ziti-router
 FROM ${ZITI_CLI_IMAGE}:${ZITI_CLI_TAG}
 
-ARG ROUTER_PACKAGE=./dist/dist-packages/linux/openziti-router
+ARG ROUTER_PACKAGE=./dist/dist-packages/linux/hanzozt-router
 
 ### Required OpenShift Labels
-LABEL name="openziti/ziti-router" \
-      maintainer="developers@openziti.org" \
+LABEL name="hanzozt/ziti-router" \
+      maintainer="developers@hanzozt.org" \
       vendor="NetFoundry" \
-      summary="Run the OpenZiti Router" \
-      description="Run the OpenZiti Router"
+      summary="Run the Hanzo ZT Router" \
+      description="Run the Hanzo ZT Router"
 
 # set up image as root, then drop privs to ziggy
 USER root

@@ -23,16 +23,16 @@ import (
 	"github.com/golang-jwt/jwt/v5"
 	"github.com/google/uuid"
 	"github.com/lucsky/cuid"
-	"github.com/openziti/foundation/v2/errorz"
-	"github.com/openziti/foundation/v2/stringz"
-	"github.com/openziti/storage/ast"
-	"github.com/openziti/storage/boltz"
-	"github.com/openziti/ziti/v2/common"
-	"github.com/openziti/ziti/v2/controller/apierror"
-	"github.com/openziti/ziti/v2/controller/change"
-	"github.com/openziti/ziti/v2/controller/db"
-	"github.com/openziti/ziti/v2/controller/event"
-	"github.com/openziti/ziti/v2/controller/models"
+	"github.com/hanzozt/foundation/v2/errorz"
+	"github.com/hanzozt/foundation/v2/stringz"
+	"github.com/hanzozt/storage/ast"
+	"github.com/hanzozt/storage/boltz"
+	"github.com/hanzozt/ziti/v2/common"
+	"github.com/hanzozt/ziti/v2/controller/apierror"
+	"github.com/hanzozt/ziti/v2/controller/change"
+	"github.com/hanzozt/ziti/v2/controller/db"
+	"github.com/hanzozt/ziti/v2/controller/event"
+	"github.com/hanzozt/ziti/v2/controller/models"
 	"go.etcd.io/bbolt"
 )
 
@@ -201,7 +201,7 @@ func (self *SessionManager) CreateJwt(entity *Session, isLegacy bool) (string, e
 		RegisteredClaims: jwt.RegisteredClaims{
 			Issuer:    self.env.RootIssuer(),
 			Subject:   entity.ServiceId,
-			Audience:  jwt.ClaimStrings{common.ClaimAudienceOpenZiti},
+			Audience:  jwt.ClaimStrings{common.ClaimAudienceHanzo ZT},
 			IssuedAt:  &jwt.NumericDate{Time: time.Now()},
 			ID:        entity.Id,
 			ExpiresAt: &jwt.NumericDate{Time: time.Now().AddDate(1, 0, 0)}, //bound by API Session

@@ -15,7 +15,7 @@ services:
       - ziti-controller:/ziti-controller
 
   ziti-controller:
-    image: ${ZITI_CONTROLLER_IMAGE:-openziti/ziti-controller}
+    image: ${ZITI_CONTROLLER_IMAGE:-hanzozt/ziti-controller}
     depends_on:
       chown-controller:
         condition: service_completed_successfully

@@ -21,11 +21,11 @@ import (
 	"fmt"
 
 	"github.com/golang-jwt/jwt/v5"
-	"github.com/openziti/edge-api/rest_model"
-	"github.com/openziti/ziti/v2/common"
-	"github.com/openziti/ziti/v2/controller/change"
-	"github.com/openziti/ziti/v2/controller/model"
-	"github.com/openziti/ziti/v2/controller/permissions"
+	"github.com/hanzozt/edge-api/rest_model"
+	"github.com/hanzozt/ziti/v2/common"
+	"github.com/hanzozt/ziti/v2/controller/change"
+	"github.com/hanzozt/ziti/v2/controller/model"
+	"github.com/hanzozt/ziti/v2/controller/permissions"
 
 	"net/http"
 	"time"

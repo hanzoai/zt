@@ -26,10 +26,10 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/channel/v4"
-	"github.com/openziti/fablab/kernel/model"
-	"github.com/openziti/sdk-golang/ziti"
-	loop4Pb "github.com/openziti/ziti/zititest/ziti-traffic-test/loop4/pb"
+	"github.com/hanzozt/channel/v4"
+	"github.com/hanzozt/fablab/kernel/model"
+	"github.com/hanzozt/sdk-golang/ziti"
+	loop4Pb "github.com/hanzozt/ziti/zititest/ziti-traffic-test/loop4/pb"
 	cmap "github.com/orcaman/concurrent-map/v2"
 )
 

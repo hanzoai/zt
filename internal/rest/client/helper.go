@@ -20,10 +20,10 @@ import (
 	"context"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/edge-api/rest_client_api_client"
-	"github.com/openziti/edge-api/rest_client_api_client/external_jwt_signer"
-	"github.com/openziti/edge-api/rest_model"
-	internalconsts "github.com/openziti/ziti/v2/internal/rest/consts"
+	"github.com/hanzozt/edge-api/rest_client_api_client"
+	"github.com/hanzozt/edge-api/rest_client_api_client/external_jwt_signer"
+	"github.com/hanzozt/edge-api/rest_model"
+	internalconsts "github.com/hanzozt/ziti/v2/internal/rest/consts"
 )
 
 func ExternalJWTSignerFromFilter(client *rest_client_api_client.ZitiEdgeClient, filter string) *rest_model.ClientExternalJWTSignerDetail {

@@ -21,11 +21,11 @@ import (
 	"time"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/channel/v4"
-	"github.com/openziti/channel/v4/protobufs"
-	"github.com/openziti/ziti/v2/common/pb/mgmt_pb"
-	"github.com/openziti/ziti/v2/ziti/cmd/api"
-	"github.com/openziti/ziti/v2/ziti/cmd/common"
+	"github.com/hanzozt/channel/v4"
+	"github.com/hanzozt/channel/v4/protobufs"
+	"github.com/hanzozt/ziti/v2/common/pb/mgmt_pb"
+	"github.com/hanzozt/ziti/v2/ziti/cmd/api"
+	"github.com/hanzozt/ziti/v2/ziti/cmd/common"
 	"github.com/spf13/cobra"
 	"google.golang.org/protobuf/proto"
 )

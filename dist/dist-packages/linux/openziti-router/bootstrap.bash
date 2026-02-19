@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 #
-# bootstrap the OpenZiti Router with a config file and an identity.
+# bootstrap the Hanzo ZT Router with a config file and an identity.
 #
 
 stashZitiEnv() {
@@ -394,8 +394,8 @@ hintLinuxBootstrap() {
   local _work_dir="${1:-${PWD}}"
 
   echo -e "\nProvide a configuration in '${_work_dir}' or generate with:"\
-          "\n* Set vars in'/opt/openziti/etc/controller/bootstrap.env'"\
-          "\n* Run '/opt/openziti/etc/controller/bootstrap.bash'"\
+          "\n* Set vars in'/opt/hanzozt/etc/controller/bootstrap.env'"\
+          "\n* Run '/opt/hanzozt/etc/controller/bootstrap.bash'"\
           "\n* Run 'systemctl enable --now ziti-controller.service'"\
           "\n"
 }
@@ -463,8 +463,8 @@ else
   set -o pipefail
 
   export ZITI_HOME=/var/lib/private/ziti-router
-  BOOT_ENV_FILE=/opt/openziti/etc/router/bootstrap.env
-  SVC_ENV_FILE=/opt/openziti/etc/router/service.env
+  BOOT_ENV_FILE=/opt/hanzozt/etc/router/bootstrap.env
+  SVC_ENV_FILE=/opt/hanzozt/etc/router/service.env
   SVC_FILE=/etc/systemd/system/ziti-router.service.d/override.conf
 
   if [[ "${1:-}" =~ ^[-] ]]

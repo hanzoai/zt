@@ -21,8 +21,8 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/openziti/channel/v4"
-	"github.com/openziti/identity"
+	"github.com/hanzozt/channel/v4"
+	"github.com/hanzozt/identity"
 	log "github.com/sirupsen/logrus"
 )
 

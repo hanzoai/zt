@@ -17,11 +17,11 @@
 package actions
 
 import (
-	"github.com/openziti/fablab/kernel/lib/actions"
-	"github.com/openziti/fablab/kernel/lib/actions/component"
-	"github.com/openziti/fablab/kernel/lib/actions/host"
-	"github.com/openziti/fablab/kernel/model"
-	"github.com/openziti/ziti/zititest/zitilab/models"
+	"github.com/hanzozt/fablab/kernel/lib/actions"
+	"github.com/hanzozt/fablab/kernel/lib/actions/component"
+	"github.com/hanzozt/fablab/kernel/lib/actions/host"
+	"github.com/hanzozt/fablab/kernel/model"
+	"github.com/hanzozt/ziti/zititest/zitilab/models"
 )
 
 func NewStopAction() model.ActionBinder {

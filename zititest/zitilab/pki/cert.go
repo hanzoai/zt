@@ -25,8 +25,8 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/openziti/fablab/kernel/model"
-	"github.com/openziti/ziti/v2/ziti/cmd"
+	"github.com/hanzozt/fablab/kernel/model"
+	"github.com/hanzozt/ziti/v2/ziti/cmd"
 	"github.com/sirupsen/logrus"
 )
 

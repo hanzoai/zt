@@ -17,15 +17,15 @@
 package routes
 
 import (
-	"github.com/openziti/foundation/v2/util"
-	"github.com/openziti/ziti/v2/controller/env"
-	"github.com/openziti/ziti/v2/controller/model"
-	"github.com/openziti/ziti/v2/controller/response"
+	"github.com/hanzozt/foundation/v2/util"
+	"github.com/hanzozt/ziti/v2/controller/env"
+	"github.com/hanzozt/ziti/v2/controller/model"
+	"github.com/hanzozt/ziti/v2/controller/response"
 
-	"github.com/openziti/ziti/v2/controller/rest_model"
+	"github.com/hanzozt/ziti/v2/controller/rest_model"
 
-	"github.com/openziti/foundation/v2/stringz"
-	"github.com/openziti/ziti/v2/controller/models"
+	"github.com/hanzozt/foundation/v2/stringz"
+	"github.com/hanzozt/ziti/v2/controller/models"
 )
 
 const EntityNameRouter = "routers"

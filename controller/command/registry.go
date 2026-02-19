@@ -19,7 +19,7 @@ package command
 import (
 	"encoding/binary"
 
-	"github.com/openziti/foundation/v2/concurrenz"
+	"github.com/hanzozt/foundation/v2/concurrenz"
 	"github.com/pkg/errors"
 )
 

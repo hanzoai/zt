@@ -78,7 +78,7 @@ process_dir() {
   if is_git_repo "$dir"; then
     repo=$(get_repo_org_name "$dir")
     # Check if repo is set and the org/username contains 'ziti' or 'netfoundry'
-    if [ -n "$repo" ] && [[ ${repo%%/*} =~ openziti|netfoundry ]]; then
+    if [ -n "$repo" ] && [[ ${repo%%/*} =~ hanzozt|netfoundry ]]; then
       # Add to our list of processed repos if we're in specific repos mode
       if [ $SPECIFIC_REPOS_MODE -eq 1 ]; then
         REPOS+=("$repo")
@@ -111,7 +111,7 @@ generate_github_url() {
     query+=" ${repo_filters[*]}"
   else
     # Otherwise, use organization filters
-    query+=" org:openziti org:netfoundry"
+    query+=" org:hanzozt org:netfoundry"
   fi
   
   # URL encode the query

@@ -8,7 +8,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/openziti/ziti/v2/controller/xt"
+	"github.com/hanzozt/ziti/v2/controller/xt"
 	cmap "github.com/orcaman/concurrent-map/v2"
 )
 

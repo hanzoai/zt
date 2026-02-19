@@ -21,7 +21,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/openziti/channel/v4/trace/pb"
+	"github.com/hanzozt/channel/v4/trace/pb"
 )
 
 type SourceType int

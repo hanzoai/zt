@@ -25,9 +25,9 @@ import (
 
 	"github.com/gaissmai/extnetip"
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/ziti/v2/tunnel/dns"
-	"github.com/openziti/ziti/v2/tunnel/entities"
-	"github.com/openziti/ziti/v2/tunnel/utils"
+	"github.com/hanzozt/ziti/v2/tunnel/dns"
+	"github.com/hanzozt/ziti/v2/tunnel/entities"
+	"github.com/hanzozt/ziti/v2/tunnel/utils"
 )
 
 var dnsPrefix netip.Prefix

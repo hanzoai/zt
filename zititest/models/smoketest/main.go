@@ -17,8 +17,8 @@
 package main
 
 import (
-	"github.com/openziti/fablab"
-	"github.com/openziti/ziti/zititest/models/smoke"
+	"github.com/hanzozt/fablab"
+	"github.com/hanzozt/ziti/zititest/models/smoke"
 )
 
 func main() {

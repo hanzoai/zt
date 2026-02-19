@@ -32,15 +32,15 @@ import (
 	"time"
 
 	"github.com/Jeffail/gabs"
-	"github.com/openziti/edge-api/rest_client_api_client/current_api_session"
-	"github.com/openziti/edge-api/rest_model"
-	nfPem "github.com/openziti/foundation/v2/pem"
-	edge_apis "github.com/openziti/sdk-golang/edge-apis"
-	"github.com/openziti/ziti/v2/common/cert"
-	"github.com/openziti/ziti/v2/common/eid"
-	"github.com/openziti/ziti/v2/controller/change"
-	"github.com/openziti/ziti/v2/controller/env"
-	"github.com/openziti/ziti/v2/controller/model"
+	"github.com/hanzozt/edge-api/rest_client_api_client/current_api_session"
+	"github.com/hanzozt/edge-api/rest_model"
+	nfPem "github.com/hanzozt/foundation/v2/pem"
+	edge_apis "github.com/hanzozt/sdk-golang/edge-apis"
+	"github.com/hanzozt/ziti/v2/common/cert"
+	"github.com/hanzozt/ziti/v2/common/eid"
+	"github.com/hanzozt/ziti/v2/controller/change"
+	"github.com/hanzozt/ziti/v2/controller/env"
+	"github.com/hanzozt/ziti/v2/controller/model"
 	"github.com/stretchr/testify/require"
 )
 
@@ -411,7 +411,7 @@ func (test *authCertTests) testAuthenticateValidCertExpired(t *testing.T) {
 	csrTemplate := &x509.CertificateRequest{
 		Subject: pkix.Name{
 			Country:            []string{"USA"},
-			Organization:       []string{"openziti"},
+			Organization:       []string{"hanzozt"},
 			OrganizationalUnit: []string{"advdev"},
 			CommonName:         "API Test Client Cert" + eid.New(),
 		},

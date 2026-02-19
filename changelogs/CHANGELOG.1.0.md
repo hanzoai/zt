@@ -2,7 +2,7 @@
 
 ## About 1.0
 
-What does marking OpenZiti as 1.0 mean?
+What does marking Hanzo ZT as 1.0 mean?
 
 ### Backwards Compatibility
 We've guaranteed API stability for SDK clients for years and worked hard to ensure that routers 
@@ -17,7 +17,7 @@ setting up relatively large scale environments, knocking out various components 
 that the network is able to return to a stable state. These test are run for hours to try and 
 eliminate race conditions and distributed state machine problems. 
 
-OpenZiti is also being used as underlying infrastrcture for the zrok public service. Use of this 
+Hanzo ZT is also being used as underlying infrastrcture for the zrok public service. Use of this 
 network has grown quickly and proven that it's possible to build ziti native apps that can scale
 up.
 
@@ -78,23 +78,23 @@ New metrics:
 
 ## Component Updates and Bug Fixes
 
-* github.com/openziti/channel/v2: [v2.0.122 -> v2.0.128](https://github.com/openziti/channel/compare/v2.0.122...v2.0.128)
-* github.com/openziti/edge-api: [v0.26.14 -> v0.26.16](https://github.com/openziti/edge-api/compare/v0.26.14...v0.26.16)
-* github.com/openziti/foundation/v2: [v2.0.40 -> v2.0.42](https://github.com/openziti/foundation/compare/v2.0.40...v2.0.42)
-* github.com/openziti/identity: [v1.0.73 -> v1.0.75](https://github.com/openziti/identity/compare/v1.0.73...v1.0.75)
-* github.com/openziti/metrics: [v1.2.48 -> v1.2.51](https://github.com/openziti/metrics/compare/v1.2.48...v1.2.51)
-* github.com/openziti/runzmd: [v1.0.41 -> v1.0.43](https://github.com/openziti/runzmd/compare/v1.0.41...v1.0.43)
-* github.com/openziti/sdk-golang: [v0.23.15 -> v0.23.19](https://github.com/openziti/sdk-golang/compare/v0.23.15...v0.23.19)
-* github.com/openziti/secretstream: [v0.1.18 -> v0.1.19](https://github.com/openziti/secretstream/compare/v0.1.18...v0.1.19)
-* github.com/openziti/storage: [v0.2.33 -> v0.2.36](https://github.com/openziti/storage/compare/v0.2.33...v0.2.36)
-* github.com/openziti/transport/v2: [v2.0.125 -> v2.0.131](https://github.com/openziti/transport/compare/v2.0.125...v2.0.131)
-    * [Issue #79](https://github.com/openziti/transport/issues/79) - Add adaptive rate limiting to shared tls listener
+* github.com/hanzozt/channel/v2: [v2.0.122 -> v2.0.128](https://github.com/hanzozt/channel/compare/v2.0.122...v2.0.128)
+* github.com/hanzozt/edge-api: [v0.26.14 -> v0.26.16](https://github.com/hanzozt/edge-api/compare/v0.26.14...v0.26.16)
+* github.com/hanzozt/foundation/v2: [v2.0.40 -> v2.0.42](https://github.com/hanzozt/foundation/compare/v2.0.40...v2.0.42)
+* github.com/hanzozt/identity: [v1.0.73 -> v1.0.75](https://github.com/hanzozt/identity/compare/v1.0.73...v1.0.75)
+* github.com/hanzozt/metrics: [v1.2.48 -> v1.2.51](https://github.com/hanzozt/metrics/compare/v1.2.48...v1.2.51)
+* github.com/hanzozt/runzmd: [v1.0.41 -> v1.0.43](https://github.com/hanzozt/runzmd/compare/v1.0.41...v1.0.43)
+* github.com/hanzozt/sdk-golang: [v0.23.15 -> v0.23.19](https://github.com/hanzozt/sdk-golang/compare/v0.23.15...v0.23.19)
+* github.com/hanzozt/secretstream: [v0.1.18 -> v0.1.19](https://github.com/hanzozt/secretstream/compare/v0.1.18...v0.1.19)
+* github.com/hanzozt/storage: [v0.2.33 -> v0.2.36](https://github.com/hanzozt/storage/compare/v0.2.33...v0.2.36)
+* github.com/hanzozt/transport/v2: [v2.0.125 -> v2.0.131](https://github.com/hanzozt/transport/compare/v2.0.125...v2.0.131)
+    * [Issue #79](https://github.com/hanzozt/transport/issues/79) - Add adaptive rate limiting to shared tls listener
 
-* github.com/openziti/ziti: [v0.34.2 -> v1.0.0](https://github.com/openziti/ziti/compare/v0.34.2...v1.0.0)
-    * [Issue #1923](https://github.com/openziti/ziti/issues/1923) - Add release validation test suite
-    * [Issue #1904](https://github.com/openziti/ziti/issues/1904) - Add TLS handshake rate limiter
-    * [Issue #1921](https://github.com/openziti/ziti/issues/1921) - Tidy CLI
-    * [Issue #1916](https://github.com/openziti/ziti/issues/1916) - SDK dials fails with 'token is malformed' error
-    * [Issue #1911](https://github.com/openziti/ziti/issues/1911) - Fix panic on first HA controller startup
-    * [Issue #1914](https://github.com/openziti/ziti/issues/1914) - Fix panic in PeerConnected
-    * [Issue #1781](https://github.com/openziti/ziti/issues/1781) - Admin identities have bind and dial permissions to services
+* github.com/hanzozt/ziti: [v0.34.2 -> v1.0.0](https://github.com/hanzozt/ziti/compare/v0.34.2...v1.0.0)
+    * [Issue #1923](https://github.com/hanzozt/ziti/issues/1923) - Add release validation test suite
+    * [Issue #1904](https://github.com/hanzozt/ziti/issues/1904) - Add TLS handshake rate limiter
+    * [Issue #1921](https://github.com/hanzozt/ziti/issues/1921) - Tidy CLI
+    * [Issue #1916](https://github.com/hanzozt/ziti/issues/1916) - SDK dials fails with 'token is malformed' error
+    * [Issue #1911](https://github.com/hanzozt/ziti/issues/1911) - Fix panic on first HA controller startup
+    * [Issue #1914](https://github.com/hanzozt/ziti/issues/1914) - Fix panic in PeerConnected
+    * [Issue #1781](https://github.com/hanzozt/ziti/issues/1781) - Admin identities have bind and dial permissions to services

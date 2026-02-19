@@ -20,7 +20,7 @@ import (
 	"sync"
 	"sync/atomic"
 
-	"github.com/openziti/storage/boltz"
+	"github.com/hanzozt/storage/boltz"
 )
 
 func init() {

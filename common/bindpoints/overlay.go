@@ -29,16 +29,16 @@ import (
 	"strings"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/identity"
-	"github.com/openziti/sdk-golang/ziti"
-	"github.com/openziti/xweb/v3"
+	"github.com/hanzozt/identity"
+	"github.com/hanzozt/sdk-golang/ziti"
+	"github.com/hanzozt/xweb/v3"
 )
 
 var _ xweb.BindPoint = (*OverlayBindPoint)(nil)
 
 // OverlayBindPoint represents the BindPointConfig when an identity is supplied as opposed to an address
 type OverlayBindPoint struct {
-	Identity       []byte //an openziti identity
+	Identity       []byte //an hanzozt identity
 	Service        string //name of the service to bind
 	ClientAuthType tls.ClientAuthType
 	Name           string

@@ -19,7 +19,7 @@ package lets_encrypt
 import (
 	"io"
 
-	"github.com/openziti/ziti/v2/ziti/internal/log"
+	"github.com/hanzozt/ziti/v2/ziti/internal/log"
 
 	"github.com/spf13/cobra"
 )
@@ -50,7 +50,7 @@ func newRevokeCmd(out io.Writer, errOut io.Writer) *cobra.Command {
 	if err := cmd.MarkFlagRequired("path"); err != nil {
 		panic(err)
 	}
-	cmd.Flags().StringVarP(&options.email, "email", "e", "openziti@netfoundry.io", "Email used for registration and recovery contact")
+	cmd.Flags().StringVarP(&options.email, "email", "e", "hanzozt@netfoundry.io", "Email used for registration and recovery contact")
 	cmd.Flags().StringVarP(&options.acmeserver, "acmeserver", "a", acmeProd, "ACME CA hostname")
 	cmd.Flags().BoolVarP(&options.staging, "staging", "s", false, "Enable creation of 'staging' Certs (instead of production Certs)")
 

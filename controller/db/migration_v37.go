@@ -19,9 +19,9 @@ package db
 import (
 	"fmt"
 
-	nfpem "github.com/openziti/foundation/v2/pem"
-	"github.com/openziti/storage/ast"
-	"github.com/openziti/storage/boltz"
+	nfpem "github.com/hanzozt/foundation/v2/pem"
+	"github.com/hanzozt/storage/ast"
+	"github.com/hanzozt/storage/boltz"
 )
 
 func (m *Migrations) setAuthenticatorIsIssuedByNetwork(step *boltz.MigrationStep) {

@@ -18,9 +18,9 @@
 
 * Fix PATCH OS Posture Checks clearing data
 * Fix ziti-tunnel panic when removing
-  services. [edge#517](https://github.com/openziti/edge/issues/517)
+  services. [edge#517](https://github.com/hanzozt/edge/issues/517)
 * ziti-tunnel tproxy now supports `--lanIf` option to automatically add rules to accept incoming
-  connections for service connections. [edge#519](https://github.com/openziti/edge/issues/519)
+  connections for service connections. [edge#519](https://github.com/hanzozt/edge/issues/519)
 * Fix orphaned ottca enrollments after `DELETE /cas/<id>'
 * Add build info output when starting router/controller
 * Remove histograms from xgress dataflow path as they were causing bottlenecks
@@ -38,7 +38,7 @@
 * Fix concurrency related crash in router
 * Fix resource leak in fabric: forwarder tables weren't always updated after unroute
 * Fix issue that prevented ziti-tunnel from cleaning up on shutdown in some cases.
-  [edge#506](https://github.com/openziti/edge/issues/506)
+  [edge#506](https://github.com/hanzozt/edge/issues/506)
 
 ## Websocket Binding
 
@@ -431,11 +431,11 @@ listeners:
 * Ziti Edge API configurable HTTP Timeouts
 * Add `ziti log-format` or `ziti lf` for short, for formatting JSON log output as something more
   human readable
-* [fabric#151](https://github.com/openziti/fabric/issues/151) Add two timeout settings to the
+* [fabric#151](https://github.com/hanzozt/fabric/issues/151) Add two timeout settings to the
   controller to configure how long route and dial should wait before timeout
     * terminationTimeoutSeconds - how long the router has to dial the service
     * routeTimeoutSeconds - how long a router has to respond to a route create/update message
-* [fabric#158](https://github.com/openziti/fabric/issues/158) Add a session creation timeout to the
+* [fabric#158](https://github.com/hanzozt/fabric/issues/158) Add a session creation timeout to the
   router. This controls how long the router will wait for fabric sessions to be created. This
   includes creating the router and dialing the end service, so the timeout should be at least as
   long as the controller `terminationTimeoutSeconds`and `routeTimeoutSeconds` added together
@@ -482,7 +482,7 @@ edge:
 
 * Default hosting precedence and cost can now be configured for identities
 * Health checks can now be configured for the go based tunneler (ziti-tunnel) using server configs
-* [ziti#177](https://github.com/openziti/ziti/issues/177) ziti-tunnel has a new `host` mode, if you
+* [ziti#177](https://github.com/hanzozt/ziti/issues/177) ziti-tunnel has a new `host` mode, if you
   are only hosting services
 * Changes to terminators (add/updated/delete/router online/router offline) will now generate events
   that can be emitted
@@ -492,7 +492,7 @@ edge:
 
 When the tunneler hosts services there was previously no way to specify the precedence and cost
 associated with those services.
-See [Ziti XT documentation](https://openziti.github.io/ziti/services/overview.html?tabs=create-service-ui#xt)
+See [Ziti XT documentation](https://hanzozt.github.io/ziti/services/overview.html?tabs=create-service-ui#xt)
 for an overview of how precedence and cost relate to HA and load balancing.
 
 There are now two new fields on identity:
@@ -645,7 +645,7 @@ For reference, here is the full, updated `ziti-tunneler-server.v1` schema:
 
 ```
 {
-    "$id": "http://edge.openziti.org/schemas/ziti-tunneler-server.v1.config.json",
+    "$id": "http://edge.hanzozt.org/schemas/ziti-tunneler-server.v1.config.json",
     "additionalProperties": false,
     "definitions": {
         "action": {
@@ -901,7 +901,7 @@ expire and be used for reconnection.
 
 ## What's New
 
-* [ziti#253](https://github.com/openziti/ziti/issues/253) `ziti-tunnel enroll` should set non-zero
+* [ziti#253](https://github.com/hanzozt/ziti/issues/253) `ziti-tunnel enroll` should set non-zero
   exit status if an error occur
 * Rewrite of Xgress with the following goals
     * Fix deadlocks at high throughput

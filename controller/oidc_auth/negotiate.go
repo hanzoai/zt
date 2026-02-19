@@ -23,7 +23,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/openziti/foundation/v2/errorz"
+	"github.com/hanzozt/foundation/v2/errorz"
 )
 
 // negotiateResponseContentType returns the response content type that should be

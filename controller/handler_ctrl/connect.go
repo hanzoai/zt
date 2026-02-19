@@ -24,10 +24,10 @@ import (
 	"time"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/channel/v4"
-	"github.com/openziti/foundation/v2/stringz"
-	"github.com/openziti/identity"
-	"github.com/openziti/ziti/v2/controller/network"
+	"github.com/hanzozt/channel/v4"
+	"github.com/hanzozt/foundation/v2/stringz"
+	"github.com/hanzozt/identity"
+	"github.com/hanzozt/ziti/v2/controller/network"
 )
 
 type ConnectHandler struct {

@@ -19,7 +19,7 @@ package lets_encrypt
 import (
 	"io"
 
-	"github.com/openziti/ziti/v2/ziti/util"
+	"github.com/hanzozt/ziti/v2/ziti/util"
 
 	"github.com/spf13/cobra"
 )

@@ -22,10 +22,10 @@ import (
 	"time"
 
 	"github.com/google/uuid"
-	"github.com/openziti/storage/boltztest"
+	"github.com/hanzozt/storage/boltztest"
 
 	"github.com/google/go-cmp/cmp"
-	"github.com/openziti/storage/boltz"
+	"github.com/hanzozt/storage/boltz"
 	"go.etcd.io/bbolt"
 )
 

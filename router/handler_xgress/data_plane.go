@@ -21,9 +21,9 @@ import (
 	"time"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/channel/v4"
-	"github.com/openziti/sdk-golang/xgress"
-	"github.com/openziti/ziti/v2/router/forwarder"
+	"github.com/hanzozt/channel/v4"
+	"github.com/hanzozt/sdk-golang/xgress"
+	"github.com/hanzozt/ziti/v2/router/forwarder"
 )
 
 type dataPlaneAdapter struct {

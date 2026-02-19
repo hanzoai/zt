@@ -20,10 +20,10 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/openziti/channel/v4"
-	"github.com/openziti/fablab/kernel/model"
-	"github.com/openziti/identity/dotziti"
-	"github.com/openziti/transport/v2"
+	"github.com/hanzozt/channel/v4"
+	"github.com/hanzozt/fablab/kernel/model"
+	"github.com/hanzozt/identity/dotziti"
+	"github.com/hanzozt/transport/v2"
 	"github.com/sirupsen/logrus"
 )
 

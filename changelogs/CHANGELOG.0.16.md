@@ -9,10 +9,10 @@
 
 ## What's New
 
-* fix [edge#338 configurable IP range for DNS services](https://github.com/openziti/edge/issues/338)
+* fix [edge#338 configurable IP range for DNS services](https://github.com/hanzozt/edge/issues/338)
   The IP range for hostname-configured services defaults to 100.64/10, and can be changed with the
   `-d` command-line option.
-* fix [edge#336 Startup Race Condition](https://github.com/openziti/edge/issues/336)
+* fix [edge#336 Startup Race Condition](https://github.com/hanzozt/edge/issues/336)
 * fix api-session and session deletes from ziti CLI
 * update ziti-fabric-test loop3
 * allow specifying policy semantic from CLI when creating policies
@@ -20,7 +20,7 @@
 * Posture Check Configuration API
 *
 
-fix [edge#349 Using 'edge_transport' binding on non-encrypted service leads to Dial failure](https://github.com/openziti/edge/issues/349)
+fix [edge#349 Using 'edge_transport' binding on non-encrypted service leads to Dial failure](https://github.com/hanzozt/edge/issues/349)
 
 ## Event Changes
 
@@ -149,17 +149,17 @@ swagger.yml) for complete details.
 
 ## What's New
 
-* [ziti#192 CAs default to 10yr expiration](https://github.com/openziti/ziti/issues/192)
+* [ziti#192 CAs default to 10yr expiration](https://github.com/hanzozt/ziti/issues/192)
 * Allow specifying edge config file when using ziti-fabric-test loop2
 * Add grouping data to streaming metrics, so values can be associated with their source metric
 * New WSS underlay to support Edge Router connections from Browser-based webapps using the
   ziti-sdk-js
-* [ziti#151 enroll subcommand w/out args should print help](https://github.com/openziti/ziti/issues/192)
+* [ziti#151 enroll subcommand w/out args should print help](https://github.com/hanzozt/ziti/issues/192)
 * Fix processing of `--configTypes all` in `ziti edge list services`
 * Addressable Terminators and the eXtensible Terminator Validation framework
 * GO Edge SDK now respects Service.EncryptionRequired setting
-* [fabric#133 Add Version Information To Hellos](https://github.com/openziti/fabric/issues/133)
-* [edge#326 Nested Transaction Deadlock](https://github.com/openziti/edge/issues/326)
+* [fabric#133 Add Version Information To Hellos](https://github.com/hanzozt/fabric/issues/133)
+* [edge#326 Nested Transaction Deadlock](https://github.com/hanzozt/edge/issues/326)
 
 # Config File Changes
 
@@ -288,13 +288,13 @@ registered under the name `edge`. The binding is the key and the validator name 
 
 * What's New
     * Smart routing fixes
-        * [Persist Terminator Precedence](https://github.com/openziti/fabric/issues/112)
-        * [Terminators and Fixed Link Cost, Incorrect Path Selection](https://github.com/openziti/fabric/issues/121)
-        * [If link vanishes during reroute, controller can panic](https://github.com/openziti/fabric/issues/122)
-        * [Scale latency metric when used for path costing](https://github.com/openziti/fabric/issues/123)
-        * [Services not always getting cleared from cache when terminators are updated](https://github.com/openziti/fabric/issues/124)
-        * [Fix service policy denormalization migration](https://github.com/openziti/edge/issues/291)
-    * [sdk-golang#84](https://github.com/openziti/sdk-golang/issues/84) Fixes go routine leak that
+        * [Persist Terminator Precedence](https://github.com/hanzozt/fabric/issues/112)
+        * [Terminators and Fixed Link Cost, Incorrect Path Selection](https://github.com/hanzozt/fabric/issues/121)
+        * [If link vanishes during reroute, controller can panic](https://github.com/hanzozt/fabric/issues/122)
+        * [Scale latency metric when used for path costing](https://github.com/hanzozt/fabric/issues/123)
+        * [Services not always getting cleared from cache when terminators are updated](https://github.com/hanzozt/fabric/issues/124)
+        * [Fix service policy denormalization migration](https://github.com/hanzozt/edge/issues/291)
+    * [sdk-golang#84](https://github.com/hanzozt/sdk-golang/issues/84) Fixes go routine leak that
       would slowly kill SDK application (i.e. ziti-probe)
     * REST API doc via ReDoc available at `https://<host>:<port>/docs`
 
@@ -302,12 +302,12 @@ registered under the name `edge`. The binding is the key and the validator name 
 
 * What's New
     * Metrics Refactoring
-        * [Support timers in metrics events](https://github.com/openziti/foundation/issues/121)
-        * [Convert json file reporter to generic reporter supporting multiple formatters, including json and plain](https://github.com/openziti/foundation/issues/122)
+        * [Support timers in metrics events](https://github.com/hanzozt/foundation/issues/121)
+        * [Convert json file reporter to generic reporter supporting multiple formatters, including json and plain](https://github.com/hanzozt/foundation/issues/122)
     * Session Performance Fixes
-        * [Supported unindexed FK constraints in bbolt](https://github.com/openziti/foundation/issues/119)
-        * [Improve API Session and Session creation performance](https://github.com/openziti/edge/issues/281)
-    * [Make enrollment available from the ziti CLI](https://github.com/openziti/ziti/issues/182)
+        * [Supported unindexed FK constraints in bbolt](https://github.com/hanzozt/foundation/issues/119)
+        * [Improve API Session and Session creation performance](https://github.com/hanzozt/edge/issues/281)
+    * [Make enrollment available from the ziti CLI](https://github.com/hanzozt/ziti/issues/182)
     * Docker image for `ziti-tunnel` - Embellish examples and fix entrypoint script to wait for
       clean up of iptables rules on exit
     * Various Internal Stability & Scale Fixes
@@ -333,39 +333,39 @@ registered under the name `edge`. The binding is the key and the validator name 
 **Important Note:** This release contains backwards incompatible changes. See below for details.
 
 * End-To-End Encryption Enhancements
-    * [e2e Service Configuration & Router Termination](https://github.com/openziti/edge/issues/173)
+    * [e2e Service Configuration & Router Termination](https://github.com/hanzozt/edge/issues/173)
 * Router Scaling Issues
-    * [Add worker pools for link and xgress dials](https://github.com/openziti/fabric/issues/109)
+    * [Add worker pools for link and xgress dials](https://github.com/hanzozt/fabric/issues/109)
 * Model Performance Improvements
-    * [Denormalize policy links for performance](https://github.com/openziti/edge/issues/256)
+    * [Denormalize policy links for performance](https://github.com/hanzozt/edge/issues/256)
 * Datastore Integrity Checker
-    * [foundation#107](https://github.com/openziti/foundation/issues/107)
-    * [edge#258](https://github.com/openziti/edge/issues/258)
-    * [#163](https://github.com/openziti/ziti/issues/163)
+    * [foundation#107](https://github.com/hanzozt/foundation/issues/107)
+    * [edge#258](https://github.com/hanzozt/edge/issues/258)
+    * [#163](https://github.com/hanzozt/ziti/issues/163)
 * Events Framework
-    * [foundation#116](https://github.com/openziti/foundation/issues/116) - Add generic event
+    * [foundation#116](https://github.com/hanzozt/foundation/issues/116) - Add generic event
       framework and use it for metrics
-    * [fabric#106](https://github.com/openziti/fabric/issues/106) - Event Streaming
-    * [edge#229](https://github.com/openziti/edge/issues/229) - Stream Session Events
+    * [fabric#106](https://github.com/hanzozt/fabric/issues/106) - Event Streaming
+    * [edge#229](https://github.com/hanzozt/edge/issues/229) - Stream Session Events
 
 * Bug Fixes:
-    * [#152](https://github.com/openziti/ziti/issues/152) - Fix ziti-router enroll exit code on
+    * [#152](https://github.com/hanzozt/ziti/issues/152) - Fix ziti-router enroll exit code on
       failure
-    * [#156](https://github.com/openziti/ziti/issues/156) - Fix display of policies with empty roles
+    * [#156](https://github.com/hanzozt/ziti/issues/156) - Fix display of policies with empty roles
       lists
-    * [#169](https://github.com/openziti/ziti/issues/169) - Fix delete by ID in Ziti CLI
-    * [edge#269](https://github.com/openziti/edge/issues/269) - Service Policy types in the bbolt
+    * [#169](https://github.com/hanzozt/ziti/issues/169) - Fix delete by ID in Ziti CLI
+    * [edge#269](https://github.com/hanzozt/edge/issues/269) - Service Policy types in the bbolt
       should be 1 and 2, rather than 4 and 5
-    * [edge#273](https://github.com/openziti/edge/issues/273) - Avoid tun "not pollable" read
+    * [edge#273](https://github.com/hanzozt/edge/issues/273) - Avoid tun "not pollable" read
       failures
-    * [fabric#114](https://github.com/openziti/fabric/issues/114) - When egress connect fails,
+    * [fabric#114](https://github.com/hanzozt/fabric/issues/114) - When egress connect fails,
       router does not return failure to controller
-    * [fabric#117](https://github.com/openziti/fabric/issues/117) - Xgress setup has a race
+    * [fabric#117](https://github.com/hanzozt/fabric/issues/117) - Xgress setup has a race
       condition
 
 * Backwards Compatibility
     * The `ziti edge snapshot-db` command is now `ziti edge db snapshot`
-    * In order to fix [fabric#117](https://github.com/openziti/fabric/issues/117), the xgress
+    * In order to fix [fabric#117](https://github.com/hanzozt/fabric/issues/117), the xgress
       protocol flow had to be updated. This means 0.16+ controllers and routers will not work with
       older controllers and routers
 
@@ -506,8 +506,8 @@ routers. Performance was tested against the APIs used by the SDKs.
 
 See for more detail:
 
-* [Denormalized Policies](https://github.com/openziti/edge/wiki/Denormalized-Policies)
-* [Characterization (Pure Model Tests)](https://github.com/openziti/ziti/wiki/Characterization#pure-model-tests)
+* [Denormalized Policies](https://github.com/hanzozt/edge/wiki/Denormalized-Policies)
+* [Characterization (Pure Model Tests)](https://github.com/hanzozt/ziti/wiki/Characterization#pure-model-tests)
 
 ## Data Integrity Checking Framework
 
@@ -522,9 +522,9 @@ rememdy if issues are found.
 There are two new REST APIs available
 
 * GET `/database/check-data-integrity`
-    * https://github.com/openziti/edge/blob/master/specs/swagger.yml#L2916
+    * https://github.com/hanzozt/edge/blob/master/specs/swagger.yml#L2916
 * POST `/database/fix-data-integrity`
-    * https://github.com/openziti/edge/blob/master/specs/swagger.yml#L2930
+    * https://github.com/hanzozt/edge/blob/master/specs/swagger.yml#L2930
 
 These APIs can be used from the ziti CLI.
 

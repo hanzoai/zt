@@ -23,8 +23,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/openziti/foundation/v2/errorz"
-	"github.com/openziti/ziti/v2/common/eid"
+	"github.com/hanzozt/foundation/v2/errorz"
+	"github.com/hanzozt/ziti/v2/common/eid"
 )
 
 func Test_ConfigTypes(t *testing.T) {

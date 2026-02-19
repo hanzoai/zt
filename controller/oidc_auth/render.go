@@ -22,8 +22,8 @@ import (
 	"net/http"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/edge-api/rest_model"
-	"github.com/openziti/foundation/v2/errorz"
+	"github.com/hanzozt/edge-api/rest_model"
+	"github.com/hanzozt/foundation/v2/errorz"
 )
 
 // render will attempt to send a responses on the provided http.ResponseWriter. All error output will be directed to the

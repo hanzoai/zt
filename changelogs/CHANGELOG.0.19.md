@@ -369,7 +369,7 @@ What the service events look like:
 
 The host.v1 config type now support health checks. The configuration is the same for `ziti-tunneler-server-v1`.
 
-See here: https://github.com/openziti/edge/blob/v0.19.54/tunnel/entities/host.v1.json for the full schema
+See here: https://github.com/hanzozt/edge/blob/v0.19.54/tunnel/entities/host.v1.json for the full schema
 
 ### host.v2
 
@@ -507,11 +507,11 @@ This will result in log output that describes the entrance into and exit from tr
 functions operating against the underlying database:
 
 ```
-[   0.003]    INFO fabric/controller/db.traceUpdateEnter: Enter Update (tx:18) [github.com/openziti/fabric/controller/db.createRoots]
-[   0.003]    INFO fabric/controller/db.traceUpdateExit: Exit Update (tx:18) [github.com/openziti/fabric/controller/db.createRoots]
-[   0.006]    INFO fabric/controller/db.traceUpdateEnter: Enter Update (tx:19) [github.com/openziti/foundation/storage/boltz.(*migrationManager).Migrate.func1]
+[   0.003]    INFO fabric/controller/db.traceUpdateEnter: Enter Update (tx:18) [github.com/hanzozt/fabric/controller/db.createRoots]
+[   0.003]    INFO fabric/controller/db.traceUpdateExit: Exit Update (tx:18) [github.com/hanzozt/fabric/controller/db.createRoots]
+[   0.006]    INFO fabric/controller/db.traceUpdateEnter: Enter Update (tx:19) [github.com/hanzozt/foundation/storage/boltz.(*migrationManager).Migrate.func1]
 [   0.006]    INFO foundation/storage/boltz.(*migrationManager).Migrate.func1: fabric datastore is up to date at version 4
-[   0.006]    INFO fabric/controller/db.traceUpdateExit: Exit Update (tx:19) [github.com/openziti/foundation/storage/boltz.(*migrationManager).Migrate.func1]
+[   0.006]    INFO fabric/controller/db.traceUpdateExit: Exit Update (tx:19) [github.com/hanzozt/foundation/storage/boltz.(*migrationManager).Migrate.func1]
 ```
 
 ### Ziti Controller Remove All Ziti Controller Remove API Sessions and Edge Sessions API Sessions and Edge Sessions
@@ -706,7 +706,7 @@ Event types:
 
 ## What's New
 
-* [fabric#206](https://github.com/openziti/fabric/issues/206) Fix controller deadlock which can
+* [fabric#206](https://github.com/hanzozt/fabric/issues/206) Fix controller deadlock which can
   happen when links go down
 * Use AtomicBitSet for xgress flags. Minimize memory use and contention
 * edge router status wasn't getting set online on connect
@@ -850,7 +850,7 @@ Changes of note:
 
           -a, --acmeserver string                             ACME CA hostname (default "https://acme-v02.api.letsencrypt.org/directory")
           -d, --domain string                                 Domain for which Cert is being generated (e.g. me.example.com)
-          -e, --email string                                  Email used for registration and recovery contact (default "openziti@netfoundry.io")
+          -e, --email string                                  Email used for registration and recovery contact (default "hanzozt@netfoundry.io")
           -h, --help                                          help for create
           -k, --keytype EC256|EC384|RSA2048|RSA4096|RSA8192   Key type to use for private keys (default RSA4096)
           -p, --path string                                   Directory to use for storing the data
@@ -881,7 +881,7 @@ Changes of note:
           -a, --acmeserver string                             ACME CA hostname (default "https://acme-v02.api.letsencrypt.org/directory")
               --days int                                      The number of days left on a certificate to renew it (default 14)
           -d, --domain string                                 Domain for which Cert is being generated (e.g. me.example.com)
-          -e, --email string                                  Email used for registration and recovery contact (default "openziti@netfoundry.io")
+          -e, --email string                                  Email used for registration and recovery contact (default "hanzozt@netfoundry.io")
           -h, --help                                          help for renew
           -k, --keytype EC256|EC384|RSA2048|RSA4096|RSA8192   Key type to use for private keys (default RSA4096)
           -p, --path string                                   Directory where data is stored
@@ -898,7 +898,7 @@ Changes of note:
 
           -a, --acmeserver string   ACME CA hostname (default "https://acme-v02.api.letsencrypt.org/directory")
           -d, --domain string       Domain for which Cert is being generated (e.g. me.example.com)
-          -e, --email string        Email used for registration and recovery contact (default "openziti@netfoundry.io")
+          -e, --email string        Email used for registration and recovery contact (default "hanzozt@netfoundry.io")
           -h, --help                help for revoke
           -p, --path string         Directory where data is stored
           -s, --staging             Enable creation of 'staging' Certs (instead of production Certs)

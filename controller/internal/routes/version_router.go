@@ -22,15 +22,15 @@ import (
 	"sync"
 
 	"github.com/go-openapi/runtime/middleware"
-	clientInformational "github.com/openziti/edge-api/rest_client_api_server/operations/informational"
-	managementInformational "github.com/openziti/edge-api/rest_management_api_server/operations/informational"
-	"github.com/openziti/edge-api/rest_model"
-	"github.com/openziti/xweb/v3"
-	"github.com/openziti/ziti/v2/common/build"
-	"github.com/openziti/ziti/v2/controller/env"
-	"github.com/openziti/ziti/v2/controller/permissions"
-	"github.com/openziti/ziti/v2/controller/response"
-	"github.com/openziti/ziti/v2/controller/webapis"
+	clientInformational "github.com/hanzozt/edge-api/rest_client_api_server/operations/informational"
+	managementInformational "github.com/hanzozt/edge-api/rest_management_api_server/operations/informational"
+	"github.com/hanzozt/edge-api/rest_model"
+	"github.com/hanzozt/xweb/v3"
+	"github.com/hanzozt/ziti/v2/common/build"
+	"github.com/hanzozt/ziti/v2/controller/env"
+	"github.com/hanzozt/ziti/v2/controller/permissions"
+	"github.com/hanzozt/ziti/v2/controller/response"
+	"github.com/hanzozt/ziti/v2/controller/webapis"
 )
 
 func init() {

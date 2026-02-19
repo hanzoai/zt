@@ -12,7 +12,7 @@
 
 ## What's New
 
-* Bug fix: [edge#712](https://github.com/openziti/edge/issues/712)
+* Bug fix: [edge#712](https://github.com/hanzozt/edge/issues/712)
     * NF-INTERCEPT chain was getting deleted when any intercept was stopped, not when all intercepts were stopped
     * IP address could get reused across DNS entries. Added DNS cache flush on startup to avoid this
     * IP address cleanup was broken as all services would see last assigned IP
@@ -26,7 +26,7 @@
 
 ## What's New
 
-* Bug fix: [edge#641](https://github.com/openziti/edge/issues/641)Management and Client API nested resources now
+* Bug fix: [edge#641](https://github.com/hanzozt/edge/issues/641)Management and Client API nested resources now
   support `limit` and `offset` outside of `filter` as query params
 * Feature: MFA Timeout Options
 
@@ -51,9 +51,9 @@ subject to timeout or wake events.
 # Release 0.20.11
 
 * Bug fix: CLI Admin create/update/delete for UPDB authenticators now function properly
-* Maintenance: better logging [sdk-golang#161](https://github.com/openziti/sdk-golang/pull/161)
-  and [edge#700](https://github.com/openziti/edge/pull/700)
-* Bug fix: [sdk-golang#162](https://github.com/openziti/sdk-golang/pull/162) fix race condition on close of ziti
+* Maintenance: better logging [sdk-golang#161](https://github.com/hanzozt/sdk-golang/pull/161)
+  and [edge#700](https://github.com/hanzozt/edge/pull/700)
+* Bug fix: [sdk-golang#162](https://github.com/hanzozt/sdk-golang/pull/162) fix race condition on close of ziti
   connections
 
 # Release 0.20.10
@@ -61,9 +61,9 @@ subject to timeout or wake events.
 ## What's New
 
 * Bug fix: patch for process multi would clear information
-* Bug fix: [ziti#420](https://github.com/openziti/ziti/issues/420) fix ziti-tunnel failover with multiple interfaces
+* Bug fix: [ziti#420](https://github.com/hanzozt/ziti/issues/420) fix ziti-tunnel failover with multiple interfaces
   when once becomes unavailable
-* Bug fix: [edge#670](https://github.com/openziti/edge/issues/670) fix ziti-tunnel issue where address were left
+* Bug fix: [edge#670](https://github.com/hanzozt/edge/issues/670) fix ziti-tunnel issue where address were left
   assigned to loopback after clean shutdown
 * Bug fix: race condition in edge session sync could cause router panic. Regression since 0.20.9
 * Bug fix: terminator updates and deletes from the combined router/tunneler weren't working
@@ -196,7 +196,7 @@ $ curl -k https://localhost:1280/health-checks
 
 ## What's New
 
-* 0.20.7 was missing the most up-to-date version of the openziti/edge library dependency
+* 0.20.7 was missing the most up-to-date version of the hanzozt/edge library dependency
 
 # Release 0.20.7
 
@@ -266,7 +266,7 @@ link:
 ## What's New
 
 * Fixes a bug in the GO sdk which could cause panic by return nil connection and nil error
-* [ziti#170](https://github.com/openziti/ziti/issues/170) Fixes the service poll refresh default for ziti-tunnel host
+* [ziti#170](https://github.com/hanzozt/ziti/issues/170) Fixes the service poll refresh default for ziti-tunnel host
   mode
 * Fixes a deadlock in control channel reconnect logic triggerable when network path to controller is unreliable
 

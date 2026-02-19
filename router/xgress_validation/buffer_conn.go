@@ -8,7 +8,7 @@ import (
 	"time"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/foundation/v2/concurrenz"
+	"github.com/hanzozt/foundation/v2/concurrenz"
 )
 
 func NewBufferConn(id string) *BufferConn {

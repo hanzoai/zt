@@ -20,13 +20,13 @@ import (
 	"time"
 
 	"github.com/go-openapi/runtime/middleware"
-	"github.com/openziti/edge-api/rest_management_api_server/operations/enrollment"
-	"github.com/openziti/edge-api/rest_model"
-	"github.com/openziti/foundation/v2/errorz"
-	"github.com/openziti/ziti/v2/controller/env"
-	"github.com/openziti/ziti/v2/controller/model"
-	"github.com/openziti/ziti/v2/controller/permissions"
-	"github.com/openziti/ziti/v2/controller/response"
+	"github.com/hanzozt/edge-api/rest_management_api_server/operations/enrollment"
+	"github.com/hanzozt/edge-api/rest_model"
+	"github.com/hanzozt/foundation/v2/errorz"
+	"github.com/hanzozt/ziti/v2/controller/env"
+	"github.com/hanzozt/ziti/v2/controller/model"
+	"github.com/hanzozt/ziti/v2/controller/permissions"
+	"github.com/hanzozt/ziti/v2/controller/response"
 )
 
 func init() {

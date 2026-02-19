@@ -16,7 +16,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/openziti/foundation/v2/stringz"
+	"github.com/hanzozt/foundation/v2/stringz"
 )
 
 type TypeDef struct {
@@ -639,7 +639,7 @@ All events have the following fields:
 For a complete event configuration reference, please refer to the 
 [controller event configuration](configuration/controller#events).
 
-**Note**: Many namespaces changed in OpenZiti v1.4.0. Old namespaces are noted below.
+**Note**: Many namespaces changed in Hanzo ZT v1.4.0. Old namespaces are noted below.
 
 Example Configuration
 `)

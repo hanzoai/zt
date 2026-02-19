@@ -20,11 +20,11 @@ import (
 	"time"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/channel/v4"
-	"github.com/openziti/ziti/v2/common/ctrlchan"
-	"github.com/openziti/ziti/v2/common/pb/ctrl_pb"
-	"github.com/openziti/ziti/v2/controller/network"
-	"github.com/openziti/ziti/v2/controller/xctrl"
+	"github.com/hanzozt/channel/v4"
+	"github.com/hanzozt/ziti/v2/common/ctrlchan"
+	"github.com/hanzozt/ziti/v2/common/pb/ctrl_pb"
+	"github.com/hanzozt/ziti/v2/controller/network"
+	"github.com/hanzozt/ziti/v2/controller/xctrl"
 	"github.com/pkg/errors"
 	"google.golang.org/protobuf/proto"
 )

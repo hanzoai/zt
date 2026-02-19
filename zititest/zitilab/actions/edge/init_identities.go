@@ -4,10 +4,10 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/openziti/fablab/kernel/libssh"
-	"github.com/openziti/fablab/kernel/model"
-	zitilib_actions "github.com/openziti/ziti/zititest/zitilab/actions"
-	"github.com/openziti/ziti/zititest/zitilab/cli"
+	"github.com/hanzozt/fablab/kernel/libssh"
+	"github.com/hanzozt/fablab/kernel/model"
+	zitilib_actions "github.com/hanzozt/ziti/zititest/zitilab/actions"
+	"github.com/hanzozt/ziti/zititest/zitilab/cli"
 )
 
 func InitIdentities(componentSpec string, concurrency int) model.Action {

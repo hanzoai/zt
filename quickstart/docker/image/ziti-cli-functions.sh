@@ -12,7 +12,7 @@ ASCI_BLUE='\033[00;34m'
 ASCI_PURPLE='\033[00;35m'
 ZITIx_EXPRESS_COMPLETE=""
 
-: "${GITHUB_REPO_OWNER:=openziti}"
+: "${GITHUB_REPO_OWNER:=hanzozt}"
 : "${GITHUB_REPO_NAME:=ziti}"
 
 function WHITE {
@@ -385,7 +385,7 @@ function setupEnvironment {
 
   _setup_ziti_env_path
 
-  echo -e "$(GREEN "Your OpenZiti environment has been set up successfully.")"
+  echo -e "$(GREEN "Your Hanzo ZT environment has been set up successfully.")"
   echo ""
 }
 
@@ -660,7 +660,7 @@ function getZiti {
     fi
   fi
 
-  echo -e "Getting OpenZiti binaries"
+  echo -e "Getting Hanzo ZT binaries"
   echo ""
 
   # Get the latest version unless a specific version is specified
@@ -699,7 +699,7 @@ function getZiti {
     currentVersion="$("${ZITI_BIN_DIR}"/ziti --version)"
     if [[ "${ZITI_BINARIES_VERSION}" != "${currentVersion}" ]]; then
       # Prompt user for new download
-      echo -en "There is a newer version of OpenZiti, would you like to download it? (Y/n) "
+      echo -en "There is a newer version of Hanzo ZT, would you like to download it? (Y/n) "
       read -r reply
       if [[ -z "${reply}" || "${reply}" == [Yy]* ]]; then
         # Update the ZITI_BIN_DIR path to point to the latest version
@@ -715,7 +715,7 @@ function getZiti {
 
         # Update the .env file with the new downloaded version
         if ! test -f "${ZITI_ENV_FILE}"; then
-          echo -e "  * $(YELLOW "WARN: The OpenZiti Environment file could not be found to update ziti binary related paths")"
+          echo -e "  * $(YELLOW "WARN: The Hanzo ZT Environment file could not be found to update ziti binary related paths")"
         else
           sed -i.bak "s/export ZITI_BIN_DIR=.*/export ZITI_BIN_DIR=$(echo ${ZITI_BIN_DIR} | sed 's/\//\\\//g')/g" "${ZITI_ENV_FILE}"
           sed -i.bak "s/export ZITI_BINARIES_VERSION=.*/export ZITI_BINARIES_VERSION=$(echo ${ZITI_BINARIES_VERSION} | sed 's/\//\\\//g')/g" "${ZITI_ENV_FILE}"
@@ -756,7 +756,7 @@ function getZiti {
   # Mark the files executable
   chmod +x "${ZITI_BIN_DIR}/"*
 
-  echo -e "$(GREEN "OpenZiti binaries ${ZITI_BINARIES_VERSION} successfully extracted to $(BLUE "${ZITI_BIN_DIR}")")"
+  echo -e "$(GREEN "Hanzo ZT binaries ${ZITI_BINARIES_VERSION} successfully extracted to $(BLUE "${ZITI_BIN_DIR}")")"
   echo ""
   addZitiToPath "$1"
 }
@@ -1068,7 +1068,7 @@ function expressInstall {
   fi
   _issue_greeting
 
-  echo -e "$(PURPLE "******** Setting Up Your OpenZiti Environment ********")"
+  echo -e "$(PURPLE "******** Setting Up Your Hanzo ZT Environment ********")"
   # If a parameter was provided, set the network name to this value
   if [[ "${1-}" != "" ]]; then
     ZITI_NETWORK="${1-}"
@@ -1076,7 +1076,7 @@ function expressInstall {
   setupEnvironment
   persistEnvironmentValues ""
 
-  echo -e "$(PURPLE "********      Getting OpenZiti Binaries       ********")"
+  echo -e "$(PURPLE "********      Getting Hanzo ZT Binaries       ********")"
   if ! getZiti "no"; then
     echo -e "$(RED "getZiti failed")"
     return 1

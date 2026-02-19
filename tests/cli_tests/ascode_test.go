@@ -29,9 +29,9 @@ import (
 
 	"github.com/antchfx/jsonquery"
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/ziti/v2/tests/testutil"
-	"github.com/openziti/ziti/v2/ziti/cmd/ascode/exporter"
-	"github.com/openziti/ziti/v2/ziti/cmd/ascode/importer"
+	"github.com/hanzozt/ziti/v2/tests/testutil"
+	"github.com/hanzozt/ziti/v2/ziti/cmd/ascode/exporter"
+	"github.com/hanzozt/ziti/v2/ziti/cmd/ascode/importer"
 	"github.com/stretchr/testify/assert"
 )
 

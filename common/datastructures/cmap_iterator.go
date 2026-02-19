@@ -17,7 +17,7 @@
 package datastructures
 
 import (
-	"github.com/openziti/storage/objectz"
+	"github.com/hanzozt/storage/objectz"
 	cmap "github.com/orcaman/concurrent-map/v2"
 )
 

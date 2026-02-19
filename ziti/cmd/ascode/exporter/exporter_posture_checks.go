@@ -17,7 +17,7 @@
 package exporter
 
 import (
-	"github.com/openziti/edge-api/rest_management_api_client/posture_checks"
+	"github.com/hanzozt/edge-api/rest_management_api_client/posture_checks"
 	"golang.org/x/exp/slices"
 )
 

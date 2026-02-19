@@ -21,8 +21,8 @@ import (
 	"net"
 	"time"
 
-	"github.com/openziti/channel/v4"
-	"github.com/openziti/sdk-golang/xgress"
+	"github.com/hanzozt/channel/v4"
+	"github.com/hanzozt/sdk-golang/xgress"
 	"github.com/pkg/errors"
 )
 

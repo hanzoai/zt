@@ -4,8 +4,8 @@ import (
 	"fmt"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/storage/ast"
-	"github.com/openziti/storage/boltz"
+	"github.com/hanzozt/storage/ast"
+	"github.com/hanzozt/storage/boltz"
 )
 
 func (m *Migrations) removeOrphanedOttCaEnrollments(step *boltz.MigrationStep) {

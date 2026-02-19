@@ -24,7 +24,7 @@ import (
 	"github.com/google/gopacket"
 	"github.com/google/gopacket/layers"
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/sdk-golang/xgress"
+	"github.com/hanzozt/sdk-golang/xgress"
 )
 
 type listener struct{}

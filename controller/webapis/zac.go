@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/openziti/xweb/v3"
+	"github.com/hanzozt/xweb/v3"
 	log "github.com/sirupsen/logrus"
 )
 

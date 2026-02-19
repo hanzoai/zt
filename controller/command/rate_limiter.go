@@ -25,10 +25,10 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/foundation/v2/errorz"
-	"github.com/openziti/foundation/v2/rate"
-	"github.com/openziti/metrics"
-	"github.com/openziti/ziti/v2/controller/apierror"
+	"github.com/hanzozt/foundation/v2/errorz"
+	"github.com/hanzozt/foundation/v2/rate"
+	"github.com/hanzozt/metrics"
+	"github.com/hanzozt/ziti/v2/controller/apierror"
 	"github.com/pkg/errors"
 )
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 #
-# bootstrap the OpenZiti Controller with PKI, config file, and database
+# bootstrap the Hanzo ZT Controller with PKI, config file, and database
 #
 
 makePki() {
@@ -175,7 +175,7 @@ makeConfig() {
   # don't configure the console if explicitly disabled or if the location is not set or console files are missing
   if [[ "${ZITI_BOOTSTRAP_CONSOLE:-}" == true && -n "${ZITI_CONSOLE_LOCATION:-}" ]]; then
     if [[ ! -s "${ZITI_CONSOLE_LOCATION}/index.html" ]]; then
-      echo "WARN: ${ZITI_CONSOLE_LOCATION}/index.html is missing; install 'openziti-console' to enable the console" >&2
+      echo "WARN: ${ZITI_CONSOLE_LOCATION}/index.html is missing; install 'hanzozt-console' to enable the console" >&2
     fi
   elif [[ "${ZITI_BOOTSTRAP_CONSOLE:-}" == false ]]; then
     unset ZITI_CONSOLE_LOCATION
@@ -655,8 +655,8 @@ hintLinuxBootstrap() {
   local _work_dir="${1:-${PWD}}"
 
   echo -e "\nProvide a configuration in '${_work_dir}' or generate with:"\
-          "\n* Set vars in'/opt/openziti/etc/controller/bootstrap.env'"\
-          "\n* Run '/opt/openziti/etc/controller/bootstrap.bash'"\
+          "\n* Set vars in'/opt/hanzozt/etc/controller/bootstrap.env'"\
+          "\n* Run '/opt/hanzozt/etc/controller/bootstrap.bash'"\
           "\n* Run 'systemctl enable --now ziti-controller.service'"\
           "\n"
 }
@@ -728,10 +728,10 @@ else
   set -o pipefail
 
   export ZITI_HOME=/var/lib/private/ziti-controller
-  SVC_ENV_FILE=/opt/openziti/etc/controller/service.env
-  BOOT_ENV_FILE=/opt/openziti/etc/controller/bootstrap.env
+  SVC_ENV_FILE=/opt/hanzozt/etc/controller/service.env
+  BOOT_ENV_FILE=/opt/hanzozt/etc/controller/bootstrap.env
   SVC_FILE=/etc/systemd/system/ziti-controller.service.d/override.conf
-  : "${ZITI_CONSOLE_LOCATION:=/opt/openziti/share/console}"
+  : "${ZITI_CONSOLE_LOCATION:=/opt/hanzozt/share/console}"
 
   if [[ "${1:-}" =~ ^[-] ]]
   then

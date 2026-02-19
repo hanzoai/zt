@@ -27,7 +27,7 @@ import (
 	"net"
 	"strings"
 
-	"github.com/openziti/sdk-golang/ziti/edge"
+	"github.com/hanzozt/sdk-golang/ziti/edge"
 	"github.com/sirupsen/logrus"
 )
 

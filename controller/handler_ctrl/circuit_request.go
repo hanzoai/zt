@@ -19,17 +19,17 @@ package handler_ctrl
 import (
 	"time"
 
-	"github.com/openziti/ziti/v2/controller/model"
-	"github.com/openziti/ziti/v2/controller/xt"
+	"github.com/hanzozt/ziti/v2/controller/model"
+	"github.com/hanzozt/ziti/v2/controller/xt"
 	"google.golang.org/protobuf/proto"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/channel/v4"
-	"github.com/openziti/identity"
-	"github.com/openziti/ziti/v2/common/ctrl_msg"
-	"github.com/openziti/ziti/v2/common/logcontext"
-	"github.com/openziti/ziti/v2/common/pb/ctrl_pb"
-	"github.com/openziti/ziti/v2/controller/network"
+	"github.com/hanzozt/channel/v4"
+	"github.com/hanzozt/identity"
+	"github.com/hanzozt/ziti/v2/common/ctrl_msg"
+	"github.com/hanzozt/ziti/v2/common/logcontext"
+	"github.com/hanzozt/ziti/v2/common/pb/ctrl_pb"
+	"github.com/hanzozt/ziti/v2/controller/network"
 )
 
 type circuitRequestHandler struct {

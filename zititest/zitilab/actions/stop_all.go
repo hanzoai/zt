@@ -17,7 +17,7 @@
 package zitilib_actions
 
 import (
-	"github.com/openziti/fablab/kernel/model"
+	"github.com/hanzozt/fablab/kernel/model"
 )
 
 func StopAll(hostSpec string) model.Action {

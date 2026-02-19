@@ -25,7 +25,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/openziti/foundation/v2/debugz"
+	"github.com/hanzozt/foundation/v2/debugz"
 	cmap "github.com/orcaman/concurrent-map/v2"
 )
 

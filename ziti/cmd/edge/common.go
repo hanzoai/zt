@@ -21,7 +21,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/openziti/ziti/v2/ziti/cmd/api"
+	"github.com/hanzozt/ziti/v2/ziti/cmd/api"
 	"github.com/pkg/errors"
 )
 

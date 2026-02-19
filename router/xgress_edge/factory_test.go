@@ -4,9 +4,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/openziti/channel/v4"
-	"github.com/openziti/sdk-golang/xgress"
-	"github.com/openziti/ziti/v2/common"
+	"github.com/hanzozt/channel/v4"
+	"github.com/hanzozt/sdk-golang/xgress"
+	"github.com/hanzozt/ziti/v2/common"
 	"github.com/stretchr/testify/require"
 )
 

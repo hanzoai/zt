@@ -19,13 +19,13 @@ package xlink_transport
 import (
 	"fmt"
 
-	"github.com/openziti/channel/v4"
-	"github.com/openziti/foundation/v2/goroutines"
-	"github.com/openziti/identity"
-	"github.com/openziti/metrics"
-	"github.com/openziti/transport/v2"
-	"github.com/openziti/ziti/v2/router/env"
-	"github.com/openziti/ziti/v2/router/xlink"
+	"github.com/hanzozt/channel/v4"
+	"github.com/hanzozt/foundation/v2/goroutines"
+	"github.com/hanzozt/identity"
+	"github.com/hanzozt/metrics"
+	"github.com/hanzozt/transport/v2"
+	"github.com/hanzozt/ziti/v2/router/env"
+	"github.com/hanzozt/ziti/v2/router/xlink"
 )
 
 type channelType byte

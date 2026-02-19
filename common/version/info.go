@@ -19,7 +19,7 @@ package version
 import (
 	"runtime"
 
-	"github.com/openziti/foundation/v2/versions"
+	"github.com/hanzozt/foundation/v2/versions"
 )
 
 type cmdBuildInfo struct{}

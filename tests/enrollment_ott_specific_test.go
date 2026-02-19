@@ -26,10 +26,10 @@ import (
 
 	"github.com/go-openapi/runtime"
 	"github.com/golang-jwt/jwt/v5"
-	"github.com/openziti/edge-api/rest_model"
-	edge_apis "github.com/openziti/sdk-golang/edge-apis"
-	"github.com/openziti/sdk-golang/ziti"
-	"github.com/openziti/ziti/v2/common/eid"
+	"github.com/hanzozt/edge-api/rest_model"
+	edge_apis "github.com/hanzozt/sdk-golang/edge-apis"
+	"github.com/hanzozt/sdk-golang/ziti"
+	"github.com/hanzozt/ziti/v2/common/eid"
 )
 
 // Test_EnrollmentOttSpecific uses the /enroll/ott specific endpoint.

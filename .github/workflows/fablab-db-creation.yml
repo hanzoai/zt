@@ -20,7 +20,7 @@ jobs:
   build:
     name: Build and Run
     runs-on: ubuntu-24.04
-    if: github.repository_owner == 'openziti'
+    if: github.repository_owner == 'hanzozt'
     steps:
       - name: Checkout ziti
         uses: actions/checkout@v6
@@ -29,7 +29,7 @@ jobs:
         uses: ./.github/actions/setup-go
 
       - name: Install Ziti CI
-        uses: openziti/ziti-ci@v1
+        uses: hanzozt/ziti-ci@v1
 
       - name: Configure Git
         run: |

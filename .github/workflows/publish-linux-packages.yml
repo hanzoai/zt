@@ -15,9 +15,9 @@ jobs:
     strategy:
       matrix:
         package_name:
-          - openziti
-          - openziti-controller
-          - openziti-router
+          - hanzozt
+          - hanzozt-controller
+          - hanzozt-router
         arch:
           - goreleaser: amd64
             gox: amd64
@@ -38,13 +38,13 @@ jobs:
           # - apk
     env:
       ZITI_VERSION: ${{ inputs.ziti-version || github.event.inputs.ziti-version }}
-      ZITI_MAINTAINER: "OpenZiti Maintainers <developers@openziti.org>"
-      ZITI_HOMEPAGE: "https://openziti.io"
+      ZITI_MAINTAINER: "Hanzo ZT Maintainers <developers@hanzozt.org>"
+      ZITI_HOMEPAGE: "https://hanzozt.dev"
       ZITI_VENDOR: "NetFoundry Inc."
       TARGETARCH: ${{ matrix.packager == 'deb' && matrix.arch.deb || matrix.arch.rpm }}
       MINIMUM_SYSTEMD_VERSION: 232
-      ZITI_DEB_TEST_REPO: ${{ vars.ZITI_DEB_TEST_REPO || 'zitipax-openziti-deb-test' }}
-      ZITI_RPM_TEST_REPO: ${{ vars.ZITI_RPM_TEST_REPO || 'zitipax-openziti-rpm-test' }}
+      ZITI_DEB_TEST_REPO: ${{ vars.ZITI_DEB_TEST_REPO || 'zitipax-hanzozt-deb-test' }}
+      ZITI_RPM_TEST_REPO: ${{ vars.ZITI_RPM_TEST_REPO || 'zitipax-hanzozt-rpm-test' }}
       NFPM_VERSION: "2.38.0"
     steps:
       - name: Checkout Workspace

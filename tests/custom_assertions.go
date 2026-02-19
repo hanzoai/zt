@@ -4,8 +4,8 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/openziti/edge-api/rest_util"
-	"github.com/openziti/ziti/v2/ziti/util"
+	"github.com/hanzozt/edge-api/rest_util"
+	"github.com/hanzozt/ziti/v2/ziti/util"
 	"github.com/stretchr/testify/require"
 )
 

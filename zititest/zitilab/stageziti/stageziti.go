@@ -7,9 +7,9 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/openziti/fablab/kernel/model"
-	"github.com/openziti/ziti/v2/common/getziti"
-	"github.com/openziti/ziti/v2/ziti/util"
+	"github.com/hanzozt/fablab/kernel/model"
+	"github.com/hanzozt/ziti/v2/common/getziti"
+	"github.com/hanzozt/ziti/v2/ziti/util"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 )

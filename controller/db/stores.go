@@ -26,11 +26,11 @@ import (
 	"time"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/foundation/v2/errorz"
-	"github.com/openziti/foundation/v2/rate"
-	"github.com/openziti/storage/ast"
-	"github.com/openziti/storage/boltz"
-	"github.com/openziti/ziti/v2/controller/change"
+	"github.com/hanzozt/foundation/v2/errorz"
+	"github.com/hanzozt/foundation/v2/rate"
+	"github.com/hanzozt/storage/ast"
+	"github.com/hanzozt/storage/boltz"
+	"github.com/hanzozt/ziti/v2/controller/change"
 	"go.etcd.io/bbolt"
 	"go4.org/sort"
 )

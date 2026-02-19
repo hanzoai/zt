@@ -228,7 +228,7 @@ externalJwtSigners:
     scopes: null
     tags: {}
     useExternalId: false
-  - audience: openziti
+  - audience: hanzozt
     certPem: null
     claimsProperty: email
     clientId: ab97WjOSpACNes9iToN5EnfGt6bhoJ4K

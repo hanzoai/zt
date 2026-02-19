@@ -20,8 +20,8 @@ import (
 	"time"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/foundation/v2/goroutines"
-	"github.com/openziti/metrics"
+	"github.com/hanzozt/foundation/v2/goroutines"
+	"github.com/hanzozt/metrics"
 )
 
 func ConfigureGoroutinesPoolMetrics(config *goroutines.PoolConfig, registry metrics.Registry, poolType string) {

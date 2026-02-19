@@ -31,15 +31,15 @@ installRedHat(){
         exit 1
     fi
 
-    local REPOSRC="[OpenZitiRelease]
-name=OpenZiti Release
-baseurl=https://packages.openziti.org/${ZITIPAX_RPM:-zitipax-openziti-rpm-stable}/redhat/\$basearch
+    local REPOSRC="[Hanzo ZTRelease]
+name=Hanzo ZT Release
+baseurl=https://packages.hanzozt.org/${ZITIPAX_RPM:-zitipax-hanzozt-rpm-stable}/redhat/\$basearch
 enabled=1
 gpgcheck=0
-gpgkey=https://packages.openziti.org/${ZITIPAX_RPM:-zitipax-openziti-rpm-stable}/redhat/\$basearch/repodata/repomd.xml.key
+gpgkey=https://packages.hanzozt.org/${ZITIPAX_RPM:-zitipax-hanzozt-rpm-stable}/redhat/\$basearch/repodata/repomd.xml.key
 repo_gpgcheck=1"
 
-    local REPOFILE="/etc/yum.repos.d/openziti-release.repo"
+    local REPOFILE="/etc/yum.repos.d/hanzozt-release.repo"
     if [ -s $REPOFILE ]; then
         local EXISTINGSUM
         local REPOSUM
@@ -94,18 +94,18 @@ installDebian(){
     fi
 
     # always update the pubkey
-    $GETTERCMD https://get.openziti.io/tun/package-repos.gpg \
-    | $GNUPGCMD --batch --yes --dearmor --output /usr/share/keyrings/openziti.gpg
-    chmod a+r /usr/share/keyrings/openziti.gpg
+    $GETTERCMD https://get.hanzozt.io/tun/package-repos.gpg \
+    | $GNUPGCMD --batch --yes --dearmor --output /usr/share/keyrings/hanzozt.gpg
+    chmod a+r /usr/share/keyrings/hanzozt.gpg
 
-    local REPOSRC="deb [signed-by=/usr/share/keyrings/openziti.gpg] https://packages.openziti.org/${ZITIPAX_DEB:-zitipax-openziti-deb-stable} debian main"
+    local REPOSRC="deb [signed-by=/usr/share/keyrings/hanzozt.gpg] https://packages.hanzozt.org/${ZITIPAX_DEB:-zitipax-hanzozt-deb-stable} debian main"
     local ESCAPED_REPOSRC="${REPOSRC//\[/\\\[}"
     ESCAPED_REPOSRC="${ESCAPED_REPOSRC//\]/\\\]}"
 
     local REPODIR="/etc/apt/sources.list.d"
     # add the repo source if it doesn't already exist
     if ! grep -qEr "^${ESCAPED_REPOSRC}\$" $REPODIR; then
-        local REPOFILE="${REPODIR}/openziti-release.list"
+        local REPOFILE="${REPODIR}/hanzozt-release.list"
         if [ -s $REPOFILE ]; then
             local EXISTINGSUM
             local REPOSUM
@@ -137,7 +137,7 @@ installDebian(){
 
 main(){
     if ! (( $# )); then
-        echo "ERROR: No arguments provided. Please provide a space-separated list of packages to install from the OpenZiti repo." >&2
+        echo "ERROR: No arguments provided. Please provide a space-separated list of packages to install from the Hanzo ZT repo." >&2
         exit 1
     fi
     # Detect the system's distribution family

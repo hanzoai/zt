@@ -22,8 +22,8 @@ import (
 	"net/http"
 	"testing"
 
-	"github.com/openziti/edge-api/rest_model"
-	"github.com/openziti/ziti/v2/controller/permissions"
+	"github.com/hanzozt/edge-api/rest_model"
+	"github.com/hanzozt/ziti/v2/controller/permissions"
 )
 
 func Test_Permissions_Service(t *testing.T) {

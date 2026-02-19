@@ -1,6 +1,6 @@
 {
   "schema": {
-    "$id": "http://edge.openziti.org/schemas/ziti-tunneler-server.v1.config.json",
+    "$id": "http://edge.hanzozt.org/schemas/ziti-tunneler-server.v1.config.json",
     "additionalProperties": false,
     "definitions": {
       "action": {

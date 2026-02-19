@@ -21,8 +21,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/openziti/storage/boltztest"
-	"github.com/openziti/ziti/v2/common/eid"
+	"github.com/hanzozt/storage/boltztest"
+	"github.com/hanzozt/ziti/v2/common/eid"
 	"go.etcd.io/bbolt"
 )
 

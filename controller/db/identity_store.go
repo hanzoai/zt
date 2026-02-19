@@ -22,12 +22,12 @@ import (
 	"time"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/foundation/v2/errorz"
-	"github.com/openziti/sdk-golang/ziti"
-	"github.com/openziti/storage/ast"
-	"github.com/openziti/storage/boltz"
-	"github.com/openziti/ziti/v2/common/eid"
-	"github.com/openziti/ziti/v2/controller/permissions"
+	"github.com/hanzozt/foundation/v2/errorz"
+	"github.com/hanzozt/sdk-golang/ziti"
+	"github.com/hanzozt/storage/ast"
+	"github.com/hanzozt/storage/boltz"
+	"github.com/hanzozt/ziti/v2/common/eid"
+	"github.com/hanzozt/ziti/v2/controller/permissions"
 	"github.com/pkg/errors"
 	"go.etcd.io/bbolt"
 )

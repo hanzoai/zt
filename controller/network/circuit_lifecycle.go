@@ -19,9 +19,9 @@ package network
 import (
 	"time"
 
-	"github.com/openziti/ziti/v2/controller/event"
-	"github.com/openziti/ziti/v2/controller/model"
-	"github.com/openziti/ziti/v2/controller/xt"
+	"github.com/hanzozt/ziti/v2/controller/event"
+	"github.com/hanzozt/ziti/v2/controller/model"
+	"github.com/hanzozt/ziti/v2/controller/xt"
 	"github.com/pkg/errors"
 )
 

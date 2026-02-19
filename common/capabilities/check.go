@@ -19,8 +19,8 @@ package capabilities
 import (
 	"math/big"
 
-	"github.com/openziti/channel/v4"
-	"github.com/openziti/ziti/v2/common/pb/ctrl_pb"
+	"github.com/hanzozt/channel/v4"
+	"github.com/hanzozt/ziti/v2/common/pb/ctrl_pb"
 )
 
 func IsCapable(underlay channel.Underlay, capability int) bool {

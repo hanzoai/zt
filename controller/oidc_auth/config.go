@@ -22,8 +22,8 @@ import (
 	"crypto/x509"
 	"time"
 
-	"github.com/openziti/identity"
-	"github.com/openziti/ziti/v2/common"
+	"github.com/hanzozt/identity"
+	"github.com/hanzozt/ziti/v2/common"
 )
 
 // Config represents the configuration necessary to operate an OIDC Provider

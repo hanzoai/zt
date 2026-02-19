@@ -1,11 +1,11 @@
-module github.com/openziti/ziti/v2
+module github.com/hanzozt/ziti/v2
 
 go 1.25.3
 
 // pinned
 replace github.com/michaelquigley/pfxlog => github.com/michaelquigley/pfxlog v0.6.10
 
-replace github.com/openziti/foundation/v2 => github.com/openziti/foundation/v2 v2.0.86
+replace github.com/hanzozt/foundation/v2 => github.com/hanzozt/foundation/v2 v2.0.86
 
 require (
 	github.com/AppsFlyer/go-sundheit v0.6.0
@@ -60,22 +60,22 @@ require (
 	github.com/miekg/dns v1.1.72
 	github.com/mitchellh/mapstructure v1.5.0
 	github.com/natefinch/lumberjack v2.0.0+incompatible
-	github.com/openziti/agent v1.0.33
-	github.com/openziti/channel/v4 v4.3.4
-	github.com/openziti/cobra-to-md v1.0.1
-	github.com/openziti/edge-api v0.26.52
-	github.com/openziti/foundation/v2 v2.0.87
-	github.com/openziti/identity v1.0.125
-	github.com/openziti/jwks v1.0.6
-	github.com/openziti/metrics v1.4.3
-	github.com/openziti/runzmd v1.0.88
-	github.com/openziti/sdk-golang v1.4.1
-	github.com/openziti/secretstream v0.1.47
-	github.com/openziti/storage v0.4.37
-	github.com/openziti/transport/v2 v2.0.209
-	github.com/openziti/x509-claims v1.0.3
-	github.com/openziti/xweb/v3 v3.0.3
-	github.com/openziti/ziti-db-explorer v1.1.3
+	github.com/hanzozt/agent v1.0.33
+	github.com/hanzozt/channel/v4 v4.3.4
+	github.com/hanzozt/cobra-to-md v1.0.1
+	github.com/hanzozt/edge-api v0.26.52
+	github.com/hanzozt/foundation/v2 v2.0.87
+	github.com/hanzozt/identity v1.0.125
+	github.com/hanzozt/jwks v1.0.6
+	github.com/hanzozt/metrics v1.4.3
+	github.com/hanzozt/runzmd v1.0.88
+	github.com/hanzozt/sdk-golang v1.4.1
+	github.com/hanzozt/secretstream v0.1.47
+	github.com/hanzozt/storage v0.4.37
+	github.com/hanzozt/transport/v2 v2.0.209
+	github.com/hanzozt/x509-claims v1.0.3
+	github.com/hanzozt/xweb/v3 v3.0.3
+	github.com/hanzozt/ziti-db-explorer v1.1.3
 	github.com/orcaman/concurrent-map/v2 v2.0.1
 	github.com/pkg/errors v0.9.1
 	github.com/rabbitmq/amqp091-go v1.10.0
@@ -174,9 +174,9 @@ require (
 	github.com/muhlemmer/gu v0.3.1 // indirect
 	github.com/muhlemmer/httpforwarded v0.1.0 // indirect
 	github.com/oklog/ulid v1.3.1 // indirect
-	github.com/openziti-incubator/cf v0.0.3 // indirect
-	github.com/openziti/dilithium v0.3.5 // indirect
-	github.com/openziti/go-term-markdown v1.0.1 // indirect
+	github.com/hanzozt-incubator/cf v0.0.3 // indirect
+	github.com/hanzozt/dilithium v0.3.5 // indirect
+	github.com/hanzozt/go-term-markdown v1.0.1 // indirect
 	github.com/parallaxsecond/parsec-client-go v0.0.0-20221025095442-f0a77d263cf9 // indirect
 	github.com/pelletier/go-toml/v2 v2.2.4 // indirect
 	github.com/pion/dtls/v3 v3.0.10 // indirect

@@ -9,16 +9,16 @@ import (
 
 	"github.com/dgryski/dgoogauth"
 	"github.com/google/uuid"
-	"github.com/openziti/edge-api/rest_management_api_client/api_session"
-	"github.com/openziti/edge-api/rest_management_api_client/edge_router_policy"
-	managementservice "github.com/openziti/edge-api/rest_management_api_client/service"
-	"github.com/openziti/edge-api/rest_management_api_client/service_edge_router_policy"
-	managementservicepolicy "github.com/openziti/edge-api/rest_management_api_client/service_policy"
-	"github.com/openziti/edge-api/rest_model"
-	"github.com/openziti/edge-api/rest_util"
-	"github.com/openziti/foundation/v2/debugz"
-	edgeapis "github.com/openziti/sdk-golang/edge-apis"
-	"github.com/openziti/sdk-golang/ziti"
+	"github.com/hanzozt/edge-api/rest_management_api_client/api_session"
+	"github.com/hanzozt/edge-api/rest_management_api_client/edge_router_policy"
+	managementservice "github.com/hanzozt/edge-api/rest_management_api_client/service"
+	"github.com/hanzozt/edge-api/rest_management_api_client/service_edge_router_policy"
+	managementservicepolicy "github.com/hanzozt/edge-api/rest_management_api_client/service_policy"
+	"github.com/hanzozt/edge-api/rest_model"
+	"github.com/hanzozt/edge-api/rest_util"
+	"github.com/hanzozt/foundation/v2/debugz"
+	edgeapis "github.com/hanzozt/sdk-golang/edge-apis"
+	"github.com/hanzozt/sdk-golang/ziti"
 )
 
 func Test_SDK_Events(t *testing.T) {

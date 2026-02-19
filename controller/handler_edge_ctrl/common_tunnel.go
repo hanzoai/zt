@@ -8,12 +8,12 @@ import (
 
 	"github.com/google/uuid"
 	lru "github.com/hashicorp/golang-lru/v2"
-	"github.com/openziti/foundation/v2/concurrenz"
-	"github.com/openziti/storage/boltz"
-	"github.com/openziti/ziti/v2/common/logcontext"
-	"github.com/openziti/ziti/v2/common/pb/edge_ctrl_pb"
-	"github.com/openziti/ziti/v2/controller/db"
-	"github.com/openziti/ziti/v2/controller/model"
+	"github.com/hanzozt/foundation/v2/concurrenz"
+	"github.com/hanzozt/storage/boltz"
+	"github.com/hanzozt/ziti/v2/common/logcontext"
+	"github.com/hanzozt/ziti/v2/common/pb/edge_ctrl_pb"
+	"github.com/hanzozt/ziti/v2/controller/db"
+	"github.com/hanzozt/ziti/v2/controller/model"
 	"github.com/sirupsen/logrus"
 )
 

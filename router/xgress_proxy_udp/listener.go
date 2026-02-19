@@ -21,11 +21,11 @@ import (
 	"net"
 	"time"
 
-	"github.com/openziti/foundation/v2/info"
-	"github.com/openziti/sdk-golang/xgress"
-	"github.com/openziti/ziti/v2/router/env"
-	"github.com/openziti/ziti/v2/router/xgress_router"
-	"github.com/openziti/ziti/v2/router/xgress_udp"
+	"github.com/hanzozt/foundation/v2/info"
+	"github.com/hanzozt/sdk-golang/xgress"
+	"github.com/hanzozt/ziti/v2/router/env"
+	"github.com/hanzozt/ziti/v2/router/xgress_router"
+	"github.com/hanzozt/ziti/v2/router/xgress_udp"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 )

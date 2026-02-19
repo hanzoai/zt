@@ -21,10 +21,10 @@ import (
 	"io"
 	"os"
 
-	"github.com/openziti/edge-api/rest_management_api_client/certificate_authority"
-	"github.com/openziti/edge-api/rest_model"
-	"github.com/openziti/ziti/v2/ziti/cmd/api"
-	"github.com/openziti/ziti/v2/ziti/util"
+	"github.com/hanzozt/edge-api/rest_management_api_client/certificate_authority"
+	"github.com/hanzozt/edge-api/rest_model"
+	"github.com/hanzozt/ziti/v2/ziti/cmd/api"
+	"github.com/hanzozt/ziti/v2/ziti/util"
 	"github.com/spf13/cobra"
 )
 

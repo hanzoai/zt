@@ -32,8 +32,8 @@ import (
 	"github.com/Jeffail/gabs"
 	"github.com/dgryski/dgoogauth"
 	"github.com/google/uuid"
-	"github.com/openziti/foundation/v2/errorz"
-	"github.com/openziti/ziti/v2/controller/apierror"
+	"github.com/hanzozt/foundation/v2/errorz"
+	"github.com/hanzozt/ziti/v2/controller/apierror"
 )
 
 func Test_MFA(t *testing.T) {

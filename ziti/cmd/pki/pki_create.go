@@ -29,8 +29,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/openziti/ziti/v2/ziti/pki/pki"
-	"github.com/openziti/ziti/v2/ziti/util"
+	"github.com/hanzozt/ziti/v2/ziti/pki/pki"
+	"github.com/hanzozt/ziti/v2/ziti/util"
 
 	"github.com/spf13/cobra"
 

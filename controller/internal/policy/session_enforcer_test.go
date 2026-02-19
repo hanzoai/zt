@@ -21,11 +21,11 @@ import (
 	"time"
 
 	"github.com/google/go-cmp/cmp/cmpopts"
-	"github.com/openziti/storage/boltz"
-	"github.com/openziti/storage/boltztest"
-	"github.com/openziti/ziti/v2/common/eid"
-	"github.com/openziti/ziti/v2/controller/db"
-	"github.com/openziti/ziti/v2/controller/model"
+	"github.com/hanzozt/storage/boltz"
+	"github.com/hanzozt/storage/boltztest"
+	"github.com/hanzozt/ziti/v2/common/eid"
+	"github.com/hanzozt/ziti/v2/controller/db"
+	"github.com/hanzozt/ziti/v2/controller/model"
 	"github.com/sirupsen/logrus"
 )
 

@@ -1,8 +1,8 @@
 package db
 
 import (
-	"github.com/openziti/storage/ast"
-	"github.com/openziti/storage/boltz"
+	"github.com/hanzozt/storage/ast"
+	"github.com/hanzozt/storage/boltz"
 )
 
 // Primes API Session's lastActivityAt proper to their previous updatedAt value

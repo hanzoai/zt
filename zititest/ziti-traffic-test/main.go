@@ -26,23 +26,23 @@ import (
 	"time"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/foundation/v2/debugz"
-	"github.com/openziti/transport/v2"
-	"github.com/openziti/transport/v2/tcp"
-	"github.com/openziti/transport/v2/tls"
-	"github.com/openziti/transport/v2/transwarp"
-	"github.com/openziti/transport/v2/transwarptls"
-	"github.com/openziti/transport/v2/wss"
-	_ "github.com/openziti/ziti/zititest/ziti-traffic-test/client"
-	_ "github.com/openziti/ziti/zititest/ziti-traffic-test/loop2"
-	_ "github.com/openziti/ziti/zititest/ziti-traffic-test/loop3"
-	_ "github.com/openziti/ziti/zititest/ziti-traffic-test/loop4"
-	"github.com/openziti/ziti/zititest/ziti-traffic-test/subcmd"
+	"github.com/hanzozt/foundation/v2/debugz"
+	"github.com/hanzozt/transport/v2"
+	"github.com/hanzozt/transport/v2/tcp"
+	"github.com/hanzozt/transport/v2/tls"
+	"github.com/hanzozt/transport/v2/transwarp"
+	"github.com/hanzozt/transport/v2/transwarptls"
+	"github.com/hanzozt/transport/v2/wss"
+	_ "github.com/hanzozt/ziti/zititest/ziti-traffic-test/client"
+	_ "github.com/hanzozt/ziti/zititest/ziti-traffic-test/loop2"
+	_ "github.com/hanzozt/ziti/zititest/ziti-traffic-test/loop3"
+	_ "github.com/hanzozt/ziti/zititest/ziti-traffic-test/loop4"
+	"github.com/hanzozt/ziti/zititest/ziti-traffic-test/subcmd"
 	"github.com/sirupsen/logrus"
 )
 
 func init() {
-	pfxlog.GlobalInit(logrus.InfoLevel, pfxlog.DefaultOptions().SetTrimPrefix("github.com/openziti/").NoColor())
+	pfxlog.GlobalInit(logrus.InfoLevel, pfxlog.DefaultOptions().SetTrimPrefix("github.com/hanzozt/").NoColor())
 	transport.AddAddressParser(tls.AddressParser{})
 	transport.AddAddressParser(tcp.AddressParser{})
 	transport.AddAddressParser(transwarp.AddressParser{})

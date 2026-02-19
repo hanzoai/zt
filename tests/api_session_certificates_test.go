@@ -34,11 +34,11 @@ import (
 
 	"github.com/Jeffail/gabs"
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/edge-api/rest_client_api_client/current_api_session"
-	"github.com/openziti/edge-api/rest_model"
-	"github.com/openziti/identity/certtools"
-	edge_apis "github.com/openziti/sdk-golang/edge-apis"
-	"github.com/openziti/ziti/v2/common/spiffehlp"
+	"github.com/hanzozt/edge-api/rest_client_api_client/current_api_session"
+	"github.com/hanzozt/edge-api/rest_model"
+	"github.com/hanzozt/identity/certtools"
+	edge_apis "github.com/hanzozt/sdk-golang/edge-apis"
+	"github.com/hanzozt/ziti/v2/common/spiffehlp"
 )
 
 func Test_Api_Session_Certs(t *testing.T) {

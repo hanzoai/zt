@@ -21,15 +21,15 @@ import (
 	"sync"
 	"time"
 
-	"github.com/openziti/ziti/v2/controller/model"
+	"github.com/hanzozt/ziti/v2/controller/model"
 
-	"github.com/openziti/channel/v4"
-	trace_pb "github.com/openziti/channel/v4/trace/pb"
-	"github.com/openziti/ziti/v2/common/handler_common"
-	"github.com/openziti/ziti/v2/common/pb/ctrl_pb"
-	"github.com/openziti/ziti/v2/common/pb/mgmt_pb"
-	"github.com/openziti/ziti/v2/common/trace"
-	"github.com/openziti/ziti/v2/controller/network"
+	"github.com/hanzozt/channel/v4"
+	trace_pb "github.com/hanzozt/channel/v4/trace/pb"
+	"github.com/hanzozt/ziti/v2/common/handler_common"
+	"github.com/hanzozt/ziti/v2/common/pb/ctrl_pb"
+	"github.com/hanzozt/ziti/v2/common/pb/mgmt_pb"
+	"github.com/hanzozt/ziti/v2/common/trace"
+	"github.com/hanzozt/ziti/v2/controller/network"
 	"google.golang.org/protobuf/proto"
 )
 

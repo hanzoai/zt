@@ -20,12 +20,12 @@ import (
 	"fmt"
 	"io/fs"
 
-	"github.com/openziti/fablab/kernel/lib"
-	"github.com/openziti/fablab/kernel/lib/actions/host"
-	"github.com/openziti/fablab/kernel/model"
-	"github.com/openziti/fablab/kernel/model/aws"
-	"github.com/openziti/ziti/zititest/zitilab/pki"
-	"github.com/openziti/ziti/zititest/zitilab/stageziti"
+	"github.com/hanzozt/fablab/kernel/lib"
+	"github.com/hanzozt/fablab/kernel/lib/actions/host"
+	"github.com/hanzozt/fablab/kernel/model"
+	"github.com/hanzozt/fablab/kernel/model/aws"
+	"github.com/hanzozt/ziti/zititest/zitilab/pki"
+	"github.com/hanzozt/ziti/zititest/zitilab/stageziti"
 	"github.com/pkg/errors"
 )
 

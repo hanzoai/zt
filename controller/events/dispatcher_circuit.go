@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"reflect"
 
-	"github.com/openziti/ziti/v2/controller/event"
+	"github.com/hanzozt/ziti/v2/controller/event"
 	"github.com/pkg/errors"
 )
 

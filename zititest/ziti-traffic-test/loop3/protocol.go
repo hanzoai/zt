@@ -26,8 +26,8 @@ import (
 	"time"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/foundation/v2/info"
-	"github.com/openziti/ziti/zititest/ziti-traffic-test/loop3/pb"
+	"github.com/hanzozt/foundation/v2/info"
+	"github.com/hanzozt/ziti/zititest/ziti-traffic-test/loop3/pb"
 	"github.com/pkg/errors"
 	"google.golang.org/protobuf/proto"
 )

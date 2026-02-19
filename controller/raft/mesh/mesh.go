@@ -27,15 +27,15 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/openziti/foundation/v2/concurrenz"
-	"github.com/openziti/foundation/v2/versions"
-	"github.com/openziti/ziti/v2/controller/event"
+	"github.com/hanzozt/foundation/v2/concurrenz"
+	"github.com/hanzozt/foundation/v2/versions"
+	"github.com/hanzozt/ziti/v2/controller/event"
 
 	"github.com/hashicorp/raft"
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/channel/v4"
-	"github.com/openziti/identity"
-	"github.com/openziti/transport/v2"
+	"github.com/hanzozt/channel/v4"
+	"github.com/hanzozt/identity"
+	"github.com/hanzozt/transport/v2"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 )

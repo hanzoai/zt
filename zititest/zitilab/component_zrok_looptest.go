@@ -22,9 +22,9 @@ import (
 	"time"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/fablab/kernel/model"
-	"github.com/openziti/ziti/v2/ziti/constants"
-	"github.com/openziti/ziti/zititest/zitilab/stageziti"
+	"github.com/hanzozt/fablab/kernel/model"
+	"github.com/hanzozt/ziti/v2/ziti/constants"
+	"github.com/hanzozt/ziti/zititest/zitilab/stageziti"
 	"github.com/sirupsen/logrus"
 )
 

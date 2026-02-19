@@ -21,13 +21,13 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/openziti/fablab/kernel/lib/actions"
-	"github.com/openziti/fablab/kernel/lib/actions/component"
-	"github.com/openziti/fablab/kernel/lib/actions/host"
-	"github.com/openziti/fablab/kernel/lib/actions/semaphore"
-	"github.com/openziti/fablab/kernel/model"
-	zitilib_actions "github.com/openziti/ziti/zititest/zitilab/actions"
-	"github.com/openziti/ziti/zititest/zitilab/models"
+	"github.com/hanzozt/fablab/kernel/lib/actions"
+	"github.com/hanzozt/fablab/kernel/lib/actions/component"
+	"github.com/hanzozt/fablab/kernel/lib/actions/host"
+	"github.com/hanzozt/fablab/kernel/lib/actions/semaphore"
+	"github.com/hanzozt/fablab/kernel/model"
+	zitilib_actions "github.com/hanzozt/ziti/zititest/zitilab/actions"
+	"github.com/hanzozt/ziti/zititest/zitilab/models"
 	"github.com/sirupsen/logrus"
 )
 

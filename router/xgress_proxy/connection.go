@@ -17,9 +17,9 @@
 package xgress_proxy
 
 import (
-	"github.com/openziti/channel/v4"
-	"github.com/openziti/sdk-golang/xgress"
-	"github.com/openziti/transport/v2"
+	"github.com/hanzozt/channel/v4"
+	"github.com/hanzozt/sdk-golang/xgress"
+	"github.com/hanzozt/transport/v2"
 	"github.com/pkg/errors"
 )
 

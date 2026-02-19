@@ -22,11 +22,11 @@ import (
 	"strings"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/fablab/kernel/lib"
-	"github.com/openziti/fablab/kernel/lib/actions/host"
-	"github.com/openziti/fablab/kernel/model"
-	"github.com/openziti/ziti/v2/ziti/constants"
-	"github.com/openziti/ziti/zititest/zitilab/stageziti"
+	"github.com/hanzozt/fablab/kernel/lib"
+	"github.com/hanzozt/fablab/kernel/lib/actions/host"
+	"github.com/hanzozt/fablab/kernel/model"
+	"github.com/hanzozt/ziti/v2/ziti/constants"
+	"github.com/hanzozt/ziti/zititest/zitilab/stageziti"
 	"github.com/sirupsen/logrus"
 )
 
@@ -171,7 +171,7 @@ func (self *ZrokControllerType) PreCreateAccounts(run model.Run, c *model.Compon
 	for _, clientComponent := range components {
 		log := pfxlog.Logger().WithField("id", clientComponent.Id)
 
-		tmpl := "%s admin create account %s -- %s@openziti.org %s 2>&1"
+		tmpl := "%s admin create account %s -- %s@hanzozt.org %s 2>&1"
 		cmd := fmt.Sprintf(tmpl, binaryPath, configPath, clientComponent.Id, clientComponent.Id)
 		log.Info(cmd)
 		output, err := c.GetHost().ExecLogged(cmd)

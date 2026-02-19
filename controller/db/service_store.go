@@ -19,10 +19,10 @@ package db
 import (
 	"time"
 
-	"github.com/openziti/storage/ast"
-	"github.com/openziti/storage/boltz"
-	"github.com/openziti/ziti/v2/controller/xt"
-	"github.com/openziti/ziti/v2/controller/xt_smartrouting"
+	"github.com/hanzozt/storage/ast"
+	"github.com/hanzozt/storage/boltz"
+	"github.com/hanzozt/ziti/v2/controller/xt"
+	"github.com/hanzozt/ziti/v2/controller/xt_smartrouting"
 	"go.etcd.io/bbolt"
 )
 

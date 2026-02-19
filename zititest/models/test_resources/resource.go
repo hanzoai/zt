@@ -4,7 +4,7 @@ import (
 	"embed"
 	"io/fs"
 
-	"github.com/openziti/fablab/resources"
+	"github.com/hanzozt/fablab/resources"
 )
 
 //go:embed terraform

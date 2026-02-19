@@ -4,8 +4,8 @@ import (
 	"strings"
 
 	"github.com/Jeffail/gabs"
-	"github.com/openziti/fablab/kernel/model"
-	zitilibActions "github.com/openziti/ziti/zititest/zitilab/actions"
+	"github.com/hanzozt/fablab/kernel/model"
+	zitilibActions "github.com/hanzozt/ziti/zititest/zitilab/actions"
 	"github.com/pkg/errors"
 )
 

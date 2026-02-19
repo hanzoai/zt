@@ -20,11 +20,11 @@ import (
 	"reflect"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/channel/v4"
-	"github.com/openziti/foundation/v2/debugz"
-	"github.com/openziti/foundation/v2/rate"
-	"github.com/openziti/storage/boltz"
-	"github.com/openziti/ziti/v2/controller/change"
+	"github.com/hanzozt/channel/v4"
+	"github.com/hanzozt/foundation/v2/debugz"
+	"github.com/hanzozt/foundation/v2/rate"
+	"github.com/hanzozt/storage/boltz"
+	"github.com/hanzozt/ziti/v2/controller/change"
 	"github.com/sirupsen/logrus"
 )
 

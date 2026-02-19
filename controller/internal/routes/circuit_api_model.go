@@ -17,10 +17,10 @@
 package routes
 
 import (
-	"github.com/openziti/ziti/v2/controller/env"
-	"github.com/openziti/ziti/v2/controller/model"
-	"github.com/openziti/ziti/v2/controller/response"
-	"github.com/openziti/ziti/v2/controller/rest_model"
+	"github.com/hanzozt/ziti/v2/controller/env"
+	"github.com/hanzozt/ziti/v2/controller/model"
+	"github.com/hanzozt/ziti/v2/controller/response"
+	"github.com/hanzozt/ziti/v2/controller/rest_model"
 )
 
 const EntityNameCircuit = "circuits"

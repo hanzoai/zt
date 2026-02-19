@@ -3,12 +3,12 @@ package network
 import (
 	"testing"
 
-	"github.com/openziti/ziti/v2/controller/model"
+	"github.com/hanzozt/ziti/v2/controller/model"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/ziti/v2/common/ctrl_msg"
-	"github.com/openziti/ziti/v2/controller/xt"
-	"github.com/openziti/ziti/v2/controller/xt_smartrouting"
+	"github.com/hanzozt/ziti/v2/common/ctrl_msg"
+	"github.com/hanzozt/ziti/v2/controller/xt"
+	"github.com/hanzozt/ziti/v2/controller/xt_smartrouting"
 )
 
 func TestRouteSender_DestroysTerminatorWhenInvalidOnHandleRouteSendAndWeControl(t *testing.T) {

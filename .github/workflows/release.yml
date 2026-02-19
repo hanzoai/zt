@@ -30,7 +30,7 @@ jobs:
         uses: ./.github/actions/setup-go
 
       - name: Install Ziti CI
-        uses: openziti/ziti-ci@v1
+        uses: hanzozt/ziti-ci@v1
 
       - name: Build and Test
         shell: bash
@@ -66,7 +66,7 @@ jobs:
         uses: ./.github/actions/setup-go
 
       - name: Install Ziti CI
-        uses: openziti/ziti-ci@v1
+        uses: hanzozt/ziti-ci@v1
 
       - name: Build and Test
         shell: bash
@@ -88,7 +88,7 @@ jobs:
   linux-build:
     name: Build Linux binaries
     runs-on: ubuntu-22.04  # pin oldest available Docker host for ABI compatibility
-    container: ${{ vars.ZITI_BUILDER_IMAGE || 'openziti/ziti-builder:v2' }}  # pin v2 (Ubuntu Focal) for glibc compatibility while leveraging Actions's Node.js
+    container: ${{ vars.ZITI_BUILDER_IMAGE || 'hanzozt/ziti-builder:v2' }}  # pin v2 (Ubuntu Focal) for glibc compatibility while leveraging Actions's Node.js
     steps:
       - name: Git Checkout
         uses: actions/checkout@v6
@@ -99,7 +99,7 @@ jobs:
         uses: ./.github/actions/setup-go
 
       - name: Install Ziti CI
-        uses: openziti/ziti-ci@v1
+        uses: hanzozt/ziti-ci@v1
         with:
           ziti-ci-version: latest
 
@@ -170,7 +170,7 @@ jobs:
           python-version: '3.13'
 
       - name: Install Ziti CI
-        uses: openziti/ziti-ci@v1
+        uses: hanzozt/ziti-ci@v1
         with:
           ziti-ci-version: latest
 
@@ -293,7 +293,7 @@ jobs:
       ziti-version: ${{ needs.publish.outputs.ZITI_VERSION }}
 
   repository-dispatch:
-    if: ${{ !cancelled() && needs.publish.result == 'success' && github.repository_owner == 'openziti'}}
+    if: ${{ !cancelled() && needs.publish.result == 'success' && github.repository_owner == 'hanzozt'}}
     needs:
       - publish
       - call-publish-docker-images

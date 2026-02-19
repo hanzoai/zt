@@ -20,9 +20,9 @@ import (
 	"errors"
 	"slices"
 
-	"github.com/openziti/edge-api/rest_management_api_client/config"
-	"github.com/openziti/edge-api/rest_model"
-	"github.com/openziti/ziti/v2/internal/ascode"
+	"github.com/hanzozt/edge-api/rest_management_api_client/config"
+	"github.com/hanzozt/edge-api/rest_model"
+	"github.com/hanzozt/ziti/v2/internal/ascode"
 )
 
 func (exporter Exporter) IsConfigExportRequired(args []string) bool {

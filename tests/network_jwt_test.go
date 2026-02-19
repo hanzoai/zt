@@ -3,7 +3,7 @@ package tests
 import (
 	"testing"
 
-	"github.com/openziti/edge-api/rest_model"
+	"github.com/hanzozt/edge-api/rest_model"
 )
 
 func Test_NetworkJwts(t *testing.T) {

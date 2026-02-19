@@ -21,8 +21,8 @@ import (
 	"io"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/ziti/v2/ziti/tunnel"
-	"github.com/openziti/ziti/v2/ziti/util"
+	"github.com/hanzozt/ziti/v2/ziti/tunnel"
+	"github.com/hanzozt/ziti/v2/ziti/util"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
@@ -52,7 +52,7 @@ func (self *Options) PreRun(_ *cobra.Command, _ []string) {
 
 	switch self.LogFormatter {
 	case "pfxlog":
-		pfxlog.SetFormatter(pfxlog.NewFormatter(pfxlog.DefaultOptions().SetTrimPrefix("github.com/openziti/").StartingToday()))
+		pfxlog.SetFormatter(pfxlog.NewFormatter(pfxlog.DefaultOptions().SetTrimPrefix("github.com/hanzozt/").StartingToday()))
 	case "json":
 		pfxlog.SetFormatter(&logrus.JSONFormatter{TimestampFormat: "2006-01-02T15:04:05.000Z"})
 	case "text":
@@ -67,7 +67,7 @@ func (self *Options) PreRun(_ *cobra.Command, _ []string) {
 func NewRunCmd(out, err io.Writer) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "run",
-		Short: "Run OpenZiti components, such as the controller and router",
+		Short: "Run Hanzo ZT components, such as the controller and router",
 	}
 
 	cmd.AddCommand(NewRunControllerCmd())

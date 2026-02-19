@@ -19,11 +19,11 @@ package run
 import (
 	"fmt"
 
-	"github.com/openziti/xweb/v3"
-	"github.com/openziti/ziti/v2/common/bindpoints"
-	"github.com/openziti/ziti/v2/common/version"
-	"github.com/openziti/ziti/v2/router"
-	"github.com/openziti/ziti/v2/router/env"
+	"github.com/hanzozt/xweb/v3"
+	"github.com/hanzozt/ziti/v2/common/bindpoints"
+	"github.com/hanzozt/ziti/v2/common/version"
+	"github.com/hanzozt/ziti/v2/router"
+	"github.com/hanzozt/ziti/v2/router/env"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )

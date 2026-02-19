@@ -3,9 +3,9 @@ package models
 import (
 	"errors"
 
-	"github.com/openziti/foundation/v2/errorz"
-	"github.com/openziti/storage/boltz"
-	"github.com/openziti/ziti/v2/controller/apierror"
+	"github.com/hanzozt/foundation/v2/errorz"
+	"github.com/hanzozt/storage/boltz"
+	"github.com/hanzozt/ziti/v2/controller/apierror"
 )
 
 func ToApiError(err error) *errorz.ApiError {

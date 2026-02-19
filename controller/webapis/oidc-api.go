@@ -25,12 +25,12 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/openziti/identity"
+	"github.com/hanzozt/identity"
 
-	"github.com/openziti/xweb/v3"
-	"github.com/openziti/ziti/v2/controller/api"
-	"github.com/openziti/ziti/v2/controller/env"
-	"github.com/openziti/ziti/v2/controller/oidc_auth"
+	"github.com/hanzozt/xweb/v3"
+	"github.com/hanzozt/ziti/v2/controller/api"
+	"github.com/hanzozt/ziti/v2/controller/env"
+	"github.com/hanzozt/ziti/v2/controller/oidc_auth"
 )
 
 var _ xweb.ApiHandlerFactory = &OidcApiFactory{}
@@ -160,7 +160,7 @@ func NewOidcApiHandler(serverConfig *xweb.ServerConfig, ae *env.AppEnv, options 
 
 	// add defaults
 	if len(oidcConfig.RedirectURIs) == 0 {
-		oidcConfig.RedirectURIs = append(oidcConfig.RedirectURIs, "openziti://auth/callback")
+		oidcConfig.RedirectURIs = append(oidcConfig.RedirectURIs, "hanzozt://auth/callback")
 		oidcConfig.RedirectURIs = append(oidcConfig.RedirectURIs, "https://127.0.0.1:*/auth/callback")
 		oidcConfig.RedirectURIs = append(oidcConfig.RedirectURIs, "http://127.0.0.1:*/auth/callback")
 		oidcConfig.RedirectURIs = append(oidcConfig.RedirectURIs, "https://localhost:*/auth/callback")
@@ -168,7 +168,7 @@ func NewOidcApiHandler(serverConfig *xweb.ServerConfig, ae *env.AppEnv, options 
 	}
 
 	if len(oidcConfig.PostLogoutURIs) == 0 {
-		oidcConfig.PostLogoutURIs = append(oidcConfig.PostLogoutURIs, "openziti://auth/logout")
+		oidcConfig.PostLogoutURIs = append(oidcConfig.PostLogoutURIs, "hanzozt://auth/logout")
 		oidcConfig.PostLogoutURIs = append(oidcConfig.PostLogoutURIs, "https://127.0.0.1:*/auth/logout")
 		oidcConfig.PostLogoutURIs = append(oidcConfig.PostLogoutURIs, "http://127.0.0.1:*/auth/logout")
 		oidcConfig.PostLogoutURIs = append(oidcConfig.PostLogoutURIs, "https://localhost:*/auth/logout")

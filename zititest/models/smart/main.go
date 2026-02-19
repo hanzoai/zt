@@ -19,12 +19,12 @@ package main
 import (
 	"embed"
 
-	"github.com/openziti/fablab"
-	"github.com/openziti/fablab/kernel/lib/binding"
-	"github.com/openziti/fablab/kernel/lib/runlevel/0_infrastructure/aws_ssh_key"
-	"github.com/openziti/fablab/kernel/model"
-	"github.com/openziti/fablab/resources"
-	"github.com/openziti/ziti/zititest/zitilab"
+	"github.com/hanzozt/fablab"
+	"github.com/hanzozt/fablab/kernel/lib/binding"
+	"github.com/hanzozt/fablab/kernel/lib/runlevel/0_infrastructure/aws_ssh_key"
+	"github.com/hanzozt/fablab/kernel/model"
+	"github.com/hanzozt/fablab/resources"
+	"github.com/hanzozt/ziti/zititest/zitilab"
 )
 
 //go:embed config

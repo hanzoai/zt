@@ -16,7 +16,7 @@
 
 package env
 
-import "github.com/openziti/foundation/v2/concurrenz"
+import "github.com/hanzozt/foundation/v2/concurrenz"
 
 func NewIndexWatchers() IndexWatchers {
 	return &indexWatchers{}

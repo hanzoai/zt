@@ -21,8 +21,8 @@ import (
 	"time"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/ziti/v2/controller/config"
-	"github.com/openziti/ziti/v2/controller/model"
+	"github.com/hanzozt/ziti/v2/controller/config"
+	"github.com/hanzozt/ziti/v2/controller/model"
 )
 
 func (network *Network) smart() {

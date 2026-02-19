@@ -25,9 +25,9 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/sdk-golang/ziti"
-	"github.com/openziti/sdk-golang/ziti/edge"
-	"github.com/openziti/ziti/v2/controller/xt_sticky"
+	"github.com/hanzozt/sdk-golang/ziti"
+	"github.com/hanzozt/sdk-golang/ziti/edge"
+	"github.com/hanzozt/ziti/v2/controller/xt_sticky"
 )
 
 func Test_StickyTerminators(t *testing.T) {

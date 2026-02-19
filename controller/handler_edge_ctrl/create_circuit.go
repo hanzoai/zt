@@ -20,13 +20,13 @@ import (
 	"fmt"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/channel/v4"
-	"github.com/openziti/sdk-golang/ziti/edge"
-	"github.com/openziti/ziti/v2/common/ctrl_msg"
-	"github.com/openziti/ziti/v2/common/pb/edge_ctrl_pb"
-	"github.com/openziti/ziti/v2/controller/db"
-	"github.com/openziti/ziti/v2/controller/env"
-	"github.com/openziti/ziti/v2/controller/model"
+	"github.com/hanzozt/channel/v4"
+	"github.com/hanzozt/sdk-golang/ziti/edge"
+	"github.com/hanzozt/ziti/v2/common/ctrl_msg"
+	"github.com/hanzozt/ziti/v2/common/pb/edge_ctrl_pb"
+	"github.com/hanzozt/ziti/v2/controller/db"
+	"github.com/hanzozt/ziti/v2/controller/env"
+	"github.com/hanzozt/ziti/v2/controller/model"
 	"google.golang.org/protobuf/proto"
 )
 

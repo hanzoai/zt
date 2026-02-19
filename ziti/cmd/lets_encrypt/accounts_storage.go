@@ -28,7 +28,7 @@ import (
 	"strings"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/ziti/v2/ziti/internal/log"
+	"github.com/hanzozt/ziti/v2/ziti/internal/log"
 
 	"github.com/go-acme/lego/v4/certcrypto"
 	"github.com/go-acme/lego/v4/lego"

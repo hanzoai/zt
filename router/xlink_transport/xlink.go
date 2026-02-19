@@ -20,12 +20,12 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/openziti/channel/v4"
-	"github.com/openziti/metrics"
-	"github.com/openziti/sdk-golang/xgress"
-	"github.com/openziti/ziti/v2/common/inspect"
-	"github.com/openziti/ziti/v2/common/pb/ctrl_pb"
-	"github.com/openziti/ziti/v2/router/xlink"
+	"github.com/hanzozt/channel/v4"
+	"github.com/hanzozt/metrics"
+	"github.com/hanzozt/sdk-golang/xgress"
+	"github.com/hanzozt/ziti/v2/common/inspect"
+	"github.com/hanzozt/ziti/v2/common/pb/ctrl_pb"
+	"github.com/hanzozt/ziti/v2/router/xlink"
 )
 
 type impl struct {

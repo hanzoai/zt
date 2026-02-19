@@ -9,8 +9,8 @@ import (
 	"time"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/fablab/kernel/model"
-	"github.com/openziti/ziti/v2/common/outputz"
+	"github.com/hanzozt/fablab/kernel/model"
+	"github.com/hanzozt/ziti/v2/common/outputz"
 )
 
 type SimMetricsValidator struct {

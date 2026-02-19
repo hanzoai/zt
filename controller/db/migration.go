@@ -1,7 +1,7 @@
 package db
 
 import (
-	"github.com/openziti/storage/boltz"
+	"github.com/hanzozt/storage/boltz"
 )
 
 func (stores *stores) migrateTerminatorIdentityFields(step *boltz.MigrationStep) {

@@ -1,7 +1,7 @@
 syntax = "proto3";
 
 package ziti.mgmt_pb;
-option go_package = "github.com/openziti/fabric/pb/mgmt_pb";
+option go_package = "github.com/hanzozt/fabric/pb/mgmt_pb";
 
 import "google/protobuf/timestamp.proto";
 

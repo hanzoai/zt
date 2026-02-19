@@ -26,8 +26,8 @@ import (
 	"time"
 
 	"github.com/google/uuid"
-	"github.com/openziti/edge-api/rest_model"
-	"github.com/openziti/ziti/v2/common/eid"
+	"github.com/hanzozt/edge-api/rest_model"
+	"github.com/hanzozt/ziti/v2/common/eid"
 )
 
 func Test_PostureChecks_MFA(t *testing.T) {

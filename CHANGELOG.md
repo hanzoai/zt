@@ -2,7 +2,7 @@
 
 ## What's New
 
-This is the next major version release of OpenZiti, following the 1.0 release in April 2024. 
+This is the next major version release of Hanzo ZT, following the 1.0 release in April 2024. 
 Of particular note is that HA controllers are now considered ready for general use. 
 This release also introduces a new permissions model, OIDC/JWT token-based enrollment, 
 clustering performance improvements, and a number of other features and fixes. Because 
@@ -52,28 +52,28 @@ Since we already have a breaking change, we're removing some other backwards com
 * Controller managed links 
     * Router managed links were introduced in v0.30.0. 
     * If you're upgrading from an older versions, you'll want to upgrade to the latest 1.x release before jumping to 2.x
-    * Github tracking issue: https://github.com/openziti/ziti/issues/3512
+    * Github tracking issue: https://github.com/hanzozt/ziti/issues/3512
 * `ziti edge create identity <type>`
     * Identity types other than router were removed in v0.30.2
     * The `type` can be dropped from the CLI command
-    * Github tracking issue: https://github.com/openziti/ziti/issues/3532
+    * Github tracking issue: https://github.com/hanzozt/ziti/issues/3532
 * Terminator create/update/delete events
     * These have been superseded by entity change events, which also have create/update/delete events for terminators
     * Entity change events were introduced in v0.28.0
-    * Github tracking issue: https://github.com/openziti/ziti/issues/3531
+    * Github tracking issue: https://github.com/hanzozt/ziti/issues/3531
 * `xgress_edge_tunnel` v1
     * This is the first implementation of the tunneler in edge-router code (ER/T) which used legacy api sessions and services
     * The v2 version uses the router data model and was introduced in v0.30.x
-    * Github tracking issue: https://github.com/openziti/ziti/issues/3516
+    * Github tracking issue: https://github.com/hanzozt/ziti/issues/3516
 
 ### Legacy Session Deprecation
 
 OIDC sessions are now preferred. They are the default, or will become the default for SDKs and tunnelers. They are also required
-when running HA. Legacy API and service session are now deprecated and will be removed in the OpenZiti v3.0.0 release. 
+when running HA. Legacy API and service session are now deprecated and will be removed in the Hanzo ZT v3.0.0 release. 
 
 ### Additional Features
 
-* Controllers can now optionally bind APIs using an OpenZiti identity
+* Controllers can now optionally bind APIs using an Hanzo ZT identity
 * `ziti edge login` now supports the `--network-identity` flag to authenticate and establish connections through the Ziti overlay network
 * `ziti edge login` now supports using a bearer token with `--token` for authentication. The token is expected to be
   provided as just the JWT, not with the "Bearer " prefix
@@ -164,7 +164,7 @@ These protections ensure that privilege escalation is prevented and admin access
 
 ## Binding Controller APIs With Identity
 
-Controller APIs can now be bound to an OpenZiti overlay network identity, allowing secure communication through
+Controller APIs can now be bound to an Hanzo ZT overlay network identity, allowing secure communication through
 the Ziti network. This is useful for scenarios where you want to expose controller APIs only through the overlay
 network rather than on a standard network interface.
 
@@ -177,7 +177,7 @@ A standard `bindPoint` configuration looks like this:
         address: 127.0.0.1:18441
 ```
 
-To bind controller APIs to an OpenZiti identity, add an additional `identity` block to your `bindPoints`. The
+To bind controller APIs to an Hanzo ZT identity, add an additional `identity` block to your `bindPoints`. The
 identity configuration specifies where to load the Ziti identity file and which service to bind it to:
 
 ```text
@@ -290,7 +290,7 @@ the specified service via the addressable terminator.
 
 ## OIDC/JWT Token-based Enrollment
 
-OpenZiti now supports provisioning identities just-in-time through OIDC/JWT token enrollment. External identity 
+Hanzo ZT now supports provisioning identities just-in-time through OIDC/JWT token enrollment. External identity 
 providers can be configured to allow identities to enroll using JWT tokens, with support for the resulting 
 identities to use certificate or token authentication.
 
@@ -606,7 +606,7 @@ and proven useful, they will be marked as stable.
 *Originally released in 1.7.0. Contributed by @ffaraone.*
 
 Adds support for streaming controller events to Azure Service Bus.
-The new logger enables real-time event streaming from the OpenZiti controller to Azure Service Bus
+The new logger enables real-time event streaming from the Hanzo ZT controller to Azure Service Bus
 queues or topics, providing integration with Azure-based monitoring and analytics systems.
 
 To enable the Azure Service Bus event logger, add configuration to the controller config file under the events section:
@@ -640,64 +640,64 @@ To enable the Azure Service Bus event logger, add configuration to the controlle
 
 ## Component Updates and Bug Fixes
 
-* github.com/openziti/channel/v4: [v4.2.41 -> v4.2.50](https://github.com/openziti/channel/compare/v4.2.41...v4.2.50)
-* github.com/openziti/edge-api: [v0.26.50 -> v0.26.52](https://github.com/openziti/edge-api/compare/v0.26.50...v0.26.52)
-    * [Issue #164](https://github.com/openziti/edge-api/issues/164) - Add permissions list to identity
+* github.com/hanzozt/channel/v4: [v4.2.41 -> v4.2.50](https://github.com/hanzozt/channel/compare/v4.2.41...v4.2.50)
+* github.com/hanzozt/edge-api: [v0.26.50 -> v0.26.52](https://github.com/hanzozt/edge-api/compare/v0.26.50...v0.26.52)
+    * [Issue #164](https://github.com/hanzozt/edge-api/issues/164) - Add permissions list to identity
 
-* github.com/openziti/foundation/v2: [v2.0.79 -> v2.0.84](https://github.com/openziti/foundation/compare/v2.0.79...v2.0.84)
-    * [Issue #464](https://github.com/openziti/foundation/issues/464) - Add support for -pre in versions
+* github.com/hanzozt/foundation/v2: [v2.0.79 -> v2.0.84](https://github.com/hanzozt/foundation/compare/v2.0.79...v2.0.84)
+    * [Issue #464](https://github.com/hanzozt/foundation/issues/464) - Add support for -pre in versions
 
-* github.com/openziti/identity: [v1.0.118 -> v1.0.122](https://github.com/openziti/identity/compare/v1.0.118...v1.0.122)
-* github.com/openziti/metrics: [v1.4.2 -> v1.4.3](https://github.com/openziti/metrics/compare/v1.4.2...v1.4.3)
-    * [Issue #56](https://github.com/openziti/metrics/issues/56) - underlying resources of reference counted meters are not cleaned up when reference count hits zero
+* github.com/hanzozt/identity: [v1.0.118 -> v1.0.122](https://github.com/hanzozt/identity/compare/v1.0.118...v1.0.122)
+* github.com/hanzozt/metrics: [v1.4.2 -> v1.4.3](https://github.com/hanzozt/metrics/compare/v1.4.2...v1.4.3)
+    * [Issue #56](https://github.com/hanzozt/metrics/issues/56) - underlying resources of reference counted meters are not cleaned up when reference count hits zero
 
-* github.com/openziti/runzmd: [v1.0.84 -> v1.0.86](https://github.com/openziti/runzmd/compare/v1.0.84...v1.0.86)
-* github.com/openziti/sdk-golang: [v1.2.10 -> v1.3.1](https://github.com/openziti/sdk-golang/compare/v1.2.10...v1.3.1)
-    * [Issue #824](https://github.com/openziti/sdk-golang/pull/824) - release notes and hard errors on no TOTP handler breaks partial auth events
+* github.com/hanzozt/runzmd: [v1.0.84 -> v1.0.86](https://github.com/hanzozt/runzmd/compare/v1.0.84...v1.0.86)
+* github.com/hanzozt/sdk-golang: [v1.2.10 -> v1.3.1](https://github.com/hanzozt/sdk-golang/compare/v1.2.10...v1.3.1)
+    * [Issue #824](https://github.com/hanzozt/sdk-golang/pull/824) - release notes and hard errors on no TOTP handler breaks partial auth events
 
-* github.com/openziti/secretstream: [v0.1.41 -> v0.1.46](https://github.com/openziti/secretstream/compare/v0.1.41...v0.1.46)
-* github.com/openziti/storage: [v0.4.31 -> v0.4.35](https://github.com/openziti/storage/compare/v0.4.31...v0.4.35)
-    * [Issue #122](https://github.com/openziti/storage/issues/122) - StringFuncNode has incorrect nil check, allowing panic
-    * [Issue #120](https://github.com/openziti/storage/issues/120) - Change post tx commit constraint handling order
-    * [Issue #119](https://github.com/openziti/storage/issues/119) - Add ContextDecorator API
+* github.com/hanzozt/secretstream: [v0.1.41 -> v0.1.46](https://github.com/hanzozt/secretstream/compare/v0.1.41...v0.1.46)
+* github.com/hanzozt/storage: [v0.4.31 -> v0.4.35](https://github.com/hanzozt/storage/compare/v0.4.31...v0.4.35)
+    * [Issue #122](https://github.com/hanzozt/storage/issues/122) - StringFuncNode has incorrect nil check, allowing panic
+    * [Issue #120](https://github.com/hanzozt/storage/issues/120) - Change post tx commit constraint handling order
+    * [Issue #119](https://github.com/hanzozt/storage/issues/119) - Add ContextDecorator API
 
-* github.com/openziti/transport/v2: [v2.0.198 -> v2.0.205](https://github.com/openziti/transport/compare/v2.0.198...v2.0.205)
-* github.com/openziti/xweb/v3: [v2.3.4 -> v3.0.3](https://github.com/openziti/xweb/compare/v2.3.4...v3.0.3)
-    * [Issue #32](https://github.com/openziti/xweb/issues/32) - watched identities sometimes don't reload when changed
+* github.com/hanzozt/transport/v2: [v2.0.198 -> v2.0.205](https://github.com/hanzozt/transport/compare/v2.0.198...v2.0.205)
+* github.com/hanzozt/xweb/v3: [v2.3.4 -> v3.0.3](https://github.com/hanzozt/xweb/compare/v2.3.4...v3.0.3)
+    * [Issue #32](https://github.com/hanzozt/xweb/issues/32) - watched identities sometimes don't reload when changed
 
-* github.com/openziti/ziti: [v1.7.0 -> v1.8.0](https://github.com/openziti/ziti/compare/v1.7.0...v1.8.0)
-    * [Issue #3509](https://github.com/openziti/ziti/issues/3509) - Enforce policy on the router for oidc sessions, by closing open circuits and terminators when service access is lost
-    * [Issue #3503](https://github.com/openziti/ziti/issues/3503) - Allow routers to request current cluster membership information
-    * [Issue #3501](https://github.com/openziti/ziti/issues/3501) - Get cluster membership information from raft directly, rather than trying to cache it in the DB
-    * [Issue #3500](https://github.com/openziti/ziti/issues/3500) - Set a router data model timeline when initializing a new HA setup, rather than letting it stay blank
-    * [Issue #3504](https://github.com/openziti/ziti/issues/3504) - Reduce router data model full state updates
-    * [Issue #3492](https://github.com/openziti/ziti/pull/3492) - Bump openziti/ziti-console-assets from 3.12.9 to 4.0.0 in /dist/docker-images/ziti-controller in the all group
-    * [Issue #3484](https://github.com/openziti/ziti/issues/3484) - router ctrl channel handler for handling cluster changes has an initialization race condition
-    * [Issue #3477](https://github.com/openziti/ziti/issues/3477) - Optionally enable model changes triggered by login to be non-blocking and to be droppable if the system is under load
-    * [Issue #3473](https://github.com/openziti/ziti/issues/3473) - Enable tls handshake rate limiter by default and tweak default values.
-    * [Issue #3471](https://github.com/openziti/ziti/issues/3471) - Go tunneler is ignoring host config MaxConnections
-    * [Issue #3469](https://github.com/openziti/ziti/issues/3469) - Only send model updates on resubscribe if the RDM index has advanced
-    * [Issue #2573](https://github.com/openziti/ziti/issues/2573) - An edge router in a tight restart loop causes a resource leak on routers to which it connects.
-    * [Issue #3430](https://github.com/openziti/ziti/issues/3430) - Add permissions list to identity
-    * [Issue #2109](https://github.com/openziti/ziti/issues/2109) - Add Edge Management Read Only Capability
-    * [Issue #3435](https://github.com/openziti/ziti/issues/3435) - Add edge management API permissions by entity type and action
-    * [Issue #3441](https://github.com/openziti/ziti/issues/3441) - Update router connection tracker to interrogate active connections
-    * [Issue #3451](https://github.com/openziti/ziti/issues/3451) - ci - compare only stable releases when promoting
-    * [Issue #3437](https://github.com/openziti/ziti/issues/3437) - SDK OIDC token updates to routers should return an error if invalid
-    * [Issue #3348](https://github.com/openziti/ziti/issues/3348) - Unable to clear/reset the "tags" property on an entity to an empty object
-    * [Issue #3452](https://github.com/openziti/ziti/issues/3452) - `ziti agent cluster add` has bad behavior if the add address doesn't match the advertise address
-    * [Issue #3410](https://github.com/openziti/ziti/issues/3410) - Consolidate fabric REST API code with edge management and edge client code
-    * [Issue #3425](https://github.com/openziti/ziti/issues/3425) - RDM not properly responding to tunneler enabled flag changes
-    * [Issue #3420](https://github.com/openziti/ziti/issues/3420) - The terminator id cache uses the same id for all terminators in a host.v2 config, resulting in a single terminator
-    * [Issue #3419](https://github.com/openziti/ziti/issues/3419) - When using the router data model, precedence specified on the per-service identity mapping are incorrectly interpreted
-    * [Issue #3318](https://github.com/openziti/ziti/issues/3318) - Terminator creation seems to slow exponentially as the number of terminators rises from 10k to 20k to 40k
-    * [Issue #3407](https://github.com/openziti/ziti/issues/3407) - The CLI doesn't properly pass JWT authentication information to websocket endpoints
-    * [Issue #3359](https://github.com/openziti/ziti/issues/3359) - Ensure router data model subscriptions have reasonable performance and will scale
-    * [Issue #3381](https://github.com/openziti/ziti/issues/3381) - the fabric service REST apis are missing the maxIdleTime property
-    * [Issue #3382](https://github.com/openziti/ziti/issues/3382) - Legacy service sessions generated pre-1.7.x are incompatible with v1.7.+ and need to be cleared
-    * [Issue #3339](https://github.com/openziti/ziti/issues/3339) - get router ctrl.endpoint from ctrls claim in JWT
-    * [Issue #3378](https://github.com/openziti/ziti/issues/3378) - login with file stopped working
-    * [Issue #3346](https://github.com/openziti/ziti/issues/3346) - Fix confusing attempt logging
-    * [Issue #3337](https://github.com/openziti/ziti/issues/3337) - Router reports "no xgress edge forwarder for circuit"
-    * [Issue #3345](https://github.com/openziti/ziti/issues/3345) - Clean up connect events tests and remove global XG registry
-    * [Issue #3264](https://github.com/openziti/ziti/issues/3264) - Allow routers to generate alert events in cases of service misconfiguration
+* github.com/hanzozt/ziti: [v1.7.0 -> v1.8.0](https://github.com/hanzozt/ziti/compare/v1.7.0...v1.8.0)
+    * [Issue #3509](https://github.com/hanzozt/ziti/issues/3509) - Enforce policy on the router for oidc sessions, by closing open circuits and terminators when service access is lost
+    * [Issue #3503](https://github.com/hanzozt/ziti/issues/3503) - Allow routers to request current cluster membership information
+    * [Issue #3501](https://github.com/hanzozt/ziti/issues/3501) - Get cluster membership information from raft directly, rather than trying to cache it in the DB
+    * [Issue #3500](https://github.com/hanzozt/ziti/issues/3500) - Set a router data model timeline when initializing a new HA setup, rather than letting it stay blank
+    * [Issue #3504](https://github.com/hanzozt/ziti/issues/3504) - Reduce router data model full state updates
+    * [Issue #3492](https://github.com/hanzozt/ziti/pull/3492) - Bump hanzozt/ziti-console-assets from 3.12.9 to 4.0.0 in /dist/docker-images/ziti-controller in the all group
+    * [Issue #3484](https://github.com/hanzozt/ziti/issues/3484) - router ctrl channel handler for handling cluster changes has an initialization race condition
+    * [Issue #3477](https://github.com/hanzozt/ziti/issues/3477) - Optionally enable model changes triggered by login to be non-blocking and to be droppable if the system is under load
+    * [Issue #3473](https://github.com/hanzozt/ziti/issues/3473) - Enable tls handshake rate limiter by default and tweak default values.
+    * [Issue #3471](https://github.com/hanzozt/ziti/issues/3471) - Go tunneler is ignoring host config MaxConnections
+    * [Issue #3469](https://github.com/hanzozt/ziti/issues/3469) - Only send model updates on resubscribe if the RDM index has advanced
+    * [Issue #2573](https://github.com/hanzozt/ziti/issues/2573) - An edge router in a tight restart loop causes a resource leak on routers to which it connects.
+    * [Issue #3430](https://github.com/hanzozt/ziti/issues/3430) - Add permissions list to identity
+    * [Issue #2109](https://github.com/hanzozt/ziti/issues/2109) - Add Edge Management Read Only Capability
+    * [Issue #3435](https://github.com/hanzozt/ziti/issues/3435) - Add edge management API permissions by entity type and action
+    * [Issue #3441](https://github.com/hanzozt/ziti/issues/3441) - Update router connection tracker to interrogate active connections
+    * [Issue #3451](https://github.com/hanzozt/ziti/issues/3451) - ci - compare only stable releases when promoting
+    * [Issue #3437](https://github.com/hanzozt/ziti/issues/3437) - SDK OIDC token updates to routers should return an error if invalid
+    * [Issue #3348](https://github.com/hanzozt/ziti/issues/3348) - Unable to clear/reset the "tags" property on an entity to an empty object
+    * [Issue #3452](https://github.com/hanzozt/ziti/issues/3452) - `ziti agent cluster add` has bad behavior if the add address doesn't match the advertise address
+    * [Issue #3410](https://github.com/hanzozt/ziti/issues/3410) - Consolidate fabric REST API code with edge management and edge client code
+    * [Issue #3425](https://github.com/hanzozt/ziti/issues/3425) - RDM not properly responding to tunneler enabled flag changes
+    * [Issue #3420](https://github.com/hanzozt/ziti/issues/3420) - The terminator id cache uses the same id for all terminators in a host.v2 config, resulting in a single terminator
+    * [Issue #3419](https://github.com/hanzozt/ziti/issues/3419) - When using the router data model, precedence specified on the per-service identity mapping are incorrectly interpreted
+    * [Issue #3318](https://github.com/hanzozt/ziti/issues/3318) - Terminator creation seems to slow exponentially as the number of terminators rises from 10k to 20k to 40k
+    * [Issue #3407](https://github.com/hanzozt/ziti/issues/3407) - The CLI doesn't properly pass JWT authentication information to websocket endpoints
+    * [Issue #3359](https://github.com/hanzozt/ziti/issues/3359) - Ensure router data model subscriptions have reasonable performance and will scale
+    * [Issue #3381](https://github.com/hanzozt/ziti/issues/3381) - the fabric service REST apis are missing the maxIdleTime property
+    * [Issue #3382](https://github.com/hanzozt/ziti/issues/3382) - Legacy service sessions generated pre-1.7.x are incompatible with v1.7.+ and need to be cleared
+    * [Issue #3339](https://github.com/hanzozt/ziti/issues/3339) - get router ctrl.endpoint from ctrls claim in JWT
+    * [Issue #3378](https://github.com/hanzozt/ziti/issues/3378) - login with file stopped working
+    * [Issue #3346](https://github.com/hanzozt/ziti/issues/3346) - Fix confusing attempt logging
+    * [Issue #3337](https://github.com/hanzozt/ziti/issues/3337) - Router reports "no xgress edge forwarder for circuit"
+    * [Issue #3345](https://github.com/hanzozt/ziti/issues/3345) - Clean up connect events tests and remove global XG registry
+    * [Issue #3264](https://github.com/hanzozt/ziti/issues/3264) - Allow routers to generate alert events in cases of service misconfiguration

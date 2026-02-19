@@ -32,11 +32,11 @@ import (
 	"os"
 	"time"
 
-	nfpem "github.com/openziti/foundation/v2/pem"
-	"github.com/openziti/foundation/v2/term"
-	"github.com/openziti/ziti/v2/ziti/cmd/api"
-	"github.com/openziti/ziti/v2/ziti/cmd/common"
-	"github.com/openziti/ziti/v2/ziti/util"
+	nfpem "github.com/hanzozt/foundation/v2/pem"
+	"github.com/hanzozt/foundation/v2/term"
+	"github.com/hanzozt/ziti/v2/ziti/cmd/api"
+	"github.com/hanzozt/ziti/v2/ziti/cmd/common"
+	"github.com/hanzozt/ziti/v2/ziti/util"
 	"github.com/spf13/cobra"
 	"gopkg.in/resty.v1"
 )

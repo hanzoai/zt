@@ -25,7 +25,7 @@ import (
 	"time"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/ziti/v2/router/env"
+	"github.com/hanzozt/ziti/v2/router/env"
 )
 
 const (

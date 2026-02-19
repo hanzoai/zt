@@ -20,8 +20,8 @@ import (
 	"math/rand"
 	"time"
 
-	"github.com/openziti/ziti/v2/controller/xt"
-	"github.com/openziti/ziti/v2/controller/xt_common"
+	"github.com/hanzozt/ziti/v2/controller/xt"
+	"github.com/hanzozt/ziti/v2/controller/xt_common"
 )
 
 /**

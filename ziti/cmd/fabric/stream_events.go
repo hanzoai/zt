@@ -21,12 +21,12 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/openziti/channel/v4"
-	"github.com/openziti/ziti/v2/common/pb/mgmt_pb"
-	"github.com/openziti/ziti/v2/controller/event"
-	"github.com/openziti/ziti/v2/ziti/cmd/api"
-	"github.com/openziti/ziti/v2/ziti/cmd/common"
-	"github.com/openziti/ziti/v2/ziti/cmd/util"
+	"github.com/hanzozt/channel/v4"
+	"github.com/hanzozt/ziti/v2/common/pb/mgmt_pb"
+	"github.com/hanzozt/ziti/v2/controller/event"
+	"github.com/hanzozt/ziti/v2/ziti/cmd/api"
+	"github.com/hanzozt/ziti/v2/ziti/cmd/common"
+	"github.com/hanzozt/ziti/v2/ziti/cmd/util"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
 )

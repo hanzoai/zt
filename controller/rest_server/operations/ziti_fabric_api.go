@@ -43,14 +43,14 @@ import (
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 
-	"github.com/openziti/ziti/v2/controller/rest_server/operations/circuit"
-	"github.com/openziti/ziti/v2/controller/rest_server/operations/cluster"
-	"github.com/openziti/ziti/v2/controller/rest_server/operations/database"
-	"github.com/openziti/ziti/v2/controller/rest_server/operations/inspect"
-	"github.com/openziti/ziti/v2/controller/rest_server/operations/link"
-	"github.com/openziti/ziti/v2/controller/rest_server/operations/router"
-	"github.com/openziti/ziti/v2/controller/rest_server/operations/service"
-	"github.com/openziti/ziti/v2/controller/rest_server/operations/terminator"
+	"github.com/hanzozt/ziti/v2/controller/rest_server/operations/circuit"
+	"github.com/hanzozt/ziti/v2/controller/rest_server/operations/cluster"
+	"github.com/hanzozt/ziti/v2/controller/rest_server/operations/database"
+	"github.com/hanzozt/ziti/v2/controller/rest_server/operations/inspect"
+	"github.com/hanzozt/ziti/v2/controller/rest_server/operations/link"
+	"github.com/hanzozt/ziti/v2/controller/rest_server/operations/router"
+	"github.com/hanzozt/ziti/v2/controller/rest_server/operations/service"
+	"github.com/hanzozt/ziti/v2/controller/rest_server/operations/terminator"
 )
 
 // NewZitiFabricAPI creates a new ZitiFabric instance
@@ -189,7 +189,7 @@ func NewZitiFabricAPI(spec *loads.Document) *ZitiFabricAPI {
 	}
 }
 
-/*ZitiFabricAPI OpenZiti Fabric API */
+/*ZitiFabricAPI Hanzo ZT Fabric API */
 type ZitiFabricAPI struct {
 	spec            *loads.Document
 	context         *middleware.Context

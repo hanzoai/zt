@@ -19,12 +19,12 @@ package edge
 import (
 	"fmt"
 
-	"github.com/openziti/edge-api/rest_management_api_client/service"
-	"github.com/openziti/ziti/v2/controller/rest_client/terminator"
-	"github.com/openziti/ziti/v2/controller/rest_model"
-	"github.com/openziti/ziti/v2/ziti/cmd/api"
-	"github.com/openziti/ziti/v2/ziti/cmd/common"
-	"github.com/openziti/ziti/v2/ziti/util"
+	"github.com/hanzozt/edge-api/rest_management_api_client/service"
+	"github.com/hanzozt/ziti/v2/controller/rest_client/terminator"
+	"github.com/hanzozt/ziti/v2/controller/rest_model"
+	"github.com/hanzozt/ziti/v2/ziti/cmd/api"
+	"github.com/hanzozt/ziti/v2/ziti/cmd/common"
+	"github.com/hanzozt/ziti/v2/ziti/util"
 	"github.com/spf13/cobra"
 )
 

@@ -20,9 +20,9 @@ import (
 	"net/http"
 
 	"github.com/go-openapi/runtime"
-	"github.com/openziti/foundation/v2/errorz"
-	"github.com/openziti/ziti/v2/controller/apierror"
-	"github.com/openziti/ziti/v2/controller/change"
+	"github.com/hanzozt/foundation/v2/errorz"
+	"github.com/hanzozt/ziti/v2/controller/apierror"
+	"github.com/hanzozt/ziti/v2/controller/change"
 )
 
 type Responder interface {

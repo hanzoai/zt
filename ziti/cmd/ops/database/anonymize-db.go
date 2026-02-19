@@ -25,9 +25,9 @@ import (
 	"strings"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/storage/boltz"
-	"github.com/openziti/ziti/v2/controller/command"
-	"github.com/openziti/ziti/v2/controller/db"
+	"github.com/hanzozt/storage/boltz"
+	"github.com/hanzozt/ziti/v2/controller/command"
+	"github.com/hanzozt/ziti/v2/controller/db"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 	"go.etcd.io/bbolt"

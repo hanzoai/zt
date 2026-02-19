@@ -30,14 +30,14 @@ import (
 	"strings"
 
 	"github.com/golang-jwt/jwt/v5"
-	"github.com/openziti/ziti/v2/router/env"
+	"github.com/hanzozt/ziti/v2/router/env"
 
 	"github.com/go-resty/resty/v2"
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/edge-api/rest_model"
-	"github.com/openziti/identity/certtools"
-	"github.com/openziti/sdk-golang/ziti"
-	"github.com/openziti/sdk-golang/ziti/enroll"
+	"github.com/hanzozt/edge-api/rest_model"
+	"github.com/hanzozt/identity/certtools"
+	"github.com/hanzozt/sdk-golang/ziti"
+	"github.com/hanzozt/sdk-golang/ziti/enroll"
 )
 
 type apiPost struct {

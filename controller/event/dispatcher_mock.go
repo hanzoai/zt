@@ -20,8 +20,8 @@ import (
 	"regexp"
 	"time"
 
-	"github.com/openziti/metrics/metrics_pb"
-	"github.com/openziti/storage/boltz"
+	"github.com/hanzozt/metrics/metrics_pb"
+	"github.com/hanzozt/storage/boltz"
 )
 
 var _ Dispatcher = DispatcherMock{}

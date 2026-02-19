@@ -6,13 +6,13 @@
 
 ## Component Updates and Bug Fixes
 
-* github.com/openziti/secretstream: [v0.1.25 -> v0.1.26](https://github.com/openziti/secretstream/compare/v0.1.25...v0.1.26)
-* github.com/openziti/storage: [v0.3.6 -> v0.3.8](https://github.com/openziti/storage/compare/v0.3.6...v0.3.8)
-    * [Issue #87](https://github.com/openziti/storage/issues/87) - negative URL filter returns incorrect results
+* github.com/hanzozt/secretstream: [v0.1.25 -> v0.1.26](https://github.com/hanzozt/secretstream/compare/v0.1.25...v0.1.26)
+* github.com/hanzozt/storage: [v0.3.6 -> v0.3.8](https://github.com/hanzozt/storage/compare/v0.3.6...v0.3.8)
+    * [Issue #87](https://github.com/hanzozt/storage/issues/87) - negative URL filter returns incorrect results
 
-* github.com/openziti/ziti: [v1.2.1 -> v1.2.2](https://github.com/openziti/ziti/compare/v1.2.1...v1.2.2)
-    * [Issue #2559](https://github.com/openziti/ziti/issues/2559) - expired JWTs are allowed to enroll
-    * [Issue #2543](https://github.com/openziti/ziti/issues/2543) - Support adding adding an uninitialized node to a cluster (rather than the reverse)
+* github.com/hanzozt/ziti: [v1.2.1 -> v1.2.2](https://github.com/hanzozt/ziti/compare/v1.2.1...v1.2.2)
+    * [Issue #2559](https://github.com/hanzozt/ziti/issues/2559) - expired JWTs are allowed to enroll
+    * [Issue #2543](https://github.com/hanzozt/ziti/issues/2543) - Support adding adding an uninitialized node to a cluster (rather than the reverse)
 
 
 # Release 1.2.1
@@ -23,22 +23,22 @@
 
 ## Component Updates and Bug Fixes
 
-* github.com/openziti/agent: [v1.0.19 -> v1.0.20](https://github.com/openziti/agent/compare/v1.0.19...v1.0.20)
-* github.com/openziti/channel/v3: [v3.0.10 -> v3.0.16](https://github.com/openziti/channel/compare/v3.0.10...v3.0.16)
-* github.com/openziti/foundation/v2: [v2.0.50 -> v2.0.52](https://github.com/openziti/foundation/compare/v2.0.50...v2.0.52)
-* github.com/openziti/identity: [v1.0.88 -> v1.0.90](https://github.com/openziti/identity/compare/v1.0.88...v1.0.90)
-* github.com/openziti/metrics: [v1.2.59 -> v1.2.61](https://github.com/openziti/metrics/compare/v1.2.59...v1.2.61)
-* github.com/openziti/runzmd: [v1.0.53 -> v1.0.55](https://github.com/openziti/runzmd/compare/v1.0.53...v1.0.55)
-* github.com/openziti/storage: [v0.3.2 -> v0.3.6](https://github.com/openziti/storage/compare/v0.3.2...v0.3.6)
-* github.com/openziti/transport/v2: [v2.0.150 -> v2.0.153](https://github.com/openziti/transport/compare/v2.0.150...v2.0.153)
-* github.com/openziti/ziti: [v1.2.0 -> v1.2.1](https://github.com/openziti/ziti/compare/v1.2.0...v1.2.1)
-    * [Issue #2543](https://github.com/openziti/ziti/issues/2543) - Support adding adding an uninitialized node to a cluster (rather than the reverse)
-    * [Issue #2541](https://github.com/openziti/ziti/issues/2541) - Add cluster id, to prevent merging disparate clusters
-    * [Issue #2532](https://github.com/openziti/ziti/issues/2532) - When adding an existing HA cluster member, remove/add if suffrage has changed
-    * [Issue #2217](https://github.com/openziti/ziti/issues/2217) - Controller list is empty until peers connect
-    * [Issue #2533](https://github.com/openziti/ziti/issues/2533) - Handle concurrent raft connections
-    * [Issue #2534](https://github.com/openziti/ziti/issues/2534) - Ziti ID with leading hyphen causes command-line parameter ambiguity
-    * [Issue #2528](https://github.com/openziti/ziti/issues/2528) - Updated router costs are not use when evaluating current path cost in the context of smart rerouting
+* github.com/hanzozt/agent: [v1.0.19 -> v1.0.20](https://github.com/hanzozt/agent/compare/v1.0.19...v1.0.20)
+* github.com/hanzozt/channel/v3: [v3.0.10 -> v3.0.16](https://github.com/hanzozt/channel/compare/v3.0.10...v3.0.16)
+* github.com/hanzozt/foundation/v2: [v2.0.50 -> v2.0.52](https://github.com/hanzozt/foundation/compare/v2.0.50...v2.0.52)
+* github.com/hanzozt/identity: [v1.0.88 -> v1.0.90](https://github.com/hanzozt/identity/compare/v1.0.88...v1.0.90)
+* github.com/hanzozt/metrics: [v1.2.59 -> v1.2.61](https://github.com/hanzozt/metrics/compare/v1.2.59...v1.2.61)
+* github.com/hanzozt/runzmd: [v1.0.53 -> v1.0.55](https://github.com/hanzozt/runzmd/compare/v1.0.53...v1.0.55)
+* github.com/hanzozt/storage: [v0.3.2 -> v0.3.6](https://github.com/hanzozt/storage/compare/v0.3.2...v0.3.6)
+* github.com/hanzozt/transport/v2: [v2.0.150 -> v2.0.153](https://github.com/hanzozt/transport/compare/v2.0.150...v2.0.153)
+* github.com/hanzozt/ziti: [v1.2.0 -> v1.2.1](https://github.com/hanzozt/ziti/compare/v1.2.0...v1.2.1)
+    * [Issue #2543](https://github.com/hanzozt/ziti/issues/2543) - Support adding adding an uninitialized node to a cluster (rather than the reverse)
+    * [Issue #2541](https://github.com/hanzozt/ziti/issues/2541) - Add cluster id, to prevent merging disparate clusters
+    * [Issue #2532](https://github.com/hanzozt/ziti/issues/2532) - When adding an existing HA cluster member, remove/add if suffrage has changed
+    * [Issue #2217](https://github.com/hanzozt/ziti/issues/2217) - Controller list is empty until peers connect
+    * [Issue #2533](https://github.com/hanzozt/ziti/issues/2533) - Handle concurrent raft connections
+    * [Issue #2534](https://github.com/hanzozt/ziti/issues/2534) - Ziti ID with leading hyphen causes command-line parameter ambiguity
+    * [Issue #2528](https://github.com/hanzozt/ziti/issues/2528) - Updated router costs are not use when evaluating current path cost in the context of smart rerouting
 
 # Release 1.2.0
 
@@ -265,24 +265,24 @@ events:
 
 ## Component Updates and Bug Fixes
 
-* github.com/openziti/agent: [v1.0.18 -> v1.0.19](https://github.com/openziti/agent/compare/v1.0.18...v1.0.19)
-* github.com/openziti/channel/v3: [v3.0.5 -> v3.0.10](https://github.com/openziti/channel/compare/v3.0.5...v3.0.10)
-* github.com/openziti/edge-api: [v0.26.32 -> v0.26.35](https://github.com/openziti/edge-api/compare/v0.26.32...v0.26.35)
-* github.com/openziti/foundation/v2: [v2.0.49 -> v2.0.50](https://github.com/openziti/foundation/compare/v2.0.49...v2.0.50)
-* github.com/openziti/identity: [v1.0.85 -> v1.0.88](https://github.com/openziti/identity/compare/v1.0.85...v1.0.88)
+* github.com/hanzozt/agent: [v1.0.18 -> v1.0.19](https://github.com/hanzozt/agent/compare/v1.0.18...v1.0.19)
+* github.com/hanzozt/channel/v3: [v3.0.5 -> v3.0.10](https://github.com/hanzozt/channel/compare/v3.0.5...v3.0.10)
+* github.com/hanzozt/edge-api: [v0.26.32 -> v0.26.35](https://github.com/hanzozt/edge-api/compare/v0.26.32...v0.26.35)
+* github.com/hanzozt/foundation/v2: [v2.0.49 -> v2.0.50](https://github.com/hanzozt/foundation/compare/v2.0.49...v2.0.50)
+* github.com/hanzozt/identity: [v1.0.85 -> v1.0.88](https://github.com/hanzozt/identity/compare/v1.0.85...v1.0.88)
 
-* github.com/openziti/metrics: [v1.2.58 -> v1.2.59](https://github.com/openziti/metrics/compare/v1.2.58...v1.2.59)
-* github.com/openziti/runzmd: [v1.0.51 -> v1.0.53](https://github.com/openziti/runzmd/compare/v1.0.51...v1.0.53)
-* github.com/openziti/sdk-golang: [v0.23.43 -> v0.23.44](https://github.com/openziti/sdk-golang/compare/v0.23.43...v0.23.44)
-* github.com/openziti/transport/v2: [v2.0.146 -> v2.0.150](https://github.com/openziti/transport/compare/v2.0.146...v2.0.150)
-* github.com/openziti/ziti: [v1.1.15 -> v1.2.0](https://github.com/openziti/ziti/compare/v1.1.15...v1.2.0)
-    * [Issue #2212](https://github.com/openziti/ziti/issues/2212) - Rework distributed control bootstrap mechanism
-    * [Issue #1835](https://github.com/openziti/ziti/issues/1835) - Add access log for rest and router connections
-    * [Issue #2234](https://github.com/openziti/ziti/issues/2234) - Emit an event when hasEdgeRouterConnection state changes for an Identity
-    * [Issue #2506](https://github.com/openziti/ziti/issues/2506) - Identity service config overrides referential integrity issues
-    * [Issue #2491](https://github.com/openziti/ziti/issues/2491) - fix router CSR loading
-    * [Issue #2478](https://github.com/openziti/ziti/issues/2478) - JWT signer secondary auth: not enough information to continue
-    * [Issue #2482](https://github.com/openziti/ziti/issues/2482) - router run command - improperly binds 127.0.0.1:53/udp when tunnel mode is not tproxy
-    * [Issue #2474](https://github.com/openziti/ziti/issues/2474) - Enable Ext JWT Enrollment/Generic Trust Bootstrapping
-    * [Issue #2471](https://github.com/openziti/ziti/issues/2471) - Service Access for Legacy SDKs in  HA does not work
-    * [Issue #2468](https://github.com/openziti/ziti/issues/2468) - enrollment signing cert is not properly identified
+* github.com/hanzozt/metrics: [v1.2.58 -> v1.2.59](https://github.com/hanzozt/metrics/compare/v1.2.58...v1.2.59)
+* github.com/hanzozt/runzmd: [v1.0.51 -> v1.0.53](https://github.com/hanzozt/runzmd/compare/v1.0.51...v1.0.53)
+* github.com/hanzozt/sdk-golang: [v0.23.43 -> v0.23.44](https://github.com/hanzozt/sdk-golang/compare/v0.23.43...v0.23.44)
+* github.com/hanzozt/transport/v2: [v2.0.146 -> v2.0.150](https://github.com/hanzozt/transport/compare/v2.0.146...v2.0.150)
+* github.com/hanzozt/ziti: [v1.1.15 -> v1.2.0](https://github.com/hanzozt/ziti/compare/v1.1.15...v1.2.0)
+    * [Issue #2212](https://github.com/hanzozt/ziti/issues/2212) - Rework distributed control bootstrap mechanism
+    * [Issue #1835](https://github.com/hanzozt/ziti/issues/1835) - Add access log for rest and router connections
+    * [Issue #2234](https://github.com/hanzozt/ziti/issues/2234) - Emit an event when hasEdgeRouterConnection state changes for an Identity
+    * [Issue #2506](https://github.com/hanzozt/ziti/issues/2506) - Identity service config overrides referential integrity issues
+    * [Issue #2491](https://github.com/hanzozt/ziti/issues/2491) - fix router CSR loading
+    * [Issue #2478](https://github.com/hanzozt/ziti/issues/2478) - JWT signer secondary auth: not enough information to continue
+    * [Issue #2482](https://github.com/hanzozt/ziti/issues/2482) - router run command - improperly binds 127.0.0.1:53/udp when tunnel mode is not tproxy
+    * [Issue #2474](https://github.com/hanzozt/ziti/issues/2474) - Enable Ext JWT Enrollment/Generic Trust Bootstrapping
+    * [Issue #2471](https://github.com/hanzozt/ziti/issues/2471) - Service Access for Legacy SDKs in  HA does not work
+    * [Issue #2468](https://github.com/hanzozt/ziti/issues/2468) - enrollment signing cert is not properly identified

@@ -11,7 +11,7 @@ services:
       - ziti-router:/ziti-router
 
   ziti-router:
-    image: ${ZITI_ROUTER_IMAGE:-openziti/ziti-router}
+    image: ${ZITI_ROUTER_IMAGE:-hanzozt/ziti-router}
     depends_on:
       chown-router:
         condition: service_completed_successfully

@@ -32,17 +32,17 @@ import (
 
 	"github.com/Jeffail/gabs"
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/edge-api/rest_client_api_client"
-	"github.com/openziti/edge-api/rest_util"
-	"github.com/openziti/foundation/v2/term"
-	edge_apis "github.com/openziti/sdk-golang/edge-apis"
-	"github.com/openziti/sdk-golang/ziti"
-	ziticobra "github.com/openziti/ziti/v2/internal/cobra"
-	"github.com/openziti/ziti/v2/internal/jwtutil"
-	"github.com/openziti/ziti/v2/ziti/cmd/api"
-	"github.com/openziti/ziti/v2/ziti/cmd/common"
-	"github.com/openziti/ziti/v2/ziti/constants"
-	"github.com/openziti/ziti/v2/ziti/util"
+	"github.com/hanzozt/edge-api/rest_client_api_client"
+	"github.com/hanzozt/edge-api/rest_util"
+	"github.com/hanzozt/foundation/v2/term"
+	edge_apis "github.com/hanzozt/sdk-golang/edge-apis"
+	"github.com/hanzozt/sdk-golang/ziti"
+	ziticobra "github.com/hanzozt/ziti/v2/internal/cobra"
+	"github.com/hanzozt/ziti/v2/internal/jwtutil"
+	"github.com/hanzozt/ziti/v2/ziti/cmd/api"
+	"github.com/hanzozt/ziti/v2/ziti/cmd/common"
+	"github.com/hanzozt/ziti/v2/ziti/constants"
+	"github.com/hanzozt/ziti/v2/ziti/util"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
 	xterm "golang.org/x/term"
@@ -118,7 +118,7 @@ func AddLoginFlags(cmd *cobra.Command, options *LoginOptions) {
 	addLoginAnnotation(cmd, "file")
 	cmd.Flags().StringVarP(&options.ServiceName, "service", "s", "", "The service name to use. When set the file will be used to create a zitified connection")
 	addLoginAnnotation(cmd, "service")
-	cmd.Flags().StringVarP(&options.NetworkId, "network-identity", "n", "", "The identity to use to connect to the OpenZiti overlay")
+	cmd.Flags().StringVarP(&options.NetworkId, "network-identity", "n", "", "The identity to use to connect to the Hanzo ZT overlay")
 	addLoginAnnotation(cmd, "network-identity")
 
 	options.AddCommonFlags(cmd)

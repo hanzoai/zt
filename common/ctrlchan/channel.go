@@ -43,8 +43,8 @@ import (
 	"time"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/channel/v4"
-	"github.com/openziti/foundation/v2/concurrenz"
+	"github.com/hanzozt/channel/v4"
+	"github.com/hanzozt/foundation/v2/concurrenz"
 )
 
 // Channel type constants identify the priority level of each underlay connection.

@@ -62,16 +62,16 @@ else
   exit 1
 fi
 
-ZITI_ROUTER_SVC_ENV_FILE=/opt/openziti/etc/router/service.env
-ZITI_ROUTER_BOOT_ENV_FILE=/opt/openziti/etc/router/bootstrap.env
+ZITI_ROUTER_SVC_ENV_FILE=/opt/hanzozt/etc/router/service.env
+ZITI_ROUTER_BOOT_ENV_FILE=/opt/hanzozt/etc/router/bootstrap.env
 
 case "$action" in
   "install")
-    printf "\033[32m completed clean install of openziti-router\033[0m\n"
+    printf "\033[32m completed clean install of hanzozt-router\033[0m\n"
     install
     ;;
   "upgrade")
-    printf "\033[32m completed upgrade of openziti-router\033[0m\n"
+    printf "\033[32m completed upgrade of hanzozt-router\033[0m\n"
     upgrade
     ;;
 esac

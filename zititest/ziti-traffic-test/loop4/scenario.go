@@ -21,7 +21,7 @@ import (
 	"os"
 	"time"
 
-	loopPb "github.com/openziti/ziti/zititest/ziti-traffic-test/loop4/pb"
+	loopPb "github.com/hanzozt/ziti/zititest/ziti-traffic-test/loop4/pb"
 	"gopkg.in/yaml.v2"
 )
 

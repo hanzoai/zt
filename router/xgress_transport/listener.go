@@ -22,12 +22,12 @@ import (
 	"io"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/foundation/v2/concurrenz"
-	"github.com/openziti/identity"
-	"github.com/openziti/sdk-golang/xgress"
-	"github.com/openziti/transport/v2"
-	"github.com/openziti/ziti/v2/router/env"
-	"github.com/openziti/ziti/v2/router/xgress_router"
+	"github.com/hanzozt/foundation/v2/concurrenz"
+	"github.com/hanzozt/identity"
+	"github.com/hanzozt/sdk-golang/xgress"
+	"github.com/hanzozt/transport/v2"
+	"github.com/hanzozt/ziti/v2/router/env"
+	"github.com/hanzozt/ziti/v2/router/xgress_router"
 )
 
 type listener struct {

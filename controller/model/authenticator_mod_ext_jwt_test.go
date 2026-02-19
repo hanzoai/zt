@@ -15,10 +15,10 @@ import (
 	"time"
 
 	"github.com/golang-jwt/jwt/v5"
-	"github.com/openziti/jwks"
-	"github.com/openziti/storage/boltz"
-	"github.com/openziti/ziti/v2/common/eid"
-	"github.com/openziti/ziti/v2/controller/db"
+	"github.com/hanzozt/jwks"
+	"github.com/hanzozt/storage/boltz"
+	"github.com/hanzozt/ziti/v2/common/eid"
+	"github.com/hanzozt/ziti/v2/controller/db"
 	"github.com/stretchr/testify/require"
 )
 

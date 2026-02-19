@@ -20,9 +20,9 @@ import (
 	"time"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/foundation/v2/info"
-	"github.com/openziti/ziti/v2/controller/event"
-	"github.com/openziti/ziti/v2/controller/model"
+	"github.com/hanzozt/foundation/v2/info"
+	"github.com/hanzozt/ziti/v2/controller/event"
+	"github.com/hanzozt/ziti/v2/controller/model"
 )
 
 func (network *Network) NotifyLinkEvent(link *model.Link, eventType event.LinkEventType) {

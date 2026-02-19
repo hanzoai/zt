@@ -9,7 +9,7 @@ import (
 	"time"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/foundation/v2/info"
+	"github.com/hanzozt/foundation/v2/info"
 	"github.com/pkg/errors"
 )
 

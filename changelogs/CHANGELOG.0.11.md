@@ -11,5 +11,5 @@ Ziti 0.11 includes the following:
 
 Client and Hosting SDK instances setup end-to-end channels using secure key exchange
 and [AEAD](https://en.wikipedia.org/wiki/Authenticated_encryption) streams. Read more about
-on https://openziti.github.io (_coming soon_)
+on https://hanzozt.github.io (_coming soon_)
 

@@ -21,11 +21,11 @@ import (
 	"io"
 
 	"github.com/go-openapi/strfmt"
-	"github.com/openziti/edge-api/rest_management_api_client/external_jwt_signer"
-	"github.com/openziti/edge-api/rest_model"
-	"github.com/openziti/foundation/v2/stringz"
-	"github.com/openziti/ziti/v2/ziti/cmd/api"
-	"github.com/openziti/ziti/v2/ziti/util"
+	"github.com/hanzozt/edge-api/rest_management_api_client/external_jwt_signer"
+	"github.com/hanzozt/edge-api/rest_model"
+	"github.com/hanzozt/foundation/v2/stringz"
+	"github.com/hanzozt/ziti/v2/ziti/cmd/api"
+	"github.com/hanzozt/ziti/v2/ziti/util"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
 )

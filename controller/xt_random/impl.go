@@ -19,7 +19,7 @@ package xt_random
 import (
 	"math/rand"
 
-	"github.com/openziti/ziti/v2/controller/xt"
+	"github.com/hanzozt/ziti/v2/controller/xt"
 )
 
 /**

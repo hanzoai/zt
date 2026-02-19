@@ -25,9 +25,9 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/openziti/identity"
-	transporttls "github.com/openziti/transport/v2/tls"
-	"github.com/openziti/xweb/v3"
+	"github.com/hanzozt/identity"
+	transporttls "github.com/hanzozt/transport/v2/tls"
+	"github.com/hanzozt/xweb/v3"
 	"github.com/pkg/errors"
 )
 

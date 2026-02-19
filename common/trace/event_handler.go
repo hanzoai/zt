@@ -17,8 +17,8 @@
 package trace
 
 import (
-	"github.com/openziti/channel/v4/trace/pb"
-	"github.com/openziti/foundation/v2/concurrenz"
+	"github.com/hanzozt/channel/v4/trace/pb"
+	"github.com/hanzozt/foundation/v2/concurrenz"
 )
 
 var EventHandlerRegistry = concurrenz.CopyOnWriteSlice[EventHandler]{}

@@ -17,17 +17,17 @@ import (
 	"github.com/go-resty/resty/v2"
 	"github.com/golang-jwt/jwt/v5"
 	"github.com/google/uuid"
-	"github.com/openziti/edge-api/rest_management_api_client/auth_policy"
-	authenticator2 "github.com/openziti/edge-api/rest_management_api_client/authenticator"
-	"github.com/openziti/edge-api/rest_management_api_client/external_jwt_signer"
-	identity2 "github.com/openziti/edge-api/rest_management_api_client/identity"
-	"github.com/openziti/edge-api/rest_model"
-	"github.com/openziti/edge-api/rest_util"
-	nfpem "github.com/openziti/foundation/v2/pem"
-	edge_apis "github.com/openziti/sdk-golang/edge-apis"
-	"github.com/openziti/ziti/v2/common"
-	"github.com/openziti/ziti/v2/common/eid"
-	"github.com/openziti/ziti/v2/controller/oidc_auth"
+	"github.com/hanzozt/edge-api/rest_management_api_client/auth_policy"
+	authenticator2 "github.com/hanzozt/edge-api/rest_management_api_client/authenticator"
+	"github.com/hanzozt/edge-api/rest_management_api_client/external_jwt_signer"
+	identity2 "github.com/hanzozt/edge-api/rest_management_api_client/identity"
+	"github.com/hanzozt/edge-api/rest_model"
+	"github.com/hanzozt/edge-api/rest_util"
+	nfpem "github.com/hanzozt/foundation/v2/pem"
+	edge_apis "github.com/hanzozt/sdk-golang/edge-apis"
+	"github.com/hanzozt/ziti/v2/common"
+	"github.com/hanzozt/ziti/v2/common/eid"
+	"github.com/hanzozt/ziti/v2/controller/oidc_auth"
 	"github.com/zitadel/oidc/v3/pkg/client/rp"
 	httphelper "github.com/zitadel/oidc/v3/pkg/http"
 	"github.com/zitadel/oidc/v3/pkg/oidc"
@@ -78,7 +78,7 @@ func newOidcTestRp(apiHost string) (*testRpServer, error) {
 	key := []byte("test1234test1234")
 	urlBase := "https://" + apiHost
 	issuer := urlBase + "/oidc"
-	clientID := common.ClaimClientIdOpenZiti
+	clientID := common.ClaimClientIdHanzo ZT
 	clientSecret := ""
 	scopes := []string{"openid", "offline_access"}
 	result.CallbackUri = "http://127.0.0.1:" + result.Port + result.CallbackPath

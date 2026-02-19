@@ -23,12 +23,12 @@ import (
 	"time"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/channel/v4"
-	"github.com/openziti/channel/v4/latency"
-	"github.com/openziti/metrics"
-	sdkEdge "github.com/openziti/sdk-golang/ziti/edge"
-	"github.com/openziti/ziti/v2/common/cert"
-	"github.com/openziti/ziti/v2/router/state"
+	"github.com/hanzozt/channel/v4"
+	"github.com/hanzozt/channel/v4/latency"
+	"github.com/hanzozt/metrics"
+	sdkEdge "github.com/hanzozt/sdk-golang/ziti/edge"
+	"github.com/hanzozt/ziti/v2/common/cert"
+	"github.com/hanzozt/ziti/v2/router/state"
 	cmap "github.com/orcaman/concurrent-map/v2"
 )
 

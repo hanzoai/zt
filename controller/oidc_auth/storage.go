@@ -28,18 +28,18 @@ import (
 	"time"
 
 	"github.com/go-jose/go-jose/v4"
-	"github.com/openziti/foundation/v2/errorz"
-	"github.com/openziti/ziti/v2/controller/event"
-	"github.com/openziti/ziti/v2/controller/jwtsigner"
+	"github.com/hanzozt/foundation/v2/errorz"
+	"github.com/hanzozt/ziti/v2/controller/event"
+	"github.com/hanzozt/ziti/v2/controller/jwtsigner"
 
 	"github.com/golang-jwt/jwt/v5"
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/foundation/v2/stringz"
-	"github.com/openziti/ziti/v2/common"
-	"github.com/openziti/ziti/v2/controller/apierror"
-	"github.com/openziti/ziti/v2/controller/change"
-	"github.com/openziti/ziti/v2/controller/model"
-	"github.com/openziti/ziti/v2/controller/models"
+	"github.com/hanzozt/foundation/v2/stringz"
+	"github.com/hanzozt/ziti/v2/common"
+	"github.com/hanzozt/ziti/v2/controller/apierror"
+	"github.com/hanzozt/ziti/v2/controller/change"
+	"github.com/hanzozt/ziti/v2/controller/model"
+	"github.com/hanzozt/ziti/v2/controller/models"
 	cmap "github.com/orcaman/concurrent-map/v2"
 
 	"github.com/google/uuid"
@@ -1069,7 +1069,7 @@ func (s *HybridStorage) ValidateTokenExchangeRequest(_ context.Context, request 
 	}
 
 	for _, aud := range request.GetAudience() {
-		if aud != common.ClaimAudienceOpenZiti && aud != common.ClaimLegacyNative {
+		if aud != common.ClaimAudienceHanzo ZT && aud != common.ClaimLegacyNative {
 			return fmt.Errorf("invalid audience requested [%s]", aud)
 		}
 	}

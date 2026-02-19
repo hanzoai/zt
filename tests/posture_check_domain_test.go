@@ -24,7 +24,7 @@ import (
 
 	"github.com/Jeffail/gabs"
 	"github.com/google/uuid"
-	"github.com/openziti/ziti/v2/common/eid"
+	"github.com/hanzozt/ziti/v2/common/eid"
 )
 
 func Test_PostureChecks_Domain(t *testing.T) {

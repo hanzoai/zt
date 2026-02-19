@@ -9,15 +9,15 @@ import (
 
 	"github.com/golang-jwt/jwt/v5"
 	"github.com/google/uuid"
-	"github.com/openziti/edge-api/rest_client_api_client/current_api_session"
-	"github.com/openziti/edge-api/rest_client_api_client/current_identity"
-	"github.com/openziti/edge-api/rest_management_api_client/auth_policy"
-	"github.com/openziti/edge-api/rest_management_api_client/external_jwt_signer"
-	management_identity "github.com/openziti/edge-api/rest_management_api_client/identity"
-	"github.com/openziti/edge-api/rest_model"
-	"github.com/openziti/edge-api/rest_util"
-	nfpem "github.com/openziti/foundation/v2/pem"
-	edge_apis "github.com/openziti/sdk-golang/edge-apis"
+	"github.com/hanzozt/edge-api/rest_client_api_client/current_api_session"
+	"github.com/hanzozt/edge-api/rest_client_api_client/current_identity"
+	"github.com/hanzozt/edge-api/rest_management_api_client/auth_policy"
+	"github.com/hanzozt/edge-api/rest_management_api_client/external_jwt_signer"
+	management_identity "github.com/hanzozt/edge-api/rest_management_api_client/identity"
+	"github.com/hanzozt/edge-api/rest_model"
+	"github.com/hanzozt/edge-api/rest_util"
+	nfpem "github.com/hanzozt/foundation/v2/pem"
+	edge_apis "github.com/hanzozt/sdk-golang/edge-apis"
 )
 
 func TestSdkAuth(t *testing.T) {

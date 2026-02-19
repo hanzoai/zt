@@ -22,12 +22,12 @@ import (
 	"net/url"
 	"time"
 
-	"github.com/openziti/ziti/v2/common/cert"
-	"github.com/openziti/ziti/v2/common/eid"
-	"github.com/openziti/ziti/v2/controller/apierror"
-	"github.com/openziti/ziti/v2/controller/change"
-	"github.com/openziti/ziti/v2/controller/db"
-	"github.com/openziti/ziti/v2/controller/models"
+	"github.com/hanzozt/ziti/v2/common/cert"
+	"github.com/hanzozt/ziti/v2/common/eid"
+	"github.com/hanzozt/ziti/v2/controller/apierror"
+	"github.com/hanzozt/ziti/v2/controller/change"
+	"github.com/hanzozt/ziti/v2/controller/db"
+	"github.com/hanzozt/ziti/v2/controller/models"
 	"go.etcd.io/bbolt"
 )
 

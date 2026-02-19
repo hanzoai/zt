@@ -22,7 +22,7 @@ import (
 	"os"
 
 	"github.com/Jeffail/gabs"
-	"github.com/openziti/ziti/v2/ziti/cmd/api"
+	"github.com/hanzozt/ziti/v2/ziti/cmd/api"
 	"github.com/spf13/cobra"
 )
 

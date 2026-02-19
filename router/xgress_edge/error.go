@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/openziti/channel/v4"
-	sdk "github.com/openziti/sdk-golang/ziti/edge"
+	"github.com/hanzozt/channel/v4"
+	sdk "github.com/hanzozt/sdk-golang/ziti/edge"
 )
 
 var _ error = (*EdgeError)(nil)

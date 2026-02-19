@@ -7,8 +7,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/openziti/channel/v4"
-	"github.com/openziti/metrics"
+	"github.com/hanzozt/channel/v4"
+	"github.com/hanzozt/metrics"
 	"github.com/stretchr/testify/assert"
 )
 

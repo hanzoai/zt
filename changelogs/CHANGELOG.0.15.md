@@ -6,26 +6,26 @@
 # Release 0.15.2
 
 * What's New:
-    * [#140](https://github.com/openziti/ziti/issues/140) - Allow logging JSON request for Ziti CLI
-    * [#148](https://github.com/openziti/ziti/issues/148) - Show isOnline in ziti edge list
+    * [#140](https://github.com/hanzozt/ziti/issues/140) - Allow logging JSON request for Ziti CLI
+    * [#148](https://github.com/hanzozt/ziti/issues/148) - Show isOnline in ziti edge list
       edge-routers
-    * [#144](https://github.com/openziti/ziti/issues/144) - Allow ziti-fabric list to use queries.
+    * [#144](https://github.com/hanzozt/ziti/issues/144) - Allow ziti-fabric list to use queries.
       Default to `true limit none`
 
 * Bug Fixes:
-    * [#142](https://github.com/openziti/ziti/issues/142) - fix CLI ca create not defaulting
+    * [#142](https://github.com/hanzozt/ziti/issues/142) - fix CLI ca create not defaulting
       identity roles
-    * [#146](https://github.com/openziti/ziti/issues/146) - Export edge router JWT fails sometimes
+    * [#146](https://github.com/hanzozt/ziti/issues/146) - Export edge router JWT fails sometimes
       when there are more than 10 edge routers
-    * [#147](https://github.com/openziti/ziti/issues/147) - Fix paging output when using 'limit
+    * [#147](https://github.com/hanzozt/ziti/issues/147) - Fix paging output when using 'limit
       none'
-    * [edge#243](https://github.com/openziti/edge/issue/243) - Session creation only returns 10 edge
+    * [edge#243](https://github.com/hanzozt/edge/issue/243) - Session creation only returns 10 edge
       routers
-    * [edge#245](https://github.com/openziti/edge/issue/245) - fingerprint calculation changed from
+    * [edge#245](https://github.com/hanzozt/edge/issue/245) - fingerprint calculation changed from
       0.14 to 0.15. Ensure 0.15 routers can work with 0.14 controllers
-    * [edge#248](https://github.com/openziti/edge/issue/248) - Edge Router Hello can time out on
+    * [edge#248](https://github.com/hanzozt/edge/issue/248) - Edge Router Hello can time out on
       slow networks with many links to establish
-    * [foundation#103](https://github.com/openziti/foundation/issues/103) - Fix config file env
+    * [foundation#103](https://github.com/hanzozt/foundation/issues/103) - Fix config file env
       injection for lists
 
 # Release 0.15.1
@@ -34,45 +34,45 @@
   No new functionality introduced.
 
 * Bug fixes
-    * [#129](https://github.com/openziti/ziti/issues/129) - minor issue with `ziti-tunnel enroll`
+    * [#129](https://github.com/hanzozt/ziti/issues/129) - minor issue with `ziti-tunnel enroll`
       outputting the success message at ERROR level
-    * [#131](https://github.com/openziti/ziti/issues/131) - issues w/ creating identities, CAs and
+    * [#131](https://github.com/hanzozt/ziti/issues/131) - issues w/ creating identities, CAs and
       validating CAs
-    * [#133](https://github.com/openziti/ziti/issues/133) - fix service lookup by name when creating
+    * [#133](https://github.com/hanzozt/ziti/issues/133) - fix service lookup by name when creating
       service edge router policies
-    * [edge#191](https://github.com/openziti/edge/issues/191) - updating self password via CLI would
+    * [edge#191](https://github.com/hanzozt/edge/issues/191) - updating self password via CLI would
       error with 404 not found
-    * [edge#231](https://github.com/openziti/edge/issues/231) - identities missing enrollment
+    * [edge#231](https://github.com/hanzozt/edge/issues/231) - identities missing enrollment
       expiresAt property
-    * [edge#237](https://github.com/openziti/edge/issues/237) - Policy Advisor CLI is failing
+    * [edge#237](https://github.com/hanzozt/edge/issues/237) - Policy Advisor CLI is failing
       because common routers IsOnline value is missing
-    * [edge#233](https://github.com/openziti/edge/issues/233) - REST API Errors should be
+    * [edge#233](https://github.com/hanzozt/edge/issues/233) - REST API Errors should be
       application/json if possible
-    * [edge#240](https://github.com/openziti/edge/issues/240) - listing specs results in a 404
+    * [edge#240](https://github.com/hanzozt/edge/issues/240) - listing specs results in a 404
 
 # Release 0.15.0
 
 Ziti 0.15.0 includes the following:
 
 * The ability to invoke a database snapshot/backup
-    * [Create fabric mgmt API to request database snapshot/backup be created](https://github.com/openziti/fabric/issues/99)
-    * [Add snapshot db REST API](https://github.com/openziti/edge/issues/206)
+    * [Create fabric mgmt API to request database snapshot/backup be created](https://github.com/hanzozt/fabric/issues/99)
+    * [Add snapshot db REST API](https://github.com/hanzozt/edge/issues/206)
 * Removal of deprecated code/migrations
-    * [Remove postgres store code including migrations](https://github.com/openziti/edge/issues/195)
+    * [Remove postgres store code including migrations](https://github.com/hanzozt/edge/issues/195)
     * Remove deprecated AppWan and Clusters - These have been replaced by service policies and
       service edge router policies respectively
 * Edge Routers are now a subtype of Fabric Routers
     *
-  see [Unverified Edge Routers Cannot Be Used For Terminators](https://github.com/openziti/edge/issues/144)
+  see [Unverified Edge Routers Cannot Be Used For Terminators](https://github.com/hanzozt/edge/issues/144)
 * Fabric services and routers now have names
-    * see [Add name to service and router](https://github.com/openziti/fabric/issues/101)
+    * see [Add name to service and router](https://github.com/hanzozt/fabric/issues/101)
 * cosmetic changes to the ziti-enroller binary
 * cosmetic changes to the ziti-tunnel binary when running the enroll subcommand
 * Memory leak remediation in the `PayloadBuffer` subsystem. Corrects unbounded memory growth
   in `ziti-router`.
 * Edge REST API Enhancements
-    * [OpenApi 2.0/Swagger](https://github.com/openziti/edge/issues/108)
-    * [Changes to support Fabric REST API](https://github.com/openziti/edge/issues/101)
+    * [OpenApi 2.0/Swagger](https://github.com/hanzozt/edge/issues/108)
+    * [Changes to support Fabric REST API](https://github.com/hanzozt/edge/issues/101)
 
 ## Removal of deprecated code
 

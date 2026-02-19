@@ -21,7 +21,7 @@ import (
 	"io/fs"
 	"net/http"
 
-	"github.com/openziti/fablab/kernel/model"
+	"github.com/hanzozt/fablab/kernel/model"
 )
 
 //go:embed webroot

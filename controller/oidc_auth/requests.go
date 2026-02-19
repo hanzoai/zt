@@ -22,10 +22,10 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/openziti/edge-api/rest_model"
-	"github.com/openziti/foundation/v2/stringz"
-	"github.com/openziti/ziti/v2/common"
-	"github.com/openziti/ziti/v2/controller/model"
+	"github.com/hanzozt/edge-api/rest_model"
+	"github.com/hanzozt/foundation/v2/stringz"
+	"github.com/hanzozt/ziti/v2/common"
+	"github.com/hanzozt/ziti/v2/controller/model"
 
 	"github.com/zitadel/oidc/v3/pkg/oidc"
 )

@@ -23,8 +23,8 @@ import (
 	"testing"
 	"time"
 
-	metrics2 "github.com/openziti/metrics"
-	"github.com/openziti/ziti/v2/controller/event"
+	metrics2 "github.com/hanzozt/metrics"
+	"github.com/hanzozt/ziti/v2/controller/event"
 	"github.com/stretchr/testify/require"
 )
 

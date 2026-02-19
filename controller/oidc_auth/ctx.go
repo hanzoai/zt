@@ -21,8 +21,8 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/openziti/ziti/v2/common"
-	"github.com/openziti/ziti/v2/controller/change"
+	"github.com/hanzozt/ziti/v2/common"
+	"github.com/hanzozt/ziti/v2/controller/change"
 	"github.com/zitadel/oidc/v3/pkg/oidc"
 )
 

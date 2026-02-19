@@ -23,12 +23,12 @@ import (
 	"strings"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/agent"
-	"github.com/openziti/identity"
-	"github.com/openziti/identity/dotziti"
-	"github.com/openziti/sdk-golang/ziti"
-	"github.com/openziti/transport/v2"
-	"github.com/openziti/ziti/zititest/ziti-traffic-test/loop3/pb"
+	"github.com/hanzozt/agent"
+	"github.com/hanzozt/identity"
+	"github.com/hanzozt/identity/dotziti"
+	"github.com/hanzozt/sdk-golang/ziti"
+	"github.com/hanzozt/transport/v2"
+	"github.com/hanzozt/ziti/zititest/ziti-traffic-test/loop3/pb"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )

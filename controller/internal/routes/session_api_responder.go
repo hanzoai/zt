@@ -19,9 +19,9 @@ package routes
 import (
 	"net/http"
 
-	"github.com/openziti/edge-api/rest_model"
-	"github.com/openziti/ziti/v2/controller/env"
-	"github.com/openziti/ziti/v2/controller/response"
+	"github.com/hanzozt/edge-api/rest_model"
+	"github.com/hanzozt/ziti/v2/controller/env"
+	"github.com/hanzozt/ziti/v2/controller/response"
 )
 
 type SessionRequestResponder struct {

@@ -22,7 +22,7 @@ import (
 	"strings"
 
 	"github.com/go-openapi/runtime"
-	"github.com/openziti/ziti/v2/controller/change"
+	"github.com/hanzozt/ziti/v2/controller/change"
 )
 
 type EnrollmentResult struct {

@@ -32,10 +32,10 @@ import (
 	"github.com/Jeffail/gabs"
 	openApiRuntime "github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
-	"github.com/openziti/edge-api/rest_management_api_client"
-	"github.com/openziti/edge-api/rest_model"
-	"github.com/openziti/ziti/v2/controller/api"
-	fabric_rest_client "github.com/openziti/ziti/v2/controller/rest_client"
+	"github.com/hanzozt/edge-api/rest_management_api_client"
+	"github.com/hanzozt/edge-api/rest_model"
+	"github.com/hanzozt/ziti/v2/controller/api"
+	fabric_rest_client "github.com/hanzozt/ziti/v2/controller/rest_client"
 	"gopkg.in/resty.v1"
 )
 

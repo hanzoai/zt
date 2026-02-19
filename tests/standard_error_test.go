@@ -21,8 +21,8 @@ package tests
 import (
 	"testing"
 
-	"github.com/openziti/foundation/v2/errorz"
-	"github.com/openziti/ziti/v2/controller/apierror"
+	"github.com/hanzozt/foundation/v2/errorz"
+	"github.com/hanzozt/ziti/v2/controller/apierror"
 	"github.com/stretchr/testify/require"
 )
 

@@ -26,10 +26,10 @@ import (
 
 	"github.com/Jeffail/gabs"
 	"github.com/google/uuid"
-	"github.com/openziti/edge-api/rest_model"
-	"github.com/openziti/foundation/v2/errorz"
-	"github.com/openziti/ziti/v2/common/eid"
-	"github.com/openziti/ziti/v2/controller/apierror"
+	"github.com/hanzozt/edge-api/rest_model"
+	"github.com/hanzozt/foundation/v2/errorz"
+	"github.com/hanzozt/ziti/v2/common/eid"
+	"github.com/hanzozt/ziti/v2/controller/apierror"
 	"github.com/stretchr/testify/require"
 )
 

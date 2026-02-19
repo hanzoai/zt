@@ -19,9 +19,9 @@ package xt_sticky
 import (
 	"time"
 
-	"github.com/openziti/ziti/v2/common/ctrl_msg"
-	"github.com/openziti/ziti/v2/controller/xt"
-	"github.com/openziti/ziti/v2/controller/xt_common"
+	"github.com/hanzozt/ziti/v2/common/ctrl_msg"
+	"github.com/hanzozt/ziti/v2/controller/xt"
+	"github.com/hanzozt/ziti/v2/controller/xt_common"
 )
 
 const (

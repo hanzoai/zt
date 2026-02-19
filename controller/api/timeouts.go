@@ -30,8 +30,8 @@ import (
 
 	"github.com/go-openapi/runtime"
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/foundation/v2/debugz"
-	"github.com/openziti/foundation/v2/errorz"
+	"github.com/hanzozt/foundation/v2/debugz"
+	"github.com/hanzozt/foundation/v2/errorz"
 )
 
 // TimeoutHandler will create a http.Handler that wraps the given http.Handler. If the given timeout is reached, the
@@ -205,7 +205,7 @@ func relevantCaller() goruntime.Frame {
 	var frame goruntime.Frame
 	for {
 		frame, more := frames.Next()
-		if !strings.HasPrefix(frame.Function, "net/http.") && !strings.HasPrefix(frame.Function, "github.com/openziti/ziti/v2/controller/api_impl/timeout") {
+		if !strings.HasPrefix(frame.Function, "net/http.") && !strings.HasPrefix(frame.Function, "github.com/hanzozt/ziti/v2/controller/api_impl/timeout") {
 			return frame
 		}
 		if !more {

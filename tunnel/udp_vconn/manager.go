@@ -24,9 +24,9 @@ import (
 	"time"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/foundation/v2/mempool"
-	"github.com/openziti/ziti/v2/tunnel"
-	"github.com/openziti/ziti/v2/tunnel/entities"
+	"github.com/hanzozt/foundation/v2/mempool"
+	"github.com/hanzozt/ziti/v2/tunnel"
+	"github.com/hanzozt/ziti/v2/tunnel/entities"
 )
 
 type manager struct {

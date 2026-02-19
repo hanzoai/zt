@@ -19,8 +19,8 @@ package cmd
 import (
 	"io"
 
-	"github.com/openziti/ziti/v2/ziti/cmd/common"
-	"github.com/openziti/ziti/v2/ziti/internal/log"
+	"github.com/hanzozt/ziti/v2/ziti/cmd/common"
+	"github.com/hanzozt/ziti/v2/ziti/internal/log"
 
 	"github.com/spf13/cobra"
 )

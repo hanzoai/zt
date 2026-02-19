@@ -32,20 +32,20 @@ import (
 	"github.com/golang-jwt/jwt/v5"
 	"github.com/kataras/go-events"
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/channel/v4"
-	"github.com/openziti/channel/v4/protobufs"
-	"github.com/openziti/foundation/v2/concurrenz"
-	"github.com/openziti/foundation/v2/goroutines"
-	"github.com/openziti/sdk-golang/pb/edge_client_pb"
-	"github.com/openziti/sdk-golang/ziti/edge"
-	"github.com/openziti/ziti/v2/common"
-	"github.com/openziti/ziti/v2/common/eid"
-	"github.com/openziti/ziti/v2/common/metrics"
-	"github.com/openziti/ziti/v2/common/pb/edge_ctrl_pb"
-	"github.com/openziti/ziti/v2/common/runner"
-	"github.com/openziti/ziti/v2/controller/oidc_auth"
-	"github.com/openziti/ziti/v2/router/env"
-	"github.com/openziti/ziti/v2/router/posture"
+	"github.com/hanzozt/channel/v4"
+	"github.com/hanzozt/channel/v4/protobufs"
+	"github.com/hanzozt/foundation/v2/concurrenz"
+	"github.com/hanzozt/foundation/v2/goroutines"
+	"github.com/hanzozt/sdk-golang/pb/edge_client_pb"
+	"github.com/hanzozt/sdk-golang/ziti/edge"
+	"github.com/hanzozt/ziti/v2/common"
+	"github.com/hanzozt/ziti/v2/common/eid"
+	"github.com/hanzozt/ziti/v2/common/metrics"
+	"github.com/hanzozt/ziti/v2/common/pb/edge_ctrl_pb"
+	"github.com/hanzozt/ziti/v2/common/runner"
+	"github.com/hanzozt/ziti/v2/controller/oidc_auth"
+	"github.com/hanzozt/ziti/v2/router/env"
+	"github.com/hanzozt/ziti/v2/router/posture"
 	cmap "github.com/orcaman/concurrent-map/v2"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
@@ -458,8 +458,8 @@ func (self *ManagerImpl) ParseTotpToken(jwtStr string) (*common.TotpClaims, erro
 		return nil, err
 	}
 
-	if !totpClaims.HasAudience(common.ClaimAudienceOpenZiti) && !totpClaims.HasAudience(common.ClaimLegacyNative) {
-		return nil, fmt.Errorf("provided a totp token with invalid audience '%s' of type [%T], expected: %s or %s", totpClaims.Audience, totpClaims.Audience, common.ClaimAudienceOpenZiti, common.ClaimLegacyNative)
+	if !totpClaims.HasAudience(common.ClaimAudienceHanzo ZT) && !totpClaims.HasAudience(common.ClaimLegacyNative) {
+		return nil, fmt.Errorf("provided a totp token with invalid audience '%s' of type [%T], expected: %s or %s", totpClaims.Audience, totpClaims.Audience, common.ClaimAudienceHanzo ZT, common.ClaimLegacyNative)
 	}
 
 	if totpClaims.Type != common.TokenTypeTotp {
@@ -863,8 +863,8 @@ func (self *ManagerImpl) ParseApiSessionJwt(jwtStr string) (*ApiSessionToken, er
 		return nil, err
 	}
 
-	if !accessClaims.HasAudience(common.ClaimAudienceOpenZiti) && !accessClaims.HasAudience(common.ClaimLegacyNative) {
-		return nil, fmt.Errorf("provided an api session token with invalid audience '%s' of type [%T], expected: %s or %s", accessClaims.Audience, accessClaims.Audience, common.ClaimAudienceOpenZiti, common.ClaimLegacyNative)
+	if !accessClaims.HasAudience(common.ClaimAudienceHanzo ZT) && !accessClaims.HasAudience(common.ClaimLegacyNative) {
+		return nil, fmt.Errorf("provided an api session token with invalid audience '%s' of type [%T], expected: %s or %s", accessClaims.Audience, accessClaims.Audience, common.ClaimAudienceHanzo ZT, common.ClaimLegacyNative)
 	}
 
 	if accessClaims.Type != common.TokenTypeAccess {

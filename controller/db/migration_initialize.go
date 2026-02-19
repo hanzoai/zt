@@ -22,7 +22,7 @@ import (
 	"time"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/storage/boltz"
+	"github.com/hanzozt/storage/boltz"
 )
 
 func (m *Migrations) initialize(step *boltz.MigrationStep) int {
@@ -70,7 +70,7 @@ var serverConfigTypeV1 = &ConfigType{
 	BaseExtEntity: boltz.BaseExtEntity{Id: serverConfigV1TypeId},
 	Name:          "ziti-tunneler-server.v1",
 	Schema: map[string]interface{}{
-		"$id":                  "http://edge.openziti.org/schemas/ziti-tunneler-server.v1.config.json",
+		"$id":                  "http://edge.hanzozt.org/schemas/ziti-tunneler-server.v1.config.json",
 		"type":                 "object",
 		"additionalProperties": false,
 		"definitions":          healthCheckSchema["definitions"],
@@ -528,7 +528,7 @@ var interceptV1ConfigType = &ConfigType{
 	BaseExtEntity: boltz.BaseExtEntity{Id: "g7cIWbcGg"},
 	Name:          "intercept.v1",
 	Schema: map[string]interface{}{
-		"$id":                  "http://edge.openziti.org/schemas/intercept.v1.config.json",
+		"$id":                  "http://edge.hanzozt.org/schemas/intercept.v1.config.json",
 		"type":                 "object",
 		"additionalProperties": false,
 		"definitions":          tunnelDefinitions,
@@ -692,7 +692,7 @@ func (m *Migrations) createInitialTunnelerConfigTypes(step *boltz.MigrationStep)
 		BaseExtEntity: boltz.BaseExtEntity{Id: clientConfigV1TypeId},
 		Name:          "ziti-tunneler-client.v1",
 		Schema: map[string]interface{}{
-			"$id":                  "http://edge.openziti.org/schemas/ziti-tunneler-client.v1.config.json",
+			"$id":                  "http://edge.hanzozt.org/schemas/ziti-tunneler-client.v1.config.json",
 			"type":                 "object",
 			"additionalProperties": false,
 			"required": []interface{}{

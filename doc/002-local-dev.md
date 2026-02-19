@@ -32,7 +32,7 @@ Let's get a local Ziti stack up and running now that you have built and installe
 
 ### Initialize the Go Workspace
 
-This is optional. You may skip initializing a Go workspace if you use release builds from other Go modules that this project depends upon e.g. `openziti/edge`, `openziti/fabric`.
+This is optional. You may skip initializing a Go workspace if you use release builds from other Go modules that this project depends upon e.g. `hanzozt/edge`, `hanzozt/fabric`.
 
 A Go workspace is the best way to use the checked out copy of other modules' source instead of downloading releases from GitHub.
 
@@ -43,7 +43,7 @@ For this example, we'll only add the `edge` module.
 ```bash
 go work init
 go work use .
-go work use ../edge  # assumes openziti/edge is checked out in sibling dir "edge"
+go work use ../edge  # assumes hanzozt/edge is checked out in sibling dir "edge"
 ```
 
 This produces a `go.work` file.
@@ -62,4 +62,4 @@ You will need to be aware of the checked out revision in each module because it 
 
 ## Further Exploration
 
-Continue your OpenZiti exploration in [the next article about running an OpenZiti stack locally for development](./003-local-deploy.md).
+Continue your Hanzo ZT exploration in [the next article about running an Hanzo ZT stack locally for development](./003-local-deploy.md).

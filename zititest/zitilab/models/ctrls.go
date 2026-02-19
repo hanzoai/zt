@@ -5,9 +5,9 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/openziti/fablab/kernel/model"
-	"github.com/openziti/ziti/v2/zitirest"
-	"github.com/openziti/ziti/zititest/zitilab/chaos"
+	"github.com/hanzozt/fablab/kernel/model"
+	"github.com/hanzozt/ziti/v2/zitirest"
+	"github.com/hanzozt/ziti/zititest/zitilab/chaos"
 )
 
 type CtrlClients struct {

@@ -6,9 +6,9 @@
 
 ## Component Updates and Bug Fixes
 
-* github.com/openziti/ziti: [v1.5.3 -> v1.5.4](https://github.com/openziti/ziti/compare/v1.5.3...v1.5.4)
-    * [Issue #2947](https://github.com/openziti/ziti/issues/2947) - Panic on router started up if edge/tunnel bindings not configured
-    * [Issue #2948](https://github.com/openziti/ziti/issues/2948) - Allow ER/T to run without edge listener
+* github.com/hanzozt/ziti: [v1.5.3 -> v1.5.4](https://github.com/hanzozt/ziti/compare/v1.5.3...v1.5.4)
+    * [Issue #2947](https://github.com/hanzozt/ziti/issues/2947) - Panic on router started up if edge/tunnel bindings not configured
+    * [Issue #2948](https://github.com/hanzozt/ziti/issues/2948) - Allow ER/T to run without edge listener
 
 # Release 1.5.3
 
@@ -30,13 +30,13 @@
 
 ## Component Updates and Bug Fixes
 
-* github.com/openziti/sdk-golang: [v0.25.0 -> v0.25.1](https://github.com/openziti/sdk-golang/compare/v0.25.0...v0.25.1)
-  * [Issue #699](https://github.com/openziti/sdk-golang/issues/699) - SDK UPDB enrollment
+* github.com/hanzozt/sdk-golang: [v0.25.0 -> v0.25.1](https://github.com/hanzozt/sdk-golang/compare/v0.25.0...v0.25.1)
+  * [Issue #699](https://github.com/hanzozt/sdk-golang/issues/699) - SDK UPDB enrollment
 
-* github.com/openziti/ziti: [v1.5.0 -> v1.5.1](https://github.com/openziti/ziti/compare/v1.5.0...v1.5.1)
-  * [Issue #2931](https://github.com/openziti/ziti/issues/2931) - help ext-jwt-signer auth by logging incoming jwt audience
-  * [Issue #2934](https://github.com/openziti/ziti/issues/2934) - API Session Certs in HA not connect to ERs in all scenarios
-  * [Issue #2926](https://github.com/openziti/ziti/issues/2926) - Implement minimal Xgress SDK
+* github.com/hanzozt/ziti: [v1.5.0 -> v1.5.1](https://github.com/hanzozt/ziti/compare/v1.5.0...v1.5.1)
+  * [Issue #2931](https://github.com/hanzozt/ziti/issues/2931) - help ext-jwt-signer auth by logging incoming jwt audience
+  * [Issue #2934](https://github.com/hanzozt/ziti/issues/2934) - API Session Certs in HA not connect to ERs in all scenarios
+  * [Issue #2926](https://github.com/hanzozt/ziti/issues/2926) - Implement minimal Xgress SDK
 
 
 # Release 1.5.0
@@ -118,31 +118,31 @@ metrics:
 
 ## Component Updates and Bug Fixes
 
-* github.com/openziti/channel/v3: [v3.0.37 -> v3.0.39](https://github.com/openziti/channel/compare/v3.0.37...v3.0.39)
-* github.com/openziti/edge-api: [v0.26.41 -> v0.26.42](https://github.com/openziti/edge-api/compare/v0.26.41...v0.26.42)
-* github.com/openziti/foundation/v2: [v2.0.58 -> v2.0.59](https://github.com/openziti/foundation/compare/v2.0.58...v2.0.59)
-* github.com/openziti/metrics: [v1.2.69 -> v1.3.0](https://github.com/openziti/metrics/compare/v1.2.69...v1.3.0)
-    * [Issue #49](https://github.com/openziti/metrics/issues/49) - Make usage registry event queue size configurable
-    * [Issue #50](https://github.com/openziti/metrics/issues/50) - Do metrics message construction in msg sender goroutine rather than usage/interval event goroutine
+* github.com/hanzozt/channel/v3: [v3.0.37 -> v3.0.39](https://github.com/hanzozt/channel/compare/v3.0.37...v3.0.39)
+* github.com/hanzozt/edge-api: [v0.26.41 -> v0.26.42](https://github.com/hanzozt/edge-api/compare/v0.26.41...v0.26.42)
+* github.com/hanzozt/foundation/v2: [v2.0.58 -> v2.0.59](https://github.com/hanzozt/foundation/compare/v2.0.58...v2.0.59)
+* github.com/hanzozt/metrics: [v1.2.69 -> v1.3.0](https://github.com/hanzozt/metrics/compare/v1.2.69...v1.3.0)
+    * [Issue #49](https://github.com/hanzozt/metrics/issues/49) - Make usage registry event queue size configurable
+    * [Issue #50](https://github.com/hanzozt/metrics/issues/50) - Do metrics message construction in msg sender goroutine rather than usage/interval event goroutine
 
-* github.com/openziti/runzmd: [v1.0.65 -> v1.0.67](https://github.com/openziti/runzmd/compare/v1.0.65...v1.0.67)
-* github.com/openziti/secretstream: [v0.1.31 -> v0.1.32](https://github.com/openziti/secretstream/compare/v0.1.31...v0.1.32)
-* github.com/openziti/storage: [v0.4.5 -> v0.4.7](https://github.com/openziti/storage/compare/v0.4.5...v0.4.7)
-* github.com/openziti/transport/v2: [v2.0.165 -> v2.0.167](https://github.com/openziti/transport/compare/v2.0.165...v2.0.167)
-* github.com/openziti/ziti: [v1.4.3 -> v1.5.0](https://github.com/openziti/ziti/compare/v1.4.3...v1.5.0)
-    * [Issue #2910](https://github.com/openziti/ziti/issues/2910) - Add additional metrics for visibility into flow control backpressure
-    * [Issue #2608](https://github.com/openziti/ziti/issues/2608) - Verify latest Prometheus server
-    * [Issue #2899](https://github.com/openziti/ziti/issues/2899) - Allow configuring size of router metrics event queue size
-    * [Issue #2896](https://github.com/openziti/ziti/issues/2896) - `ziti router run --extend` does not function
-    * [Issue #2796](https://github.com/openziti/ziti/issues/2796) - Generated API client enrollment operations fail
-    * [Issue #2889](https://github.com/openziti/ziti/issues/2889) - Ensure identity online/offline statuses work correctly for ER/Ts
-    * [Issue #2891](https://github.com/openziti/ziti/issues/2891) - Restore can panic if using import from db
-    * [Issue #2835](https://github.com/openziti/ziti/issues/2835) - Add mechanism for selecting CLI layout
-    * [Issue #2836](https://github.com/openziti/ziti/issues/2836) - Add run subcommand
-    * [Issue #2837](https://github.com/openziti/ziti/issues/2837) - Add enroll subcommand
-    * [Issue #2851](https://github.com/openziti/ziti/issues/2851) - Change terminator failure cost crediting to be exponential based on time since last failure
-    * [Issue #2854](https://github.com/openziti/ziti/issues/2854) - Fix controller online status
-    * [Issue #2829](https://github.com/openziti/ziti/issues/2829) - Update Raft Configuration Defaults
-    * [Issue #2849](https://github.com/openziti/ziti/issues/2849) - Router endpoints file should have .yml extension by default
-    * [Issue #2875](https://github.com/openziti/ziti/issues/2875) - add --authenticate to `verify ext-jwt-signer oidc`
-    * [Issue #2873](https://github.com/openziti/ziti/issues/2873) - updates to `verify ext-jwt-signer oidc`
+* github.com/hanzozt/runzmd: [v1.0.65 -> v1.0.67](https://github.com/hanzozt/runzmd/compare/v1.0.65...v1.0.67)
+* github.com/hanzozt/secretstream: [v0.1.31 -> v0.1.32](https://github.com/hanzozt/secretstream/compare/v0.1.31...v0.1.32)
+* github.com/hanzozt/storage: [v0.4.5 -> v0.4.7](https://github.com/hanzozt/storage/compare/v0.4.5...v0.4.7)
+* github.com/hanzozt/transport/v2: [v2.0.165 -> v2.0.167](https://github.com/hanzozt/transport/compare/v2.0.165...v2.0.167)
+* github.com/hanzozt/ziti: [v1.4.3 -> v1.5.0](https://github.com/hanzozt/ziti/compare/v1.4.3...v1.5.0)
+    * [Issue #2910](https://github.com/hanzozt/ziti/issues/2910) - Add additional metrics for visibility into flow control backpressure
+    * [Issue #2608](https://github.com/hanzozt/ziti/issues/2608) - Verify latest Prometheus server
+    * [Issue #2899](https://github.com/hanzozt/ziti/issues/2899) - Allow configuring size of router metrics event queue size
+    * [Issue #2896](https://github.com/hanzozt/ziti/issues/2896) - `ziti router run --extend` does not function
+    * [Issue #2796](https://github.com/hanzozt/ziti/issues/2796) - Generated API client enrollment operations fail
+    * [Issue #2889](https://github.com/hanzozt/ziti/issues/2889) - Ensure identity online/offline statuses work correctly for ER/Ts
+    * [Issue #2891](https://github.com/hanzozt/ziti/issues/2891) - Restore can panic if using import from db
+    * [Issue #2835](https://github.com/hanzozt/ziti/issues/2835) - Add mechanism for selecting CLI layout
+    * [Issue #2836](https://github.com/hanzozt/ziti/issues/2836) - Add run subcommand
+    * [Issue #2837](https://github.com/hanzozt/ziti/issues/2837) - Add enroll subcommand
+    * [Issue #2851](https://github.com/hanzozt/ziti/issues/2851) - Change terminator failure cost crediting to be exponential based on time since last failure
+    * [Issue #2854](https://github.com/hanzozt/ziti/issues/2854) - Fix controller online status
+    * [Issue #2829](https://github.com/hanzozt/ziti/issues/2829) - Update Raft Configuration Defaults
+    * [Issue #2849](https://github.com/hanzozt/ziti/issues/2849) - Router endpoints file should have .yml extension by default
+    * [Issue #2875](https://github.com/hanzozt/ziti/issues/2875) - add --authenticate to `verify ext-jwt-signer oidc`
+    * [Issue #2873](https://github.com/hanzozt/ziti/issues/2873) - updates to `verify ext-jwt-signer oidc`

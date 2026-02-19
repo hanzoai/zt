@@ -16,7 +16,7 @@ Ziti 0.12 includes the following:
 
 ## Terminators
 
-See https://github.com/openziti/fabric/wiki/Pluggable-Service-Terminators for a discussion of what
+See https://github.com/hanzozt/fabric/wiki/Pluggable-Service-Terminators for a discussion of what
 service terminators are, the motivation for extracting them from services and the design for how
 they will work.
 

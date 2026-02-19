@@ -23,7 +23,7 @@ import (
 	"fmt"
 	"reflect"
 
-	"github.com/openziti/foundation/v2/concurrenz"
+	"github.com/hanzozt/foundation/v2/concurrenz"
 )
 
 // TypedProvider instances return instances of a given type. They may return singletons or

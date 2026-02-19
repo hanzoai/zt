@@ -67,7 +67,7 @@ _usage(){
             "   --no-hosts\t\tdon't use local hosts DB or ingress-dns nameserver\n"\
             "   --modify-hosts\tadd entries to local hosts database. Requires sudo if not running as root. Linux only.\n"\
             "\n Debug:\n"\
-            "   --charts\t\tZITI_CHARTS_REF (openziti) alternative charts repo\n"\
+            "   --charts\t\tZITI_CHARTS_REF (hanzozt) alternative charts repo\n"\
             "   --values-dir\tEXTRA_VALUES_DIR with Helm values files named ziti-controller.yaml or ziti-router.yaml\n"\
             "   --now\t\teliminate safety waits, e.g., before deleting miniziti\n"\
             "   --\t\t\tMINIKUBE_START_ARGS args after -- passed to minikube start\n"
@@ -464,8 +464,8 @@ main(){
             SHOW_ADMIN_CREDS=0 \
             START_MINIZITI=0 \
             ZITI_CHARTS_ALT=0 \
-            ZITI_CHARTS_REF="openziti" \
-            ZITI_CHARTS_URL="https://openziti.io/helm-charts/charts" \
+            ZITI_CHARTS_REF="hanzozt" \
+            ZITI_CHARTS_URL="https://hanzozt.io/helm-charts/charts" \
             EXTRA_VALUES_DIR \
             ZITI_NAMESPACE
 
@@ -676,7 +676,7 @@ main(){
             fi
         fi
 
-        # Cannot nicely call logout until https://github.com/openziti/ziti/issues/1305 is addressed.
+        # Cannot nicely call logout until https://github.com/hanzozt/ziti/issues/1305 is addressed.
         # if checkCommand ziti &>/dev/null; then
         #     logWarn "Removing $MINIKUBE_PROFILE profile identity from ziti-cli.json"
         #     ziti edge logout --cli-identity "$MINIKUBE_PROFILE" >&3
@@ -738,7 +738,7 @@ main(){
     kubectlWrapper cluster-info >&3
     logDebug "kubectl successfully obtained cluster-info from apiserver"
 
-    # enable ssl-passthrough for OpenZiti ingresses
+    # enable ssl-passthrough for Hanzo ZT ingresses
     if kubectlWrapper get deployment "ingress-nginx-controller" \
         --namespace ingress-nginx \
         --output 'go-template={{ (index .spec.template.spec.containers 0).args }}' 2>/dev/null \
@@ -778,7 +778,7 @@ main(){
         --timeout "${MINIZITI_TIMEOUT_SECS}s" >&3
 
     declare -A HELM_REPOS
-    HELM_REPOS[openziti]="openziti.io/helm-charts"
+    HELM_REPOS[hanzozt]="hanzozt.io/helm-charts"
     HELM_REPOS[jetstack]="charts.jetstack.io"
     HELM_REPOS[ingress-nginx]="kubernetes.github.io/ingress-nginx"
     for REPO in "${!HELM_REPOS[@]}"; do
@@ -834,10 +834,10 @@ main(){
     done
 
     #
-    ## Ensure OpenZiti Controller is Upgraded and Ready
+    ## Ensure Hanzo ZT Controller is Upgraded and Ready
     #
 
-    logInfo "installing openziti controller chart"
+    logInfo "installing hanzozt controller chart"
     if (( ZITI_CHARTS_ALT )) && [[ -s "${ZITI_CHARTS_REF}/ziti-controller/Chart.lock" ]]; then
         helmWrapper dependency build "${ZITI_CHARTS_REF}/ziti-controller" >&3
     fi
@@ -996,7 +996,7 @@ EOF
     fi
 
     #
-    ## Ensure OpenZiti Router is Enrolled and Ready
+    ## Ensure Hanzo ZT Router is Enrolled and Ready
     #
     #
 
@@ -1061,7 +1061,7 @@ EOF
             --namespace "${ZITI_NAMESPACE}" >&3
 
     #
-    ## Ensure OpenZiti Identities and Services are Created
+    ## Ensure Hanzo ZT Identities and Services are Created
     #
 
     CLIENT_NAME="${MINIKUBE_PROFILE}-client"
@@ -1184,7 +1184,7 @@ EOF
     fi
 
     echo -e "\n\n"
-    logInfo "Your OpenZiti Console is here: https://${ZITI_NETWORK_NAME}.${MINIZITI_INGRESS_ZONE}/zac/"
+    logInfo "Your Hanzo ZT Console is here: https://${ZITI_NETWORK_NAME}.${MINIZITI_INGRESS_ZONE}/zac/"
     showAdminCreds
     echo -e "\n\n"
 

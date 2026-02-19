@@ -20,10 +20,10 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/openziti/agent"
-	"github.com/openziti/channel/v4"
-	"github.com/openziti/ziti/v2/ziti/cmd/agentcli"
-	"github.com/openziti/ziti/v2/ziti/cmd/common"
+	"github.com/hanzozt/agent"
+	"github.com/hanzozt/channel/v4"
+	"github.com/hanzozt/ziti/v2/ziti/cmd/agentcli"
+	"github.com/hanzozt/ziti/v2/ziti/cmd/common"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
 )

@@ -19,8 +19,8 @@ package zitilab
 import (
 	"strings"
 
-	"github.com/openziti/fablab/kernel/model"
-	"github.com/openziti/ziti/zititest/zitilab/stageziti"
+	"github.com/hanzozt/fablab/kernel/model"
+	"github.com/hanzozt/ziti/zititest/zitilab/stageziti"
 )
 
 var _ model.ComponentType = (*ZCatType)(nil)

@@ -22,7 +22,7 @@ import (
 	"time"
 
 	"github.com/google/uuid"
-	"github.com/openziti/fablab/kernel/model"
+	"github.com/hanzozt/fablab/kernel/model"
 	"github.com/stretchr/testify/require"
 )
 

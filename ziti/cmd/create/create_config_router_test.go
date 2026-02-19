@@ -5,8 +5,8 @@ import (
 	"os"
 	"testing"
 
-	cmdhelper "github.com/openziti/ziti/v2/ziti/cmd/helpers"
-	"github.com/openziti/ziti/v2/ziti/constants"
+	cmdhelper "github.com/hanzozt/ziti/v2/ziti/cmd/helpers"
+	"github.com/hanzozt/ziti/v2/ziti/constants"
 	"github.com/stretchr/testify/assert"
 	"gopkg.in/yaml.v3"
 )

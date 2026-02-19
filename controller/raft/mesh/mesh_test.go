@@ -5,8 +5,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/openziti/foundation/v2/versions"
-	"github.com/openziti/ziti/v2/controller/event"
+	"github.com/hanzozt/foundation/v2/versions"
+	"github.com/hanzozt/ziti/v2/controller/event"
 
 	"github.com/stretchr/testify/assert"
 )

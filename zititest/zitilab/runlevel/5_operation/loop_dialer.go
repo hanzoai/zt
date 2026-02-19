@@ -20,8 +20,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/openziti/fablab/kernel/libssh"
-	"github.com/openziti/fablab/kernel/model"
+	"github.com/hanzozt/fablab/kernel/libssh"
+	"github.com/hanzozt/fablab/kernel/model"
 	"github.com/sirupsen/logrus"
 )
 

@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"testing"
 
-	idlib "github.com/openziti/identity"
+	idlib "github.com/hanzozt/identity"
 )
 
 func Test_TestAuthWithCertFromDifferentChain(t *testing.T) {

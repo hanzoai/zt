@@ -20,15 +20,15 @@ import (
 	"net/http"
 
 	"github.com/go-openapi/runtime/middleware"
-	clientCurrentIdentity "github.com/openziti/edge-api/rest_client_api_server/operations/current_identity"
-	managementCurrentIdentity "github.com/openziti/edge-api/rest_management_api_server/operations/current_identity"
-	"github.com/openziti/edge-api/rest_model"
-	"github.com/openziti/foundation/v2/stringz"
-	"github.com/openziti/ziti/v2/controller/apierror"
-	"github.com/openziti/ziti/v2/controller/env"
-	"github.com/openziti/ziti/v2/controller/model"
-	"github.com/openziti/ziti/v2/controller/permissions"
-	"github.com/openziti/ziti/v2/controller/response"
+	clientCurrentIdentity "github.com/hanzozt/edge-api/rest_client_api_server/operations/current_identity"
+	managementCurrentIdentity "github.com/hanzozt/edge-api/rest_management_api_server/operations/current_identity"
+	"github.com/hanzozt/edge-api/rest_model"
+	"github.com/hanzozt/foundation/v2/stringz"
+	"github.com/hanzozt/ziti/v2/controller/apierror"
+	"github.com/hanzozt/ziti/v2/controller/env"
+	"github.com/hanzozt/ziti/v2/controller/model"
+	"github.com/hanzozt/ziti/v2/controller/permissions"
+	"github.com/hanzozt/ziti/v2/controller/response"
 )
 
 func init() {

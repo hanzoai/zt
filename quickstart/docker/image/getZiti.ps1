@@ -41,7 +41,7 @@ if($osDescription.ToLower() -match "windows") {
 }
 $dirSeparator = [System.IO.Path]::DirectorySeparatorChar
 $pathSeparator = [System.IO.Path]::PathSeparator
-$latestFromGitHub=(irm https://api.github.com/repos/openziti/ziti/releases/latest)
+$latestFromGitHub=(irm https://api.github.com/repos/hanzozt/ziti/releases/latest)
 $version=($latestFromGitHub.tag_name)
 $zitidl=($latestFromGitHub).assets | where {$_.browser_download_url -Match "$matchFilter.*"}
 $downloadUrl=($zitidl.browser_download_url)

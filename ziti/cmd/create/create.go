@@ -19,8 +19,8 @@ package create
 import (
 	"io"
 
-	"github.com/openziti/ziti/v2/ziti/cmd/pki"
-	"github.com/openziti/ziti/v2/ziti/cmd/templates"
+	"github.com/hanzozt/ziti/v2/ziti/cmd/pki"
+	"github.com/hanzozt/ziti/v2/ziti/cmd/templates"
 	"github.com/spf13/cobra"
 )
 

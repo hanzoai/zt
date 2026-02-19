@@ -5,10 +5,10 @@ import (
 	"testing"
 
 	"github.com/google/uuid"
-	"github.com/openziti/edge-api/rest_model"
-	"github.com/openziti/foundation/v2/util"
-	"github.com/openziti/ziti/v2/tunnel"
-	"github.com/openziti/ziti/v2/tunnel/entities"
+	"github.com/hanzozt/edge-api/rest_model"
+	"github.com/hanzozt/foundation/v2/util"
+	"github.com/hanzozt/ziti/v2/tunnel"
+	"github.com/hanzozt/ziti/v2/tunnel/entities"
 	"github.com/stretchr/testify/require"
 )
 

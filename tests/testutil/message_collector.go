@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/openziti/channel/v4"
-	"github.com/openziti/ziti/v2/common/pb/ctrl_pb"
+	"github.com/hanzozt/channel/v4"
+	"github.com/hanzozt/ziti/v2/common/pb/ctrl_pb"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/require"

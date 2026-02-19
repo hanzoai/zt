@@ -25,11 +25,11 @@ import (
 
 	"github.com/gorilla/websocket"
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/channel/v4"
-	"github.com/openziti/channel/v4/websockets"
-	"github.com/openziti/identity"
-	"github.com/openziti/sdk-golang/ziti"
-	"github.com/openziti/ziti/v2/ziti/util"
+	"github.com/hanzozt/channel/v4"
+	"github.com/hanzozt/channel/v4/websockets"
+	"github.com/hanzozt/identity"
+	"github.com/hanzozt/sdk-golang/ziti"
+	"github.com/hanzozt/ziti/v2/ziti/util"
 )
 
 func NewWsMgmtChannel(bindHandler channel.BindHandler) (channel.Channel, error) {

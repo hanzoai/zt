@@ -28,8 +28,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/openziti/foundation/v2/info"
-	"github.com/openziti/sdk-golang/ziti/edge"
+	"github.com/hanzozt/foundation/v2/info"
+	"github.com/hanzozt/sdk-golang/ziti/edge"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 )

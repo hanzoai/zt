@@ -24,8 +24,8 @@ import (
 	"time"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/sdk-golang/xgress"
-	"github.com/openziti/ziti/v2/router/xgress_common"
+	"github.com/hanzozt/sdk-golang/xgress"
+	"github.com/hanzozt/ziti/v2/router/xgress_common"
 	"github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/require"
 )
@@ -116,9 +116,9 @@ func (s *echoServer) Address() string {
 
 // TestXgressConnHalfClose tests xgress instances with real network connections
 func TestXgressConnHalfClose(t *testing.T) {
-	logOptions := pfxlog.DefaultOptions().SetTrimPrefix("github.com/openziti/")
+	logOptions := pfxlog.DefaultOptions().SetTrimPrefix("github.com/hanzozt/")
 	pfxlog.GlobalInit(logrus.DebugLevel, logOptions)
-	logrus.SetFormatter(pfxlog.NewFormatter(pfxlog.DefaultOptions().SetTrimPrefix("github.com/openziti/")))
+	logrus.SetFormatter(pfxlog.NewFormatter(pfxlog.DefaultOptions().SetTrimPrefix("github.com/hanzozt/")))
 
 	// Start echo server
 	server, err := newEchoServer(0) // Use any available port

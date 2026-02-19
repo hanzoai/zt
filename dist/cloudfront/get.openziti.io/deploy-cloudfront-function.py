@@ -20,11 +20,11 @@ import boto3
 
 client = boto3.client('cloudfront')
 
-CF_HOST = 'get.openziti.io'
+CF_HOST = 'get.hanzozt.dev'
 CF_FUNCTION_NAME = 'github-raw-viewer-request-router'
-CF_FUNCTION_TEMPLATE = 'dist/cloudfront/get.openziti.io/cloudfront-function-get-openziti-io.js.j2'
+CF_FUNCTION_TEMPLATE = 'dist/cloudfront/get.hanzozt.dev/cloudfront-function-get-hanzozt-io.js.j2'
 GITHUB_SHA = os.environ['GITHUB_SHA']
-CF_ROUTES_FILE = 'dist/cloudfront/get.openziti.io/routes.yml'
+CF_ROUTES_FILE = 'dist/cloudfront/get.hanzozt.dev/routes.yml'
 routes = yaml.safe_load(open(CF_ROUTES_FILE, 'r').read())
 jinja2_env = jinja2.Environment()
 
@@ -79,7 +79,7 @@ update_response = client.update_function(
     Name=CF_FUNCTION_NAME,
     IfMatch=describe_dev_function['ETag'],
     FunctionConfig={
-        'Comment': f"Repo 'openziti/zti' GitHub SHA: {GITHUB_SHA}",
+        'Comment': f"Repo 'hanzozt/zti' GitHub SHA: {GITHUB_SHA}",
         'Runtime': 'cloudfront-js-1.0',
     },
     FunctionCode=cf_function_rendered,
@@ -156,6 +156,6 @@ else:
 # distributions = client.list_distributions()
 # cf_distribution_id = None
 # for distribution in distributions['DistributionList']['Items']:
-#     if distribution['Aliases']['Items'][0] == 'docs.openziti.io':
+#     if distribution['Aliases']['Items'][0] == 'docs.hanzozt.dev':
 #         cf_distribution_id = distribution['Id']
 #         print(f"Found docs distribution id: {cf_distribution_id}")

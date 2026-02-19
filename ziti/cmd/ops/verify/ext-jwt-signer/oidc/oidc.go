@@ -29,9 +29,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/openziti/edge-api/rest_model"
-	"github.com/openziti/ziti/v2/ziti/cmd/api"
-	"github.com/openziti/ziti/v2/ziti/cmd/common"
+	"github.com/hanzozt/edge-api/rest_model"
+	"github.com/hanzozt/ziti/v2/ziti/cmd/api"
+	"github.com/hanzozt/ziti/v2/ziti/cmd/common"
 
 	"github.com/fatih/color"
 	"github.com/google/uuid"
@@ -45,11 +45,11 @@ import (
 	"github.com/zitadel/oidc/v3/pkg/oidc"
 	"golang.org/x/oauth2"
 
-	"github.com/openziti/ziti/v2/internal"
-	ziticobra "github.com/openziti/ziti/v2/internal/cobra"
-	"github.com/openziti/ziti/v2/internal/rest/client"
-	"github.com/openziti/ziti/v2/ziti/cmd/edge"
-	"github.com/openziti/ziti/v2/ziti/util"
+	"github.com/hanzozt/ziti/v2/internal"
+	ziticobra "github.com/hanzozt/ziti/v2/internal/cobra"
+	"github.com/hanzozt/ziti/v2/internal/rest/client"
+	"github.com/hanzozt/ziti/v2/ziti/cmd/edge"
+	"github.com/hanzozt/ziti/v2/ziti/util"
 )
 
 const (
@@ -69,7 +69,7 @@ func pkceFlow[C oidc.IDClaims](ctx context.Context, relyingParty rp.RelyingParty
 		msg := `<!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>OpenZiti: Successful Authentication with External Provider.</title>
+    <title>Hanzo ZT: Successful Authentication with External Provider.</title>
     <script>
         function closeWindow() {
             setTimeout(function() {
@@ -80,7 +80,7 @@ func pkceFlow[C oidc.IDClaims](ctx context.Context, relyingParty rp.RelyingParty
 </head>
 <script type="text/javascript">closeWindow()</script>
 <body onload="closeWindow()">
-    <img height="40px" src="https://openziti.io/img/ziti-logo-dark.svg"/>
+    <img height="40px" src="https://hanzozt.dev/img/ziti-logo-dark.svg"/>
     <h2>Successfully authenticated with external provider.</h2><p>You may close this page. It will attempt to close itself in 3 seconds.</p>
 </body>
 </html>`

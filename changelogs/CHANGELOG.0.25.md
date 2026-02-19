@@ -13,7 +13,7 @@
 ## Edge
 ### Bug Fixes
 
-* [https://github.com/openziti/edge/issues/1055](Fix for an edge router panic)
+* [https://github.com/hanzozt/edge/issues/1055](Fix for an edge router panic)
 
 # Release 0.25.12
 
@@ -81,22 +81,22 @@ will be interrogated for new signing keys. The `jwksEndpoint` will only be inter
 
 ### Bug Fixes
 
-* https://github.com/openziti/edge/issues/1027
-* https://github.com/openziti/edge/issues/1025
-* https://github.com/openziti/edge/issues/1035
-* https://github.com/openziti/edge/issues/1045
-* https://github.com/openziti/edge/issues/1049
+* https://github.com/hanzozt/edge/issues/1027
+* https://github.com/hanzozt/edge/issues/1025
+* https://github.com/hanzozt/edge/issues/1035
+* https://github.com/hanzozt/edge/issues/1045
+* https://github.com/hanzozt/edge/issues/1049
 
 ## Fabric
 ### Bug Fixes
 
-* https://github.com/openziti/fabric/issues/406
-* https://github.com/openziti/ziti/issues/565 - Moved terminator information to its own field.
+* https://github.com/hanzozt/fabric/issues/406
+* https://github.com/hanzozt/ziti/issues/565 - Moved terminator information to its own field.
 
 ### Metrics API
 
 The following new endpoint has been added:
-- `GET /metrics` - returns metrics for the controller and all routers in the Prometheus text exposition format.  See [https://openziti.github.io/ziti/metrics/prometheus.html] for more information and instructions to set it up.
+- `GET /metrics` - returns metrics for the controller and all routers in the Prometheus text exposition format.  See [https://hanzozt.github.io/ziti/metrics/prometheus.html] for more information and instructions to set it up.
 
 
 # Release 0.25.10
@@ -196,7 +196,7 @@ be used to restrict the type of authenticators that are valid, even if enrolment
 
 ### Bug Fixes
 
-* https://github.com/openziti/fabric/issues/404
+* https://github.com/hanzozt/fabric/issues/404
     * Goroutine pool metrics for xgress and link dials not working
 
 # Release 0.25.8
@@ -208,7 +208,7 @@ Improved MacOS compatibility with cert handling and ioKit.
 
 ### Bug Fixes
 
-* https://github.com/openziti/fabric/pull/403
+* https://github.com/hanzozt/fabric/pull/403
 
 # Release 0.25.7
 
@@ -340,9 +340,9 @@ The `ziti-probe` tool will no longer be built and published as part of Ziti rele
 
 ### Bug Fixes
 
-* https://github.com/openziti/fabric/issues/393
-* https://github.com/openziti/fabric/issues/395
-* https://github.com/openziti/channel/issues/50
+* https://github.com/hanzozt/fabric/issues/393
+* https://github.com/hanzozt/fabric/issues/395
+* https://github.com/hanzozt/channel/issues/50
 * `ziti fabric list circuits` was showing the router id instead of the link id in the circuit path
 
 # Release 0.25.6

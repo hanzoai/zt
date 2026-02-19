@@ -23,9 +23,9 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/openziti/edge-api/rest_model"
-	nfpem "github.com/openziti/foundation/v2/pem"
-	"github.com/openziti/ziti/v2/common/eid"
+	"github.com/hanzozt/edge-api/rest_model"
+	nfpem "github.com/hanzozt/foundation/v2/pem"
+	"github.com/hanzozt/ziti/v2/common/eid"
 )
 
 // Helper types and functions
@@ -625,7 +625,7 @@ func (self permissionTestHelper) createConfigType(ctx *TestContext, session *ses
 	configTypeCreate := &rest_model.ConfigTypeCreate{
 		Name: ToPtr(name),
 		Schema: map[string]interface{}{
-			"$id":                  "http://edge.openziti.org/schemas/test.v1.config.json",
+			"$id":                  "http://edge.hanzozt.org/schemas/test.v1.config.json",
 			"type":                 "object",
 			"additionalProperties": false,
 			"required": []interface{}{

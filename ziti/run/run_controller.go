@@ -27,14 +27,14 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/openziti/ziti/v2/controller/config"
+	"github.com/hanzozt/ziti/v2/controller/config"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/agent"
-	"github.com/openziti/foundation/v2/errorz"
-	"github.com/openziti/ziti/v2/common/version"
-	"github.com/openziti/ziti/v2/controller"
-	"github.com/openziti/ziti/v2/controller/server"
+	"github.com/hanzozt/agent"
+	"github.com/hanzozt/foundation/v2/errorz"
+	"github.com/hanzozt/ziti/v2/common/version"
+	"github.com/hanzozt/ziti/v2/controller"
+	"github.com/hanzozt/ziti/v2/controller/server"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
@@ -74,7 +74,7 @@ func NewRunControllerCmd() *cobra.Command {
 
 	cmd := &cobra.Command{
 		Use:    "controller <config>",
-		Short:  "Run an OpenZiti controller with the given configuration",
+		Short:  "Run an Hanzo ZT controller with the given configuration",
 		Args:   cobra.ExactArgs(1),
 		Run:    action.Run,
 		PreRun: action.PreRun,

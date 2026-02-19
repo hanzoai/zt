@@ -8,7 +8,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/openziti/ziti/v2/ziti/constants"
+	"github.com/hanzozt/ziti/v2/ziti/constants"
 	"github.com/pkg/errors"
 	"github.com/stretchr/testify/assert"
 )

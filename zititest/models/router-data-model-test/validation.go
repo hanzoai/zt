@@ -29,18 +29,18 @@ import (
 	"github.com/go-openapi/runtime"
 	"github.com/google/uuid"
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/channel/v4"
-	"github.com/openziti/channel/v4/protobufs"
-	"github.com/openziti/edge-api/rest_model"
-	"github.com/openziti/fablab/kernel/lib/parallel"
-	"github.com/openziti/fablab/kernel/model"
-	"github.com/openziti/foundation/v2/errorz"
-	ptrutil "github.com/openziti/foundation/v2/util"
-	"github.com/openziti/ziti/v2/common/pb/mgmt_pb"
-	"github.com/openziti/ziti/v2/ziti/util"
-	"github.com/openziti/ziti/v2/zitirest"
-	"github.com/openziti/ziti/zititest/zitilab/chaos"
-	"github.com/openziti/ziti/zititest/zitilab/models"
+	"github.com/hanzozt/channel/v4"
+	"github.com/hanzozt/channel/v4/protobufs"
+	"github.com/hanzozt/edge-api/rest_model"
+	"github.com/hanzozt/fablab/kernel/lib/parallel"
+	"github.com/hanzozt/fablab/kernel/model"
+	"github.com/hanzozt/foundation/v2/errorz"
+	ptrutil "github.com/hanzozt/foundation/v2/util"
+	"github.com/hanzozt/ziti/v2/common/pb/mgmt_pb"
+	"github.com/hanzozt/ziti/v2/ziti/util"
+	"github.com/hanzozt/ziti/v2/zitirest"
+	"github.com/hanzozt/ziti/zititest/zitilab/chaos"
+	"github.com/hanzozt/ziti/zititest/zitilab/models"
 	"google.golang.org/protobuf/proto"
 )
 
@@ -699,7 +699,7 @@ func createNewConfigType(ctrl *zitirest.Clients) parallel.LabeledTask {
 		entity := &rest_model.ConfigTypeCreate{
 			Name: newId(),
 			Schema: map[string]interface{}{
-				"$id":                  "https://edge.openziti.org/schemas/test.config.json",
+				"$id":                  "https://edge.hanzozt.org/schemas/test.config.json",
 				"type":                 "object",
 				"additionalProperties": false,
 				"required": []interface{}{

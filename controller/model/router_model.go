@@ -20,13 +20,13 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/openziti/foundation/v2/genext"
-	"github.com/openziti/foundation/v2/versions"
-	"github.com/openziti/storage/boltz"
-	"github.com/openziti/ziti/v2/common/ctrlchan"
-	"github.com/openziti/ziti/v2/common/pb/ctrl_pb"
-	"github.com/openziti/ziti/v2/controller/db"
-	"github.com/openziti/ziti/v2/controller/models"
+	"github.com/hanzozt/foundation/v2/genext"
+	"github.com/hanzozt/foundation/v2/versions"
+	"github.com/hanzozt/storage/boltz"
+	"github.com/hanzozt/ziti/v2/common/ctrlchan"
+	"github.com/hanzozt/ziti/v2/common/pb/ctrl_pb"
+	"github.com/hanzozt/ziti/v2/controller/db"
+	"github.com/hanzozt/ziti/v2/controller/models"
 	"go.etcd.io/bbolt"
 )
 

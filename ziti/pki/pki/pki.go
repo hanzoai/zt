@@ -28,10 +28,10 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/openziti/ziti/v2/ziti/pki/certificate"
-	"github.com/openziti/ziti/v2/ziti/pki/store"
+	"github.com/hanzozt/ziti/v2/ziti/pki/certificate"
+	"github.com/hanzozt/ziti/v2/ziti/pki/store"
 
-	"github.com/openziti/identity/certtools"
+	"github.com/hanzozt/identity/certtools"
 )
 
 const (

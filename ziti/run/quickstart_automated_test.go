@@ -9,7 +9,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/openziti/ziti/v2/ziti/cmd/helpers"
+	"github.com/hanzozt/ziti/v2/ziti/cmd/helpers"
 	log "github.com/sirupsen/logrus"
 )
 

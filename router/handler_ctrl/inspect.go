@@ -23,12 +23,12 @@ import (
 	"time"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/channel/v4"
-	"github.com/openziti/foundation/v2/debugz"
-	"github.com/openziti/ziti/v2/common/inspect"
-	"github.com/openziti/ziti/v2/common/pb/ctrl_pb"
-	"github.com/openziti/ziti/v2/router/forwarder"
-	"github.com/openziti/ziti/v2/router/xgress_router"
+	"github.com/hanzozt/channel/v4"
+	"github.com/hanzozt/foundation/v2/debugz"
+	"github.com/hanzozt/ziti/v2/common/inspect"
+	"github.com/hanzozt/ziti/v2/common/pb/ctrl_pb"
+	"github.com/hanzozt/ziti/v2/router/forwarder"
+	"github.com/hanzozt/ziti/v2/router/xgress_router"
 	"github.com/pkg/errors"
 	"google.golang.org/protobuf/proto"
 )

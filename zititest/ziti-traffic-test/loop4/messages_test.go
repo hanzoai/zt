@@ -8,8 +8,8 @@ import (
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
-	"github.com/openziti/metrics"
-	loopPb "github.com/openziti/ziti/zititest/ziti-traffic-test/loop4/pb"
+	"github.com/hanzozt/metrics"
+	loopPb "github.com/hanzozt/ziti/zititest/ziti-traffic-test/loop4/pb"
 	"github.com/stretchr/testify/require"
 )
 

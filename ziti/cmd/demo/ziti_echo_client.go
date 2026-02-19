@@ -27,7 +27,7 @@ import (
 	"strings"
 
 	"github.com/fatih/color"
-	"github.com/openziti/sdk-golang/ziti"
+	"github.com/hanzozt/sdk-golang/ziti"
 )
 
 func NewZitiEchoClient(identityJson string) (*zitiEchoClient, error) {

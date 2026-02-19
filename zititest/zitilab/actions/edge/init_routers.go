@@ -2,13 +2,13 @@ package edge
 
 import (
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/fablab/kernel/lib/actions/component"
-	"github.com/openziti/fablab/kernel/lib/parallel"
-	"github.com/openziti/fablab/kernel/model"
-	"github.com/openziti/ziti/v2/zitirest"
-	"github.com/openziti/ziti/zititest/zitilab"
-	zitilib_actions "github.com/openziti/ziti/zititest/zitilab/actions"
-	"github.com/openziti/ziti/zititest/zitilab/models"
+	"github.com/hanzozt/fablab/kernel/lib/actions/component"
+	"github.com/hanzozt/fablab/kernel/lib/parallel"
+	"github.com/hanzozt/fablab/kernel/model"
+	"github.com/hanzozt/ziti/v2/zitirest"
+	"github.com/hanzozt/ziti/zititest/zitilab"
+	zitilib_actions "github.com/hanzozt/ziti/zititest/zitilab/actions"
+	"github.com/hanzozt/ziti/zititest/zitilab/models"
 )
 
 func InitEdgeRouters(componentSpec string, concurrency int) model.Action {

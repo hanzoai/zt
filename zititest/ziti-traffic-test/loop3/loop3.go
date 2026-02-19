@@ -17,7 +17,7 @@
 package loop3
 
 import (
-	"github.com/openziti/ziti/zititest/ziti-traffic-test/subcmd"
+	"github.com/hanzozt/ziti/zititest/ziti-traffic-test/subcmd"
 	"github.com/spf13/cobra"
 )
 

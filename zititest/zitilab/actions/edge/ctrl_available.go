@@ -3,8 +3,8 @@ package edge
 import (
 	"time"
 
-	"github.com/openziti/fablab/kernel/model"
-	"github.com/openziti/foundation/v2/netz"
+	"github.com/hanzozt/fablab/kernel/model"
+	"github.com/hanzozt/foundation/v2/netz"
 	"github.com/pkg/errors"
 )
 

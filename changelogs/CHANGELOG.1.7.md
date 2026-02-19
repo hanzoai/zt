@@ -83,7 +83,7 @@ and proven useful, they will marked as stable.
 ## Azure Service Bus Event Sink
 
 GitHub user @ffaraone contributed this feature, which adds support for streaming controller events to Azure Service Bus. 
-The new logger enables real-time event streaming from the OpenZiti controller to Azure Service Bus
+The new logger enables real-time event streaming from the Hanzo ZT controller to Azure Service Bus
 queues or topics, providing integration with Azure-based monitoring and analytics systems. 
 
 To enable the Azure Service Bus event logger, add configuration to the controller config file under the events section:
@@ -117,43 +117,43 @@ To enable the Azure Service Bus event logger, add configuration to the controlle
 
 ## Component Updates and Bug Fixes
 
-* github.com/openziti/agent: [v1.0.31 -> v1.0.33](https://github.com/openziti/agent/compare/v1.0.31...v1.0.33)
-* github.com/openziti/channel/v4: [v4.2.28 -> v4.2.41](https://github.com/openziti/channel/compare/v4.2.28...v4.2.41)
-* github.com/openziti/edge-api: [v0.26.47 -> v0.26.50](https://github.com/openziti/edge-api/compare/v0.26.47...v0.26.50)
-* github.com/openziti/foundation/v2: [v2.0.72 -> v2.0.79](https://github.com/openziti/foundation/compare/v2.0.72...v2.0.79)
-    * [Issue #455](https://github.com/openziti/foundation/issues/455) - Correctly close goroutine pool when external close is signaled
-    * [Issue #452](https://github.com/openziti/foundation/issues/452) - Goroutine pool with a min worker count of 1 can drop to 0 workers due to race condition
+* github.com/hanzozt/agent: [v1.0.31 -> v1.0.33](https://github.com/hanzozt/agent/compare/v1.0.31...v1.0.33)
+* github.com/hanzozt/channel/v4: [v4.2.28 -> v4.2.41](https://github.com/hanzozt/channel/compare/v4.2.28...v4.2.41)
+* github.com/hanzozt/edge-api: [v0.26.47 -> v0.26.50](https://github.com/hanzozt/edge-api/compare/v0.26.47...v0.26.50)
+* github.com/hanzozt/foundation/v2: [v2.0.72 -> v2.0.79](https://github.com/hanzozt/foundation/compare/v2.0.72...v2.0.79)
+    * [Issue #455](https://github.com/hanzozt/foundation/issues/455) - Correctly close goroutine pool when external close is signaled
+    * [Issue #452](https://github.com/hanzozt/foundation/issues/452) - Goroutine pool with a min worker count of 1 can drop to 0 workers due to race condition
 
-* github.com/openziti/identity: [v1.0.111 -> v1.0.118](https://github.com/openziti/identity/compare/v1.0.111...v1.0.118)
-    * [Issue #68](https://github.com/openziti/identity/issues/68) - Shutdown file watcher when stopping identity watcher
+* github.com/hanzozt/identity: [v1.0.111 -> v1.0.118](https://github.com/hanzozt/identity/compare/v1.0.111...v1.0.118)
+    * [Issue #68](https://github.com/hanzozt/identity/issues/68) - Shutdown file watcher when stopping identity watcher
 
-* github.com/openziti/runzmd: [v1.0.80 -> v1.0.84](https://github.com/openziti/runzmd/compare/v1.0.80...v1.0.84)
-* github.com/openziti/sdk-golang: [v1.2.3 -> v1.2.10](https://github.com/openziti/sdk-golang/compare/v1.2.3...v1.2.10)
-    * [Issue #818](https://github.com/openziti/sdk-golang/issues/818) - Full re-auth should not clear services list, as that breaks the on-change logic
-    * [Issue #817](https://github.com/openziti/sdk-golang/issues/817) - goroutines can get stuck when iterating over randomized HA controller list
-    * [Issue #736](https://github.com/openziti/sdk-golang/issues/736) - Migrate from github.com/mailru/easyjson
-    * [Issue #813](https://github.com/openziti/sdk-golang/issues/813) - SDK doesn't stop close listener when it detects that a service being hosted gets deleted
-    * [Issue #811](https://github.com/openziti/sdk-golang/issues/811) - Credentials are lost when explicitly set
-    * [Issue #807](https://github.com/openziti/sdk-golang/issues/807) - Don't send close from rxer to avoid blocking
-    * [Issue #800](https://github.com/openziti/sdk-golang/issues/800) - Tidy create service session logging
+* github.com/hanzozt/runzmd: [v1.0.80 -> v1.0.84](https://github.com/hanzozt/runzmd/compare/v1.0.80...v1.0.84)
+* github.com/hanzozt/sdk-golang: [v1.2.3 -> v1.2.10](https://github.com/hanzozt/sdk-golang/compare/v1.2.3...v1.2.10)
+    * [Issue #818](https://github.com/hanzozt/sdk-golang/issues/818) - Full re-auth should not clear services list, as that breaks the on-change logic
+    * [Issue #817](https://github.com/hanzozt/sdk-golang/issues/817) - goroutines can get stuck when iterating over randomized HA controller list
+    * [Issue #736](https://github.com/hanzozt/sdk-golang/issues/736) - Migrate from github.com/mailru/easyjson
+    * [Issue #813](https://github.com/hanzozt/sdk-golang/issues/813) - SDK doesn't stop close listener when it detects that a service being hosted gets deleted
+    * [Issue #811](https://github.com/hanzozt/sdk-golang/issues/811) - Credentials are lost when explicitly set
+    * [Issue #807](https://github.com/hanzozt/sdk-golang/issues/807) - Don't send close from rxer to avoid blocking
+    * [Issue #800](https://github.com/hanzozt/sdk-golang/issues/800) - Tidy create service session logging
 
-* github.com/openziti/secretstream: [v0.1.39 -> v0.1.41](https://github.com/openziti/secretstream/compare/v0.1.39...v0.1.41)
-* github.com/openziti/storage: [v0.4.26 -> v0.4.31](https://github.com/openziti/storage/compare/v0.4.26...v0.4.31)
-* github.com/openziti/transport/v2: [v2.0.188 -> v2.0.198](https://github.com/openziti/transport/compare/v2.0.188...v2.0.198)
-* github.com/openziti/go-term-markdown: v1.0.1 (new)
-* github.com/openziti/ziti: [v1.6.8 -> v1.7.0](https://github.com/openziti/ziti/compare/v1.6.8...v1.7.0)
-    * [Issue #3264](https://github.com/openziti/ziti/issues/3264) - Add support for streaming events to Azure Service Bus
-    * [Issue #3321](https://github.com/openziti/ziti/issues/3321) - Health Check API missing base path on discovery endpoint
-    * [Issue #3323](https://github.com/openziti/ziti/issues/3323) - router/tunnel static services fail to bind unless new param protocol is defined
-    * [Issue #3309](https://github.com/openziti/ziti/issues/3309) - Detect link connections meant for another router
-    * [Issue #3286](https://github.com/openziti/ziti/issues/3286) - edge-api binding doesn't have the correct path on discovery endpoints
-    * [Issue #3297](https://github.com/openziti/ziti/issues/3297) - stop promoting hotfixes downstream
-    * [Issue #3295](https://github.com/openziti/ziti/issues/3295) - make ziti tunnel service:port pairs optional
-    * [Issue #3291](https://github.com/openziti/ziti/issues/3291) - replace decommissioned bitnami/kubectl
-    * [Issue #3277](https://github.com/openziti/ziti/issues/3277) - Router can deadlock on closing a connection if the incoming data channel is full
-    * [Issue #3269](https://github.com/openziti/ziti/issues/3269) - Add host-interfaces config type
-    * [Issue #3258](https://github.com/openziti/ziti/issues/3258) - Add config type proxy.v1 so proxies can be defined dynamically for the ER/T
-    * [Issue #3259](https://github.com/openziti/ziti/issues/3259) - Interfaces config type not added due to wrong name
-    * [Issue #3265](https://github.com/openziti/ziti/issues/3265) - Forwarding errors should log at debug, since they are usual part of circuit teardown
-    * [Issue #3261](https://github.com/openziti/ziti/issues/3261) - ER/T dialed xgress connections may only half-close when peer is fully closed
-    * [Issue #3207](https://github.com/openziti/ziti/issues/3207) - Allow router embedders to customize config before start
+* github.com/hanzozt/secretstream: [v0.1.39 -> v0.1.41](https://github.com/hanzozt/secretstream/compare/v0.1.39...v0.1.41)
+* github.com/hanzozt/storage: [v0.4.26 -> v0.4.31](https://github.com/hanzozt/storage/compare/v0.4.26...v0.4.31)
+* github.com/hanzozt/transport/v2: [v2.0.188 -> v2.0.198](https://github.com/hanzozt/transport/compare/v2.0.188...v2.0.198)
+* github.com/hanzozt/go-term-markdown: v1.0.1 (new)
+* github.com/hanzozt/ziti: [v1.6.8 -> v1.7.0](https://github.com/hanzozt/ziti/compare/v1.6.8...v1.7.0)
+    * [Issue #3264](https://github.com/hanzozt/ziti/issues/3264) - Add support for streaming events to Azure Service Bus
+    * [Issue #3321](https://github.com/hanzozt/ziti/issues/3321) - Health Check API missing base path on discovery endpoint
+    * [Issue #3323](https://github.com/hanzozt/ziti/issues/3323) - router/tunnel static services fail to bind unless new param protocol is defined
+    * [Issue #3309](https://github.com/hanzozt/ziti/issues/3309) - Detect link connections meant for another router
+    * [Issue #3286](https://github.com/hanzozt/ziti/issues/3286) - edge-api binding doesn't have the correct path on discovery endpoints
+    * [Issue #3297](https://github.com/hanzozt/ziti/issues/3297) - stop promoting hotfixes downstream
+    * [Issue #3295](https://github.com/hanzozt/ziti/issues/3295) - make ziti tunnel service:port pairs optional
+    * [Issue #3291](https://github.com/hanzozt/ziti/issues/3291) - replace decommissioned bitnami/kubectl
+    * [Issue #3277](https://github.com/hanzozt/ziti/issues/3277) - Router can deadlock on closing a connection if the incoming data channel is full
+    * [Issue #3269](https://github.com/hanzozt/ziti/issues/3269) - Add host-interfaces config type
+    * [Issue #3258](https://github.com/hanzozt/ziti/issues/3258) - Add config type proxy.v1 so proxies can be defined dynamically for the ER/T
+    * [Issue #3259](https://github.com/hanzozt/ziti/issues/3259) - Interfaces config type not added due to wrong name
+    * [Issue #3265](https://github.com/hanzozt/ziti/issues/3265) - Forwarding errors should log at debug, since they are usual part of circuit teardown
+    * [Issue #3261](https://github.com/hanzozt/ziti/issues/3261) - ER/T dialed xgress connections may only half-close when peer is fully closed
+    * [Issue #3207](https://github.com/hanzozt/ziti/issues/3207) - Allow router embedders to customize config before start

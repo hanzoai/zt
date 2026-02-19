@@ -21,10 +21,10 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/openziti/fablab/kernel/libssh"
+	"github.com/hanzozt/fablab/kernel/libssh"
 
-	"github.com/openziti/fablab/kernel/model"
-	"github.com/openziti/foundation/v2/info"
+	"github.com/hanzozt/fablab/kernel/model"
+	"github.com/hanzozt/foundation/v2/info"
 	"github.com/sirupsen/logrus"
 )
 

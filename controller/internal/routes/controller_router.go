@@ -18,12 +18,12 @@ package routes
 
 import (
 	"github.com/go-openapi/runtime/middleware"
-	controllersClient "github.com/openziti/edge-api/rest_client_api_server/operations/controllers"
-	controllersMan "github.com/openziti/edge-api/rest_management_api_server/operations/controllers"
-	"github.com/openziti/ziti/v2/controller/env"
-	"github.com/openziti/ziti/v2/controller/model"
-	"github.com/openziti/ziti/v2/controller/permissions"
-	"github.com/openziti/ziti/v2/controller/response"
+	controllersClient "github.com/hanzozt/edge-api/rest_client_api_server/operations/controllers"
+	controllersMan "github.com/hanzozt/edge-api/rest_management_api_server/operations/controllers"
+	"github.com/hanzozt/ziti/v2/controller/env"
+	"github.com/hanzozt/ziti/v2/controller/model"
+	"github.com/hanzozt/ziti/v2/controller/permissions"
+	"github.com/hanzozt/ziti/v2/controller/response"
 )
 
 func init() {

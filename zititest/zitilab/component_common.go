@@ -21,8 +21,8 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/openziti/fablab/kernel/model"
-	zitilib_actions "github.com/openziti/ziti/zititest/zitilab/actions"
+	"github.com/hanzozt/fablab/kernel/model"
+	zitilib_actions "github.com/hanzozt/ziti/zititest/zitilab/actions"
 	"github.com/sirupsen/logrus"
 )
 

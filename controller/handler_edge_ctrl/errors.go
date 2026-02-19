@@ -19,8 +19,8 @@ package handler_edge_ctrl
 import (
 	"errors"
 
-	"github.com/openziti/sdk-golang/ziti/edge"
-	"github.com/openziti/ziti/v2/common/pb/edge_ctrl_pb"
+	"github.com/hanzozt/sdk-golang/ziti/edge"
+	"github.com/hanzozt/ziti/v2/common/pb/edge_ctrl_pb"
 )
 
 type controllerError interface {

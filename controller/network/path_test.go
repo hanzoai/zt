@@ -20,12 +20,12 @@ import (
 	"testing"
 	"time"
 
-	config2 "github.com/openziti/ziti/v2/controller/config"
-	"github.com/openziti/ziti/v2/controller/model"
+	config2 "github.com/hanzozt/ziti/v2/controller/config"
+	"github.com/hanzozt/ziti/v2/controller/model"
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/openziti/transport/v2/tcp"
+	"github.com/hanzozt/transport/v2/tcp"
 	"github.com/stretchr/testify/assert"
 )
 

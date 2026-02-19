@@ -1,8 +1,8 @@
 package router
 
 import (
-	"github.com/openziti/foundation/v2/concurrenz"
-	"github.com/openziti/ziti/v2/router/env"
+	"github.com/hanzozt/foundation/v2/concurrenz"
+	"github.com/hanzozt/ziti/v2/router/env"
 )
 
 // LifecycleEvent represents different phases in the router's lifecycle.

@@ -22,10 +22,10 @@ import (
 	"math"
 
 	"github.com/Jeffail/gabs"
-	"github.com/openziti/foundation/v2/stringz"
-	"github.com/openziti/ziti/v2/ziti/cmd/api"
-	"github.com/openziti/ziti/v2/ziti/cmd/common"
-	"github.com/openziti/ziti/v2/ziti/util"
+	"github.com/hanzozt/foundation/v2/stringz"
+	"github.com/hanzozt/ziti/v2/ziti/cmd/api"
+	"github.com/hanzozt/ziti/v2/ziti/cmd/common"
+	"github.com/hanzozt/ziti/v2/ziti/util"
 	errors2 "github.com/pkg/errors"
 	"github.com/spf13/cobra"
 )

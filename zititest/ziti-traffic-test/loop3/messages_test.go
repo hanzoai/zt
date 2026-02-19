@@ -8,7 +8,7 @@ import (
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
-	"github.com/openziti/ziti/zititest/ziti-traffic-test/loop3/pb"
+	"github.com/hanzozt/ziti/zititest/ziti-traffic-test/loop3/pb"
 	"github.com/stretchr/testify/require"
 )
 

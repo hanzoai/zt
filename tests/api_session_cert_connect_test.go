@@ -22,7 +22,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/openziti/sdk-golang/ziti"
+	"github.com/hanzozt/sdk-golang/ziti"
 )
 
 func Test_ApiSessionCertConnection(t *testing.T) {

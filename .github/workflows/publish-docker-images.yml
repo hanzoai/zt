@@ -17,10 +17,10 @@ jobs:
     env:
       REGISTRY: docker.io
       ZITI_CLI_TAG:          ${{ inputs.ziti-tag || github.event.inputs.ziti-tag }}
-      ZITI_CLI_IMAGE:        ${{ vars.ZITI_CLI_IMAGE || 'openziti/ziti-cli' }}
-      ZITI_CONTROLLER_IMAGE: ${{ vars.ZITI_CONTROLLER_IMAGE || 'openziti/ziti-controller' }}
-      ZITI_ROUTER_IMAGE:     ${{ vars.ZITI_ROUTER_IMAGE || 'openziti/ziti-router' }}
-      ZITI_TUNNEL_IMAGE:     ${{ vars.ZITI_TUNNEL_IMAGE || 'openziti/ziti-tunnel' }}
+      ZITI_CLI_IMAGE:        ${{ vars.ZITI_CLI_IMAGE || 'hanzozt/ziti-cli' }}
+      ZITI_CONTROLLER_IMAGE: ${{ vars.ZITI_CONTROLLER_IMAGE || 'hanzozt/ziti-controller' }}
+      ZITI_ROUTER_IMAGE:     ${{ vars.ZITI_ROUTER_IMAGE || 'hanzozt/ziti-router' }}
+      ZITI_TUNNEL_IMAGE:     ${{ vars.ZITI_TUNNEL_IMAGE || 'hanzozt/ziti-tunnel' }}
     steps:
       - name: Checkout Workspace
         uses: actions/checkout@v6

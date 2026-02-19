@@ -19,11 +19,11 @@ package importer
 import (
 	"slices"
 
-	"github.com/openziti/edge-api/rest_management_api_client/external_jwt_signer"
-	"github.com/openziti/edge-api/rest_model"
-	"github.com/openziti/edge-api/rest_util"
-	"github.com/openziti/ziti/v2/internal"
-	"github.com/openziti/ziti/v2/internal/rest/mgmt"
+	"github.com/hanzozt/edge-api/rest_management_api_client/external_jwt_signer"
+	"github.com/hanzozt/edge-api/rest_model"
+	"github.com/hanzozt/edge-api/rest_util"
+	"github.com/hanzozt/ziti/v2/internal"
+	"github.com/hanzozt/ziti/v2/internal/rest/mgmt"
 )
 
 func (importer *Importer) IsExtJwtSignerImportRequired(args []string) bool {

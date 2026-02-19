@@ -21,7 +21,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/openziti/ziti/v2/controller/change"
+	"github.com/hanzozt/ziti/v2/controller/change"
 	"github.com/pkg/errors"
 )
 

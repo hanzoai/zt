@@ -22,10 +22,10 @@ import (
 	"time"
 
 	"github.com/go-openapi/jsonpointer"
-	"github.com/openziti/foundation/v2/errorz"
-	"github.com/openziti/storage/ast"
-	"github.com/openziti/storage/boltz"
-	"github.com/openziti/ziti/v2/controller/apierror"
+	"github.com/hanzozt/foundation/v2/errorz"
+	"github.com/hanzozt/storage/ast"
+	"github.com/hanzozt/storage/boltz"
+	"github.com/hanzozt/ziti/v2/controller/apierror"
 )
 
 const (

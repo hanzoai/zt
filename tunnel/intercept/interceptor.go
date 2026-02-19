@@ -20,8 +20,8 @@ import (
 	"fmt"
 	"net"
 
-	"github.com/openziti/ziti/v2/tunnel/dns"
-	"github.com/openziti/ziti/v2/tunnel/entities"
+	"github.com/hanzozt/ziti/v2/tunnel/dns"
+	"github.com/hanzozt/ziti/v2/tunnel/entities"
 	"github.com/pkg/errors"
 )
 

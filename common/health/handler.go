@@ -24,7 +24,7 @@ import (
 	"time"
 
 	gosundheit "github.com/AppsFlyer/go-sundheit"
-	"github.com/openziti/xweb/v3"
+	"github.com/hanzozt/xweb/v3"
 	"github.com/sirupsen/logrus"
 )
 

@@ -25,10 +25,10 @@ cleanup(){
     for ETC in router controller
     do
         (set +e
-            sudo apt-get remove --yes --purge "openziti-${ETC}"
-            if [[ -d /opt/openziti/etc/${ETC} ]]
+            sudo apt-get remove --yes --purge "hanzozt-${ETC}"
+            if [[ -d /opt/hanzozt/etc/${ETC} ]]
             then
-                sudo rm -r "/opt/openziti/etc/${ETC}"
+                sudo rm -r "/opt/hanzozt/etc/${ETC}"
             fi
         )||true
     done
@@ -82,7 +82,7 @@ done
 : "${ZITI_ROUTER_NAME:="linux-router1"}"
 : "${ZITI_ROUTER_ADVERTISED_ADDRESS:="${ZITI_ROUTER_NAME}.127.0.0.1.sslip.io"}"
 : "${ZITI_ENROLL_TOKEN:="${TMPDIR}/${ZITI_ROUTER_NAME}.jwt"}"
-: "${ZITI_CONSOLE_LOCATION:="/opt/openziti/share/consoletest"}"
+: "${ZITI_CONSOLE_LOCATION:="/opt/hanzozt/share/consoletest"}"
 : "${ZITI_USER:="admin"}"
 
 export \
@@ -113,11 +113,11 @@ done
 mkdir -p ./release
 go build -o ./release/ ./...
 
-for PKG in openziti{,-controller,-router}
+for PKG in hanzozt{,-controller,-router}
 do
-    ZITI_HOMEPAGE="https://openziti.io" \
+    ZITI_HOMEPAGE="https://hanzozt.io" \
     ZITI_VENDOR="netfoundry" \
-    ZITI_MAINTAINER="Maintainers <developers@openziti.org>" \
+    ZITI_MAINTAINER="Maintainers <developers@hanzozt.org>" \
     MINIMUM_SYSTEMD_VERSION="232" \
     nfpm pkg \
     --packager deb \
@@ -125,8 +125,8 @@ do
     --config "./dist/dist-packages/linux/nfpm-${PKG}.yaml"
 done
 
-sudo dpkg --install "${TMPDIR}/openziti_"*.deb
-sudo dpkg --install "${TMPDIR}/openziti-"{controller,router}_*.deb
+sudo dpkg --install "${TMPDIR}/hanzozt_"*.deb
+sudo dpkg --install "${TMPDIR}/hanzozt-"{controller,router}_*.deb
 
 # provide dummy console assets before controller bootstrap so /zac/ is configured and served
 sudo mkdir -p "${ZITI_CONSOLE_LOCATION}"
@@ -138,7 +138,7 @@ sudo chmod -R +rX "${ZITI_CONSOLE_LOCATION}"
 # 2. Config file creation
 # 3. Starting the controller service
 # 4. Cluster initialization (creating default admin)
-DEBUG=1 sudo -E /opt/openziti/etc/controller/bootstrap.bash </dev/null  # closing stdin suppresses prompts
+DEBUG=1 sudo -E /opt/hanzozt/etc/controller/bootstrap.bash </dev/null  # closing stdin suppresses prompts
 
 # Verify controller service is running (bootstrap.bash should have started it)
 sudo systemd-run \
@@ -194,7 +194,7 @@ fi
 export ZITI_ENROLL_TOKEN="${ZITI_ENROLL_TOKEN_CONTENT}"
 
 ZITI_BOOTSTRAP=true ZITI_BOOTSTRAP_ENROLLMENT=true DEBUG=1 \
-    sudo -E /opt/openziti/etc/router/bootstrap.bash </dev/null  # closing stdin suppresses prompts
+    sudo -E /opt/hanzozt/etc/router/bootstrap.bash </dev/null  # closing stdin suppresses prompts
 sudo systemctl start ziti-router.service
 sudo systemd-run \
 --wait --quiet \

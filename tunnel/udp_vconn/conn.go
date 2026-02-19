@@ -23,7 +23,7 @@ import (
 	"time"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/foundation/v2/mempool"
+	"github.com/hanzozt/foundation/v2/mempool"
 	"github.com/sirupsen/logrus"
 )
 

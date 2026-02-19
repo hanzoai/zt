@@ -17,8 +17,8 @@
 package zitilib_actions
 
 import (
-	"github.com/openziti/fablab/kernel/model"
-	"github.com/openziti/ziti/zititest/zitilab/cli"
+	"github.com/hanzozt/fablab/kernel/model"
+	"github.com/hanzozt/ziti/zititest/zitilab/cli"
 )
 
 func Fabric(args ...string) model.Action {

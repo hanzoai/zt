@@ -17,13 +17,13 @@
 package model
 
 import (
-	"github.com/openziti/storage/boltz"
-	"github.com/openziti/ziti/v2/common/pb/edge_cmd_pb"
-	"github.com/openziti/ziti/v2/controller/change"
-	"github.com/openziti/ziti/v2/controller/command"
-	"github.com/openziti/ziti/v2/controller/db"
-	"github.com/openziti/ziti/v2/controller/fields"
-	"github.com/openziti/ziti/v2/controller/models"
+	"github.com/hanzozt/storage/boltz"
+	"github.com/hanzozt/ziti/v2/common/pb/edge_cmd_pb"
+	"github.com/hanzozt/ziti/v2/controller/change"
+	"github.com/hanzozt/ziti/v2/controller/command"
+	"github.com/hanzozt/ziti/v2/controller/db"
+	"github.com/hanzozt/ziti/v2/controller/fields"
+	"github.com/hanzozt/ziti/v2/controller/models"
 	"go.etcd.io/bbolt"
 	"google.golang.org/protobuf/proto"
 )

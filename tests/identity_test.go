@@ -28,11 +28,11 @@ import (
 	"github.com/Jeffail/gabs"
 	"github.com/golang-jwt/jwt/v5"
 	"github.com/google/uuid"
-	"github.com/openziti/edge-api/rest_model"
-	nfpem "github.com/openziti/foundation/v2/pem"
-	"github.com/openziti/foundation/v2/stringz"
-	"github.com/openziti/ziti/v2/common/eid"
-	"github.com/openziti/ziti/v2/controller/db"
+	"github.com/hanzozt/edge-api/rest_model"
+	nfpem "github.com/hanzozt/foundation/v2/pem"
+	"github.com/hanzozt/foundation/v2/stringz"
+	"github.com/hanzozt/ziti/v2/common/eid"
+	"github.com/hanzozt/ziti/v2/controller/db"
 )
 
 func Test_Identity(t *testing.T) {

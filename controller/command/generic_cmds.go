@@ -1,11 +1,11 @@
 package command
 
 import (
-	"github.com/openziti/storage/boltz"
-	"github.com/openziti/ziti/v2/common/pb/cmd_pb"
-	"github.com/openziti/ziti/v2/controller/change"
-	"github.com/openziti/ziti/v2/controller/fields"
-	"github.com/openziti/ziti/v2/controller/models"
+	"github.com/hanzozt/storage/boltz"
+	"github.com/hanzozt/ziti/v2/common/pb/cmd_pb"
+	"github.com/hanzozt/ziti/v2/controller/change"
+	"github.com/hanzozt/ziti/v2/controller/fields"
+	"github.com/hanzozt/ziti/v2/controller/models"
 	"github.com/pkg/errors"
 )
 

@@ -25,12 +25,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/openziti/foundation/v2/stringz"
-	"github.com/openziti/sdk-golang/ziti"
-	"github.com/openziti/ziti/v2/controller/event"
-	"github.com/openziti/ziti/v2/controller/events"
-	"github.com/openziti/ziti/v2/controller/xt_smartrouting"
-	"github.com/openziti/ziti/v2/router/env"
+	"github.com/hanzozt/foundation/v2/stringz"
+	"github.com/hanzozt/sdk-golang/ziti"
+	"github.com/hanzozt/ziti/v2/controller/event"
+	"github.com/hanzozt/ziti/v2/controller/events"
+	"github.com/hanzozt/ziti/v2/controller/xt_smartrouting"
+	"github.com/hanzozt/ziti/v2/router/env"
 )
 
 type eventsCollector struct {

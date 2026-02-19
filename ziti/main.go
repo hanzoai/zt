@@ -18,23 +18,23 @@ package main
 
 import (
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/transport/v2"
-	"github.com/openziti/transport/v2/dtls"
-	"github.com/openziti/transport/v2/tcp"
-	"github.com/openziti/transport/v2/tls"
-	"github.com/openziti/transport/v2/transwarp"
-	"github.com/openziti/transport/v2/transwarptls"
-	"github.com/openziti/transport/v2/udp"
-	"github.com/openziti/transport/v2/ws"
-	"github.com/openziti/transport/v2/wss"
-	"github.com/openziti/ziti/v2/common/build"
-	"github.com/openziti/ziti/v2/common/version"
-	"github.com/openziti/ziti/v2/ziti/cmd"
+	"github.com/hanzozt/transport/v2"
+	"github.com/hanzozt/transport/v2/dtls"
+	"github.com/hanzozt/transport/v2/tcp"
+	"github.com/hanzozt/transport/v2/tls"
+	"github.com/hanzozt/transport/v2/transwarp"
+	"github.com/hanzozt/transport/v2/transwarptls"
+	"github.com/hanzozt/transport/v2/udp"
+	"github.com/hanzozt/transport/v2/ws"
+	"github.com/hanzozt/transport/v2/wss"
+	"github.com/hanzozt/ziti/v2/common/build"
+	"github.com/hanzozt/ziti/v2/common/version"
+	"github.com/hanzozt/ziti/v2/ziti/cmd"
 	"github.com/sirupsen/logrus"
 )
 
 func init() {
-	options := pfxlog.DefaultOptions().SetTrimPrefix("github.com/openziti/").NoColor()
+	options := pfxlog.DefaultOptions().SetTrimPrefix("github.com/hanzozt/").NoColor()
 	pfxlog.GlobalInit(logrus.InfoLevel, options)
 
 	transport.AddAddressParser(tls.AddressParser{})

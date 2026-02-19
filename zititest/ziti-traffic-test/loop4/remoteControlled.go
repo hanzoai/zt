@@ -23,13 +23,13 @@ import (
 	"time"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/channel/v4"
-	"github.com/openziti/foundation/v2/concurrenz"
-	"github.com/openziti/identity"
-	"github.com/openziti/metrics"
-	edgeApis "github.com/openziti/sdk-golang/edge-apis"
-	"github.com/openziti/sdk-golang/ziti"
-	loop4Pb "github.com/openziti/ziti/zititest/ziti-traffic-test/loop4/pb"
+	"github.com/hanzozt/channel/v4"
+	"github.com/hanzozt/foundation/v2/concurrenz"
+	"github.com/hanzozt/identity"
+	"github.com/hanzozt/metrics"
+	edgeApis "github.com/hanzozt/sdk-golang/edge-apis"
+	"github.com/hanzozt/sdk-golang/ziti"
+	loop4Pb "github.com/hanzozt/ziti/zititest/ziti-traffic-test/loop4/pb"
 	"github.com/spf13/cobra"
 )
 

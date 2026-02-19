@@ -7,10 +7,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/openziti/channel/v4"
-	"github.com/openziti/identity"
-	"github.com/openziti/transport/v2"
-	"github.com/openziti/transport/v2/tcp"
+	"github.com/hanzozt/channel/v4"
+	"github.com/hanzozt/identity"
+	"github.com/hanzozt/transport/v2"
+	"github.com/hanzozt/transport/v2/tcp"
 	"github.com/stretchr/testify/require"
 )
 

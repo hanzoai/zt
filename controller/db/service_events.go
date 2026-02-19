@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/foundation/v2/cowslice"
+	"github.com/hanzozt/foundation/v2/cowslice"
 )
 
 type ServiceEventType byte

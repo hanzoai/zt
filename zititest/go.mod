@@ -1,16 +1,16 @@
-module github.com/openziti/ziti/zititest
+module github.com/hanzozt/ziti/zititest
 
 go 1.25.3
 
 // use parent project
-replace github.com/openziti/ziti/v2 => ../
+replace github.com/hanzozt/ziti/v2 => ../
 
 // pinned
-replace github.com/openziti/dilithium => github.com/openziti/dilithium v0.3.5
+replace github.com/hanzozt/dilithium => github.com/hanzozt/dilithium v0.3.5
 
 replace github.com/michaelquigley/pfxlog => github.com/michaelquigley/pfxlog v0.6.10
 
-replace github.com/openziti/foundation/v2 => github.com/openziti/foundation/v2 v2.0.86
+replace github.com/hanzozt/foundation/v2 => github.com/hanzozt/foundation/v2 v2.0.86
 
 require (
 	github.com/Jeffail/gabs v1.4.0
@@ -19,17 +19,17 @@ require (
 	github.com/google/go-cmp v0.7.0
 	github.com/google/uuid v1.6.0
 	github.com/michaelquigley/pfxlog v1.0.0
-	github.com/openziti/agent v1.0.33
-	github.com/openziti/channel/v4 v4.3.4
-	github.com/openziti/edge-api v0.26.52
-	github.com/openziti/fablab v0.6.1
-	github.com/openziti/foundation/v2 v2.0.87
-	github.com/openziti/identity v1.0.125
-	github.com/openziti/metrics v1.4.3
-	github.com/openziti/sdk-golang v1.4.1
-	github.com/openziti/storage v0.4.37
-	github.com/openziti/transport/v2 v2.0.209
-	github.com/openziti/ziti/v2 v2.0.0
+	github.com/hanzozt/agent v1.0.33
+	github.com/hanzozt/channel/v4 v4.3.4
+	github.com/hanzozt/edge-api v0.26.52
+	github.com/hanzozt/fablab v0.6.1
+	github.com/hanzozt/foundation/v2 v2.0.87
+	github.com/hanzozt/identity v1.0.125
+	github.com/hanzozt/metrics v1.4.3
+	github.com/hanzozt/sdk-golang v1.4.1
+	github.com/hanzozt/storage v0.4.37
+	github.com/hanzozt/transport/v2 v2.0.209
+	github.com/hanzozt/ziti/v2 v2.0.0
 	github.com/orcaman/concurrent-map/v2 v2.0.1
 	github.com/pkg/errors v0.9.1
 	github.com/rcrowley/go-metrics v0.0.0-20250401214520-65e299d6c5c9
@@ -158,16 +158,16 @@ require (
 	github.com/oapi-codegen/runtime v1.0.0 // indirect
 	github.com/oklog/ulid v1.3.1 // indirect
 	github.com/oliveagle/jsonpath v0.0.0-20180606110733-2e52cf6e6852 // indirect
-	github.com/openziti-incubator/cf v0.0.3 // indirect
-	github.com/openziti/cobra-to-md v1.0.1 // indirect
-	github.com/openziti/dilithium v0.3.5 // indirect
-	github.com/openziti/go-term-markdown v1.0.1 // indirect
-	github.com/openziti/jwks v1.0.6 // indirect
-	github.com/openziti/runzmd v1.0.88 // indirect
-	github.com/openziti/secretstream v0.1.47 // indirect
-	github.com/openziti/x509-claims v1.0.3 // indirect
-	github.com/openziti/xweb/v3 v3.0.3 // indirect
-	github.com/openziti/ziti-db-explorer v1.1.3 // indirect
+	github.com/hanzozt-incubator/cf v0.0.3 // indirect
+	github.com/hanzozt/cobra-to-md v1.0.1 // indirect
+	github.com/hanzozt/dilithium v0.3.5 // indirect
+	github.com/hanzozt/go-term-markdown v1.0.1 // indirect
+	github.com/hanzozt/jwks v1.0.6 // indirect
+	github.com/hanzozt/runzmd v1.0.88 // indirect
+	github.com/hanzozt/secretstream v0.1.47 // indirect
+	github.com/hanzozt/x509-claims v1.0.3 // indirect
+	github.com/hanzozt/xweb/v3 v3.0.3 // indirect
+	github.com/hanzozt/ziti-db-explorer v1.1.3 // indirect
 	github.com/parallaxsecond/parsec-client-go v0.0.0-20221025095442-f0a77d263cf9 // indirect
 	github.com/pelletier/go-toml/v2 v2.2.4 // indirect
 	github.com/pkg/sftp v1.13.9 // indirect

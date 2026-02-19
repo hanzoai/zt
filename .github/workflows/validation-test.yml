@@ -30,7 +30,7 @@ jobs:
   validation-test:
     name: ${{ inputs.test }} validation
     # not applicable to forks. shouldn't run on release build
-    if: github.repository_owner == 'openziti'
+    if: github.repository_owner == 'hanzozt'
     runs-on: ubuntu-24.04
     steps:
       - name: Git Checkout
@@ -42,7 +42,7 @@ jobs:
         uses: ./.github/actions/setup-go
 
       - name: Install Ziti CI
-        uses: openziti/ziti-ci@v1
+        uses: hanzozt/ziti-ci@v1
 
       - name: Install Terraform CLI
         uses: hashicorp/setup-terraform@v3

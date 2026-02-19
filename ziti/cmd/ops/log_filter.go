@@ -21,7 +21,7 @@ import (
 	"os"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/ziti/v2/ziti/cmd/common"
+	"github.com/hanzozt/ziti/v2/ziti/cmd/common"
 	"github.com/spf13/cobra"
 )
 

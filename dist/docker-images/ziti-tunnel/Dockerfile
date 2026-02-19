@@ -1,7 +1,7 @@
 ARG ZITI_CLI_TAG="latest"
-ARG ZITI_CLI_IMAGE="docker.io/openziti/ziti-cli"
-# this builds docker.io/openziti/ziti-tunnel, the legacy tunneler. The preferred tunneler is openziti/ziti-edge-tunnel documented in https://docs.openziti.io/docs/reference/tunnelers/linux/container/
-# this builds docker.io/openziti/ziti-router
+ARG ZITI_CLI_IMAGE="docker.io/hanzozt/ziti-cli"
+# this builds docker.io/hanzozt/ziti-tunnel, the legacy tunneler. The preferred tunneler is hanzozt/ziti-edge-tunnel documented in https://docs.hanzozt.dev/docs/reference/tunnelers/linux/container/
+# this builds docker.io/hanzozt/ziti-router
 FROM ${ZITI_CLI_IMAGE}:${ZITI_CLI_TAG}
 
 ARG DOCKER_BUILD_DIR=./dist/docker-images/ziti-tunnel
@@ -10,11 +10,11 @@ ARG DOCKER_BUILD_DIR=./dist/docker-images/ziti-tunnel
 # It uses the same base as the final image to maximize docker cache hits.
 
 ### Required OpenShift Labels 
-LABEL name="openziti/ziti-tunnel" \
-      maintainer="developers@openziti.org" \
+LABEL name="hanzozt/ziti-tunnel" \
+      maintainer="developers@hanzozt.org" \
       vendor="NetFoundry" \
-      summary="Run the OpenZiti Go Tunneler" \
-      description="Run the OpenZiti Go Tunneler"
+      summary="Run the Hanzo ZT Go Tunneler" \
+      description="Run the Hanzo ZT Go Tunneler"
 
 ### Add necessary Red Hat repos and packages: "mountpoint" used by entrypoint
 USER root

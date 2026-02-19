@@ -26,12 +26,12 @@ import (
 	"time"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/openziti/fablab/kernel/model"
-	"github.com/openziti/sdk-golang/ziti"
-	"github.com/openziti/ziti/v2/common/pb/mgmt_pb"
-	"github.com/openziti/ziti/zititest/ziti-traffic-test/loop4"
-	zitilibActions "github.com/openziti/ziti/zititest/zitilab/actions"
-	"github.com/openziti/ziti/zititest/zitilab/cli"
+	"github.com/hanzozt/fablab/kernel/model"
+	"github.com/hanzozt/sdk-golang/ziti"
+	"github.com/hanzozt/ziti/v2/common/pb/mgmt_pb"
+	"github.com/hanzozt/ziti/zititest/ziti-traffic-test/loop4"
+	zitilibActions "github.com/hanzozt/ziti/zititest/zitilab/actions"
+	"github.com/hanzozt/ziti/zititest/zitilab/cli"
 	"github.com/sirupsen/logrus"
 	"google.golang.org/protobuf/proto"
 )

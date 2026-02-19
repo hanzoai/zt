@@ -1,4 +1,4 @@
-# this Dockerfile builds docker.io/openziti/ziti-cli
+# this Dockerfile builds docker.io/hanzozt/ziti-cli
 
 # get kubectl CLI from a source with Docker Content Trust (DCT)
 # FIXME: require DCT at build time
@@ -21,11 +21,11 @@ ARG ZGID=2171
 ARG HOME=/home/ziggy
 
 ### Required OpenShift Labels 
-LABEL name="openziti/ziti-cli" \
-      maintainer="developers@openziti.org" \
+LABEL name="hanzozt/ziti-cli" \
+      maintainer="developers@hanzozt.org" \
       vendor="NetFoundry" \
-      summary="Run the OpenZiti CLI" \
-      description="Run the OpenZiti CLI"
+      summary="Run the Hanzo ZT CLI" \
+      description="Run the Hanzo ZT CLI"
 
 USER root
 

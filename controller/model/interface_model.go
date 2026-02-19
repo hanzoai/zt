@@ -20,8 +20,8 @@ import (
 	"net"
 	"sort"
 
-	"github.com/openziti/foundation/v2/stringz"
-	"github.com/openziti/ziti/v2/controller/db"
+	"github.com/hanzozt/foundation/v2/stringz"
+	"github.com/hanzozt/ziti/v2/controller/db"
 )
 
 type Interface struct {

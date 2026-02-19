@@ -22,8 +22,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/openziti/agent"
-	"github.com/openziti/ziti/v2/ziti/cmd/common"
+	"github.com/hanzozt/agent"
+	"github.com/hanzozt/ziti/v2/ziti/cmd/common"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"

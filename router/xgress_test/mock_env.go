@@ -3,8 +3,8 @@ package xgress_test
 import (
 	"time"
 
-	"github.com/openziti/metrics"
-	"github.com/openziti/sdk-golang/xgress"
+	"github.com/hanzozt/metrics"
+	"github.com/hanzozt/sdk-golang/xgress"
 )
 
 type mockFaulter struct{}

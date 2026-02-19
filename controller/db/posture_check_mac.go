@@ -20,7 +20,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/openziti/storage/boltz"
+	"github.com/hanzozt/storage/boltz"
 )
 
 const (

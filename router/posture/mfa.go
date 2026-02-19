@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/openziti/ziti/v2/common/pb/edge_ctrl_pb"
+	"github.com/hanzozt/ziti/v2/common/pb/edge_ctrl_pb"
 	"github.com/pkg/errors"
 )
 

@@ -1,50 +1,50 @@
-# this is a list of shortcut routes at get.openziti.io for raw.githubusercontent.com and is documented in
-# https://github.com/openziti/ziti/tree/main/quickstart#github-raw-reverse-proxy
+# this is a list of shortcut routes at get.hanzozt.dev for raw.githubusercontent.com and is documented in
+# https://github.com/hanzozt/ziti/tree/main/quickstart#github-raw-reverse-proxy
 
 # these are file shortcuts, so the shortcut is the test file
 - get: /ziti-cli-functions.sh
-  raw: /openziti/ziti/{{GITHUB_SHA}}/quickstart/docker/image/
+  raw: /hanzozt/ziti/{{GITHUB_SHA}}/quickstart/docker/image/
 
 - get: /miniziti.bash
-  raw: /openziti/ziti/{{GITHUB_SHA}}/quickstart/kubernetes/
+  raw: /hanzozt/ziti/{{GITHUB_SHA}}/quickstart/kubernetes/
 
   # Linux package install script for ziti, zrok CLI, and metapackages that are in the main release repo for generic,
   # portable Linux packages, not ziti-edge-tunnel
 - get: /install.bash
-  raw: /openziti/ziti/{{GITHUB_SHA}}/dist/dist-packages/linux/
+  raw: /hanzozt/ziti/{{GITHUB_SHA}}/dist/dist-packages/linux/
 
 # these are directory shortcuts, so you must supply a test file
 - get: /quick/
-  raw: /openziti/ziti/{{GITHUB_SHA}}/quickstart/docker/image/
+  raw: /hanzozt/ziti/{{GITHUB_SHA}}/quickstart/docker/image/
   file: ziti-cli-functions.sh
 
 - get: /dock/
-  raw: /openziti/ziti/{{GITHUB_SHA}}/quickstart/docker/
+  raw: /hanzozt/ziti/{{GITHUB_SHA}}/quickstart/docker/
   file: docker-compose.yml
 
 - get: /spec/
-  raw: /openziti/edge-api/main/
+  raw: /hanzozt/edge-api/main/
   file: management.yml
 
 - get: /tun/
-  raw: /openziti/ziti-tunnel-sdk-c/main/
+  raw: /hanzozt/ziti-tunnel-sdk-c/main/
   file: scripts/install-ubuntu.bash
   # file: docker/ziti-tun-daemonset.yaml
 
 - get: /pack/
-  raw: /openziti/ziti-tunnel-sdk-c/main/
+  raw: /hanzozt/ziti-tunnel-sdk-c/main/
   file: package-repos.gpg
   
 - get: /zdew/
-  raw: /openziti/desktop-edge-win/main/release-streams/
+  raw: /hanzozt/desktop-edge-win/main/release-streams/
   file: latest.json
 
 - get: /dist/
-  raw: /openziti/ziti/{{GITHUB_SHA}}/dist/
+  raw: /hanzozt/ziti/{{GITHUB_SHA}}/dist/
   file: /docker-images/ziti-router/compose.yml
 
-# https://get.openziti.io/zrok-instance/compose.yml
+# https://get.hanzozt.dev/zrok-instance/compose.yml
 - get: /zrok-instance/
-  raw: /openziti/zrok/main/docker/compose/zrok-instance/
+  raw: /hanzozt/zrok/main/docker/compose/zrok-instance/
   file: compose.yml
   

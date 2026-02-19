@@ -19,9 +19,9 @@ package xgress_transport_udp
 import (
 	"net"
 
-	"github.com/openziti/channel/v4"
-	"github.com/openziti/foundation/v2/info"
-	"github.com/openziti/sdk-golang/xgress"
+	"github.com/hanzozt/channel/v4"
+	"github.com/hanzozt/foundation/v2/info"
+	"github.com/hanzozt/sdk-golang/xgress"
 	"github.com/pkg/errors"
 )
 

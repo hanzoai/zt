@@ -19,8 +19,8 @@ package db
 import (
 	"time"
 
-	"github.com/openziti/storage/ast"
-	"github.com/openziti/storage/boltz"
+	"github.com/hanzozt/storage/ast"
+	"github.com/hanzozt/storage/boltz"
 	"go.etcd.io/bbolt"
 )
 

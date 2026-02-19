@@ -19,10 +19,10 @@ package pki
 import (
 	"io"
 
-	"github.com/openziti/ziti/v2/ziti/cmd/common"
-	"github.com/openziti/ziti/v2/ziti/cmd/lets_encrypt"
-	"github.com/openziti/ziti/v2/ziti/cmd/templates"
-	"github.com/openziti/ziti/v2/ziti/pki/pki"
+	"github.com/hanzozt/ziti/v2/ziti/cmd/common"
+	"github.com/hanzozt/ziti/v2/ziti/cmd/lets_encrypt"
+	"github.com/hanzozt/ziti/v2/ziti/cmd/templates"
+	"github.com/hanzozt/ziti/v2/ziti/pki/pki"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )
