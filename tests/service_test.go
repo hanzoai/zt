@@ -27,7 +27,7 @@ import (
 
 	"github.com/hanzozt/foundation/v2/errorz"
 	"github.com/hanzozt/foundation/v2/stringz"
-	"github.com/hanzozt/ziti/v2/common/eid"
+	"github.com/hanzozt/zt/v2/common/eid"
 )
 
 func Test_Services(t *testing.T) {

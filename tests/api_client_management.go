@@ -20,8 +20,8 @@ import (
 	"github.com/hanzozt/edge-api/rest_model"
 	"github.com/hanzozt/edge-api/rest_util"
 	edgeApis "github.com/hanzozt/sdk-golang/edge-apis"
-	"github.com/hanzozt/ziti/v2/common/eid"
-	"github.com/hanzozt/ziti/v2/ziti/util"
+	"github.com/hanzozt/zt/v2/common/eid"
+	"github.com/hanzozt/zt/v2/zt/util"
 )
 
 type ManagementHelperClient struct {

@@ -19,9 +19,9 @@ package handler_ctrl
 import (
 	"github.com/michaelquigley/pfxlog"
 	"github.com/hanzozt/channel/v4"
-	"github.com/hanzozt/ziti/v2/common/pb/ctrl_pb"
-	"github.com/hanzozt/ziti/v2/router/env"
-	"github.com/hanzozt/ziti/v2/router/xgress_router"
+	"github.com/hanzozt/zt/v2/common/pb/ctrl_pb"
+	"github.com/hanzozt/zt/v2/router/env"
+	"github.com/hanzozt/zt/v2/router/xgress_router"
 	"google.golang.org/protobuf/proto"
 )
 

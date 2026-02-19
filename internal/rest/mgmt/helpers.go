@@ -33,7 +33,7 @@ import (
 	"github.com/hanzozt/edge-api/rest_management_api_client/service_edge_router_policy"
 	"github.com/hanzozt/edge-api/rest_management_api_client/service_policy"
 	"github.com/hanzozt/edge-api/rest_model"
-	"github.com/hanzozt/ziti/v2/internal/rest/consts"
+	"github.com/hanzozt/zt/v2/internal/rest/consts"
 	log "github.com/sirupsen/logrus"
 )
 

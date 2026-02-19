@@ -25,8 +25,8 @@ import (
 
 	"github.com/michaelquigley/pfxlog"
 	"github.com/hanzozt/foundation/v2/mempool"
-	"github.com/hanzozt/ziti/v2/tunnel"
-	"github.com/hanzozt/ziti/v2/tunnel/entities"
+	"github.com/hanzozt/zt/v2/tunnel"
+	"github.com/hanzozt/zt/v2/tunnel/entities"
 )
 
 type manager struct {

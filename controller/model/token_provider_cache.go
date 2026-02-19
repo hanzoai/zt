@@ -32,8 +32,8 @@ import (
 	"github.com/hanzozt/foundation/v2/stringz"
 	"github.com/hanzozt/jwks"
 	"github.com/hanzozt/storage/boltz"
-	"github.com/hanzozt/ziti/v2/controller/apierror"
-	"github.com/hanzozt/ziti/v2/controller/db"
+	"github.com/hanzozt/zt/v2/controller/apierror"
+	"github.com/hanzozt/zt/v2/controller/db"
 	cmap "github.com/orcaman/concurrent-map/v2"
 	"go.etcd.io/bbolt"
 )

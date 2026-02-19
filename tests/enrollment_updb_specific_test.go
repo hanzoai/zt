@@ -23,7 +23,7 @@ import (
 	"time"
 
 	edge_apis "github.com/hanzozt/sdk-golang/edge-apis"
-	"github.com/hanzozt/ziti/v2/common/eid"
+	"github.com/hanzozt/zt/v2/common/eid"
 )
 
 // Test_EnrollmentOttSpecific uses the /enroll/updb specific endpoint.

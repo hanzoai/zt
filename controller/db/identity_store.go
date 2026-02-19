@@ -23,11 +23,11 @@ import (
 
 	"github.com/michaelquigley/pfxlog"
 	"github.com/hanzozt/foundation/v2/errorz"
-	"github.com/hanzozt/sdk-golang/ziti"
+	"github.com/hanzozt/sdk-golang/zt"
 	"github.com/hanzozt/storage/ast"
 	"github.com/hanzozt/storage/boltz"
-	"github.com/hanzozt/ziti/v2/common/eid"
-	"github.com/hanzozt/ziti/v2/controller/permissions"
+	"github.com/hanzozt/zt/v2/common/eid"
+	"github.com/hanzozt/zt/v2/controller/permissions"
 	"github.com/pkg/errors"
 	"go.etcd.io/bbolt"
 )
@@ -105,9 +105,9 @@ type Identity struct {
 	RoleAttributes            []string                     `json:"roleAttributes"`
 	SdkInfo                   *SdkInfo                     `json:"sdkInfo"`
 	EnvInfo                   *EnvInfo                     `json:"envInfo"`
-	DefaultHostingPrecedence  ziti.Precedence              `json:"defaultHostingPrecedence"`
+	DefaultHostingPrecedence  zt.Precedence              `json:"defaultHostingPrecedence"`
 	DefaultHostingCost        uint16                       `json:"defaultHostingCost"`
-	ServiceHostingPrecedences map[string]ziti.Precedence   `json:"serviceHostingPrecedences"`
+	ServiceHostingPrecedences map[string]zt.Precedence   `json:"serviceHostingPrecedences"`
 	ServiceHostingCosts       map[string]uint16            `json:"serviceHostingCosts"`
 	AppData                   map[string]interface{}       `json:"appData"`
 	AuthPolicyId              string                       `json:"authPolicyId"`
@@ -236,7 +236,7 @@ func (store *identityStoreImpl) FillEntity(entity *Identity, bucket *boltz.Typed
 	entity.Enrollments = bucket.GetStringList(FieldIdentityEnrollments)
 	entity.RoleAttributes = bucket.GetStringList(FieldRoleAttributes)
 	entity.Permissions = bucket.GetStringList(FieldIdentityPermissions)
-	entity.DefaultHostingPrecedence = ziti.Precedence(bucket.GetInt32WithDefault(FieldIdentityDefaultHostingPrecedence, 0))
+	entity.DefaultHostingPrecedence = zt.Precedence(bucket.GetInt32WithDefault(FieldIdentityDefaultHostingPrecedence, 0))
 	entity.DefaultHostingCost = uint16(bucket.GetInt32WithDefault(FieldIdentityDefaultHostingCost, 0))
 	entity.AppData = bucket.GetMap(FieldIdentityAppData)
 	entity.ExternalId = bucket.GetString(FieldIdentityExternalId)
@@ -269,9 +269,9 @@ func (store *identityStoreImpl) FillEntity(entity *Identity, bucket *boltz.Typed
 		Hostname:  bucket.GetStringWithDefault(FieldIdentityEnvInfoHostname, ""),
 	}
 
-	entity.ServiceHostingPrecedences = map[string]ziti.Precedence{}
+	entity.ServiceHostingPrecedences = map[string]zt.Precedence{}
 	for k, v := range bucket.GetMap(FieldIdentityServiceHostingPrecedences) {
-		entity.ServiceHostingPrecedences[k] = ziti.Precedence(v.(int32))
+		entity.ServiceHostingPrecedences[k] = zt.Precedence(v.(int32))
 	}
 
 	entity.ServiceHostingCosts = map[string]uint16{}

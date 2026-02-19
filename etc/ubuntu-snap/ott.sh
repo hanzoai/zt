@@ -8,7 +8,7 @@ then
 fi;
 #ca_name=$(cat /home/cd/pki/current-pki)
 ca_name=$1
-pki_root=/home/cd/ziti/pki/${ca_name}
+pki_root=/home/cd/zt/pki/${ca_name}
 
 if [[ "xx" == "xx$2" ]]
 then
@@ -34,15 +34,15 @@ echo "zt_session: ${zt_session}"
 
 identity_name="ott_$(date +"%H%M%S")"
 
-export ziti_user_id=$(curl -sk -H "Content-Type: application/json" -H "zt-session: ${zt_session}" \
+export zt_user_id=$(curl -sk -H "Content-Type: application/json" -H "zt-session: ${zt_session}" \
     "${edge_controller_uri}/identities" \
     -d "{ \"name\": \"${identity_name}\", \"type\": \"User\", \"enrollment\": { \"ott\": true } }" \
     | jq -j .data.id)
-echo "ziti_user_id=$ziti_user_id"
+echo "zt_user_id=$zt_user_id"
 
 curl -sk -H "Content-Type: application/json" -H "zt-session: ${zt_session}" \
-    "${edge_controller_uri}/identities/${ziti_user_id}" \
+    "${edge_controller_uri}/identities/${zt_user_id}" \
     | jq -j .data.enrollment.ott.jwt > "${pki_root}/${identity_name}.jwt"
 
 echo "Writing jwt file to: ${pki_root}/${identity_name}.jwt"
-ziti-enroller -v --jwt "${pki_root}/${identity_name}.jwt"
+zt-enroller -v --jwt "${pki_root}/${identity_name}.jwt"

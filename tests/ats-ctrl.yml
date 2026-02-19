@@ -30,7 +30,7 @@ terminator:
 #metrics:
 #  influxdb:
 #    url:                http://localhost:8086
-#    database:           ziti
+#    database:           zt
 
 edge:
   api:

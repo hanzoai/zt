@@ -24,10 +24,10 @@ import (
 	"time"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/hanzozt/sdk-golang/ziti"
-	"github.com/hanzozt/sdk-golang/ziti/edge"
-	"github.com/hanzozt/ziti/v2/controller/change"
-	"github.com/hanzozt/ziti/v2/controller/xt"
+	"github.com/hanzozt/sdk-golang/zt"
+	"github.com/hanzozt/sdk-golang/zt/edge"
+	"github.com/hanzozt/zt/v2/controller/change"
+	"github.com/hanzozt/zt/v2/controller/xt"
 	"github.com/pkg/errors"
 )
 
@@ -51,7 +51,7 @@ func Test_ManualStart(t *testing.T) {
 
 		type host struct {
 			id       *identity
-			context  ziti.Context
+			context  zt.Context
 			listener edge.Listener
 		}
 
@@ -63,8 +63,8 @@ func Test_ManualStart(t *testing.T) {
 			host1.id, host1.context = ctx.AdminManagementSession.RequireCreateSdkContext()
 			defer host1.context.Close()
 
-			listener, err := host1.context.ListenWithOptions(service.Name, &ziti.ListenOptions{
-				Precedence:  ziti.PrecedenceRequired,
+			listener, err := host1.context.ListenWithOptions(service.Name, &zt.ListenOptions{
+				Precedence:  zt.PrecedenceRequired,
 				ManualStart: true,
 			})
 			host1.listener = listener
@@ -79,8 +79,8 @@ func Test_ManualStart(t *testing.T) {
 			host2.id, host2.context = ctx.AdminManagementSession.RequireCreateSdkContext()
 			defer host2.context.Close()
 
-			listener, err = host2.context.ListenWithOptions(service.Name, &ziti.ListenOptions{
-				Precedence:  ziti.PrecedenceDefault,
+			listener, err = host2.context.ListenWithOptions(service.Name, &zt.ListenOptions{
+				Precedence:  zt.PrecedenceDefault,
 				ManualStart: false,
 			})
 			host2.listener = listener

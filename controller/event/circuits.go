@@ -50,16 +50,16 @@ type CircuitPath struct {
 	// The xgress identifier used on the terminating router.
 	EgressId string `json:"egress_id"`
 
-	// The local address of the connection to the first ziti component.
+	// The local address of the connection to the first zt component.
 	InitiatorLocalAddr string `json:"initiator_local_addr,omitempty"`
 
-	// The remote address of the connection to the first ziti component.
+	// The remote address of the connection to the first zt component.
 	InitiatorRemoteAddr string `json:"initiator_remote_addr,omitempty"`
 
-	// The local address on the terminating ziti component.
+	// The local address on the terminating zt component.
 	TerminatorLocalAddr string `json:"terminator_local_addr,omitempty"`
 
-	// The remote address on the terminating ziti component.
+	// The remote address on the terminating zt component.
 	TerminatorRemoteAddr string `json:"terminator_remote_addr,omitempty"`
 }
 

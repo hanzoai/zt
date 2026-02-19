@@ -7,8 +7,8 @@
       Default value: `3m`
 * Don't add a second shutdown timer if one is already set
 * Allow list/updating router forwarding tables if --debug-ops is passed
-    * new command `ziti ps route <optional target> <session> <src-address> <dest-address>`
-    * new command `ziti ps dump-routes <optional target>`
+    * new command `zt ps route <optional target> <session> <src-address> <dest-address>`
+    * new command `zt ps dump-routes <optional target>`
 * If an xgress session fails in retransmit, sends fault notification to controller so controller can
   fix path or remove session, depending on session state
 
@@ -17,9 +17,9 @@
 # What's New
 
 * Fix PATCH OS Posture Checks clearing data
-* Fix ziti-tunnel panic when removing
+* Fix zt-tunnel panic when removing
   services. [edge#517](https://github.com/hanzozt/edge/issues/517)
-* ziti-tunnel tproxy now supports `--lanIf` option to automatically add rules to accept incoming
+* zt-tunnel tproxy now supports `--lanIf` option to automatically add rules to accept incoming
   connections for service connections. [edge#519](https://github.com/hanzozt/edge/issues/519)
 * Fix orphaned ottca enrollments after `DELETE /cas/<id>'
 * Add build info output when starting router/controller
@@ -30,14 +30,14 @@
 ## What's New
 
 * Websocket binding in Edge Router to support connections from BrowZer-based apps that use
-  the `ziti-sdk-js`. Edge Routers support various configurations including a single `tls` binding, a
+  the `zt-sdk-js`. Edge Routers support various configurations including a single `tls` binding, a
   single `ws` binding, or having both `tls` and `ws` bindings simultaneously. If both binding types
   are used, they must be specified with different ports.
 * Edge Router list for current identity
 * Fix terminator PATCH, don't update/clear peer data unless requested
 * Fix concurrency related crash in router
 * Fix resource leak in fabric: forwarder tables weren't always updated after unroute
-* Fix issue that prevented ziti-tunnel from cleaning up on shutdown in some cases.
+* Fix issue that prevented zt-tunnel from cleaning up on shutdown in some cases.
   [edge#506](https://github.com/hanzozt/edge/issues/506)
 
 ## Websocket Binding
@@ -116,7 +116,7 @@ Example Output:
 
 ## What's New
 
-* Update ziti-tunnel service polling
+* Update zt-tunnel service polling
     * Now uses new api (when available) to skip refreshing services if no services have been changed
     * Polling rate is passed through to sdk, so actual poll rate is now controlled
 * Don't panic on router startup, just show error message and exit
@@ -130,7 +130,7 @@ Example Output:
 * Add new config option to router `xgressCloseCheckInterval`, which dictates for how long data flow
   from the remote should have stopped before closing xgress after receiving fault
 * `limit none` for Edge API Rest requests is now properly limited to 500 elements on list endpoints
-* The HTTP header `server` is now populated on all responses with `ziti-controller/vX.Y.Z`
+* The HTTP header `server` is now populated on all responses with `zt-controller/vX.Y.Z`
 
 ## Control Channel Metrics
 
@@ -155,7 +155,7 @@ There is a new controller config file setting:
 
 ## What's New
 
-* Fix `ziti install terraform-provider-edgecontroller`
+* Fix `zt install terraform-provider-edgecontroller`
 
 # Release 0.18.5
 
@@ -163,7 +163,7 @@ There is a new controller config file setting:
 
 * Update go-openapi libraries
 * xgress_edge refactor, should fix 'failed to dipsatch to fabric' errors
-* Update `ziti use` command to work with main branch
+* Update `zt use` command to work with main branch
 * MFA Support
 * Fix deadlock on session close in router when connection is at capacity
 * Fix issue where end of session didn't get sent in some scenarios
@@ -361,7 +361,7 @@ When MFA authentication is required a field will now appear as an
 
 ## What's New
 
-* New ziti CLI command `ziti ps set-log-level`, allows you to set the application wide log level at
+* New zt CLI command `zt ps set-log-level`, allows you to set the application wide log level at
   runtime
 * Allow invalid event types in controller config event subscriptions. Instead of failing to start,
   the controller will emit a warning. This allows us to use uniform configs across controllers which
@@ -414,7 +414,7 @@ listeners:
 * Improved service policy enforcement - instead of polling this is now event based, which should
   result in slower cpu utilization on the controller
 * Fixed a bug in service policy PATCH which would trigger when the policy type wasn't sent
-* Support agent utilitiles (`ziti ps`) in ziti-tunnel
+* Support agent utilitiles (`zt ps`) in zt-tunnel
 * Cleanup ack handler goroutines when links shut down
 * Remove the following fabric metrics timers, as they degraded performance while being of low value
     * xgress.ack.handle_time
@@ -423,13 +423,13 @@ listeners:
     * xgress.payload_buffer_time
     * xgress.payload_relay_time
 * The check-data-integrity operation may now only run a single instance at a time
-    * To start the check, `ziti edge db start-check-integrity`
-    * To check the status of a run `ziti edge db check-integrity-status`
+    * To start the check, `zt edge db start-check-integrity`
+    * To check the status of a run `zt edge db check-integrity-status`
 * The build date in version info spelling has been fixed from builDate to buildDate
 * A new metric has been added for timing service list requests `services.list`
 * A bug was fixed in the tunneler which may have lead to leaked connections
 * Ziti Edge API configurable HTTP Timeouts
-* Add `ziti log-format` or `ziti lf` for short, for formatting JSON log output as something more
+* Add `zt log-format` or `zt lf` for short, for formatting JSON log output as something more
   human readable
 * [fabric#151](https://github.com/hanzozt/fabric/issues/151) Add two timeout settings to the
   controller to configure how long route and dial should wait before timeout
@@ -481,8 +481,8 @@ edge:
 ## What's New
 
 * Default hosting precedence and cost can now be configured for identities
-* Health checks can now be configured for the go based tunneler (ziti-tunnel) using server configs
-* [ziti#177](https://github.com/hanzozt/ziti/issues/177) ziti-tunnel has a new `host` mode, if you
+* Health checks can now be configured for the go based tunneler (zt-tunnel) using server configs
+* [zt#177](https://github.com/hanzozt/zt/issues/177) zt-tunnel has a new `host` mode, if you
   are only hosting services
 * Changes to terminators (add/updated/delete/router online/router offline) will now generate events
   that can be emitted
@@ -492,7 +492,7 @@ edge:
 
 When the tunneler hosts services there was previously no way to specify the precedence and cost
 associated with those services.
-See [Ziti XT documentation](https://hanzozt.github.io/ziti/services/overview.html?tabs=create-service-ui#xt)
+See [Ziti XT documentation](https://hanzozt.github.io/zt/services/overview.html?tabs=create-service-ui#xt)
 for an overview of how precedence and cost relate to HA and load balancing.
 
 There are now two new fields on identity:
@@ -511,7 +511,7 @@ values for different services.
 
 ### CLI Support
 
-The ziti CLI supports setting the default hosting precedence and cost when creating identities
+The zt CLI supports setting the default hosting precedence and cost when creating identities
 
 ### SDK API Change
 
@@ -523,9 +523,9 @@ when hosting services.
 ## Tunneler Health Checks
 
 The go tunneler now supports health checks. Support for health checks may be added to other
-tunnelers (such as ziti-edge-tunnel) in the future, but that is not guaranteed.
+tunnelers (such as zt-edge-tunnel) in the future, but that is not guaranteed.
 
-Health checks can be configured in the service configuration using the `ziti-tunneler-server.v1`
+Health checks can be configured in the service configuration using the `zt-tunneler-server.v1`
 config type. Support in the `host.v1` config type will be added when support for that config type is
 added to the go tunneler.
 
@@ -632,20 +632,20 @@ actions are defined on the health check:
 
 ```
 
-## ziti-tunnel host command
+## zt-tunnel host command
 
-The ziti-tunnel can now be run in a mode where it will only host services and will not intercept any
+The zt-tunnel can now be run in a mode where it will only host services and will not intercept any
 services.
 
-Ex: `ziti-tunnel host -i /path/to/identity.json`
+Ex: `zt-tunnel host -i /path/to/identity.json`
 
 ## Schema Reference
 
-For reference, here is the full, updated `ziti-tunneler-server.v1` schema:
+For reference, here is the full, updated `zt-tunneler-server.v1` schema:
 
 ```
 {
-    "$id": "http://edge.hanzozt.org/schemas/ziti-tunneler-server.v1.config.json",
+    "$id": "http://edge.hanzozt.org/schemas/zt-tunneler-server.v1.config.json",
     "additionalProperties": false,
     "definitions": {
         "action": {
@@ -901,7 +901,7 @@ expire and be used for reconnection.
 
 ## What's New
 
-* [ziti#253](https://github.com/hanzozt/ziti/issues/253) `ziti-tunnel enroll` should set non-zero
+* [zt#253](https://github.com/hanzozt/zt/issues/253) `zt-tunnel enroll` should set non-zero
   exit status if an error occur
 * Rewrite of Xgress with the following goals
     * Fix deadlocks at high throughput
@@ -913,7 +913,7 @@ expire and be used for reconnection.
   dial fails for hosted services, the failure gets propagated back to controller
 * Streamline edge hosting protocol by allowing router to assign connection ids
 * Edge REST query failures should now result in 4xx errors instead of 500 internal server errors
-* Fixed bug where listing terminators via `ziti edge` would fail when terminators referenced pure
+* Fixed bug where listing terminators via `zt edge` would fail when terminators referenced pure
   fabric services
 
 ## Xgress Rewrite
@@ -1072,7 +1072,7 @@ If `ListenWithOptions` is called with the `ManualStart: true` in the provided op
 connection won't be established until `CompleteAcceptSuccess` is called. Writing or reading the
 connection before call that method will have undefined results.
 
-The ziti-tunnel has been updated to use this API, and so should now work correctly with the various
+The zt-tunnel has been updated to use this API, and so should now work correctly with the various
 terminator strategies.
 
 ### Edge Hosting Dial Protocol Enhancement

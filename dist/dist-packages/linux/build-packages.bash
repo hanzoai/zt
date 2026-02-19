@@ -85,18 +85,18 @@ done
 declare -a EXPLICIT_ARTIFACTS=("${ARTIFACTS[@]}")
 
 ARTIFACTS_DIR=./release
-# export to nfpm and assign right after building ziti binary
+# export to nfpm and assign right after building zt binary
 export ZITI_VERSION ZITI_REV
 : ${HUB_USER:=kbinghamnetfoundry}
 
  function buildZitiGoBuilder {
 	# build the builder
 	docker buildx build \
-		--tag=ziti-go-builder \
+		--tag=zt-go-builder \
 		--build-arg uid="$UID" \
 		--load \
 		./dist/docker-images/cross-build/ 2>&3
-	echo "INFO: Built ziti-go-builder"
+	echo "INFO: Built zt-go-builder"
 }
 
 function runZitiGoBuilder {
@@ -126,38 +126,38 @@ function runZitiGoBuilder {
 			break
 		fi
 	done
-	if ! grep -qE '\b/mnt/ziti\b' <<< "${GO_WORK_MOUNTS}"
+	if ! grep -qE '\b/mnt/zt\b' <<< "${GO_WORK_MOUNTS}"
 	then
-		GO_WORK_MOUNTS+=" --volume=$PWD:/mnt/ziti"
+		GO_WORK_MOUNTS+=" --volume=$PWD:/mnt/zt"
 	fi
 	docker run \
 		--rm \
 		--user "$UID" \
-		--name=ziti-go-builder \
+		--name=zt-go-builder \
 		${GO_WORK_MOUNTS} \
 		--volume="${GOCACHE:-${HOME}/.cache/go-build}:/usr/share/go_cache" \
 		${GOEXPERIMENT:+--env GOEXPERIMENT="${GOEXPERIMENT:-}"} \
 		${GOFIPS140:+--env GOFIPS140="${GOFIPS140:-}"} \
 		--env=TAGS \
-		ziti-go-builder "$1"
+		zt-go-builder "$1"
 }
 
 function setArtifactVars {
 	case ${1} in
 		hanzozt)
-			ARTIFACT_SHORT=ziti-cli
+			ARTIFACT_SHORT=zt-cli
 			;;
 		hanzozt-controller)
-			ARTIFACT_SHORT=ziti-controller
+			ARTIFACT_SHORT=zt-controller
 			ZITI_ENV_FILE=/opt/hanzozt/etc/controller/bootstrap.env
 			ZITI_CRED_FILE=/opt/hanzozt/etc/controller/.pwd
-			ZITI_HOME=/var/lib/ziti-controller
+			ZITI_HOME=/var/lib/zt-controller
 			;;
 		hanzozt-router)
-			ARTIFACT_SHORT=ziti-router
+			ARTIFACT_SHORT=zt-router
 			ZITI_ENV_FILE=/opt/hanzozt/etc/router/bootstrap.env
 			ZITI_CRED_FILE=/opt/hanzozt/etc/router/.token
-			ZITI_HOME=/var/lib/ziti-router
+			ZITI_HOME=/var/lib/zt-router
 			;;
 	esac
 }
@@ -214,11 +214,11 @@ do
 			buildZitiGoBuilder
 			runZitiGoBuilder "$ARCH"
 			echo "INFO: Built ${ARTIFACT} for ${ARCH}"
-			cp -v $ARTIFACTS_DIR/$ARCH/linux/ziti $ARTIFACTS_DIR/ziti;
+			cp -v $ARTIFACTS_DIR/$ARCH/linux/zt $ARTIFACTS_DIR/zt;
 		fi
 
-		ZITI_VERSION="$($ARTIFACTS_DIR/ziti --version)" || {
-			echo "ERROR: Failed to get version from $ARTIFACTS_DIR/ziti" >&2
+		ZITI_VERSION="$($ARTIFACTS_DIR/zt --version)" || {
+			echo "ERROR: Failed to get version from $ARTIFACTS_DIR/zt" >&2
 			echo "INFO: try building only artifact 'hanzozt' first" >&2
 			exit 1
 		}
@@ -240,11 +240,11 @@ do
 				-e ZITI_REV \
 				-e GOARCH \
 				-e MINIMUM_SYSTEMD_VERSION \
-				-v "$PWD:/mnt/ziti" \
+				-v "$PWD:/mnt/zt" \
 				-v "$TMPDIR:/mnt/tmp" \
-				-w /mnt/ziti \
+				-w /mnt/zt \
 				goreleaser/nfpm package \
-				--config "/mnt/ziti/dist/dist-packages/linux/nfpm-${ARTIFACT}.yaml" \
+				--config "/mnt/zt/dist/dist-packages/linux/nfpm-${ARTIFACT}.yaml" \
 				--target "/mnt/tmp" \
 				--packager "$PKG"
 			echo "INFO: Built ${ARTIFACT} for ${ARCH} with ${PKG}"
@@ -290,8 +290,8 @@ do
 
 		if [[ ${ARTIFACT} == hanzozt ]]
 		then
-			BUILDSUM=$(sha256sum $ARTIFACTS_DIR/$ARCH/linux/ziti | awk '{print $1}')
-			INSTALLSUM=$(sha256sum /opt/hanzozt/bin/ziti | awk '{print $1}')
+			BUILDSUM=$(sha256sum $ARTIFACTS_DIR/$ARCH/linux/zt | awk '{print $1}')
+			INSTALLSUM=$(sha256sum /opt/hanzozt/bin/zt | awk '{print $1}')
 			if [[ $BUILDSUM != "$INSTALLSUM" ]]
 			then
 				echo "Checksums do not match"
@@ -303,7 +303,7 @@ done
 
 if [[ ${DOCKER} == true ]]
 then
-	# Ensure dependent docker images can reference a locally-built ziti-cli image.
+	# Ensure dependent docker images can reference a locally-built zt-cli image.
 	# If the requested artifacts include controller or router, make sure hanzozt is built first.
 	needs_cli=false
 	for ARTIFACT in "${ARTIFACTS[@]}"
@@ -327,12 +327,12 @@ then
 		done
 		if [[ ${found_cli} == false ]]
 		then
-			echo "INFO: Adding 'hanzozt' to artifacts to satisfy docker image dependency (controller/router require ziti-cli base image)" >&4
+			echo "INFO: Adding 'hanzozt' to artifacts to satisfy docker image dependency (controller/router require zt-cli base image)" >&4
 			ARTIFACTS=(hanzozt "${ARTIFACTS[@]}")
 		fi
 	fi
 
-	# Build order: ziti-cli first (if present), then the rest.
+	# Build order: zt-cli first (if present), then the rest.
 	ARTIFACTS_ASC=()
 	for ARTIFACT in "${ARTIFACTS[@]}"
 	do
@@ -348,16 +348,16 @@ then
 	echo "DEBUG: ARTIFACTS_ASC=${ARTIFACTS_ASC[*]}" >&3
 
 	# Build tag used for the locally-built cli image.
-	LOCAL_ZITI_CLI_IMAGE="ziti-cli"
+	LOCAL_ZITI_CLI_IMAGE="zt-cli"
 	LOCAL_ZITI_CLI_TAG="${ZITI_VERSION#v}-${ZITI_REV}"
 	for ARTIFACT in "${ARTIFACTS_ASC[@]}"
 	do
 		setArtifactVars "$ARTIFACT"
 		for ARCH in "${ARCHS[@]}"
 		do
-			# Controller/router Dockerfiles use a ziti-cli base image. Always reference the local
+			# Controller/router Dockerfiles use a zt-cli base image. Always reference the local
 			# image (built earlier in this loop) to avoid failing on missing registry tags.
-			ZITI_CLI_IMAGE_BUILD_ARG="${HUB_USER}/ziti-cli"
+			ZITI_CLI_IMAGE_BUILD_ARG="${HUB_USER}/zt-cli"
 			ZITI_CLI_TAG_BUILD_ARG="${ZITI_VERSION#v}-${ZITI_REV}"
 			if [[ ${ARTIFACT} == hanzozt-controller || ${ARTIFACT} == hanzozt-router ]]
 			then
@@ -365,7 +365,7 @@ then
 				ZITI_CLI_TAG_BUILD_ARG="${LOCAL_ZITI_CLI_TAG}"
 			fi
 
-			# ziti-cli Dockerfile expects the ziti-builder image to exist locally. Build it first,
+			# zt-cli Dockerfile expects the zt-builder image to exist locally. Build it first,
 			# and ensure it is used during the build.
 			if [[ ${ARTIFACT} == hanzozt ]]
 			then

@@ -20,9 +20,9 @@ import (
 	"github.com/go-openapi/runtime/middleware"
 	"github.com/hanzozt/edge-api/rest_client_api_server/operations/informational"
 	"github.com/hanzozt/edge-api/rest_model"
-	"github.com/hanzozt/ziti/v2/controller/env"
-	"github.com/hanzozt/ziti/v2/controller/permissions"
-	"github.com/hanzozt/ziti/v2/controller/response"
+	"github.com/hanzozt/zt/v2/controller/env"
+	"github.com/hanzozt/zt/v2/controller/permissions"
+	"github.com/hanzozt/zt/v2/controller/response"
 )
 
 func init() {

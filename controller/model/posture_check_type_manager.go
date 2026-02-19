@@ -17,7 +17,7 @@
 package model
 
 import (
-	"github.com/hanzozt/ziti/v2/controller/db"
+	"github.com/hanzozt/zt/v2/controller/db"
 )
 
 func NewPostureCheckTypeManager(env Env) *PostureCheckTypeManager {

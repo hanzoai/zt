@@ -188,22 +188,22 @@ Several types have been renamed to conform to standard nomenclature
     * GetNetworkSession is now GetSession
     * GetNetworkHostSession is now GetBindSession
 
-## ziti command line changes
+## zt command line changes
 
-1. The `ziti edge controller create/delete gateway` commands have been removed.
-   Use `ziti edge controller create/delete edge-router` instead.
-2. There are new `ziti edge controller create/delete service-policy` commands
+1. The `zt edge controller create/delete gateway` commands have been removed.
+   Use `zt edge controller create/delete edge-router` instead.
+2. There are new `zt edge controller create/delete service-policy` commands
 
 ## Ziti Proxy changes
 
-ziti-proxy has been incorporated into the ziti-tunnel command. Where previously one would have run
+zt-proxy has been incorporated into the zt-tunnel command. Where previously one would have run
 
 ```
-ZITI_SDK_CONFIG=./config.json ziti-proxy run <proxied services>
+ZITI_SDK_CONFIG=./config.json zt-proxy run <proxied services>
 ```
 
 now one should use
 
 ```
-ziti-tunnel proxy -i ./config.json <proxied services>
+zt-tunnel proxy -i ./config.json <proxied services>
 ```

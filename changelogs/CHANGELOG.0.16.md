@@ -2,7 +2,7 @@
 
 ## Breaking CLI Change
 
-* The `ziti edge controller create service` and `ziti edge controller update service` subcommands no
+* The `zt edge controller create service` and `zt edge controller update service` subcommands no
   longer support the `--encryption-optional` and `--encryption-required` flags. Instead, these
   subcommands now have the `--encryption=ON|OFF` flag. If this flag is not specified, the default
   is `ON`.
@@ -13,8 +13,8 @@
   The IP range for hostname-configured services defaults to 100.64/10, and can be changed with the
   `-d` command-line option.
 * fix [edge#336 Startup Race Condition](https://github.com/hanzozt/edge/issues/336)
-* fix api-session and session deletes from ziti CLI
-* update ziti-fabric-test loop3
+* fix api-session and session deletes from zt CLI
+* update zt-fabric-test loop3
 * allow specifying policy semantic from CLI when creating policies
 * new eventing features
 * Posture Check Configuration API
@@ -44,7 +44,7 @@ Handlers can now be configured for events via the config file. Here is an exampl
             handler:
                 type: file
                 format: json
-                path: /tmp/ziti-events.log
+                path: /tmp/zt-events.log
 
 Each section can include any number of event subscriptions and a single handler. The supported event
 types are:
@@ -138,24 +138,24 @@ swagger.yml) for complete details.
 
 ## Breaking CLI Change
 
-* The `ziti edge enroll` and `ziti-tunnel enroll` subcommands no longer require a --jwt argument.
-  Instead the JWT can be supplied as the first argument. So `ziti edge enroll --jwt /path/to/my.jwt`
-  would become `ziti edge enroll /path/to/my.jwt`. For now the --jwt flag is still accepted as well.
+* The `zt edge enroll` and `zt-tunnel enroll` subcommands no longer require a --jwt argument.
+  Instead the JWT can be supplied as the first argument. So `zt edge enroll --jwt /path/to/my.jwt`
+  would become `zt edge enroll /path/to/my.jwt`. For now the --jwt flag is still accepted as well.
 
 ## Deprecations
 
-* The `ziti-enroller` command is deprecated and will be removed in a future release. It will now
+* The `zt-enroller` command is deprecated and will be removed in a future release. It will now
   display a DEPRECATION warning when it is run
 
 ## What's New
 
-* [ziti#192 CAs default to 10yr expiration](https://github.com/hanzozt/ziti/issues/192)
-* Allow specifying edge config file when using ziti-fabric-test loop2
+* [zt#192 CAs default to 10yr expiration](https://github.com/hanzozt/zt/issues/192)
+* Allow specifying edge config file when using zt-fabric-test loop2
 * Add grouping data to streaming metrics, so values can be associated with their source metric
 * New WSS underlay to support Edge Router connections from Browser-based webapps using the
-  ziti-sdk-js
-* [ziti#151 enroll subcommand w/out args should print help](https://github.com/hanzozt/ziti/issues/192)
-* Fix processing of `--configTypes all` in `ziti edge list services`
+  zt-sdk-js
+* [zt#151 enroll subcommand w/out args should print help](https://github.com/hanzozt/zt/issues/192)
+* Fix processing of `--configTypes all` in `zt edge list services`
 * Addressable Terminators and the eXtensible Terminator Validation framework
 * GO Edge SDK now respects Service.EncryptionRequired setting
 * [fabric#133 Add Version Information To Hellos](https://github.com/hanzozt/fabric/issues/133)
@@ -175,7 +175,7 @@ identity, which is generally not a valid state.
 
 # SDK API changes
 
-The `Context.ListenWithOptions` method now takes a `ListenOptions` which are defined in the `ziti`
+The `Context.ListenWithOptions` method now takes a `ListenOptions` which are defined in the `zt`
 package, instead of the `edge` package.
 
 There's a new `Context.DialWithOptions` method which takes a `DialOptions` struct.
@@ -232,7 +232,7 @@ could be dialed using `web-server@ssh`.
 The Edge SDK also supports dialing and binding using identity addressing. The `Context` type now
 supports a new `DialWithOptions` method, which can be used to specify an identity.
 
-    dialOptions := &ziti.DialOptions{
+    dialOptions := &zt.DialOptions{
         Identity:       "555-555-5555",
         ConnectTimeout: 1 * time.Minute,
     }
@@ -243,13 +243,13 @@ Identity. Users may also set a flag to automatically set the Identity to the edg
 If an identity is provided, the IdentitySecret will automatically be calculated and passed in as
 well.
 
-    host.listener, err = host.context.ListenWithOptions(service.Name, &ziti.ListenOptions{
+    host.listener, err = host.context.ListenWithOptions(service.Name, &zt.ListenOptions{
         Identity: "555-555-5555",
     })
 
 or
 
-    host.listener, err = host.context.ListenWithOptions(service.Name, &ziti.ListenOptions{
+    host.listener, err = host.context.ListenWithOptions(service.Name, &zt.ListenOptions{
         BindUsingEdgeIdentity: true,
     })
 
@@ -295,7 +295,7 @@ registered under the name `edge`. The binding is the key and the validator name 
         * [Services not always getting cleared from cache when terminators are updated](https://github.com/hanzozt/fabric/issues/124)
         * [Fix service policy denormalization migration](https://github.com/hanzozt/edge/issues/291)
     * [sdk-golang#84](https://github.com/hanzozt/sdk-golang/issues/84) Fixes go routine leak that
-      would slowly kill SDK application (i.e. ziti-probe)
+      would slowly kill SDK application (i.e. zt-probe)
     * REST API doc via ReDoc available at `https://<host>:<port>/docs`
 
 # Release 0.16.1
@@ -307,8 +307,8 @@ registered under the name `edge`. The binding is the key and the validator name 
     * Session Performance Fixes
         * [Supported unindexed FK constraints in bbolt](https://github.com/hanzozt/foundation/issues/119)
         * [Improve API Session and Session creation performance](https://github.com/hanzozt/edge/issues/281)
-    * [Make enrollment available from the ziti CLI](https://github.com/hanzozt/ziti/issues/182)
-    * Docker image for `ziti-tunnel` - Embellish examples and fix entrypoint script to wait for
+    * [Make enrollment available from the zt CLI](https://github.com/hanzozt/zt/issues/182)
+    * Docker image for `zt-tunnel` - Embellish examples and fix entrypoint script to wait for
       clean up of iptables rules on exit
     * Various Internal Stability & Scale Fixes
         * Edge Controller:
@@ -321,7 +321,7 @@ registered under the name `edge`. The binding is the key and the validator name 
         * Attempts to retain and reuse API Sessions
         * Attempts to reconnect on disconnection, API Session removal, session removal
         * Improve reconnection strategy
-        * Adds `version` command to `ziti-probe`
+        * Adds `version` command to `zt-probe`
     * Go SDK
         * Removal of `Fatal()` call
         * Add ability to detect invalid sessions
@@ -341,7 +341,7 @@ registered under the name `edge`. The binding is the key and the validator name 
 * Datastore Integrity Checker
     * [foundation#107](https://github.com/hanzozt/foundation/issues/107)
     * [edge#258](https://github.com/hanzozt/edge/issues/258)
-    * [#163](https://github.com/hanzozt/ziti/issues/163)
+    * [#163](https://github.com/hanzozt/zt/issues/163)
 * Events Framework
     * [foundation#116](https://github.com/hanzozt/foundation/issues/116) - Add generic event
       framework and use it for metrics
@@ -349,11 +349,11 @@ registered under the name `edge`. The binding is the key and the validator name 
     * [edge#229](https://github.com/hanzozt/edge/issues/229) - Stream Session Events
 
 * Bug Fixes:
-    * [#152](https://github.com/hanzozt/ziti/issues/152) - Fix ziti-router enroll exit code on
+    * [#152](https://github.com/hanzozt/zt/issues/152) - Fix zt-router enroll exit code on
       failure
-    * [#156](https://github.com/hanzozt/ziti/issues/156) - Fix display of policies with empty roles
+    * [#156](https://github.com/hanzozt/zt/issues/156) - Fix display of policies with empty roles
       lists
-    * [#169](https://github.com/hanzozt/ziti/issues/169) - Fix delete by ID in Ziti CLI
+    * [#169](https://github.com/hanzozt/zt/issues/169) - Fix delete by ID in Ziti CLI
     * [edge#269](https://github.com/hanzozt/edge/issues/269) - Service Policy types in the bbolt
       should be 1 and 2, rather than 4 and 5
     * [edge#273](https://github.com/hanzozt/edge/issues/273) - Avoid tun "not pollable" read
@@ -364,7 +364,7 @@ registered under the name `edge`. The binding is the key and the validator name 
       condition
 
 * Backwards Compatibility
-    * The `ziti edge snapshot-db` command is now `ziti edge db snapshot`
+    * The `zt edge snapshot-db` command is now `zt edge db snapshot`
     * In order to fix [fabric#117](https://github.com/hanzozt/fabric/issues/117), the xgress
       protocol flow had to be updated. This means 0.16+ controllers and routers will not work with
       older controllers and routers
@@ -383,7 +383,7 @@ to `transport` - which does not support e2e encryption.
 ##### CLI Example (explicit binding):
 
 ```
-ziti edge create terminator mytcpservice 002 tcp:my-tcp-service.com:12345 --binding edge_transport
+zt edge create terminator mytcpservice 002 tcp:my-tcp-service.com:12345 --binding edge_transport
 ```
 
 ##### Edge Rest API Example:
@@ -430,25 +430,25 @@ PATCH /services/<id>
 End-to-end encryption defaults to required, no flag needed.
 
 ```
-ziti edge create service myservice
+zt edge create service myservice
 ```
 
 #### Create Service CLI (encryption optional)
 
 ```
-ziti edge create service myservice -o
+zt edge create service myservice -o
 ```
 
 #### Update Service CLI (set encryption required)
 
 ```
-ziti edge update service myservice -e
+zt edge update service myservice -e
 ```
 
 #### Update Service CLI (set encryption optional)
 
 ```
-ziti edge update service myservice -o
+zt edge update service myservice -o
 ```
 
 ## Router Scaling Issues
@@ -507,7 +507,7 @@ routers. Performance was tested against the APIs used by the SDKs.
 See for more detail:
 
 * [Denormalized Policies](https://github.com/hanzozt/edge/wiki/Denormalized-Policies)
-* [Characterization (Pure Model Tests)](https://github.com/hanzozt/ziti/wiki/Characterization#pure-model-tests)
+* [Characterization (Pure Model Tests)](https://github.com/hanzozt/zt/wiki/Characterization#pure-model-tests)
 
 ## Data Integrity Checking Framework
 
@@ -526,10 +526,10 @@ There are two new REST APIs available
 * POST `/database/fix-data-integrity`
     * https://github.com/hanzozt/edge/blob/master/specs/swagger.yml#L2930
 
-These APIs can be used from the ziti CLI.
+These APIs can be used from the zt CLI.
 
-* `ziti edge db check-integrity` - to report on data integrity issues
-* `ziti edge db check-integrity -f` - to report on data integrity issues and attempt to fix any that
+* `zt edge db check-integrity` - to report on data integrity issues
+* `zt edge db check-integrity -f` - to report on data integrity issues and attempt to fix any that
   are found
 
 ## Events Framework

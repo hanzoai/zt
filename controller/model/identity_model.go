@@ -20,10 +20,10 @@ import (
 	"time"
 
 	"github.com/hanzozt/foundation/v2/errorz"
-	"github.com/hanzozt/sdk-golang/ziti"
+	"github.com/hanzozt/sdk-golang/zt"
 	"github.com/hanzozt/storage/boltz"
-	"github.com/hanzozt/ziti/v2/controller/db"
-	"github.com/hanzozt/ziti/v2/controller/models"
+	"github.com/hanzozt/zt/v2/controller/db"
+	"github.com/hanzozt/zt/v2/controller/models"
 	"go.etcd.io/bbolt"
 )
 
@@ -86,9 +86,9 @@ type Identity struct {
 	SdkInfo                    *SdkInfo
 	HasErConnection            bool
 	EdgeRouterConnectionStatus IdentityOnlineState
-	DefaultHostingPrecedence   ziti.Precedence
+	DefaultHostingPrecedence   zt.Precedence
 	DefaultHostingCost         uint16
-	ServiceHostingPrecedences  map[string]ziti.Precedence
+	ServiceHostingPrecedences  map[string]zt.Precedence
 	ServiceHostingCosts        map[string]uint16
 	AppData                    map[string]interface{}
 	AuthPolicyId               string

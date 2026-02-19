@@ -6,7 +6,7 @@ import (
 	"time"
 
 	"github.com/hanzozt/foundation/v2/versions"
-	"github.com/hanzozt/ziti/v2/controller/event"
+	"github.com/hanzozt/zt/v2/controller/event"
 
 	"github.com/stretchr/testify/assert"
 )

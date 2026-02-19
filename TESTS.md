@@ -1,6 +1,6 @@
 # Smoketest
 
-The ziti project uses a fablab based environment to run smoketests. These tests are run
+The zt project uses a fablab based environment to run smoketests. These tests are run
 in github, but can be run locally as well.
 
 ## Running smoketests locally
@@ -9,10 +9,10 @@ First you must have an AWS account with permissions to create VPCs, setup securi
 and run EC2 instances. If you are able to the run the AWS CLI using an access key and 
 secret token, the smoketest should work as well.
 
-The following steps assume you are starting at the root of a cloned `ziti` repository.
+The following steps assume you are starting at the root of a cloned `zt` repository.
 
 ```
-$ cd zititest
+$ cd zttest
 $ go install ./...
 $ simple-transfer create
 $ ZITI_VERSION=0.0.0 simple-transfer up
@@ -29,7 +29,7 @@ $ simple-transfer create -l ha=true
 So the full set of steps for running the HA smoketest locally are:
 
 ```
-$ cd zititest
+$ cd zttest
 $ go install ./...
 $ simple-transfer create -l ha=true
 $ ZITI_VERSION=0.0.0 simple-transfer up
@@ -50,7 +50,7 @@ The instance data is encrypted and requires a passphrase to decrypt. Here's an e
 script which can import a GH actions workflow instance into your local environment.
 
 ```
-aws s3 cp s3://ziti-smoketest-fablab-instances/simple-transfer-$1.tar.gz.gpg ${HOME}/Downloads/simple-transfer-$1.tar.gz.gpg
+aws s3 cp s3://zt-smoketest-fablab-instances/simple-transfer-$1.tar.gz.gpg ${HOME}/Downloads/simple-transfer-$1.tar.gz.gpg
 FABLAB_PASSPHRASE=<passphrase goes here> simple-transfer import ${HOME}/Downloads/simple-transfer-$1.tar.gz.gpg
 rm ${HOME}/Downloads/simple-transfer-$1.tar.gz.gpg
 ```
@@ -59,13 +59,13 @@ You would pass the workflow run number into the script. If you need the GPG pass
 To delete the instance data out of S3, you would run:
 
 ```
-aws s3 rm s3://ziti-smoketest-fablab-instances/simple-transfer-$1.tar.gz.gpg
+aws s3 rm s3://zt-smoketest-fablab-instances/simple-transfer-$1.tar.gz.gpg
 ```
 
 The HA smoketest is very similar. 
 
 ```
-aws s3 cp s3://ziti-smoketest-fablab-instances/simple-transfer-ha-$1.tar.gz.gpg ${HOME}/Downloads/simple-transfer-ha-$1.tar.gz.gpg
+aws s3 cp s3://zt-smoketest-fablab-instances/simple-transfer-ha-$1.tar.gz.gpg ${HOME}/Downloads/simple-transfer-ha-$1.tar.gz.gpg
 FABLAB_PASSPHRASE=<passphrase goes here> simple-transfer import ${HOME}/Downloads/simple-transfer-ha-$1.tar.gz.gpg
 rm ${HOME}/Downloads/simple-transfer-ha-$1.tar.gz.gpg
 ```
@@ -74,7 +74,7 @@ You would pass the workflow run number into the script. If you need the GPG pass
 To delete the instance data out of S3, you would run:
 
 ```
-aws s3 rm s3://ziti-smoketest-fablab-instances/simple-transfer-ha-$1.tar.gz.gpg
+aws s3 rm s3://zt-smoketest-fablab-instances/simple-transfer-ha-$1.tar.gz.gpg
 ```
 
 

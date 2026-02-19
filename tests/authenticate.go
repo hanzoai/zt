@@ -37,10 +37,10 @@ import (
 	"github.com/michaelquigley/pfxlog"
 	"github.com/hanzozt/edge-api/rest_model"
 	"github.com/hanzozt/foundation/v2/stringz"
-	"github.com/hanzozt/sdk-golang/ziti"
-	"github.com/hanzozt/ziti/v2/common/cert"
-	"github.com/hanzozt/ziti/v2/common/eid"
-	"github.com/hanzozt/ziti/v2/controller/env"
+	"github.com/hanzozt/sdk-golang/zt"
+	"github.com/hanzozt/zt/v2/common/cert"
+	"github.com/hanzozt/zt/v2/common/eid"
+	"github.com/hanzozt/zt/v2/controller/env"
 	"github.com/pkg/errors"
 	"gopkg.in/resty.v1"
 )
@@ -374,11 +374,11 @@ func (request *authenticatedRequests) newAuthenticatedRequestWithBody(body inter
 		SetBody(body)
 }
 
-func (request *authenticatedRequests) RequireCreateSdkContext(roleAttributes ...string) (*identity, ziti.Context) {
+func (request *authenticatedRequests) RequireCreateSdkContext(roleAttributes ...string) (*identity, zt.Context) {
 	identity := request.RequireNewIdentityWithOtt(false, roleAttributes...)
 	identity.config = request.testContext.EnrollIdentity(identity.Id)
 
-	context, err := ziti.NewContext(identity.config)
+	context, err := zt.NewContext(identity.config)
 
 	if err != nil {
 		pfxlog.Logger().Fatalf("could not create new context with config: %v", err)

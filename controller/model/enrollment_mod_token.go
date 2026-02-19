@@ -24,19 +24,19 @@ import (
 	"github.com/hanzozt/edge-api/rest_model"
 	"github.com/hanzozt/foundation/v2/errorz"
 	"github.com/hanzozt/foundation/v2/stringz"
-	"github.com/hanzozt/ziti/v2/common/cert"
-	"github.com/hanzozt/ziti/v2/common/eid"
-	"github.com/hanzozt/ziti/v2/controller/apierror"
-	"github.com/hanzozt/ziti/v2/controller/change"
-	"github.com/hanzozt/ziti/v2/controller/db"
-	"github.com/hanzozt/ziti/v2/controller/models"
+	"github.com/hanzozt/zt/v2/common/cert"
+	"github.com/hanzozt/zt/v2/common/eid"
+	"github.com/hanzozt/zt/v2/controller/apierror"
+	"github.com/hanzozt/zt/v2/controller/change"
+	"github.com/hanzozt/zt/v2/controller/db"
+	"github.com/hanzozt/zt/v2/controller/models"
 )
 
 const (
 	// AuthorizationHeader is the HTTP header containing the bearer token for token-based enrollment.
 	AuthorizationHeader = "authorization"
 	// TargetTokenIssuerId is the HTTP header used to specify a particular token issuer for enrollment.
-	TargetTokenIssuerId = "ziti-token-issuer-id"
+	TargetTokenIssuerId = "zt-token-issuer-id"
 )
 
 // EnrollModuleToken handles JWT token-based enrollment for identities.

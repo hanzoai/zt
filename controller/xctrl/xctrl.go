@@ -19,7 +19,7 @@ package xctrl
 import (
 	"github.com/hanzozt/channel/v4"
 	"github.com/hanzozt/storage/boltz"
-	"github.com/hanzozt/ziti/v2/common/config"
+	"github.com/hanzozt/zt/v2/common/config"
 )
 
 // An Xctrl allows adding handlers to the router <-> controller connection

@@ -6,9 +6,9 @@ import (
 	"github.com/hanzozt/channel/v4"
 	"github.com/hanzozt/foundation/v2/versions"
 	"github.com/hanzozt/transport/v2"
-	"github.com/hanzozt/ziti/v2/common/capabilities"
-	"github.com/hanzozt/ziti/v2/common/pb/ctrl_pb"
-	"github.com/hanzozt/ziti/v2/controller/config"
+	"github.com/hanzozt/zt/v2/common/capabilities"
+	"github.com/hanzozt/zt/v2/common/pb/ctrl_pb"
+	"github.com/hanzozt/zt/v2/controller/config"
 )
 
 func (ctx *TestContext) NewControlChannelListener() channel.UnderlayListener {
@@ -30,7 +30,7 @@ func (ctx *TestContext) NewControlChannelListener() channel.UnderlayListener {
 	ctrlChannelListenerConfig := channel.ListenerConfig{
 		ConnectOptions:  config.Ctrl.Options.ConnectOptions,
 		Headers:         headers,
-		TransportConfig: transport.Configuration{"protocol": "ziti-ctrl"},
+		TransportConfig: transport.Configuration{"protocol": "zt-ctrl"},
 	}
 	ctrlListener := channel.NewClassicListener(config.Id, config.Ctrl.Listener, ctrlChannelListenerConfig)
 	ctx.Req.NoError(ctrlListener.Listen())

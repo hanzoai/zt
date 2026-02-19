@@ -23,7 +23,7 @@ import (
 	"github.com/hanzozt/channel/v4"
 	"github.com/hanzozt/metrics"
 	"github.com/hanzozt/sdk-golang/xgress"
-	"github.com/hanzozt/ziti/v2/router/env"
+	"github.com/hanzozt/zt/v2/router/env"
 )
 
 // NewChannelPeekHandler creates a channel PeekHandler which tracks latency, message rate and message size distribution

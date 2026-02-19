@@ -21,10 +21,10 @@ import (
 
 	"github.com/michaelquigley/pfxlog"
 	"github.com/hanzozt/channel/v4"
-	"github.com/hanzozt/ziti/v2/common/pb/edge_ctrl_pb"
-	"github.com/hanzozt/ziti/v2/common/runner"
-	"github.com/hanzozt/ziti/v2/controller/env"
-	routerEnv "github.com/hanzozt/ziti/v2/router/env"
+	"github.com/hanzozt/zt/v2/common/pb/edge_ctrl_pb"
+	"github.com/hanzozt/zt/v2/common/runner"
+	"github.com/hanzozt/zt/v2/controller/env"
+	routerEnv "github.com/hanzozt/zt/v2/router/env"
 	"google.golang.org/protobuf/proto"
 )
 

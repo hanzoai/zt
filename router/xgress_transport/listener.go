@@ -26,8 +26,8 @@ import (
 	"github.com/hanzozt/identity"
 	"github.com/hanzozt/sdk-golang/xgress"
 	"github.com/hanzozt/transport/v2"
-	"github.com/hanzozt/ziti/v2/router/env"
-	"github.com/hanzozt/ziti/v2/router/xgress_router"
+	"github.com/hanzozt/zt/v2/router/env"
+	"github.com/hanzozt/zt/v2/router/xgress_router"
 )
 
 type listener struct {

@@ -624,8 +624,8 @@ github.com/hanzozt/x509-claims v1.0.3 h1:HNdQ8Nf1agB3lBs1gahcO6zfkeS4S5xoQ2/PkY4
 github.com/hanzozt/x509-claims v1.0.3/go.mod h1:Z0WIpBm6c4ecrpRKrou6Gk2wrLWxJO/+tuUwKh8VewE=
 github.com/hanzozt/xweb/v3 v3.0.3 h1:0+3k2+L5DrC24axFNSDTpCE7LTO/1sob2FCGNX5cRnY=
 github.com/hanzozt/xweb/v3 v3.0.3/go.mod h1:/wAhy5gg9HR+Gy/RApHg3Vf2EPN438XxcxH0I2zhGNk=
-github.com/hanzozt/ziti-db-explorer v1.1.3 h1:9JER16MJzagtYPdGEhgDcw2p/BXNCVbf9IgA/sMB52w=
-github.com/hanzozt/ziti-db-explorer v1.1.3/go.mod h1:pMIMNJoTRSTbkO2e7cZWiBokA3jMdeiGAILP3QhU+v8=
+github.com/hanzozt/zt-db-explorer v1.1.3 h1:9JER16MJzagtYPdGEhgDcw2p/BXNCVbf9IgA/sMB52w=
+github.com/hanzozt/zt-db-explorer v1.1.3/go.mod h1:pMIMNJoTRSTbkO2e7cZWiBokA3jMdeiGAILP3QhU+v8=
 github.com/orcaman/concurrent-map/v2 v2.0.1 h1:jOJ5Pg2w1oeB6PeDurIYf6k9PQ+aTITr/6lP/L/zp6c=
 github.com/orcaman/concurrent-map/v2 v2.0.1/go.mod h1:9Eq3TG2oBe5FirmYWQfYO5iH1q0Jv47PLaNK++uCdOM=
 github.com/parallaxsecond/parsec-client-go v0.0.0-20221025095442-f0a77d263cf9 h1:mOvehYivJ4Aqu2CPe3D3lv8jhqOI9/1o0THxJHBE0qw=

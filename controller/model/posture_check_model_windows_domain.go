@@ -21,8 +21,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/hanzozt/ziti/v2/common/pb/edge_cmd_pb"
-	"github.com/hanzozt/ziti/v2/controller/db"
+	"github.com/hanzozt/zt/v2/common/pb/edge_cmd_pb"
+	"github.com/hanzozt/zt/v2/controller/db"
 	"github.com/pkg/errors"
 	"go.etcd.io/bbolt"
 )

@@ -26,11 +26,11 @@ import (
 	managementInformational "github.com/hanzozt/edge-api/rest_management_api_server/operations/informational"
 	"github.com/hanzozt/edge-api/rest_model"
 	"github.com/hanzozt/xweb/v3"
-	"github.com/hanzozt/ziti/v2/common/build"
-	"github.com/hanzozt/ziti/v2/controller/env"
-	"github.com/hanzozt/ziti/v2/controller/permissions"
-	"github.com/hanzozt/ziti/v2/controller/response"
-	"github.com/hanzozt/ziti/v2/controller/webapis"
+	"github.com/hanzozt/zt/v2/common/build"
+	"github.com/hanzozt/zt/v2/controller/env"
+	"github.com/hanzozt/zt/v2/controller/permissions"
+	"github.com/hanzozt/zt/v2/controller/response"
+	"github.com/hanzozt/zt/v2/controller/webapis"
 )
 
 func init() {

@@ -23,7 +23,7 @@ import (
 	"github.com/hanzozt/foundation/v2/errorz"
 	"github.com/hanzozt/storage/ast"
 	"github.com/hanzozt/storage/boltz"
-	"github.com/hanzozt/ziti/v2/common/eid"
+	"github.com/hanzozt/zt/v2/common/eid"
 	"go.etcd.io/bbolt"
 )
 

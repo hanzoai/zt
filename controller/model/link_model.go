@@ -22,7 +22,7 @@ import (
 	"time"
 
 	"github.com/hanzozt/foundation/v2/concurrenz"
-	"github.com/hanzozt/ziti/v2/common/pb/ctrl_pb"
+	"github.com/hanzozt/zt/v2/common/pb/ctrl_pb"
 )
 
 // TODO: Add CreateDate

@@ -24,7 +24,7 @@ import (
 	"time"
 
 	metrics2 "github.com/hanzozt/metrics"
-	"github.com/hanzozt/ziti/v2/controller/event"
+	"github.com/hanzozt/zt/v2/controller/event"
 	"github.com/stretchr/testify/require"
 )
 

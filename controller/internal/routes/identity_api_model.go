@@ -26,12 +26,12 @@ import (
 	"github.com/hanzozt/edge-api/rest_model"
 	"github.com/hanzozt/foundation/v2/stringz"
 	"github.com/hanzozt/foundation/v2/util"
-	"github.com/hanzozt/sdk-golang/ziti"
-	"github.com/hanzozt/ziti/v2/controller/db"
-	"github.com/hanzozt/ziti/v2/controller/env"
-	"github.com/hanzozt/ziti/v2/controller/model"
-	"github.com/hanzozt/ziti/v2/controller/models"
-	"github.com/hanzozt/ziti/v2/controller/response"
+	"github.com/hanzozt/sdk-golang/zt"
+	"github.com/hanzozt/zt/v2/controller/db"
+	"github.com/hanzozt/zt/v2/controller/env"
+	"github.com/hanzozt/zt/v2/controller/model"
+	"github.com/hanzozt/zt/v2/controller/models"
+	"github.com/hanzozt/zt/v2/controller/response"
 )
 
 const (
@@ -79,15 +79,15 @@ func getDefaultHostingCost(v *rest_model.TerminatorCost) uint16 {
 	return uint16(*v)
 }
 
-func getServiceHostingPrecedences(v rest_model.TerminatorPrecedenceMap) map[string]ziti.Precedence {
-	result := map[string]ziti.Precedence{}
+func getServiceHostingPrecedences(v rest_model.TerminatorPrecedenceMap) map[string]zt.Precedence {
+	result := map[string]zt.Precedence{}
 	for k, v := range v {
-		result[k] = ziti.GetPrecedenceForLabel(string(v))
+		result[k] = zt.GetPrecedenceForLabel(string(v))
 	}
 	return result
 }
 
-func getRestServiceHostingPrecedences(v map[string]ziti.Precedence) rest_model.TerminatorPrecedenceMap {
+func getRestServiceHostingPrecedences(v map[string]zt.Precedence) rest_model.TerminatorPrecedenceMap {
 	result := rest_model.TerminatorPrecedenceMap{}
 	for k, v := range v {
 		result[k] = rest_model.TerminatorPrecedence(v.String())
@@ -124,7 +124,7 @@ func MapCreateIdentityToModel(identity *rest_model.IdentityCreate) (*model.Ident
 		IsDefaultAdmin:            false,
 		IsAdmin:                   *identity.IsAdmin,
 		RoleAttributes:            AttributesOrDefault(identity.RoleAttributes),
-		DefaultHostingPrecedence:  ziti.GetPrecedenceForLabel(string(identity.DefaultHostingPrecedence)),
+		DefaultHostingPrecedence:  zt.GetPrecedenceForLabel(string(identity.DefaultHostingPrecedence)),
 		DefaultHostingCost:        getDefaultHostingCost(identity.DefaultHostingCost),
 		ServiceHostingPrecedences: getServiceHostingPrecedences(identity.ServiceHostingPrecedences),
 		ServiceHostingCosts:       getServiceHostingCosts(identity.ServiceHostingCosts),
@@ -173,7 +173,7 @@ func MapUpdateIdentityToModel(id string, identity *rest_model.IdentityUpdate, id
 		IdentityTypeId:            identityTypeId,
 		IsAdmin:                   *identity.IsAdmin,
 		RoleAttributes:            AttributesOrDefault(identity.RoleAttributes),
-		DefaultHostingPrecedence:  ziti.GetPrecedenceForLabel(string(identity.DefaultHostingPrecedence)),
+		DefaultHostingPrecedence:  zt.GetPrecedenceForLabel(string(identity.DefaultHostingPrecedence)),
 		DefaultHostingCost:        getDefaultHostingCost(identity.DefaultHostingCost),
 		ServiceHostingPrecedences: getServiceHostingPrecedences(identity.ServiceHostingPrecedences),
 		ServiceHostingCosts:       getServiceHostingCosts(identity.ServiceHostingCosts),
@@ -196,7 +196,7 @@ func MapPatchIdentityToModel(id string, identity *rest_model.IdentityPatch, iden
 		IdentityTypeId:            identityTypeId,
 		IsAdmin:                   BoolOrDefault(identity.IsAdmin),
 		RoleAttributes:            AttributesOrDefault(identity.RoleAttributes),
-		DefaultHostingPrecedence:  ziti.GetPrecedenceForLabel(string(identity.DefaultHostingPrecedence)),
+		DefaultHostingPrecedence:  zt.GetPrecedenceForLabel(string(identity.DefaultHostingPrecedence)),
 		DefaultHostingCost:        getDefaultHostingCost(identity.DefaultHostingCost),
 		ServiceHostingPrecedences: getServiceHostingPrecedences(identity.ServiceHostingPrecedences),
 		ServiceHostingCosts:       getServiceHostingCosts(identity.ServiceHostingCosts),

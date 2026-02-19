@@ -48,35 +48,35 @@ import (
 	"github.com/hanzozt/sdk-golang/xgress"
 	"github.com/hanzozt/transport/v2"
 	"github.com/hanzozt/xweb/v3"
-	"github.com/hanzozt/ziti/v2/common"
-	"github.com/hanzozt/ziti/v2/common/alert"
-	"github.com/hanzozt/ziti/v2/common/config"
-	"github.com/hanzozt/ziti/v2/common/ctrlchan"
-	"github.com/hanzozt/ziti/v2/common/health"
-	fabricMetrics "github.com/hanzozt/ziti/v2/common/metrics"
-	"github.com/hanzozt/ziti/v2/common/pb/ctrl_pb"
-	"github.com/hanzozt/ziti/v2/common/profiler"
-	"github.com/hanzozt/ziti/v2/common/version"
-	"github.com/hanzozt/ziti/v2/controller/command"
-	"github.com/hanzozt/ziti/v2/router/env"
-	"github.com/hanzozt/ziti/v2/router/forwarder"
-	"github.com/hanzozt/ziti/v2/router/handler_ctrl"
-	"github.com/hanzozt/ziti/v2/router/handler_link"
-	"github.com/hanzozt/ziti/v2/router/handler_xgress"
-	"github.com/hanzozt/ziti/v2/router/interfaces"
-	"github.com/hanzozt/ziti/v2/router/link"
-	routerMetrics "github.com/hanzozt/ziti/v2/router/metrics"
-	"github.com/hanzozt/ziti/v2/router/state"
-	"github.com/hanzozt/ziti/v2/router/xgress_edge"
-	"github.com/hanzozt/ziti/v2/router/xgress_edge_transport"
-	"github.com/hanzozt/ziti/v2/router/xgress_edge_tunnel"
-	"github.com/hanzozt/ziti/v2/router/xgress_proxy"
-	"github.com/hanzozt/ziti/v2/router/xgress_proxy_udp"
-	"github.com/hanzozt/ziti/v2/router/xgress_router"
-	"github.com/hanzozt/ziti/v2/router/xgress_transport"
-	"github.com/hanzozt/ziti/v2/router/xgress_transport_udp"
-	"github.com/hanzozt/ziti/v2/router/xlink"
-	"github.com/hanzozt/ziti/v2/router/xlink_transport"
+	"github.com/hanzozt/zt/v2/common"
+	"github.com/hanzozt/zt/v2/common/alert"
+	"github.com/hanzozt/zt/v2/common/config"
+	"github.com/hanzozt/zt/v2/common/ctrlchan"
+	"github.com/hanzozt/zt/v2/common/health"
+	fabricMetrics "github.com/hanzozt/zt/v2/common/metrics"
+	"github.com/hanzozt/zt/v2/common/pb/ctrl_pb"
+	"github.com/hanzozt/zt/v2/common/profiler"
+	"github.com/hanzozt/zt/v2/common/version"
+	"github.com/hanzozt/zt/v2/controller/command"
+	"github.com/hanzozt/zt/v2/router/env"
+	"github.com/hanzozt/zt/v2/router/forwarder"
+	"github.com/hanzozt/zt/v2/router/handler_ctrl"
+	"github.com/hanzozt/zt/v2/router/handler_link"
+	"github.com/hanzozt/zt/v2/router/handler_xgress"
+	"github.com/hanzozt/zt/v2/router/interfaces"
+	"github.com/hanzozt/zt/v2/router/link"
+	routerMetrics "github.com/hanzozt/zt/v2/router/metrics"
+	"github.com/hanzozt/zt/v2/router/state"
+	"github.com/hanzozt/zt/v2/router/xgress_edge"
+	"github.com/hanzozt/zt/v2/router/xgress_edge_transport"
+	"github.com/hanzozt/zt/v2/router/xgress_edge_tunnel"
+	"github.com/hanzozt/zt/v2/router/xgress_proxy"
+	"github.com/hanzozt/zt/v2/router/xgress_proxy_udp"
+	"github.com/hanzozt/zt/v2/router/xgress_router"
+	"github.com/hanzozt/zt/v2/router/xgress_transport"
+	"github.com/hanzozt/zt/v2/router/xgress_transport_udp"
+	"github.com/hanzozt/zt/v2/router/xlink"
+	"github.com/hanzozt/zt/v2/router/xlink_transport"
 	"github.com/pkg/errors"
 	metrics2 "github.com/rcrowley/go-metrics"
 	"github.com/sirupsen/logrus"
@@ -369,7 +369,7 @@ func (self *Router) ListenForShutdownSignal(ctx context.Context) {
 	}
 
 	log := pfxlog.Logger()
-	log.Info("shutting down ziti router")
+	log.Info("shutting down zt router")
 
 	if err := self.Shutdown(); err != nil {
 		log.WithError(err).Error("error encountered during shutdown")
@@ -783,7 +783,7 @@ func (self *Router) startXlinkListeners() {
 		}
 
 		if factory, found := self.xlinkFactories[binding]; found {
-			lmap[transport.KeyProtocol] = "ziti-link"
+			lmap[transport.KeyProtocol] = "zt-link"
 			listener, err := factory.CreateListener(self.config.Id, lmap)
 			if err != nil {
 				logrus.Fatalf("error creating Xlink listener (%v)", err)

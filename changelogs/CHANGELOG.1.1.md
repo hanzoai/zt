@@ -15,8 +15,8 @@
     * [Issue #629](https://github.com/hanzozt/sdk-golang/issues/629) - JWT session refresh interprets expiration date incorrectly
 
 * github.com/hanzozt/secretstream: [v0.1.24 -> v0.1.25](https://github.com/hanzozt/secretstream/compare/v0.1.24...v0.1.25)
-* github.com/hanzozt/ziti: [v1.1.14 -> v1.1.15](https://github.com/hanzozt/ziti/compare/v1.1.14...v1.1.15)
-    * [Issue #2460](https://github.com/hanzozt/ziti/issues/2460) - Panic on JWT token refresh
+* github.com/hanzozt/zt: [v1.1.14 -> v1.1.15](https://github.com/hanzozt/zt/compare/v1.1.14...v1.1.15)
+    * [Issue #2460](https://github.com/hanzozt/zt/issues/2460) - Panic on JWT token refresh
 
 # Release 1.1.14
 
@@ -28,21 +28,21 @@
 
 * github.com/hanzozt/edge-api: [v0.26.30 -> v0.26.31](https://github.com/hanzozt/edge-api/compare/v0.26.30...v0.26.31)
 * github.com/hanzozt/jwks: [v1.0.5 -> v1.0.6](https://github.com/hanzozt/jwks/compare/v1.0.5...v1.0.6)
-* github.com/hanzozt/ziti: [v1.1.13 -> v1.1.14](https://github.com/hanzozt/ziti/compare/v1.1.13...v1.1.14)
-    * [Issue #2119](https://github.com/hanzozt/ziti/issues/2119) - Add authentication events
-    * [Issue #2424](https://github.com/hanzozt/ziti/issues/2424) - Enabling any health check causes WARNING to be logged
-    * [Issue #2454](https://github.com/hanzozt/ziti/issues/2454) - Fix release archive
-    * [Issue #1479](https://github.com/hanzozt/ziti/issues/1479) - ziti edge list ... show paginated output but no suggestions on how to go to next page
-    * [Issue #1420](https://github.com/hanzozt/ziti/issues/1420) - ziti-cli comma+space causes unhelpful error
-    * [Issue #2207](https://github.com/hanzozt/ziti/issues/2207) - ziti edge login --token -- gets "username and password fields are required"
-    * [Issue #2444](https://github.com/hanzozt/ziti/issues/2444) - Change default semantic for policies created from the CLI from AllOf to AnyOf
+* github.com/hanzozt/zt: [v1.1.13 -> v1.1.14](https://github.com/hanzozt/zt/compare/v1.1.13...v1.1.14)
+    * [Issue #2119](https://github.com/hanzozt/zt/issues/2119) - Add authentication events
+    * [Issue #2424](https://github.com/hanzozt/zt/issues/2424) - Enabling any health check causes WARNING to be logged
+    * [Issue #2454](https://github.com/hanzozt/zt/issues/2454) - Fix release archive
+    * [Issue #1479](https://github.com/hanzozt/zt/issues/1479) - zt edge list ... show paginated output but no suggestions on how to go to next page
+    * [Issue #1420](https://github.com/hanzozt/zt/issues/1420) - zt-cli comma+space causes unhelpful error
+    * [Issue #2207](https://github.com/hanzozt/zt/issues/2207) - zt edge login --token -- gets "username and password fields are required"
+    * [Issue #2444](https://github.com/hanzozt/zt/issues/2444) - Change default semantic for policies created from the CLI from AllOf to AnyOf
 
 * github.com/hanzozt/xweb/v2: [v2.1.2 -> v2.1.3](https://github.com/hanzozt/xweb/compare/v2.1.2...v2.1.3)
-  * [Issue #2454](https://github.com/hanzozt/ziti/issues/2454) - Fix release archive
-  * [Issue #2429](https://github.com/hanzozt/ziti/issues/2429) - Controller configurations without default Edge API binding panics 
-* github.com/hanzozt/ziti: [v1.1.12 -> v1.1.13](https://github.com/hanzozt/ziti/compare/v1.1.12...v1.1.13)
-  * [Issue #2427](https://github.com/hanzozt/ziti/issues/2427) - Add low overhead xgress protocol for DTLS links
-  * [Issue #2422](https://github.com/hanzozt/ziti/issues/2422) - Busy first hop links should backpressure to xgress senders
+  * [Issue #2454](https://github.com/hanzozt/zt/issues/2454) - Fix release archive
+  * [Issue #2429](https://github.com/hanzozt/zt/issues/2429) - Controller configurations without default Edge API binding panics 
+* github.com/hanzozt/zt: [v1.1.12 -> v1.1.13](https://github.com/hanzozt/zt/compare/v1.1.12...v1.1.13)
+  * [Issue #2427](https://github.com/hanzozt/zt/issues/2427) - Add low overhead xgress protocol for DTLS links
+  * [Issue #2422](https://github.com/hanzozt/zt/issues/2422) - Busy first hop links should backpressure to xgress senders
   * support using "\*" in host.v1/host.v2 allowedAddresses
 
 
@@ -85,13 +85,13 @@ If you're not sure if you have ever changed a policy type, there is a database i
 Start the check using:
 
 ```
-ziti fabric db start-check-integrity
+zt fabric db start-check-integrity
 ```
 
 This kicks off the operation in the background. The status of the check can be seen using:
 
 ```
-ziti fabric db check-integrity-status 
+zt fabric db check-integrity-status 
 ```
 
 By default this is a read-only operation. If the read-only run reports errors, it can be run 
@@ -99,11 +99,11 @@ with the `-f` flag, which will have it try to fix errors. The data integrity err
 by this bug should all be fixable by the integrity checker.
 
 ```
-ziti fabric db start-check-integrity -f
+zt fabric db start-check-integrity -f
 ```
 
 **WARNINGS**: 
-* Always make a database snapshot before running the integrity checker: `ziti db fabric snapshot <optional path`
+* Always make a database snapshot before running the integrity checker: `zt db fabric snapshot <optional path`
 * The integrity checker can be very resource intensive, depending on the size of your data model. 
   It is recommended that you run the integrity checker when the system is otherwise not busy.
 
@@ -133,15 +133,15 @@ ziti fabric db start-check-integrity -f
 * github.com/hanzozt/xweb/v2: [v2.1.1 -> v2.1.2](https://github.com/hanzozt/xweb/compare/v2.1.1...v2.1.2)
 * github.com/hanzozt-incubator/cf: v0.0.3 (new)
 * github.com/hanzozt/dilithium: [v0.3.3 -> v0.3.5](https://github.com/hanzozt/dilithium/compare/v0.3.3...v0.3.5)
-* github.com/hanzozt/ziti: [v1.1.11 -> v1.1.12](https://github.com/hanzozt/ziti/compare/v1.1.11...v1.1.12)
-    * [Issue #2413](https://github.com/hanzozt/ziti/issues/2413) - Add db anonymization utility
-    * [Issue #2415](https://github.com/hanzozt/ziti/issues/2415) - Fix policy denormalization when service policy type is changed
-    * [Issue #2406](https://github.com/hanzozt/ziti/issues/2406) - ziti agent controller snapshot-db exit code is always successful
-    * [Issue #2405](https://github.com/hanzozt/ziti/issues/2405) - Investigate Older SDKs Not Enrolling Not Connecting in HA
-    * [Issue #2403](https://github.com/hanzozt/ziti/issues/2403) - Fix terminator costing concurrency issue
-    * [Issue #2397](https://github.com/hanzozt/ziti/issues/2397) - JWKS endpoints w/ new keys do not get refreshed
-    * [Issue #2390](https://github.com/hanzozt/ziti/issues/2390) - Update to github.com/hanzozt/channel/v3
-    * [Issue #2388](https://github.com/hanzozt/ziti/issues/2388) - Remove use of ziti fabric add-identity commands in 004-controller-pki.md
+* github.com/hanzozt/zt: [v1.1.11 -> v1.1.12](https://github.com/hanzozt/zt/compare/v1.1.11...v1.1.12)
+    * [Issue #2413](https://github.com/hanzozt/zt/issues/2413) - Add db anonymization utility
+    * [Issue #2415](https://github.com/hanzozt/zt/issues/2415) - Fix policy denormalization when service policy type is changed
+    * [Issue #2406](https://github.com/hanzozt/zt/issues/2406) - zt agent controller snapshot-db exit code is always successful
+    * [Issue #2405](https://github.com/hanzozt/zt/issues/2405) - Investigate Older SDKs Not Enrolling Not Connecting in HA
+    * [Issue #2403](https://github.com/hanzozt/zt/issues/2403) - Fix terminator costing concurrency issue
+    * [Issue #2397](https://github.com/hanzozt/zt/issues/2397) - JWKS endpoints w/ new keys do not get refreshed
+    * [Issue #2390](https://github.com/hanzozt/zt/issues/2390) - Update to github.com/hanzozt/channel/v3
+    * [Issue #2388](https://github.com/hanzozt/zt/issues/2388) - Remove use of zt fabric add-identity commands in 004-controller-pki.md
 
 # Release 1.1.11
 
@@ -162,23 +162,23 @@ ziti fabric db start-check-integrity -f
 * github.com/hanzozt/cobra-to-md: v1.0.1 (new)
 * github.com/hanzozt/edge-api: [v0.26.25 -> v0.26.29](https://github.com/hanzozt/edge-api/compare/v0.26.25...v0.26.29)
 * github.com/hanzozt/jwks: [v1.0.3 -> v1.0.4](https://github.com/hanzozt/jwks/compare/v1.0.3...v1.0.4)
-* github.com/hanzozt/ziti: [v1.1.9 -> v1.1.10](https://github.com/hanzozt/ziti/compare/v1.1.9...v1.1.10)
-    * [Issue #2374](https://github.com/hanzozt/ziti/issues/2374) - Edge Routers Do Not Accept JWTs for `hanzozt`/`native` audiences
-    * [Issue #2353](https://github.com/hanzozt/ziti/issues/2353) - Update go-jose to avoid CVEs
-    * [Issue #2333](https://github.com/hanzozt/ziti/issues/2333) - Give zit agent controller snapshot-db same capabilities as ziti fabric db snapshot
-    * [Issue #2343](https://github.com/hanzozt/ziti/issues/2343) - Transferring leadership to another controller fails sometimes
+* github.com/hanzozt/zt: [v1.1.9 -> v1.1.10](https://github.com/hanzozt/zt/compare/v1.1.9...v1.1.10)
+    * [Issue #2374](https://github.com/hanzozt/zt/issues/2374) - Edge Routers Do Not Accept JWTs for `hanzozt`/`native` audiences
+    * [Issue #2353](https://github.com/hanzozt/zt/issues/2353) - Update go-jose to avoid CVEs
+    * [Issue #2333](https://github.com/hanzozt/zt/issues/2333) - Give zit agent controller snapshot-db same capabilities as zt fabric db snapshot
+    * [Issue #2343](https://github.com/hanzozt/zt/issues/2343) - Transferring leadership to another controller fails sometimes
 
 # Release 1.1.9
 
 ## What's New
 
 * Bug fixes, enhancements and continuing progress on controller HA
-* Includes a performance update ([Issue #2340](https://github.com/hanzozt/ziti/issues/2340)) which should improve
+* Includes a performance update ([Issue #2340](https://github.com/hanzozt/zt/issues/2340)) which should improve
   connection ramp times. Previously circuits would start with a relatively low window size and ramp slowly. Circuits
   will now start with a large initial window size and scale back if they can't keep up
-* Added `ziti ops verify-network`. A command to aid when configuring the overlay network, this command will check config
+* Added `zt ops verify-network`. A command to aid when configuring the overlay network, this command will check config
   files for obvious mistakes
-* Added `ziti ops verify-traffic`. Another command to aid when configuring the overlay network, this command will ensure
+* Added `zt ops verify-traffic`. Another command to aid when configuring the overlay network, this command will ensure
   the overlay network is able to pass traffic
 
 ## Component Updates and Bug Fixes
@@ -199,19 +199,19 @@ ziti fabric db start-check-integrity -f
 * github.com/hanzozt/transport/v2: [v2.0.138 -> v2.0.143](https://github.com/hanzozt/transport/compare/v2.0.138...v2.0.143)
     * [Issue #85](https://github.com/hanzozt/transport/issues/85) - Update to latest dtls library
 
-* github.com/hanzozt/ziti: [v1.1.8 -> v1.1.9](https://github.com/hanzozt/ziti/compare/v1.1.8...v1.1.9)
-    * [Issue #2343](https://github.com/hanzozt/ziti/issues/2343) - Transferring leadership to another controller fails sometimes
-    * [Issue #2340](https://github.com/hanzozt/ziti/issues/2340) - Update xgress defaults
-    * [Issue #2336](https://github.com/hanzozt/ziti/issues/2336) - Re-enable optional xgress payload mtu, with message framing
-    * [Issue #2091](https://github.com/hanzozt/ziti/issues/2091) - Add `scope` and `cliend_id` configuration to ext jwt signers
-    * [Issue #2318](https://github.com/hanzozt/ziti/issues/2318) - Unable to update appData on existing edge routers using PATCH
-    * [Issue #2281](https://github.com/hanzozt/ziti/issues/2281) - Session Certificates Should Return a Chain
-    * [Issue #2285](https://github.com/hanzozt/ziti/issues/2285) - routers sometimes report link metrics for closed links 
-    * [Issue #2282](https://github.com/hanzozt/ziti/issues/2282) - Investigate OIDC TOTP Redirect w/ application/json
-    * [Issue #2279](https://github.com/hanzozt/ziti/issues/2279) - Ensure xweb initialized before RAFT
-    * [Issue #2277](https://github.com/hanzozt/ziti/issues/2277) - docker controller and router deployments - generate a config by default
-    * [Issue #2154](https://github.com/hanzozt/ziti/issues/2154) - HA MFA Enrollment returns 500
-    * [Issue #2159](https://github.com/hanzozt/ziti/issues/2159) - API Session in HA return 400
+* github.com/hanzozt/zt: [v1.1.8 -> v1.1.9](https://github.com/hanzozt/zt/compare/v1.1.8...v1.1.9)
+    * [Issue #2343](https://github.com/hanzozt/zt/issues/2343) - Transferring leadership to another controller fails sometimes
+    * [Issue #2340](https://github.com/hanzozt/zt/issues/2340) - Update xgress defaults
+    * [Issue #2336](https://github.com/hanzozt/zt/issues/2336) - Re-enable optional xgress payload mtu, with message framing
+    * [Issue #2091](https://github.com/hanzozt/zt/issues/2091) - Add `scope` and `cliend_id` configuration to ext jwt signers
+    * [Issue #2318](https://github.com/hanzozt/zt/issues/2318) - Unable to update appData on existing edge routers using PATCH
+    * [Issue #2281](https://github.com/hanzozt/zt/issues/2281) - Session Certificates Should Return a Chain
+    * [Issue #2285](https://github.com/hanzozt/zt/issues/2285) - routers sometimes report link metrics for closed links 
+    * [Issue #2282](https://github.com/hanzozt/zt/issues/2282) - Investigate OIDC TOTP Redirect w/ application/json
+    * [Issue #2279](https://github.com/hanzozt/zt/issues/2279) - Ensure xweb initialized before RAFT
+    * [Issue #2277](https://github.com/hanzozt/zt/issues/2277) - docker controller and router deployments - generate a config by default
+    * [Issue #2154](https://github.com/hanzozt/zt/issues/2154) - HA MFA Enrollment returns 500
+    * [Issue #2159](https://github.com/hanzozt/zt/issues/2159) - API Session in HA return 400
 
 # Release 1.1.8
 
@@ -233,14 +233,14 @@ ziti fabric db start-check-integrity -f
     * [Issue #80](https://github.com/hanzozt/storage/issues/80) - Set indexes aren't cleaned up when referenced entities are deleted, only when they change
     * [Issue #78](https://github.com/hanzozt/storage/issues/78) - Allow searching for things without case sensitivity
 
-* github.com/hanzozt/ziti: [v1.1.7 -> v1.1.8](https://github.com/hanzozt/ziti/compare/v1.1.7...v1.1.8)
-    * [Issue #2121](https://github.com/hanzozt/ziti/issues/2121) - Use router data model for edge router tunnel
-    * [Issue #2245](https://github.com/hanzozt/ziti/issues/2245) - Add ability to retrieve a list of services that reference a config
-    * [Issue #2089](https://github.com/hanzozt/ziti/issues/2089) - Enhance Management API to list Posture Check Roles
-    * [Issue #2209](https://github.com/hanzozt/ziti/issues/2209) - `/edge/v1/external-jwt-signers` needs to be open
-    * [Issue #2010](https://github.com/hanzozt/ziti/issues/2010) - Add config information to router data model
-    * [Issue #1990](https://github.com/hanzozt/ziti/issues/1990) - Implement subscriber model for identity/service events in router
-    * [Issue #2240](https://github.com/hanzozt/ziti/issues/2240) - Secondary ext-jwt Auth Policy check incorrectly requires primary ext-jwt auth to be enabled
+* github.com/hanzozt/zt: [v1.1.7 -> v1.1.8](https://github.com/hanzozt/zt/compare/v1.1.7...v1.1.8)
+    * [Issue #2121](https://github.com/hanzozt/zt/issues/2121) - Use router data model for edge router tunnel
+    * [Issue #2245](https://github.com/hanzozt/zt/issues/2245) - Add ability to retrieve a list of services that reference a config
+    * [Issue #2089](https://github.com/hanzozt/zt/issues/2089) - Enhance Management API to list Posture Check Roles
+    * [Issue #2209](https://github.com/hanzozt/zt/issues/2209) - `/edge/v1/external-jwt-signers` needs to be open
+    * [Issue #2010](https://github.com/hanzozt/zt/issues/2010) - Add config information to router data model
+    * [Issue #1990](https://github.com/hanzozt/zt/issues/1990) - Implement subscriber model for identity/service events in router
+    * [Issue #2240](https://github.com/hanzozt/zt/issues/2240) - Secondary ext-jwt Auth Policy check incorrectly requires primary ext-jwt auth to be enabled
 
 
 # Release 1.1.7
@@ -270,7 +270,7 @@ field which takes a string that must be URI hostname compatible (see: https://gi
 If this value is not defined, a trust domain will be generated from the root CA certificate of the controller. 
 
 For networks that will be deployed after this change, it is highly suggested that a SPIFFE id is added to certificates.
-The `ziti pki create ...` tooling supports the `--spiffe-id` option to help handle this scenario.
+The `zt pki create ...` tooling supports the `--spiffe-id` option to help handle this scenario.
 
 ### Generated Trust Domain Log Messages
 
@@ -312,12 +312,12 @@ This release can be run in HA mode. The code is still beta, as we're still findi
 have been fixed since Beta 1 and c-based SDKs and tunnelers now work in HA mode. The smoketest can now be run
 with HA controllers and clients.
 
-* Latest ZET release supporting HA control: https://github.com/hanzozt/ziti-tunnel-sdk-c/releases/tag/v2.0.0-alpha9
+* Latest ZET release supporting HA control: https://github.com/hanzozt/zt-tunnel-sdk-c/releases/tag/v2.0.0-alpha9
 * Windows, Mac and Mobile clients are in the process of being updated
 
 For more information:
 
-* HA overview/getting started/migration: [HA Documentation](https://github.com/hanzozt/ziti/tree/release-next/doc/ha)
+* HA overview/getting started/migration: [HA Documentation](https://github.com/hanzozt/zt/tree/release-next/doc/ha)
 * Open Issues: [HA Project Board](https://github.com/orgs/hanzozt/projects/9/views/1)
 
 ## Component Updates and Bug Fixes
@@ -325,15 +325,15 @@ For more information:
 * github.com/hanzozt/storage: [v0.2.45 -> v0.2.46](https://github.com/hanzozt/storage/compare/v0.2.45...v0.2.46)
     * [Issue #76](https://github.com/hanzozt/storage/issues/76) - Add support for non-boltz symbols to the the boltz stores
 
-* github.com/hanzozt/ziti: [v1.1.5 -> v1.1.6](https://github.com/hanzozt/ziti/compare/v1.1.5...v1.1.6)
-    * [Issue #2171](https://github.com/hanzozt/ziti/issues/2171) - Routers should consider control channels unresponsive if they are not connected
-    * [Issue #2219](https://github.com/hanzozt/ziti/issues/2219) - Add inspection for router connections
-    * [Issue #2195](https://github.com/hanzozt/ziti/issues/2195) - cached data model file set to
-    * [Issue #2222](https://github.com/hanzozt/ziti/issues/2222) - Add way to get read-only status from cluster nodes
-    * [Issue #2191](https://github.com/hanzozt/ziti/issues/2191) - Change raft list cluster members element name from values to data to match rest of REST api
-    * [Issue #785](https://github.com/hanzozt/ziti/issues/785) - ziti edge update service-policy to empty/no posture checks fails
-    * [Issue #2205](https://github.com/hanzozt/ziti/issues/2205) - Merge fabric and edge model code
-    * [Issue #2165](https://github.com/hanzozt/ziti/issues/2165) - Add network id
+* github.com/hanzozt/zt: [v1.1.5 -> v1.1.6](https://github.com/hanzozt/zt/compare/v1.1.5...v1.1.6)
+    * [Issue #2171](https://github.com/hanzozt/zt/issues/2171) - Routers should consider control channels unresponsive if they are not connected
+    * [Issue #2219](https://github.com/hanzozt/zt/issues/2219) - Add inspection for router connections
+    * [Issue #2195](https://github.com/hanzozt/zt/issues/2195) - cached data model file set to
+    * [Issue #2222](https://github.com/hanzozt/zt/issues/2222) - Add way to get read-only status from cluster nodes
+    * [Issue #2191](https://github.com/hanzozt/zt/issues/2191) - Change raft list cluster members element name from values to data to match rest of REST api
+    * [Issue #785](https://github.com/hanzozt/zt/issues/785) - zt edge update service-policy to empty/no posture checks fails
+    * [Issue #2205](https://github.com/hanzozt/zt/issues/2205) - Merge fabric and edge model code
+    * [Issue #2165](https://github.com/hanzozt/zt/issues/2165) - Add network id
 
 # Release 1.1.5
 
@@ -351,11 +351,11 @@ For more information:
     * [Issue #83](https://github.com/hanzozt/transport/issues/83) - tls.Dial should use proxy configuration if provided
 
 * github.com/hanzozt/xweb/v2: [v2.1.0 -> v2.1.1](https://github.com/hanzozt/xweb/compare/v2.1.0...v2.1.1)
-* github.com/hanzozt/ziti: [v1.1.4 -> v1.1.5](https://github.com/hanzozt/ziti/compare/v1.1.4...v1.1.5)
-    * [Issue #2173](https://github.com/hanzozt/ziti/issues/2173) - panic on HA peer connect
-    * [Issue #2171](https://github.com/hanzozt/ziti/issues/2171) - Routers should consider control channels unresponsive if they are not connected
-    * [Issue #2086](https://github.com/hanzozt/ziti/issues/2086) - Enable File Watching for Router/Controller Identities
-    * [Issue #2087](https://github.com/hanzozt/ziti/issues/2087) - Ext JWT not setting provider value in auth query
+* github.com/hanzozt/zt: [v1.1.4 -> v1.1.5](https://github.com/hanzozt/zt/compare/v1.1.4...v1.1.5)
+    * [Issue #2173](https://github.com/hanzozt/zt/issues/2173) - panic on HA peer connect
+    * [Issue #2171](https://github.com/hanzozt/zt/issues/2171) - Routers should consider control channels unresponsive if they are not connected
+    * [Issue #2086](https://github.com/hanzozt/zt/issues/2086) - Enable File Watching for Router/Controller Identities
+    * [Issue #2087](https://github.com/hanzozt/zt/issues/2087) - Ext JWT not setting provider value in auth query
 
 # Release 1.1.4
 
@@ -370,12 +370,12 @@ This release can be run in HA mode. The code is still beta, as we're still findi
 have been fixed since Alpha 3 and c-based SDKs and tunnelers now work in HA mode. The smoketest can now be run
 with HA controllers and clients.
 
-* Initial ZET release support HA control: https://github.com/hanzozt/ziti-tunnel-sdk-c/releases/tag/v2.0.0-alpha1
+* Initial ZET release support HA control: https://github.com/hanzozt/zt-tunnel-sdk-c/releases/tag/v2.0.0-alpha1
 * Windows, Mac and Mobile clients are in the process of being updated
 
 For more information:
 
-* HA overview/getting started/migration: [HA Documentation](https://github.com/hanzozt/ziti/tree/release-next/doc/ha)
+* HA overview/getting started/migration: [HA Documentation](https://github.com/hanzozt/zt/tree/release-next/doc/ha)
 * Open Issues: [HA Project Board](https://github.com/orgs/hanzozt/projects/9/views/1)
 
 ## Component Updates and Bug Fixes 
@@ -400,9 +400,9 @@ For more information:
     * [Issue #71](https://github.com/hanzozt/storage/issues/71) - Add AddFkIndexCascadeDelete
 
 * github.com/hanzozt/transport/v2: [v2.0.133 -> v2.0.136](https://github.com/hanzozt/transport/compare/v2.0.133...v2.0.136)
-* github.com/hanzozt/ziti: [v1.1.3 -> v1.1.4](https://github.com/hanzozt/ziti/compare/v1.1.3...v1.1.4)
-    * [Issue #2084](https://github.com/hanzozt/ziti/issues/2084) - Bug: Router enrollment is missing its server chain
-    * [Issue #2124](https://github.com/hanzozt/ziti/issues/2124) - api session certs should be deleted when related api sessions are deleted
+* github.com/hanzozt/zt: [v1.1.3 -> v1.1.4](https://github.com/hanzozt/zt/compare/v1.1.3...v1.1.4)
+    * [Issue #2084](https://github.com/hanzozt/zt/issues/2084) - Bug: Router enrollment is missing its server chain
+    * [Issue #2124](https://github.com/hanzozt/zt/issues/2124) - api session certs should be deleted when related api sessions are deleted
 
 # Release 1.1.3
 
@@ -428,7 +428,7 @@ This is currently only supported in the Go SDK.
 ### Go SDK Example
 
 ```
-ziti edge create service test --terminator-strategy sticky
+zt edge create service test --terminator-strategy sticky
 ```
 
 ```
@@ -436,7 +436,7 @@ ziti edge create service test --terminator-strategy sticky
 	token := conn.Conn.GetStickinessToken()
 	_ = conn.Close()
 
-	dialOptions := &ziti.DialOptions{
+	dialOptions := &zt.DialOptions{
 		ConnectTimeout:  time.Second,
 		StickinessToken: token,
 	}
@@ -459,11 +459,11 @@ ziti edge create service test --terminator-strategy sticky
 * github.com/hanzozt/secretstream: [v0.1.19 -> v0.1.20](https://github.com/hanzozt/secretstream/compare/v0.1.19...v0.1.20)
 * github.com/hanzozt/storage: [v0.2.37 -> v0.2.41](https://github.com/hanzozt/storage/compare/v0.2.37...v0.2.41)
 * github.com/hanzozt/transport/v2: [v2.0.131 -> v2.0.133](https://github.com/hanzozt/transport/compare/v2.0.131...v2.0.133)
-* github.com/hanzozt/ziti: [v1.1.2 -> v1.1.3](https://github.com/hanzozt/ziti/compare/v1.1.2...v1.1.3)
-    * [Issue #2064](https://github.com/hanzozt/ziti/issues/2064) - Fix panic on link close
-    * [Issue #2062](https://github.com/hanzozt/ziti/issues/2062) - Link connection retry delays should contain some randomization 
-    * [Issue #2055](https://github.com/hanzozt/ziti/issues/2055) - Controller panics on 'ziti agent cluster list'
-    * [Issue #2019](https://github.com/hanzozt/ziti/issues/2019) - Support mechanism for sticky dials
+* github.com/hanzozt/zt: [v1.1.2 -> v1.1.3](https://github.com/hanzozt/zt/compare/v1.1.2...v1.1.3)
+    * [Issue #2064](https://github.com/hanzozt/zt/issues/2064) - Fix panic on link close
+    * [Issue #2062](https://github.com/hanzozt/zt/issues/2062) - Link connection retry delays should contain some randomization 
+    * [Issue #2055](https://github.com/hanzozt/zt/issues/2055) - Controller panics on 'zt agent cluster list'
+    * [Issue #2019](https://github.com/hanzozt/zt/issues/2019) - Support mechanism for sticky dials
 
 # Release 1.1.2
 
@@ -473,12 +473,12 @@ ziti edge create service test --terminator-strategy sticky
 
 ## Component Updates and Bug Fixes
 * github.com/hanzozt/sdk-golang: [v0.23.32 -> v0.23.35](https://github.com/hanzozt/sdk-golang/compare/v0.23.32...v0.23.35)
-* github.com/hanzozt/ziti: [v1.1.1 -> v1.1.2](https://github.com/hanzozt/ziti/compare/v1.1.1...v1.1.2)
-  * [Issue #2032](https://github.com/hanzozt/ziti/issues/2032) - Auto CA Enrollment Fails w/ 400 Bad Request
-  * [Issue #2026](https://github.com/hanzozt/ziti/issues/2026) - Root Version Endpoint Handling 404s
-  * [Issue #2002](https://github.com/hanzozt/ziti/issues/2002) - JWKS endpoints may not refresh on new KID
-  * [Issue #2007](https://github.com/hanzozt/ziti/issues/2007) - Identities for edge routers with tunneling enabled sometimes show hasEdgeRouterConnection=false even though everything is OK
-  * [Issue #1983](https://github.com/hanzozt/ziti/issues/1983) - delete of non-existent entity causes panic when run on follower controller
+* github.com/hanzozt/zt: [v1.1.1 -> v1.1.2](https://github.com/hanzozt/zt/compare/v1.1.1...v1.1.2)
+  * [Issue #2032](https://github.com/hanzozt/zt/issues/2032) - Auto CA Enrollment Fails w/ 400 Bad Request
+  * [Issue #2026](https://github.com/hanzozt/zt/issues/2026) - Root Version Endpoint Handling 404s
+  * [Issue #2002](https://github.com/hanzozt/zt/issues/2002) - JWKS endpoints may not refresh on new KID
+  * [Issue #2007](https://github.com/hanzozt/zt/issues/2007) - Identities for edge routers with tunneling enabled sometimes show hasEdgeRouterConnection=false even though everything is OK
+  * [Issue #1983](https://github.com/hanzozt/zt/issues/1983) - delete of non-existent entity causes panic when run on follower controller
 
 
 # Release 1.1.1
@@ -487,7 +487,7 @@ ziti edge create service test --terminator-strategy sticky
 
 * HA Alpha-3
 * Bug fixes and minor enhancements
-* [The all-in-one quickstart compose project](./quickstart/docker/all-in-one/README.md) now uses the same environment variable to configure the controller's address as the ziti command line tool
+* [The all-in-one quickstart compose project](./quickstart/docker/all-in-one/README.md) now uses the same environment variable to configure the controller's address as the zt command line tool
 
 ## HA Alpha 3
 
@@ -495,7 +495,7 @@ This release can be run in HA mode. The code is still alpha, as we're still find
 
 For more information:
 
-* HA overview/getting started/migration: [HA Documementation](https://github.com/hanzozt/ziti/tree/release-next/doc/ha)
+* HA overview/getting started/migration: [HA Documementation](https://github.com/hanzozt/zt/tree/release-next/doc/ha)
 * Open Issues: [HA Project Board](https://github.com/orgs/hanzozt/projects/9/views/1) 
 
 ## New Contributors
@@ -512,14 +512,14 @@ Thanks to new contributors
 * github.com/hanzozt/storage: [v0.2.36 -> v0.2.37](https://github.com/hanzozt/storage/compare/v0.2.36...v0.2.37)
     * [Issue #64](https://github.com/hanzozt/storage/issues/64) - Add support for transaction complete listeners
 
-* github.com/hanzozt/ziti: [v1.1.0 -> v1.1.1](https://github.com/hanzozt/ziti/compare/v1.1.0...v1.1.1)
-    * [Issue #1973](https://github.com/hanzozt/ziti/issues/1973) - Raft should not initialize if db is misconfigured
-    * [Issue #1971](https://github.com/hanzozt/ziti/issues/1971) - BUG: OIDC authentication does not convert config type names to ids
-    * [Issue #1966](https://github.com/hanzozt/ziti/issues/1966) - Handle multi-entity updates in router data model
-    * [Issue #1772](https://github.com/hanzozt/ziti/issues/1772) - provide a better error when the user is not logged in
-    * [Issue #1964](https://github.com/hanzozt/ziti/issues/1964) - Add API Session Token Update Messaging
-    * [Issue #1960](https://github.com/hanzozt/ziti/issues/1960) - JWT Session exchange isn't working
-    * [Issue #1962](https://github.com/hanzozt/ziti/issues/1962) - permissions enum doesn't contain "Invalid"
+* github.com/hanzozt/zt: [v1.1.0 -> v1.1.1](https://github.com/hanzozt/zt/compare/v1.1.0...v1.1.1)
+    * [Issue #1973](https://github.com/hanzozt/zt/issues/1973) - Raft should not initialize if db is misconfigured
+    * [Issue #1971](https://github.com/hanzozt/zt/issues/1971) - BUG: OIDC authentication does not convert config type names to ids
+    * [Issue #1966](https://github.com/hanzozt/zt/issues/1966) - Handle multi-entity updates in router data model
+    * [Issue #1772](https://github.com/hanzozt/zt/issues/1772) - provide a better error when the user is not logged in
+    * [Issue #1964](https://github.com/hanzozt/zt/issues/1964) - Add API Session Token Update Messaging
+    * [Issue #1960](https://github.com/hanzozt/zt/issues/1960) - JWT Session exchange isn't working
+    * [Issue #1962](https://github.com/hanzozt/zt/issues/1962) - permissions enum doesn't contain "Invalid"
 
 # Release 1.1.0
 
@@ -527,16 +527,16 @@ Thanks to new contributors
 
 * HA Alpha2
 * Deployments Alpha
-    * Linux packages provide systemd services for controller and router. Both depend on existing package `hanzozt` which provides the `ziti` command line tool.
-        * `hanzozt-controller` provides `ziti-controller.service`
-        * `hanzozt-router` provides `ziti-router.service`
+    * Linux packages provide systemd services for controller and router. Both depend on existing package `hanzozt` which provides the `zt` command line tool.
+        * `hanzozt-controller` provides `zt-controller.service`
+        * `hanzozt-router` provides `zt-router.service`
     * Container images for controller and router now share the bootstrapping logic with the packages, so they
       support the same configuration options.
 
 ## HA Alpha2
 
 This release can be run in HA mode. The code is still alpha, so there are still some bugs and missing features,
-however basic functionality work with the exceptions noted. See the [HA Documementation](https://github.com/hanzozt/ziti/tree/release-next/doc/ha)
+however basic functionality work with the exceptions noted. See the [HA Documementation](https://github.com/hanzozt/zt/tree/release-next/doc/ha)
 for instructions on setting up an HA cluster.
 
 ### Known Issues
@@ -558,11 +558,11 @@ More information can be found on the [HA Project Board](https://github.com/orgs/
     * [Issue #541](https://github.com/hanzozt/sdk-golang/issues/541) - Token exchange in Go SDK not working
     * [Issue #540](https://github.com/hanzozt/sdk-golang/issues/540) - Switch to EdgeRouter.SupportedProtocols from deprecated URLs map
 
-* github.com/hanzozt/ziti: [v1.0.0 -> v1.1.0](https://github.com/hanzozt/ziti/compare/v1.0.0...v1.1.0)
-    * [Issue #1952](https://github.com/hanzozt/ziti/issues/1952) - Remove support for fabric only identities in CLI
-    * [Issue #1950](https://github.com/hanzozt/ziti/issues/1950) - Add policy type to service policy router events
-    * [Issue #1951](https://github.com/hanzozt/ziti/issues/1951) - Add more attributes to route data model Identity
-    * [Issue #1942](https://github.com/hanzozt/ziti/issues/1942) - Rework ER/T intercept code to be sessionless or use JWT sessions
-    * [Issue #1936](https://github.com/hanzozt/ziti/issues/1936) - SDK Hosted HA sessions are getting removed when they shouldn't be
-    * [Issue #1934](https://github.com/hanzozt/ziti/issues/1934) - Don't publish binary builds to artifactory
-    * [Issue #1931](https://github.com/hanzozt/ziti/issues/1931) - "invalid kid: <kid>" randomly occurs in HA mode
+* github.com/hanzozt/zt: [v1.0.0 -> v1.1.0](https://github.com/hanzozt/zt/compare/v1.0.0...v1.1.0)
+    * [Issue #1952](https://github.com/hanzozt/zt/issues/1952) - Remove support for fabric only identities in CLI
+    * [Issue #1950](https://github.com/hanzozt/zt/issues/1950) - Add policy type to service policy router events
+    * [Issue #1951](https://github.com/hanzozt/zt/issues/1951) - Add more attributes to route data model Identity
+    * [Issue #1942](https://github.com/hanzozt/zt/issues/1942) - Rework ER/T intercept code to be sessionless or use JWT sessions
+    * [Issue #1936](https://github.com/hanzozt/zt/issues/1936) - SDK Hosted HA sessions are getting removed when they shouldn't be
+    * [Issue #1934](https://github.com/hanzozt/zt/issues/1934) - Don't publish binary builds to artifactory
+    * [Issue #1931](https://github.com/hanzozt/zt/issues/1931) - "invalid kid: <kid>" randomly occurs in HA mode

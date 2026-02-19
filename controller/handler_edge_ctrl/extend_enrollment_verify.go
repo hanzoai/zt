@@ -23,8 +23,8 @@ import (
 	"github.com/michaelquigley/pfxlog"
 	"github.com/hanzozt/channel/v4"
 	nfpem "github.com/hanzozt/foundation/v2/pem"
-	"github.com/hanzozt/ziti/v2/common/pb/edge_ctrl_pb"
-	"github.com/hanzozt/ziti/v2/controller/env"
+	"github.com/hanzozt/zt/v2/common/pb/edge_ctrl_pb"
+	"github.com/hanzozt/zt/v2/controller/env"
 	"google.golang.org/protobuf/proto"
 )
 

@@ -24,7 +24,7 @@ release/
 github_deploy_key
 .vscode/
 Pipfile
-ziti.ignore
+zt.ignore
 linux-build
 *.log
 /build/

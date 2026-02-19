@@ -18,7 +18,7 @@ package change
 
 import (
 	"github.com/hanzozt/channel/v4"
-	"github.com/hanzozt/ziti/v2/common/ctrlchan"
+	"github.com/hanzozt/zt/v2/common/ctrlchan"
 )
 
 func NewCtrlChannelChange(routerId, routerName, method string, ctrlCh ctrlchan.CtrlChannel) *Context {

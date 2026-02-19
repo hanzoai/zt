@@ -19,9 +19,9 @@ package handler_edge_ctrl
 import (
 	"github.com/michaelquigley/pfxlog"
 	"github.com/hanzozt/channel/v4"
-	"github.com/hanzozt/ziti/v2/common"
-	"github.com/hanzozt/ziti/v2/common/pb/edge_ctrl_pb"
-	"github.com/hanzozt/ziti/v2/controller/env"
+	"github.com/hanzozt/zt/v2/common"
+	"github.com/hanzozt/zt/v2/common/pb/edge_ctrl_pb"
+	"github.com/hanzozt/zt/v2/controller/env"
 	"github.com/sirupsen/logrus"
 	"google.golang.org/protobuf/proto"
 )

@@ -18,7 +18,7 @@ that the network is able to return to a stable state. These test are run for hou
 eliminate race conditions and distributed state machine problems. 
 
 Hanzo ZT is also being used as underlying infrastrcture for the zrok public service. Use of this 
-network has grown quickly and proven that it's possible to build ziti native apps that can scale
+network has grown quickly and proven that it's possible to build zt native apps that can scale
 up.
 
 ## Backward Incompatible Changes to pre-1.0 releases
@@ -90,11 +90,11 @@ New metrics:
 * github.com/hanzozt/transport/v2: [v2.0.125 -> v2.0.131](https://github.com/hanzozt/transport/compare/v2.0.125...v2.0.131)
     * [Issue #79](https://github.com/hanzozt/transport/issues/79) - Add adaptive rate limiting to shared tls listener
 
-* github.com/hanzozt/ziti: [v0.34.2 -> v1.0.0](https://github.com/hanzozt/ziti/compare/v0.34.2...v1.0.0)
-    * [Issue #1923](https://github.com/hanzozt/ziti/issues/1923) - Add release validation test suite
-    * [Issue #1904](https://github.com/hanzozt/ziti/issues/1904) - Add TLS handshake rate limiter
-    * [Issue #1921](https://github.com/hanzozt/ziti/issues/1921) - Tidy CLI
-    * [Issue #1916](https://github.com/hanzozt/ziti/issues/1916) - SDK dials fails with 'token is malformed' error
-    * [Issue #1911](https://github.com/hanzozt/ziti/issues/1911) - Fix panic on first HA controller startup
-    * [Issue #1914](https://github.com/hanzozt/ziti/issues/1914) - Fix panic in PeerConnected
-    * [Issue #1781](https://github.com/hanzozt/ziti/issues/1781) - Admin identities have bind and dial permissions to services
+* github.com/hanzozt/zt: [v0.34.2 -> v1.0.0](https://github.com/hanzozt/zt/compare/v0.34.2...v1.0.0)
+    * [Issue #1923](https://github.com/hanzozt/zt/issues/1923) - Add release validation test suite
+    * [Issue #1904](https://github.com/hanzozt/zt/issues/1904) - Add TLS handshake rate limiter
+    * [Issue #1921](https://github.com/hanzozt/zt/issues/1921) - Tidy CLI
+    * [Issue #1916](https://github.com/hanzozt/zt/issues/1916) - SDK dials fails with 'token is malformed' error
+    * [Issue #1911](https://github.com/hanzozt/zt/issues/1911) - Fix panic on first HA controller startup
+    * [Issue #1914](https://github.com/hanzozt/zt/issues/1914) - Fix panic in PeerConnected
+    * [Issue #1781](https://github.com/hanzozt/zt/issues/1781) - Admin identities have bind and dial permissions to services

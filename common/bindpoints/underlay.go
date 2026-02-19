@@ -32,7 +32,7 @@ import (
 )
 
 const (
-	ZitiCtrlAddressHeader = "ziti-ctrl-address"
+	ZitiCtrlAddressHeader = "zt-ctrl-address"
 )
 
 // UnderlayBindPoint represents the interface:port address of where a http.Server should listen for a ServerConfig and the public

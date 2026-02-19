@@ -66,7 +66,7 @@ func init() {
     },
     "version": "0.16.54"
   },
-  "host": "demo.ziti.dev",
+  "host": "demo.zt.dev",
   "basePath": "/fabric/v1",
   "paths": {
     "/circuits": {
@@ -2956,7 +2956,7 @@ func init() {
     },
     "version": "0.16.54"
   },
-  "host": "demo.ziti.dev",
+  "host": "demo.zt.dev",
   "basePath": "/fabric/v1",
   "paths": {
     "/circuits": {

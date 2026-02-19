@@ -1,1 +1,1 @@
-docker run -v docker_ziti-fs:/persistent --network docker_zitiblue --rm -it hanzozt/quickstart /bin/bash
+docker run -v docker_zt-fs:/persistent --network docker_ztblue --rm -it hanzozt/quickstart /bin/bash

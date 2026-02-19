@@ -26,7 +26,7 @@ import (
 	"time"
 
 	"github.com/hanzozt/transport/v2/tls"
-	"github.com/hanzozt/ziti/v2/controller/command"
+	"github.com/hanzozt/zt/v2/controller/command"
 
 	"github.com/michaelquigley/pfxlog"
 	"github.com/hanzozt/channel/v4"
@@ -34,8 +34,8 @@ import (
 	"github.com/hanzozt/identity"
 	"github.com/hanzozt/sdk-golang/xgress"
 	"github.com/hanzozt/transport/v2"
-	"github.com/hanzozt/ziti/v2/common/config"
-	"github.com/hanzozt/ziti/v2/common/pb/ctrl_pb"
+	"github.com/hanzozt/zt/v2/common/config"
+	"github.com/hanzozt/zt/v2/common/pb/ctrl_pb"
 	"github.com/pkg/errors"
 	"gopkg.in/yaml.v2"
 	yaml3 "gopkg.in/yaml.v3"

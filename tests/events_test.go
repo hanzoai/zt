@@ -26,11 +26,11 @@ import (
 	"time"
 
 	"github.com/hanzozt/foundation/v2/stringz"
-	"github.com/hanzozt/sdk-golang/ziti"
-	"github.com/hanzozt/ziti/v2/controller/event"
-	"github.com/hanzozt/ziti/v2/controller/events"
-	"github.com/hanzozt/ziti/v2/controller/xt_smartrouting"
-	"github.com/hanzozt/ziti/v2/router/env"
+	"github.com/hanzozt/sdk-golang/zt"
+	"github.com/hanzozt/zt/v2/controller/event"
+	"github.com/hanzozt/zt/v2/controller/events"
+	"github.com/hanzozt/zt/v2/controller/xt_smartrouting"
+	"github.com/hanzozt/zt/v2/router/env"
 )
 
 type eventsCollector struct {
@@ -107,7 +107,7 @@ func Test_LegacyEvents(t *testing.T) {
 	defer hostContext.Close()
 
 	// We're testing legacy/non-oidc authentication, so we need to disable OIDC
-	hostContext.(*ziti.ContextImpl).CtrlClt.SetAllowOidcDynamicallyEnabled(false)
+	hostContext.(*zt.ContextImpl).CtrlClt.SetAllowOidcDynamicallyEnabled(false)
 
 	listener, err := hostContext.Listen(service.Name)
 	ctx.Req.NoError(err)
@@ -123,7 +123,7 @@ func Test_LegacyEvents(t *testing.T) {
 	defer clientContext.Close()
 
 	// We're testing legacy/non-oidc authentication, so we need to disable OIDC
-	clientContext.(*ziti.ContextImpl).CtrlClt.SetAllowOidcDynamicallyEnabled(false)
+	clientContext.(*zt.ContextImpl).CtrlClt.SetAllowOidcDynamicallyEnabled(false)
 
 	conn := ctx.WrapConn(clientContext.Dial(service.Name))
 	defer func() { _ = conn.Close() }()

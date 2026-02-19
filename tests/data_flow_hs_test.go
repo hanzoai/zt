@@ -24,8 +24,8 @@ import (
 	"time"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/hanzozt/sdk-golang/ziti"
-	"github.com/hanzozt/ziti/v2/common/eid"
+	"github.com/hanzozt/sdk-golang/zt"
+	"github.com/hanzozt/zt/v2/common/eid"
 )
 
 func Test_HSDataflow(t *testing.T) {
@@ -80,7 +80,7 @@ func Test_HSDataflow(t *testing.T) {
 	clientIdentity := ctx.AdminManagementSession.RequireNewIdentityWithOtt(false)
 	clientConfig := ctx.EnrollIdentity(clientIdentity.Id)
 
-	clientContext, err := ziti.NewContext(clientConfig)
+	clientContext, err := zt.NewContext(clientConfig)
 	ctx.Req.NoError(err)
 
 	for i := 0; i < 100; i++ {

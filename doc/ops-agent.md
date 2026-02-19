@@ -1,11 +1,11 @@
 # Runtime Operations Agent
 
-The ziti controller and ziti router can both be introspected at runtime using the ziti command line tool.
+The zt controller and zt router can both be introspected at runtime using the zt command line tool.
 
 ## Basic Use
 The agent uses Unix domain sockets to communicate. These are represented by files in the file system. 
-The practical effect of this is that `ziti agent` commands need to be run as the same user as the
-ziti controller or router. Running as the root user will also work.
+The practical effect of this is that `zt agent` commands need to be run as the same user as the
+zt controller or router. Running as the root user will also work.
 
 The domain socket files are generally stored in the temp directory and are named `gops-agent.<pid>.sock=`.
 
@@ -22,7 +22,7 @@ agent process running, you don't have specify anything.
 Example:
 
 ```
-$ ziti agent goversion
+$ zt agent goversion
 go1.18
 ```
 
@@ -32,9 +32,9 @@ process name:
 Example:
 
 ```
-$ ziti agent goversion
-error: too many gops-agent process found, including [ziti-controller (pid 29050), ziti-router (pid 29425)]
-$ ziti agent goversion ziti-controller
+$ zt agent goversion
+error: too many gops-agent process found, including [zt-controller (pid 29050), zt-router (pid 29425)]
+$ zt agent goversion zt-controller
 go1.18
 ```
 
@@ -43,7 +43,7 @@ The application PID can also be used to specify a target process.
 Example:
 
 ```
-$ ziti agent goversion 29425
+$ zt agent goversion 29425
 go1.18
 ```
 
@@ -53,7 +53,7 @@ address can be specified.
 Example:
 
 ```
-$ziti agent goversion tcp:my-host:10001
+$zt agent goversion tcp:my-host:10001
 go1.18
 ```
 
@@ -64,8 +64,8 @@ Use unix sockets to limit security risk. Only the user on the machine who starte
 
 Examples:
 
-1. `ziti controller --cli-agent-addr unix:/tmp/my-special-agent-file.sock`
-2. `ziti controller --cli-agent-addr tcp:127.0.0.1:10001`
+1. `zt controller --cli-agent-addr unix:/tmp/my-special-agent-file.sock`
+2. `zt controller --cli-agent-addr tcp:127.0.0.1:10001`
 
 ### Disabling the Agent
 
@@ -74,17 +74,17 @@ The agent is enabled by default. It can be disabled using `--cliagent false`.
 ## Available Operations
 
 1. Get the stack traces of all go-routines the running process
-   1. `ziti agent stack`
+   1. `zt agent stack`
    1. Stacks are usually quite large and are piped to a file
-   1. Ex: `ziti agent stack > stack.dump`
+   1. Ex: `zt agent stack > stack.dump`
 1. Force garbage collection
-   1. `ziti agent gc`
+   1. `zt agent gc`
 1. View memory statistics
-   1. `ziti agent memstats`
+   1. `zt agent memstats`
    1. Example:
 
       ```
-      $ ziti agent memstats
+      $ zt agent memstats
       alloc: 22.89MB (24005552 bytes)
       total-alloc: 1.49GB (1602895000 bytes)
       sys: 75.02MB (78660608 bytes)
@@ -115,44 +115,44 @@ The agent is enabled by default. It can be disabled using `--cliagent false`.
       ```
 
 1. Get the go version used to build the executable
-    1. `ziti agent goversion`
+    1. `zt agent goversion`
 1. Gets snapshot of the heap 
-    1. `ziti agent pprof-heap`
+    1. `zt agent pprof-heap`
     1. pprof data is binary and so should be piped to a file
     1. pprof data can be viewed using `go tool pprof`
     1. Ex: 
         ```
-        $ ziti agent pprof-heap > heap.pprof
+        $ zt agent pprof-heap > heap.pprof
         $ go tool pprof -web heap.pprof
         ```
 1. Run cpu profiling for 30 seconds and returns the results
-    1. `ziti agent pprof-cpu`
+    1. `zt agent pprof-cpu`
     1. pprof data is binary and so should be piped to a file
     1. pprof can be viewed using `go tool pprof`
     1. Ex: 
         ```
-        $ ziti agent pprof-heap > heap.pprof
+        $ zt agent pprof-heap > heap.pprof
         $ go tool pprof -web heap.pprof
         ```
 1. Get Go runtime statistics such as number of goroutines, GOMAXPROCS, and NumCPU
-    1. `ziti agent stats`
+    1. `zt agent stats`
     1. Example:
 
     ```bash
-    $ ziti agent stats
+    $ zt agent stats
     goroutines: 50
     OS threads: 19
     GOMAXPROCS: 12
     num CPU: 12
     ```
 1. Run tracing for 5 seconds and return the result
-    1. `ziti agent trace`
+    1. `zt agent trace`
     1. trace data is binary and so should be piped to a file
     1. trace data can be viewed using `go tool trace`
     1. Ex: 
         ```
-        $ ziti agent trace > debug.trace
+        $ zt agent trace > debug.trace
         $ go tool trace debug.trace
         ```
 1. Set the GC target percentage
-    1. `ziti agent setgc <percentage>`
+    1. `zt agent setgc <percentage>`

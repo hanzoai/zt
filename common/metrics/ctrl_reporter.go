@@ -21,7 +21,7 @@ import (
 	"github.com/hanzozt/channel/v4"
 	"github.com/hanzozt/metrics"
 	"github.com/hanzozt/metrics/metrics_pb"
-	"github.com/hanzozt/ziti/v2/router/env"
+	"github.com/hanzozt/zt/v2/router/env"
 	"google.golang.org/protobuf/proto"
 )
 

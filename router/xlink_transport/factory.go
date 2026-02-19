@@ -24,8 +24,8 @@ import (
 	"github.com/hanzozt/identity"
 	"github.com/hanzozt/metrics"
 	"github.com/hanzozt/transport/v2"
-	"github.com/hanzozt/ziti/v2/router/env"
-	"github.com/hanzozt/ziti/v2/router/xlink"
+	"github.com/hanzozt/zt/v2/router/env"
+	"github.com/hanzozt/zt/v2/router/xlink"
 )
 
 type channelType byte
@@ -66,7 +66,7 @@ func NewFactory(accepter xlink.Acceptor,
 	tcfg transport.Configuration,
 	env LinkEnv) xlink.Factory {
 
-	tcfg[transport.KeyProtocol] = append(tcfg.Protocols(), "ziti-link")
+	tcfg[transport.KeyProtocol] = append(tcfg.Protocols(), "zt-link")
 
 	return &factory{
 		acceptor:           accepter,

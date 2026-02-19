@@ -36,7 +36,7 @@ import (
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 
-	"github.com/hanzozt/ziti/v2/controller/rest_model"
+	"github.com/hanzozt/zt/v2/controller/rest_model"
 )
 
 // DetailLinkReader is a Reader for the DetailLink structure.

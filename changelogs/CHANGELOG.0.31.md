@@ -15,10 +15,10 @@
     * [Issue #468](https://github.com/hanzozt/sdk-golang/issues/468) - SDK does an unnecessary number of session refreshes
 
 * github.com/hanzozt/storage: [v0.2.26 -> v0.2.27](https://github.com/hanzozt/storage/compare/v0.2.26...v0.2.27)
-* github.com/hanzozt/ziti: [v0.31.3 -> v0.31.4](https://github.com/hanzozt/ziti/compare/v0.31.3...v0.31.4)
-    * [Issue #1645](https://github.com/hanzozt/ziti/issues/1645) - Once routers share a link id, we can't use the link id to decide which duplicate link to discard
-    * [Issue #1642](https://github.com/hanzozt/ziti/issues/1642) - Revert posture check optimization
-    * [Issue #1586](https://github.com/hanzozt/ziti/issues/1586) - If ack is received before payload is processed by link send buffer, a stall can result
+* github.com/hanzozt/zt: [v0.31.3 -> v0.31.4](https://github.com/hanzozt/zt/compare/v0.31.3...v0.31.4)
+    * [Issue #1645](https://github.com/hanzozt/zt/issues/1645) - Once routers share a link id, we can't use the link id to decide which duplicate link to discard
+    * [Issue #1642](https://github.com/hanzozt/zt/issues/1642) - Revert posture check optimization
+    * [Issue #1586](https://github.com/hanzozt/zt/issues/1586) - If ack is received before payload is processed by link send buffer, a stall can result
 
 
 # Release 0.31.3
@@ -35,7 +35,7 @@ be enforced. A circuit is considered idle when no traffic is flowing across thro
 terminating router. 
 
 ```
-ziti edge create service test-service --max-idle-time 5m
+zt edge create service test-service --max-idle-time 5m
 ```
 
 Note that the idle time calculation is done on the router, so if max idle time on a service is less 
@@ -55,12 +55,12 @@ The following operations are now supported:
 * Transfer leadership
 
 ```
-ziti fabric raft add-member tls:localhost:6363
-ziti fabric raft add-member tls:localhost:6464
-ziti fabric raft transfer-leadership 
-ziti fabric raft transfer-leadership ctrl3
-ziti fabric raft remove-member ctrl2
-ziti fabric raft remove-member ctrl3
+zt fabric raft add-member tls:localhost:6363
+zt fabric raft add-member tls:localhost:6464
+zt fabric raft transfer-leadership 
+zt fabric raft transfer-leadership ctrl3
+zt fabric raft remove-member ctrl2
+zt fabric raft remove-member ctrl3
 ```
 
 ## Component Updates and Bug Fixes
@@ -70,13 +70,13 @@ ziti fabric raft remove-member ctrl3
     * [Issue #465](https://github.com/hanzozt/sdk-golang/issues/465) - Allow listen options to specify how many listeners need to be established before returning
     * [Issue #462](https://github.com/hanzozt/sdk-golang/issues/462) - Allow refreshing a single service
 
-* github.com/hanzozt/ziti: [v0.31.2 -> v0.31.3](https://github.com/hanzozt/ziti/compare/v0.31.2...v0.31.3)
-    * [Issue #1583](https://github.com/hanzozt/ziti/issues/1583) - xgress: Potential data stall due when processing acks after checking window size 
-    * [Issue #1578](https://github.com/hanzozt/ziti/issues/1578) - Send BindSuccess notifications to SDK if supported
-    * [Issue #1544](https://github.com/hanzozt/ziti/issues/1544) - Support transfer raft leadership via REST
-    * [Issue #1543](https://github.com/hanzozt/ziti/issues/1543) - Support add/remove raft peer via REST
-    * [Issue #1496](https://github.com/hanzozt/ziti/issues/1496) - Configurable Timer needed to close idle circuits
-    * [Issue #1402](https://github.com/hanzozt/ziti/issues/1402) - Allow router to decomission itself
+* github.com/hanzozt/zt: [v0.31.2 -> v0.31.3](https://github.com/hanzozt/zt/compare/v0.31.2...v0.31.3)
+    * [Issue #1583](https://github.com/hanzozt/zt/issues/1583) - xgress: Potential data stall due when processing acks after checking window size 
+    * [Issue #1578](https://github.com/hanzozt/zt/issues/1578) - Send BindSuccess notifications to SDK if supported
+    * [Issue #1544](https://github.com/hanzozt/zt/issues/1544) - Support transfer raft leadership via REST
+    * [Issue #1543](https://github.com/hanzozt/zt/issues/1543) - Support add/remove raft peer via REST
+    * [Issue #1496](https://github.com/hanzozt/zt/issues/1496) - Configurable Timer needed to close idle circuits
+    * [Issue #1402](https://github.com/hanzozt/zt/issues/1402) - Allow router to decomission itself
 
 # Release 0.31.2
 
@@ -105,7 +105,7 @@ There is a new CLI command available to validate terminator state. This is prima
 setup logic is correct. However it may also be used to diagnose and resolve issues with production systems, should the need arise.
 
 ```
-ziti fabric validate terminators
+zt fabric validate terminators
 ```
 
 ## Circuit/Link Query Support
@@ -133,16 +133,16 @@ in the bbolt datastore. There's now basic support for querying in-memory types a
     * [Issue #57](https://github.com/hanzozt/storage/issues/57) - Support querying collections of in memory objects
 
 * github.com/hanzozt/transport/v2: [v2.0.113 -> v2.0.119](https://github.com/hanzozt/transport/compare/v2.0.113...v2.0.119)
-* github.com/hanzozt/ziti: [v0.31.0 -> v0.31.1](https://github.com/hanzozt/ziti/compare/v0.31.0...v0.31.1)
-    * [Issue #1555](https://github.com/hanzozt/ziti/issues/1555) - Consolidate fabric/edge persistence code
-    * [Issue #1547](https://github.com/hanzozt/ziti/issues/1547) - Support filtering, sorting and paging circuits and links
-    * [Issue #1446](https://github.com/hanzozt/ziti/issues/1446) - Allow for idempotent sdk based terminators 
-    * [Issue #1540](https://github.com/hanzozt/ziti/issues/1540) - Transit router create fails in HA environment
-    * [Issue #1523](https://github.com/hanzozt/ziti/issues/1523) - Bootstrap members not working
-    * [Issue #1525](https://github.com/hanzozt/ziti/issues/1525) - Improve cluster list output
-    * [Issue #1519](https://github.com/hanzozt/ziti/issues/1519) - Simplify link ack handling
-    * [Issue #1513](https://github.com/hanzozt/ziti/issues/1513) - DNS service failure should not cause a router restart
-    * [Issue #1494](https://github.com/hanzozt/ziti/issues/1494) - Panic if applying raft log returns nil result
+* github.com/hanzozt/zt: [v0.31.0 -> v0.31.1](https://github.com/hanzozt/zt/compare/v0.31.0...v0.31.1)
+    * [Issue #1555](https://github.com/hanzozt/zt/issues/1555) - Consolidate fabric/edge persistence code
+    * [Issue #1547](https://github.com/hanzozt/zt/issues/1547) - Support filtering, sorting and paging circuits and links
+    * [Issue #1446](https://github.com/hanzozt/zt/issues/1446) - Allow for idempotent sdk based terminators 
+    * [Issue #1540](https://github.com/hanzozt/zt/issues/1540) - Transit router create fails in HA environment
+    * [Issue #1523](https://github.com/hanzozt/zt/issues/1523) - Bootstrap members not working
+    * [Issue #1525](https://github.com/hanzozt/zt/issues/1525) - Improve cluster list output
+    * [Issue #1519](https://github.com/hanzozt/zt/issues/1519) - Simplify link ack handling
+    * [Issue #1513](https://github.com/hanzozt/zt/issues/1513) - DNS service failure should not cause a router restart
+    * [Issue #1494](https://github.com/hanzozt/zt/issues/1494) - Panic if applying raft log returns nil result
 
 
 # Release 0.31.0
@@ -194,10 +194,10 @@ If the rate limiter is enabled, the following metrics will be produced:
 * github.com/hanzozt/secretstream: [v0.1.12 -> v0.1.13](https://github.com/hanzozt/secretstream/compare/v0.1.12...v0.1.13)
 * github.com/hanzozt/storage: [v0.2.20 -> v0.2.23](https://github.com/hanzozt/storage/compare/v0.2.20...v0.2.23)
 * github.com/hanzozt/transport/v2: [v2.0.109 -> v2.0.113](https://github.com/hanzozt/transport/compare/v2.0.109...v2.0.113)
-* github.com/hanzozt/ziti: [v0.30.5 -> v0.31.0](https://github.com/hanzozt/ziti/compare/v0.30.5...v0.31.0)
-    * [Issue #1471](https://github.com/hanzozt/ziti/issues/1471) - Router links not resilient to controller crash
-    * [Issue #1468](https://github.com/hanzozt/ziti/issues/1468) - Quickstart quietly fails if password is < 5 characters long
-    * [Issue #1445](https://github.com/hanzozt/ziti/issues/1445) - Add controller update guardrail
-    * [Issue #1442](https://github.com/hanzozt/ziti/issues/1442) - Network watchdog not shutting down when controller shuts down
-    * [Issue #1465](https://github.com/hanzozt/ziti/issues/1465) - Upgrade functions `getZiti` and `performMigration` were only functional on Mac OS, now they are functional for Linux and Mac OSs.
-    * [Issue #1217](https://github.com/hanzozt/ziti/issues/1217) - Quickstart was improperly handling special characters in `ZITI_PWD`. Special characters are now supported for `ZITI_PWD` in quickstart functions.
+* github.com/hanzozt/zt: [v0.30.5 -> v0.31.0](https://github.com/hanzozt/zt/compare/v0.30.5...v0.31.0)
+    * [Issue #1471](https://github.com/hanzozt/zt/issues/1471) - Router links not resilient to controller crash
+    * [Issue #1468](https://github.com/hanzozt/zt/issues/1468) - Quickstart quietly fails if password is < 5 characters long
+    * [Issue #1445](https://github.com/hanzozt/zt/issues/1445) - Add controller update guardrail
+    * [Issue #1442](https://github.com/hanzozt/zt/issues/1442) - Network watchdog not shutting down when controller shuts down
+    * [Issue #1465](https://github.com/hanzozt/zt/issues/1465) - Upgrade functions `getZiti` and `performMigration` were only functional on Mac OS, now they are functional for Linux and Mac OSs.
+    * [Issue #1217](https://github.com/hanzozt/zt/issues/1217) - Quickstart was improperly handling special characters in `ZITI_PWD`. Special characters are now supported for `ZITI_PWD` in quickstart functions.

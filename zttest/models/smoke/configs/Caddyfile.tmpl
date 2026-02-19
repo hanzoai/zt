@@ -1,0 +1,15 @@
+{
+    http_port 8090
+	log default {
+		output file /home/{{ .Model.MustVariable "credentials.ssh.username" }}/logs/{{ .Component.Id }}.log
+		format json
+		level debug
+	}
+}
+
+
+http://localhost http://files-ert.zt http://files-ert-unencrypted.zt http://files-zt-tunnel.zt http://files-zt-tunnel-unencrypted.zt http://files-zet.zt http://files-zet-unencrypted.zt {
+    file_server {
+        root /home/{{ .Model.MustVariable "credentials.ssh.username" }}/www
+    }
+}

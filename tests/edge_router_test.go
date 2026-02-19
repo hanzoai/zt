@@ -24,7 +24,7 @@ import (
 	"testing"
 
 	"github.com/hanzozt/foundation/v2/stringz"
-	"github.com/hanzozt/ziti/v2/common/eid"
+	"github.com/hanzozt/zt/v2/common/eid"
 )
 
 func Test_EdgeRouter(t *testing.T) {

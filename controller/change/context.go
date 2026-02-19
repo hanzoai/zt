@@ -20,7 +20,7 @@ import (
 	"context"
 
 	"github.com/hanzozt/storage/boltz"
-	"github.com/hanzozt/ziti/v2/common/pb/cmd_pb"
+	"github.com/hanzozt/zt/v2/common/pb/cmd_pb"
 )
 
 type ContextKeyType string

@@ -48,29 +48,29 @@ import (
 	"github.com/hanzozt/foundation/v2/stringz"
 	"github.com/hanzozt/identity"
 	"github.com/hanzozt/metrics"
-	"github.com/hanzozt/sdk-golang/ziti"
+	"github.com/hanzozt/sdk-golang/zt"
 	"github.com/hanzozt/storage/boltz"
 	"github.com/hanzozt/xweb/v3"
-	"github.com/hanzozt/ziti/v2/common"
-	"github.com/hanzozt/ziti/v2/common/cert"
-	"github.com/hanzozt/ziti/v2/common/eid"
-	"github.com/hanzozt/ziti/v2/common/pb/edge_ctrl_pb"
-	"github.com/hanzozt/ziti/v2/controller/api"
-	"github.com/hanzozt/ziti/v2/controller/command"
-	"github.com/hanzozt/ziti/v2/controller/config"
-	"github.com/hanzozt/ziti/v2/controller/db"
-	"github.com/hanzozt/ziti/v2/controller/event"
-	"github.com/hanzozt/ziti/v2/controller/events"
-	"github.com/hanzozt/ziti/v2/controller/jwtsigner"
-	"github.com/hanzozt/ziti/v2/controller/model"
-	"github.com/hanzozt/ziti/v2/controller/models"
-	"github.com/hanzozt/ziti/v2/controller/network"
-	"github.com/hanzozt/ziti/v2/controller/permissions"
-	"github.com/hanzozt/ziti/v2/controller/response"
-	fabricServer "github.com/hanzozt/ziti/v2/controller/rest_server"
-	fabricOperations "github.com/hanzozt/ziti/v2/controller/rest_server/operations"
-	"github.com/hanzozt/ziti/v2/controller/xctrl"
-	"github.com/hanzozt/ziti/v2/controller/xmgmt"
+	"github.com/hanzozt/zt/v2/common"
+	"github.com/hanzozt/zt/v2/common/cert"
+	"github.com/hanzozt/zt/v2/common/eid"
+	"github.com/hanzozt/zt/v2/common/pb/edge_ctrl_pb"
+	"github.com/hanzozt/zt/v2/controller/api"
+	"github.com/hanzozt/zt/v2/controller/command"
+	"github.com/hanzozt/zt/v2/controller/config"
+	"github.com/hanzozt/zt/v2/controller/db"
+	"github.com/hanzozt/zt/v2/controller/event"
+	"github.com/hanzozt/zt/v2/controller/events"
+	"github.com/hanzozt/zt/v2/controller/jwtsigner"
+	"github.com/hanzozt/zt/v2/controller/model"
+	"github.com/hanzozt/zt/v2/controller/models"
+	"github.com/hanzozt/zt/v2/controller/network"
+	"github.com/hanzozt/zt/v2/controller/permissions"
+	"github.com/hanzozt/zt/v2/controller/response"
+	fabricServer "github.com/hanzozt/zt/v2/controller/rest_server"
+	fabricOperations "github.com/hanzozt/zt/v2/controller/rest_server/operations"
+	"github.com/hanzozt/zt/v2/controller/xctrl"
+	"github.com/hanzozt/zt/v2/controller/xmgmt"
 	cmap "github.com/orcaman/concurrent-map/v2"
 	"github.com/pkg/errors"
 	"github.com/teris-io/shortid"
@@ -96,7 +96,7 @@ type AppEnv struct {
 	Stores   *db.Stores
 	Managers *model.Managers
 
-	Versions *ziti.Versions
+	Versions *zt.Versions
 
 	ApiServerCsrSigner     cert.Signer
 	ApiClientCsrSigner     cert.Signer
@@ -950,7 +950,7 @@ func NewAppEnv(host HostController) (*AppEnv, error) {
 
 	ae := &AppEnv{
 		Stores: stores,
-		Versions: &ziti.Versions{
+		Versions: &zt.Versions{
 			Api:           "1.0.0",
 			EnrollmentApi: "1.0.0",
 		},

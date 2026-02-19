@@ -34,7 +34,7 @@ import (
 
 	"github.com/go-openapi/runtime"
 
-	"github.com/hanzozt/ziti/v2/controller/rest_model"
+	"github.com/hanzozt/zt/v2/controller/rest_model"
 )
 
 // ListServiceTerminatorsOKCode is the HTTP code returned for type ListServiceTerminatorsOK

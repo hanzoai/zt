@@ -2,7 +2,7 @@
 
 ![transwarp](transwarp.png)
 
-`hanzozt/ziti@v0.19.8`
+`hanzozt/zt@v0.19.8`
 
 ## Goal: Long-haul, High-performance Data Plane for Ziti
 
@@ -337,7 +337,7 @@ Retrieve metrics data from both hosts using whatever mechanism makes the most se
 
 ```
 $ fablab exec logs
-[   0.000]    INFO fablab/zitilib/actions.(*logs).forHost: => [/home/michael/.fablab/instances/transwarp/forensics/1616440013148/logs/local/local]
+[   0.000]    INFO fablab/ztlib/actions.(*logs).forHost: => [/home/michael/.fablab/instances/transwarp/forensics/1616440013148/logs/local/local]
 [   3.452]    INFO fablab/kernel/fablib.RetrieveRemoteFiles: logs/listenerConn_0.0.0.0-6262_13.211.35.123-53553_388949287/rx_keepalive_bytes.csv => 5.9 kB
 [   3.718]    INFO fablab/kernel/fablib.RetrieveRemoteFiles: logs/listenerConn_0.0.0.0-6262_13.211.35.123-53553_388949287/tx_portal_sz.csv => 6.3 kB
 [   3.996]    INFO fablab/kernel/fablib.RetrieveRemoteFiles: logs/listenerConn_0.0.0.0-6262_13.211.35.123-53553_388949287/metrics.id => 26 B
@@ -347,7 +347,7 @@ $ fablab exec logs
 [  15.211]    INFO fablab/kernel/fablib.RetrieveRemoteFiles: logs/listener_0.0.0.0-6262_142707432/rx_ack_bytes.csv => 7.7 kB
 [  15.507]    INFO fablab/kernel/fablib.RetrieveRemoteFiles: logs/listener_0.0.0.0-6262_142707432/tx_keepalive_msgs.csv => 7.7 kB
 ...
-[  23.288]    INFO fablab/zitilib/actions.(*logs).forHost: => [/home/michael/.fablab/instances/transwarp/forensics/1616440013148/logs/remote/remote]
+[  23.288]    INFO fablab/ztlib/actions.(*logs).forHost: => [/home/michael/.fablab/instances/transwarp/forensics/1616440013148/logs/remote/remote]
 [  51.316]    INFO fablab/kernel/fablib.RetrieveRemoteFiles: logs/dialerConn_[--]-53553_54.167.243.24-6262_389501639/rx_keepalive_bytes.csv => 5.9 kB
 [  53.770]    INFO fablab/kernel/fablib.RetrieveRemoteFiles: logs/dialerConn_[--]-53553_54.167.243.24-6262_389501639/tx_portal_sz.csv => 7.3 kB
 [  56.217]    INFO fablab/kernel/fablib.RetrieveRemoteFiles: logs/dialerConn_[--]-53553_54.167.243.24-6262_389501639/metrics.id => 26 B
@@ -461,7 +461,7 @@ The metrics instrument (and the other `dilithium` instruments) can be used with 
 
 This example will be configured similarly to the pure Dilithium example above. There are two routers, each in an AWS VPC in different regions separated by geography. One of the routers provides a link listener, configured to use `transwarptls:`.
 
-Here's the relevant logging output from the `ziti router` process:
+Here's the relevant logging output from the `zt router` process:
 
 ```
 [   0.002]    INFO foundation/transport/transwarptls.Listen: westworld3 profile = [
@@ -512,7 +512,7 @@ Here's the relevant logging output from the `ziti router` process:
 [   0.002]    INFO fabric/router.(*Router).startXlinkListeners: started Xlink listener with binding [transport] advertising [transwarptls:54.167.243.24:6000]
 ```
 
-Here's the relevant log output when starting the second `ziti router`, configured without a link listener. This output represents it dialing the `transwarptls:` link connection to the first router:
+Here's the relevant log output when starting the second `zt router`, configured without a link listener. This output represents it dialing the `transwarptls:` link connection to the first router:
 
 ```
 [   0.630]    INFO fabric/router/handler_ctrl.(*dialHandler).handle: received link connect request

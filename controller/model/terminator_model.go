@@ -2,9 +2,9 @@ package model
 
 import (
 	"github.com/hanzozt/storage/boltz"
-	"github.com/hanzozt/ziti/v2/controller/db"
-	"github.com/hanzozt/ziti/v2/controller/models"
-	"github.com/hanzozt/ziti/v2/controller/xt"
+	"github.com/hanzozt/zt/v2/controller/db"
+	"github.com/hanzozt/zt/v2/controller/models"
+	"github.com/hanzozt/zt/v2/controller/xt"
 	"go.etcd.io/bbolt"
 )
 

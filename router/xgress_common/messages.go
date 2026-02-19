@@ -19,7 +19,7 @@ package xgress_common
 import (
 	"github.com/hanzozt/channel/v4"
 	"github.com/hanzozt/channel/v4/protobufs"
-	"github.com/hanzozt/ziti/v2/common/pb/edge_ctrl_pb"
+	"github.com/hanzozt/zt/v2/common/pb/edge_ctrl_pb"
 	"github.com/pkg/errors"
 	"google.golang.org/protobuf/proto"
 )

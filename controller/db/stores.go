@@ -30,7 +30,7 @@ import (
 	"github.com/hanzozt/foundation/v2/rate"
 	"github.com/hanzozt/storage/ast"
 	"github.com/hanzozt/storage/boltz"
-	"github.com/hanzozt/ziti/v2/controller/change"
+	"github.com/hanzozt/zt/v2/controller/change"
 	"go.etcd.io/bbolt"
 	"go4.org/sort"
 )

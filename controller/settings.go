@@ -4,10 +4,10 @@ import (
 	"github.com/michaelquigley/pfxlog"
 	"github.com/hanzozt/channel/v4"
 	"github.com/hanzozt/channel/v4/protobufs"
-	"github.com/hanzozt/ziti/v2/common/pb/ctrl_pb"
-	config2 "github.com/hanzozt/ziti/v2/controller/config"
-	"github.com/hanzozt/ziti/v2/controller/model"
-	"github.com/hanzozt/ziti/v2/controller/raft"
+	"github.com/hanzozt/zt/v2/common/pb/ctrl_pb"
+	config2 "github.com/hanzozt/zt/v2/controller/config"
+	"github.com/hanzozt/zt/v2/controller/model"
+	"github.com/hanzozt/zt/v2/controller/raft"
 	"google.golang.org/protobuf/proto"
 )
 

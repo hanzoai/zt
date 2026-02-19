@@ -23,7 +23,7 @@ import (
 	"time"
 
 	"github.com/hanzozt/identity"
-	"github.com/hanzozt/ziti/v2/common"
+	"github.com/hanzozt/zt/v2/common"
 )
 
 // Config represents the configuration necessary to operate an OIDC Provider

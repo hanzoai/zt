@@ -29,11 +29,11 @@ import (
 	"github.com/hanzozt/channel/v4/protobufs"
 	"github.com/hanzozt/foundation/v2/concurrenz"
 	"github.com/hanzozt/foundation/v2/debugz"
-	"github.com/hanzozt/ziti/v2/common/inspect"
-	"github.com/hanzozt/ziti/v2/common/pb/ctrl_pb"
-	"github.com/hanzozt/ziti/v2/controller/model"
-	"github.com/hanzozt/ziti/v2/controller/raft"
-	"github.com/hanzozt/ziti/v2/controller/xt"
+	"github.com/hanzozt/zt/v2/common/inspect"
+	"github.com/hanzozt/zt/v2/common/pb/ctrl_pb"
+	"github.com/hanzozt/zt/v2/controller/model"
+	"github.com/hanzozt/zt/v2/controller/raft"
+	"github.com/hanzozt/zt/v2/controller/xt"
 )
 
 type InspectResultValue struct {

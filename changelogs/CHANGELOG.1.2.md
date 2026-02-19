@@ -10,9 +10,9 @@
 * github.com/hanzozt/storage: [v0.3.6 -> v0.3.8](https://github.com/hanzozt/storage/compare/v0.3.6...v0.3.8)
     * [Issue #87](https://github.com/hanzozt/storage/issues/87) - negative URL filter returns incorrect results
 
-* github.com/hanzozt/ziti: [v1.2.1 -> v1.2.2](https://github.com/hanzozt/ziti/compare/v1.2.1...v1.2.2)
-    * [Issue #2559](https://github.com/hanzozt/ziti/issues/2559) - expired JWTs are allowed to enroll
-    * [Issue #2543](https://github.com/hanzozt/ziti/issues/2543) - Support adding adding an uninitialized node to a cluster (rather than the reverse)
+* github.com/hanzozt/zt: [v1.2.1 -> v1.2.2](https://github.com/hanzozt/zt/compare/v1.2.1...v1.2.2)
+    * [Issue #2559](https://github.com/hanzozt/zt/issues/2559) - expired JWTs are allowed to enroll
+    * [Issue #2543](https://github.com/hanzozt/zt/issues/2543) - Support adding adding an uninitialized node to a cluster (rather than the reverse)
 
 
 # Release 1.2.1
@@ -31,14 +31,14 @@
 * github.com/hanzozt/runzmd: [v1.0.53 -> v1.0.55](https://github.com/hanzozt/runzmd/compare/v1.0.53...v1.0.55)
 * github.com/hanzozt/storage: [v0.3.2 -> v0.3.6](https://github.com/hanzozt/storage/compare/v0.3.2...v0.3.6)
 * github.com/hanzozt/transport/v2: [v2.0.150 -> v2.0.153](https://github.com/hanzozt/transport/compare/v2.0.150...v2.0.153)
-* github.com/hanzozt/ziti: [v1.2.0 -> v1.2.1](https://github.com/hanzozt/ziti/compare/v1.2.0...v1.2.1)
-    * [Issue #2543](https://github.com/hanzozt/ziti/issues/2543) - Support adding adding an uninitialized node to a cluster (rather than the reverse)
-    * [Issue #2541](https://github.com/hanzozt/ziti/issues/2541) - Add cluster id, to prevent merging disparate clusters
-    * [Issue #2532](https://github.com/hanzozt/ziti/issues/2532) - When adding an existing HA cluster member, remove/add if suffrage has changed
-    * [Issue #2217](https://github.com/hanzozt/ziti/issues/2217) - Controller list is empty until peers connect
-    * [Issue #2533](https://github.com/hanzozt/ziti/issues/2533) - Handle concurrent raft connections
-    * [Issue #2534](https://github.com/hanzozt/ziti/issues/2534) - Ziti ID with leading hyphen causes command-line parameter ambiguity
-    * [Issue #2528](https://github.com/hanzozt/ziti/issues/2528) - Updated router costs are not use when evaluating current path cost in the context of smart rerouting
+* github.com/hanzozt/zt: [v1.2.0 -> v1.2.1](https://github.com/hanzozt/zt/compare/v1.2.0...v1.2.1)
+    * [Issue #2543](https://github.com/hanzozt/zt/issues/2543) - Support adding adding an uninitialized node to a cluster (rather than the reverse)
+    * [Issue #2541](https://github.com/hanzozt/zt/issues/2541) - Add cluster id, to prevent merging disparate clusters
+    * [Issue #2532](https://github.com/hanzozt/zt/issues/2532) - When adding an existing HA cluster member, remove/add if suffrage has changed
+    * [Issue #2217](https://github.com/hanzozt/zt/issues/2217) - Controller list is empty until peers connect
+    * [Issue #2533](https://github.com/hanzozt/zt/issues/2533) - Handle concurrent raft connections
+    * [Issue #2534](https://github.com/hanzozt/zt/issues/2534) - Ziti ID with leading hyphen causes command-line parameter ambiguity
+    * [Issue #2528](https://github.com/hanzozt/zt/issues/2528) - Updated router costs are not use when evaluating current path cost in the context of smart rerouting
 
 # Release 1.2.0
 
@@ -117,9 +117,9 @@ Now, the raft cluster will be bootstrapped whenever the controller is initialize
 
 The controller can be initialized as follows:
 
-1. Using `ziti agent controller init`
-2. Using `ziti agent controller init-from-db`
-3. Specifying a `db:` entry in the config file. This is equivalent to using `ziti agent controller init-from-db`.
+1. Using `zt agent controller init`
+2. Using `zt agent controller init-from-db`
+3. Specifying a `db:` entry in the config file. This is equivalent to using `zt agent controller init-from-db`.
 
 Additionally:
 
@@ -150,7 +150,7 @@ events:
     handler:
       type: file
       format: json
-      path: /tmp/ziti-events.log
+      path: /tmp/zt-events.log
 ```
 
 **Router Configuration**
@@ -233,7 +233,7 @@ events:
     handler:
       type: file
       format: json
-      path: /tmp/ziti-events.log
+      path: /tmp/zt-events.log
 ```
 
 ```json
@@ -275,14 +275,14 @@ events:
 * github.com/hanzozt/runzmd: [v1.0.51 -> v1.0.53](https://github.com/hanzozt/runzmd/compare/v1.0.51...v1.0.53)
 * github.com/hanzozt/sdk-golang: [v0.23.43 -> v0.23.44](https://github.com/hanzozt/sdk-golang/compare/v0.23.43...v0.23.44)
 * github.com/hanzozt/transport/v2: [v2.0.146 -> v2.0.150](https://github.com/hanzozt/transport/compare/v2.0.146...v2.0.150)
-* github.com/hanzozt/ziti: [v1.1.15 -> v1.2.0](https://github.com/hanzozt/ziti/compare/v1.1.15...v1.2.0)
-    * [Issue #2212](https://github.com/hanzozt/ziti/issues/2212) - Rework distributed control bootstrap mechanism
-    * [Issue #1835](https://github.com/hanzozt/ziti/issues/1835) - Add access log for rest and router connections
-    * [Issue #2234](https://github.com/hanzozt/ziti/issues/2234) - Emit an event when hasEdgeRouterConnection state changes for an Identity
-    * [Issue #2506](https://github.com/hanzozt/ziti/issues/2506) - Identity service config overrides referential integrity issues
-    * [Issue #2491](https://github.com/hanzozt/ziti/issues/2491) - fix router CSR loading
-    * [Issue #2478](https://github.com/hanzozt/ziti/issues/2478) - JWT signer secondary auth: not enough information to continue
-    * [Issue #2482](https://github.com/hanzozt/ziti/issues/2482) - router run command - improperly binds 127.0.0.1:53/udp when tunnel mode is not tproxy
-    * [Issue #2474](https://github.com/hanzozt/ziti/issues/2474) - Enable Ext JWT Enrollment/Generic Trust Bootstrapping
-    * [Issue #2471](https://github.com/hanzozt/ziti/issues/2471) - Service Access for Legacy SDKs in  HA does not work
-    * [Issue #2468](https://github.com/hanzozt/ziti/issues/2468) - enrollment signing cert is not properly identified
+* github.com/hanzozt/zt: [v1.1.15 -> v1.2.0](https://github.com/hanzozt/zt/compare/v1.1.15...v1.2.0)
+    * [Issue #2212](https://github.com/hanzozt/zt/issues/2212) - Rework distributed control bootstrap mechanism
+    * [Issue #1835](https://github.com/hanzozt/zt/issues/1835) - Add access log for rest and router connections
+    * [Issue #2234](https://github.com/hanzozt/zt/issues/2234) - Emit an event when hasEdgeRouterConnection state changes for an Identity
+    * [Issue #2506](https://github.com/hanzozt/zt/issues/2506) - Identity service config overrides referential integrity issues
+    * [Issue #2491](https://github.com/hanzozt/zt/issues/2491) - fix router CSR loading
+    * [Issue #2478](https://github.com/hanzozt/zt/issues/2478) - JWT signer secondary auth: not enough information to continue
+    * [Issue #2482](https://github.com/hanzozt/zt/issues/2482) - router run command - improperly binds 127.0.0.1:53/udp when tunnel mode is not tproxy
+    * [Issue #2474](https://github.com/hanzozt/zt/issues/2474) - Enable Ext JWT Enrollment/Generic Trust Bootstrapping
+    * [Issue #2471](https://github.com/hanzozt/zt/issues/2471) - Service Access for Legacy SDKs in  HA does not work
+    * [Issue #2468](https://github.com/hanzozt/zt/issues/2468) - enrollment signing cert is not properly identified

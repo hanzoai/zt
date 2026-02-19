@@ -62,7 +62,7 @@ The service endpoint has changes as well:
     * The following property has been added
        * terminatorStrategy - type: string, optional. The terminator strategy to use. Currently unused.
 
-The fabric service definition has also changed (visible from ziti-fabric).
+The fabric service definition has also changed (visible from zt-fabric).
 
 * The following properties have been removed
     * `binding`
@@ -71,7 +71,7 @@ The fabric service definition has also changed (visible from ziti-fabric).
 * The following property has been added
     * `terminatorStrategy`
 
-The ziti and ziti-fabric CLIs have been updated with new terminator related functionality, so that
+The zt and zt-fabric CLIs have been updated with new terminator related functionality, so that
 terminators can be viewed, created and deleted from both.
 
 ## Filtering/Sorting/Paging Changes
@@ -87,11 +87,11 @@ These are all still supported, but now sort, limit and offset can also be includ
 parameters are specified both in the filter and in an explicit query parameter, the filter takes
 precedence.
 
-When listing entities from the ziti CLI, filters can be included as an optional argument.
+When listing entities from the zt CLI, filters can be included as an optional argument.
 
 For example:
 
-    $ ziti edge controller list services
+    $ zt edge controller list services
     id: 37f1e34c-af06-442f-8e62-032916912bc6    name: grpc-ping-standalone    terminator strategy:     role attributes: {}
     id: 4e33859b-070d-42b1-8b40-4adf973f680c    name: simple    terminator strategy:     role attributes: {}
     id: 9480e39d-0664-4482-b230-5da2c17b225b    name: iperf    terminator strategy:     role attributes: {}
@@ -99,36 +99,36 @@ For example:
     id: dc0446f0-7eaa-465f-80b5-c88f0a6b59cc    name: grpc-ping    terminator strategy:     role attributes: ["fortio","fortio-server"]
     id: dcc9922a-c681-41bf-8079-be2163509702    name: mattermost    terminator strategy:     role attributes: {}
 
-    $ ziti edge controller list services 'name contains "s"'
+    $ zt edge controller list services 'name contains "s"'
     id: 37f1e34c-af06-442f-8e62-032916912bc6    name: grpc-ping-standalone    terminator strategy:     role attributes: {}
     id: 4e33859b-070d-42b1-8b40-4adf973f680c    name: simple    terminator strategy:     role attributes: {}
     id: cd1ae16e-5015-49ad-9864-3ca0f5814091    name: ssh    terminator strategy:     role attributes: {}
     id: dcc9922a-c681-41bf-8079-be2163509702    name: mattermost    terminator strategy:     role attributes: {}
 
-    $ ziti edge controller list services 'name contains "s" sort by name'
+    $ zt edge controller list services 'name contains "s" sort by name'
     id: 37f1e34c-af06-442f-8e62-032916912bc6    name: grpc-ping-standalone    terminator strategy:     role attributes: {}
     id: dcc9922a-c681-41bf-8079-be2163509702    name: mattermost    terminator strategy:     role attributes: {}
     id: 4e33859b-070d-42b1-8b40-4adf973f680c    name: simple    terminator strategy:     role attributes: {}
     id: cd1ae16e-5015-49ad-9864-3ca0f5814091    name: ssh    terminator strategy:     role attributes: {}
 
-    $ ziti edge controller list services 'name contains "s" sort by name skip 1 limit 2'
+    $ zt edge controller list services 'name contains "s" sort by name skip 1 limit 2'
     id: dcc9922a-c681-41bf-8079-be2163509702    name: mattermost    terminator strategy:     role attributes: {}
     id: 4e33859b-070d-42b1-8b40-4adf973f680c    name: simple    terminator strategy:     role attributes: {}
 
 Association lists now also support filtering, sorting and paging. Association GET operations only
 support the filter parameter.
 
-    $ ziti edge controller list service terminators ssh
+    $ zt edge controller list service terminators ssh
     Found services with id cd1ae16e-5015-49ad-9864-3ca0f5814091 for name ssh
     id: 41f4fd01-0bd7-4987-93b3-3b2217b00a22    serviceId: cd1ae16e-5015-49ad-9864-3ca0f5814091    routerId: 888cfde1-5786-4ba8-aa75-9f97804cb7bb    binding: transport    address: tcp:localhost:22
     id: a5213300-9c5f-4b0e-a790-1ed460964d7c    serviceId: cd1ae16e-5015-49ad-9864-3ca0f5814091    routerId: 888cfde1-5786-4ba8-aa75-9f97804cb7bb    binding: transport    address: tcp:localhost:2022
 
-    $ ziti edge controller list service terminators ssh "true sort by address"
+    $ zt edge controller list service terminators ssh "true sort by address"
     Found services with id cd1ae16e-5015-49ad-9864-3ca0f5814091 for name ssh
     id: a5213300-9c5f-4b0e-a790-1ed460964d7c    serviceId: cd1ae16e-5015-49ad-9864-3ca0f5814091    routerId: 888cfde1-5786-4ba8-aa75-9f97804cb7bb    binding: transport    address: tcp:localhost:2022
     id: 41f4fd01-0bd7-4987-93b3-3b2217b00a22    serviceId: cd1ae16e-5015-49ad-9864-3ca0f5814091    routerId: 888cfde1-5786-4ba8-aa75-9f97804cb7bb    binding: transport    address: tcp:localhost:22
 
-    $ ziti edge controller list service terminators ssh "true sort by address desc"
+    $ zt edge controller list service terminators ssh "true sort by address desc"
     Found services with id cd1ae16e-5015-49ad-9864-3ca0f5814091 for name ssh
     id: 41f4fd01-0bd7-4987-93b3-3b2217b00a22    serviceId: cd1ae16e-5015-49ad-9864-3ca0f5814091    routerId: 888cfde1-5786-4ba8-aa75-9f97804cb7bb    binding: transport    address: tcp:localhost:22
     id: a5213300-9c5f-4b0e-a790-1ed460964d7c    serviceId: cd1ae16e-5015-49ad-9864-3ca0f5814091    routerId: 888cfde1-5786-4ba8-aa75-9f97804cb7bb    binding: transport    address: tcp:localhost:2022
@@ -142,8 +142,8 @@ but with a timestamp appended to it.
 
 Example:
 
-    Original file: /tmp/ziti-bolt.db
-    Backup file:   /tmp/ziti-bolt.db-20200316-134725
+    Original file: /tmp/zt-bolt.db
+    Backup file:   /tmp/zt-bolt.db-20200316-134725
 
 The fabric and edge schemas do not yet get migrated in the same transaction. This will be addressed
 in a follow-up release.
@@ -170,12 +170,12 @@ endpoints, which were previously deprecated, have now been removed.
 
 ## Miscellaneous
 
-There is a new `ziti edge controller version` command which shows information about the version of
+There is a new `zt edge controller version` command which shows information about the version of
 the controller being connected to:
 
 Example:
 
-    $ ziti edge controller version
+    $ zt edge controller version
     Version     : v0.9.0
     GIT revision: ea556fc18740
     Build Date  : 2020-02-11 16:09:08

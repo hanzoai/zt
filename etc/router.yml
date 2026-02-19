@@ -30,7 +30,7 @@ forwarder:
 # Tracing
 #
 # Record message traces of all messages captured on any channel (`ctrl` or `link`) in "dump" format to the
-# specified path. The `ziti-fabric trace dump` utility will convert this binary dump file into a human-readable
+# specified path. The `zt-fabric trace dump` utility will convert this binary dump file into a human-readable
 # explanation of the messages that were sent and received by the router.
 #
 #trace:

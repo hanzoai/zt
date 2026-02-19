@@ -29,9 +29,9 @@ import (
 	"github.com/google/uuid"
 	"github.com/hanzozt/edge-api/rest_management_api_client/posture_checks"
 	"github.com/hanzozt/edge-api/rest_model"
-	"github.com/hanzozt/ziti/v2/common"
-	"github.com/hanzozt/ziti/v2/common/eid"
-	"github.com/hanzozt/ziti/v2/common/pb/edge_ctrl_pb"
+	"github.com/hanzozt/zt/v2/common"
+	"github.com/hanzozt/zt/v2/common/eid"
+	"github.com/hanzozt/zt/v2/common/pb/edge_ctrl_pb"
 )
 
 type identityEvent struct {
@@ -262,7 +262,7 @@ func Test_RouterDataModel_Configs(t *testing.T) {
 
 	ct := ctx.newConfigType()
 	ct.Schema = map[string]interface{}{
-		"$id":                  "http://ziti-edge.netfoundry.io/schemas/test.config.json",
+		"$id":                  "http://zt-edge.netfoundry.io/schemas/test.config.json",
 		"type":                 "object",
 		"additionalProperties": false,
 		"required": []interface{}{
@@ -307,7 +307,7 @@ func Test_RouterDataModel_Configs(t *testing.T) {
 	// create new config type and config, and ensure we don't get any spurious events
 	ct2 := ctx.newConfigType()
 	ct2.Schema = map[string]interface{}{
-		"$id":                  "http://ziti-edge.netfoundry.io/schemas/test.config.json",
+		"$id":                  "http://zt-edge.netfoundry.io/schemas/test.config.json",
 		"type":                 "object",
 		"additionalProperties": false,
 		"required": []interface{}{

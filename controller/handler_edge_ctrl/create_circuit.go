@@ -21,12 +21,12 @@ import (
 
 	"github.com/michaelquigley/pfxlog"
 	"github.com/hanzozt/channel/v4"
-	"github.com/hanzozt/sdk-golang/ziti/edge"
-	"github.com/hanzozt/ziti/v2/common/ctrl_msg"
-	"github.com/hanzozt/ziti/v2/common/pb/edge_ctrl_pb"
-	"github.com/hanzozt/ziti/v2/controller/db"
-	"github.com/hanzozt/ziti/v2/controller/env"
-	"github.com/hanzozt/ziti/v2/controller/model"
+	"github.com/hanzozt/sdk-golang/zt/edge"
+	"github.com/hanzozt/zt/v2/common/ctrl_msg"
+	"github.com/hanzozt/zt/v2/common/pb/edge_ctrl_pb"
+	"github.com/hanzozt/zt/v2/controller/db"
+	"github.com/hanzozt/zt/v2/controller/env"
+	"github.com/hanzozt/zt/v2/controller/model"
 	"google.golang.org/protobuf/proto"
 )
 

@@ -735,7 +735,7 @@ type CreateTerminatorRequest struct {
 	Address        string               `protobuf:"bytes,4,opt,name=address,proto3" json:"address,omitempty"`
 	PeerData       map[uint32][]byte    `protobuf:"bytes,5,rep,name=peerData,proto3" json:"peerData,omitempty" protobuf_key:"varint,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
 	Cost           uint32               `protobuf:"varint,6,opt,name=cost,proto3" json:"cost,omitempty"`
-	Precedence     TerminatorPrecedence `protobuf:"varint,7,opt,name=precedence,proto3,enum=ziti.ctrl.pb.TerminatorPrecedence" json:"precedence,omitempty"`
+	Precedence     TerminatorPrecedence `protobuf:"varint,7,opt,name=precedence,proto3,enum=zt.ctrl.pb.TerminatorPrecedence" json:"precedence,omitempty"`
 	InstanceId     string               `protobuf:"bytes,8,opt,name=instanceId,proto3" json:"instanceId,omitempty"`
 	InstanceSecret []byte               `protobuf:"bytes,9,opt,name=instanceSecret,proto3" json:"instanceSecret,omitempty"`
 }
@@ -1101,7 +1101,7 @@ type RouterTerminatorState struct {
 	unknownFields protoimpl.UnknownFields
 
 	Valid  bool                    `protobuf:"varint,1,opt,name=valid,proto3" json:"valid,omitempty"`
-	Reason TerminatorInvalidReason `protobuf:"varint,2,opt,name=reason,proto3,enum=ziti.ctrl.pb.TerminatorInvalidReason" json:"reason,omitempty"`
+	Reason TerminatorInvalidReason `protobuf:"varint,2,opt,name=reason,proto3,enum=zt.ctrl.pb.TerminatorInvalidReason" json:"reason,omitempty"`
 	Detail string                  `protobuf:"bytes,3,opt,name=detail,proto3" json:"detail,omitempty"` // inspect info if valid
 	Marker uint64                  `protobuf:"varint,4,opt,name=marker,proto3" json:"marker,omitempty"`
 }
@@ -1221,7 +1221,7 @@ type UpdateTerminatorRequest struct {
 	TerminatorId     string               `protobuf:"bytes,1,opt,name=terminatorId,proto3" json:"terminatorId,omitempty"`
 	UpdatePrecedence bool                 `protobuf:"varint,2,opt,name=updatePrecedence,proto3" json:"updatePrecedence,omitempty"`
 	UpdateCost       bool                 `protobuf:"varint,3,opt,name=updateCost,proto3" json:"updateCost,omitempty"`
-	Precedence       TerminatorPrecedence `protobuf:"varint,4,opt,name=precedence,proto3,enum=ziti.ctrl.pb.TerminatorPrecedence" json:"precedence,omitempty"`
+	Precedence       TerminatorPrecedence `protobuf:"varint,4,opt,name=precedence,proto3,enum=zt.ctrl.pb.TerminatorPrecedence" json:"precedence,omitempty"`
 	Cost             uint32               `protobuf:"varint,5,opt,name=cost,proto3" json:"cost,omitempty"`
 }
 
@@ -1470,7 +1470,7 @@ type Fault struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Subject   FaultSubject `protobuf:"varint,1,opt,name=subject,proto3,enum=ziti.ctrl.pb.FaultSubject" json:"subject,omitempty"`
+	Subject   FaultSubject `protobuf:"varint,1,opt,name=subject,proto3,enum=zt.ctrl.pb.FaultSubject" json:"subject,omitempty"`
 	Id        string       `protobuf:"bytes,2,opt,name=id,proto3" json:"id,omitempty"`
 	Iteration uint32       `protobuf:"varint,3,opt,name=iteration,proto3" json:"iteration,omitempty"`
 }
@@ -2141,7 +2141,7 @@ type PeerStateChange struct {
 
 	Id        string      `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	Version   string      `protobuf:"bytes,2,opt,name=version,proto3" json:"version,omitempty"`
-	State     PeerState   `protobuf:"varint,3,opt,name=state,proto3,enum=ziti.ctrl.pb.PeerState" json:"state,omitempty"`
+	State     PeerState   `protobuf:"varint,3,opt,name=state,proto3,enum=zt.ctrl.pb.PeerState" json:"state,omitempty"`
 	Listeners []*Listener `protobuf:"bytes,4,rep,name=listeners,proto3" json:"listeners,omitempty"`
 }
 
@@ -2257,7 +2257,7 @@ type RouterMetadata struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Capabilities []RouterCapability `protobuf:"varint,1,rep,packed,name=capabilities,proto3,enum=ziti.ctrl.pb.RouterCapability" json:"capabilities,omitempty"`
+	Capabilities []RouterCapability `protobuf:"varint,1,rep,packed,name=capabilities,proto3,enum=zt.ctrl.pb.RouterCapability" json:"capabilities,omitempty"`
 }
 
 func (x *RouterMetadata) Reset() {
@@ -2811,7 +2811,7 @@ type Route_Forward struct {
 
 	SrcAddress string   `protobuf:"bytes,1,opt,name=srcAddress,proto3" json:"srcAddress,omitempty"`
 	DstAddress string   `protobuf:"bytes,2,opt,name=dstAddress,proto3" json:"dstAddress,omitempty"`
-	DstType    DestType `protobuf:"varint,3,opt,name=dstType,proto3,enum=ziti.ctrl.pb.DestType" json:"dstType,omitempty"`
+	DstType    DestType `protobuf:"varint,3,opt,name=dstType,proto3,enum=zt.ctrl.pb.DestType" json:"dstType,omitempty"`
 }
 
 func (x *Route_Forward) Reset() {
@@ -3377,96 +3377,96 @@ func file_ctrl_proto_rawDescGZIP() []byte {
 var file_ctrl_proto_enumTypes = make([]protoimpl.EnumInfo, 9)
 var file_ctrl_proto_msgTypes = make([]protoimpl.MessageInfo, 47)
 var file_ctrl_proto_goTypes = []interface{}{
-	(ContentType)(0),                      // 0: ziti.ctrl.pb.ContentType
-	(ControlHeaders)(0),                   // 1: ziti.ctrl.pb.ControlHeaders
-	(RouterCapability)(0),                 // 2: ziti.ctrl.pb.RouterCapability
-	(SettingTypes)(0),                     // 3: ziti.ctrl.pb.SettingTypes
-	(TerminatorPrecedence)(0),             // 4: ziti.ctrl.pb.TerminatorPrecedence
-	(TerminatorInvalidReason)(0),          // 5: ziti.ctrl.pb.TerminatorInvalidReason
-	(FaultSubject)(0),                     // 6: ziti.ctrl.pb.FaultSubject
-	(DestType)(0),                         // 7: ziti.ctrl.pb.DestType
-	(PeerState)(0),                        // 8: ziti.ctrl.pb.PeerState
-	(*Settings)(nil),                      // 9: ziti.ctrl.pb.Settings
-	(*CircuitRequest)(nil),                // 10: ziti.ctrl.pb.CircuitRequest
-	(*CircuitConfirmation)(nil),           // 11: ziti.ctrl.pb.CircuitConfirmation
-	(*CreateTerminatorRequest)(nil),       // 12: ziti.ctrl.pb.CreateTerminatorRequest
-	(*RemoveTerminatorRequest)(nil),       // 13: ziti.ctrl.pb.RemoveTerminatorRequest
-	(*RemoveTerminatorsRequest)(nil),      // 14: ziti.ctrl.pb.RemoveTerminatorsRequest
-	(*Terminator)(nil),                    // 15: ziti.ctrl.pb.Terminator
-	(*ValidateTerminatorsRequest)(nil),    // 16: ziti.ctrl.pb.ValidateTerminatorsRequest
-	(*ValidateTerminatorsV2Request)(nil),  // 17: ziti.ctrl.pb.ValidateTerminatorsV2Request
-	(*RouterTerminatorState)(nil),         // 18: ziti.ctrl.pb.RouterTerminatorState
-	(*ValidateTerminatorsV2Response)(nil), // 19: ziti.ctrl.pb.ValidateTerminatorsV2Response
-	(*UpdateTerminatorRequest)(nil),       // 20: ziti.ctrl.pb.UpdateTerminatorRequest
-	(*LinkConn)(nil),                      // 21: ziti.ctrl.pb.LinkConn
-	(*LinkConnState)(nil),                 // 22: ziti.ctrl.pb.LinkConnState
-	(*RouterLinks)(nil),                   // 23: ziti.ctrl.pb.RouterLinks
-	(*Fault)(nil),                         // 24: ziti.ctrl.pb.Fault
-	(*Context)(nil),                       // 25: ziti.ctrl.pb.Context
-	(*Route)(nil),                         // 26: ziti.ctrl.pb.Route
-	(*Unroute)(nil),                       // 27: ziti.ctrl.pb.Unroute
-	(*InspectRequest)(nil),                // 28: ziti.ctrl.pb.InspectRequest
-	(*InspectResponse)(nil),               // 29: ziti.ctrl.pb.InspectResponse
-	(*VerifyRouter)(nil),                  // 30: ziti.ctrl.pb.VerifyRouter
-	(*Listener)(nil),                      // 31: ziti.ctrl.pb.Listener
-	(*Listeners)(nil),                     // 32: ziti.ctrl.pb.Listeners
-	(*UpdateCtrlAddresses)(nil),           // 33: ziti.ctrl.pb.UpdateCtrlAddresses
-	(*UpdateClusterLeader)(nil),           // 34: ziti.ctrl.pb.UpdateClusterLeader
-	(*PeerStateChange)(nil),               // 35: ziti.ctrl.pb.PeerStateChange
-	(*PeerStateChanges)(nil),              // 36: ziti.ctrl.pb.PeerStateChanges
-	(*RouterMetadata)(nil),                // 37: ziti.ctrl.pb.RouterMetadata
-	(*Interface)(nil),                     // 38: ziti.ctrl.pb.Interface
-	(*RouterInterfacesUpdate)(nil),        // 39: ziti.ctrl.pb.RouterInterfacesUpdate
-	(*LinkStateUpdate)(nil),               // 40: ziti.ctrl.pb.LinkStateUpdate
-	(*Alert)(nil),                         // 41: ziti.ctrl.pb.Alert
-	(*Alerts)(nil),                        // 42: ziti.ctrl.pb.Alerts
-	nil,                                   // 43: ziti.ctrl.pb.Settings.DataEntry
-	nil,                                   // 44: ziti.ctrl.pb.CircuitRequest.PeerDataEntry
-	nil,                                   // 45: ziti.ctrl.pb.CircuitConfirmation.IdleTimesEntry
-	nil,                                   // 46: ziti.ctrl.pb.CreateTerminatorRequest.PeerDataEntry
-	nil,                                   // 47: ziti.ctrl.pb.ValidateTerminatorsV2Response.StatesEntry
-	(*RouterLinks_RouterLink)(nil),        // 48: ziti.ctrl.pb.RouterLinks.RouterLink
-	nil,                                   // 49: ziti.ctrl.pb.Context.FieldsEntry
-	(*Route_Egress)(nil),                  // 50: ziti.ctrl.pb.Route.Egress
-	(*Route_Forward)(nil),                 // 51: ziti.ctrl.pb.Route.Forward
-	nil,                                   // 52: ziti.ctrl.pb.Route.TagsEntry
-	nil,                                   // 53: ziti.ctrl.pb.Route.Egress.PeerDataEntry
-	(*InspectResponse_InspectValue)(nil),  // 54: ziti.ctrl.pb.InspectResponse.InspectValue
-	nil,                                   // 55: ziti.ctrl.pb.Alert.RelatedEntitiesEntry
+	(ContentType)(0),                      // 0: zt.ctrl.pb.ContentType
+	(ControlHeaders)(0),                   // 1: zt.ctrl.pb.ControlHeaders
+	(RouterCapability)(0),                 // 2: zt.ctrl.pb.RouterCapability
+	(SettingTypes)(0),                     // 3: zt.ctrl.pb.SettingTypes
+	(TerminatorPrecedence)(0),             // 4: zt.ctrl.pb.TerminatorPrecedence
+	(TerminatorInvalidReason)(0),          // 5: zt.ctrl.pb.TerminatorInvalidReason
+	(FaultSubject)(0),                     // 6: zt.ctrl.pb.FaultSubject
+	(DestType)(0),                         // 7: zt.ctrl.pb.DestType
+	(PeerState)(0),                        // 8: zt.ctrl.pb.PeerState
+	(*Settings)(nil),                      // 9: zt.ctrl.pb.Settings
+	(*CircuitRequest)(nil),                // 10: zt.ctrl.pb.CircuitRequest
+	(*CircuitConfirmation)(nil),           // 11: zt.ctrl.pb.CircuitConfirmation
+	(*CreateTerminatorRequest)(nil),       // 12: zt.ctrl.pb.CreateTerminatorRequest
+	(*RemoveTerminatorRequest)(nil),       // 13: zt.ctrl.pb.RemoveTerminatorRequest
+	(*RemoveTerminatorsRequest)(nil),      // 14: zt.ctrl.pb.RemoveTerminatorsRequest
+	(*Terminator)(nil),                    // 15: zt.ctrl.pb.Terminator
+	(*ValidateTerminatorsRequest)(nil),    // 16: zt.ctrl.pb.ValidateTerminatorsRequest
+	(*ValidateTerminatorsV2Request)(nil),  // 17: zt.ctrl.pb.ValidateTerminatorsV2Request
+	(*RouterTerminatorState)(nil),         // 18: zt.ctrl.pb.RouterTerminatorState
+	(*ValidateTerminatorsV2Response)(nil), // 19: zt.ctrl.pb.ValidateTerminatorsV2Response
+	(*UpdateTerminatorRequest)(nil),       // 20: zt.ctrl.pb.UpdateTerminatorRequest
+	(*LinkConn)(nil),                      // 21: zt.ctrl.pb.LinkConn
+	(*LinkConnState)(nil),                 // 22: zt.ctrl.pb.LinkConnState
+	(*RouterLinks)(nil),                   // 23: zt.ctrl.pb.RouterLinks
+	(*Fault)(nil),                         // 24: zt.ctrl.pb.Fault
+	(*Context)(nil),                       // 25: zt.ctrl.pb.Context
+	(*Route)(nil),                         // 26: zt.ctrl.pb.Route
+	(*Unroute)(nil),                       // 27: zt.ctrl.pb.Unroute
+	(*InspectRequest)(nil),                // 28: zt.ctrl.pb.InspectRequest
+	(*InspectResponse)(nil),               // 29: zt.ctrl.pb.InspectResponse
+	(*VerifyRouter)(nil),                  // 30: zt.ctrl.pb.VerifyRouter
+	(*Listener)(nil),                      // 31: zt.ctrl.pb.Listener
+	(*Listeners)(nil),                     // 32: zt.ctrl.pb.Listeners
+	(*UpdateCtrlAddresses)(nil),           // 33: zt.ctrl.pb.UpdateCtrlAddresses
+	(*UpdateClusterLeader)(nil),           // 34: zt.ctrl.pb.UpdateClusterLeader
+	(*PeerStateChange)(nil),               // 35: zt.ctrl.pb.PeerStateChange
+	(*PeerStateChanges)(nil),              // 36: zt.ctrl.pb.PeerStateChanges
+	(*RouterMetadata)(nil),                // 37: zt.ctrl.pb.RouterMetadata
+	(*Interface)(nil),                     // 38: zt.ctrl.pb.Interface
+	(*RouterInterfacesUpdate)(nil),        // 39: zt.ctrl.pb.RouterInterfacesUpdate
+	(*LinkStateUpdate)(nil),               // 40: zt.ctrl.pb.LinkStateUpdate
+	(*Alert)(nil),                         // 41: zt.ctrl.pb.Alert
+	(*Alerts)(nil),                        // 42: zt.ctrl.pb.Alerts
+	nil,                                   // 43: zt.ctrl.pb.Settings.DataEntry
+	nil,                                   // 44: zt.ctrl.pb.CircuitRequest.PeerDataEntry
+	nil,                                   // 45: zt.ctrl.pb.CircuitConfirmation.IdleTimesEntry
+	nil,                                   // 46: zt.ctrl.pb.CreateTerminatorRequest.PeerDataEntry
+	nil,                                   // 47: zt.ctrl.pb.ValidateTerminatorsV2Response.StatesEntry
+	(*RouterLinks_RouterLink)(nil),        // 48: zt.ctrl.pb.RouterLinks.RouterLink
+	nil,                                   // 49: zt.ctrl.pb.Context.FieldsEntry
+	(*Route_Egress)(nil),                  // 50: zt.ctrl.pb.Route.Egress
+	(*Route_Forward)(nil),                 // 51: zt.ctrl.pb.Route.Forward
+	nil,                                   // 52: zt.ctrl.pb.Route.TagsEntry
+	nil,                                   // 53: zt.ctrl.pb.Route.Egress.PeerDataEntry
+	(*InspectResponse_InspectValue)(nil),  // 54: zt.ctrl.pb.InspectResponse.InspectValue
+	nil,                                   // 55: zt.ctrl.pb.Alert.RelatedEntitiesEntry
 }
 var file_ctrl_proto_depIdxs = []int32{
-	43, // 0: ziti.ctrl.pb.Settings.data:type_name -> ziti.ctrl.pb.Settings.DataEntry
-	44, // 1: ziti.ctrl.pb.CircuitRequest.peerData:type_name -> ziti.ctrl.pb.CircuitRequest.PeerDataEntry
-	45, // 2: ziti.ctrl.pb.CircuitConfirmation.idleTimes:type_name -> ziti.ctrl.pb.CircuitConfirmation.IdleTimesEntry
-	46, // 3: ziti.ctrl.pb.CreateTerminatorRequest.peerData:type_name -> ziti.ctrl.pb.CreateTerminatorRequest.PeerDataEntry
-	4,  // 4: ziti.ctrl.pb.CreateTerminatorRequest.precedence:type_name -> ziti.ctrl.pb.TerminatorPrecedence
-	15, // 5: ziti.ctrl.pb.ValidateTerminatorsRequest.terminators:type_name -> ziti.ctrl.pb.Terminator
-	15, // 6: ziti.ctrl.pb.ValidateTerminatorsV2Request.terminators:type_name -> ziti.ctrl.pb.Terminator
-	5,  // 7: ziti.ctrl.pb.RouterTerminatorState.reason:type_name -> ziti.ctrl.pb.TerminatorInvalidReason
-	47, // 8: ziti.ctrl.pb.ValidateTerminatorsV2Response.states:type_name -> ziti.ctrl.pb.ValidateTerminatorsV2Response.StatesEntry
-	4,  // 9: ziti.ctrl.pb.UpdateTerminatorRequest.precedence:type_name -> ziti.ctrl.pb.TerminatorPrecedence
-	21, // 10: ziti.ctrl.pb.LinkConnState.conns:type_name -> ziti.ctrl.pb.LinkConn
-	48, // 11: ziti.ctrl.pb.RouterLinks.links:type_name -> ziti.ctrl.pb.RouterLinks.RouterLink
-	6,  // 12: ziti.ctrl.pb.Fault.subject:type_name -> ziti.ctrl.pb.FaultSubject
-	49, // 13: ziti.ctrl.pb.Context.fields:type_name -> ziti.ctrl.pb.Context.FieldsEntry
-	50, // 14: ziti.ctrl.pb.Route.egress:type_name -> ziti.ctrl.pb.Route.Egress
-	51, // 15: ziti.ctrl.pb.Route.forwards:type_name -> ziti.ctrl.pb.Route.Forward
-	25, // 16: ziti.ctrl.pb.Route.context:type_name -> ziti.ctrl.pb.Context
-	52, // 17: ziti.ctrl.pb.Route.tags:type_name -> ziti.ctrl.pb.Route.TagsEntry
-	54, // 18: ziti.ctrl.pb.InspectResponse.values:type_name -> ziti.ctrl.pb.InspectResponse.InspectValue
-	31, // 19: ziti.ctrl.pb.Listeners.listeners:type_name -> ziti.ctrl.pb.Listener
-	8,  // 20: ziti.ctrl.pb.PeerStateChange.state:type_name -> ziti.ctrl.pb.PeerState
-	31, // 21: ziti.ctrl.pb.PeerStateChange.listeners:type_name -> ziti.ctrl.pb.Listener
-	35, // 22: ziti.ctrl.pb.PeerStateChanges.changes:type_name -> ziti.ctrl.pb.PeerStateChange
-	2,  // 23: ziti.ctrl.pb.RouterMetadata.capabilities:type_name -> ziti.ctrl.pb.RouterCapability
-	38, // 24: ziti.ctrl.pb.RouterInterfacesUpdate.interfaces:type_name -> ziti.ctrl.pb.Interface
-	22, // 25: ziti.ctrl.pb.LinkStateUpdate.connState:type_name -> ziti.ctrl.pb.LinkConnState
-	55, // 26: ziti.ctrl.pb.Alert.relatedEntities:type_name -> ziti.ctrl.pb.Alert.RelatedEntitiesEntry
-	41, // 27: ziti.ctrl.pb.Alerts.alerts:type_name -> ziti.ctrl.pb.Alert
-	18, // 28: ziti.ctrl.pb.ValidateTerminatorsV2Response.StatesEntry.value:type_name -> ziti.ctrl.pb.RouterTerminatorState
-	22, // 29: ziti.ctrl.pb.RouterLinks.RouterLink.connState:type_name -> ziti.ctrl.pb.LinkConnState
-	53, // 30: ziti.ctrl.pb.Route.Egress.peerData:type_name -> ziti.ctrl.pb.Route.Egress.PeerDataEntry
-	7,  // 31: ziti.ctrl.pb.Route.Forward.dstType:type_name -> ziti.ctrl.pb.DestType
+	43, // 0: zt.ctrl.pb.Settings.data:type_name -> zt.ctrl.pb.Settings.DataEntry
+	44, // 1: zt.ctrl.pb.CircuitRequest.peerData:type_name -> zt.ctrl.pb.CircuitRequest.PeerDataEntry
+	45, // 2: zt.ctrl.pb.CircuitConfirmation.idleTimes:type_name -> zt.ctrl.pb.CircuitConfirmation.IdleTimesEntry
+	46, // 3: zt.ctrl.pb.CreateTerminatorRequest.peerData:type_name -> zt.ctrl.pb.CreateTerminatorRequest.PeerDataEntry
+	4,  // 4: zt.ctrl.pb.CreateTerminatorRequest.precedence:type_name -> zt.ctrl.pb.TerminatorPrecedence
+	15, // 5: zt.ctrl.pb.ValidateTerminatorsRequest.terminators:type_name -> zt.ctrl.pb.Terminator
+	15, // 6: zt.ctrl.pb.ValidateTerminatorsV2Request.terminators:type_name -> zt.ctrl.pb.Terminator
+	5,  // 7: zt.ctrl.pb.RouterTerminatorState.reason:type_name -> zt.ctrl.pb.TerminatorInvalidReason
+	47, // 8: zt.ctrl.pb.ValidateTerminatorsV2Response.states:type_name -> zt.ctrl.pb.ValidateTerminatorsV2Response.StatesEntry
+	4,  // 9: zt.ctrl.pb.UpdateTerminatorRequest.precedence:type_name -> zt.ctrl.pb.TerminatorPrecedence
+	21, // 10: zt.ctrl.pb.LinkConnState.conns:type_name -> zt.ctrl.pb.LinkConn
+	48, // 11: zt.ctrl.pb.RouterLinks.links:type_name -> zt.ctrl.pb.RouterLinks.RouterLink
+	6,  // 12: zt.ctrl.pb.Fault.subject:type_name -> zt.ctrl.pb.FaultSubject
+	49, // 13: zt.ctrl.pb.Context.fields:type_name -> zt.ctrl.pb.Context.FieldsEntry
+	50, // 14: zt.ctrl.pb.Route.egress:type_name -> zt.ctrl.pb.Route.Egress
+	51, // 15: zt.ctrl.pb.Route.forwards:type_name -> zt.ctrl.pb.Route.Forward
+	25, // 16: zt.ctrl.pb.Route.context:type_name -> zt.ctrl.pb.Context
+	52, // 17: zt.ctrl.pb.Route.tags:type_name -> zt.ctrl.pb.Route.TagsEntry
+	54, // 18: zt.ctrl.pb.InspectResponse.values:type_name -> zt.ctrl.pb.InspectResponse.InspectValue
+	31, // 19: zt.ctrl.pb.Listeners.listeners:type_name -> zt.ctrl.pb.Listener
+	8,  // 20: zt.ctrl.pb.PeerStateChange.state:type_name -> zt.ctrl.pb.PeerState
+	31, // 21: zt.ctrl.pb.PeerStateChange.listeners:type_name -> zt.ctrl.pb.Listener
+	35, // 22: zt.ctrl.pb.PeerStateChanges.changes:type_name -> zt.ctrl.pb.PeerStateChange
+	2,  // 23: zt.ctrl.pb.RouterMetadata.capabilities:type_name -> zt.ctrl.pb.RouterCapability
+	38, // 24: zt.ctrl.pb.RouterInterfacesUpdate.interfaces:type_name -> zt.ctrl.pb.Interface
+	22, // 25: zt.ctrl.pb.LinkStateUpdate.connState:type_name -> zt.ctrl.pb.LinkConnState
+	55, // 26: zt.ctrl.pb.Alert.relatedEntities:type_name -> zt.ctrl.pb.Alert.RelatedEntitiesEntry
+	41, // 27: zt.ctrl.pb.Alerts.alerts:type_name -> zt.ctrl.pb.Alert
+	18, // 28: zt.ctrl.pb.ValidateTerminatorsV2Response.StatesEntry.value:type_name -> zt.ctrl.pb.RouterTerminatorState
+	22, // 29: zt.ctrl.pb.RouterLinks.RouterLink.connState:type_name -> zt.ctrl.pb.LinkConnState
+	53, // 30: zt.ctrl.pb.Route.Egress.peerData:type_name -> zt.ctrl.pb.Route.Egress.PeerDataEntry
+	7,  // 31: zt.ctrl.pb.Route.Forward.dstType:type_name -> zt.ctrl.pb.DestType
 	32, // [32:32] is the sub-list for method output_type
 	32, // [32:32] is the sub-list for method input_type
 	32, // [32:32] is the sub-list for extension type_name

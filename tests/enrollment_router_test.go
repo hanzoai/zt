@@ -37,7 +37,7 @@ import (
 	"github.com/golang-jwt/jwt/v5"
 	"github.com/google/uuid"
 	"github.com/hanzozt/channel/v4"
-	"github.com/hanzozt/sdk-golang/ziti"
+	"github.com/hanzozt/sdk-golang/zt"
 	"github.com/hanzozt/transport/v2"
 
 	identity2 "github.com/hanzozt/identity"
@@ -74,7 +74,7 @@ func Test_RouterEnrollment(t *testing.T) {
 				ctx.testContextChanged(t)
 				jwtParser := jwt.NewParser()
 
-				enrollmentClaims := &ziti.EnrollmentClaims{}
+				enrollmentClaims := &zt.EnrollmentClaims{}
 
 				token, _, err := jwtParser.ParseUnverified(strToken, enrollmentClaims)
 
@@ -391,7 +391,7 @@ func Test_RouterEnrollment(t *testing.T) {
 					id := identity2.NewClientTokenIdentity(certs, privateKey, caCerts)
 					ctx.Req.NotNil(id)
 
-					tcfg := transport.Configuration{"protocol": "ziti-ctrl"}
+					tcfg := transport.Configuration{"protocol": "zt-ctrl"}
 					ch, err := channel.NewChannel("apitest",
 						channel.NewClassicDialer(channel.DialerConfig{Identity: id, Endpoint: ctx.ControllerConfig.Ctrl.Listener, TransportConfig: tcfg}), nil, nil)
 
@@ -593,7 +593,7 @@ func Test_RouterEnrollment(t *testing.T) {
 							id := identity2.NewClientTokenIdentity(extensionClientCerts, extensionPrivateKey, caCerts)
 							ctx.Req.NotNil(id)
 
-							tcfg := transport.Configuration{"protocol": "ziti-ctrl"}
+							tcfg := transport.Configuration{"protocol": "zt-ctrl"}
 							ch, err := channel.NewChannel("apitestextension",
 								channel.NewClassicDialer(channel.DialerConfig{Identity: id, Endpoint: ctx.ControllerConfig.Ctrl.Listener, TransportConfig: tcfg}), nil, nil)
 

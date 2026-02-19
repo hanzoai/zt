@@ -17,13 +17,13 @@
 package model
 
 import (
-	"github.com/hanzozt/ziti/v2/common/pb/cmd_pb"
-	"github.com/hanzozt/ziti/v2/common/pb/edge_cmd_pb"
-	"github.com/hanzozt/ziti/v2/controller/change"
-	"github.com/hanzozt/ziti/v2/controller/command"
-	"github.com/hanzozt/ziti/v2/controller/fields"
-	"github.com/hanzozt/ziti/v2/controller/ioc"
-	"github.com/hanzozt/ziti/v2/controller/models"
+	"github.com/hanzozt/zt/v2/common/pb/cmd_pb"
+	"github.com/hanzozt/zt/v2/common/pb/edge_cmd_pb"
+	"github.com/hanzozt/zt/v2/controller/change"
+	"github.com/hanzozt/zt/v2/controller/command"
+	"github.com/hanzozt/zt/v2/controller/fields"
+	"github.com/hanzozt/zt/v2/controller/ioc"
+	"github.com/hanzozt/zt/v2/controller/models"
 	"google.golang.org/protobuf/proto"
 )
 

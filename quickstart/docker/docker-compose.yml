@@ -1,8 +1,8 @@
 services:
-  ziti-controller:
+  zt-controller:
     image: "${ZITI_IMAGE}:${ZITI_VERSION}"
     healthcheck:
-      test: curl -m 1 -s -k https://${ZITI_CTRL_EDGE_ADVERTISED_ADDRESS:-ziti-edge-controller}:${ZITI_CTRL_EDGE_ADVERTISED_PORT:-1280}/edge/client/v1/version
+      test: curl -m 1 -s -k https://${ZITI_CTRL_EDGE_ADVERTISED_ADDRESS:-zt-edge-controller}:${ZITI_CTRL_EDGE_ADVERTISED_PORT:-1280}/edge/client/v1/version
       interval: 1s
       timeout: 3s
       retries: 30
@@ -12,8 +12,8 @@ services:
       - ${ZITI_INTERFACE:-0.0.0.0}:${ZITI_CTRL_EDGE_ADVERTISED_PORT:-1280}:${ZITI_CTRL_EDGE_ADVERTISED_PORT:-1280}
       - ${ZITI_INTERFACE:-0.0.0.0}:${ZITI_CTRL_ADVERTISED_PORT:-6262}:${ZITI_CTRL_ADVERTISED_PORT:-6262}
     environment:
-      - ZITI_CTRL_NAME=${ZITI_CTRL_NAME:-ziti-edge-controller}
-      - ZITI_CTRL_EDGE_ADVERTISED_ADDRESS=${ZITI_CTRL_EDGE_ADVERTISED_ADDRESS:-ziti-edge-controller}
+      - ZITI_CTRL_NAME=${ZITI_CTRL_NAME:-zt-edge-controller}
+      - ZITI_CTRL_EDGE_ADVERTISED_ADDRESS=${ZITI_CTRL_EDGE_ADVERTISED_ADDRESS:-zt-edge-controller}
       - ZITI_CTRL_EDGE_ADVERTISED_PORT=${ZITI_CTRL_EDGE_ADVERTISED_PORT:-1280}
       - ZITI_CTRL_EDGE_IP_OVERRIDE=${ZITI_CTRL_EDGE_IP_OVERRIDE:-127.0.0.1}
       - ZITI_CTRL_ADVERTISED_PORT=${ZITI_CTRL_ADVERTISED_PORT:-6262}
@@ -22,163 +22,163 @@ services:
       - ZITI_USER=${ZITI_USER:-admin}
       - ZITI_PWD=${ZITI_PWD}
     networks:
-      zitiblue:
+      ztblue:
         aliases:
-          - ziti-edge-controller
-      zitired:
+          - zt-edge-controller
+      ztred:
         aliases:
-          - ziti-edge-controller
+          - zt-edge-controller
     volumes:
-      - ziti-fs:/persistent
+      - zt-fs:/persistent
     entrypoint:
       - "/var/hanzozt/scripts/run-controller.sh"
 
-  ziti-controller-init-container:
+  zt-controller-init-container:
     image: "${ZITI_IMAGE}:${ZITI_VERSION}"
     depends_on:
-      ziti-controller:
+      zt-controller:
         condition: service_healthy
     environment:
-      - ZITI_CTRL_EDGE_ADVERTISED_ADDRESS=${ZITI_CTRL_EDGE_ADVERTISED_ADDRESS:-ziti-edge-controller}
+      - ZITI_CTRL_EDGE_ADVERTISED_ADDRESS=${ZITI_CTRL_EDGE_ADVERTISED_ADDRESS:-zt-edge-controller}
       - ZITI_CTRL_EDGE_ADVERTISED_PORT=${ZITI_CTRL_EDGE_ADVERTISED_PORT:-1280}
     env_file:
       - ./.env
     networks:
-      zitiblue:
+      ztblue:
         aliases:
-          - ziti-edge-controller-init-container
-      zitired:
+          - zt-edge-controller-init-container
+      ztred:
         aliases:
-          - ziti-edge-controller-init-container
+          - zt-edge-controller-init-container
     volumes:
-      - ziti-fs:/persistent
+      - zt-fs:/persistent
     entrypoint:
-      - "/var/hanzozt/scripts/run-with-ziti-cli.sh"
+      - "/var/hanzozt/scripts/run-with-zt-cli.sh"
     command:
       - "/var/hanzozt/scripts/access-control.sh"
 
-  ziti-edge-router:
+  zt-edge-router:
     image: "${ZITI_IMAGE}:${ZITI_VERSION}"
     env_file:
       - ./.env
     depends_on:
-      ziti-controller:
+      zt-controller:
         condition: service_healthy
     ports:
       - ${ZITI_INTERFACE:-0.0.0.0}:${ZITI_ROUTER_PORT:-3022}:${ZITI_ROUTER_PORT:-3022}
       - ${ZITI_INTERFACE:-0.0.0.0}:${ZITI_ROUTER_LISTENER_BIND_PORT:-10080}:${ZITI_ROUTER_LISTENER_BIND_PORT:-10080}
     environment:
-      - ZITI_CTRL_ADVERTISED_ADDRESS=${ZITI_CTRL_ADVERTISED_ADDRESS:-ziti-controller}
+      - ZITI_CTRL_ADVERTISED_ADDRESS=${ZITI_CTRL_ADVERTISED_ADDRESS:-zt-controller}
       - ZITI_CTRL_ADVERTISED_PORT=${ZITI_CTRL_ADVERTISED_PORT:-6262}
-      - ZITI_CTRL_EDGE_ADVERTISED_ADDRESS=${ZITI_CTRL_EDGE_ADVERTISED_ADDRESS:-ziti-edge-controller}
+      - ZITI_CTRL_EDGE_ADVERTISED_ADDRESS=${ZITI_CTRL_EDGE_ADVERTISED_ADDRESS:-zt-edge-controller}
       - ZITI_CTRL_EDGE_ADVERTISED_PORT=${ZITI_CTRL_EDGE_ADVERTISED_PORT:-1280}
-      - ZITI_ROUTER_NAME=${ZITI_ROUTER_NAME:-ziti-edge-router}
-      - ZITI_ROUTER_ADVERTISED_ADDRESS=${ZITI_ROUTER_ADVERTISED_ADDRESS:-ziti-edge-router}
+      - ZITI_ROUTER_NAME=${ZITI_ROUTER_NAME:-zt-edge-router}
+      - ZITI_ROUTER_ADVERTISED_ADDRESS=${ZITI_ROUTER_ADVERTISED_ADDRESS:-zt-edge-router}
       - ZITI_ROUTER_PORT=${ZITI_ROUTER_PORT:-3022}
       - ZITI_ROUTER_LISTENER_BIND_PORT=${ZITI_ROUTER_LISTENER_BIND_PORT:-10080}
       - ZITI_ROUTER_ROLES=public
     networks:
-      - zitiblue
-      - zitired
+      - ztblue
+      - ztred
     volumes:
-      - ziti-fs:/persistent
+      - zt-fs:/persistent
     entrypoint: /bin/bash
     command: "/var/hanzozt/scripts/run-router.sh edge"
 
-  ziti-edge-router-wss:
+  zt-edge-router-wss:
     image: "${ZITI_IMAGE}:${ZITI_VERSION}"
     env_file:
       - ./.env
     depends_on:
-      ziti-controller:
+      zt-controller:
         condition: service_healthy
     ports:
       - ${ZITI_INTERFACE:-0.0.0.0}:${ZITI_ROUTER_WSS_PORT:-3023}:${ZITI_ROUTER_WSS_PORT:-3023}
       - ${ZITI_INTERFACE:-0.0.0.0}:${ZITI_ROUTER_LISTENER_BIND_PORT:-10081}:${ZITI_ROUTER_LISTENER_BIND_PORT:-10081}
     environment:
-      - ZITI_CTRL_ADVERTISED_ADDRESS=${ZITI_CTRL_ADVERTISED_ADDRESS:-ziti-controller}
+      - ZITI_CTRL_ADVERTISED_ADDRESS=${ZITI_CTRL_ADVERTISED_ADDRESS:-zt-controller}
       - ZITI_CTRL_ADVERTISED_PORT=${ZITI_CTRL_ADVERTISED_PORT:-6262}
-      - ZITI_CTRL_EDGE_ADVERTISED_ADDRESS=${ZITI_CTRL_EDGE_ADVERTISED_ADDRESS:-ziti-edge-controller}
+      - ZITI_CTRL_EDGE_ADVERTISED_ADDRESS=${ZITI_CTRL_EDGE_ADVERTISED_ADDRESS:-zt-edge-controller}
       - ZITI_CTRL_EDGE_ADVERTISED_PORT=${ZITI_CTRL_EDGE_ADVERTISED_PORT:-1280}
-      - ZITI_ROUTER_NAME=${ZITI_ROUTER_NAME:-ziti-edge-router-wss}
-      - ZITI_ROUTER_ADVERTISED_ADDRESS=${ZITI_ROUTER_ADVERTISED_ADDRESS:-ziti-edge-router-wss}
+      - ZITI_ROUTER_NAME=${ZITI_ROUTER_NAME:-zt-edge-router-wss}
+      - ZITI_ROUTER_ADVERTISED_ADDRESS=${ZITI_ROUTER_ADVERTISED_ADDRESS:-zt-edge-router-wss}
       - ZITI_ROUTER_PORT=${ZITI_ROUTER_WSS_PORT:-3023}
       - ZITI_ROUTER_LISTENER_BIND_PORT=${ZITI_ROUTER_LISTENER_BIND_PORT:-10081}
       - ZITI_ROUTER_ROLES=public
       - ZITI_PKI_ALT_SERVER_CERT=${ZITI_PKI_ALT_SERVER_CERT:-}
       - ZITI_PKI_ALT_SERVER_KEY=${ZITI_PKI_ALT_SERVER_KEY:-}
     networks:
-      - zitiblue
-      - zitired
+      - ztblue
+      - ztred
     volumes:
-      - ziti-fs:/persistent
+      - zt-fs:/persistent
     entrypoint: /bin/bash
     command: "/var/hanzozt/scripts/run-router.sh wss"
 
-  ziti-fabric-router-br:
+  zt-fabric-router-br:
     image: "${ZITI_IMAGE}:${ZITI_VERSION}"
     env_file:
       - ./.env
     depends_on:
-      ziti-controller:
+      zt-controller:
         condition: service_healthy
     environment:
-      - ZITI_CTRL_ADVERTISED_ADDRESS=${ZITI_CTRL_ADVERTISED_ADDRESS:-ziti-controller}
+      - ZITI_CTRL_ADVERTISED_ADDRESS=${ZITI_CTRL_ADVERTISED_ADDRESS:-zt-controller}
       - ZITI_CTRL_ADVERTISED_PORT=${ZITI_CTRL_ADVERTISED_PORT:-6262}
-      - ZITI_CTRL_EDGE_ADVERTISED_ADDRESS=${ZITI_CTRL_EDGE_ADVERTISED_ADDRESS:-ziti-edge-controller}
+      - ZITI_CTRL_EDGE_ADVERTISED_ADDRESS=${ZITI_CTRL_EDGE_ADVERTISED_ADDRESS:-zt-edge-controller}
       - ZITI_CTRL_EDGE_ADVERTISED_PORT=${ZITI_CTRL_EDGE_ADVERTISED_PORT:-1280}
-      - ZITI_ROUTER_NAME=ziti-fabric-router-br
-      - ZITI_ROUTER_ADVERTISED_ADDRESS=ziti-fabric-router-br
+      - ZITI_ROUTER_NAME=zt-fabric-router-br
+      - ZITI_ROUTER_ADVERTISED_ADDRESS=zt-fabric-router-br
       - ZITI_ROUTER_ROLES="fabric-only"
     networks:
-      - zitiblue
-      - zitired
+      - ztblue
+      - ztred
     volumes:
-      - ziti-fs:/persistent
+      - zt-fs:/persistent
     entrypoint: /bin/bash
     command: "/var/hanzozt/scripts/run-router.sh fabric"
 
-  ziti-private-red:
+  zt-private-red:
     image: "${ZITI_IMAGE}:${ZITI_VERSION}"
     env_file:
       - ./.env
     depends_on:
-      ziti-controller:
+      zt-controller:
         condition: service_healthy
     environment:
-      - ZITI_CTRL_ADVERTISED_ADDRESS=${ZITI_CTRL_ADVERTISED_ADDRESS:-ziti-controller}
+      - ZITI_CTRL_ADVERTISED_ADDRESS=${ZITI_CTRL_ADVERTISED_ADDRESS:-zt-controller}
       - ZITI_CTRL_ADVERTISED_PORT=${ZITI_CTRL_ADVERTISED_PORT:-6262}
-      - ZITI_CTRL_EDGE_ADVERTISED_ADDRESS=${ZITI_CTRL_EDGE_ADVERTISED_ADDRESS:-ziti-edge-controller}
+      - ZITI_CTRL_EDGE_ADVERTISED_ADDRESS=${ZITI_CTRL_EDGE_ADVERTISED_ADDRESS:-zt-edge-controller}
       - ZITI_CTRL_EDGE_ADVERTISED_PORT=${ZITI_CTRL_EDGE_ADVERTISED_PORT:-1280}
-      - ZITI_ROUTER_NAME=ziti-private-red
-      - ZITI_ROUTER_ADVERTISED_ADDRESS=ziti-private-red
-      - ZITI_ROUTER_ROLES=zitired
+      - ZITI_ROUTER_NAME=zt-private-red
+      - ZITI_ROUTER_ADVERTISED_ADDRESS=zt-private-red
+      - ZITI_ROUTER_ROLES=ztred
     networks:
-      - zitired
+      - ztred
     volumes:
-      - ziti-fs:/persistent
+      - zt-fs:/persistent
     entrypoint: /bin/bash
     command: "/var/hanzozt/scripts/run-router.sh private"
 
-  ziti-private-blue:
+  zt-private-blue:
     image: "${ZITI_IMAGE}:${ZITI_VERSION}"
     env_file:
       - ./.env
     depends_on:
-      ziti-controller:
+      zt-controller:
         condition: service_healthy
     environment:
-      - ZITI_CTRL_ADVERTISED_ADDRESS=${ZITI_CTRL_ADVERTISED_ADDRESS:-ziti-controller}
+      - ZITI_CTRL_ADVERTISED_ADDRESS=${ZITI_CTRL_ADVERTISED_ADDRESS:-zt-controller}
       - ZITI_CTRL_ADVERTISED_PORT=${ZITI_CTRL_ADVERTISED_PORT:-6262}
-      - ZITI_CTRL_EDGE_ADVERTISED_ADDRESS=${ZITI_CTRL_EDGE_ADVERTISED_ADDRESS:-ziti-edge-controller}
+      - ZITI_CTRL_EDGE_ADVERTISED_ADDRESS=${ZITI_CTRL_EDGE_ADVERTISED_ADDRESS:-zt-edge-controller}
       - ZITI_CTRL_EDGE_ADVERTISED_PORT=${ZITI_CTRL_EDGE_ADVERTISED_PORT:-1280}
-      - ZITI_ROUTER_NAME=ziti-private-blue
-      - ZITI_ROUTER_ADVERTISED_ADDRESS=ziti-private-blue
-      - ZITI_ROUTER_ROLES=zitiblue
+      - ZITI_ROUTER_NAME=zt-private-blue
+      - ZITI_ROUTER_ADVERTISED_ADDRESS=zt-private-blue
+      - ZITI_ROUTER_ROLES=ztblue
     networks:
-      - zitiblue
+      - ztblue
     volumes:
-      - ziti-fs:/persistent
+      - zt-fs:/persistent
     entrypoint: /bin/bash
     command: "/var/hanzozt/scripts/run-router.sh private"
 
@@ -187,40 +187,40 @@ services:
     ports:
       - ${ZITI_INTERFACE:-0.0.0.0}:80:8000
     networks:
-      zitiblue:
+      ztblue:
         aliases:
           - web-test-blue
           - web-test.blue
           - web.test.blue
 
-  ziti-console:
+  zt-console:
     image: hanzozt/zac
     working_dir: /usr/src/app
     environment:
-      - ZAC_SERVER_CERT_CHAIN=/persistent/pki/${ZITI_CTRL_EDGE_ADVERTISED_ADDRESS:-ziti-edge-controller}-intermediate/certs/${ZITI_CTRL_EDGE_ADVERTISED_ADDRESS:-ziti-edge-controller}-server.cert
-      - ZAC_SERVER_KEY=/persistent/pki/${ZITI_CTRL_EDGE_ADVERTISED_ADDRESS:-ziti-edge-controller}-intermediate/keys/${ZITI_CTRL_EDGE_ADVERTISED_ADDRESS:-ziti-edge-controller}-server.key
-      - ZITI_CTRL_EDGE_ADVERTISED_ADDRESS=${ZITI_CTRL_EDGE_ADVERTISED_ADDRESS:-ziti-edge-controller}
+      - ZAC_SERVER_CERT_CHAIN=/persistent/pki/${ZITI_CTRL_EDGE_ADVERTISED_ADDRESS:-zt-edge-controller}-intermediate/certs/${ZITI_CTRL_EDGE_ADVERTISED_ADDRESS:-zt-edge-controller}-server.cert
+      - ZAC_SERVER_KEY=/persistent/pki/${ZITI_CTRL_EDGE_ADVERTISED_ADDRESS:-zt-edge-controller}-intermediate/keys/${ZITI_CTRL_EDGE_ADVERTISED_ADDRESS:-zt-edge-controller}-server.key
+      - ZITI_CTRL_EDGE_ADVERTISED_ADDRESS=${ZITI_CTRL_EDGE_ADVERTISED_ADDRESS:-zt-edge-controller}
       - ZITI_CTRL_EDGE_ADVERTISED_PORT=${ZITI_CTRL_EDGE_ADVERTISED_PORT:-1280}
-      - ZITI_CTRL_NAME=${ZITI_CTRL_NAME:-ziti-edge-controller}
-      - ZAC_CONTROLLER_URLS=${ZAC_CONTROLLER_URLS:-ziti-edge-controller:1280}
+      - ZITI_CTRL_NAME=${ZITI_CTRL_NAME:-zt-edge-controller}
+      - ZAC_CONTROLLER_URLS=${ZAC_CONTROLLER_URLS:-zt-edge-controller:1280}
       - PORTTLS=8443
     depends_on:
-      ziti-controller:
+      zt-controller:
         condition: service_healthy
     ports:
       - ${ZITI_INTERFACE:-0.0.0.0}:8443:8443
     volumes:
-      - ziti-fs:/persistent
+      - zt-fs:/persistent
     networks:
-      - zitiblue
-      - zitired
+      - ztblue
+      - ztred
 
 networks:
-  zitired:
+  ztred:
     driver: bridge
-  zitiblue:
+  ztblue:
     driver: bridge
 
 volumes:
-  ziti-fs:
+  zt-fs:
 

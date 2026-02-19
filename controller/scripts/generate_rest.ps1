@@ -7,37 +7,37 @@ try
         throw "Command 'swagger' not installed. See: https://github.com/go-swagger/go-swagger for installation"
     }
 
-    $zitiEdgeDir = Join-Path $PSScriptRoot "../" -Resolve
+    $ztEdgeDir = Join-Path $PSScriptRoot "../" -Resolve
 
     $copyrightFile = Join-Path $PSScriptRoot "template.copyright.txt" -Resolve
 
-    $swagSpec = Join-Path $zitiEdgeDir "/specs/swagger.yml" -Resolve
+    $swagSpec = Join-Path $ztEdgeDir "/specs/swagger.yml" -Resolve
     "...reading spec from $swagSpec"
 
-    $serverPath = Join-Path $zitiEdgeDir "/rest_server"
+    $serverPath = Join-Path $ztEdgeDir "/rest_server"
     "...removing any existing server from $serverPath"
     Remove-Item $serverPath -Recurse -Force -ErrorAction "SilentlyContinue" | Out-Null
     New-Item -ItemType "directory" -Path $serverPath -ErrorAction "SilentlyContinue" | Out-Null
 
-    $clientPath = Join-Path $zitiEdgeDir "/rest_client"
+    $clientPath = Join-Path $ztEdgeDir "/rest_client"
     "...removing any existing client from $clientPath"
     Remove-Item $clientPath -Recurse -Force -ErrorAction "SilentlyContinue" | Out-Null
     New-Item -ItemType "directory" -Path $clientPath -ErrorAction "SilentlyContinue" | Out-Null
 
-    $modelPath = Join-Path $zitiEdgeDir "/rest_model"
+    $modelPath = Join-Path $ztEdgeDir "/rest_model"
     "...removing any existing model from $modelPath"
     Remove-Item $modelPath -Recurse -Force -ErrorAction "SilentlyContinue" | Out-Null
     New-Item -ItemType "directory" -Path $modelPath -ErrorAction "SilentlyContinue" | Out-Null
 
 
     "...generating server"
-    swagger generate server --exclude-main -f $swagSpec -s rest_server -t $zitiEdgeDir -q -r $copyrightFile -m "rest_model"
+    swagger generate server --exclude-main -f $swagSpec -s rest_server -t $ztEdgeDir -q -r $copyrightFile -m "rest_model"
     if (-not$?)
     {
         throw "Failed to generate server. See above."
     }
     "...generating client"
-    swagger generate client -f $swagSpec  -c rest_client -t $zitiEdgeDir -q -r $copyrightFile -m "rest_model"
+    swagger generate client -f $swagSpec  -c rest_client -t $ztEdgeDir -q -r $copyrightFile -m "rest_model"
     if (-not$?)
     {
         throw "Failed to generate client. See above."
@@ -49,7 +49,7 @@ try
     # works around those changes from showing up in commits by switching to forward slashes.
     #
     # There appears to be no option to suppress this line in the `swagger` executable.
-    $configureFile = Join-Path $serverPath "/configure_ziti_fabric.go" -Resolve
+    $configureFile = Join-Path $serverPath "/configure_zt_fabric.go" -Resolve
 
     $content = ""
     foreach ($line in Get-Content $configureFile)

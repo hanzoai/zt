@@ -22,7 +22,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/hanzozt/sdk-golang/ziti"
+	"github.com/hanzozt/sdk-golang/zt"
 )
 
 func Test_ApiSessionCertConnection(t *testing.T) {
@@ -38,16 +38,16 @@ func Test_ApiSessionCertConnection(t *testing.T) {
 	clientIdentity := ctx.AdminManagementSession.RequireNewIdentityWithUpdb(false)
 	clientConfig := ctx.EnrollIdentity(clientIdentity.Id)
 
-	clientContext, err := ziti.NewContext(clientConfig)
+	clientContext, err := zt.NewContext(clientConfig)
 	ctx.Req.NoError(err)
 
 	connectChan := make(chan struct{}, 1)
-	clientContext.Events().AddRouterConnectedListener(func(ztx ziti.Context, name string, addr string) {
+	clientContext.Events().AddRouterConnectedListener(func(ztx zt.Context, name string, addr string) {
 		connectChan <- struct{}{}
 	})
 
 	disconnectedChan := make(chan struct{}, 1)
-	clientContext.Events().AddRouterDisconnectedListener(func(ztx ziti.Context, name string, addr string) {
+	clientContext.Events().AddRouterDisconnectedListener(func(ztx zt.Context, name string, addr string) {
 		disconnectedChan <- struct{}{}
 	})
 

@@ -1,8 +1,8 @@
 # Release 0.24.13
 
 * Enhancement: Added new `noTraversal` field to routers. Configures if a router should allow/disallow traversal. Required on create/update commands.
-* Enhancement: `ziti edge update edge-router` now supports either `--no-traversal` flag which will allow/disallow a given router from being used to traverse. 
-* Enhancement: `ziti fabric list routers` and `ziti edge list routers` will now display the noTraversal flag of associated routers. 
+* Enhancement: `zt edge update edge-router` now supports either `--no-traversal` flag which will allow/disallow a given router from being used to traverse. 
+* Enhancement: `zt fabric list routers` and `zt edge list routers` will now display the noTraversal flag of associated routers. 
 * Feature: 1st Party Certificate Extension
 
 ## 1st Party Certificate Extension
@@ -63,7 +63,7 @@ On success, 200 OK is returned and the new client certificate should be used for
 
 # Release 0.24.11
 
-* Bug fix: Fix ziti CLI env. Config was getting set to current directory, instead of defaulting to under $HOME
+* Bug fix: Fix zt CLI env. Config was getting set to current directory, instead of defaulting to under $HOME
 * Enhancement: Go tunneler support for service-side resolution of SRV, MX, TXT records for wildcard domains 
 
 # Release 0.24.10
@@ -74,12 +74,12 @@ On success, 200 OK is returned and the new client certificate should be used for
 * Bug fix: Circuit timeouts, and not just failures, should now also incur failure costs on the related terminator when dialing
 * Bug fix: Entity count events and the summary REST service now distinguish between fabric and edge service and routers. The edge counts names are suffixed with '.edge'
 * Enhancement: Circuit events of all types now include the full set of attributes
-* Enhancement: The `ziti edge list summary` now shows entity counts in alphabetical order of the entity type 
-* Enhancement: `ziti edge update edge-router` now supports a `--cost` flag which will update a given routers associated cost.
-* Enhancement: `ziti fabric list routers` and `ziti edge list routers` will now display the cost of associated routers.
+* Enhancement: The `zt edge list summary` now shows entity counts in alphabetical order of the entity type 
+* Enhancement: `zt edge update edge-router` now supports a `--cost` flag which will update a given routers associated cost.
+* Enhancement: `zt fabric list routers` and `zt edge list routers` will now display the cost of associated routers.
 
 # Release 0.24.9
-* Enhancement: `ziti` now has subcommands under `create config` which will properly emit configuration files for 
+* Enhancement: `zt` now has subcommands under `create config` which will properly emit configuration files for 
   `controller`, `router edge` and `router fabric`. 
 
 # Release 0.24.8
@@ -203,7 +203,7 @@ contains `bindPoint`s that define which network interfaces the REST API server w
 additional `newAddress` field can optionally be set.
 
 Once `newAddress` is set, the controller will start to send out the new address to all clients via the HTTP
-header `ziti-ctrl-address`. The header will be present on all responses from the controller for the specific
+header `zt-ctrl-address`. The header will be present on all responses from the controller for the specific
 `bindPoint`. All security concerns listed above must be met or client will not be able to connect to the controller.
 
 ```
@@ -227,7 +227,7 @@ web:
         address: 127.0.0.1:1280
 
         # newAddress - optional
-        # A host:port string which will be sent out as an HTTP header "ziti-new-address" if specified. If the header
+        # A host:port string which will be sent out as an HTTP header "zt-new-address" if specified. If the header
         # is present, clients should update location configuration to immediately use the new address for future
         # connections. The value of newAddress must be resolvable both via DNS and validate via certificates
         newAddress: localhost:1280
@@ -369,13 +369,13 @@ ctrl:
 * Bug fix: When checking edge terminator validity in the router, check terminator id as well the address
 * Bug fix: xweb uses idleTimeout correctly, was previously using writeTimeout instead
 * Enhancement: Improve logging around links in routers. Ensure we close both channels when closing a split link
-* Enhancement: Add support for inspect in `ziti fabric`. Works the same as `ziti-fabric inspect`
+* Enhancement: Add support for inspect in `zt fabric`. Works the same as `zt-fabric inspect`
 
 # Release 0.24.1
 
 ## What's New
 
-* Bug Fix: Very first time using ziti cli to login with `ziti edge login` would panic
+* Bug Fix: Very first time using zt cli to login with `zt edge login` would panic
 * Security: When using new fabric REST API in fabric only mode, certs weren't being properly checked. Regression exists
   only in 0.24.0
 
@@ -383,10 +383,10 @@ ctrl:
 
 ## Breaking Changes
 
-* ziti-fabric-gw has been removed since the fabric now has its own REST API
-* ziti-fabric-test is no longer being built by default and won't be included in future release bundles.
+* zt-fabric-gw has been removed since the fabric now has its own REST API
+* zt-fabric-test is no longer being built by default and won't be included in future release bundles.
   Use `go build --tags all ./...` to build it
-* ziti-fabric has been deprecated. Most of its features are now available in the `ziti` CLI under `ziti fabric`
+* zt-fabric has been deprecated. Most of its features are now available in the `zt` CLI under `zt fabric`
 
 ## What's New
 
@@ -413,7 +413,7 @@ mgmt based API does. If running with the edge, the edge provides authentication/
 
 ### Supported Operations
 
-These operations are supported in the REST API. The ziti CLI has been updated to use this in the new `ziti fabric`
+These operations are supported in the REST API. The zt CLI has been updated to use this in the new `zt fabric`
 sub-command.
 
 * Services: create/read/update/delete
@@ -424,11 +424,11 @@ sub-command.
 
 ### Unsupported Operations
 
-Some operations from ziti-fabric aren't get supported:
+Some operations from zt-fabric aren't get supported:
 
 * Stream metrics/traces/circuits
     * This feature may be re-implemented in terms of websockets, or may be left as-is, or may be dropped
 * Inspect (get stackdumps)
-    * This will be ported to `ziti fabric`
+    * This will be ported to `zt fabric`
 * Decode trace files
-    * This may be ported to `ziti-ops`
+    * This may be ported to `zt-ops`

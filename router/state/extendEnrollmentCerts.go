@@ -25,10 +25,10 @@ import (
 	"github.com/hanzozt/channel/v4"
 	"github.com/hanzozt/channel/v4/protobufs"
 	nfpem "github.com/hanzozt/foundation/v2/pem"
-	"github.com/hanzozt/ziti/v2/common/cert"
-	"github.com/hanzozt/ziti/v2/common/pb/edge_ctrl_pb"
-	controllerEnv "github.com/hanzozt/ziti/v2/controller/env"
-	"github.com/hanzozt/ziti/v2/router/env"
+	"github.com/hanzozt/zt/v2/common/cert"
+	"github.com/hanzozt/zt/v2/common/pb/edge_ctrl_pb"
+	controllerEnv "github.com/hanzozt/zt/v2/controller/env"
+	"github.com/hanzozt/zt/v2/router/env"
 	"google.golang.org/protobuf/proto"
 )
 

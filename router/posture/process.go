@@ -8,8 +8,8 @@ import (
 	"github.com/michaelquigley/pfxlog"
 	"github.com/hanzozt/foundation/v2/stringz"
 	"github.com/hanzozt/sdk-golang/pb/edge_client_pb"
-	"github.com/hanzozt/ziti/v2/common/pb/edge_ctrl_pb"
-	"github.com/hanzozt/ziti/v2/controller/db"
+	"github.com/hanzozt/zt/v2/common/pb/edge_ctrl_pb"
+	"github.com/hanzozt/zt/v2/controller/db"
 )
 
 type ProcessCheck struct {

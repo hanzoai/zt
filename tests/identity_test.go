@@ -31,8 +31,8 @@ import (
 	"github.com/hanzozt/edge-api/rest_model"
 	nfpem "github.com/hanzozt/foundation/v2/pem"
 	"github.com/hanzozt/foundation/v2/stringz"
-	"github.com/hanzozt/ziti/v2/common/eid"
-	"github.com/hanzozt/ziti/v2/controller/db"
+	"github.com/hanzozt/zt/v2/common/eid"
+	"github.com/hanzozt/zt/v2/controller/db"
 )
 
 func Test_Identity(t *testing.T) {

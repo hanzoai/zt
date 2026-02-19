@@ -26,16 +26,16 @@ import (
 	"github.com/michaelquigley/pfxlog"
 	"github.com/hanzozt/edge-api/rest_model"
 	"github.com/hanzozt/sdk-golang/xgress"
-	"github.com/hanzozt/sdk-golang/ziti"
-	"github.com/hanzozt/ziti/v2/common"
-	"github.com/hanzozt/ziti/v2/common/pb/edge_ctrl_pb"
-	routerEnv "github.com/hanzozt/ziti/v2/router/env"
-	"github.com/hanzozt/ziti/v2/tunnel"
-	"github.com/hanzozt/ziti/v2/tunnel/dns"
-	"github.com/hanzozt/ziti/v2/tunnel/intercept"
-	"github.com/hanzozt/ziti/v2/tunnel/intercept/host"
-	"github.com/hanzozt/ziti/v2/tunnel/intercept/proxy"
-	"github.com/hanzozt/ziti/v2/tunnel/intercept/tproxy"
+	"github.com/hanzozt/sdk-golang/zt"
+	"github.com/hanzozt/zt/v2/common"
+	"github.com/hanzozt/zt/v2/common/pb/edge_ctrl_pb"
+	routerEnv "github.com/hanzozt/zt/v2/router/env"
+	"github.com/hanzozt/zt/v2/tunnel"
+	"github.com/hanzozt/zt/v2/tunnel/dns"
+	"github.com/hanzozt/zt/v2/tunnel/intercept"
+	"github.com/hanzozt/zt/v2/tunnel/intercept/host"
+	"github.com/hanzozt/zt/v2/tunnel/intercept/proxy"
+	"github.com/hanzozt/zt/v2/tunnel/intercept/tproxy"
 	"github.com/pkg/errors"
 )
 
@@ -170,11 +170,11 @@ func (self *tunneler) NotifyServiceChange(state *common.IdentityState, _, servic
 	tunSvc := self.mapRdmServiceToRest(service)
 	switch eventType {
 	case common.ServiceAccessGainedEvent:
-		self.serviceListener.HandleServicesChange(ziti.ServiceAdded, tunSvc)
+		self.serviceListener.HandleServicesChange(zt.ServiceAdded, tunSvc)
 	case common.ServiceUpdatedEvent:
-		self.serviceListener.HandleServicesChange(ziti.ServiceChanged, tunSvc)
+		self.serviceListener.HandleServicesChange(zt.ServiceChanged, tunSvc)
 	case common.ServiceAccessLostEvent:
-		self.serviceListener.HandleServicesChange(ziti.ServiceRemoved, tunSvc)
+		self.serviceListener.HandleServicesChange(zt.ServiceRemoved, tunSvc)
 	}
 }
 

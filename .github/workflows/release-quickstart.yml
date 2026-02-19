@@ -25,9 +25,9 @@ jobs:
     # default branch "main" or a release tag is pushed or for the same
     # conditions in a repo fork that overrides the container image repo to push
     # to; merges to main trigger a quickstart release with a commit SHA suffix
-    # featuring the previous ziti binary release version, whereas release tag
+    # featuring the previous zt binary release version, whereas release tag
     # pushes trigger a quickstart release with the same tag name and the same
-    # ziti binary release version
+    # zt binary release version
     if: (github.repository_owner == 'hanzozt' || vars.ZITI_QUICKSTART_IMAGE != '') && (
         (startsWith(github.ref_name, 'v') && !contains(github.ref_name, '-')) || (
           github.event.pull_request.merged == true 
@@ -66,7 +66,7 @@ jobs:
         uses: ./.github/actions/setup-go
 
       - name: Install Ziti CI
-        uses: hanzozt/ziti-ci@v1
+        uses: hanzozt/zt-ci@v1
 
       - name: Set Up QEMU
         uses: docker/setup-qemu-action@v3
@@ -105,7 +105,7 @@ jobs:
 
           elif [[ "${GITHUB_REF_NAME}" =~ ^main$ ]]; then
             # compute the latest release version to install in the quickstart image
-            QUICKSTART_VERSION="$($(go env GOPATH)/bin/ziti-ci -q get-current-version ${ZITI_BASE_VERSION:+--base-version $ZITI_BASE_VERSION})"
+            QUICKSTART_VERSION="$($(go env GOPATH)/bin/zt-ci -q get-current-version ${ZITI_BASE_VERSION:+--base-version $ZITI_BASE_VERSION})"
             validateSemver "${QUICKSTART_VERSION}"
 
             # Append short SHA to identify quickstart docker images shipped on merge to main
@@ -117,9 +117,9 @@ jobs:
           fi
 
           # configure the env var used by the quickstart's Dockerfile to
-          # download the correct version of ziti for the target architecture of
+          # download the correct version of zt for the target architecture of
           # each image build by trimming the hyphenated short sha suffix so that
-          # the preceding release version of the ziti executable is installed in
+          # the preceding release version of the zt executable is installed in
           # the quickstart container image; ensure the QUICKSTART_VERSION
           # (container image tag) does not have a leading 'v' and the
           # ZITI_VERSION_OVERRIDE (GitHub tag ref) does have a leading 'v'

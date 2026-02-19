@@ -6,7 +6,7 @@ set -o pipefail
 # set -o xtrace
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
-ZITI_BIN="${SCRIPT_DIR}/image/ziti-bin"
+ZITI_BIN="${SCRIPT_DIR}/image/zt-bin"
 
 case "${1:-}" in
   --build)
@@ -23,10 +23,10 @@ esac
 ###
 echo "CREATING latest quickstart containers LOCALLY"
 if [ -d "${ZITI_BIN}" ]; then
-  echo "rebuilding quickstart using locally built ziti located in ${ZITI_BIN} directory"
+  echo "rebuilding quickstart using locally built zt located in ${ZITI_BIN} directory"
   echo ""
 else
-  echo "rebuilding quickstart using latest ziti from github: no ${ZITI_BIN} directory found"
+  echo "rebuilding quickstart using latest zt from github: no ${ZITI_BIN} directory found"
   echo ""
 fi
 

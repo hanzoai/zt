@@ -22,7 +22,7 @@ import (
 	"net/http"
 	"testing"
 
-	"github.com/hanzozt/ziti/v2/controller/permissions"
+	"github.com/hanzozt/zt/v2/controller/permissions"
 )
 
 func Test_Permissions_Enrollment(t *testing.T) {

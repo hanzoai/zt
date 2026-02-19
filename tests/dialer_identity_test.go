@@ -22,9 +22,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/hanzozt/sdk-golang/ziti"
-	"github.com/hanzozt/sdk-golang/ziti/edge"
-	"github.com/hanzozt/ziti/v2/controller/xt_smartrouting"
+	"github.com/hanzozt/sdk-golang/zt"
+	"github.com/hanzozt/sdk-golang/zt/edge"
+	"github.com/hanzozt/zt/v2/controller/xt_smartrouting"
 )
 
 func Test_DialerIdentityInfo(t *testing.T) {
@@ -66,13 +66,13 @@ func Test_DialerIdentityInfo(t *testing.T) {
 	// Create two dialing identities
 	dialIdentity1 := ctx.AdminManagementSession.RequireNewIdentityWithOtt(false)
 	dialConfig1 := ctx.EnrollIdentity(dialIdentity1.Id)
-	dialContext1, err := ziti.NewContext(dialConfig1)
+	dialContext1, err := zt.NewContext(dialConfig1)
 	ctx.Req.NoError(err)
 	defer dialContext1.Close()
 
 	dialIdentity2 := ctx.AdminManagementSession.RequireNewIdentityWithOtt(false)
 	dialConfig2 := ctx.EnrollIdentity(dialIdentity2.Id)
-	dialContext2, err := ziti.NewContext(dialConfig2)
+	dialContext2, err := zt.NewContext(dialConfig2)
 	ctx.Req.NoError(err)
 	defer dialContext2.Close()
 

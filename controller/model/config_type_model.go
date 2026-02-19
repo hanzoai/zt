@@ -21,8 +21,8 @@ import (
 
 	"github.com/hanzozt/foundation/v2/errorz"
 	"github.com/hanzozt/storage/boltz"
-	"github.com/hanzozt/ziti/v2/controller/db"
-	"github.com/hanzozt/ziti/v2/controller/models"
+	"github.com/hanzozt/zt/v2/controller/db"
+	"github.com/hanzozt/zt/v2/controller/models"
 	"github.com/pkg/errors"
 	"github.com/xeipuuv/gojsonschema"
 	"go.etcd.io/bbolt"

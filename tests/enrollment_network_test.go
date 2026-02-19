@@ -24,7 +24,7 @@ import (
 	"github.com/golang-jwt/jwt/v5"
 	enrollment_client "github.com/hanzozt/edge-api/rest_client_api_client/enrollment"
 	enrollment_management "github.com/hanzozt/edge-api/rest_management_api_client/enrollment"
-	"github.com/hanzozt/sdk-golang/ziti"
+	"github.com/hanzozt/sdk-golang/zt"
 )
 
 func Test_EnrollmentNetwork(t *testing.T) {
@@ -53,7 +53,7 @@ func Test_EnrollmentNetwork(t *testing.T) {
 
 			parser := jwt.NewParser()
 
-			claims := ziti.EnrollmentClaims{}
+			claims := zt.EnrollmentClaims{}
 			token, err := parser.ParseWithClaims(*resp.Payload.Data[0].Token, &claims, ctx.EdgeController.AppEnv.JwtSignerKeyFunc)
 
 			ctx.NoError(err)
@@ -85,7 +85,7 @@ func Test_EnrollmentNetwork(t *testing.T) {
 
 			parser := jwt.NewParser()
 
-			claims := ziti.EnrollmentClaims{}
+			claims := zt.EnrollmentClaims{}
 			token, err := parser.ParseWithClaims(*resp.Payload.Data[0].Token, &claims, ctx.EdgeController.AppEnv.JwtSignerKeyFunc)
 
 			ctx.NoError(err)

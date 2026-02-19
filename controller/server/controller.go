@@ -25,16 +25,16 @@ import (
 	"github.com/michaelquigley/pfxlog"
 	"github.com/hanzozt/channel/v4"
 	"github.com/hanzozt/storage/boltz"
-	"github.com/hanzozt/ziti/v2/common/ctrlchan"
-	"github.com/hanzozt/ziti/v2/common/pb/edge_ctrl_pb"
-	runner2 "github.com/hanzozt/ziti/v2/common/runner"
-	edgeconfig "github.com/hanzozt/ziti/v2/controller/config"
-	"github.com/hanzozt/ziti/v2/controller/env"
-	"github.com/hanzozt/ziti/v2/controller/handler_edge_ctrl"
-	"github.com/hanzozt/ziti/v2/controller/internal/policy"
-	_ "github.com/hanzozt/ziti/v2/controller/internal/routes"
-	"github.com/hanzozt/ziti/v2/controller/model"
-	sync2 "github.com/hanzozt/ziti/v2/controller/sync_strats"
+	"github.com/hanzozt/zt/v2/common/ctrlchan"
+	"github.com/hanzozt/zt/v2/common/pb/edge_ctrl_pb"
+	runner2 "github.com/hanzozt/zt/v2/common/runner"
+	edgeconfig "github.com/hanzozt/zt/v2/controller/config"
+	"github.com/hanzozt/zt/v2/controller/env"
+	"github.com/hanzozt/zt/v2/controller/handler_edge_ctrl"
+	"github.com/hanzozt/zt/v2/controller/internal/policy"
+	_ "github.com/hanzozt/zt/v2/controller/internal/routes"
+	"github.com/hanzozt/zt/v2/controller/model"
+	sync2 "github.com/hanzozt/zt/v2/controller/sync_strats"
 )
 
 type Controller struct {
@@ -63,7 +63,7 @@ func NewController(host env.HostController) (*Controller, error) {
 		return c, nil
 	}
 
-	c.AppEnv.HostController.GetNetwork().AddCapability("ziti.edge")
+	c.AppEnv.HostController.GetNetwork().AddCapability("zt.edge")
 
 	pfxlog.Logger().Infof("edge controller instance id: %s", c.AppEnv.InstanceId)
 
@@ -251,12 +251,12 @@ func (c *Controller) checkEdgeInitialized() {
 
 	if admin == nil {
 		if !c.AppEnv.GetHostController().IsRaftEnabled() {
-			log.Fatal("the Ziti Edge has not been initialized via 'ziti controller edge init', no default admin exists")
+			log.Fatal("the Ziti Edge has not been initialized via 'zt controller edge init', no default admin exists")
 		}
 
 		log.Warnf("the controller has not yet been initialized, no default admin exists. Add this node to a cluster using "+
-			"'ziti agent cluster add %s' against an existing cluster member, or if this is the bootstrap node, run "+
-			"'ziti agent cluster init' to configure the default admin and bootstrap the cluster",
+			"'zt agent cluster add %s' against an existing cluster member, or if this is the bootstrap node, run "+
+			"'zt agent cluster init' to configure the default admin and bootstrap the cluster",
 			(*c.AppEnv.HostController.GetEnv().GetConfig().Ctrl.Options.AdvertiseAddress).String())
 	}
 }

@@ -43,7 +43,7 @@ jobs:
         id: setup-go
         uses: ./.github/actions/setup-go
 
-      - name: Build ziti executable
+      - name: Build zt executable
         shell: bash
         run: |
           mkdir -pv ${GITHUB_WORKSPACE}/release/
@@ -214,8 +214,8 @@ jobs:
           set +o errexit
 
           sudo ss -lntp | grep -E ":(${ZITI_CTRL_ADVERTISED_PORT}|${ZITI_ROUTER_PORT})"
-          sudo journalctl --no-pager -o cat -u ziti-controller.service
-          sudo journalctl --no-pager -o cat -u ziti-router.service
+          sudo journalctl --no-pager -o cat -u zt-controller.service
+          sudo journalctl --no-pager -o cat -u zt-router.service
           cat /opt/hanzozt/etc/**/*.env /tmp/${ZITI_ROUTER_NAME}.jwt
           exit 0
 
@@ -242,7 +242,7 @@ jobs:
     name: Test Kubernetes Deployments
     runs-on: ubuntu-24.04
     env:
-      ZITI_NAMESPACE: zititest
+      ZITI_NAMESPACE: zttest
     steps:
       - name: Shallow checkout
         uses: actions/checkout@v6

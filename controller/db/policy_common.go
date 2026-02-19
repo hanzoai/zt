@@ -9,7 +9,7 @@ import (
 	"github.com/hanzozt/foundation/v2/stringz"
 	"github.com/hanzozt/storage/ast"
 	"github.com/hanzozt/storage/boltz"
-	"github.com/hanzozt/ziti/v2/common/pb/edge_ctrl_pb"
+	"github.com/hanzozt/zt/v2/common/pb/edge_ctrl_pb"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 	"go.etcd.io/bbolt"

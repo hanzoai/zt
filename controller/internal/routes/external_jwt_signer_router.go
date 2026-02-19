@@ -21,12 +21,12 @@ import (
 	"github.com/michaelquigley/pfxlog"
 	extJwtClient "github.com/hanzozt/edge-api/rest_client_api_server/operations/external_jwt_signer"
 	extJwtManagement "github.com/hanzozt/edge-api/rest_management_api_server/operations/external_jwt_signer"
-	"github.com/hanzozt/ziti/v2/controller/db"
-	"github.com/hanzozt/ziti/v2/controller/env"
-	"github.com/hanzozt/ziti/v2/controller/fields"
-	"github.com/hanzozt/ziti/v2/controller/model"
-	"github.com/hanzozt/ziti/v2/controller/permissions"
-	"github.com/hanzozt/ziti/v2/controller/response"
+	"github.com/hanzozt/zt/v2/controller/db"
+	"github.com/hanzozt/zt/v2/controller/env"
+	"github.com/hanzozt/zt/v2/controller/fields"
+	"github.com/hanzozt/zt/v2/controller/model"
+	"github.com/hanzozt/zt/v2/controller/permissions"
+	"github.com/hanzozt/zt/v2/controller/response"
 )
 
 func init() {

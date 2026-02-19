@@ -20,8 +20,8 @@ import (
 	"testing"
 	"time"
 
-	config2 "github.com/hanzozt/ziti/v2/controller/config"
-	"github.com/hanzozt/ziti/v2/controller/model"
+	config2 "github.com/hanzozt/zt/v2/controller/config"
+	"github.com/hanzozt/zt/v2/controller/model"
 
 	"github.com/stretchr/testify/require"
 

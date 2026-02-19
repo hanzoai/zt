@@ -18,7 +18,7 @@ package xgress_edge_transport
 
 import (
 	"github.com/hanzozt/sdk-golang/xgress"
-	"github.com/hanzozt/ziti/v2/router/xgress_router"
+	"github.com/hanzozt/zt/v2/router/xgress_router"
 	"github.com/pkg/errors"
 )
 

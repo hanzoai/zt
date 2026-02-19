@@ -25,7 +25,7 @@ import (
 
 	"github.com/michaelquigley/pfxlog"
 	"github.com/hanzozt/sdk-golang/xgress"
-	"github.com/hanzozt/ziti/v2/router/xgress_common"
+	"github.com/hanzozt/zt/v2/router/xgress_common"
 	"github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/require"
 )

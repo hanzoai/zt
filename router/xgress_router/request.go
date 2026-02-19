@@ -27,9 +27,9 @@ import (
 	"github.com/hanzozt/identity"
 	"github.com/hanzozt/sdk-golang/xgress"
 	"github.com/hanzozt/transport/v2"
-	"github.com/hanzozt/ziti/v2/common/ctrl_msg"
-	"github.com/hanzozt/ziti/v2/common/ctrlchan"
-	"github.com/hanzozt/ziti/v2/common/pb/ctrl_pb"
+	"github.com/hanzozt/zt/v2/common/ctrl_msg"
+	"github.com/hanzozt/zt/v2/common/ctrlchan"
+	"github.com/hanzozt/zt/v2/common/pb/ctrl_pb"
 	"github.com/pkg/errors"
 )
 

@@ -40,31 +40,31 @@ import (
 	"github.com/hanzozt/transport/v2"
 	"github.com/hanzozt/transport/v2/tls"
 	"github.com/hanzozt/xweb/v3"
-	"github.com/hanzozt/ziti/v2/common/bindpoints"
-	"github.com/hanzozt/ziti/v2/common/capabilities"
-	"github.com/hanzozt/ziti/v2/common/concurrency"
-	fabricMetrics "github.com/hanzozt/ziti/v2/common/metrics"
-	"github.com/hanzozt/ziti/v2/common/pb/ctrl_pb"
-	"github.com/hanzozt/ziti/v2/common/profiler"
-	"github.com/hanzozt/ziti/v2/controller/command"
-	"github.com/hanzozt/ziti/v2/controller/config"
-	"github.com/hanzozt/ziti/v2/controller/db"
-	"github.com/hanzozt/ziti/v2/controller/env"
-	"github.com/hanzozt/ziti/v2/controller/event"
-	"github.com/hanzozt/ziti/v2/controller/events"
-	"github.com/hanzozt/ziti/v2/controller/handler_ctrl"
-	"github.com/hanzozt/ziti/v2/controller/handler_peer_ctrl"
-	"github.com/hanzozt/ziti/v2/controller/network"
-	"github.com/hanzozt/ziti/v2/controller/raft"
-	"github.com/hanzozt/ziti/v2/controller/raft/mesh"
-	"github.com/hanzozt/ziti/v2/controller/webapis"
-	"github.com/hanzozt/ziti/v2/controller/xctrl"
-	"github.com/hanzozt/ziti/v2/controller/xmgmt"
-	"github.com/hanzozt/ziti/v2/controller/xt"
-	"github.com/hanzozt/ziti/v2/controller/xt_random"
-	"github.com/hanzozt/ziti/v2/controller/xt_smartrouting"
-	"github.com/hanzozt/ziti/v2/controller/xt_sticky"
-	"github.com/hanzozt/ziti/v2/controller/xt_weighted"
+	"github.com/hanzozt/zt/v2/common/bindpoints"
+	"github.com/hanzozt/zt/v2/common/capabilities"
+	"github.com/hanzozt/zt/v2/common/concurrency"
+	fabricMetrics "github.com/hanzozt/zt/v2/common/metrics"
+	"github.com/hanzozt/zt/v2/common/pb/ctrl_pb"
+	"github.com/hanzozt/zt/v2/common/profiler"
+	"github.com/hanzozt/zt/v2/controller/command"
+	"github.com/hanzozt/zt/v2/controller/config"
+	"github.com/hanzozt/zt/v2/controller/db"
+	"github.com/hanzozt/zt/v2/controller/env"
+	"github.com/hanzozt/zt/v2/controller/event"
+	"github.com/hanzozt/zt/v2/controller/events"
+	"github.com/hanzozt/zt/v2/controller/handler_ctrl"
+	"github.com/hanzozt/zt/v2/controller/handler_peer_ctrl"
+	"github.com/hanzozt/zt/v2/controller/network"
+	"github.com/hanzozt/zt/v2/controller/raft"
+	"github.com/hanzozt/zt/v2/controller/raft/mesh"
+	"github.com/hanzozt/zt/v2/controller/webapis"
+	"github.com/hanzozt/zt/v2/controller/xctrl"
+	"github.com/hanzozt/zt/v2/controller/xmgmt"
+	"github.com/hanzozt/zt/v2/controller/xt"
+	"github.com/hanzozt/zt/v2/controller/xt_random"
+	"github.com/hanzozt/zt/v2/controller/xt_smartrouting"
+	"github.com/hanzozt/zt/v2/controller/xt_sticky"
+	"github.com/hanzozt/zt/v2/controller/xt_weighted"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 	"github.com/teris-io/shortid"
@@ -426,7 +426,7 @@ func (c *Controller) Run() error {
 		ConnectOptions:   c.config.Ctrl.Options.ConnectOptions,
 		PoolConfigurator: fabricMetrics.GoroutinesPoolMetricsConfigF(c.network.GetMetricsRegistry(), "pool.listener.ctrl"),
 		Headers:          headers,
-		TransportConfig:  transport.Configuration{"protocol": "ziti-ctrl"},
+		TransportConfig:  transport.Configuration{"protocol": "zt-ctrl"},
 	}
 
 	if c.raftController != nil {
@@ -743,7 +743,7 @@ func (c *Controller) InitializeRaftFromBoltDb(sourceDbPath string) error {
 		return errors.Wrap(err, "error finishing gz compression of migration snapshot")
 	}
 
-	// need to override in case there's an existing db in a restore scenario. See: https://github.com/hanzozt/ziti/v2/issues/2891
+	// need to override in case there's an existing db in a restore scenario. See: https://github.com/hanzozt/zt/v2/issues/2891
 	c.env.OverrideTimelineId(timelineId)
 
 	cmd := &command.SyncSnapshotCommand{

@@ -18,7 +18,7 @@ echo ""
 echo "Waiting for 5 seconds...."
 sleep 5
 
-. "${ZITI_SCRIPTS}/ziti-cli-functions.sh"
+. "${ZITI_SCRIPTS}/zt-cli-functions.sh"
 
 # If we have not defined these, then no point going further - so dont
 if [[ "${ZITI_ROUTER_ADVERTISED_ADDRESS}" == "" ]]; then echo "ERROR: Missing ZITI_ROUTER_ADVERTISED_ADDRESS definition" >&2; exit; fi
@@ -62,7 +62,7 @@ if [ ! -f ${ZITI_ROUTER_ADVERTISED_ADDRESS}.jwt ]; then
   if [[ ! "${ZITI_PWD}" == "" ]]; then echo "ZITI_PWD = (obscured)"; fi
 
   # Login to the cloud controller
-  "${ZITI_BIN_DIR}/ziti" edge login -y ${ZITI_CTRL_EDGE_ADVERTISED_ADDRESS}:${ZITI_CTRL_EDGE_ADVERTISED_PORT} -u ${ZITI_USER} -p ${ZITI_PWD}
+  "${ZITI_BIN_DIR}/zt" edge login -y ${ZITI_CTRL_EDGE_ADVERTISED_ADDRESS}:${ZITI_CTRL_EDGE_ADVERTISED_PORT} -u ${ZITI_USER} -p ${ZITI_PWD}
 
   if [[ "$1" == "edge" ]]; then
     echo "CREATING EDGE ROUTER CONFIG"
@@ -84,17 +84,17 @@ if [ ! -f ${ZITI_ROUTER_ADVERTISED_ADDRESS}.jwt ]; then
   mv ${ZITI_HOME}/${ZITI_ROUTER_NAME}.yaml ${ZITI_HOME}/${ZITI_ROUTER_ADVERTISED_ADDRESS}.yaml
 
   echo "----------  Creating edge-router ${ZITI_ROUTER_NAME}...."
-  found=$(${ZITI_BIN_DIR}/ziti edge list edge-routers 'name = "'"${ZITI_ROUTER_ADVERTISED_ADDRESS}"'"' | grep -c "${ZITI_ROUTER_ADVERTISED_ADDRESS}")
+  found=$(${ZITI_BIN_DIR}/zt edge list edge-routers 'name = "'"${ZITI_ROUTER_ADVERTISED_ADDRESS}"'"' | grep -c "${ZITI_ROUTER_ADVERTISED_ADDRESS}")
   if [[ found -gt 0 ]]; then
     echo "----------  Found existing edge-router ${ZITI_ROUTER_ADVERTISED_ADDRESS}...."
   else
-    "${ZITI_BIN_DIR}/ziti" edge create edge-router "${ZITI_ROUTER_ADVERTISED_ADDRESS}" -o "${ZITI_HOME}/${ZITI_ROUTER_ADVERTISED_ADDRESS}.jwt" -t -a "${ZITI_ROUTER_ROLES}"
+    "${ZITI_BIN_DIR}/zt" edge create edge-router "${ZITI_ROUTER_ADVERTISED_ADDRESS}" -o "${ZITI_HOME}/${ZITI_ROUTER_ADVERTISED_ADDRESS}.jwt" -t -a "${ZITI_ROUTER_ROLES}"
     sleep 1
     echo "---------- Enrolling edge-router ${ZITI_ROUTER_ADVERTISED_ADDRESS}...."
-  "${ZITI_BIN_DIR}/ziti" router enroll "${ZITI_HOME}/${ZITI_ROUTER_ADVERTISED_ADDRESS}.yaml" --jwt "${ZITI_HOME}/${ZITI_ROUTER_ADVERTISED_ADDRESS}.jwt"
+  "${ZITI_BIN_DIR}/zt" router enroll "${ZITI_HOME}/${ZITI_ROUTER_ADVERTISED_ADDRESS}.yaml" --jwt "${ZITI_HOME}/${ZITI_ROUTER_ADVERTISED_ADDRESS}.jwt"
     echo ""
   fi
 fi
 
 # Run the router
-"${ZITI_BIN_DIR}/ziti" router run "${ZITI_HOME}/${ZITI_ROUTER_ADVERTISED_ADDRESS}.yaml" > "${ZITI_HOME}/ziti-${ZITI_ROUTER_ADVERTISED_ADDRESS}.log"
+"${ZITI_BIN_DIR}/zt" router run "${ZITI_HOME}/${ZITI_ROUTER_ADVERTISED_ADDRESS}.yaml" > "${ZITI_HOME}/zt-${ZITI_ROUTER_ADVERTISED_ADDRESS}.log"

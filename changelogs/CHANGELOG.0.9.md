@@ -40,7 +40,7 @@ It is generally assumed that if there are backwards incompatible changes being m
 a new config type will be created and interested applications can support multiple configuration
 types.
 
-The ziti CLI supports the following operations on config types:
+The zt CLI supports the following operations on config types:
 
     * create config-type
     * list config-types
@@ -66,7 +66,7 @@ There is a new endpoint for managing configurations
          * data - type: JSON object
              * Support values are strings, numbers, booleans and nested objects/maps
 
-The ziti CLI supports the following operations on configs:
+The zt CLI supports the following operations on configs:
 
     * create config
     * update config
@@ -74,10 +74,10 @@ The ziti CLI supports the following operations on configs:
     * delete config
 
 ```shell script
-$ ziti edge controller create config ssh ziti-tunneler-client.v1 '{ "hostname" : "ssh.mycompany.com", "port" : 22 }'
+$ zt edge controller create config ssh zt-tunneler-client.v1 '{ "hostname" : "ssh.mycompany.com", "port" : 22 }'
 83a1e815-04bc-4c91-8d88-1de8c943545f
 
-$ ziti edge controller list configs
+$ zt edge controller list configs
 id:   83a1e815-04bc-4c91-8d88-1de8c943545f
 name: ssh
 type: f2dd2df0-9c04-4b84-a91e-71437ac229f1
@@ -86,10 +86,10 @@ data: {
           "port": 22
       }
 
-$ ziti edge controller update config ssh -d '{ "hostname" : "ssh.mycompany.com", "port" : 2022 }'
+$ zt edge controller update config ssh -d '{ "hostname" : "ssh.mycompany.com", "port" : 2022 }'
 Found configs with id 83a1e815-04bc-4c91-8d88-1de8c943545f for name ssh
 
-$ ziti edge controller list configs
+$ zt edge controller list configs
 id:   83a1e815-04bc-4c91-8d88-1de8c943545f
 name: ssh
 type: f2dd2df0-9c04-4b84-a91e-71437ac229f1
@@ -98,10 +98,10 @@ data: {
           "port": 2022
       }
 
-$ ziti edge controller delete config ssh
+$ zt edge controller delete config ssh
 Found configs with id 83a1e815-04bc-4c91-8d88-1de8c943545f for name ssh
 
-$ ziti edge controller list configs
+$ zt edge controller list configs
 $
 ```
 
@@ -130,16 +130,16 @@ Example authentication POST body:
 ```json
 {
   "configTypes": [
-    "ziti-tunneler-client.v1",
-    "ziti-tunneler-client.v2"
+    "zt-tunneler-client.v1",
+    "zt-tunneler-client.v2"
   ]
 }
 ```
 
 When retrieving services, the config data for for those configuration types that were requested will
 be embedded in the service definition. For example, if the user has requested (by name) the config
-types "ziti-tunneler-client.v1" and
-"ziti-tunneler-server.v1" and the `ssh` service has configurations of both of those kinds
+types "zt-tunneler-client.v1" and
+"zt-tunneler-server.v1" and the `ssh` service has configurations of both of those kinds
 associated, a listing which includes that service might look as follows:
 
 ```json
@@ -185,11 +185,11 @@ associated, a listing which includes that service might look as follows:
         "Dial"
       ],
       "config": {
-        "ziti-tunneler-client.v1": {
+        "zt-tunneler-client.v1": {
           "hostname": "ssh.mycompany.com",
           "port": 22
         },
-        "ziti-tunneler-server.v1": {
+        "zt-tunneler-server.v1": {
           "protocol": "tcp",
           "hostname": "ssh.mycompany.com",
           "port": 22

@@ -28,40 +28,40 @@ import (
 	"testing"
 	"time"
 
-	"github.com/hanzozt/sdk-golang/ziti"
-	"github.com/hanzozt/ziti/v2/tests/testutil"
-	"github.com/hanzozt/ziti/v2/ziti/cmd"
-	"github.com/hanzozt/ziti/v2/ziti/cmd/api"
-	"github.com/hanzozt/ziti/v2/ziti/cmd/common"
-	"github.com/hanzozt/ziti/v2/ziti/util"
+	"github.com/hanzozt/sdk-golang/zt"
+	"github.com/hanzozt/zt/v2/tests/testutil"
+	"github.com/hanzozt/zt/v2/zt/cmd"
+	"github.com/hanzozt/zt/v2/zt/cmd/api"
+	"github.com/hanzozt/zt/v2/zt/cmd/common"
+	"github.com/hanzozt/zt/v2/zt/util"
 	"github.com/stretchr/testify/require"
 )
 
 type cliTestState struct {
 	homeDir             string
-	zitiContext         *ziti.Context
-	zitiTransport       *http.Transport
+	ztContext         *zt.Context
+	ztTransport       *http.Transport
 	commonOpts          api.Options
 	externalZiti        testutil.Overlay
 	controllerUnderTest testutil.Overlay
 }
 
 func (s *cliTestState) removeZitiDir(t *testing.T) {
-	zitiDir, _ := util.ConfigDir()
-	if err := os.RemoveAll(zitiDir); err != nil {
-		t.Errorf("remove %s: %v", zitiDir, err)
+	ztDir, _ := util.ConfigDir()
+	if err := os.RemoveAll(ztDir); err != nil {
+		t.Errorf("remove %s: %v", ztDir, err)
 		t.Fail()
 	}
-	t.Logf("Removed ziti dir from: %s", zitiDir)
+	t.Logf("Removed zt dir from: %s", ztDir)
 }
 
 func Test_CLI_Test_Suite(t *testing.T) {
-	zitiPath := os.Getenv("ZITI_CLI_TEST_ZITI_BIN")
-	if zitiPath == "" {
+	ztPath := os.Getenv("ZITI_CLI_TEST_ZITI_BIN")
+	if ztPath == "" {
 		t.Fatalf("ZITI_CLI_TEST_ZITI_BIN not set")
 	}
-	if _, statErr := os.Stat(zitiPath); statErr != nil {
-		t.Fatalf("ziti binary not found at provided location %s: %v", zitiPath, statErr)
+	if _, statErr := os.Stat(ztPath); statErr != nil {
+		t.Fatalf("zt binary not found at provided location %s: %v", ztPath, statErr)
 	}
 	baseDir := filepath.Join(os.TempDir(), "cli-tests")
 	if me := os.MkdirAll(baseDir, 0755); me != nil {
@@ -86,8 +86,8 @@ func Test_CLI_Test_Suite(t *testing.T) {
 
 	testState := &cliTestState{
 		homeDir:             testRunHome,
-		zitiContext:         nil,
-		zitiTransport:       nil,
+		ztContext:         nil,
+		ztTransport:       nil,
 		externalZiti:        testutil.CreateOverlay(t, externalCtx, 600*time.Second, testRunHome, "external", false),
 		controllerUnderTest: testutil.CreateOverlay(t, ctrlUnderTestCtx, 600*time.Second, testRunHome, "target", false),
 		commonOpts: api.Options{
@@ -133,9 +133,9 @@ func Test_CLI_Test_Suite(t *testing.T) {
 	}()
 
 	extDone := make(chan error)
-	go testState.externalZiti.StartExternal(zitiPath, extDone)
+	go testState.externalZiti.StartExternal(ztPath, extDone)
 	targetDone := make(chan error)
-	go testState.controllerUnderTest.StartExternal(zitiPath, targetDone)
+	go testState.controllerUnderTest.StartExternal(ztPath, targetDone)
 
 	exStartErr := testState.externalZiti.WaitForControllerReady(20 * time.Second)
 	if exStartErr != nil {
@@ -187,7 +187,7 @@ func Test_CLI_Test_Suite(t *testing.T) {
 
 	t.Run("cli tests over underlay", testState.cliTests)
 
-	t.Log("Cancelling controllerUnderTest to reconfigure for use with ziti")
+	t.Log("Cancelling controllerUnderTest to reconfigure for use with zt")
 	ctrlUnderTestCancel()
 	if se := testState.controllerUnderTest.Stop(); se != nil {
 		t.Fatalf("controllerUnderTest didn't stop? %v", se)
@@ -201,13 +201,13 @@ func Test_CLI_Test_Suite(t *testing.T) {
 	}
 
 	if ie := s.externalZiti.CreateOverlayIdentities(t, now); ie != nil {
-		t.Fatalf("failed to initialize ziti transport for controllerUnderTest: %v", ie)
+		t.Fatalf("failed to initialize zt transport for controllerUnderTest: %v", ie)
 	}
 	s.controllerUnderTest.NetworkDialingIdFile = s.externalZiti.NetworkDialingIdFile
 	s.controllerUnderTest.NetworkBindingIdFile = s.externalZiti.NetworkBindingIdFile
 
 	s.controllerUnderTest.ConfigFile = gopath.Join(s.controllerUnderTest.Home, "ctrl.yaml")
-	newServerCertPath := gopath.Join(s.controllerUnderTest.Home, "pki/intermediate-ca-quickstart/certs/mgmt.ziti.chain.pem")
+	newServerCertPath := gopath.Join(s.controllerUnderTest.Home, "pki/intermediate-ca-quickstart/certs/mgmt.zt.chain.pem")
 	if re := s.controllerUnderTest.ReplaceConfig(newServerCertPath); re != nil {
 		t.Fatalf("failed to replace config: %v", re)
 	}
@@ -217,21 +217,21 @@ func Test_CLI_Test_Suite(t *testing.T) {
 	s.controllerUnderTest.Ctx = controllerUnderTestCtx2
 
 	targetOverZitiDone := make(chan error)
-	go s.controllerUnderTest.StartExternal(zitiPath, targetOverZitiDone)
+	go s.controllerUnderTest.StartExternal(ztPath, targetOverZitiDone)
 	cutStartOverZitiErr := s.controllerUnderTest.WaitForControllerReady(20 * time.Second)
 	if cutStartErr != nil {
 		log.Fatalf("controllerUnderTest start failed: %v", cutStartOverZitiErr)
 	}
-	testState.cliTestsOverZiti(t, zitiPath)
+	testState.cliTestsOverZiti(t, ztPath)
 
 	s.controllerUnderTest.ControllerName = s.externalZiti.ControllerName
-	testState.cliTestsOverAddressableTerminators(t, zitiPath)
+	testState.cliTestsOverAddressableTerminators(t, ztPath)
 
 	cutOverZitiCancel()
 	externalCancel()
 
-	test(t, "make sure any ziti instances are stopped", testState.externalZiti.EnsureAllPidsStopped)
-	test(t, "make sure any ziti instances are stopped", testState.controllerUnderTest.EnsureAllPidsStopped)
+	test(t, "make sure any zt instances are stopped", testState.externalZiti.EnsureAllPidsStopped)
+	test(t, "make sure any zt instances are stopped", testState.controllerUnderTest.EnsureAllPidsStopped)
 }
 
 func (s *cliTestState) cliTests(t *testing.T) {

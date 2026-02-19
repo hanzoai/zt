@@ -22,8 +22,8 @@ import (
 	"time"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/hanzozt/ziti/v2/controller/apierror"
-	"github.com/hanzozt/ziti/v2/controller/models"
+	"github.com/hanzozt/zt/v2/controller/apierror"
+	"github.com/hanzozt/zt/v2/controller/models"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 )

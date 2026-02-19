@@ -26,14 +26,14 @@ import (
 	"github.com/golang-jwt/jwt/v5"
 	"github.com/michaelquigley/pfxlog"
 	"github.com/hanzozt/edge-api/rest_management_api_server/operations/certificate_authority"
-	"github.com/hanzozt/sdk-golang/ziti"
+	"github.com/hanzozt/sdk-golang/zt"
 	"github.com/hanzozt/storage/boltz"
-	"github.com/hanzozt/ziti/v2/controller/apierror"
-	"github.com/hanzozt/ziti/v2/controller/env"
-	"github.com/hanzozt/ziti/v2/controller/fields"
-	"github.com/hanzozt/ziti/v2/controller/model"
-	"github.com/hanzozt/ziti/v2/controller/permissions"
-	"github.com/hanzozt/ziti/v2/controller/response"
+	"github.com/hanzozt/zt/v2/controller/apierror"
+	"github.com/hanzozt/zt/v2/controller/env"
+	"github.com/hanzozt/zt/v2/controller/fields"
+	"github.com/hanzozt/zt/v2/controller/model"
+	"github.com/hanzozt/zt/v2/controller/permissions"
+	"github.com/hanzozt/zt/v2/controller/response"
 	"github.com/pkg/errors"
 )
 
@@ -271,7 +271,7 @@ func (r *CaRouter) generateJwt(ae *env.AppEnv, rc *response.RequestContext) {
 
 	method := "ca"
 
-	claims := &ziti.EnrollmentClaims{
+	claims := &zt.EnrollmentClaims{
 		EnrollmentMethod: method,
 		RegisteredClaims: jwt.RegisteredClaims{
 			Audience: jwt.ClaimStrings{env.JwtAudEnrollment},

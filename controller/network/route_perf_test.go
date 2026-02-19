@@ -21,7 +21,7 @@ import (
 	"math/rand"
 	"testing"
 
-	"github.com/hanzozt/ziti/v2/controller/model"
+	"github.com/hanzozt/zt/v2/controller/model"
 
 	"github.com/michaelquigley/pfxlog"
 	"github.com/sirupsen/logrus"

@@ -20,7 +20,7 @@ events:
     handler:
       type: file
       format: json
-      path: ${TMPDIR}/ziti-events.log
+      path: ${TMPDIR}/zt-events.log
 
 edge:
   api:

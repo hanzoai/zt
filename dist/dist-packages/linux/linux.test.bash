@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# exec this script with BASH v4+ on Linux to test the checked-out ziti repo's Linux controller and router deployments
+# exec this script with BASH v4+ on Linux to test the checked-out zt repo's Linux controller and router deployments
 
 set -o errexit
 set -o nounset
@@ -13,7 +13,7 @@ cleanup(){
         echo "WARNING: destroying all controller and router state files in 30s; set I_AM_ROBOT=1 to suppress this message" >&2
         sleep 30
     fi
-    for SVC in ziti-{router,controller}.service
+    for SVC in zt-{router,controller}.service
     do
     (set +e
         sudo systemctl stop "${SVC}"
@@ -109,7 +109,7 @@ do
     portcheck "${PORT}"
 done
 
-# build ziti in the ./release dir where nfpm will look for it to build the package
+# build zt in the ./release dir where nfpm will look for it to build the package
 mkdir -p ./release
 go build -o ./release/ ./...
 
@@ -145,7 +145,7 @@ sudo systemd-run \
 --wait --quiet \
 --service-type=oneshot \
 --property=TimeoutStartSec=30s \
-systemctl is-active ziti-controller.service
+systemctl is-active zt-controller.service
 
 # Wait for controller port to be reachable
 ATTEMPTS=10
@@ -164,7 +164,7 @@ if (( ! ATTEMPTS )); then
 fi
 
 # shellcheck disable=SC2140
-login_cmd="ziti edge login ${ZITI_CTRL_ADVERTISED_ADDRESS}:${ZITI_CTRL_ADVERTISED_PORT}"\
+login_cmd="zt edge login ${ZITI_CTRL_ADVERTISED_ADDRESS}:${ZITI_CTRL_ADVERTISED_PORT}"\
 " --yes"\
 " --username admin"\
 " --password ${ZITI_PWD}"
@@ -180,7 +180,7 @@ if (( ! ATTEMPTS )); then
     echo "ERROR: controller login did not succeed" >&2
     exit 1
 fi
-ziti edge create edge-router "${ZITI_ROUTER_NAME}" -to "${ZITI_ENROLL_TOKEN}"
+zt edge create edge-router "${ZITI_ROUTER_NAME}" -to "${ZITI_ENROLL_TOKEN}"
 
 if [[ -z "${ZITI_ENROLL_TOKEN:-}" || ! -s "${ZITI_ENROLL_TOKEN}" ]]; then
     echo "ERROR: router enrollment token not found at ${ZITI_ENROLL_TOKEN:-<unset>}" >&2
@@ -195,22 +195,22 @@ export ZITI_ENROLL_TOKEN="${ZITI_ENROLL_TOKEN_CONTENT}"
 
 ZITI_BOOTSTRAP=true ZITI_BOOTSTRAP_ENROLLMENT=true DEBUG=1 \
     sudo -E /opt/hanzozt/etc/router/bootstrap.bash </dev/null  # closing stdin suppresses prompts
-sudo systemctl start ziti-router.service
+sudo systemctl start zt-router.service
 sudo systemd-run \
 --wait --quiet \
 --service-type=oneshot \
 --property=TimeoutStartSec=20s \
-systemctl is-active ziti-router.service
+systemctl is-active zt-router.service
 
 ATTEMPTS=10
 DELAY=3
-until ! ((ATTEMPTS)) || [[ $(ziti edge list edge-routers -j | jq '.data[0].isOnline') == "true" ]]
+until ! ((ATTEMPTS)) || [[ $(zt edge list edge-routers -j | jq '.data[0].isOnline') == "true" ]]
 do
     (( ATTEMPTS-- ))
     echo "INFO: waiting for router to be online"
     sleep ${DELAY}
 done
-if [[ $(ziti edge list edge-routers -j | jq '.data[0].isOnline') == "true" ]]
+if [[ $(zt edge list edge-routers -j | jq '.data[0].isOnline') == "true" ]]
 then
     echo "INFO: router is online"
 else
@@ -222,7 +222,7 @@ export \
 ZITI_CTRL_EDGE_ADVERTISED_ADDRESS=${ZITI_CTRL_ADVERTISED_ADDRESS} \
 ZITI_CTRL_EDGE_ADVERTISED_PORT=${ZITI_CTRL_ADVERTISED_PORT}
 
-_test_result=$(go test -v -count=1 -tags="quickstart manual" ./ziti/run/...)
+_test_result=$(go test -v -count=1 -tags="quickstart manual" ./zt/run/...)
 
 # check for failure modes that don't result in an error exit code
 if [[ "${_test_result}" =~ "no tests to run" ]]

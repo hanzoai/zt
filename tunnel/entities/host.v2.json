@@ -1,5 +1,5 @@
 {
-    "$id": "http://ziti-edge.netfoundry.io/schemas/host.v2.schema.json",
+    "$id": "http://zt-edge.netfoundry.io/schemas/host.v2.schema.json",
     "additionalProperties": false,
     "definitions": {
         "action": {
@@ -318,7 +318,7 @@
             "properties": {
                 "address": {
                     "$ref": "#/definitions/dialAddress",
-                    "description": "Dial the specified ip address or hostname when a ziti client connects to the service."
+                    "description": "Dial the specified ip address or hostname when a zt client connects to the service."
                 },
                 "allowedAddresses": {
                     "allOf": [
@@ -454,14 +454,14 @@
                 },
                 "port": {
                     "$ref": "#/definitions/portNumber",
-                    "description": "Dial the specified port when a ziti client connects to the service."
+                    "description": "Dial the specified port when a zt client connects to the service."
                 },
                 "portChecks": {
                     "$ref": "#/definitions/portCheckList"
                 },
                 "protocol": {
                     "$ref": "#/definitions/protocolName",
-                    "description": "Dial the specified protocol when a ziti client connects to the service."
+                    "description": "Dial the specified protocol when a zt client connects to the service."
                 },
                 "proxy": {
                     "$ref": "#/definitions/proxyConfiguration",

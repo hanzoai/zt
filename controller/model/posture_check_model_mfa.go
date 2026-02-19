@@ -21,8 +21,8 @@ import (
 	"time"
 
 	"github.com/blang/semver"
-	"github.com/hanzozt/ziti/v2/common/pb/edge_cmd_pb"
-	"github.com/hanzozt/ziti/v2/controller/db"
+	"github.com/hanzozt/zt/v2/common/pb/edge_cmd_pb"
+	"github.com/hanzozt/zt/v2/controller/db"
 	"github.com/pkg/errors"
 	"go.etcd.io/bbolt"
 )
@@ -30,7 +30,7 @@ import (
 var _ PostureCheckSubType = &PostureCheckMfa{}
 var minCSdkVersion semver.Version
 
-const ZitiSdkTypeC = "ziti-sdk-c"
+const ZitiSdkTypeC = "zt-sdk-c"
 const MfaPromptGracePeriod = -5 * time.Minute //5m
 
 func init() {

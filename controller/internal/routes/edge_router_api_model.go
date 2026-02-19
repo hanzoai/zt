@@ -26,10 +26,10 @@ import (
 	"github.com/michaelquigley/pfxlog"
 	"github.com/hanzozt/edge-api/rest_model"
 	"github.com/hanzozt/foundation/v2/stringz"
-	"github.com/hanzozt/ziti/v2/controller/env"
-	"github.com/hanzozt/ziti/v2/controller/model"
-	"github.com/hanzozt/ziti/v2/controller/models"
-	"github.com/hanzozt/ziti/v2/controller/response"
+	"github.com/hanzozt/zt/v2/controller/env"
+	"github.com/hanzozt/zt/v2/controller/model"
+	"github.com/hanzozt/zt/v2/controller/models"
+	"github.com/hanzozt/zt/v2/controller/response"
 )
 
 const (

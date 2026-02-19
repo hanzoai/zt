@@ -19,7 +19,7 @@ package cobra
 import (
 	"fmt"
 
-	"github.com/hanzozt/ziti/v2/ziti/cmd/consts"
+	"github.com/hanzozt/zt/v2/zt/cmd/consts"
 	"github.com/spf13/cobra"
 	"github.com/spf13/pflag"
 )

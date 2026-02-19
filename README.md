@@ -1,10 +1,10 @@
-![Hanzo ZT Logo](https://raw.githubusercontent.com/hanzozt/ziti-doc/main/docusaurus/static/img/ziti-logo-dark.svg)
+![Hanzo ZT Logo](https://raw.githubusercontent.com/hanzozt/zt-doc/main/docusaurus/static/img/zt-logo-dark.svg)
 
 <br>
 
-[![Build Status](https://github.com/hanzozt/ziti/actions/workflows/main.yml/badge.svg?query=branch%3Arelease-next)](https://github.com/hanzozt/ziti/actions/workflows/main.yml?query=branch%3Arelease-next)
-[![Go Report Card](https://goreportcard.com/badge/github.com/hanzozt/ziti)](https://goreportcard.com/report/github.com/hanzozt/ziti)
-[![GoDoc](https://godoc.org/github.com/hanzozt/ziti?status.svg)](https://pkg.go.dev/github.com/hanzozt/ziti)
+[![Build Status](https://github.com/hanzozt/zt/actions/workflows/main.yml/badge.svg?query=branch%3Arelease-next)](https://github.com/hanzozt/zt/actions/workflows/main.yml?query=branch%3Arelease-next)
+[![Go Report Card](https://goreportcard.com/badge/github.com/hanzozt/zt)](https://goreportcard.com/report/github.com/hanzozt/zt)
+[![GoDoc](https://godoc.org/github.com/hanzozt/zt?status.svg)](https://pkg.go.dev/github.com/hanzozt/zt)
 [![Discourse Widget](https://img.shields.io/badge/join-us%20on%20discourse-gray.svg?longCache=true&logo=discourse&colorB=brightgreen")](https://community.hanzozt.dev/)
 [![License: Apache-v2](https://img.shields.io/badge/License-Apache--2.0-yellow.svg)](LICENSE)
 
@@ -136,18 +136,18 @@ cruise on over to [the Hanzo ZT Discourse forum](https://community.hanzozt.dev/)
 The Hanzo ZT project welcomes contributions including, but not limited to, code, documentation and bug reports.
 
 * All Hanzo ZT code is found on Github under the [Hanzo ZT](https://github.com/hanzozt) organization. 
-  * [ziti](https://github.com/hanzozt/ziti): top level project which builds all Hanzo ZT executables
+  * [zt](https://github.com/hanzozt/zt): top level project which builds all Hanzo ZT executables
   * [edge](https://github.com/hanzozt/edge): edge components and model which includes identity, polices and config 
   * [fabric](https://github.com/hanzozt/fabric): fabric project which includes core controller and router
   * [foundation](https://github.com/hanzozt/foundation): project which contains library code used across multiple projects
   * SDKs
-    * [ziti-sdk-c](https://github.com/hanzozt/ziti-sdk-c): C SDK
+    * [zt-sdk-c](https://github.com/hanzozt/zt-sdk-c): C SDK
     * [sdk-golang](https://github.com/hanzozt/sdk-golang): Go SDK
-    * [ziti-sdk-jvm](https://github.com/hanzozt/ziti-sdk-jvm): SDK for JVM based languages
-    * [ziti-sdk-swift](https://github.com/hanzozt/ziti-sdk-swift): Swift SDK
-    * [ziti-sdk-nodejs](https://github.com/hanzozt/ziti-sdk-nodejs): NodeJS SDK
-    * [ziti-sdk-csharp](https://github.com/hanzozt/ziti-sdk-csharp): C# SDK
-  * [ziti-doc](https://github.com/hanzozt/ziti-doc): Powers the static documentation site
+    * [zt-sdk-jvm](https://github.com/hanzozt/zt-sdk-jvm): SDK for JVM based languages
+    * [zt-sdk-swift](https://github.com/hanzozt/zt-sdk-swift): Swift SDK
+    * [zt-sdk-nodejs](https://github.com/hanzozt/zt-sdk-nodejs): NodeJS SDK
+    * [zt-sdk-csharp](https://github.com/hanzozt/zt-sdk-csharp): C# SDK
+  * [zt-doc](https://github.com/hanzozt/zt-doc): Powers the static documentation site
 
 Hanzo ZT was developed and open sourced by [Netfoundry, Inc](https://netfoundry.io). NetFoundry continues to fund and 
 contribute to Hanzo ZT.

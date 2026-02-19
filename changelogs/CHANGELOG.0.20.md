@@ -19,8 +19,8 @@
 * Bug fix: Introduce delay when closing xgress peer after receiving unroute if end of session not yet received
 * Feature: Can now search relevant entities by role attributes
     * Services, edge routers and identities can be search by role attribute.
-      Ex: `ziti edge list services 'anyOf(roleAttributes) = "one"'`
-    * Polices can be searched by roles. Ex: `ziti edge list service-policies 'anyOf(identityRoles) = "#all"'`
+      Ex: `zt edge list services 'anyOf(roleAttributes) = "one"'`
+    * Polices can be searched by roles. Ex: `zt edge list service-policies 'anyOf(identityRoles) = "#all"'`
 
 # Release 0.20.12
 
@@ -53,7 +53,7 @@ subject to timeout or wake events.
 * Bug fix: CLI Admin create/update/delete for UPDB authenticators now function properly
 * Maintenance: better logging [sdk-golang#161](https://github.com/hanzozt/sdk-golang/pull/161)
   and [edge#700](https://github.com/hanzozt/edge/pull/700)
-* Bug fix: [sdk-golang#162](https://github.com/hanzozt/sdk-golang/pull/162) fix race condition on close of ziti
+* Bug fix: [sdk-golang#162](https://github.com/hanzozt/sdk-golang/pull/162) fix race condition on close of zt
   connections
 
 # Release 0.20.10
@@ -61,9 +61,9 @@ subject to timeout or wake events.
 ## What's New
 
 * Bug fix: patch for process multi would clear information
-* Bug fix: [ziti#420](https://github.com/hanzozt/ziti/issues/420) fix ziti-tunnel failover with multiple interfaces
+* Bug fix: [zt#420](https://github.com/hanzozt/zt/issues/420) fix zt-tunnel failover with multiple interfaces
   when once becomes unavailable
-* Bug fix: [edge#670](https://github.com/hanzozt/edge/issues/670) fix ziti-tunnel issue where address were left
+* Bug fix: [edge#670](https://github.com/hanzozt/edge/issues/670) fix zt-tunnel issue where address were left
   assigned to loopback after clean shutdown
 * Bug fix: race condition in edge session sync could cause router panic. Regression since 0.20.9
 * Bug fix: terminator updates and deletes from the combined router/tunneler weren't working
@@ -254,10 +254,10 @@ link:
 
 ## What's New
 
-* ziti-router will now emit a stackdump before exiting when it receives a SIGQUIT
-* ziti ps stack now takes a --stack-timeout and will quit after the specified timeout if the stack dump hasn't completed
+* zt-router will now emit a stackdump before exiting when it receives a SIGQUIT
+* zt ps stack now takes a --stack-timeout and will quit after the specified timeout if the stack dump hasn't completed
   yet
-* ziti now supports posture check types of process multi
+* zt now supports posture check types of process multi
 * Fixes a bug in Ziti Management API where posture checks of type process multi were missing their base entity
   information (createdAt, updatedAt, etc.)
 
@@ -266,7 +266,7 @@ link:
 ## What's New
 
 * Fixes a bug in the GO sdk which could cause panic by return nil connection and nil error
-* [ziti#170](https://github.com/hanzozt/ziti/issues/170) Fixes the service poll refresh default for ziti-tunnel host
+* [zt#170](https://github.com/hanzozt/zt/issues/170) Fixes the service poll refresh default for zt-tunnel host
   mode
 * Fixes a deadlock in control channel reconnect logic triggerable when network path to controller is unreliable
 
@@ -475,7 +475,7 @@ Additionally, all duration configuration values must be specified in `<integer><
 - "100s" for one hundred seconds
 
 ```
-# By having an 'edge' section defined, the ziti-controller will attempt to parse the edge configuration. Removing this
+# By having an 'edge' section defined, the zt-controller will attempt to parse the edge configuration. Removing this
 # section, commenting out, or altering the name of the section will cause the edge to not run.
 edge:
   # This section represents the configuration of the Edge API that is served over HTTPS
@@ -500,8 +500,8 @@ edge:
     # a signing certificate from the PKI that the Ziti environment is using to sign certificates. The signingCert.cert
     # will be added to the /.well-known CA store that is used to bootstrap trust with the Ziti Controller.
     signingCert:
-      cert: ${ZITI_SOURCE}/ziti/etc/ca/intermediate/certs/intermediate.cert.pem
-      key: ${ZITI_SOURCE}/ziti/etc/ca/intermediate/private/intermediate.key.decrypted.pem
+      cert: ${ZITI_SOURCE}/zt/etc/ca/intermediate/certs/intermediate.cert.pem
+      key: ${ZITI_SOURCE}/zt/etc/ca/intermediate/private/intermediate.key.decrypted.pem
     # edgeIdentity - optional
     # A section for identity enrollment specific settings
     edgeIdentity:
@@ -559,10 +559,10 @@ web:
     # identity - optional
     # Allows the webListener to have a specific identity instead of defaulting to the root `identity` section.
     #    identity:
-    #      cert:                 ${ZITI_SOURCE}/ziti/etc/ca/intermediate/certs/ctrl-client.cert.pem
-    #      server_cert:          ${ZITI_SOURCE}/ziti/etc/ca/intermediate/certs/ctrl-server.cert.pem
-    #      key:                  ${ZITI_SOURCE}/ziti/etc/ca/intermediate/private/ctrl.key.pem
-    #      ca:                   ${ZITI_SOURCE}/ziti/etc/ca/intermediate/certs/ca-chain.cert.pem
+    #      cert:                 ${ZITI_SOURCE}/zt/etc/ca/intermediate/certs/ctrl-client.cert.pem
+    #      server_cert:          ${ZITI_SOURCE}/zt/etc/ca/intermediate/certs/ctrl-server.cert.pem
+    #      key:                  ${ZITI_SOURCE}/zt/etc/ca/intermediate/private/ctrl.key.pem
+    #      ca:                   ${ZITI_SOURCE}/zt/etc/ca/intermediate/certs/ca-chain.cert.pem
     # options - optional
     # Allows the specification of webListener level options - mainly dealing with HTTP/TLS settings. These options are
     # used for all http servers started by the current webListener.
@@ -634,14 +634,14 @@ web:
 ```
 
 The following examples places the Management API on localhost and the Client API on all available interface and
-advertised as `client.api.ziti.dev:1280`:
+advertised as `client.api.zt.dev:1280`:
 
 ```
 web:
   - name: client-all-interfaces
     bindPoints:
       - interface: 0.0.0.0:1280
-        address: client.api.ziti.dev:1280
+        address: client.api.zt.dev:1280
     options: { }
     apis:
       - binding: edge-client

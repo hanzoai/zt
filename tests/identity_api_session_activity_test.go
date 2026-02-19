@@ -9,8 +9,8 @@ import (
 	restidentity "github.com/hanzozt/edge-api/rest_management_api_client/identity"
 	"github.com/hanzozt/edge-api/rest_model"
 	edgeapis "github.com/hanzozt/sdk-golang/edge-apis"
-	"github.com/hanzozt/sdk-golang/ziti"
-	"github.com/hanzozt/ziti/v2/controller/webapis"
+	"github.com/hanzozt/sdk-golang/zt"
+	"github.com/hanzozt/zt/v2/controller/webapis"
 )
 
 func Test_Identity_HasErConnection(t *testing.T) {
@@ -41,7 +41,7 @@ func Test_Identity_HasErConnection(t *testing.T) {
 
 	creds := edgeapis.NewUpdbCredentials(ctx.AdminAuthenticator.Username, ctx.AdminAuthenticator.Password)
 
-	caPool, err := ziti.GetControllerWellKnownCaPool("https://" + ctx.ApiHost)
+	caPool, err := zt.GetControllerWellKnownCaPool("https://" + ctx.ApiHost)
 	ctx.Req.NoError(err)
 
 	managementClient := edgeapis.NewManagementApiClient([]*url.URL{managementUrl}, caPool, func(strings chan string) {

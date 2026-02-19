@@ -28,7 +28,7 @@
 //  Hanzo ZT Fabric API
 //  Schemes:
 //    https
-//  Host: demo.ziti.dev
+//  Host: demo.zt.dev
 //  BasePath: /fabric/v1
 //  Version: 0.16.54
 //  License: Apache 2.0 http://www.apache.org/licenses/LICENSE-2.0.html

@@ -84,7 +84,7 @@ func NewDnsServer(addr string, upstreamConfig string, unanswered unansweredDispo
 		log.Infof("dns server running at %s", s.Addr)
 	}
 
-	const resolverConfigHelp = "ziti-tunnel runs an internal DNS server which must be first in the host's\n" +
+	const resolverConfigHelp = "zt-tunnel runs an internal DNS server which must be first in the host's\n" +
 		"resolver configuration. On systems that use NetManager/dhclient, this can\n" +
 		"be achieved by adding the following to /etc/dhcp/dhclient.conf:\n" +
 		"\n" +

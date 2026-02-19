@@ -82,7 +82,7 @@ Example JSON output:
 ## What's New
 
 * Add workaround for bbolt bug which caused some data to get left behind when deleting identities, seen when turning off tunneler capability on edge routers
-* Remove deprecated ziti-enroller command. Enrollement can be done using the ziti-tunnel, ziti-router and ziti commands
+* Remove deprecated zt-enroller command. Enrollement can be done using the zt-tunnel, zt-router and zt commands
 * Fix UDP intercept handling
 * The host.v1 service configuration type has been changed as follows:
     * Rename `dialIntercepted*` properties to `forwardProtocol`, `forwardAddress`, `forwardPort` for better consistency with non-tunneler client applications.
@@ -92,11 +92,11 @@ Example JSON output:
 * Ziti Controller now supports enrollment extension for routers
 * Ziti Router now support forcing enrollment extension via `run -e`
 * Ziti Routers will now automatically extend their enrollment before their certificates expire
-* `ziti edge enroll` with a UPDB JWT now confirms and properly sets the password supplied
+* `zt edge enroll` with a UPDB JWT now confirms and properly sets the password supplied
 
   Caveats:
     * Any existing host.v1 configurations that use will become invalid.
-    * ziti-tunnel and the converged router/tunneler creates local routes that are established for `allowedSourceAddresses`, but the routes are not consistently cleaned up when `ziti-tunnel` exits. This issue will be addressed in a future release.
+    * zt-tunnel and the converged router/tunneler creates local routes that are established for `allowedSourceAddresses`, but the routes are not consistently cleaned up when `zt-tunnel` exits. This issue will be addressed in a future release.
 
 # Release 0.19.10
 
@@ -112,18 +112,18 @@ Example JSON output:
 ## What's New
 
 * Converged Tunneler/Router (Beta 2)
-    * intercept.v1 support (also in ziti-tunnel)
+    * intercept.v1 support (also in zt-tunnel)
     * support for setting per-service hosting cost/precedence on identity
 * Identities and edge routers now support appData, which is tag data consumable by sdks
 * Edge Router Policies now expose the `isSystem` flag for system managed policies
-* ziti-tunnel no longer supports tun mode. It has been superseded by tproxy mode
+* zt-tunnel no longer supports tun mode. It has been superseded by tproxy mode
 
 ## Fixes
 
-* Fix deadlock in ziti-router which would stop new connections from being established after an api session is removed
+* Fix deadlock in zt-router which would stop new connections from being established after an api session is removed
 * Fix id extraction for data plane link latency metrics
 * Fix id extraction for ctrl plane link latency metrics
-* ziti-tunnel wasn't asking for host.v1/host.v2 configs
+* zt-tunnel wasn't asking for host.v1/host.v2 configs
 
 ## Per-service Cost/Precedence
 
@@ -132,7 +132,7 @@ Previously support was adding for setting the default cost and precedence that a
 Example creating an identity:
 
 ```
-ziti edge create identity service test2 --default-hosting-cost 10 --default-hosting-precedence failed --service-costs loop=20,echo=30 --service-precedences loop=default,echo=required
+zt edge create identity service test2 --default-hosting-cost 10 --default-hosting-precedence failed --service-costs loop=20,echo=30 --service-precedences loop=default,echo=required
 
 ```
 
@@ -169,13 +169,13 @@ Note that this mechanism replaces setting cost and precedence via the host.v1/ho
 
 ## Identity/Edge Router app data
 
-We have an existing tags mechanism, which can be used by system administrators to annotate ziti entities in whatever is useful to them. Tags are an administrator function and are not meant to be visible to SDKs and SDK applications. If an administrator wants to provide custom data for services to the SDK they can use config types and configs for that purpose. Up until now however, there hasn't been a means to annotate identities and edge routers, which are the other two entities visible to SDKs, with data that the SDKs can consume.
+We have an existing tags mechanism, which can be used by system administrators to annotate zt entities in whatever is useful to them. Tags are an administrator function and are not meant to be visible to SDKs and SDK applications. If an administrator wants to provide custom data for services to the SDK they can use config types and configs for that purpose. Up until now however, there hasn't been a means to annotate identities and edge routers, which are the other two entities visible to SDKs, with data that the SDKs can consume.
 0.19.9 introduces `appData` on identities and edge-routers. `appData` has the same structure as `tags`, but is intended to allow administrators to push custom data on identities and edge routers to SDKs. An example use is for tunnelers. The `sourceIp` can contain template information, which can refer back to the `appData` for the tunneler's identity.
 
 The CLI supports setting appData on identities and edge routers.
 
 ```
-ziti edge create identity service myIdentity --tags office=Regional5,device=Laptop --app-data ip=1.1.1.1,QoS=voip
+zt edge create identity service myIdentity --tags office=Regional5,device=Laptop --app-data ip=1.1.1.1,QoS=voip
 
 ```
 
@@ -203,7 +203,7 @@ See the Transwarp beta_1 guide [here](doc/transwarp_b1/transwarp_b1.md).
 
 ## Converged Tunneler/Router (Beta)
 
-ziti-router can now run with the tunneler embedded. It has the same capabilities as ziti-tunnel. As ziti-tunnel gains new features, the combined ziti-router/tunnel should maintain feature parity.
+zt-router can now run with the tunneler embedded. It has the same capabilities as zt-tunnel. As zt-tunnel gains new features, the combined zt-router/tunnel should maintain feature parity.
 
 ### Beta Status
 
@@ -211,16 +211,16 @@ This is a beta release. It should be relatively feature complete and bug-free fo
 
 ### Os Compatibility
 
-Like ziti-tunnel, `tproxy` mode will only work on linux. `proxy` and `host` modes should work on all operating systems.
+Like zt-tunnel, `tproxy` mode will only work on linux. `proxy` and `host` modes should work on all operating systems.
 
-The converged tunneler/router does not support running in tun mode. This mode may be deprecated for ziti-tunnel as well at some point in the future if no advantages over tproxy mode are evident.
+The converged tunneler/router does not support running in tun mode. This mode may be deprecated for zt-tunnel as well at some point in the future if no advantages over tproxy mode are evident.
 
 ### Supported configurations
 
 The following configurations are supported:
 
-* `ziti-tunneler-client.v1`
-* `ziti-tunneler-server.v1`
+* `zt-tunneler-client.v1`
+* `zt-tunneler-server.v1`
 * `host.v1` (updated)
 * `host.v2` (new)
 
@@ -252,40 +252,40 @@ In order for a router instance to host a tunneler, it must meet the following cr
 
 ### Making an Edge Router Tunneler enabled
 
-The ziti CLI can be used to enable/disable tunneler support on edge routers. When creating an edge router, the `-t` flag can be passed in to enable running the tunneler.
+The zt CLI can be used to enable/disable tunneler support on edge routers. When creating an edge router, the `-t` flag can be passed in to enable running the tunneler.
 
 ```shell
-ziti edge create edge-router myEdgeRouter --tunneler-enabled
+zt edge create edge-router myEdgeRouter --tunneler-enabled
 ```
 
 or
 
 ```shell
-ziti edge create edge-router myEdgeRouter -t
+zt edge create edge-router myEdgeRouter -t
 ```
 
 An existing edge router can be marked as tunneler enabled as follows:
 
 ```shell
-ziti edge update edge-router myEdgeRouter --tunneler-enabled
+zt edge update edge-router myEdgeRouter --tunneler-enabled
 ```
 
 or
 
 ```shell
-ziti edge update edge-router myEdgeRouter -t
+zt edge update edge-router myEdgeRouter -t
 ```
 
 An existing edge router can be marked as not supporting the tunneler as follows:
 
 ```shell
-ziti edge update edge-router myEdgeRouter -t=false
+zt edge update edge-router myEdgeRouter -t=false
 ```
 
 or
 
 ```shell
-ziti edge update edge-router myEdgeRouter --tunneler-enabled=false
+zt edge update edge-router myEdgeRouter --tunneler-enabled=false
 ```
 
 ### Tunnel listener configuration
@@ -367,7 +367,7 @@ What the service events look like:
 
 ### Changes to host.v1
 
-The host.v1 config type now support health checks. The configuration is the same for `ziti-tunneler-server-v1`.
+The host.v1 config type now support health checks. The configuration is the same for `zt-tunneler-server-v1`.
 
 See here: https://github.com/hanzozt/edge/blob/v0.19.54/tunnel/entities/host.v1.json for the full schema
 
@@ -524,17 +524,17 @@ This command is useful in situations where the number of sessions is large and t
 copied and/or used for debugging.
 
 Example Command:
-`ziti-controller delete-sessions`
+`zt-controller delete-sessions`
 
 Example Output:
 
 ```
-[   0.017]    INFO ziti/ziti-controller/subcmd.deleteSessions: {go-version=[go1.16] revision=[local] build-date=[2020-01-01 01:01:01] os=[windows] arch=[amd64] version=[v0.0.0]} removing API Sessions and Edge Sessions from ziti-controller
-[   9.469]    INFO ziti/ziti-controller/subcmd.deleteSessions.func2: existing api Sessions: 2785
-[  18.274]    INFO ziti/ziti-controller/subcmd.deleteSessions.func2: edge sessions bucket does not exist, skipping, count is: 4035
-[  47.104]    INFO ziti/ziti-controller/subcmd.deleteSessions.func3: done removing api Sessions
-[  55.866]    INFO ziti/ziti-controller/subcmd.deleteSessions.func3: done removing api session indexes
-[  58.325]    INFO ziti/ziti-controller/subcmd.deleteSessions.func3: done removing edge session indexes
+[   0.017]    INFO zt/zt-controller/subcmd.deleteSessions: {go-version=[go1.16] revision=[local] build-date=[2020-01-01 01:01:01] os=[windows] arch=[amd64] version=[v0.0.0]} removing API Sessions and Edge Sessions from zt-controller
+[   9.469]    INFO zt/zt-controller/subcmd.deleteSessions.func2: existing api Sessions: 2785
+[  18.274]    INFO zt/zt-controller/subcmd.deleteSessions.func2: edge sessions bucket does not exist, skipping, count is: 4035
+[  47.104]    INFO zt/zt-controller/subcmd.deleteSessions.func3: done removing api Sessions
+[  55.866]    INFO zt/zt-controller/subcmd.deleteSessions.func3: done removing api session indexes
+[  58.325]    INFO zt/zt-controller/subcmd.deleteSessions.func3: done removing edge session indexes
 ```
 
 ### Heartbeat Collection And Batching
@@ -655,7 +655,7 @@ Example Output:
 
 * Service Event Counters
 * New log message which shows local (router side) address, including port, when router dials are
-  successful. This allows correlating server side access logs with ziti logs
+  successful. This allows correlating server side access logs with zt logs
 
 ## Service Event Counters
 
@@ -671,7 +671,7 @@ events:
     handler:
       type: file
       format: json
-      path: /tmp/ziti-events.log
+      path: /tmp/zt-events.log
 ```
 
 Example of the events JSON output:
@@ -710,7 +710,7 @@ Event types:
   happen when links go down
 * Use AtomicBitSet for xgress flags. Minimize memory use and contention
 * edge router status wasn't getting set online on connect
-* ziti-tunnel proxy wasn't working for services without a client config
+* zt-tunnel proxy wasn't working for services without a client config
 * Add queue for metrics messages. Add config setting for metrics report interval and message queue
   size
     * metrics.reportInterval - how often to report metrics to controller. Default: `15s`
@@ -838,13 +838,13 @@ Changes of note:
 ## What's New
 
 * Ziti CLI now has 'Let's Encrypt' PKI support to facilitate TLS connections to Controller from
-  BrowZer-based apps that use the `ziti-sdk-js`.
+  BrowZer-based apps that use the `zt-sdk-js`.
 
     * New command to Register a Let's Encrypt account, then create and install a certificate
 
       Usage:
 
-      `ziti pki le create -d domain -p path-to-where-data-is-saved [flags]`
+      `zt pki le create -d domain -p path-to-where-data-is-saved [flags]`
 
       Flags:
 
@@ -861,7 +861,7 @@ Changes of note:
 
       Usage:
 
-      `ziti pki le list -p path-to-where-data-is-saved [flags]`
+      `zt pki le list -p path-to-where-data-is-saved [flags]`
 
       Flags:
 
@@ -874,7 +874,7 @@ Changes of note:
 
       Usage:
 
-      `ziti pki le renew -d domain -p path-to-where-data-is-saved [flags]`
+      `zt pki le renew -d domain -p path-to-where-data-is-saved [flags]`
 
       Flags:
 
@@ -892,7 +892,7 @@ Changes of note:
 
       Usage:
 
-      `ziti pki le revoke -d domain -p path-to-where-data-is-saved [flags]`
+      `zt pki le revoke -d domain -p path-to-where-data-is-saved [flags]`
 
       Flags:
 
@@ -915,9 +915,9 @@ Changes of note:
 
 ## Bug fixes
 
-* ziti ps now supports `router-disconnect` and `router-reconnect`, which disconnects/reconnects the
+* zt ps now supports `router-disconnect` and `router-reconnect`, which disconnects/reconnects the
   router from the controller. This allows easier testing of various failure states. Requires that
-  --debug-ops is passed to `ziti-router` on startup.
+  --debug-ops is passed to `zt-router` on startup.
 * Golang SDK hosted service listeners are now properly closed when they receive close notifications
 * Golang SDK now recovers if the session is gone
 * Golang SDK now stops some go-routines that were previously left running after the SDK context was

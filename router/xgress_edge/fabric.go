@@ -29,10 +29,10 @@ import (
 	"github.com/hanzozt/foundation/v2/concurrenz"
 	"github.com/hanzozt/foundation/v2/rate"
 	"github.com/hanzozt/sdk-golang/xgress"
-	"github.com/hanzozt/sdk-golang/ziti/edge"
-	"github.com/hanzozt/ziti/v2/common/pb/edge_ctrl_pb"
-	"github.com/hanzozt/ziti/v2/router/state"
-	"github.com/hanzozt/ziti/v2/router/xgress_common"
+	"github.com/hanzozt/sdk-golang/zt/edge"
+	"github.com/hanzozt/zt/v2/common/pb/edge_ctrl_pb"
+	"github.com/hanzozt/zt/v2/router/state"
+	"github.com/hanzozt/zt/v2/router/xgress_common"
 	"github.com/pkg/errors"
 )
 

@@ -15,15 +15,15 @@ import (
 	"github.com/hanzozt/foundation/v2/genext"
 	"github.com/hanzozt/foundation/v2/stringz"
 	"github.com/hanzozt/transport/v2"
-	"github.com/hanzozt/ziti/v2/tunnel"
-	"github.com/hanzozt/ziti/v2/tunnel/health"
-	"github.com/hanzozt/ziti/v2/tunnel/utils"
+	"github.com/hanzozt/zt/v2/tunnel"
+	"github.com/hanzozt/zt/v2/tunnel/health"
+	"github.com/hanzozt/zt/v2/tunnel/utils"
 	"github.com/pkg/errors"
 )
 
 const (
-	ClientConfigV1 = "ziti-tunneler-client.v1"
-	ServerConfigV1 = "ziti-tunneler-server.v1"
+	ClientConfigV1 = "zt-tunneler-client.v1"
+	ServerConfigV1 = "zt-tunneler-server.v1"
 	HostConfigV1   = "host.v1"
 	HostConfigV2   = "host.v2"
 	InterceptV1    = "intercept.v1"

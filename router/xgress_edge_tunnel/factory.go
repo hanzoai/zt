@@ -29,10 +29,10 @@ import (
 	"github.com/hanzozt/identity"
 	"github.com/hanzozt/metrics"
 	"github.com/hanzozt/sdk-golang/xgress"
-	"github.com/hanzozt/ziti/v2/common/pb/edge_ctrl_pb"
-	"github.com/hanzozt/ziti/v2/router/env"
-	"github.com/hanzozt/ziti/v2/router/state"
-	"github.com/hanzozt/ziti/v2/router/xgress_router"
+	"github.com/hanzozt/zt/v2/common/pb/edge_ctrl_pb"
+	"github.com/hanzozt/zt/v2/router/env"
+	"github.com/hanzozt/zt/v2/router/state"
+	"github.com/hanzozt/zt/v2/router/xgress_router"
 	"github.com/pkg/errors"
 )
 

@@ -19,9 +19,9 @@ import (
 	"github.com/hanzozt/edge-api/rest_model"
 	nfpem "github.com/hanzozt/foundation/v2/pem"
 	id "github.com/hanzozt/identity"
-	"github.com/hanzozt/sdk-golang/ziti"
-	"github.com/hanzozt/sdk-golang/ziti/edge"
-	"github.com/hanzozt/ziti/v2/common/eid"
+	"github.com/hanzozt/sdk-golang/zt"
+	"github.com/hanzozt/sdk-golang/zt/edge"
+	"github.com/hanzozt/zt/v2/common/eid"
 )
 
 func Test_CA_Auth_Two_Identities_Diff_Certs(t *testing.T) {
@@ -275,7 +275,7 @@ func Test_CA_Auth_Two_Identities_Diff_Certs(t *testing.T) {
 
 			go func() {
 				//connect client 1
-				client1Config := &ziti.Config{
+				client1Config := &zt.Config{
 					ZtAPI: "https://" + ctx.ApiHost + EdgeClientApiPath,
 					ID: id.Config{
 						Key:            id.StoragePem + ":" + string(clientKeyPem1),
@@ -287,7 +287,7 @@ func Test_CA_Auth_Two_Identities_Diff_Certs(t *testing.T) {
 					},
 					ConfigTypes: nil,
 				}
-				client1Context, err := ziti.NewContext(client1Config)
+				client1Context, err := zt.NewContext(client1Config)
 				ctx.Req.NoError(err)
 
 				err = client1Context.Authenticate()
@@ -311,7 +311,7 @@ func Test_CA_Auth_Two_Identities_Diff_Certs(t *testing.T) {
 
 			go func() {
 				//connect client 2
-				client2Config := &ziti.Config{
+				client2Config := &zt.Config{
 					ZtAPI: "https://" + ctx.ApiHost + EdgeClientApiPath,
 					ID: id.Config{
 						Key:            id.StoragePem + ":" + string(clientKeyPem2),
@@ -324,7 +324,7 @@ func Test_CA_Auth_Two_Identities_Diff_Certs(t *testing.T) {
 					ConfigTypes: nil,
 				}
 
-				client2Context, err := ziti.NewContext(client2Config)
+				client2Context, err := zt.NewContext(client2Config)
 				ctx.Req.NoError(err)
 
 				err = client2Context.Authenticate()

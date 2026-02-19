@@ -21,7 +21,7 @@ import (
 	"sort"
 
 	"github.com/hanzozt/foundation/v2/stringz"
-	"github.com/hanzozt/ziti/v2/controller/db"
+	"github.com/hanzozt/zt/v2/controller/db"
 )
 
 type Interface struct {

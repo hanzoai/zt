@@ -19,11 +19,11 @@ import (
 	"github.com/hanzozt/foundation/v2/errorz"
 	idloader "github.com/hanzozt/identity"
 	edge_apis "github.com/hanzozt/sdk-golang/edge-apis"
-	"github.com/hanzozt/sdk-golang/ziti"
-	"github.com/hanzozt/ziti/v2/common/eid"
-	"github.com/hanzozt/ziti/v2/controller/db"
-	"github.com/hanzozt/ziti/v2/controller/model"
-	"github.com/hanzozt/ziti/v2/controller/models"
+	"github.com/hanzozt/sdk-golang/zt"
+	"github.com/hanzozt/zt/v2/common/eid"
+	"github.com/hanzozt/zt/v2/controller/db"
+	"github.com/hanzozt/zt/v2/controller/model"
+	"github.com/hanzozt/zt/v2/controller/models"
 	"github.com/rcrowley/go-metrics"
 )
 
@@ -143,7 +143,7 @@ type perfScenarioSpec struct {
 	identities  []*model.Identity
 	edgeRouters []*model.EdgeRouter
 
-	config *ziti.Config
+	config *zt.Config
 }
 
 func (spec *perfScenarioSpec) generateAllRoleAttributes() {
@@ -430,8 +430,8 @@ func newHistogram() metrics.Histogram {
 	return metrics.NewHistogram(metrics.NewExpDecaySample(128, 0.015))
 }
 
-func newPerfStats(ctx *TestContext, config *ziti.Config, description string, serviceId string, sessionType rest_model.DialBind) *perfStats {
-	zitiUrl, err := url.Parse(config.ZtAPI)
+func newPerfStats(ctx *TestContext, config *zt.Config, description string, serviceId string, sessionType rest_model.DialBind) *perfStats {
+	ztUrl, err := url.Parse(config.ZtAPI)
 	ctx.Req.NoError(err)
 
 	id, err := idloader.LoadIdentity(config.ID)
@@ -440,11 +440,11 @@ func newPerfStats(ctx *TestContext, config *ziti.Config, description string, ser
 	creds := edge_apis.NewIdentityCredentials(id)
 	creds.ConfigTypes = []string{"all"}
 
-	caPool, err := ziti.GetControllerWellKnownCaPool(config.ZtAPI)
+	caPool, err := zt.GetControllerWellKnownCaPool(config.ZtAPI)
 
 	ctx.Req.NoError(err)
 
-	client := edge_apis.NewClientApiClient(zitiUrl, caPool)
+	client := edge_apis.NewClientApiClient(ztUrl, caPool)
 
 	return &perfStats{
 		TestContext:       ctx,

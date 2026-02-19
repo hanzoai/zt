@@ -68,9 +68,9 @@ var serverConfigV1TypeId = "cea49285-6c07-42cf-9f52-09a9b115c783"
 
 var serverConfigTypeV1 = &ConfigType{
 	BaseExtEntity: boltz.BaseExtEntity{Id: serverConfigV1TypeId},
-	Name:          "ziti-tunneler-server.v1",
+	Name:          "zt-tunneler-server.v1",
 	Schema: map[string]interface{}{
-		"$id":                  "http://edge.hanzozt.org/schemas/ziti-tunneler-server.v1.config.json",
+		"$id":                  "http://edge.hanzozt.org/schemas/zt-tunneler-server.v1.config.json",
 		"type":                 "object",
 		"additionalProperties": false,
 		"definitions":          healthCheckSchema["definitions"],
@@ -328,7 +328,7 @@ var hostV1SchemaSansDefs = map[string]interface{}{
 		map[string]interface{}{
 			"protocol": map[string]interface{}{
 				"$ref":        "#/definitions/protocolName",
-				"description": "Dial the specified protocol when a ziti client connects to the service.",
+				"description": "Dial the specified protocol when a zt client connects to the service.",
 			},
 			"forwardProtocol": map[string]interface{}{
 				"type":        "boolean",
@@ -344,7 +344,7 @@ var hostV1SchemaSansDefs = map[string]interface{}{
 			},
 			"address": map[string]interface{}{
 				"$ref":        "#/definitions/dialAddress",
-				"description": "Dial the specified ip address or hostname when a ziti client connects to the service.",
+				"description": "Dial the specified ip address or hostname when a zt client connects to the service.",
 			},
 			"forwardAddress": map[string]interface{}{
 				"type":        "boolean",
@@ -367,7 +367,7 @@ var hostV1SchemaSansDefs = map[string]interface{}{
 			},
 			"port": map[string]interface{}{
 				"$ref":        "#/definitions/portNumber",
-				"description": "Dial the specified port when a ziti client connects to the service.",
+				"description": "Dial the specified port when a zt client connects to the service.",
 			},
 			"forwardPort": map[string]interface{}{
 				"type":        "boolean",
@@ -486,7 +486,7 @@ var hostV1ConfigType = &ConfigType{
 	Name:          "host.v1",
 	Schema: combine(
 		map[string]interface{}{
-			"$id":         "http://ziti-edge.netfoundry.io/schemas/host.v1.schema.json",
+			"$id":         "http://zt-edge.netfoundry.io/schemas/host.v1.schema.json",
 			"definitions": hostV1Definitions,
 		},
 		hostV1SchemaSansDefs),
@@ -497,7 +497,7 @@ var hostV2ConfigType = &ConfigType{
 	BaseExtEntity: boltz.BaseExtEntity{Id: hostV2ConfigTypeId},
 	Name:          "host.v2",
 	Schema: map[string]interface{}{
-		"$id": "http://ziti-edge.netfoundry.io/schemas/host.v2.schema.json",
+		"$id": "http://zt-edge.netfoundry.io/schemas/host.v2.schema.json",
 		"definitions": combine(
 			hostV1Definitions,
 			map[string]interface{}{
@@ -690,9 +690,9 @@ var proxyConfigTypeV1 = &ConfigType{
 func (m *Migrations) createInitialTunnelerConfigTypes(step *boltz.MigrationStep) {
 	clientConfigTypeV1 := &ConfigType{
 		BaseExtEntity: boltz.BaseExtEntity{Id: clientConfigV1TypeId},
-		Name:          "ziti-tunneler-client.v1",
+		Name:          "zt-tunneler-client.v1",
 		Schema: map[string]interface{}{
-			"$id":                  "http://edge.hanzozt.org/schemas/ziti-tunneler-client.v1.config.json",
+			"$id":                  "http://edge.hanzozt.org/schemas/zt-tunneler-client.v1.config.json",
 			"type":                 "object",
 			"additionalProperties": false,
 			"required": []interface{}{

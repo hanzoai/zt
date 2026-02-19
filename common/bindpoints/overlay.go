@@ -30,7 +30,7 @@ import (
 
 	"github.com/michaelquigley/pfxlog"
 	"github.com/hanzozt/identity"
-	"github.com/hanzozt/sdk-golang/ziti"
+	"github.com/hanzozt/sdk-golang/zt"
 	"github.com/hanzozt/xweb/v3"
 )
 
@@ -42,9 +42,9 @@ type OverlayBindPoint struct {
 	Service        string //name of the service to bind
 	ClientAuthType tls.ClientAuthType
 	Name           string
-	Opts           ziti.ListenOptions
-	cfg            ziti.Config
-	ctx            ziti.Context
+	Opts           zt.ListenOptions
+	cfg            zt.Config
+	ctx            zt.Context
 }
 
 func (o OverlayBindPoint) BeforeHandler(next http.Handler) http.Handler {
@@ -120,13 +120,13 @@ func newOverlayBindPoint(conf map[interface{}]interface{}) (OverlayBindPoint, er
 		}
 	}
 
-	o.cfg = ziti.Config{}
+	o.cfg = zt.Config{}
 	unMarshallErr := json.Unmarshal(o.Identity, &o.cfg)
 	if unMarshallErr != nil {
 		return o, unMarshallErr
 	}
 
-	if ctx, newCtxErr := ziti.NewContext(&o.cfg); newCtxErr != nil {
+	if ctx, newCtxErr := zt.NewContext(&o.cfg); newCtxErr != nil {
 		return o, newCtxErr
 	} else {
 		o.ctx = ctx

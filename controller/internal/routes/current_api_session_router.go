@@ -25,11 +25,11 @@ import (
 	clientCurrentApiSession "github.com/hanzozt/edge-api/rest_client_api_server/operations/current_api_session"
 	managementCurrentApiSession "github.com/hanzozt/edge-api/rest_management_api_server/operations/current_api_session"
 	"github.com/hanzozt/edge-api/rest_model"
-	"github.com/hanzozt/ziti/v2/controller/apierror"
-	"github.com/hanzozt/ziti/v2/controller/env"
-	"github.com/hanzozt/ziti/v2/controller/model"
-	"github.com/hanzozt/ziti/v2/controller/permissions"
-	"github.com/hanzozt/ziti/v2/controller/response"
+	"github.com/hanzozt/zt/v2/controller/apierror"
+	"github.com/hanzozt/zt/v2/controller/env"
+	"github.com/hanzozt/zt/v2/controller/model"
+	"github.com/hanzozt/zt/v2/controller/permissions"
+	"github.com/hanzozt/zt/v2/controller/response"
 )
 
 func init() {

@@ -26,7 +26,7 @@ import (
 type appEnvKey string
 
 const (
-	RootBucket     = "ziti"
+	RootBucket     = "zt"
 	MetadataBucket = "metadata"
 	FieldRaftIndex = "raftIndex"
 	FieldClusterId = "clusterId"

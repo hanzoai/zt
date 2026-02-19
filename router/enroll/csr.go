@@ -23,7 +23,7 @@ import (
 	"crypto/x509/pkix"
 	"encoding/pem"
 
-	"github.com/hanzozt/ziti/v2/router/env"
+	"github.com/hanzozt/zt/v2/router/env"
 )
 
 type Csr struct {

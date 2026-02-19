@@ -24,9 +24,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/hanzozt/sdk-golang/ziti"
-	"github.com/hanzozt/sdk-golang/ziti/edge"
-	"github.com/hanzozt/ziti/v2/controller/xt_smartrouting"
+	"github.com/hanzozt/sdk-golang/zt"
+	"github.com/hanzozt/sdk-golang/zt/edge"
+	"github.com/hanzozt/zt/v2/controller/xt_smartrouting"
 	"github.com/pkg/errors"
 )
 
@@ -42,7 +42,7 @@ func Test_AddressableTerminators(t *testing.T) {
 
 	type host struct {
 		id       *identity
-		context  ziti.Context
+		context  zt.Context
 		listener edge.Listener
 	}
 
@@ -56,7 +56,7 @@ func Test_AddressableTerminators(t *testing.T) {
 		host.id, host.context = ctx.AdminManagementSession.RequireCreateSdkContext()
 		defer host.context.Close()
 
-		host.listener, err = host.context.ListenWithOptions(service.Name, &ziti.ListenOptions{
+		host.listener, err = host.context.ListenWithOptions(service.Name, &zt.ListenOptions{
 			BindUsingEdgeIdentity:        true,
 			WaitForNEstablishedListeners: 1,
 		})
@@ -65,7 +65,7 @@ func Test_AddressableTerminators(t *testing.T) {
 
 	type client struct {
 		id      *identity
-		context ziti.Context
+		context zt.Context
 	}
 
 	var clients []*client
@@ -101,7 +101,7 @@ func Test_AddressableTerminators(t *testing.T) {
 
 	for _, client := range clients {
 		for _, host := range hosts {
-			conn, err := client.context.DialWithOptions(service.Name, &ziti.DialOptions{
+			conn, err := client.context.DialWithOptions(service.Name, &zt.DialOptions{
 				Identity: host.id.name,
 			})
 			ctx.Req.NoError(err)
@@ -135,7 +135,7 @@ func Test_AddressableTerminatorSameIdentity(t *testing.T) {
 	identity, context := ctx.AdminManagementSession.RequireCreateSdkContext()
 	defer context.Close()
 
-	listener, err := context.ListenWithOptions(service.Name, &ziti.ListenOptions{
+	listener, err := context.ListenWithOptions(service.Name, &zt.ListenOptions{
 		BindUsingEdgeIdentity: true,
 		ConnectTimeout:        5 * time.Second,
 	})
@@ -143,10 +143,10 @@ func Test_AddressableTerminatorSameIdentity(t *testing.T) {
 	listener.(edge.SessionListener).SetErrorEventHandler(errorHandler)
 	defer func() { _ = listener.Close() }()
 
-	context2, err := ziti.NewContext(identity.config)
+	context2, err := zt.NewContext(identity.config)
 	ctx.Req.NoError(err)
 
-	listener2, err := context2.ListenWithOptions(service.Name, &ziti.ListenOptions{
+	listener2, err := context2.ListenWithOptions(service.Name, &zt.ListenOptions{
 		BindUsingEdgeIdentity: true,
 		ConnectTimeout:        5 * time.Second,
 	})
@@ -183,7 +183,7 @@ func Test_AddressableTerminatorDifferentIdentity(t *testing.T) {
 	_, context := ctx.AdminManagementSession.RequireCreateSdkContext()
 	defer context.Close()
 
-	listener, err := context.ListenWithOptions(service.Name, &ziti.ListenOptions{
+	listener, err := context.ListenWithOptions(service.Name, &zt.ListenOptions{
 		Identity:       "foobar",
 		ConnectTimeout: 5 * time.Second,
 	})
@@ -194,11 +194,11 @@ func Test_AddressableTerminatorDifferentIdentity(t *testing.T) {
 	clientIdentity := ctx.AdminManagementSession.RequireNewIdentityWithOtt(false)
 	clientConfig := ctx.EnrollIdentity(clientIdentity.Id)
 
-	clientContext, err := ziti.NewContext(clientConfig)
+	clientContext, err := zt.NewContext(clientConfig)
 	ctx.Req.NoError(err)
 	defer clientContext.Close()
 
-	listener2, err := clientContext.ListenWithOptions(service.Name, &ziti.ListenOptions{
+	listener2, err := clientContext.ListenWithOptions(service.Name, &zt.ListenOptions{
 		Identity:       "foobar",
 		ConnectTimeout: 5 * time.Second,
 	})

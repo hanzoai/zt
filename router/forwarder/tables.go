@@ -23,7 +23,7 @@ import (
 	"time"
 
 	"github.com/hanzozt/sdk-golang/xgress"
-	"github.com/hanzozt/ziti/v2/router/env"
+	"github.com/hanzozt/zt/v2/router/env"
 	"github.com/orcaman/concurrent-map/v2"
 )
 

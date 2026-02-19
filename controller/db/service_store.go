@@ -21,8 +21,8 @@ import (
 
 	"github.com/hanzozt/storage/ast"
 	"github.com/hanzozt/storage/boltz"
-	"github.com/hanzozt/ziti/v2/controller/xt"
-	"github.com/hanzozt/ziti/v2/controller/xt_smartrouting"
+	"github.com/hanzozt/zt/v2/controller/xt"
+	"github.com/hanzozt/zt/v2/controller/xt_smartrouting"
 	"go.etcd.io/bbolt"
 )
 

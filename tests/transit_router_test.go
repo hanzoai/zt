@@ -22,9 +22,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/hanzozt/ziti/v2/controller/change"
-	"github.com/hanzozt/ziti/v2/controller/model"
-	"github.com/hanzozt/ziti/v2/controller/models"
+	"github.com/hanzozt/zt/v2/controller/change"
+	"github.com/hanzozt/zt/v2/controller/model"
+	"github.com/hanzozt/zt/v2/controller/models"
 )
 
 func Test_TransitRouters(t *testing.T) {

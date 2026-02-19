@@ -21,11 +21,11 @@ import (
 
 	"github.com/michaelquigley/pfxlog"
 	"github.com/hanzozt/channel/v4"
-	alertConst "github.com/hanzozt/ziti/v2/common/alert"
-	"github.com/hanzozt/ziti/v2/common/pb/ctrl_pb"
-	"github.com/hanzozt/ziti/v2/controller/event"
-	"github.com/hanzozt/ziti/v2/controller/model"
-	"github.com/hanzozt/ziti/v2/controller/network"
+	alertConst "github.com/hanzozt/zt/v2/common/alert"
+	"github.com/hanzozt/zt/v2/common/pb/ctrl_pb"
+	"github.com/hanzozt/zt/v2/controller/event"
+	"github.com/hanzozt/zt/v2/controller/model"
+	"github.com/hanzozt/zt/v2/controller/network"
 	"google.golang.org/protobuf/proto"
 )
 

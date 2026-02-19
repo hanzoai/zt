@@ -24,16 +24,16 @@ import (
 	"github.com/michaelquigley/pfxlog"
 	"github.com/hanzozt/channel/v4"
 	"github.com/hanzozt/channel/v4/protobufs"
-	"github.com/hanzozt/sdk-golang/ziti"
-	"github.com/hanzozt/ziti/v2/common/handler_common"
-	"github.com/hanzozt/ziti/v2/common/inspect"
-	"github.com/hanzozt/ziti/v2/common/pb/ctrl_pb"
-	"github.com/hanzozt/ziti/v2/common/pb/edge_ctrl_pb"
-	"github.com/hanzozt/ziti/v2/controller/apierror"
-	"github.com/hanzozt/ziti/v2/controller/command"
-	routerEnv "github.com/hanzozt/ziti/v2/router/env"
-	"github.com/hanzozt/ziti/v2/router/state"
-	"github.com/hanzozt/ziti/v2/router/xgress_common"
+	"github.com/hanzozt/sdk-golang/zt"
+	"github.com/hanzozt/zt/v2/common/handler_common"
+	"github.com/hanzozt/zt/v2/common/inspect"
+	"github.com/hanzozt/zt/v2/common/pb/ctrl_pb"
+	"github.com/hanzozt/zt/v2/common/pb/edge_ctrl_pb"
+	"github.com/hanzozt/zt/v2/controller/apierror"
+	"github.com/hanzozt/zt/v2/controller/command"
+	routerEnv "github.com/hanzozt/zt/v2/router/env"
+	"github.com/hanzozt/zt/v2/router/state"
+	"github.com/hanzozt/zt/v2/router/xgress_common"
 	cmap "github.com/orcaman/concurrent-map/v2"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
@@ -479,9 +479,9 @@ func (self *HostedServiceRegistry) establishTerminator(terminator *tunnelTermina
 		WithField("terminatorId", terminator.id)
 
 	precedence := edge_ctrl_pb.TerminatorPrecedence_Default
-	if terminator.context.ListenOptions().Precedence == ziti.PrecedenceRequired {
+	if terminator.context.ListenOptions().Precedence == zt.PrecedenceRequired {
 		precedence = edge_ctrl_pb.TerminatorPrecedence_Required
-	} else if terminator.context.ListenOptions().Precedence == ziti.PrecedenceFailed {
+	} else if terminator.context.ListenOptions().Precedence == zt.PrecedenceFailed {
 		precedence = edge_ctrl_pb.TerminatorPrecedence_Failed
 	}
 

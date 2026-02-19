@@ -2,8 +2,8 @@ package edge_ctrl_pb
 
 import (
 	"github.com/hanzozt/edge-api/rest_model"
-	"github.com/hanzozt/sdk-golang/ziti"
-	"github.com/hanzozt/ziti/v2/controller/xt"
+	"github.com/hanzozt/sdk-golang/zt"
+	"github.com/hanzozt/zt/v2/controller/xt"
 )
 
 func (m *ClientHello) GetContentType() int32 {
@@ -152,11 +152,11 @@ func (request *SubscribeToDataModelRequest) GetContentType() int32 {
 	return int32(ContentType_SubscribeToDataModelRequestType)
 }
 
-func GetPrecedence(p ziti.Precedence) TerminatorPrecedence {
-	if p == ziti.PrecedenceRequired {
+func GetPrecedence(p zt.Precedence) TerminatorPrecedence {
+	if p == zt.PrecedenceRequired {
 		return TerminatorPrecedence_Required
 	}
-	if p == ziti.PrecedenceFailed {
+	if p == zt.PrecedenceFailed {
 		return TerminatorPrecedence_Failed
 	}
 	return TerminatorPrecedence_Default

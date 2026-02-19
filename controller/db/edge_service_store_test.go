@@ -22,8 +22,8 @@ import (
 	"time"
 
 	"github.com/hanzozt/storage/boltztest"
-	"github.com/hanzozt/ziti/v2/common/eid"
-	"github.com/hanzozt/ziti/v2/controller/change"
+	"github.com/hanzozt/zt/v2/common/eid"
+	"github.com/hanzozt/zt/v2/controller/change"
 
 	"github.com/google/go-cmp/cmp"
 	"github.com/hanzozt/foundation/v2/stringz"

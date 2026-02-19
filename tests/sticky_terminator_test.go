@@ -25,9 +25,9 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/michaelquigley/pfxlog"
-	"github.com/hanzozt/sdk-golang/ziti"
-	"github.com/hanzozt/sdk-golang/ziti/edge"
-	"github.com/hanzozt/ziti/v2/controller/xt_sticky"
+	"github.com/hanzozt/sdk-golang/zt"
+	"github.com/hanzozt/sdk-golang/zt/edge"
+	"github.com/hanzozt/zt/v2/controller/xt_sticky"
 )
 
 func Test_StickyTerminators(t *testing.T) {
@@ -87,7 +87,7 @@ func Test_StickyTerminators(t *testing.T) {
 
 	// make sure we stick with the same terminator
 	for range 10 {
-		dialOptions := &ziti.DialOptions{
+		dialOptions := &zt.DialOptions{
 			ConnectTimeout:  time.Second,
 			StickinessToken: token,
 		}
@@ -104,7 +104,7 @@ func Test_StickyTerminators(t *testing.T) {
 	time.Sleep(100 * time.Millisecond)
 
 	for range 10 {
-		dialOptions := &ziti.DialOptions{
+		dialOptions := &zt.DialOptions{
 			ConnectTimeout:  time.Second,
 			StickinessToken: token,
 		}
@@ -120,7 +120,7 @@ func Test_StickyTerminators(t *testing.T) {
 	ctx.Req.NoError(listener1.UpdatePrecedence(edge.PrecedenceFailed))
 	time.Sleep(100 * time.Millisecond)
 
-	dialOptions := &ziti.DialOptions{
+	dialOptions := &zt.DialOptions{
 		ConnectTimeout:  time.Second,
 		StickinessToken: token,
 	}
@@ -137,7 +137,7 @@ func Test_StickyTerminators(t *testing.T) {
 	time.Sleep(100 * time.Millisecond)
 
 	for range 10 {
-		dialOptions = &ziti.DialOptions{
+		dialOptions = &zt.DialOptions{
 			ConnectTimeout:  time.Second,
 			StickinessToken: token,
 		}

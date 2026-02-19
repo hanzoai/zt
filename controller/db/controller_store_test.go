@@ -33,7 +33,7 @@ import (
 	"github.com/google/uuid"
 	"github.com/hanzozt/storage/boltz"
 	"github.com/hanzozt/storage/boltztest"
-	"github.com/hanzozt/ziti/v2/common/eid"
+	"github.com/hanzozt/zt/v2/common/eid"
 	"go.etcd.io/bbolt"
 )
 

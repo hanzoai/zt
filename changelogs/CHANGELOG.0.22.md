@@ -99,7 +99,7 @@ Ziti can now use keys backed by PARSEC service for identity. see https://paralla
 example usage during enrollment (assuming `my-identity-key` exists in PARSEC service):
 
 ```
-$ ziti-tunnel enroll -j my-identity.jwt --key parsec:my-identity-key
+$ zt-tunnel enroll -j my-identity.jwt --key parsec:my-identity-key
 ```
 
 # Release 0.22.6
@@ -141,14 +141,14 @@ Increasing numbers of hops can be requested until the hops returned is greater t
 hops weren't available. This functionality is available in the Ziti CLI.
 
 ```
-$ ziti edge traceroute simple -c ./simple-client.json 
+$ zt edge traceroute simple -c ./simple-client.json 
  1               xgress/edge    1ms 
  2     forwarder[n4yChTL3Jy]     0s 
  3     forwarder[Yv7BPW0kGR]     0s 
  4               xgress/edge    1ms 
  5                sdk/golang     0s 
 
-plorenz@carrot:~/work/nf$ ziti edge traceroute simple -c ./simple-client.json 
+plorenz@carrot:~/work/nf$ zt edge traceroute simple -c ./simple-client.json 
  1               xgress/edge     0s 
  2     forwarder[n4yChTL3Jy]     0s 
  3     forwarder[Yv7BPW0kGR]    1ms 
@@ -183,7 +183,7 @@ plorenz@carrot:~/work/nf$ ziti edge traceroute simple -c ./simple-client.json
 ## What's New
 
 * Bug fix: Upgrading a controller from 0.22.0 or earlier to 0.22.2 will no longer leave old sessions w/o identityId
-  properties. Workaround for previous versions is to use `ziti-controller delete-sessions`
+  properties. Workaround for previous versions is to use `zt-controller delete-sessions`
 * Bug fix: If a router/tunneler loses connectivity with the controller long enough for the api session to time out, the
   router will now restablish any terminators for hosted services
 * Enhancement: Add some short aliases for the CLI
@@ -191,7 +191,7 @@ plorenz@carrot:~/work/nf$ ziti edge traceroute simple -c ./simple-client.json
     * service-policy -> sp
     * edge-router-policy -> erp
     * service-edge-router-policy -> serp
-* Feature: Add GetServiceTerminators to Golang SDK ziti.Context
+* Feature: Add GetServiceTerminators to Golang SDK zt.Context
 * Feature: Add GetSourceIdentifier to Golang SDK edge.ServiceConn
 
 # Release 0.22.1
@@ -211,14 +211,14 @@ plorenz@carrot:~/work/nf$ ziti edge traceroute simple -c ./simple-client.json
 * Feature: Posture responses now report services affected with timeout/state changes
 * Feature: Ziti CLI `unwrap` command for identity json files will now default the output file names
 * Feature: Ziti CLI improvements
-    * New interactive tutorial covering creating your first service. Run using: `ziti edge tutorial first-service`
-    * You can now delete multiple entities at once, by providing multiple ids. Ex: `ziti edge delete services one two`
-      or `ziti edge delete service one two` will both work.
+    * New interactive tutorial covering creating your first service. Run using: `zt edge tutorial first-service`
+    * You can now delete multiple entities at once, by providing multiple ids. Ex: `zt edge delete services one two`
+      or `zt edge delete service one two` will both work.
     * You can now delete multiple entities at once, by providing a filter.
-      Ex: `ziti edge delete services where 'name contains "foo"`
+      Ex: `zt edge delete services where 'name contains "foo"`
     * Create and delete output now has additional context.
 * Feature: Terminators can now be filtered by service and router name:
-  Ex: `ziti edge list terminators 'service.name = "echo"'`
+  Ex: `zt edge list terminators 'service.name = "echo"'`
 * Feature: New event type `edge.entityCounts`
 
 ## Entity Count Events
@@ -274,13 +274,13 @@ Here is an example of the JSON output of the event:
 * Refactor: Fabric Sessions renamed to Circuits (breaking change)
 * Feature: Links will now wait for a timeout for retrying
 * Bug fix: Sessions created on the controller when circuit creation fails are now cleaned up
-* Feature: Enhanced `ziti` CLI login functionality (has breaking changes to CLI options)
-* Feature: new `ziti edge list summary` command, which shows database entity counts
-* Bug fix: ziti-fabric didn't always report an error to the OS when it had an error
-* Refactor: All protobuf packages have been prefixed with `ziti.` to help prevent namespace clashes. Should not be a
+* Feature: Enhanced `zt` CLI login functionality (has breaking changes to CLI options)
+* Feature: new `zt edge list summary` command, which shows database entity counts
+* Bug fix: zt-fabric didn't always report an error to the OS when it had an error
+* Refactor: All protobuf packages have been prefixed with `zt.` to help prevent namespace clashes. Should not be a
   breaking change.
 * Feature: Selective debug logging by identity for path selection and circuit establishment
-    * `ziti edge trace identity <identity id>` will turn on debug logging for selecting paths and establishing circuits
+    * `zt edge trace identity <identity id>` will turn on debug logging for selecting paths and establishing circuits
     * Addition context for these operations including circuitId, sessionid and apiSessionId should now be in log
       messages regardless of whether tracing is enabled
     * Tracing is enabled for a given duration, which defaults to 10 minutes
@@ -291,36 +291,36 @@ Fabric sessions renamed to circuits. External integrators may be impacted by cha
 
 ### Ziti CLI
 
-Commands under `ziti edge` now reserve the `-i` flag for specifying client identity. Any command line argument which
+Commands under `zt edge` now reserve the `-i` flag for specifying client identity. Any command line argument which
 previously had a `-i` short version now only has a long version.
 
 For consistency, policy roles parameters must all be specified in long form
 
 This includes the following flags:
 
-* ziti edge create edge-router-policy --identity-roles --edge-router-roles
-* ziti edge update edge-router-policy --identity-roles --edge-router-roles
-* ziti edge create service-policy --identity-roles --service-roles
-* ziti edge update service-policy --identity-roles --service-roles
-* ziti edge create service-edge-router-policy --service-roles --edge-router-roles
-* ziti edge update service-edge-router-policy --service-roles --edge-router-roles
-* ziti edge create posture-check mfa --ignore-legacy
-* ziti edge update posture-check mfa --ignore-legacy
-* ziti edge update authenticator updb --identity
-* ziti edge update ca --identity-atributes (now -a)
+* zt edge create edge-router-policy --identity-roles --edge-router-roles
+* zt edge update edge-router-policy --identity-roles --edge-router-roles
+* zt edge create service-policy --identity-roles --service-roles
+* zt edge update service-policy --identity-roles --service-roles
+* zt edge create service-edge-router-policy --service-roles --edge-router-roles
+* zt edge update service-edge-router-policy --service-roles --edge-router-roles
+* zt edge create posture-check mfa --ignore-legacy
+* zt edge update posture-check mfa --ignore-legacy
+* zt edge update authenticator updb --identity
+* zt edge update ca --identity-atributes (now -a)
 
-The `ziti edge` commands now store session credentials in a new location and new format. Existing sessions will be
+The `zt edge` commands now store session credentials in a new location and new format. Existing sessions will be
 ignored.
 
-The `ziti edge controller` command was previously deprecated and has now been removed. All commands that were previously
-available under `ziti edge controller` are available under `ziti edge`.
+The `zt edge controller` command was previously deprecated and has now been removed. All commands that were previously
+available under `zt edge controller` are available under `zt edge`.
 
 ## Fabric Sessions renamed to Circuits
 
 Previously we had three separate entities named session: fabric sessions, edge sessions and edge API sessions. In order
 to reduce confusion, fabric sessions have been renamed to circuits. This has the following impacts:
 
-* ziti-fabric CLI
+* zt-fabric CLI
     * `list sessions` renamed to `list circuits`
     * `remove session` renamed to `remove circuit`
     * `stream sessions` renamed to `stream circuits`
@@ -331,7 +331,7 @@ to reduce confusion, fabric sessions have been renamed to circuits. This has the
     * In the router, under `forwarder`, `idleSessionTimeout` is now `idleCircuitTimeout`
 
 In the context of the fabric there was an existing construct call `Circuit` which has now been renamed to `Path`. This
-may be visible in a few `ziti-fabric` CLI outputs
+may be visible in a few `zt-fabric` CLI outputs
 
 ### Event changes
 
@@ -389,13 +389,13 @@ The Ziti CLI now supports multiple identities. An identity can be specified usin
 Example commands:
 
 ```
-$ ziti edge login -i dev localhost:1280
+$ zt edge login -i dev localhost:1280
 Enter username: admin
 Enter password: 
 Token: 76ff81b4-b528-4e2c-ad73-dcb0a39b6489
-Saving identity 'dev' to ~/.config/ziti/ziti-cli.json
+Saving identity 'dev' to ~/.config/zt/zt-cli.json
 
-$ ziti edge -i dev list services
+$ zt edge -i dev list services
 id: -JucPW0kGR    name: ssh    encryption required: true    terminator strategy: smartrouting    role attributes: ["ssh"]
 results: 1-1 of 1
 ```
@@ -404,43 +404,43 @@ If no identity is specified, a default will be used. The default identity is `de
 
 #### Switching Default Identity
 
-The default identity can be changed with the `ziti edge use` command.
+The default identity can be changed with the `zt edge use` command.
 
 The above example could also be accomplished as follows:
 
 ```
-$ ziti edge use dev
-Setting identity 'dev' as default in ~/.config/ziti/ziti-cli.json
+$ zt edge use dev
+Setting identity 'dev' as default in ~/.config/zt/zt-cli.json
 
-$ ziti edge login localhost:1280
+$ zt edge login localhost:1280
 Enter username: admin
 Enter password: 
 Token: e325d91c-a452-4454-a733-cfad88bfa356
-Saving identity 'dev' to ~/.config/ziti/ziti-cli.json
+Saving identity 'dev' to ~/.config/zt/zt-cli.json
 
-$ ziti edge list services
+$ zt edge list services
 id: -JucPW0kGR    name: ssh    encryption required: true    terminator strategy: smartrouting    role attributes: ["ssh"]
 results: 1-1 of 1
 
-$ ziti edge use default
-Setting identity 'default' as default in ~/.config/ziti/ziti-cli.json
+$ zt edge use default
+Setting identity 'default' as default in ~/.config/zt/zt-cli.json
 ```
 
-`ziti edge use` without an argument will list logins you have made.
+`zt edge use` without an argument will list logins you have made.
 
 ```
-$ ziti edge use
+$ zt edge use
 id:      default | current:  true | read-only:  true | urL: https://localhost:1280/edge/management/v1
 id:        cust1 | current: false | read-only: false | urL: https://customer1.com:443/edge/management/v1
 ```
 
 #### Logout
 
-You can now also clear locally stored credentials using `ziti edge logout`
+You can now also clear locally stored credentials using `zt edge logout`
 
 ```
-$ ziti edge -i cust1 logout  
-Removing identity 'cust1' from ~/.config/ziti/ziti-cli.json
+$ zt edge -i cust1 logout  
+Removing identity 'cust1' from ~/.config/zt/zt-cli.json
 ```
 
 #### Read-Only Mode
@@ -449,17 +449,17 @@ When logging in one can mark the identity as read-only. This is a client side en
 sure only read operations are performed by this session.
 
 ```
-$ ziti edge login --read-only localhost:1280
+$ zt edge login --read-only localhost:1280
 Enter username: admin
 Enter password: 
 Token: 966192c6-fb7f-481e-8230-dcef157770ef
-Saving identity 'default' to ~/.config/ziti/ziti-cli.json
+Saving identity 'default' to ~/.config/zt/zt-cli.json
 
-$ ziti edge list services
+$ zt edge list services
 id: -JucPW0kGR    name: ssh    encryption required: true    terminator strategy: smartrouting    role attributes: ["ssh"]
 results: 1-1 of 1
 
-$ ziti edge create service test
+$ zt edge create service test
 error: this login is marked read-only, only GET operations are allowed
 ```
 
@@ -474,9 +474,9 @@ because if you only have a token and not full credentials, it's more likely that
 have limited privileges.
 
 ```
-$ ziti edge login localhost:1280 --token c9f37575-f660-409b-b731-5a256d74a931
+$ zt edge login localhost:1280 --token c9f37575-f660-409b-b731-5a256d74a931
 NOTE: When using --token the saved identity will be marked as read-only unless --read-only=false is provided
-Saving identity 'default' to ~/.config/ziti/ziti-cli.json
+Saving identity 'default' to ~/.config/zt/zt-cli.json
 ```
 
 Using this option will still check the server certificates to see if they need to be downloaded and/or compare them with

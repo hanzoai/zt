@@ -18,11 +18,11 @@ package routes
 
 import (
 	"github.com/go-openapi/runtime/middleware"
-	"github.com/hanzozt/ziti/v2/controller/env"
-	"github.com/hanzozt/ziti/v2/controller/model"
-	"github.com/hanzozt/ziti/v2/controller/permissions"
-	"github.com/hanzozt/ziti/v2/controller/response"
-	"github.com/hanzozt/ziti/v2/controller/rest_server/operations/circuit"
+	"github.com/hanzozt/zt/v2/controller/env"
+	"github.com/hanzozt/zt/v2/controller/model"
+	"github.com/hanzozt/zt/v2/controller/permissions"
+	"github.com/hanzozt/zt/v2/controller/response"
+	"github.com/hanzozt/zt/v2/controller/rest_server/operations/circuit"
 )
 
 func init() {

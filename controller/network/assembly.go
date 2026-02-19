@@ -21,8 +21,8 @@ import (
 
 	"github.com/michaelquigley/pfxlog"
 	"github.com/hanzozt/foundation/v2/info"
-	"github.com/hanzozt/ziti/v2/controller/event"
-	"github.com/hanzozt/ziti/v2/controller/model"
+	"github.com/hanzozt/zt/v2/controller/event"
+	"github.com/hanzozt/zt/v2/controller/model"
 )
 
 func (network *Network) NotifyLinkEvent(link *model.Link, eventType event.LinkEventType) {

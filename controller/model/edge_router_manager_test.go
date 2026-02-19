@@ -3,8 +3,8 @@ package model
 import (
 	"testing"
 
-	"github.com/hanzozt/ziti/v2/common/eid"
-	"github.com/hanzozt/ziti/v2/controller/change"
+	"github.com/hanzozt/zt/v2/common/eid"
+	"github.com/hanzozt/zt/v2/controller/change"
 	"go.etcd.io/bbolt"
 )
 

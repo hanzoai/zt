@@ -28,9 +28,9 @@ import (
 	"github.com/hanzozt/identity"
 
 	"github.com/hanzozt/xweb/v3"
-	"github.com/hanzozt/ziti/v2/controller/api"
-	"github.com/hanzozt/ziti/v2/controller/env"
-	"github.com/hanzozt/ziti/v2/controller/oidc_auth"
+	"github.com/hanzozt/zt/v2/controller/api"
+	"github.com/hanzozt/zt/v2/controller/env"
+	"github.com/hanzozt/zt/v2/controller/oidc_auth"
 )
 
 var _ xweb.ApiHandlerFactory = &OidcApiFactory{}

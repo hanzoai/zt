@@ -1,0 +1,537 @@
+package models
+
+import (
+	"context"
+	"fmt"
+	"time"
+
+	"github.com/hanzozt/edge-api/rest_management_api_client/config"
+	"github.com/hanzozt/edge-api/rest_management_api_client/edge_router"
+	"github.com/hanzozt/edge-api/rest_management_api_client/identity"
+	"github.com/hanzozt/edge-api/rest_management_api_client/posture_checks"
+	"github.com/hanzozt/edge-api/rest_management_api_client/service"
+	"github.com/hanzozt/edge-api/rest_management_api_client/service_policy"
+	"github.com/hanzozt/edge-api/rest_model"
+	"github.com/hanzozt/zt/v2/zt/util"
+	"github.com/hanzozt/zt/v2/ztrest"
+)
+
+func ListServices(clients *ztrest.Clients, filter string, timeout time.Duration) ([]*rest_model.ServiceDetail, error) {
+	ctx, cancelF := context.WithTimeout(context.Background(), timeout)
+	defer cancelF()
+
+	result, err := clients.Edge.Service.ListServices(&service.ListServicesParams{
+		Filter:  &filter,
+		Context: ctx,
+	}, nil)
+
+	if err != nil {
+		return nil, err
+	}
+	return result.Payload.Data, nil
+}
+
+func GetServiceId(clients *ztrest.Clients, name string, timeout time.Duration) (string, error) {
+	l, err := ListServices(clients, fmt.Sprintf(`name="%s"`, name), timeout)
+	if err != nil {
+		return "", err
+	}
+	if len(l) == 0 {
+		return "", fmt.Errorf("service '%s' not found", name)
+	}
+	return *l[0].ID, nil
+}
+
+func CreateService(clients *ztrest.Clients, svc *rest_model.ServiceCreate, timeout time.Duration) (string, error) {
+	ctx, cancelF := context.WithTimeout(context.Background(), timeout)
+	defer cancelF()
+
+	resp, err := clients.Edge.Service.CreateService(&service.CreateServiceParams{
+		Context: ctx,
+		Service: svc,
+	}, nil)
+
+	if err != nil {
+		return "", err
+	}
+
+	return resp.Payload.Data.ID, nil
+}
+
+func DeleteService(clients *ztrest.Clients, id string, timeout time.Duration) error {
+	ctx, cancelF := context.WithTimeout(context.Background(), timeout)
+	defer cancelF()
+
+	_, err := clients.Edge.Service.DeleteService(&service.DeleteServiceParams{
+		Context: ctx,
+		ID:      id,
+	}, nil)
+
+	return err
+}
+
+func UpdateServiceFromDetail(clients *ztrest.Clients, svc *rest_model.ServiceDetail, timeout time.Duration) error {
+	svcUpdate := &rest_model.ServiceUpdate{
+		Configs:            svc.Configs,
+		EncryptionRequired: *svc.EncryptionRequired,
+		MaxIdleTimeMillis:  *svc.MaxIdleTimeMillis,
+		Name:               svc.Name,
+		RoleAttributes:     *svc.RoleAttributes,
+		Tags:               svc.Tags,
+		TerminatorStrategy: *svc.TerminatorStrategy,
+	}
+	return UpdateService(clients, *svc.ID, svcUpdate, timeout)
+}
+
+func UpdateService(clients *ztrest.Clients, id string, svc *rest_model.ServiceUpdate, timeout time.Duration) error {
+	ctx, cancelF := context.WithTimeout(context.Background(), timeout)
+	defer cancelF()
+
+	_, err := clients.Edge.Service.UpdateService(&service.UpdateServiceParams{
+		Context: ctx,
+		ID:      id,
+		Service: svc,
+	}, nil)
+
+	return err
+}
+
+func GetIdentityId(clients *ztrest.Clients, name string, timeout time.Duration) (string, error) {
+	l, err := ListIdentities(clients, fmt.Sprintf(`name="%s"`, name), timeout)
+	if err != nil {
+		return "", err
+	}
+	if len(l) == 0 {
+		return "", fmt.Errorf("identity '%s' not found", name)
+	}
+	return *l[0].ID, nil
+}
+
+func ListIdentities(clients *ztrest.Clients, filter string, timeout time.Duration) ([]*rest_model.IdentityDetail, error) {
+	ctx, cancelF := context.WithTimeout(context.Background(), timeout)
+	defer cancelF()
+
+	result, err := clients.Edge.Identity.ListIdentities(&identity.ListIdentitiesParams{
+		Filter:  &filter,
+		Context: ctx,
+	}, nil)
+
+	if err != nil {
+		return nil, err
+	}
+	return result.Payload.Data, nil
+}
+
+func CreateIdentity(clients *ztrest.Clients, entity *rest_model.IdentityCreate, timeout time.Duration) error {
+	ctx, cancelF := context.WithTimeout(context.Background(), timeout)
+	defer cancelF()
+
+	_, err := clients.Edge.Identity.CreateIdentity(&identity.CreateIdentityParams{
+		Context:  ctx,
+		Identity: entity,
+	}, nil)
+
+	return util.WrapIfApiError(err)
+}
+
+func DeleteIdentity(clients *ztrest.Clients, id string, timeout time.Duration) error {
+	ctx, cancelF := context.WithTimeout(context.Background(), timeout)
+	defer cancelF()
+
+	_, err := clients.Edge.Identity.DeleteIdentity(&identity.DeleteIdentityParams{
+		Context: ctx,
+		ID:      id,
+	}, nil)
+
+	return err
+}
+
+func UpdateIdentityFromDetail(clients *ztrest.Clients, entity *rest_model.IdentityDetail, timeout time.Duration) error {
+	typeId := rest_model.IdentityType(entity.Type.ID)
+	identityUpdate := &rest_model.IdentityUpdate{
+		AppData:                   entity.AppData,
+		AuthPolicyID:              entity.AuthPolicyID,
+		DefaultHostingCost:        entity.DefaultHostingCost,
+		DefaultHostingPrecedence:  entity.DefaultHostingPrecedence,
+		ExternalID:                entity.ExternalID,
+		IsAdmin:                   entity.IsAdmin,
+		Name:                      entity.Name,
+		RoleAttributes:            entity.RoleAttributes,
+		ServiceHostingCosts:       entity.ServiceHostingCosts,
+		ServiceHostingPrecedences: entity.ServiceHostingPrecedences,
+		Tags:                      entity.Tags,
+		Type:                      &typeId,
+	}
+	return UpdateIdentity(clients, *entity.ID, identityUpdate, timeout)
+}
+
+func UpdateIdentity(clients *ztrest.Clients, id string, entity *rest_model.IdentityUpdate, timeout time.Duration) error {
+	ctx, cancelF := context.WithTimeout(context.Background(), timeout)
+	defer cancelF()
+
+	_, err := clients.Edge.Identity.UpdateIdentity(&identity.UpdateIdentityParams{
+		Context:  ctx,
+		ID:       id,
+		Identity: entity,
+	}, nil)
+
+	return err
+}
+
+func PatchIdentity(clients *ztrest.Clients, id string, entity *rest_model.IdentityPatch, timeout time.Duration) error {
+	ctx, cancelF := context.WithTimeout(context.Background(), timeout)
+	defer cancelF()
+
+	_, err := clients.Edge.Identity.PatchIdentity(&identity.PatchIdentityParams{
+		Context:  ctx,
+		ID:       id,
+		Identity: entity,
+	}, nil)
+
+	return err
+}
+
+func GetServicePolicyId(clients *ztrest.Clients, name string, timeout time.Duration) (string, error) {
+	l, err := ListServicePolicies(clients, fmt.Sprintf(`name="%s"`, name), timeout)
+	if err != nil {
+		return "", err
+	}
+	if len(l) == 0 {
+		return "", fmt.Errorf("service policy '%s' not found", name)
+	}
+	return *l[0].ID, nil
+}
+
+func ListServicePolicies(clients *ztrest.Clients, filter string, timeout time.Duration) ([]*rest_model.ServicePolicyDetail, error) {
+	ctx, cancelF := context.WithTimeout(context.Background(), timeout)
+	defer cancelF()
+
+	result, err := clients.Edge.ServicePolicy.ListServicePolicies(&service_policy.ListServicePoliciesParams{
+		Filter:  &filter,
+		Context: ctx,
+	}, nil)
+
+	if err != nil {
+		return nil, err
+	}
+	return result.Payload.Data, nil
+}
+
+func CreateServicePolicy(clients *ztrest.Clients, entity *rest_model.ServicePolicyCreate, timeout time.Duration) error {
+	ctx, cancelF := context.WithTimeout(context.Background(), timeout)
+	defer cancelF()
+
+	_, err := clients.Edge.ServicePolicy.CreateServicePolicy(&service_policy.CreateServicePolicyParams{
+		Context: ctx,
+		Policy:  entity,
+	}, nil)
+
+	return err
+}
+
+func DeleteServicePolicy(clients *ztrest.Clients, id string, timeout time.Duration) error {
+	ctx, cancelF := context.WithTimeout(context.Background(), timeout)
+	defer cancelF()
+
+	_, err := clients.Edge.ServicePolicy.DeleteServicePolicy(&service_policy.DeleteServicePolicyParams{
+		Context: ctx,
+		ID:      id,
+	}, nil)
+
+	return err
+}
+
+func UpdateServicePolicyFromDetail(clients *ztrest.Clients, entity *rest_model.ServicePolicyDetail, timeout time.Duration) error {
+	servicePolicyUpdate := &rest_model.ServicePolicyUpdate{
+		Name:              entity.Name,
+		IdentityRoles:     entity.IdentityRoles,
+		PostureCheckRoles: entity.PostureCheckRoles,
+		Semantic:          entity.Semantic,
+		ServiceRoles:      entity.ServiceRoles,
+		Tags:              entity.Tags,
+		Type:              entity.Type,
+	}
+	return UpdateServicePolicy(clients, *entity.ID, servicePolicyUpdate, timeout)
+}
+
+func UpdateServicePolicy(clients *ztrest.Clients, id string, entity *rest_model.ServicePolicyUpdate, timeout time.Duration) error {
+	ctx, cancelF := context.WithTimeout(context.Background(), timeout)
+	defer cancelF()
+
+	_, err := clients.Edge.ServicePolicy.UpdateServicePolicy(&service_policy.UpdateServicePolicyParams{
+		Context: ctx,
+		ID:      id,
+		Policy:  entity,
+	}, nil)
+
+	return err
+}
+
+func GetConfigId(clients *ztrest.Clients, name string, timeout time.Duration) (string, error) {
+	l, err := ListConfigs(clients, fmt.Sprintf(`name="%s"`, name), timeout)
+	if err != nil {
+		return "", err
+	}
+	if len(l) == 0 {
+		return "", fmt.Errorf("config '%s' not found", name)
+	}
+	return *l[0].ID, nil
+}
+
+func ListConfigs(clients *ztrest.Clients, filter string, timeout time.Duration) ([]*rest_model.ConfigDetail, error) {
+	ctx, cancelF := context.WithTimeout(context.Background(), timeout)
+	defer cancelF()
+
+	result, err := clients.Edge.Config.ListConfigs(&config.ListConfigsParams{
+		Filter:  &filter,
+		Context: ctx,
+	}, nil)
+
+	if err != nil {
+		return nil, err
+	}
+	return result.Payload.Data, nil
+}
+
+func CreateConfig(clients *ztrest.Clients, entity *rest_model.ConfigCreate, timeout time.Duration) error {
+	ctx, cancelF := context.WithTimeout(context.Background(), timeout)
+	defer cancelF()
+
+	_, err := clients.Edge.Config.CreateConfig(&config.CreateConfigParams{
+		Context: ctx,
+		Config:  entity,
+	}, nil)
+
+	return err
+}
+
+func DeleteConfig(clients *ztrest.Clients, id string, timeout time.Duration) error {
+	ctx, cancelF := context.WithTimeout(context.Background(), timeout)
+	defer cancelF()
+
+	_, err := clients.Edge.Config.DeleteConfig(&config.DeleteConfigParams{
+		Context: ctx,
+		ID:      id,
+	}, nil)
+
+	return err
+}
+
+func UpdateConfigFromDetail(clients *ztrest.Clients, entity *rest_model.ConfigDetail, timeout time.Duration) error {
+	entityUpdate := &rest_model.ConfigUpdate{
+		Data: entity.Data,
+		Name: entity.Name,
+		Tags: entity.Tags,
+	}
+	return UpdateConfig(clients, *entity.ID, entityUpdate, timeout)
+}
+
+func UpdateConfig(clients *ztrest.Clients, id string, entity *rest_model.ConfigUpdate, timeout time.Duration) error {
+	ctx, cancelF := context.WithTimeout(context.Background(), timeout)
+	defer cancelF()
+
+	_, err := clients.Edge.Config.UpdateConfig(&config.UpdateConfigParams{
+		Context: ctx,
+		ID:      id,
+		Config:  entity,
+	}, nil)
+
+	return err
+}
+
+func ListConfigTypes(clients *ztrest.Clients, filter string, timeout time.Duration) ([]*rest_model.ConfigTypeDetail, error) {
+	ctx, cancelF := context.WithTimeout(context.Background(), timeout)
+	defer cancelF()
+
+	result, err := clients.Edge.Config.ListConfigTypes(&config.ListConfigTypesParams{
+		Filter:  &filter,
+		Context: ctx,
+	}, nil)
+
+	if err != nil {
+		return nil, err
+	}
+	return result.Payload.Data, nil
+}
+
+func ListConfigsOfConfigTypes(clients *ztrest.Clients, id string, timeout time.Duration) ([]*rest_model.ConfigDetail, error) {
+	ctx, cancelF := context.WithTimeout(context.Background(), timeout)
+	defer cancelF()
+
+	result, err := clients.Edge.Config.ListConfigsForConfigType(&config.ListConfigsForConfigTypeParams{
+		ID:      id,
+		Context: ctx,
+	}, nil)
+
+	if err != nil {
+		return nil, err
+	}
+	return result.Payload.Data, nil
+}
+
+func CreateConfigType(clients *ztrest.Clients, entity *rest_model.ConfigTypeCreate, timeout time.Duration) error {
+	ctx, cancelF := context.WithTimeout(context.Background(), timeout)
+	defer cancelF()
+
+	_, err := clients.Edge.Config.CreateConfigType(&config.CreateConfigTypeParams{
+		Context:    ctx,
+		ConfigType: entity,
+	}, nil)
+
+	return err
+}
+
+func DeleteConfigType(clients *ztrest.Clients, id string, timeout time.Duration) error {
+	ctx, cancelF := context.WithTimeout(context.Background(), timeout)
+	defer cancelF()
+
+	_, err := clients.Edge.Config.DeleteConfigType(&config.DeleteConfigTypeParams{
+		Context: ctx,
+		ID:      id,
+	}, nil)
+
+	return err
+}
+
+func UpdateConfigTypeFromDetail(clients *ztrest.Clients, entity *rest_model.ConfigTypeDetail, timeout time.Duration) error {
+	entityUpdate := &rest_model.ConfigTypeUpdate{
+		Schema: entity.Schema,
+		Name:   entity.Name,
+		Tags:   entity.Tags,
+	}
+	return UpdateConfigType(clients, *entity.ID, entityUpdate, timeout)
+}
+
+func UpdateConfigType(clients *ztrest.Clients, id string, entity *rest_model.ConfigTypeUpdate, timeout time.Duration) error {
+	ctx, cancelF := context.WithTimeout(context.Background(), timeout)
+	defer cancelF()
+
+	_, err := clients.Edge.Config.UpdateConfigType(&config.UpdateConfigTypeParams{
+		Context:    ctx,
+		ID:         id,
+		ConfigType: entity,
+	}, nil)
+
+	return err
+}
+
+func ListPostureChecks(clients *ztrest.Clients, filter string, timeout time.Duration) ([]rest_model.PostureCheckDetail, error) {
+	ctx, cancelF := context.WithTimeout(context.Background(), timeout)
+	defer cancelF()
+
+	result, err := clients.Edge.PostureChecks.ListPostureChecks(&posture_checks.ListPostureChecksParams{
+		Filter:  &filter,
+		Context: ctx,
+	}, nil)
+
+	if err != nil {
+		return nil, err
+	}
+	return result.Payload.Data(), nil
+}
+
+func CreatePostureCheck(clients *ztrest.Clients, entity rest_model.PostureCheckCreate, timeout time.Duration) error {
+	ctx, cancelF := context.WithTimeout(context.Background(), timeout)
+	defer cancelF()
+
+	_, err := clients.Edge.PostureChecks.CreatePostureCheck(&posture_checks.CreatePostureCheckParams{
+		Context:      ctx,
+		PostureCheck: entity,
+	}, nil)
+
+	return util.WrapIfApiError(err)
+}
+
+func DeletePostureCheck(clients *ztrest.Clients, id string, timeout time.Duration) error {
+	ctx, cancelF := context.WithTimeout(context.Background(), timeout)
+	defer cancelF()
+
+	_, err := clients.Edge.PostureChecks.DeletePostureCheck(&posture_checks.DeletePostureCheckParams{
+		Context: ctx,
+		ID:      id,
+	}, nil)
+
+	return err
+}
+
+func UpdatePostureCheckFromDetail(clients *ztrest.Clients, entity rest_model.PostureCheckDetail, timeout time.Duration) error {
+	var update rest_model.PostureCheckUpdate
+	switch p := entity.(type) {
+	case *rest_model.PostureCheckDomainDetail:
+		update = &rest_model.PostureCheckDomainUpdate{
+			Domains: p.Domains,
+		}
+	case *rest_model.PostureCheckMacAddressDetail:
+		update = &rest_model.PostureCheckMacAddressUpdate{
+			MacAddresses: p.MacAddresses,
+		}
+	case *rest_model.PostureCheckMfaDetail:
+		update = &rest_model.PostureCheckMfaUpdate{
+			PostureCheckMfaProperties: p.PostureCheckMfaProperties,
+		}
+	case *rest_model.PostureCheckOperatingSystemDetail:
+		update = &rest_model.PostureCheckOperatingSystemUpdate{
+			OperatingSystems: p.OperatingSystems,
+		}
+	case *rest_model.PostureCheckProcessDetail:
+		update = &rest_model.PostureCheckProcessUpdate{
+			Process: p.Process,
+		}
+	case *rest_model.PostureCheckProcessMultiDetail:
+		update = &rest_model.PostureCheckProcessMultiUpdate{
+			Semantic:  p.Semantic,
+			Processes: p.Processes,
+		}
+	default:
+		return fmt.Errorf("unhandled posture check type %T", p)
+	}
+
+	update.SetName(entity.Name())
+	update.SetRoleAttributes(entity.RoleAttributes())
+
+	return UpdatePostureCheck(clients, *entity.ID(), update, timeout)
+}
+
+func UpdatePostureCheck(clients *ztrest.Clients, id string, entity rest_model.PostureCheckUpdate, timeout time.Duration) error {
+	ctx, cancelF := context.WithTimeout(context.Background(), timeout)
+	defer cancelF()
+
+	_, err := clients.Edge.PostureChecks.UpdatePostureCheck(&posture_checks.UpdatePostureCheckParams{
+		Context:      ctx,
+		ID:           id,
+		PostureCheck: entity,
+	}, nil)
+
+	return err
+}
+
+func CreateEdgeRouter(clients *ztrest.Clients, entity *rest_model.EdgeRouterCreate, timeout time.Duration) (string, error) {
+	ctx, cancelF := context.WithTimeout(context.Background(), timeout)
+	defer cancelF()
+
+	resp, err := clients.Edge.EdgeRouter.CreateEdgeRouter(&edge_router.CreateEdgeRouterParams{
+		Context:    ctx,
+		EdgeRouter: entity,
+	}, nil)
+
+	if err != nil || resp.Payload == nil || resp.Payload.Data == nil {
+		return "", err
+	}
+
+	return resp.Payload.Data.ID, nil
+}
+
+func ListEdgeRouters(clients *ztrest.Clients, filter string, timeout time.Duration) ([]*rest_model.EdgeRouterDetail, error) {
+	ctx, cancelF := context.WithTimeout(context.Background(), timeout)
+	defer cancelF()
+
+	result, err := clients.Edge.EdgeRouter.ListEdgeRouters(&edge_router.ListEdgeRoutersParams{
+		Filter:  &filter,
+		Context: ctx,
+	}, nil)
+
+	if err != nil {
+		return nil, err
+	}
+	return result.Payload.Data, nil
+}

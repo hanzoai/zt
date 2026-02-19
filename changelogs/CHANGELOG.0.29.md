@@ -5,15 +5,15 @@
 ### Deprecated Binary Removal
 This release removes the following deprecated binaries from the release archives.
 
-* `ziti-controller` - replaced by `ziti controller`
-* `ziti-router`     - replaced by `ziti router`
-* `ziti-tunnel`     - replaced by `ziti tunnel`
+* `zt-controller` - replaced by `zt controller`
+* `zt-router`     - replaced by `zt router`
+* `zt-tunnel`     - replaced by `zt tunnel`
 
-The release archives now only contain the `ziti` executable. This executable is now at the root of the archive instead of nested under a `ziti` directory.
+The release archives now only contain the `zt` executable. This executable is now at the root of the archive instead of nested under a `zt` directory.
 
 ### Ziti CLI Demo Consolidation
 
-The ziti CLI functions under `ziti learn`, namely `ziti learn demo` and `ziti learn tutorial` have been consolidated under `ziti demo`.
+The zt CLI functions under `zt learn`, namely `zt learn demo` and `zt learn tutorial` have been consolidated under `zt demo`.
 
 ### Continued Quickstart Changes
 
@@ -59,8 +59,8 @@ have changed again. A summary of changes is below
 * github.com/hanzozt/transport/v2: [v2.0.91 -> v2.0.93](https://github.com/hanzozt/transport/compare/v2.0.91...v2.0.93)
 * github.com/hanzozt/metrics: [v1.2.27 -> v1.2.30](https://github.com/hanzozt/metrics/compare/v1.2.27...v1.2.30)
 * github.com/hanzozt/secretstream: [v0.1.9 -> v0.1.10](https://github.com/hanzozt/secretstream/compare/v0.1.9...v0.1.10)
-* github.com/hanzozt/ziti: [v0.28.4 -> v0.29.0](https://github.com/hanzozt/ziti/compare/v0.28.4...v0.29.0)
-  * [Issue #1180](https://github.com/hanzozt/ziti/issues/1180) - Add ability to debug failed smoketests
-  * [Issue #1169](https://github.com/hanzozt/ziti/issues/1169) - Consolidate demo and tutorial under demo
-  * [Issue #1168](https://github.com/hanzozt/ziti/issues/1168) - Remove ziti-controller, ziti-router and ziti-tunnel executables from build
-  * [Issue #1158](https://github.com/hanzozt/ziti/issues/1158) - Add iperf tests to ziti smoketest
+* github.com/hanzozt/zt: [v0.28.4 -> v0.29.0](https://github.com/hanzozt/zt/compare/v0.28.4...v0.29.0)
+  * [Issue #1180](https://github.com/hanzozt/zt/issues/1180) - Add ability to debug failed smoketests
+  * [Issue #1169](https://github.com/hanzozt/zt/issues/1169) - Consolidate demo and tutorial under demo
+  * [Issue #1168](https://github.com/hanzozt/zt/issues/1168) - Remove zt-controller, zt-router and zt-tunnel executables from build
+  * [Issue #1158](https://github.com/hanzozt/zt/issues/1158) - Add iperf tests to zt smoketest

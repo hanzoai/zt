@@ -1,10 +1,10 @@
 syntax = "proto3";
 
-package ziti.edge_ctrl.pb;
+package zt.edge_ctrl.pb;
 
 import "google/protobuf/timestamp.proto";
 
-option go_package = "github.com/hanzozt/ziti/common/pb/edge_ctrl_pb";
+option go_package = "github.com/hanzozt/zt/common/pb/edge_ctrl_pb";
 
 enum ContentType {
   Zero = 0;

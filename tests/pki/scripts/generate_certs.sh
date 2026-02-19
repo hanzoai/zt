@@ -36,7 +36,7 @@ create_client_key_pair(){
 }
 
 
-create_server_key_pair ca.external 1234  ziti-dev-controller01.external
+create_server_key_pair ca.external 1234  zt-dev-controller01.external
 
 create_client_key_pair ca.external 1234 client01
 create_client_key_pair ca.external 1234 client02
@@ -48,13 +48,13 @@ outputMsg="
 Done.
 
 The certs generated include 127.0.0.1 as well as localhost as SANs for all
-certificates in addition their their ziti-dev-* and ziti-dev-*.localhost
+certificates in addition their their zt-dev-* and zt-dev-*.localhost
 names for convenience.
 
 To use the custom host names, please add them to your hosts file:
 
-127.0.0.1	ziti-dev-controller01
-127.0.0.1	ziti-dev-controller01.localhost
+127.0.0.1	zt-dev-controller01
+127.0.0.1	zt-dev-controller01.localhost
 
 
 

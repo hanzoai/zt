@@ -28,14 +28,14 @@ import (
 	"github.com/hanzozt/foundation/v2/versions"
 	"github.com/hanzozt/metrics"
 	"github.com/hanzozt/sdk-golang/xgress"
-	"github.com/hanzozt/sdk-golang/ziti/edge"
+	"github.com/hanzozt/sdk-golang/zt/edge"
 	"github.com/hanzozt/transport/v2"
-	"github.com/hanzozt/ziti/v2/common/inspect"
-	"github.com/hanzozt/ziti/v2/common/pb/edge_ctrl_pb"
-	"github.com/hanzozt/ziti/v2/router/env"
-	"github.com/hanzozt/ziti/v2/router/internal/apiproxy"
-	"github.com/hanzozt/ziti/v2/router/state"
-	"github.com/hanzozt/ziti/v2/router/xgress_router"
+	"github.com/hanzozt/zt/v2/common/inspect"
+	"github.com/hanzozt/zt/v2/common/pb/edge_ctrl_pb"
+	"github.com/hanzozt/zt/v2/router/env"
+	"github.com/hanzozt/zt/v2/router/internal/apiproxy"
+	"github.com/hanzozt/zt/v2/router/state"
+	"github.com/hanzozt/zt/v2/router/xgress_router"
 	"github.com/pkg/errors"
 )
 
@@ -113,8 +113,8 @@ func (factory *Factory) LoadConfig(configMap map[interface{}]interface{}) error 
 		edgeConfig.Tcfg = make(transport.Configuration)
 	}
 
-	if !stringz.Contains(edgeConfig.Tcfg.Protocols(), "ziti-edge") {
-		edgeConfig.Tcfg[transport.KeyProtocol] = append(edgeConfig.Tcfg.Protocols(), "ziti-edge")
+	if !stringz.Contains(edgeConfig.Tcfg.Protocols(), "zt-edge") {
+		edgeConfig.Tcfg[transport.KeyProtocol] = append(edgeConfig.Tcfg.Protocols(), "zt-edge")
 	}
 	if !stringz.Contains(edgeConfig.Tcfg.Protocols(), "") {
 		edgeConfig.Tcfg[transport.KeyProtocol] = append(edgeConfig.Tcfg.Protocols(), "")

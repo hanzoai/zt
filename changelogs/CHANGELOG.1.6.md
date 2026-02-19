@@ -34,17 +34,17 @@ problem.
 * github.com/hanzozt/secretstream: [v0.1.38 -> v0.1.39](https://github.com/hanzozt/secretstream/compare/v0.1.38...v0.1.39)
 * github.com/hanzozt/storage: [v0.4.22 -> v0.4.26](https://github.com/hanzozt/storage/compare/v0.4.22...v0.4.26)
 * github.com/hanzozt/transport/v2: [v2.0.183 -> v2.0.188](https://github.com/hanzozt/transport/compare/v2.0.183...v2.0.188)
-* github.com/hanzozt/ziti: [v1.6.7 -> v1.6.8](https://github.com/hanzozt/ziti/compare/v1.6.7...v1.6.8)
-    * [Issue #3207](https://github.com/hanzozt/ziti/issues/3207) - Allow router embedders to customize config before start
-    * [Issue #3241](https://github.com/hanzozt/ziti/issues/3241) - Disconnecting Routers May Have Nil Fingerprint, causes panic
-    * [Issue #3248](https://github.com/hanzozt/ziti/issues/3248) - let cluster agent also support unix domain sockets
-    * [Issue #3219](https://github.com/hanzozt/ziti/issues/3219) - AuthenticatorManager ReadByFingerprint/Username should use indexes
-    * [Issue #3225](https://github.com/hanzozt/ziti/issues/3225) - JWT edge sessions should generate events
-    * [Issue #3245](https://github.com/hanzozt/ziti/issues/3245) - Revocation time check is checking wrong entity
-    * [Issue #3231](https://github.com/hanzozt/ziti/issues/3231) - OIDC authentication fails if the client api has a separate cert chain
-    * [Issue #3239](https://github.com/hanzozt/ziti/issues/3239) - Router JWTs use Identity expiration configuration value
-    * [Issue #3226](https://github.com/hanzozt/ziti/issues/3226) - Only report router network interfaces if controller supports receiving those events
-    * [Issue #3164](https://github.com/hanzozt/ziti/issues/3164) - Router data model doesn't work correctly if the edge listener isn't enabled
+* github.com/hanzozt/zt: [v1.6.7 -> v1.6.8](https://github.com/hanzozt/zt/compare/v1.6.7...v1.6.8)
+    * [Issue #3207](https://github.com/hanzozt/zt/issues/3207) - Allow router embedders to customize config before start
+    * [Issue #3241](https://github.com/hanzozt/zt/issues/3241) - Disconnecting Routers May Have Nil Fingerprint, causes panic
+    * [Issue #3248](https://github.com/hanzozt/zt/issues/3248) - let cluster agent also support unix domain sockets
+    * [Issue #3219](https://github.com/hanzozt/zt/issues/3219) - AuthenticatorManager ReadByFingerprint/Username should use indexes
+    * [Issue #3225](https://github.com/hanzozt/zt/issues/3225) - JWT edge sessions should generate events
+    * [Issue #3245](https://github.com/hanzozt/zt/issues/3245) - Revocation time check is checking wrong entity
+    * [Issue #3231](https://github.com/hanzozt/zt/issues/3231) - OIDC authentication fails if the client api has a separate cert chain
+    * [Issue #3239](https://github.com/hanzozt/zt/issues/3239) - Router JWTs use Identity expiration configuration value
+    * [Issue #3226](https://github.com/hanzozt/zt/issues/3226) - Only report router network interfaces if controller supports receiving those events
+    * [Issue #3164](https://github.com/hanzozt/zt/issues/3164) - Router data model doesn't work correctly if the edge listener isn't enabled
 
 # Release 1.6.7
 
@@ -64,11 +64,11 @@ problem.
 
 * github.com/hanzozt/secretstream: [v0.1.37 -> v0.1.38](https://github.com/hanzozt/secretstream/compare/v0.1.37...v0.1.38)
 * github.com/hanzozt/transport/v2: [v2.0.182 -> v2.0.183](https://github.com/hanzozt/transport/compare/v2.0.182...v2.0.183)
-* github.com/hanzozt/ziti: [v1.6.6 -> v1.6.7](https://github.com/hanzozt/ziti/compare/v1.6.6...v1.6.7)
-    * [Issue #3199](https://github.com/hanzozt/ziti/issues/3199) - Other routers don't react to link listener address changes
-    * [Issue #3178](https://github.com/hanzozt/ziti/issues/3178) - Controller List Edge APIs Missing
-    * [Issue #3193](https://github.com/hanzozt/ziti/issues/3193) - Add flag to TOTP auth query with enrollment state
-    * [Issue #3162](https://github.com/hanzozt/ziti/issues/3162) - Update go tunnel implementation to support multiple interfaces
+* github.com/hanzozt/zt: [v1.6.6 -> v1.6.7](https://github.com/hanzozt/zt/compare/v1.6.6...v1.6.7)
+    * [Issue #3199](https://github.com/hanzozt/zt/issues/3199) - Other routers don't react to link listener address changes
+    * [Issue #3178](https://github.com/hanzozt/zt/issues/3178) - Controller List Edge APIs Missing
+    * [Issue #3193](https://github.com/hanzozt/zt/issues/3193) - Add flag to TOTP auth query with enrollment state
+    * [Issue #3162](https://github.com/hanzozt/zt/issues/3162) - Update go tunnel implementation to support multiple interfaces
 
 # Release 1.6.6
 
@@ -149,12 +149,12 @@ ack channel.
 
 ### Link Events
 
-Links will now report their connections to the controller. They are now reported when listing links using `ziti fabric list links`.
+Links will now report their connections to the controller. They are now reported when listing links using `zt fabric list links`.
 
 Here is an example from a test setup.
 
 ```
-$ ziti fabric list links 'skip 3 limit 2'
+$ zt fabric list links 'skip 3 limit 2'
 ╭────────────────────────┬───────────────────────┬────────────────────────┬─────────────┬─────────────┬─────────────┬───────────┬────────┬───────────┬──────────────────────────────────────────────────────────────╮
 │ ID                     │ DIALER                │ ACCEPTOR               │ STATIC COST │ SRC LATENCY │ DST LATENCY │ STATE     │ STATUS │ FULL COST │ CONNECTIONS                                                  │
 ├────────────────────────┼───────────────────────┼────────────────────────┼─────────────┼─────────────┼─────────────┼───────────┼────────┼───────────┼──────────────────────────────────────────────────────────────┤
@@ -218,13 +218,13 @@ Identity app data may now be a full JSON document, rather than just a single lay
 are also some additional CLI methods to work with the data:
 
 ```
-$ ziti edge create identity test --app-data foo=bar
-$ ziti edge create identity test --app-data-json '{ "foo" : "bar", "test" : { "nested" : true, "number" : 234 } }'
-$ ziti edge create identity test --app-data-json-file test-app-data.json 
+$ zt edge create identity test --app-data foo=bar
+$ zt edge create identity test --app-data-json '{ "foo" : "bar", "test" : { "nested" : true, "number" : 234 } }'
+$ zt edge create identity test --app-data-json-file test-app-data.json 
 
-$ ziti edge update identity test --app-data foo=bar
-$ ziti edge update identity test --app-data-json '{ "foo" : "bar", "test" : { "nested" : true, "number" : 234 } }'
-$ ziti edge update identity test --app-data-json-file test-app-data.json 
+$ zt edge update identity test --app-data foo=bar
+$ zt edge update identity test --app-data-json '{ "foo" : "bar", "test" : { "nested" : true, "number" : 234 } }'
+$ zt edge update identity test --app-data-json-file test-app-data.json 
 ```
 
 ## Component Updates and Bug Fixes
@@ -253,12 +253,12 @@ $ ziti edge update identity test --app-data-json-file test-app-data.json
 * github.com/hanzozt/secretstream: [v0.1.36 -> v0.1.37](https://github.com/hanzozt/secretstream/compare/v0.1.36...v0.1.37)
 * github.com/hanzozt/storage: [v0.4.20 -> v0.4.22](https://github.com/hanzozt/storage/compare/v0.4.20...v0.4.22)
 * github.com/hanzozt/transport/v2: [v2.0.180 -> v2.0.182](https://github.com/hanzozt/transport/compare/v2.0.180...v2.0.182)
-* github.com/hanzozt/ziti: [v1.6.5 -> v1.6.6](https://github.com/hanzozt/ziti/compare/v1.6.5...v1.6.6)
-    * [Issue #3183](https://github.com/hanzozt/ziti/issues/3183) - Add support for generating heap dumps using the agent
-    * [Issue #3161](https://github.com/hanzozt/ziti/issues/3161) - Allow setting structured data in identity appData from CLI
-    * [Issue #3169](https://github.com/hanzozt/ziti/issues/3169) - Allow identity app data to be a full JSON document, rather than just a flat map
-    * [Issue #3134](https://github.com/hanzozt/ziti/issues/3134) - Support multi-underlay links
-    * [Issue #3165](https://github.com/hanzozt/ziti/issues/3165) - Docker controller doesn't renew identity
+* github.com/hanzozt/zt: [v1.6.5 -> v1.6.6](https://github.com/hanzozt/zt/compare/v1.6.5...v1.6.6)
+    * [Issue #3183](https://github.com/hanzozt/zt/issues/3183) - Add support for generating heap dumps using the agent
+    * [Issue #3161](https://github.com/hanzozt/zt/issues/3161) - Allow setting structured data in identity appData from CLI
+    * [Issue #3169](https://github.com/hanzozt/zt/issues/3169) - Allow identity app data to be a full JSON document, rather than just a flat map
+    * [Issue #3134](https://github.com/hanzozt/zt/issues/3134) - Support multi-underlay links
+    * [Issue #3165](https://github.com/hanzozt/zt/issues/3165) - Docker controller doesn't renew identity
 
 
 # Release 1.6.5
@@ -281,8 +281,8 @@ Bugfixes and dependency updates.
 * github.com/hanzozt/storage: [v0.4.17 -> v0.4.20](https://github.com/hanzozt/storage/compare/v0.4.17...v0.4.20)
 * github.com/hanzozt/transport/v2: [v2.0.177 -> v2.0.180](https://github.com/hanzozt/transport/compare/v2.0.177...v2.0.180)
 * github.com/hanzozt/xweb/v2: [v2.3.3 -> v2.3.4](https://github.com/hanzozt/xweb/compare/v2.3.3...v2.3.4)
-* github.com/hanzozt/ziti: [v1.6.3 -> v1.6.5](https://github.com/hanzozt/ziti/compare/v1.6.3...v1.6.5)
-    * [Issue #3149](https://github.com/hanzozt/ziti/pull/3149) - add dial/bind type column to sp list
+* github.com/hanzozt/zt: [v1.6.3 -> v1.6.5](https://github.com/hanzozt/zt/compare/v1.6.3...v1.6.5)
+    * [Issue #3149](https://github.com/hanzozt/zt/pull/3149) - add dial/bind type column to sp list
 
 # Release 1.6.4
 
@@ -335,7 +335,7 @@ network interfaces as well. Those will be available via the `identities` REST AP
 Example:
 
 ```
-$ ziti fabric list routers 'name="edge-router-1"' -j | jq
+$ zt fabric list routers 'name="edge-router-1"' -j | jq
 {
   "data": [
     {
@@ -466,18 +466,18 @@ Note that addresses have been sanitized.
 
 * github.com/hanzozt/transport/v2: [v2.0.171 -> v2.0.177](https://github.com/hanzozt/transport/compare/v2.0.171...v2.0.177)
 * github.com/hanzozt/xweb/v2: [v2.3.2 -> v2.3.3](https://github.com/hanzozt/xweb/compare/v2.3.2...v2.3.3)
-* github.com/hanzozt/ziti: [v1.6.2 -> v1.6.3](https://github.com/hanzozt/ziti/compare/v1.6.2...v1.6.3)
-    * [Issue #3124](https://github.com/hanzozt/ziti/issues/3124) - ids used by circuits and ingress/egress can conflict in an HA setup
-    * [Issue #3117](https://github.com/hanzozt/ziti/issues/3117) - authenticators LastAuthResolvedToRoot not set, createdAt/lastUpdateAt zero zulu
-    * [Issue #3111](https://github.com/hanzozt/ziti/issues/3111) - Add API for xgress router factories allowing router env injection
-    * [Issue #3119](https://github.com/hanzozt/ziti/issues/3119) - Using the same heartbeatmsg instance across channels causes data race
-    * [Issue #3115](https://github.com/hanzozt/ziti/issues/3115) - Fix racy link state access in router link registry
-    * [Issue #3113](https://github.com/hanzozt/ziti/issues/3113) - Close links when link groups no longer indicate that a link should be allowed
-    * [Issue #3082](https://github.com/hanzozt/ziti/issues/3082) - Add network interfaces to controller data model
-    * [Issue #3083](https://github.com/hanzozt/ziti/issues/3083) - Add optional network interface discovery to routers
-    * [Issue #2862](https://github.com/hanzozt/ziti/issues/2862) - Large scale data-flow test
-    * [Issue #3102](https://github.com/hanzozt/ziti/issues/3102) - Implement remote control for ziti-traffic-test/loop4
-    * [Issue #3098](https://github.com/hanzozt/ziti/issues/3098) - Implement circuit validation API and CLI
+* github.com/hanzozt/zt: [v1.6.2 -> v1.6.3](https://github.com/hanzozt/zt/compare/v1.6.2...v1.6.3)
+    * [Issue #3124](https://github.com/hanzozt/zt/issues/3124) - ids used by circuits and ingress/egress can conflict in an HA setup
+    * [Issue #3117](https://github.com/hanzozt/zt/issues/3117) - authenticators LastAuthResolvedToRoot not set, createdAt/lastUpdateAt zero zulu
+    * [Issue #3111](https://github.com/hanzozt/zt/issues/3111) - Add API for xgress router factories allowing router env injection
+    * [Issue #3119](https://github.com/hanzozt/zt/issues/3119) - Using the same heartbeatmsg instance across channels causes data race
+    * [Issue #3115](https://github.com/hanzozt/zt/issues/3115) - Fix racy link state access in router link registry
+    * [Issue #3113](https://github.com/hanzozt/zt/issues/3113) - Close links when link groups no longer indicate that a link should be allowed
+    * [Issue #3082](https://github.com/hanzozt/zt/issues/3082) - Add network interfaces to controller data model
+    * [Issue #3083](https://github.com/hanzozt/zt/issues/3083) - Add optional network interface discovery to routers
+    * [Issue #2862](https://github.com/hanzozt/zt/issues/2862) - Large scale data-flow test
+    * [Issue #3102](https://github.com/hanzozt/zt/issues/3102) - Implement remote control for zt-traffic-test/loop4
+    * [Issue #3098](https://github.com/hanzozt/zt/issues/3098) - Implement circuit validation API and CLI
 
 # Release 1.6.2
 
@@ -547,7 +547,7 @@ SDKs that support enrollment request/key rolling.
 
 ## Useful Authenticator Values
 
-Authenticators are an entity within Hanzo ZT and can be queried via the CLI (`ziti edge list authenticators`) or
+Authenticators are an entity within Hanzo ZT and can be queried via the CLI (`zt edge list authenticators`) or
 Edge Management API (`GET https://<host>/edge/management/v1/authenticators`). Below are properties that are 
 useful for determining clients with improper chains.
 
@@ -569,7 +569,7 @@ will result in a new client certificate and chain.
 
 **CLI:**
 
-`ziti edge update authenticator cert <id> --re-enroll [--duration <duration>]`
+`zt edge update authenticator cert <id> --re-enroll [--duration <duration>]`
 
 **Edge Management API:**
 
@@ -587,11 +587,11 @@ Hanzo ZT applications or CLI commands.
 **CLI Enrollment**
 
 ```
- ziti edge enroll -h
+ zt edge enroll -h
 enroll an identity
 
 Usage:
-  ziti edge enroll path/to/jwt [flags]
+  zt edge enroll path/to/jwt [flags]
 
 Flags:
       --ca string         Additional trusted certificates
@@ -610,7 +610,7 @@ Flags:
 
 **Hanzo ZT Tunneler Enrollment**
 
-`ziti-edge-tunnel add --jwt "$(< ./in-file.jwt)" --identity myIdentityName`
+`zt-edge-tunnel add --jwt "$(< ./in-file.jwt)" --identity myIdentityName`
 
 ### Request Extension
 
@@ -620,7 +620,7 @@ for later authentication requests. This can be initiated through the CLI or Edge
 
 **CLI:**
 
-`ziti edge update authenticator cert <id> --request-extend [--request-key-roll]`
+`zt edge update authenticator cert <id> --request-extend [--request-key-roll]`
 
 **Edge Management API:**
 
@@ -668,7 +668,7 @@ events:
     handler:
       type: file
       format: json
-      path: ${TMPDIR}/ziti-events.log
+      path: ${TMPDIR}/zt-events.log
 ```
 
 Example Output:
@@ -728,15 +728,15 @@ edge:
 * github.com/hanzozt/storage: [v0.4.7 -> v0.4.11](https://github.com/hanzozt/storage/compare/v0.4.7...v0.4.11)
 * github.com/hanzozt/transport/v2: [v2.0.168 -> v2.0.171](https://github.com/hanzozt/transport/compare/v2.0.168...v2.0.171)
 * github.com/hanzozt/xweb/v2: [v2.3.1 -> v2.3.2](https://github.com/hanzozt/xweb/compare/v2.3.1...v2.3.2)
-* github.com/hanzozt/ziti: [v1.6.1 -> v1.6.2](https://github.com/hanzozt/ziti/compare/v1.6.1...v1.6.2)
-    * [Issue #3072](https://github.com/hanzozt/ziti/issues/3072) - router active channel map is using client supplied id, which can cause map collisions
-    * [Issue #3068](https://github.com/hanzozt/ziti/issues/3068) - Auto CA enrollments do not dispatch events in HA
-    * [Issue #3063](https://github.com/hanzozt/ziti/issues/3063) - Allow disabling posture check functionality
-    * [Issue #3052](https://github.com/hanzozt/ziti/issues/3052) - Terminator Create events for addressable terminators
-    * [Issue #3059](https://github.com/hanzozt/ziti/issues/3059) - Refresh JWTs can desync internal validation token
-    * [Issue #3008](https://github.com/hanzozt/ziti/issues/3008) - UPDB Enroll w/ 1.5.1 `ziti` panics against 1.5.0 and lower controllers
-    * [Issue #3048](https://github.com/hanzozt/ziti/issues/3048) - Add improper client cert chain flag
-    * [Issue #2614](https://github.com/hanzozt/ziti/issues/2614) - Add Configuration for OIDC RefreshToken/Access Token
+* github.com/hanzozt/zt: [v1.6.1 -> v1.6.2](https://github.com/hanzozt/zt/compare/v1.6.1...v1.6.2)
+    * [Issue #3072](https://github.com/hanzozt/zt/issues/3072) - router active channel map is using client supplied id, which can cause map collisions
+    * [Issue #3068](https://github.com/hanzozt/zt/issues/3068) - Auto CA enrollments do not dispatch events in HA
+    * [Issue #3063](https://github.com/hanzozt/zt/issues/3063) - Allow disabling posture check functionality
+    * [Issue #3052](https://github.com/hanzozt/zt/issues/3052) - Terminator Create events for addressable terminators
+    * [Issue #3059](https://github.com/hanzozt/zt/issues/3059) - Refresh JWTs can desync internal validation token
+    * [Issue #3008](https://github.com/hanzozt/zt/issues/3008) - UPDB Enroll w/ 1.5.1 `zt` panics against 1.5.0 and lower controllers
+    * [Issue #3048](https://github.com/hanzozt/zt/issues/3048) - Add improper client cert chain flag
+    * [Issue #2614](https://github.com/hanzozt/zt/issues/2614) - Add Configuration for OIDC RefreshToken/Access Token
 
 
 # Release 1.6.1
@@ -764,11 +764,11 @@ false if not provided.
 This can also be issued via the CLI:
 
 ```
-> ziti edge update authenticator cert -h
+> zt edge update authenticator cert -h
 Request a specific certificate authenticator to --requestExtend or --requestKeyRoll, --requestKeyRoll implies --requestExtend
 
 Usage:
-  ziti edge update authenticator cert <authenticatorId> [--requestExtend] [--requestKeyRoll] [flags]
+  zt edge update authenticator cert <authenticatorId> [--requestExtend] [--requestKeyRoll] [flags]
 
 Flags:
   -h, --help             help for cert
@@ -778,7 +778,7 @@ Flags:
 
 Requesting an extension flags new fields on a certificate authenticator in the values `isExtendRequest` and
 `isKeyRollRequested`. These values are set to false after the client performs a certificate extension. The CLI
-has been updated to report these values on certificate authenticators via `ziti edge list authenticators`.
+has been updated to report these values on certificate authenticators via `zt edge list authenticators`.
 
 These values are also present on the `/edge/client/v1/current-api-session` endpoint when a client has use certificate
 authentication to initiate an API Session using a certificate authenticator.
@@ -794,9 +794,9 @@ application.
 ## Component Updates and Bug Fixes
 
 * github.com/hanzozt/edge-api: [v0.26.42 -> v0.26.43](https://github.com/hanzozt/edge-api/compare/v0.26.42...v0.26.43)
-* github.com/hanzozt/ziti: [v1.6.0 -> v1.6.1](https://github.com/hanzozt/ziti/compare/v1.6.0...v1.6.1)
-  * [Issue #2996](https://github.com/hanzozt/ziti/issues/2996) - Add ability to signal SDKs to extend cert authenticator
-  * [Issue #2963](https://github.com/hanzozt/ziti/issues/2963) - support intercept.v1 --> host.v1 address translation
+* github.com/hanzozt/zt: [v1.6.0 -> v1.6.1](https://github.com/hanzozt/zt/compare/v1.6.0...v1.6.1)
+  * [Issue #2996](https://github.com/hanzozt/zt/issues/2996) - Add ability to signal SDKs to extend cert authenticator
+  * [Issue #2963](https://github.com/hanzozt/zt/issues/2963) - support intercept.v1 --> host.v1 address translation
 
 
 # Release 1.6.0
@@ -810,7 +810,7 @@ application.
 
 ## Cluster Add Peer Change
 
-The `ziti agent cluster add` command no longer supports the `--id` argument 
+The `zt agent cluster add` command no longer supports the `--id` argument 
 for providing the peer id. The add operation will now always connect to the
 peer, verify the certs and get the peer advertise address and id from the 
 peer directly. This will ensure that the peer is reachable and valid before
@@ -852,24 +852,24 @@ or be removed.
 
 * github.com/hanzozt/transport/v2: [v2.0.167 -> v2.0.168](https://github.com/hanzozt/transport/compare/v2.0.167...v2.0.168)
 * github.com/hanzozt/xweb/v2: [v2.3.0 -> v2.3.1](https://github.com/hanzozt/xweb/compare/v2.3.0...v2.3.1)
-* github.com/hanzozt/ziti: [v1.5.4 -> v1.6.0](https://github.com/hanzozt/ziti/compare/v1.5.4...v1.6.0)
-    * [Issue #3005](https://github.com/hanzozt/ziti/issues/3005) - Always check that a controller is reachable and valid before adding it to an HA controller cluster
-    * [Issue #2986](https://github.com/hanzozt/ziti/issues/2986) - [Router] Support xgress flow control from the SDK
-    * [Issue #2999](https://github.com/hanzozt/ziti/issues/2999) - OIDC JWT backed sessions cannot verify extended certs
-    * [Issue #2997](https://github.com/hanzozt/ziti/issues/2997) - Add Authenticator Id to OIDC JWTs/return for current-api-session
-    * [Issue #2904](https://github.com/hanzozt/ziti/issues/2904) - Support client certificate authorities in TLS handshake
-    * [Issue #2973](https://github.com/hanzozt/ziti/issues/2973) - CLI: add a subcommand to retrieve network JWT
-    * [Issue #2984](https://github.com/hanzozt/ziti/issues/2984) - Extend enrollments does not return a full chain
-    * [Issue #2930](https://github.com/hanzozt/ziti/issues/2930) - Support multi-underlay channels for the edge SDK
-    * [Issue #2978](https://github.com/hanzozt/ziti/issues/2978) - Create loop4 sim for testing circuit contention and scale
-    * [Issue #2981](https://github.com/hanzozt/ziti/issues/2981) - Remove PayloadBufferForwarder API from xgress retransmitter
-    * [Issue #2906](https://github.com/hanzozt/ziti/issues/2906) - Controller not removed from DB controller store when removed from controller
-    * [Issue #2922](https://github.com/hanzozt/ziti/issues/2922) - Validate node address before adding to cluster
-    * [Issue #2932](https://github.com/hanzozt/ziti/issues/2932) - Fix router data model 'create public key' related errors
-    * [Issue #2919](https://github.com/hanzozt/ziti/issues/2919) - Make xgress pluggable, so it can be used from the SDK
-    * [Issue #2955](https://github.com/hanzozt/ziti/issues/2955) - Extract xgress inspection types
-    * [Issue #2954](https://github.com/hanzozt/ziti/issues/2954) - Encapsulate xgress metrics
-    * [Issue #2952](https://github.com/hanzozt/ziti/issues/2952) - Remove global payload ingester
-    * [Issue #2951](https://github.com/hanzozt/ziti/issues/2951) - Remove global xgress retransmitter
-    * [Issue #2950](https://github.com/hanzozt/ziti/issues/2950) - Move router specific xgress code to a new xgress_router package
-    * [Issue #2920](https://github.com/hanzozt/ziti/issues/2920) - Make xgress acker configurable
+* github.com/hanzozt/zt: [v1.5.4 -> v1.6.0](https://github.com/hanzozt/zt/compare/v1.5.4...v1.6.0)
+    * [Issue #3005](https://github.com/hanzozt/zt/issues/3005) - Always check that a controller is reachable and valid before adding it to an HA controller cluster
+    * [Issue #2986](https://github.com/hanzozt/zt/issues/2986) - [Router] Support xgress flow control from the SDK
+    * [Issue #2999](https://github.com/hanzozt/zt/issues/2999) - OIDC JWT backed sessions cannot verify extended certs
+    * [Issue #2997](https://github.com/hanzozt/zt/issues/2997) - Add Authenticator Id to OIDC JWTs/return for current-api-session
+    * [Issue #2904](https://github.com/hanzozt/zt/issues/2904) - Support client certificate authorities in TLS handshake
+    * [Issue #2973](https://github.com/hanzozt/zt/issues/2973) - CLI: add a subcommand to retrieve network JWT
+    * [Issue #2984](https://github.com/hanzozt/zt/issues/2984) - Extend enrollments does not return a full chain
+    * [Issue #2930](https://github.com/hanzozt/zt/issues/2930) - Support multi-underlay channels for the edge SDK
+    * [Issue #2978](https://github.com/hanzozt/zt/issues/2978) - Create loop4 sim for testing circuit contention and scale
+    * [Issue #2981](https://github.com/hanzozt/zt/issues/2981) - Remove PayloadBufferForwarder API from xgress retransmitter
+    * [Issue #2906](https://github.com/hanzozt/zt/issues/2906) - Controller not removed from DB controller store when removed from controller
+    * [Issue #2922](https://github.com/hanzozt/zt/issues/2922) - Validate node address before adding to cluster
+    * [Issue #2932](https://github.com/hanzozt/zt/issues/2932) - Fix router data model 'create public key' related errors
+    * [Issue #2919](https://github.com/hanzozt/zt/issues/2919) - Make xgress pluggable, so it can be used from the SDK
+    * [Issue #2955](https://github.com/hanzozt/zt/issues/2955) - Extract xgress inspection types
+    * [Issue #2954](https://github.com/hanzozt/zt/issues/2954) - Encapsulate xgress metrics
+    * [Issue #2952](https://github.com/hanzozt/zt/issues/2952) - Remove global payload ingester
+    * [Issue #2951](https://github.com/hanzozt/zt/issues/2951) - Remove global xgress retransmitter
+    * [Issue #2950](https://github.com/hanzozt/zt/issues/2950) - Move router specific xgress code to a new xgress_router package
+    * [Issue #2920](https://github.com/hanzozt/zt/issues/2920) - Make xgress acker configurable

@@ -23,9 +23,9 @@ import (
 	"github.com/hashicorp/raft"
 	"github.com/hanzozt/channel/v4"
 	"github.com/hanzozt/foundation/v2/errorz"
-	"github.com/hanzozt/ziti/v2/common/pb/cmd_pb"
-	"github.com/hanzozt/ziti/v2/controller/models"
-	"github.com/hanzozt/ziti/v2/controller/peermsg"
+	"github.com/hanzozt/zt/v2/common/pb/cmd_pb"
+	"github.com/hanzozt/zt/v2/controller/models"
+	"github.com/hanzozt/zt/v2/controller/peermsg"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 )

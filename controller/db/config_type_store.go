@@ -21,7 +21,7 @@ import (
 
 	"github.com/hanzozt/storage/ast"
 	"github.com/hanzozt/storage/boltz"
-	"github.com/hanzozt/ziti/v2/common/eid"
+	"github.com/hanzozt/zt/v2/common/eid"
 	"github.com/pkg/errors"
 	"go.etcd.io/bbolt"
 )

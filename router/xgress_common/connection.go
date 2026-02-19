@@ -29,7 +29,7 @@ import (
 	"github.com/hanzozt/foundation/v2/concurrenz"
 	"github.com/hanzozt/foundation/v2/info"
 	"github.com/hanzozt/sdk-golang/xgress"
-	"github.com/hanzozt/sdk-golang/ziti/edge"
+	"github.com/hanzozt/sdk-golang/zt/edge"
 	"github.com/hanzozt/secretstream"
 	"github.com/hanzozt/secretstream/kx"
 )

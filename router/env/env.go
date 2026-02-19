@@ -26,8 +26,8 @@ import (
 	"github.com/hanzozt/identity"
 	"github.com/hanzozt/metrics"
 	"github.com/hanzozt/sdk-golang/xgress"
-	"github.com/hanzozt/ziti/v2/common"
-	"github.com/hanzozt/ziti/v2/router/xlink"
+	"github.com/hanzozt/zt/v2/common"
+	"github.com/hanzozt/zt/v2/router/xlink"
 )
 
 type RouterEnv interface {

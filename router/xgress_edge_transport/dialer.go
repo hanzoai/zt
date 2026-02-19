@@ -19,17 +19,17 @@ package xgress_edge_transport
 import (
 	"time"
 
-	"github.com/hanzozt/ziti/v2/common/ctrl_msg"
-	"github.com/hanzozt/ziti/v2/router/xgress_router"
+	"github.com/hanzozt/zt/v2/common/ctrl_msg"
+	"github.com/hanzozt/zt/v2/router/xgress_router"
 	"github.com/pkg/errors"
 
 	"github.com/michaelquigley/pfxlog"
 	"github.com/hanzozt/sdk-golang/xgress"
-	"github.com/hanzozt/sdk-golang/ziti/edge"
+	"github.com/hanzozt/sdk-golang/zt/edge"
 	"github.com/hanzozt/transport/v2"
-	"github.com/hanzozt/ziti/v2/common/logcontext"
-	"github.com/hanzozt/ziti/v2/controller/xt"
-	"github.com/hanzozt/ziti/v2/router/xgress_common"
+	"github.com/hanzozt/zt/v2/common/logcontext"
+	"github.com/hanzozt/zt/v2/controller/xt"
+	"github.com/hanzozt/zt/v2/router/xgress_common"
 )
 
 type dialer struct {

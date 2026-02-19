@@ -19,19 +19,19 @@ echo "Edge controller set to: ${edge_controller_uri}"
 
 ca_name="ca_$(date +"%m%d%y_%H%M%S")"
 
-pki_root=~/ziti/pki/${ca_name}
-#pki_root=~/ziti/quickstart/auto-enroll-example/${ca_name}
+pki_root=~/zt/pki/${ca_name}
+#pki_root=~/zt/quickstart/auto-enroll-example/${ca_name}
 
 mkdir -p ${pki_root}
 echo "pki root: ${pki_root}"
 
-# make a root certificate using the ziti CLI
-ziti pki create ca --pki-root=$pki_root --ca-file=${ca_name}
+# make a root certificate using the zt CLI
+zt pki create ca --pki-root=$pki_root --ca-file=${ca_name}
 
 #sleep a second to make sure the certs are not detected to be invalid if submitted too quickly
 sleep 1
 
-# the ziti CLI puts keys and certs at a known location
+# the zt CLI puts keys and certs at a known location
 path_to_private_key=${pki_root}/${ca_name}/keys/${ca_name}.key
 path_to_cert=${pki_root}/${ca_name}/certs/${ca_name}.cert
 
@@ -46,7 +46,7 @@ echo
 echo $adminpwd
 
 
-# obtain a ziti session so the CA can be pushed into the edge controller
+# obtain a zt session so the CA can be pushed into the edge controller
 zt_session=$(curl -sk -H "Content-Type: application/json" \
     ${edge_controller_uri}/authenticate?method=password \
     -d "{\"username\":\"admin\",\"password\":\"${adminpwd}\"}" | \
@@ -80,8 +80,8 @@ path_to_verificationToken_cert="$pki_root/${ca_name}/certs/${verificationToken}.
 echo "CA Verification token set to: ${verificationToken}"
 sleep 1 #trying to avoid edge race conditions?
 
-# using the ziti CLI - make a client cert for the verificationToken
-ziti pki create client --pki-root="${pki_root}" --ca-name=${ca_name} --client-name=${verificationToken} --client-file=${verificationToken}
+# using the zt CLI - make a client cert for the verificationToken
+zt pki create client --pki-root="${pki_root}" --ca-name=${ca_name} --client-name=${verificationToken} --client-file=${verificationToken}
 
 #sleep a second to make sure the certs are not detected to be invalid
 sleep 1

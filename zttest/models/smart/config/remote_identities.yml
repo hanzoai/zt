@@ -1,0 +1,5 @@
+default:
+  endpoint:   tls:{{ publicIp "component.ctrl" }}:10000
+  cert:       /home/ubuntu/fablab/pki/intermediate/certs/dotzt-client.cert
+  key:        /home/ubuntu/fablab/pki/intermediate/keys/dotzt.key
+  caCert:     /home/ubuntu/fablab/pki/intermediate/certs/dotzt-server.chain.pem

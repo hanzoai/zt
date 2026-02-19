@@ -23,7 +23,7 @@ import (
 	"github.com/hanzozt/foundation/v2/sequence"
 	"github.com/hanzozt/storage/ast"
 	"github.com/hanzozt/storage/boltz"
-	"github.com/hanzozt/ziti/v2/controller/xt"
+	"github.com/hanzozt/zt/v2/controller/xt"
 	"go.etcd.io/bbolt"
 )
 

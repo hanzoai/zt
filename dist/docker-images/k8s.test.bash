@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# exec this script with BASH v4+ on Linux to test the checked-out ziti repo's Kubernetes controller and router deployments
+# exec this script with BASH v4+ on Linux to test the checked-out zt repo's Kubernetes controller and router deployments
 
 set -o errexit
 set -o nounset
@@ -45,7 +45,7 @@ BASEDIR="$(cd "$(dirname "${0}")" && pwd)"
 REPOROOT="$(cd "${BASEDIR}/../.." && pwd)"
 cd "${REPOROOT}"
 
-declare -a BINS=(grep go nc docker minikube ./quickstart/kubernetes/miniziti.bash)
+declare -a BINS=(grep go nc docker minikube ./quickstart/kubernetes/minizt.bash)
 for BIN in "${BINS[@]}"; do
     checkCommand "$BIN"
 done
@@ -53,7 +53,7 @@ done
 
 : "${I_AM_ROBOT:=0}"
 : "${ZITI_GO_VERSION:=$(grep -E '^go \d+\.\d*' "./go.mod" | cut -d " " -f2)}"
-: "${ZITI_NAMESPACE:="zititest"}"
+: "${ZITI_NAMESPACE:="zttest"}"
 
 cleanup
 
@@ -61,34 +61,34 @@ arch="$(go env GOARCH)"
 mkdir -p "./release/$arch/linux"
 go build -o "./release/$arch/linux" ./...
 
-ZITI_CLI_IMAGE="ziti-cli"
+ZITI_CLI_IMAGE="zt-cli"
 ZITI_CLI_TAG="local"
-ZITI_CONTROLLER_IMAGE="ziti-controller:local"
-ZITI_ROUTER_IMAGE="ziti-router:local"
+ZITI_CONTROLLER_IMAGE="zt-controller:local"
+ZITI_ROUTER_IMAGE="zt-router:local"
 
 # eval "$(minikube --profile "${ZITI_NAMESPACE}" docker-env)"
 
 # build from cache on Docker host 
 docker build \
---build-arg "DOCKER_BUILD_DIR=./dist/docker-images/ziti-cli" \
+--build-arg "DOCKER_BUILD_DIR=./dist/docker-images/zt-cli" \
 --tag "${ZITI_CLI_IMAGE}:${ZITI_CLI_TAG}" \
---file "./dist/docker-images/ziti-cli/Dockerfile" \
+--file "./dist/docker-images/zt-cli/Dockerfile" \
 "${PWD}"
 
 docker build \
---build-arg "DOCKER_BUILD_DIR=./dist/docker-images/ziti-controller" \
+--build-arg "DOCKER_BUILD_DIR=./dist/docker-images/zt-controller" \
 --build-arg "ZITI_CLI_IMAGE=${ZITI_CLI_IMAGE}" \
 --build-arg "ZITI_CLI_TAG=${ZITI_CLI_TAG}" \
 --tag "${ZITI_CONTROLLER_IMAGE}" \
---file "./dist/docker-images/ziti-controller/Dockerfile" \
+--file "./dist/docker-images/zt-controller/Dockerfile" \
 "${PWD}"
 
 docker build \
---build-arg "DOCKER_BUILD_DIR=./dist/docker-images/ziti-router" \
+--build-arg "DOCKER_BUILD_DIR=./dist/docker-images/zt-router" \
 --build-arg "ZITI_CLI_IMAGE=${ZITI_CLI_IMAGE}" \
 --build-arg "ZITI_CLI_TAG=${ZITI_CLI_TAG}" \
 --tag "${ZITI_ROUTER_IMAGE}" \
---file "./dist/docker-images/ziti-router/Dockerfile" \
+--file "./dist/docker-images/zt-router/Dockerfile" \
 "${PWD}"
 
 export \
@@ -109,26 +109,26 @@ done
 
 # use the locally built controller and router images in minikube
 EXTRA_VALUES_DIR=$(mktemp -d)
-cat << CTRL > "${EXTRA_VALUES_DIR}/ziti-controller.yaml"
+cat << CTRL > "${EXTRA_VALUES_DIR}/zt-controller.yaml"
 image:
     repository: ${ZITI_CONTROLLER_IMAGE%:*}
     tag: ${ZITI_CONTROLLER_IMAGE#*:}
     pullPolicy: Never
 CTRL
-cat << ROUTER > "${EXTRA_VALUES_DIR}/ziti-router.yaml"
+cat << ROUTER > "${EXTRA_VALUES_DIR}/zt-router.yaml"
 image:
     repository: ${ZITI_ROUTER_IMAGE%:*}
     tag: ${ZITI_ROUTER_IMAGE#*:}
     pullPolicy: Never
 ROUTER
 
-bash -x ./quickstart/kubernetes/miniziti.bash start \
+bash -x ./quickstart/kubernetes/minizt.bash start \
 --profile "${ZITI_NAMESPACE}" \
 --no-hosts \
 --values-dir "${EXTRA_VALUES_DIR}"
 
 MINIKUBE_IP="$(minikube --profile "${ZITI_NAMESPACE}" ip)"
-ZITI_CTRL_ADVERTISED_ADDRESS="miniziti-controller.${MINIKUBE_IP}.sslip.io"
+ZITI_CTRL_ADVERTISED_ADDRESS="minizt-controller.${MINIKUBE_IP}.sslip.io"
 
 # verify console is available
 curl -skSfw '%{http_code}\t%{url}\n' -o/dev/null "https://${ZITI_CTRL_ADVERTISED_ADDRESS}:${ZITI_CTRL_ADVERTISED_PORT}/zac/"
@@ -136,7 +136,7 @@ curl -skSfw '%{http_code}\t%{url}\n' -o/dev/null "https://${ZITI_CTRL_ADVERTISED
 ZITI_PWD=$(
     minikube kubectl --profile "${ZITI_NAMESPACE}" -- \
         --context "${ZITI_NAMESPACE}" \
-        get secrets "ziti-controller-admin-secret" \
+        get secrets "zt-controller-admin-secret" \
         --namespace "${ZITI_NAMESPACE}" \
         --output go-template='{{index .data "admin-password" | base64decode }}'
 )
@@ -144,12 +144,12 @@ ZITI_PWD=$(
 
 export \
 ZITI_PWD \
-ZITI_ROUTER_NAME="miniziti-router" \
+ZITI_ROUTER_NAME="minizt-router" \
 ZITI_CTRL_EDGE_ADVERTISED_ADDRESS="${ZITI_CTRL_ADVERTISED_ADDRESS}" \
 ZITI_CTRL_EDGE_ADVERTISED_PORT="${ZITI_CTRL_ADVERTISED_PORT}" \
-ZITI_TEST_BIND_ADDRESS="ziti-controller-client.${ZITI_NAMESPACE}.svc.cluster.local"
+ZITI_TEST_BIND_ADDRESS="zt-controller-client.${ZITI_NAMESPACE}.svc.cluster.local"
 
-_test_result=$(go test -v -count=1 -tags="quickstart manual" ./ziti/run/...)
+_test_result=$(go test -v -count=1 -tags="quickstart manual" ./zt/run/...)
 
 # check for failure modes that don't result in an error exit code
 if [[ "${_test_result}" =~ "no tests to run" ]]

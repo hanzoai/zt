@@ -24,8 +24,8 @@ import (
 
 	"github.com/hanzozt/edge-api/rest_model"
 	"github.com/hanzozt/foundation/v2/stringz"
-	"github.com/hanzozt/ziti/v2/common"
-	"github.com/hanzozt/ziti/v2/controller/model"
+	"github.com/hanzozt/zt/v2/common"
+	"github.com/hanzozt/zt/v2/controller/model"
 
 	"github.com/zitadel/oidc/v3/pkg/oidc"
 )

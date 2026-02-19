@@ -21,11 +21,11 @@ import (
 
 	"github.com/hanzozt/transport/v2"
 	"github.com/hanzozt/transport/v2/tcp"
-	"github.com/hanzozt/ziti/v2/controller/change"
-	"github.com/hanzozt/ziti/v2/controller/db"
-	"github.com/hanzozt/ziti/v2/controller/model"
-	"github.com/hanzozt/ziti/v2/controller/models"
-	"github.com/hanzozt/ziti/v2/controller/xt_smartrouting"
+	"github.com/hanzozt/zt/v2/controller/change"
+	"github.com/hanzozt/zt/v2/controller/db"
+	"github.com/hanzozt/zt/v2/controller/model"
+	"github.com/hanzozt/zt/v2/controller/models"
+	"github.com/hanzozt/zt/v2/controller/xt_smartrouting"
 )
 
 func newTestEntityHelper(ctx *model.TestContext, network *Network) *testEntityHelper {

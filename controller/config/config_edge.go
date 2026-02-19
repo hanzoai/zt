@@ -34,7 +34,7 @@ import (
 	"github.com/michaelquigley/pfxlog"
 	nfpem "github.com/hanzozt/foundation/v2/pem"
 	"github.com/hanzozt/identity"
-	"github.com/hanzozt/ziti/v2/controller/command"
+	"github.com/hanzozt/zt/v2/controller/command"
 	"github.com/pkg/errors"
 )
 

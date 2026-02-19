@@ -42,21 +42,21 @@ import (
 	"github.com/hanzozt/metrics/metrics_pb"
 	"github.com/hanzozt/storage/boltz"
 	"github.com/hanzozt/storage/objectz"
-	"github.com/hanzozt/ziti/v2/common/ctrl_msg"
-	"github.com/hanzozt/ziti/v2/common/inspect"
-	"github.com/hanzozt/ziti/v2/common/logcontext"
-	fabricMetrics "github.com/hanzozt/ziti/v2/common/metrics"
-	"github.com/hanzozt/ziti/v2/common/pb/cmd_pb"
-	"github.com/hanzozt/ziti/v2/common/pb/ctrl_pb"
-	"github.com/hanzozt/ziti/v2/common/pb/mgmt_pb"
-	"github.com/hanzozt/ziti/v2/common/trace"
-	"github.com/hanzozt/ziti/v2/controller/command"
-	"github.com/hanzozt/ziti/v2/controller/config"
-	"github.com/hanzozt/ziti/v2/controller/db"
-	"github.com/hanzozt/ziti/v2/controller/event"
-	"github.com/hanzozt/ziti/v2/controller/idgen"
-	"github.com/hanzozt/ziti/v2/controller/model"
-	"github.com/hanzozt/ziti/v2/controller/xt"
+	"github.com/hanzozt/zt/v2/common/ctrl_msg"
+	"github.com/hanzozt/zt/v2/common/inspect"
+	"github.com/hanzozt/zt/v2/common/logcontext"
+	fabricMetrics "github.com/hanzozt/zt/v2/common/metrics"
+	"github.com/hanzozt/zt/v2/common/pb/cmd_pb"
+	"github.com/hanzozt/zt/v2/common/pb/ctrl_pb"
+	"github.com/hanzozt/zt/v2/common/pb/mgmt_pb"
+	"github.com/hanzozt/zt/v2/common/trace"
+	"github.com/hanzozt/zt/v2/controller/command"
+	"github.com/hanzozt/zt/v2/controller/config"
+	"github.com/hanzozt/zt/v2/controller/db"
+	"github.com/hanzozt/zt/v2/controller/event"
+	"github.com/hanzozt/zt/v2/controller/idgen"
+	"github.com/hanzozt/zt/v2/controller/model"
+	"github.com/hanzozt/zt/v2/controller/xt"
 	"github.com/sirupsen/logrus"
 	"github.com/teris-io/shortid"
 	"go.etcd.io/bbolt"
@@ -163,7 +163,7 @@ func NewNetwork(config Config, env model.Env) (*Network, error) {
 
 	env.GetManagers().Router.Store.AddEntityIdListener(network.HandleRouterDelete, boltz.EntityDeletedAsync)
 
-	network.AddCapability("ziti.fabric")
+	network.AddCapability("zt.fabric")
 	network.showOptions()
 	network.relayControllerMetrics()
 	network.AddRouterPresenceHandler(network.RouterMessaging)

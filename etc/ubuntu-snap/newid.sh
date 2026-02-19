@@ -23,15 +23,15 @@ then
 fi;
 #ca_name=$(cat /home/cd/pki/current-pki)
 ca_name=$1
-pki_root=/home/cd/ziti/pki/${ca_name}
-#pki_root=~/ziti/quickstart/auto-enroll-example/${ca_name}
+pki_root=/home/cd/zt/pki/${ca_name}
+#pki_root=~/zt/quickstart/auto-enroll-example/${ca_name}
 identity_name="${ca_name}_auto_ident_$(date +"%H%M%S")"
 identity_name="caauto_$(date +"%H%M%S")"
 
 echo "identity name: $identity_name"
 
-# make a client certificate using the ziti CLI
-ziti pki create client --pki-root="${pki_root}" --ca-name=${ca_name} --client-name=${identity_name} --client-file=${identity_name}
+# make a client certificate using the zt CLI
+zt pki create client --pki-root="${pki_root}" --ca-name=${ca_name} --client-name=${identity_name} --client-file=${identity_name}
 sleep 1 #avoiding the same NotAfter making the certificate invalid
 
 # setup some variables to the key and cert
@@ -55,4 +55,4 @@ echo $identity_path_to_cert
 #cp $identity_path_to_cert /mnt/v/temp/cert
 
 echo ""
-ziti-enroller -v --jwt ${pki_root}/auto.jwt --cert $identity_path_to_cert --key $identity_path_to_key --idname ${identity_name} --out "${pki_root}/${identity_name}.json"
+zt-enroller -v --jwt ${pki_root}/auto.jwt --cert $identity_path_to_cert --key $identity_path_to_key --idname ${identity_name} --out "${pki_root}/${identity_name}.json"

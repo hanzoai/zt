@@ -12,7 +12,7 @@ You can explore Ziti HA by running three local processes on unique TCP ports. Th
 1. Run the first member in the background to create the cluster.
 
     ```bash
-    nohup ziti edge quickstart ha \
+    nohup zt edge quickstart ha \
         --instance-id="ctrl1" \
         --ctrl-port="1281" \
         --router-port="3021" \
@@ -40,13 +40,13 @@ You can explore Ziti HA by running three local processes on unique TCP ports. Th
     .
     .
 
-    [1]  + running    nohup ziti edge quickstart ha --instance-id="ctrl1" --ctrl-port="1281"      &
+    [1]  + running    nohup zt edge quickstart ha --instance-id="ctrl1" --ctrl-port="1281"      &
     ```
 
 1. Run the second member and join the cluster.
 
     ```bash
-    nohup ziti edge quickstart join \
+    nohup zt edge quickstart join \
         --instance-id="ctrl2" \
         --ctrl-port="1282" \
         --router-port="3022" \
@@ -75,14 +75,14 @@ You can explore Ziti HA by running three local processes on unique TCP ports. Th
     .
     .
 
-    [1]  - running    nohup ziti edge quickstart ha --instance-id="ctrl1" --ctrl-port="1281"      &
-    [2]  + running    nohup ziti edge quickstart join --instance-id="ctrl2" --ctrl-port="1282"     
+    [1]  - running    nohup zt edge quickstart ha --instance-id="ctrl1" --ctrl-port="1281"      &
+    [2]  + running    nohup zt edge quickstart join --instance-id="ctrl2" --ctrl-port="1282"     
     ```
 
 1. Run the third member and join the cluster.
 
     ```bash
-    nohup ziti edge quickstart join \
+    nohup zt edge quickstart join \
         --instance-id="ctrl3" \
         --ctrl-port="1283" \
         --router-port="3023" \
@@ -111,9 +111,9 @@ You can explore Ziti HA by running three local processes on unique TCP ports. Th
     .
     .
 
-    [1]    running    nohup ziti edge quickstart ha --instance-id="ctrl1" --ctrl-port="1281"      &
-    [2]  - running    nohup ziti edge quickstart join --instance-id="ctrl2" --ctrl-port="1282"     
-    [3]  + running    nohup ziti edge quickstart join --instance-id="ctrl3" --ctrl-port="1283"     
+    [1]    running    nohup zt edge quickstart ha --instance-id="ctrl1" --ctrl-port="1281"      &
+    [2]  - running    nohup zt edge quickstart join --instance-id="ctrl2" --ctrl-port="1282"     
+    [3]  + running    nohup zt edge quickstart join --instance-id="ctrl3" --ctrl-port="1283"     
     ```
 
 1. Optionally, follow interleaved logs in another window.
@@ -125,7 +125,7 @@ You can explore Ziti HA by running three local processes on unique TCP ports. Th
 1. List agent applications.
 
     ```bash
-    ziti agent list                          
+    zt agent list                          
     ```
 
     Expected output:
@@ -134,16 +134,16 @@ You can explore Ziti HA by running three local processes on unique TCP ports. Th
     ╭────────┬────────────┬────────┬─────────────────────────────┬────────────┬─────────────┬───────────╮
     │    PID │ EXECUTABLE │ APP ID │ UNIX SOCKET                 │ APP TYPE   │ APP VERSION │ APP ALIAS │
     ├────────┼────────────┼────────┼─────────────────────────────┼────────────┼─────────────┼───────────┤
-    │ 276912 │ ziti       │ ctrl1  │ /tmp/gops-agent.276912.sock │ controller │ v0.0.0      │           │
-    │ 277714 │ ziti       │ ctrl2  │ /tmp/gops-agent.277714.sock │ controller │ v0.0.0      │           │
-    │ 281490 │ ziti       │ ctrl3  │ /tmp/gops-agent.281490.sock │ controller │ v0.0.0      │           │
+    │ 276912 │ zt       │ ctrl1  │ /tmp/gops-agent.276912.sock │ controller │ v0.0.0      │           │
+    │ 277714 │ zt       │ ctrl2  │ /tmp/gops-agent.277714.sock │ controller │ v0.0.0      │           │
+    │ 281490 │ zt       │ ctrl3  │ /tmp/gops-agent.281490.sock │ controller │ v0.0.0      │           │
     ╰────────┴────────────┴────────┴─────────────────────────────┴────────────┴─────────────┴───────────╯
     ```
 
 1. Identify the cluster leader.
 
     ```bash
-    ziti agent cluster list --app-id ctrl1
+    zt agent cluster list --app-id ctrl1
     ```
 
     Expected output:
@@ -169,9 +169,9 @@ You can explore Ziti HA by running three local processes on unique TCP ports. Th
     Job 1 belongs to ctrl1, the current leader.
 
     ```text
-    [1]    running    nohup ziti edge quickstart ha --instance-id="ctrl1" --ctrl-port="1281"       
-    [2]  - running    nohup ziti edge quickstart join --instance-id="ctrl3" --ctrl-port="1283"     
-    [3]  + running    nohup ziti edge quickstart join --instance-id="ctrl2" --ctrl-port="1282"     
+    [1]    running    nohup zt edge quickstart ha --instance-id="ctrl1" --ctrl-port="1281"       
+    [2]  - running    nohup zt edge quickstart join --instance-id="ctrl3" --ctrl-port="1283"     
+    [3]  + running    nohup zt edge quickstart join --instance-id="ctrl2" --ctrl-port="1282"     
     ```
 
     ```bash
@@ -181,7 +181,7 @@ You can explore Ziti HA by running three local processes on unique TCP ports. Th
 1. Inspect the cluster via another member ID.
 
     ```bash
-    ziti agent cluster list --app-id ctrl2
+    zt agent cluster list --app-id ctrl2
     ```
 
     Expected output:
@@ -201,7 +201,7 @@ You can explore Ziti HA by running three local processes on unique TCP ports. Th
     Any member can be restarted with this `ha` subcommand.
 
     ```bash
-    nohup ziti edge quickstart ha \
+    nohup zt edge quickstart ha \
         --instance-id="ctrl1" \
         --home="${PWD}" \
     &>> ctrl1.log &
@@ -212,7 +212,7 @@ You can explore Ziti HA by running three local processes on unique TCP ports. Th
     Once restarted, ctrl1 does not necessarily resume being the leader.
 
     ```bash
-    ziti agent cluster list --app-id ctrl2
+    zt agent cluster list --app-id ctrl2
     ```
 
     Expected output:
@@ -244,7 +244,7 @@ You can explore Ziti HA by running three local processes on unique TCP ports. Th
     Expected output:
 
     ```text
-    [1]  + done       nohup ziti edge quickstart ha --instance-id="ctrl1" --ctrl-port="1281"
-    [2]    done       nohup ziti edge quickstart join --instance-id="ctrl2" --ctrl-port="1282"
-    [3]  + done       nohup ziti edge quickstart join --instance-id="ctrl3" --ctrl-port="1283"
+    [1]  + done       nohup zt edge quickstart ha --instance-id="ctrl1" --ctrl-port="1281"
+    [2]    done       nohup zt edge quickstart join --instance-id="ctrl2" --ctrl-port="1282"
+    [3]  + done       nohup zt edge quickstart join --instance-id="ctrl3" --ctrl-port="1283"
     ```

@@ -19,8 +19,8 @@ package xt_smartrouting
 import (
 	"time"
 
-	"github.com/hanzozt/ziti/v2/controller/xt"
-	"github.com/hanzozt/ziti/v2/controller/xt_common"
+	"github.com/hanzozt/zt/v2/controller/xt"
+	"github.com/hanzozt/zt/v2/controller/xt_common"
 )
 
 const (

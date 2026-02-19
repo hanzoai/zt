@@ -25,7 +25,7 @@ import (
 	"sync/atomic"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/hanzozt/ziti/v2/controller/event"
+	"github.com/hanzozt/zt/v2/controller/event"
 	"github.com/pkg/errors"
 )
 
@@ -376,7 +376,7 @@ func (event *PrometheusMetricsEvent) getMetricName() string {
 		key = strings.TrimSuffix(key, "_count") + "_c"
 	}
 
-	return "ziti_" + key
+	return "zt_" + key
 }
 
 func (event *PrometheusMetricsEvent) newTag(name, value string) string {

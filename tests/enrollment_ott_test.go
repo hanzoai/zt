@@ -33,7 +33,7 @@ import (
 	"github.com/hanzozt/edge-api/rest_model"
 	nfPem "github.com/hanzozt/foundation/v2/pem"
 	"github.com/hanzozt/identity/certtools"
-	"github.com/hanzozt/ziti/v2/common/eid"
+	"github.com/hanzozt/zt/v2/common/eid"
 )
 
 // Test_EnrollmentOtt uses the generic legacy and deprecated /enroll endpoint. These test ensure it remains

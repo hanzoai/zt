@@ -29,7 +29,7 @@ import (
 	nfPem "github.com/hanzozt/foundation/v2/pem"
 	"github.com/hanzozt/identity/certtools"
 	edgeApis "github.com/hanzozt/sdk-golang/edge-apis"
-	"github.com/hanzozt/sdk-golang/ziti"
+	"github.com/hanzozt/sdk-golang/zt"
 )
 
 type ClientHelperClient struct {
@@ -97,7 +97,7 @@ func (helper *ClientHelperClient) CompleteOttEnrollment(enrollmentToken string) 
 
 	if IsJwt(token) {
 		jwtParser := jwt.NewParser()
-		enrollmentClaims := &ziti.EnrollmentClaims{}
+		enrollmentClaims := &zt.EnrollmentClaims{}
 		_, _, err := jwtParser.ParseUnverified(token, enrollmentClaims)
 
 		if err != nil {
@@ -153,7 +153,7 @@ func (helper *ClientHelperClient) CompleteOttGenericEnrollment(enrollmentToken s
 
 	if IsJwt(token) {
 		jwtParser := jwt.NewParser()
-		enrollmentClaims := &ziti.EnrollmentClaims{}
+		enrollmentClaims := &zt.EnrollmentClaims{}
 		_, _, err := jwtParser.ParseUnverified(token, enrollmentClaims)
 
 		if err != nil {
@@ -245,7 +245,7 @@ func (helper *ClientHelperClient) CompleteOttCaEnrollment(enrollmentToken string
 
 	if IsJwt(token) {
 		jwtParser := jwt.NewParser()
-		enrollmentClaims := &ziti.EnrollmentClaims{}
+		enrollmentClaims := &zt.EnrollmentClaims{}
 		_, _, err := jwtParser.ParseUnverified(token, enrollmentClaims)
 
 		if err != nil {
@@ -282,7 +282,7 @@ func (helper *ClientHelperClient) CompleteUpdbEnrollment(enrollmentToken string,
 
 	if IsJwt(token) {
 		jwtParser := jwt.NewParser()
-		enrollmentClaims := &ziti.EnrollmentClaims{}
+		enrollmentClaims := &zt.EnrollmentClaims{}
 		_, _, err := jwtParser.ParseUnverified(token, enrollmentClaims)
 
 		if err != nil {

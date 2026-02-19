@@ -18,7 +18,7 @@ package env
 
 import (
 	"github.com/hanzozt/channel/v4"
-	"github.com/hanzozt/ziti/v2/common/config"
+	"github.com/hanzozt/zt/v2/common/config"
 )
 
 // Xrctrl provides an extension point for router-side controller communication,

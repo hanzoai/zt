@@ -31,11 +31,11 @@ import (
 	"github.com/hanzozt/metrics"
 	"github.com/hanzozt/metrics/metrics_pb"
 	"github.com/hanzozt/sdk-golang/xgress"
-	"github.com/hanzozt/ziti/v2/common/pb/ctrl_pb"
-	"github.com/hanzozt/ziti/v2/router/env"
-	"github.com/hanzozt/ziti/v2/router/forwarder"
-	"github.com/hanzozt/ziti/v2/router/handler_xgress"
-	"github.com/hanzozt/ziti/v2/router/xgress_router"
+	"github.com/hanzozt/zt/v2/common/pb/ctrl_pb"
+	"github.com/hanzozt/zt/v2/router/env"
+	"github.com/hanzozt/zt/v2/router/forwarder"
+	"github.com/hanzozt/zt/v2/router/handler_xgress"
+	"github.com/hanzozt/zt/v2/router/xgress_router"
 	"github.com/stretchr/testify/require"
 )
 

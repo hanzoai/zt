@@ -30,14 +30,14 @@ import (
 	"strings"
 
 	"github.com/golang-jwt/jwt/v5"
-	"github.com/hanzozt/ziti/v2/router/env"
+	"github.com/hanzozt/zt/v2/router/env"
 
 	"github.com/go-resty/resty/v2"
 	"github.com/michaelquigley/pfxlog"
 	"github.com/hanzozt/edge-api/rest_model"
 	"github.com/hanzozt/identity/certtools"
-	"github.com/hanzozt/sdk-golang/ziti"
-	"github.com/hanzozt/sdk-golang/ziti/enroll"
+	"github.com/hanzozt/sdk-golang/zt"
+	"github.com/hanzozt/sdk-golang/zt/enroll"
 )
 
 type apiPost struct {
@@ -46,7 +46,7 @@ type apiPost struct {
 }
 
 type Enroller interface {
-	Enroll(jwt []byte, silent bool, engine string, keyAlg ziti.KeyAlgVar) error
+	Enroll(jwt []byte, silent bool, engine string, keyAlg zt.KeyAlgVar) error
 }
 
 type RestEnroller struct {
@@ -61,7 +61,7 @@ func NewRestEnroller(config *env.Config) Enroller {
 	}
 }
 
-func (re *RestEnroller) Enroll(jwtBuf []byte, silent bool, engine string, keyAlg ziti.KeyAlgVar) error {
+func (re *RestEnroller) Enroll(jwtBuf []byte, silent bool, engine string, keyAlg zt.KeyAlgVar) error {
 	log := pfxlog.Logger()
 
 	if re.config == nil {

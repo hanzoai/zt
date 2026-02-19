@@ -4,9 +4,9 @@ import (
 	"fmt"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/hanzozt/ziti/v2/common"
-	"github.com/hanzozt/ziti/v2/common/eid"
-	"github.com/hanzozt/ziti/v2/common/pb/edge_ctrl_pb"
+	"github.com/hanzozt/zt/v2/common"
+	"github.com/hanzozt/zt/v2/common/eid"
+	"github.com/hanzozt/zt/v2/common/pb/edge_ctrl_pb"
 )
 
 func HasAccess(rdm *common.RouterDataModel, identityId string, serviceId string, data *InstanceData, policyType edge_ctrl_pb.PolicyType) (*common.ServicePolicy, error) {

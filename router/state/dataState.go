@@ -3,9 +3,9 @@ package state
 import (
 	"github.com/michaelquigley/pfxlog"
 	"github.com/hanzozt/channel/v4"
-	"github.com/hanzozt/ziti/v2/common"
-	"github.com/hanzozt/ziti/v2/common/pb/edge_ctrl_pb"
-	controllerEnv "github.com/hanzozt/ziti/v2/controller/env"
+	"github.com/hanzozt/zt/v2/common"
+	"github.com/hanzozt/zt/v2/common/pb/edge_ctrl_pb"
+	controllerEnv "github.com/hanzozt/zt/v2/controller/env"
 	"google.golang.org/protobuf/proto"
 )
 

@@ -25,12 +25,12 @@ import (
 	"github.com/hanzozt/identity"
 	"github.com/hanzozt/metrics"
 	"github.com/hanzozt/sdk-golang/xgress"
-	"github.com/hanzozt/ziti/v2/common/ctrlchan"
-	"github.com/hanzozt/ziti/v2/common/inspect"
-	"github.com/hanzozt/ziti/v2/common/pb/ctrl_pb"
-	"github.com/hanzozt/ziti/v2/controller/idgen"
-	"github.com/hanzozt/ziti/v2/router/env"
-	"github.com/hanzozt/ziti/v2/router/xlink"
+	"github.com/hanzozt/zt/v2/common/ctrlchan"
+	"github.com/hanzozt/zt/v2/common/inspect"
+	"github.com/hanzozt/zt/v2/common/pb/ctrl_pb"
+	"github.com/hanzozt/zt/v2/controller/idgen"
+	"github.com/hanzozt/zt/v2/router/env"
+	"github.com/hanzozt/zt/v2/router/xlink"
 	"github.com/stretchr/testify/require"
 )
 

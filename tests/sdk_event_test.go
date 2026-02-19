@@ -18,7 +18,7 @@ import (
 	"github.com/hanzozt/edge-api/rest_util"
 	"github.com/hanzozt/foundation/v2/debugz"
 	edgeapis "github.com/hanzozt/sdk-golang/edge-apis"
-	"github.com/hanzozt/sdk-golang/ziti"
+	"github.com/hanzozt/sdk-golang/zt"
 )
 
 func Test_SDK_Events(t *testing.T) {
@@ -49,15 +49,15 @@ func Test_SDK_Events(t *testing.T) {
 		testIdCreds := edgeapis.NewCertCredentials(testIdCerts.certs, testIdCerts.key)
 		testIdCreds.CaPool = ctx.ControllerConfig.Id.CA()
 
-		cfg := &ziti.Config{
+		cfg := &zt.Config{
 			ZtAPI:       clientApiUrl,
 			ConfigTypes: nil,
 			Credentials: testIdCreds,
 		}
 
-		ztx, err := ziti.NewContext(cfg)
-		ztx.(*ziti.ContextImpl).CtrlClt.SetAllowOidcDynamicallyEnabled(false)
-		ztx.(*ziti.ContextImpl).CtrlClt.SetUseOidc(false)
+		ztx, err := zt.NewContext(cfg)
+		ztx.(*zt.ContextImpl).CtrlClt.SetAllowOidcDynamicallyEnabled(false)
+		ztx.(*zt.ContextImpl).CtrlClt.SetUseOidc(false)
 
 		defer func() {
 			ztx.Close()
@@ -68,7 +68,7 @@ func Test_SDK_Events(t *testing.T) {
 
 		called := make(chan edgeapis.ApiSession, 1)
 
-		removeFullListener := ztx.Events().AddAuthenticationStateFullListener(func(ztx ziti.Context, detail edgeapis.ApiSession) {
+		removeFullListener := ztx.Events().AddAuthenticationStateFullListener(func(ztx zt.Context, detail edgeapis.ApiSession) {
 			ctx.Req.NotNil(ztx)
 			called <- detail
 		})
@@ -127,11 +127,11 @@ func Test_SDK_Events(t *testing.T) {
 			err = ztx.VerifyZitiMfa(code)
 			ctx.Req.NoError(err)
 
-			ztxPostMfa, err := ziti.NewContext(cfg)
+			ztxPostMfa, err := zt.NewContext(cfg)
 
 			// This is testing MFA in legacy/non-oidc context, so we need to disable OIDC here
-			ztxPostMfa.(*ziti.ContextImpl).CtrlClt.SetAllowOidcDynamicallyEnabled(false)
-			ztxPostMfa.(*ziti.ContextImpl).CtrlClt.SetUseOidc(false)
+			ztxPostMfa.(*zt.ContextImpl).CtrlClt.SetAllowOidcDynamicallyEnabled(false)
+			ztxPostMfa.(*zt.ContextImpl).CtrlClt.SetUseOidc(false)
 			ctx.Req.NoError(err)
 
 			defer func() {
@@ -140,7 +140,7 @@ func Test_SDK_Events(t *testing.T) {
 
 			partialChan := make(chan edgeapis.ApiSession, 1)
 
-			removePartialListener := ztxPostMfa.Events().AddAuthenticationStatePartialListener(func(ztx ziti.Context, detail edgeapis.ApiSession) {
+			removePartialListener := ztxPostMfa.Events().AddAuthenticationStatePartialListener(func(ztx zt.Context, detail edgeapis.ApiSession) {
 				ctx.Req.NotNil(ztx)
 				partialChan <- detail
 			})
@@ -180,12 +180,12 @@ func Test_SDK_Events(t *testing.T) {
 
 				fullChan := make(chan edgeapis.ApiSession, 1)
 
-				fullListenerRemover := ztxPostMfa.Events().AddAuthenticationStateFullListener(func(ztx ziti.Context, detail edgeapis.ApiSession) {
+				fullListenerRemover := ztxPostMfa.Events().AddAuthenticationStateFullListener(func(ztx zt.Context, detail edgeapis.ApiSession) {
 					ctx.Req.NotNil(ztx)
 					fullChan <- detail
 				})
 
-				mfaListenerRemover := ztxPostMfa.Events().AddMfaTotpCodeListener(func(ztx ziti.Context, query *rest_model.AuthQueryDetail, response ziti.MfaCodeResponse) {
+				mfaListenerRemover := ztxPostMfa.Events().AddMfaTotpCodeListener(func(ztx zt.Context, query *rest_model.AuthQueryDetail, response zt.MfaCodeResponse) {
 					ctx.Req.NotNil(ztx)
 					ctx.Req.NotNil(query)
 
@@ -196,7 +196,7 @@ func Test_SDK_Events(t *testing.T) {
 					err := response(authCode)
 					ctx.Req.NoError(err)
 				})
-				ztxImpl := ztxPostMfa.(*ziti.ContextImpl)
+				ztxImpl := ztxPostMfa.(*zt.ContextImpl)
 				err = ztxImpl.Reauthenticate()
 				ctx.Req.NoError(err)
 
@@ -214,7 +214,7 @@ func Test_SDK_Events(t *testing.T) {
 
 					unauthCalled := make(chan edgeapis.ApiSession, 1)
 
-					removeUnauthedListener := ztxPostMfa.Events().AddAuthenticationStateUnauthenticatedListener(func(ztx ziti.Context, detail edgeapis.ApiSession) {
+					removeUnauthedListener := ztxPostMfa.Events().AddAuthenticationStateUnauthenticatedListener(func(ztx zt.Context, detail edgeapis.ApiSession) {
 						ctx.Req.NotNil(ztx)
 						ctx.Req.NotNil(detail)
 
@@ -223,7 +223,7 @@ func Test_SDK_Events(t *testing.T) {
 
 					defer removeUnauthedListener()
 
-					implZtx := ztxPostMfa.(*ziti.ContextImpl)
+					implZtx := ztxPostMfa.(*zt.ContextImpl)
 					apiSessionId := implZtx.CtrlClt.GetCurrentApiSession().GetId()
 
 					deleteParams := api_session.NewDeleteAPISessionsParams()
@@ -297,13 +297,13 @@ func Test_SDK_Events(t *testing.T) {
 
 		ctx.Req.NoError(err)
 
-		cfg := &ziti.Config{
+		cfg := &zt.Config{
 			ZtAPI:       clientApiUrl,
 			ConfigTypes: nil,
 			Credentials: testIdCreds,
 		}
 
-		ztx, err := ziti.NewContext(cfg)
+		ztx, err := zt.NewContext(cfg)
 
 		defer func() {
 			ztx.Close()
@@ -314,7 +314,7 @@ func Test_SDK_Events(t *testing.T) {
 
 		called := make(chan *rest_model.ServiceDetail, 1)
 
-		serviceAddedRemover := ztx.Events().AddServiceAddedListener(func(ztx ziti.Context, detail *rest_model.ServiceDetail) {
+		serviceAddedRemover := ztx.Events().AddServiceAddedListener(func(ztx zt.Context, detail *rest_model.ServiceDetail) {
 			ctx.Req.NotNil(ztx)
 			called <- detail
 		})
@@ -379,13 +379,13 @@ func Test_SDK_Events(t *testing.T) {
 		err = rest_util.WrapErr(err)
 		ctx.Req.NoError(err)
 
-		cfg := &ziti.Config{
+		cfg := &zt.Config{
 			ZtAPI:       clientApiUrl,
 			ConfigTypes: nil,
 			Credentials: testIdCreds,
 		}
 
-		ztx, err := ziti.NewContext(cfg)
+		ztx, err := zt.NewContext(cfg)
 
 		defer func() {
 			ztx.Close()
@@ -397,12 +397,12 @@ func Test_SDK_Events(t *testing.T) {
 		serviceAddedChan := make(chan *rest_model.ServiceDetail, 1)
 		serviceChangedChan := make(chan *rest_model.ServiceDetail, 1)
 
-		serviceAddedRemover := ztx.Events().AddServiceAddedListener(func(ztx ziti.Context, detail *rest_model.ServiceDetail) {
+		serviceAddedRemover := ztx.Events().AddServiceAddedListener(func(ztx zt.Context, detail *rest_model.ServiceDetail) {
 			ctx.Req.NotNil(ztx)
 			serviceAddedChan <- detail
 		})
 
-		serviceChangedRemover := ztx.Events().AddServiceChangedListener(func(ztx ziti.Context, detail *rest_model.ServiceDetail) {
+		serviceChangedRemover := ztx.Events().AddServiceChangedListener(func(ztx zt.Context, detail *rest_model.ServiceDetail) {
 			ctx.Req.NotNil(ztx)
 			serviceChangedChan <- detail
 		})
@@ -487,13 +487,13 @@ func Test_SDK_Events(t *testing.T) {
 		err = rest_util.WrapErr(err)
 		ctx.Req.NoError(err)
 
-		cfg := &ziti.Config{
+		cfg := &zt.Config{
 			ZtAPI:       clientApiUrl,
 			ConfigTypes: nil,
 			Credentials: testIdCreds,
 		}
 
-		ztx, err := ziti.NewContext(cfg)
+		ztx, err := zt.NewContext(cfg)
 
 		ctx.Req.NoError(err)
 		ctx.Req.NotNil(ztx)
@@ -501,12 +501,12 @@ func Test_SDK_Events(t *testing.T) {
 		serviceAddedChan := make(chan *rest_model.ServiceDetail, 1)
 		serviceRemovedChan := make(chan *rest_model.ServiceDetail, 1)
 
-		serviceAddedRemover := ztx.Events().AddServiceAddedListener(func(ztx ziti.Context, detail *rest_model.ServiceDetail) {
+		serviceAddedRemover := ztx.Events().AddServiceAddedListener(func(ztx zt.Context, detail *rest_model.ServiceDetail) {
 			ctx.Req.NotNil(ztx)
 			serviceAddedChan <- detail
 		})
 
-		serviceRemovedRemover := ztx.Events().AddServiceRemovedListener(func(ztx ziti.Context, detail *rest_model.ServiceDetail) {
+		serviceRemovedRemover := ztx.Events().AddServiceRemovedListener(func(ztx zt.Context, detail *rest_model.ServiceDetail) {
 			ctx.Req.NotNil(ztx)
 			serviceRemovedChan <- detail
 		})
@@ -613,13 +613,13 @@ func Test_SDK_Events(t *testing.T) {
 		err = rest_util.WrapErr(err)
 		ctx.Req.NoError(err)
 
-		cfg := &ziti.Config{
+		cfg := &zt.Config{
 			ZtAPI:       clientApiUrl,
 			ConfigTypes: nil,
 			Credentials: testIdCreds,
 		}
 
-		ztx, err := ziti.NewContext(cfg)
+		ztx, err := zt.NewContext(cfg)
 
 		defer func() {
 			ztx.Close()
@@ -630,14 +630,14 @@ func Test_SDK_Events(t *testing.T) {
 
 		connectedCalled := make(chan []string, 1)
 
-		routerConRemover := ztx.Events().AddRouterConnectedListener(func(ztx ziti.Context, name, key string) {
+		routerConRemover := ztx.Events().AddRouterConnectedListener(func(ztx zt.Context, name, key string) {
 			ctx.Req.NotNil(ztx)
 			connectedCalled <- []string{name, key}
 		})
 
 		disconnectedCalled := make(chan []string, 1)
 
-		rouerDisconRemover := ztx.Events().AddRouterDisconnectedListener(func(ztx ziti.Context, name, key string) {
+		rouerDisconRemover := ztx.Events().AddRouterDisconnectedListener(func(ztx zt.Context, name, key string) {
 			ctx.Req.NotNil(ztx)
 			disconnectedCalled <- []string{name, key}
 		})
@@ -660,7 +660,7 @@ func Test_SDK_Events(t *testing.T) {
 		t.Run("disconnect event", func(t *testing.T) {
 			ctx.testContextChanged(t)
 
-			ztxImpl := ztx.(*ziti.ContextImpl)
+			ztxImpl := ztx.(*zt.ContextImpl)
 			ztxImpl.CloseAllEdgeRouterConns()
 
 			//test

@@ -19,7 +19,7 @@ package model
 import "time"
 
 const (
-	MfaProviderZiti string = "ziti"
+	MfaProviderZiti string = "zt"
 )
 
 type PostureResponseMfa struct {

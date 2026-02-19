@@ -59,7 +59,7 @@ The SDK now supports the following:
 * If client doesn't have access to service, it should stop listening and return an error
 * If client can't establish or re-establish API session, it should stop listening and return error
 
-If paired with a ziti controller/routers which support terminator strategies for HA/HS, the
+If paired with a zt controller/routers which support terminator strategies for HA/HS, the
 following features are also supported:
 
 * Handle listen to multiple edge routers.
@@ -69,7 +69,7 @@ following features are also supported:
 
 ## Theme
 
-* Fixes the `-n` flag being ignored for `ziti-enroll`
+* Fixes the `-n` flag being ignored for `zt-enroll`
 
 # Release 0.13.5
 
@@ -99,7 +99,7 @@ password.
 - `ca.key.pem` the CA's private x509 PEM formatted key
 
 ```
-$ ziti edge controller verify ca myCa --cacert ca.cert.pem --cakey ca.key.pem --password 1234
+$ zt edge controller verify ca myCa --cacert ca.cert.pem --cakey ca.key.pem --password 1234
 ```
 
 ### Example: Existing Verification Certificate
@@ -113,16 +113,16 @@ run to generate the verification script.
   verification token of `myCa`
 
 ```
-$ ziti edge controller verify ca myCa --cert verificationCert.pem
+$ zt edge controller verify ca myCa --cert verificationCert.pem
 ```
 
 ### Command help:
 
 ```
-$ ziti edge controller verify ca --help
+$ zt edge controller verify ca --help
 
 Usage:
-  ziti edge controller verify ca <name> ( --cert <pemCertFile> | --cacert
+  zt edge controller verify ca <name> ( --cert <pemCertFile> | --cacert
   <signingCaCert> --cakey <signingCaKey> [--password <caKeyPassword>]) [flags]
 
 Flags:
@@ -154,9 +154,9 @@ Ziti 0.13.3 includes the following:
 
 A new set of options have been introduced for channel2 backed listeners. Channel2 is a library used
 to establish message based connections between a channel2 client and server. Most importantly this
-is used for control and management connections in the `ziti-controller` and for the SDK connections
-accepted in `ziti-router`. Setting these values to invalid values will result in errors during
-startup of the `ziti-controller` and `ziti-router`
+is used for control and management connections in the `zt-controller` and for the SDK connections
+accepted in `zt-router`. Setting these values to invalid values will result in errors during
+startup of the `zt-controller` and `zt-router`
 
 * `maxQueuedConnects` - set the maximum number of connect requests that are buffered and waiting to
   be acknowledged (1 to 5000, default 1000)
@@ -165,7 +165,7 @@ startup of the `ziti-controller` and `ziti-router`
 * `connectTimeoutMs` - the number of milliseconds to wait before a hello synchronization fails and
   closes the connection (30ms to 60000ms, default: 1000ms)
 
-Example: `ziti-controller` configuration file:
+Example: `zt-controller` configuration file:
 
 ```
 # the endpoint that routers will connect to the controller over.
@@ -185,7 +185,7 @@ mgmt:
     connectTimeoutMs:       3000
 ```
 
-Example: `ziti-router` configuration file:
+Example: `zt-router` configuration file:
 
 ```
 listeners:
@@ -216,7 +216,7 @@ Ziti 0.13 includes the following:
 * CA Auto Enrollment now allows identities to inherit role attributes from the validating CA
     * New `identityRole` attributes added to CA entities
 * New APIs to list and manage Transit Routers
-* Transit Routers now support enrolment via `ziti-router enroll`
+* Transit Routers now support enrolment via `zt-router enroll`
 * Embedded Swagger/OpenAPI 2.0 endpoint
 * A small set of APIs accepted id or name. These have been changed to accept only id
 * Fabric enhancements
@@ -245,9 +245,9 @@ All three support the same operations:
 
 The CLI supports these new operations as well.
 
-    ziti edge controller list edge-router-role-attributes
-    ziti edge controller list identity-role-attributes
-    ziti edge controller list service-role-attributes
+    zt edge controller list edge-router-role-attributes
+    zt edge controller list identity-role-attributes
+    zt edge controller list service-role-attributes
 
 Example output:
 
@@ -436,22 +436,22 @@ The CLI has also been updated with a new policy-advisor common.
 Examples:
 
     # Inspect all identities for policy issues
-    ziti edge controller policy-advisor identities
+    zt edge controller policy-advisor identities
 
     # Inspect just the jsmith-laptop identity for policy issues with all services that the identity can access
-    ziti edge controller policy-advisor identities jsmith-laptop
+    zt edge controller policy-advisor identities jsmith-laptop
 
     # Inspect the jsmith-laptop identity for issues related to the ssh service
-    ziti edge controller policy-advisor identities jsmith-laptop ssh
+    zt edge controller policy-advisor identities jsmith-laptop ssh
 
     # Inspect all services for policy issues
-    ziti edge controller policy-advisor services
+    zt edge controller policy-advisor services
 
     # Inspect just the ssh service for policy issues for all identities the service can access
-    ziti edge controller policy-advisor services ssh
+    zt edge controller policy-advisor services ssh
 
     # Inspect the ssh service for issues related to the jsmith-laptop identity 
-    ziti edge controller policy-advisor identities ssh jsmith-laptop
+    zt edge controller policy-advisor identities ssh jsmith-laptop
 
 Some example output of the CLI:
 
@@ -532,7 +532,7 @@ do not handle incoming Ziti Edge SDK connections.
          * isVerified - Type bool - true if the router has completed enrollment
          * isOnline - Type bool - true if the router is currently connected to the controller
          * enrollmentToken - Type string - the enrollment token that would be used during enrollment (nil post enrollment)
-         * enrollmentJwt - Type string - an enrollment JWT suitable for use with "ziti-router enroll" (nil post enrollment)
+         * enrollmentJwt - Type string - an enrollment JWT suitable for use with "zt-router enroll" (nil post enrollment)
          * enrollmentCreatedAt - Type date-time - the date and time the enrollment was created (nil post enrollment)
          * enrollmentExpiresAt - Type date-time - the date and time the enrollment expires at (matches JWT expiration time, nil post enrollment)
 
@@ -596,9 +596,9 @@ Example list output:
 }
 ```
 
-## Transit Routers now support enrolment via `ziti-router enroll`
+## Transit Routers now support enrolment via `zt-router enroll`
 
-Transit Routers now enroll using the same command: `ziti-router enroll <config> -j <jwt>`. During
+Transit Routers now enroll using the same command: `zt-router enroll <config> -j <jwt>`. During
 the enrollment process, the CSR properties used will be taken from `edge.csr`. If `edge.csr` does
 not exist `csr` will be utilized. If both are missing an error will occur.
 
@@ -622,7 +622,7 @@ forwarder:
   #
   latencyProbeInterval: 1000
 
-# Optional CSR section for transit router enrollment via `ziti-router enroll <config> -j <jwt>`
+# Optional CSR section for transit router enrollment via `zt-router enroll <config> -j <jwt>`
 csr:
   country: US
   province: NC
@@ -634,13 +634,13 @@ csr:
       - "localhost"
       - "test-network"
       - "test-network.localhost"
-      - "ziti-dev-ingress01"
+      - "zt-dev-ingress01"
     email:
       - "admin@example.com"
     ip:
       - "127.0.0.1"
     uri:
-      - "ziti://ziti-dev-router01/made/up/example"
+      - "zt://zt-dev-router01/made/up/example"
 
 
 #trace:
@@ -718,7 +718,7 @@ The main endpoint to retrieve the Swagger/Open API 2.0 specification is: `/specs
    example when referencing the ssh service. These now also only accept ID
 
 In general allowing both values adds complexity to the server side code. Consuming code, such as
-user interfaces or the ziti cli, can do the name to id translation just as easily.
+user interfaces or the zt cli, can do the name to id translation just as easily.
 
 ## Fabric Enhancements
 

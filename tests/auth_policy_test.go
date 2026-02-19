@@ -27,7 +27,7 @@ import (
 	"github.com/google/uuid"
 	"github.com/hanzozt/edge-api/rest_model"
 	nfpem "github.com/hanzozt/foundation/v2/pem"
-	"github.com/hanzozt/ziti/v2/controller/db"
+	"github.com/hanzozt/zt/v2/controller/db"
 )
 
 func Test_AuthPolicies(t *testing.T) {
@@ -1158,7 +1158,7 @@ func Test_AuthPolicies(t *testing.T) {
 
 			jwtToken := jwt.New(jwt.SigningMethodES256)
 			jwtToken.Claims = jwt.RegisteredClaims{
-				Audience:  []string{"ziti.controller"},
+				Audience:  []string{"zt.controller"},
 				ExpiresAt: &jwt.NumericDate{Time: time.Now().Add(2 * time.Hour)},
 				ID:        time.Now().String(),
 				IssuedAt:  &jwt.NumericDate{Time: time.Now()},
@@ -1304,7 +1304,7 @@ func Test_AuthPolicies(t *testing.T) {
 
 			jwtToken := jwt.New(jwt.SigningMethodES256)
 			jwtToken.Claims = jwt.RegisteredClaims{
-				Audience:  []string{"ziti.controller"},
+				Audience:  []string{"zt.controller"},
 				ExpiresAt: &jwt.NumericDate{Time: time.Now().Add(2 * time.Hour)},
 				ID:        time.Now().String(),
 				IssuedAt:  &jwt.NumericDate{Time: time.Now()},

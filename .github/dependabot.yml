@@ -40,7 +40,7 @@ updates:
 
 # bump the console SPA version that is built in to the controller image
 - package-ecosystem: docker
-  directory: /dist/docker-images/ziti-controller
+  directory: /dist/docker-images/zt-controller
   schedule:
     interval: weekly
   open-pull-requests-limit: 10
@@ -54,7 +54,7 @@ updates:
 
 # bump the kubectl version in the cli image
 - package-ecosystem: docker
-  directory: /dist/docker-images/ziti-cli
+  directory: /dist/docker-images/zt-cli
   schedule:
     interval: weekly
   open-pull-requests-limit: 10

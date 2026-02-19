@@ -10,17 +10,17 @@
 * [sdk-golang#112](https://github.com/hanzozt/sdk-golang/issues/112) Process checks for Windows are
   case-insensitive
 * The CLI agent now runs over unix sockets and is enabled by default. See doc/ops-agent.md for
-  details in the ziti repository.
-* [ziti#245](https://github.com/hanzozt/ziti/issues/245) Make timeout used by CLI's internal REST
+  details in the zt repository.
+* [zt#245](https://github.com/hanzozt/zt/issues/245) Make timeout used by CLI's internal REST
   client configurable via cmd line arg
 
-  All `ziti edge controller` subcommands now support the `--timeout=n` flag which controls the
+  All `zt edge controller` subcommands now support the `--timeout=n` flag which controls the
   internal REST-client timeout used when communicating with the Controller. The timeout resolution
   is in seconds. If this flag is not specified, the default is `5`. Prior to this release, the the
   REST-client timeout was always `2`. You now have the opportunity to increase the timeout if
   necessary (e.g. if large amounts of data are being queried).
 
-  All `ziti edge controller` subcommands now support the `--verbose` flag which will cause internal
+  All `zt edge controller` subcommands now support the `--verbose` flag which will cause internal
   REST-client to emit debugging information concerning HTTP headers, status, raw json response data,
   and more. You now have the opportunity to see much more information, which could be valuable
   during trouble-shooting.
@@ -91,7 +91,7 @@ The Ziti Edge API still accepts arrays of versions, as such the arrays are OR'ed
 addition, the Ziti CLI supports providing version declarations:
 
 ```
-ziti edge create posture-check os $postureCheckOsName -o "windows:>=10.0.19041" -a "pc1"
+zt edge create posture-check os $postureCheckOsName -o "windows:>=10.0.19041" -a "pc1"
 ```
 
 # Release 0.17.3
@@ -121,12 +121,12 @@ ziti edge create posture-check os $postureCheckOsName -o "windows:>=10.0.19041" 
 
 ## Posture Check CLI Commands
 
-The following commands have been added to the `ziti` CLI:
+The following commands have been added to the `zt` CLI:
 
-* `ziti edge list posture-checks <flags>`
-* `ziti edge delete posture-check <idOrName> <flags>`
-* `ziti edge update posture-check <type> <flags>`
-* `ziti edge create posture-check <type> <reqValues> <flags>`
+* `zt edge list posture-checks <flags>`
+* `zt edge delete posture-check <idOrName> <flags>`
+* `zt edge update posture-check <type> <flags>`
+* `zt edge create posture-check <type> <reqValues> <flags>`
 
 See the `-h` usage for more information on each command.
 
@@ -157,7 +157,7 @@ addresses.
 
 ## Breaking CLI Change
 
-* The `ziti edge enroll` subcommand now supports the `--keyAlg=RSA|EC` flag which controls the
+* The `zt edge enroll` subcommand now supports the `--keyAlg=RSA|EC` flag which controls the
   algorithm used to generate the private key of the identity. If this flag is not specified, the
   default is `RSA`. Prior to this release, the the algorithm used to generate the private key of the
   identity was forced to `EC`. You now have a choice (although RSA usage should be used if you
@@ -165,9 +165,9 @@ addresses.
 
 ## What's New
 
-* [TCP half-close](#tcp-half-close-support-in-ziti-tunnel) [edge#368 Implement half-close support](https://github.com/hanzozt/edge/issues/368)
+* [TCP half-close](#tcp-half-close-support-in-zt-tunnel) [edge#368 Implement half-close support](https://github.com/hanzozt/edge/issues/368)
 
-### TCP half close support in ziti tunnel
+### TCP half close support in zt tunnel
 
 This release implements a more graceful termination of TCP connections proxied over Ziti network.
 One side of TCP connection can sent TCP FIN to its peer while continuing to receive data from

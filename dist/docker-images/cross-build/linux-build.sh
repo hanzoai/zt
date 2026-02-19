@@ -40,7 +40,7 @@ for ARCH in ${JOBS[@]}; do
             -output=${GOX_OUTPUT} \
             -parallel=${PROCS_PER_JOB} \
             ${TAGS+-tags=${TAGS}} \
-            ./ziti/
+            ./zt/
     "
 case ${ARCH} in
         amd64)  eval ${GOX_CMD} ${BACKGROUND}

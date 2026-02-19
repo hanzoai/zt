@@ -22,15 +22,15 @@ import (
 
 	"github.com/go-openapi/runtime/middleware"
 	"github.com/hanzozt/foundation/v2/errorz"
-	"github.com/hanzozt/ziti/v2/common/pb/cmd_pb"
-	"github.com/hanzozt/ziti/v2/controller/apierror"
-	"github.com/hanzozt/ziti/v2/controller/env"
-	"github.com/hanzozt/ziti/v2/controller/models"
-	"github.com/hanzozt/ziti/v2/controller/permissions"
-	"github.com/hanzozt/ziti/v2/controller/raft"
-	"github.com/hanzozt/ziti/v2/controller/response"
-	"github.com/hanzozt/ziti/v2/controller/rest_model"
-	"github.com/hanzozt/ziti/v2/controller/rest_server/operations/cluster"
+	"github.com/hanzozt/zt/v2/common/pb/cmd_pb"
+	"github.com/hanzozt/zt/v2/controller/apierror"
+	"github.com/hanzozt/zt/v2/controller/env"
+	"github.com/hanzozt/zt/v2/controller/models"
+	"github.com/hanzozt/zt/v2/controller/permissions"
+	"github.com/hanzozt/zt/v2/controller/raft"
+	"github.com/hanzozt/zt/v2/controller/response"
+	"github.com/hanzozt/zt/v2/controller/rest_model"
+	"github.com/hanzozt/zt/v2/controller/rest_server/operations/cluster"
 )
 
 func init() {

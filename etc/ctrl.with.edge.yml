@@ -45,17 +45,17 @@ additionalTrustDomains: []
 
 profile:
 #   cpu:
-#       path: ${TMPDIR}/ziti.ctrl.cpu.pprof
+#       path: ${TMPDIR}/zt.ctrl.cpu.pprof
 #  memory:
 #    path: ctrl.memprof
 
 db: ${ZITI_DATA}/db/ctrl.db
 
 identity:
-  cert: ${ZITI_SOURCE}/ziti/etc/ca/intermediate/certs/ctrl-client.cert.pem
-  server_cert: ${ZITI_SOURCE}/ziti/etc/ca/intermediate/certs/ctrl-server.cert.pem
-  key: ${ZITI_SOURCE}/ziti/etc/ca/intermediate/private/ctrl.key.pem
-  ca: ${ZITI_SOURCE}/ziti/etc/ca/intermediate/certs/ca-chain.cert.pem
+  cert: ${ZITI_SOURCE}/zt/etc/ca/intermediate/certs/ctrl-client.cert.pem
+  server_cert: ${ZITI_SOURCE}/zt/etc/ca/intermediate/certs/ctrl-server.cert.pem
+  key: ${ZITI_SOURCE}/zt/etc/ca/intermediate/private/ctrl.key.pem
+  ca: ${ZITI_SOURCE}/zt/etc/ca/intermediate/certs/ca-chain.cert.pem
 
 # the endpoint that routers will connect to the controller over.
 ctrl:
@@ -113,7 +113,7 @@ events:
     handler:
       type: file
       format: json
-      path: ${TMPDIR}/ziti-events.log
+      path: ${TMPDIR}/zt-events.log
 #  usageLogger:
 #    subscriptions:
 #      - type: fabric.usage
@@ -122,7 +122,7 @@ events:
 #      type: amqp
 #      format: json
 #      url: "amqp://localhost:5672" 
-#      queue: ziti
+#      queue: zt
 #      durable: true      //default:true
 #      autoDelete: false  //default:false
 #      exclusive: false   //default:false
@@ -161,7 +161,7 @@ events:
   #     type: servicebus
   #     format: json
   #     connectionString: "Endpoint=sb://your-namespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=your-key"
-  #     topic: "ziti-events"
+  #     topic: "zt-events"
   #     bufferSize: 100
 
 # Alternative configuration with queue instead of topic
@@ -174,7 +174,7 @@ events:
 #       type: servicebus
 #       format: json
 #       connectionString: "Endpoint=sb://your-namespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=your-key"
-#       queue: "ziti-events-queue"
+#       queue: "zt-events-queue"
 #       bufferSize: 50
 
 # xctrl_example
@@ -192,7 +192,7 @@ healthChecks:
     # How long to wait before starting the check. Defaults to 15 seconds
     initialDelay: 15s
 
-# By having an 'edge' section defined, the ziti-controller will attempt to parse the edge configuration. Removing this
+# By having an 'edge' section defined, the zt-controller will attempt to parse the edge configuration. Removing this
 # section, commenting out, or altering the name of the section will cause the edge to not run.
 edge:
   # This section allows configuring the rate limiter for auth attempts
@@ -237,8 +237,8 @@ edge:
     # a signing certificate from the PKI that the Ziti environment is using to sign certificates. The signingCert.cert
     # will be added to the /.well-known CA store that is used to bootstrap trust with the Ziti Controller.
     signingCert:
-      cert: ${ZITI_SOURCE}/ziti/etc/ca/intermediate/certs/intermediate.cert.pem
-      key: ${ZITI_SOURCE}/ziti/etc/ca/intermediate/private/intermediate.key.decrypted.pem
+      cert: ${ZITI_SOURCE}/zt/etc/ca/intermediate/certs/intermediate.cert.pem
+      key: ${ZITI_SOURCE}/zt/etc/ca/intermediate/private/intermediate.key.decrypted.pem
     # edgeIdentity - optional
     # A section for identity enrollment specific settings
     edgeIdentity:
@@ -278,17 +278,17 @@ web:
         address: 127.0.0.1:1280
 
         # newAddress - optional
-        # A host:port string which will be sent out as an HTTP header "ziti-new-address" if specified. If the header
+        # A host:port string which will be sent out as an HTTP header "zt-new-address" if specified. If the header
         # is present, clients should update location configuration to immediately use the new address for future
         # connections. The value of newAddress must be resolvable both via DNS and validate via certificates
         newAddress: localhost:1280
     # identity - optional
     # Allows the webListener to have a specific identity instead of defaulting to the root `identity` section.
     #    identity:
-    #      cert:                 ${ZITI_SOURCE}/ziti/etc/ca/intermediate/certs/ctrl-client.cert.pem
-    #      server_cert:          ${ZITI_SOURCE}/ziti/etc/ca/intermediate/certs/ctrl-server.cert.pem
-    #      key:                  ${ZITI_SOURCE}/ziti/etc/ca/intermediate/private/ctrl.key.pem
-    #      ca:                   ${ZITI_SOURCE}/ziti/etc/ca/intermediate/certs/ca-chain.cert.pem
+    #      cert:                 ${ZITI_SOURCE}/zt/etc/ca/intermediate/certs/ctrl-client.cert.pem
+    #      server_cert:          ${ZITI_SOURCE}/zt/etc/ca/intermediate/certs/ctrl-server.cert.pem
+    #      key:                  ${ZITI_SOURCE}/zt/etc/ca/intermediate/private/ctrl.key.pem
+    #      ca:                   ${ZITI_SOURCE}/zt/etc/ca/intermediate/certs/ca-chain.cert.pem
     # options - optional
     # Allows the specification of webListener level options - mainly dealing with HTTP/TLS settings. These options are
     # used for all http servers started by the current webListener.

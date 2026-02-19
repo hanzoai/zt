@@ -27,8 +27,8 @@ import (
 	"github.com/hanzozt/identity"
 	"github.com/hanzozt/sdk-golang/xgress"
 	"github.com/hanzozt/transport/v2"
-	fabricMetrics "github.com/hanzozt/ziti/v2/common/metrics"
-	"github.com/hanzozt/ziti/v2/router/xlink"
+	fabricMetrics "github.com/hanzozt/zt/v2/common/metrics"
+	"github.com/hanzozt/zt/v2/router/xlink"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 )

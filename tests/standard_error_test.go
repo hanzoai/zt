@@ -22,7 +22,7 @@ import (
 	"testing"
 
 	"github.com/hanzozt/foundation/v2/errorz"
-	"github.com/hanzozt/ziti/v2/controller/apierror"
+	"github.com/hanzozt/zt/v2/controller/apierror"
 	"github.com/stretchr/testify/require"
 )
 

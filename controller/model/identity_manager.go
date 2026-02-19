@@ -26,22 +26,22 @@ import (
 	"github.com/michaelquigley/pfxlog"
 	"github.com/hanzozt/foundation/v2/errorz"
 	"github.com/hanzozt/metrics"
-	"github.com/hanzozt/sdk-golang/ziti"
+	"github.com/hanzozt/sdk-golang/zt"
 	"github.com/hanzozt/storage/boltz"
-	"github.com/hanzozt/ziti/v2/common/ctrlchan"
-	"github.com/hanzozt/ziti/v2/common/eid"
-	"github.com/hanzozt/ziti/v2/common/inspect"
-	"github.com/hanzozt/ziti/v2/common/pb/cmd_pb"
-	"github.com/hanzozt/ziti/v2/common/pb/edge_cmd_pb"
-	"github.com/hanzozt/ziti/v2/common/pb/edge_ctrl_pb"
-	"github.com/hanzozt/ziti/v2/controller/change"
-	"github.com/hanzozt/ziti/v2/controller/command"
-	"github.com/hanzozt/ziti/v2/controller/config"
-	"github.com/hanzozt/ziti/v2/controller/db"
-	"github.com/hanzozt/ziti/v2/controller/event"
-	"github.com/hanzozt/ziti/v2/controller/fields"
-	"github.com/hanzozt/ziti/v2/controller/models"
-	"github.com/hanzozt/ziti/v2/controller/permissions"
+	"github.com/hanzozt/zt/v2/common/ctrlchan"
+	"github.com/hanzozt/zt/v2/common/eid"
+	"github.com/hanzozt/zt/v2/common/inspect"
+	"github.com/hanzozt/zt/v2/common/pb/cmd_pb"
+	"github.com/hanzozt/zt/v2/common/pb/edge_cmd_pb"
+	"github.com/hanzozt/zt/v2/common/pb/edge_ctrl_pb"
+	"github.com/hanzozt/zt/v2/controller/change"
+	"github.com/hanzozt/zt/v2/controller/command"
+	"github.com/hanzozt/zt/v2/controller/config"
+	"github.com/hanzozt/zt/v2/controller/db"
+	"github.com/hanzozt/zt/v2/controller/event"
+	"github.com/hanzozt/zt/v2/controller/fields"
+	"github.com/hanzozt/zt/v2/controller/models"
+	"github.com/hanzozt/zt/v2/controller/permissions"
 	cmap "github.com/orcaman/concurrent-map/v2"
 	"go.etcd.io/bbolt"
 	"google.golang.org/protobuf/proto"
@@ -803,9 +803,9 @@ func (self *IdentityManager) ProtobufToIdentity(msg *edge_cmd_pb.Identity) (*Ide
 		}
 	}
 
-	precedenceMap := map[string]ziti.Precedence{}
+	precedenceMap := map[string]zt.Precedence{}
 	for k, v := range msg.ServiceHostingPrecedences {
-		precedenceMap[k] = ziti.Precedence(v)
+		precedenceMap[k] = zt.Precedence(v)
 	}
 
 	costMap := map[string]uint16{}
@@ -845,7 +845,7 @@ func (self *IdentityManager) ProtobufToIdentity(msg *edge_cmd_pb.Identity) (*Ide
 		RoleAttributes:            msg.RoleAttributes,
 		EnvInfo:                   envInfo,
 		SdkInfo:                   sdkInfo,
-		DefaultHostingPrecedence:  ziti.Precedence(msg.DefaultHostingPrecedence),
+		DefaultHostingPrecedence:  zt.Precedence(msg.DefaultHostingPrecedence),
 		DefaultHostingCost:        uint16(msg.DefaultHostingCost),
 		ServiceHostingPrecedences: precedenceMap,
 		ServiceHostingCosts:       costMap,

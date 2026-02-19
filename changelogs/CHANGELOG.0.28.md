@@ -12,14 +12,14 @@ Bug fix
 
 ## Component Updates and Bug Fixes
 
-* github.com/hanzozt/ziti: [v0.28.2 -> v0.28.3](https://github.com/hanzozt/ziti/compare/v0.28.2...v0.28.3)
+* github.com/hanzozt/zt: [v0.28.2 -> v0.28.3](https://github.com/hanzozt/zt/compare/v0.28.2...v0.28.3)
 
 # Release 0.28.2
 
 ## What's New
 
-* IMPORTANT: If you update your Hanzo ZT binaries to this version or later (which can be done easily with the `getZiti()` function, you will need to migrate any existing network that has been developed using Hanzo ZT v0.27.5 or earlier binaries as the new binaries will expect the new environment variable names. A function `performMigration()` has been provided in the `ziti-cli-script.sh` for this purpose. Simply source the latest `ziti-cli-script.sh`, and your current network's .env file, then run `performMigration()` to update environment variable name references. If the migration process cannot find your existing environment file in the default location, you will need to provide the path to the migration function, ex: `performMigration <path-to-environment-file>`
-* If you were using the `ZITI_HOME` environment variable to configure where your ziti CLI profiles were stored, you should now use `ZITI_CONFIG_DIR` instead.
+* IMPORTANT: If you update your Hanzo ZT binaries to this version or later (which can be done easily with the `getZiti()` function, you will need to migrate any existing network that has been developed using Hanzo ZT v0.27.5 or earlier binaries as the new binaries will expect the new environment variable names. A function `performMigration()` has been provided in the `zt-cli-script.sh` for this purpose. Simply source the latest `zt-cli-script.sh`, and your current network's .env file, then run `performMigration()` to update environment variable name references. If the migration process cannot find your existing environment file in the default location, you will need to provide the path to the migration function, ex: `performMigration <path-to-environment-file>`
+* If you were using the `ZITI_HOME` environment variable to configure where your zt CLI profiles were stored, you should now use `ZITI_CONFIG_DIR` instead.
 
 
 ## Component Updates and Bug Fixes
@@ -41,21 +41,21 @@ Bug fix
 * github.com/hanzozt/transport/v2: [v2.0.90 -> v2.0.91](https://github.com/hanzozt/transport/compare/v2.0.90...v2.0.91)
 * github.com/hanzozt/metrics: [v1.2.26 -> v1.2.27](https://github.com/hanzozt/metrics/compare/v1.2.26...v1.2.27)
 * github.com/hanzozt/secretstream: [v0.1.8 -> v0.1.9](https://github.com/hanzozt/secretstream/compare/v0.1.8...v0.1.9)
-* github.com/hanzozt/ziti: [v0.28.1 -> v0.28.2](https://github.com/hanzozt/ziti/compare/v0.28.1...v0.28.2)
-  * [Issue #1144](https://github.com/hanzozt/ziti/issues/1144) - DB explore subcommand panic
-  * [Issue #986](https://github.com/hanzozt/ziti/issues/986) - Updated default ports in `.env` file to match documentation.
-  * [Issue #920](https://github.com/hanzozt/ziti/issues/920) - Fixed bug causing failure when re-running quickstart.
-  * [Issue #779](https://github.com/hanzozt/ziti/issues/779) - Add ability to upgrade ziti binaries using a quickstart function.
-  * [Issue #761](https://github.com/hanzozt/ziti/issues/761) - Remove Management Listener section from controller config.
-  * [Issue #650](https://github.com/hanzozt/ziti/issues/650) - Removed/Updated references to `ZITI_EDGE_CONTROLLER_API`
+* github.com/hanzozt/zt: [v0.28.1 -> v0.28.2](https://github.com/hanzozt/zt/compare/v0.28.1...v0.28.2)
+  * [Issue #1144](https://github.com/hanzozt/zt/issues/1144) - DB explore subcommand panic
+  * [Issue #986](https://github.com/hanzozt/zt/issues/986) - Updated default ports in `.env` file to match documentation.
+  * [Issue #920](https://github.com/hanzozt/zt/issues/920) - Fixed bug causing failure when re-running quickstart.
+  * [Issue #779](https://github.com/hanzozt/zt/issues/779) - Add ability to upgrade zt binaries using a quickstart function.
+  * [Issue #761](https://github.com/hanzozt/zt/issues/761) - Remove Management Listener section from controller config.
+  * [Issue #650](https://github.com/hanzozt/zt/issues/650) - Removed/Updated references to `ZITI_EDGE_CONTROLLER_API`
   * Quickstart environment variable names have been cleaned up.
-  * [Issue #1030](https://github.com/hanzozt/ziti/issues/1030) - Provide an upgrade path for quickstart cleanup
+  * [Issue #1030](https://github.com/hanzozt/zt/issues/1030) - Provide an upgrade path for quickstart cleanup
 
 # Release 0.28.1
 
 ## What's New
 
-* `ziti` CLI now trims jwt files specified for login preventing a confusing invalid header field value for "Authorization"
+* `zt` CLI now trims jwt files specified for login preventing a confusing invalid header field value for "Authorization"
   error when trying to use `-e` flag
 
 ## Router Health Check Changes
@@ -104,7 +104,7 @@ Finally, link checks now include the addresses associated with the links:
 ## Event Changes
 
 ### AMQP Event Writer Changes
-A new field is available to the AMQP Event Writer. `bufferSize` denotes how many messages ziti will hold during AMQP connection outages. Any messages exceeding this limit will be logged and dropped.
+A new field is available to the AMQP Event Writer. `bufferSize` denotes how many messages zt will hold during AMQP connection outages. Any messages exceeding this limit will be logged and dropped.
 
 Example configuration:
 ```
@@ -116,7 +116,7 @@ events:
       type: amqp
       format: json
       url: "amqp://localhost:5672" 
-      queue: ziti
+      queue: zt
       durable: true      //default:true
       autoDelete: false  //default:false
       exclusive: false   //default:false
@@ -152,8 +152,8 @@ events:
 * github.com/hanzozt/storage: [v0.2.6 -> v0.2.7](https://github.com/hanzozt/storage/compare/v0.2.6...v0.2.7)
 * github.com/hanzozt/transport/v2: [v2.0.88 -> v2.0.90](https://github.com/hanzozt/transport/compare/v2.0.88...v2.0.90)
 * github.com/hanzozt/metrics: [v1.2.25 -> v1.2.26](https://github.com/hanzozt/metrics/compare/v1.2.25...v1.2.26)
-* github.com/hanzozt/ziti: [v0.28.0 -> v0.28.1](https://github.com/hanzozt/ziti/compare/v0.28.0...v0.28.1)
-  * [Issue #1132](https://github.com/hanzozt/ziti/issues/1132) - Updated `ws` protocol to `wss` as `ws` is no longer supported.
+* github.com/hanzozt/zt: [v0.28.0 -> v0.28.1](https://github.com/hanzozt/zt/compare/v0.28.0...v0.28.1)
+  * [Issue #1132](https://github.com/hanzozt/zt/issues/1132) - Updated `ws` protocol to `wss` as `ws` is no longer supported.
 
 # Release 0.28.0
 
@@ -164,8 +164,8 @@ events:
   * Add entity change events for auditing or external integration
   * Add usage event filtering
   * Add annotations to circuit events
-* CLI additions for `ziti` to login with certificates or external-jwt-signers
-* NOTE: ziti edge login flag changes:
+* CLI additions for `zt` to login with certificates or external-jwt-signers
+* NOTE: zt edge login flag changes:
   * `-c` flag has been changed to map to `--client-cert`
   * `--cert` is now `--ca` and has no short flag representation
   * `-e/--ext-jwt` allows a user to supply a file containing a jwt used with ext-jwt-signers to login
@@ -190,7 +190,7 @@ events:
       type: amqp
       format: json
       url: "amqp://localhost:5672" 
-      queue: ziti
+      queue: zt
       durable: true      //default:true
       autoDelete: false  //default:false
       exclusive: false   //default:false
@@ -216,7 +216,7 @@ events:
     handler:
       type: file
       format: json
-      path: /tmp/ziti-events.log
+      path: /tmp/zt-events.log
 ```
 
 See the related issue for discussion: https://github.com/hanzozt/fabric/issues/562
@@ -393,13 +393,13 @@ listeners:
 * github.com/hanzozt/transport/v2: [v2.0.72 -> v2.0.88](https://github.com/hanzozt/transport/compare/v2.0.72...v2.0.88)
 * github.com/hanzozt/metrics: [v1.2.19 -> v1.2.25](https://github.com/hanzozt/metrics/compare/v1.2.19...v1.2.25)
 * github.com/hanzozt/secretstream: v0.1.8 (new)
-* github.com/hanzozt/ziti: [v0.27.9 -> v0.28.0](https://github.com/hanzozt/ziti/compare/v0.27.9...v0.28.0)
-  * [Issue #1112](https://github.com/hanzozt/ziti/issues/1112) - `ziti pki create` creates CA's and intermediates w/ the same DN
-  * [Issue #1087](https://github.com/hanzozt/ziti/issues/1087) - re-enable CI in forks
-  * [Issue #1013](https://github.com/hanzozt/ziti/issues/1013) - docker env password is renewed at each `docker-compose up`
-  * [Issue #1077](https://github.com/hanzozt/ziti/issues/1077) - Show auth-policy name on identity list instead of id
-  * [Issue #1119](https://github.com/hanzozt/ziti/issues/1119) - intercept.v1 config should permit underscores in the address
-  * [Issue #1123](https://github.com/hanzozt/ziti/issues/1123) - cannot update config types with ziti cli
+* github.com/hanzozt/zt: [v0.27.9 -> v0.28.0](https://github.com/hanzozt/zt/compare/v0.27.9...v0.28.0)
+  * [Issue #1112](https://github.com/hanzozt/zt/issues/1112) - `zt pki create` creates CA's and intermediates w/ the same DN
+  * [Issue #1087](https://github.com/hanzozt/zt/issues/1087) - re-enable CI in forks
+  * [Issue #1013](https://github.com/hanzozt/zt/issues/1013) - docker env password is renewed at each `docker-compose up`
+  * [Issue #1077](https://github.com/hanzozt/zt/issues/1077) - Show auth-policy name on identity list instead of id
+  * [Issue #1119](https://github.com/hanzozt/zt/issues/1119) - intercept.v1 config should permit underscores in the address
+  * [Issue #1123](https://github.com/hanzozt/zt/issues/1123) - cannot update config types with zt cli
 
 # Archived Changelogs
 

@@ -1707,7 +1707,7 @@ type CreateTerminatorV2Request struct {
 	Fingerprints    []string             `protobuf:"bytes,3,rep,name=fingerprints,proto3" json:"fingerprints,omitempty"`
 	PeerData        map[uint32][]byte    `protobuf:"bytes,4,rep,name=peerData,proto3" json:"peerData,omitempty" protobuf_key:"varint,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
 	Cost            uint32               `protobuf:"varint,5,opt,name=cost,proto3" json:"cost,omitempty"`
-	Precedence      TerminatorPrecedence `protobuf:"varint,6,opt,name=precedence,proto3,enum=ziti.edge_ctrl.pb.TerminatorPrecedence" json:"precedence,omitempty"`
+	Precedence      TerminatorPrecedence `protobuf:"varint,6,opt,name=precedence,proto3,enum=zt.edge_ctrl.pb.TerminatorPrecedence" json:"precedence,omitempty"`
 	InstanceId      string               `protobuf:"bytes,7,opt,name=instanceId,proto3" json:"instanceId,omitempty"`
 	InstanceSecret  []byte               `protobuf:"bytes,8,opt,name=instanceSecret,proto3" json:"instanceSecret,omitempty"`
 	ApiSessionToken string               `protobuf:"bytes,9,opt,name=apiSessionToken,proto3" json:"apiSessionToken,omitempty"`
@@ -1814,7 +1814,7 @@ type CreateTerminatorV2Response struct {
 	unknownFields protoimpl.UnknownFields
 
 	TerminatorId string                 `protobuf:"bytes,1,opt,name=terminatorId,proto3" json:"terminatorId,omitempty"`
-	Result       CreateTerminatorResult `protobuf:"varint,2,opt,name=result,proto3,enum=ziti.edge_ctrl.pb.CreateTerminatorResult" json:"result,omitempty"`
+	Result       CreateTerminatorResult `protobuf:"varint,2,opt,name=result,proto3,enum=zt.edge_ctrl.pb.CreateTerminatorResult" json:"result,omitempty"`
 	Msg          string                 `protobuf:"bytes,3,opt,name=msg,proto3" json:"msg,omitempty"`
 	ErrorCode    uint32                 `protobuf:"varint,4,opt,name=errorCode,proto3" json:"errorCode,omitempty"`
 	RetryHint    uint32                 `protobuf:"varint,5,opt,name=retryHint,proto3" json:"retryHint,omitempty"`
@@ -1967,7 +1967,7 @@ type UpdateTerminatorRequest struct {
 	Fingerprints     []string             `protobuf:"bytes,2,rep,name=fingerprints,proto3" json:"fingerprints,omitempty"`
 	TerminatorId     string               `protobuf:"bytes,3,opt,name=terminatorId,proto3" json:"terminatorId,omitempty"`
 	Cost             uint32               `protobuf:"varint,4,opt,name=cost,proto3" json:"cost,omitempty"`
-	Precedence       TerminatorPrecedence `protobuf:"varint,5,opt,name=precedence,proto3,enum=ziti.edge_ctrl.pb.TerminatorPrecedence" json:"precedence,omitempty"`
+	Precedence       TerminatorPrecedence `protobuf:"varint,5,opt,name=precedence,proto3,enum=zt.edge_ctrl.pb.TerminatorPrecedence" json:"precedence,omitempty"`
 	UpdatePrecedence bool                 `protobuf:"varint,6,opt,name=updatePrecedence,proto3" json:"updatePrecedence,omitempty"`
 	UpdateCost       bool                 `protobuf:"varint,7,opt,name=updateCost,proto3" json:"updateCost,omitempty"`
 	ApiSessionToken  string               `protobuf:"bytes,8,opt,name=apiSessionToken,proto3" json:"apiSessionToken,omitempty"`
@@ -2434,10 +2434,10 @@ type CreateApiSessionResponse struct {
 	RefreshIntervalSeconds   uint32                          `protobuf:"varint,3,opt,name=refreshIntervalSeconds,proto3" json:"refreshIntervalSeconds,omitempty"`
 	IdentityId               string                          `protobuf:"bytes,4,opt,name=identityId,proto3" json:"identityId,omitempty"`
 	IdentityName             string                          `protobuf:"bytes,5,opt,name=identityName,proto3" json:"identityName,omitempty"`
-	DefaultHostingPrecedence TerminatorPrecedence            `protobuf:"varint,6,opt,name=defaultHostingPrecedence,proto3,enum=ziti.edge_ctrl.pb.TerminatorPrecedence" json:"defaultHostingPrecedence,omitempty"`
+	DefaultHostingPrecedence TerminatorPrecedence            `protobuf:"varint,6,opt,name=defaultHostingPrecedence,proto3,enum=zt.edge_ctrl.pb.TerminatorPrecedence" json:"defaultHostingPrecedence,omitempty"`
 	DefaultHostingCost       uint32                          `protobuf:"varint,7,opt,name=defaultHostingCost,proto3" json:"defaultHostingCost,omitempty"`
 	AppDataJson              string                          `protobuf:"bytes,8,opt,name=appDataJson,proto3" json:"appDataJson,omitempty"`
-	ServicePrecedences       map[string]TerminatorPrecedence `protobuf:"bytes,9,rep,name=servicePrecedences,proto3" json:"servicePrecedences,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"varint,2,opt,name=value,proto3,enum=ziti.edge_ctrl.pb.TerminatorPrecedence"`
+	ServicePrecedences       map[string]TerminatorPrecedence `protobuf:"bytes,9,rep,name=servicePrecedences,proto3" json:"servicePrecedences,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"varint,2,opt,name=value,proto3,enum=zt.edge_ctrl.pb.TerminatorPrecedence"`
 	ServiceCosts             map[string]uint32               `protobuf:"bytes,10,rep,name=serviceCosts,proto3" json:"serviceCosts,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"varint,2,opt,name=value,proto3"`
 }
 
@@ -3042,7 +3042,7 @@ type CreateTunnelTerminatorRequest struct {
 	Address        string               `protobuf:"bytes,3,opt,name=address,proto3" json:"address,omitempty"`
 	PeerData       map[uint32][]byte    `protobuf:"bytes,4,rep,name=peerData,proto3" json:"peerData,omitempty" protobuf_key:"varint,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
 	Cost           uint32               `protobuf:"varint,5,opt,name=cost,proto3" json:"cost,omitempty"`
-	Precedence     TerminatorPrecedence `protobuf:"varint,6,opt,name=precedence,proto3,enum=ziti.edge_ctrl.pb.TerminatorPrecedence" json:"precedence,omitempty"`
+	Precedence     TerminatorPrecedence `protobuf:"varint,6,opt,name=precedence,proto3,enum=zt.edge_ctrl.pb.TerminatorPrecedence" json:"precedence,omitempty"`
 	InstanceId     string               `protobuf:"bytes,7,opt,name=instanceId,proto3" json:"instanceId,omitempty"`
 	InstanceSecret []byte               `protobuf:"bytes,8,opt,name=instanceSecret,proto3" json:"instanceSecret,omitempty"`
 	StartTime      int64                `protobuf:"varint,9,opt,name=startTime,proto3" json:"startTime,omitempty"`
@@ -3223,7 +3223,7 @@ type CreateTunnelTerminatorRequestV2 struct {
 	Address        string               `protobuf:"bytes,2,opt,name=address,proto3" json:"address,omitempty"`
 	PeerData       map[uint32][]byte    `protobuf:"bytes,3,rep,name=peerData,proto3" json:"peerData,omitempty" protobuf_key:"varint,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
 	Cost           uint32               `protobuf:"varint,4,opt,name=cost,proto3" json:"cost,omitempty"`
-	Precedence     TerminatorPrecedence `protobuf:"varint,5,opt,name=precedence,proto3,enum=ziti.edge_ctrl.pb.TerminatorPrecedence" json:"precedence,omitempty"`
+	Precedence     TerminatorPrecedence `protobuf:"varint,5,opt,name=precedence,proto3,enum=zt.edge_ctrl.pb.TerminatorPrecedence" json:"precedence,omitempty"`
 	InstanceId     string               `protobuf:"bytes,6,opt,name=instanceId,proto3" json:"instanceId,omitempty"`
 	InstanceSecret []byte               `protobuf:"bytes,7,opt,name=instanceSecret,proto3" json:"instanceSecret,omitempty"`
 	StartTime      int64                `protobuf:"varint,8,opt,name=startTime,proto3" json:"startTime,omitempty"`
@@ -3324,7 +3324,7 @@ type CreateTunnelTerminatorResponseV2 struct {
 
 	TerminatorId string                 `protobuf:"bytes,1,opt,name=terminatorId,proto3" json:"terminatorId,omitempty"`
 	StartTime    int64                  `protobuf:"varint,2,opt,name=startTime,proto3" json:"startTime,omitempty"`
-	Result       CreateTerminatorResult `protobuf:"varint,3,opt,name=result,proto3,enum=ziti.edge_ctrl.pb.CreateTerminatorResult" json:"result,omitempty"`
+	Result       CreateTerminatorResult `protobuf:"varint,3,opt,name=result,proto3,enum=zt.edge_ctrl.pb.CreateTerminatorResult" json:"result,omitempty"`
 	Msg          string                 `protobuf:"bytes,4,opt,name=msg,proto3" json:"msg,omitempty"`
 	ErrorCode    uint32                 `protobuf:"varint,5,opt,name=errorCode,proto3" json:"errorCode,omitempty"`
 	RetryHint    uint32                 `protobuf:"varint,6,opt,name=retryHint,proto3" json:"retryHint,omitempty"`
@@ -3411,7 +3411,7 @@ type UpdateTunnelTerminatorRequest struct {
 
 	TerminatorId     string               `protobuf:"bytes,1,opt,name=terminatorId,proto3" json:"terminatorId,omitempty"`
 	Cost             uint32               `protobuf:"varint,2,opt,name=cost,proto3" json:"cost,omitempty"`
-	Precedence       TerminatorPrecedence `protobuf:"varint,3,opt,name=precedence,proto3,enum=ziti.edge_ctrl.pb.TerminatorPrecedence" json:"precedence,omitempty"`
+	Precedence       TerminatorPrecedence `protobuf:"varint,3,opt,name=precedence,proto3,enum=zt.edge_ctrl.pb.TerminatorPrecedence" json:"precedence,omitempty"`
 	UpdatePrecedence bool                 `protobuf:"varint,4,opt,name=updatePrecedence,proto3" json:"updatePrecedence,omitempty"`
 	UpdateCost       bool                 `protobuf:"varint,5,opt,name=updateCost,proto3" json:"updateCost,omitempty"`
 }
@@ -4159,9 +4159,9 @@ type DataState_Identity struct {
 
 	Id                        string                               `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	Name                      string                               `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
-	DefaultHostingPrecedence  TerminatorPrecedence                 `protobuf:"varint,3,opt,name=defaultHostingPrecedence,proto3,enum=ziti.edge_ctrl.pb.TerminatorPrecedence" json:"defaultHostingPrecedence,omitempty"`
+	DefaultHostingPrecedence  TerminatorPrecedence                 `protobuf:"varint,3,opt,name=defaultHostingPrecedence,proto3,enum=zt.edge_ctrl.pb.TerminatorPrecedence" json:"defaultHostingPrecedence,omitempty"`
 	DefaultHostingCost        uint32                               `protobuf:"varint,4,opt,name=defaultHostingCost,proto3" json:"defaultHostingCost,omitempty"`
-	ServiceHostingPrecedences map[string]TerminatorPrecedence      `protobuf:"bytes,5,rep,name=serviceHostingPrecedences,proto3" json:"serviceHostingPrecedences,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"varint,2,opt,name=value,proto3,enum=ziti.edge_ctrl.pb.TerminatorPrecedence"`
+	ServiceHostingPrecedences map[string]TerminatorPrecedence      `protobuf:"bytes,5,rep,name=serviceHostingPrecedences,proto3" json:"serviceHostingPrecedences,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"varint,2,opt,name=value,proto3,enum=zt.edge_ctrl.pb.TerminatorPrecedence"`
 	ServiceHostingCosts       map[string]uint32                    `protobuf:"bytes,6,rep,name=serviceHostingCosts,proto3" json:"serviceHostingCosts,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"varint,2,opt,name=value,proto3"`
 	AppDataJson               []byte                               `protobuf:"bytes,7,opt,name=appDataJson,proto3" json:"appDataJson,omitempty"`
 	ServiceConfigs            map[string]*DataState_ServiceConfigs `protobuf:"bytes,8,rep,name=serviceConfigs,proto3" json:"serviceConfigs,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
@@ -4341,7 +4341,7 @@ type DataState_ServicePolicy struct {
 
 	Id         string     `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	Name       string     `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
-	PolicyType PolicyType `protobuf:"varint,3,opt,name=policyType,proto3,enum=ziti.edge_ctrl.pb.PolicyType" json:"policyType,omitempty"`
+	PolicyType PolicyType `protobuf:"varint,3,opt,name=policyType,proto3,enum=zt.edge_ctrl.pb.PolicyType" json:"policyType,omitempty"`
 }
 
 func (x *DataState_ServicePolicy) Reset() {
@@ -4459,7 +4459,7 @@ type DataState_ServicePolicyChange struct {
 
 	PolicyId          string                         `protobuf:"bytes,1,opt,name=policyId,proto3" json:"policyId,omitempty"`
 	RelatedEntityIds  []string                       `protobuf:"bytes,2,rep,name=relatedEntityIds,proto3" json:"relatedEntityIds,omitempty"`
-	RelatedEntityType ServicePolicyRelatedEntityType `protobuf:"varint,3,opt,name=relatedEntityType,proto3,enum=ziti.edge_ctrl.pb.ServicePolicyRelatedEntityType" json:"relatedEntityType,omitempty"`
+	RelatedEntityType ServicePolicyRelatedEntityType `protobuf:"varint,3,opt,name=relatedEntityType,proto3,enum=zt.edge_ctrl.pb.ServicePolicyRelatedEntityType" json:"relatedEntityType,omitempty"`
 	Add               bool                           `protobuf:"varint,4,opt,name=add,proto3" json:"add,omitempty"`
 }
 
@@ -4599,7 +4599,7 @@ type DataState_Event struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Action DataState_Action `protobuf:"varint,1,opt,name=action,proto3,enum=ziti.edge_ctrl.pb.DataState_Action" json:"action,omitempty"`
+	Action DataState_Action `protobuf:"varint,1,opt,name=action,proto3,enum=zt.edge_ctrl.pb.DataState_Action" json:"action,omitempty"`
 	// uint64 index = 2;
 	IsSynthetic bool `protobuf:"varint,3,opt,name=isSynthetic,proto3" json:"isSynthetic,omitempty"`
 	// Types that are assignable to Model:
@@ -4797,8 +4797,8 @@ type DataState_PublicKey struct {
 
 	Data   []byte                      `protobuf:"bytes,1,opt,name=data,proto3" json:"data,omitempty"`                                                              //public key
 	Kid    string                      `protobuf:"bytes,2,opt,name=kid,proto3" json:"kid,omitempty"`                                                                //key id/fingerprint
-	Usages []DataState_PublicKey_Usage `protobuf:"varint,3,rep,packed,name=usages,proto3,enum=ziti.edge_ctrl.pb.DataState_PublicKey_Usage" json:"usages,omitempty"` // what the public key in data is used for
-	Format DataState_PublicKey_Format  `protobuf:"varint,4,opt,name=format,proto3,enum=ziti.edge_ctrl.pb.DataState_PublicKey_Format" json:"format,omitempty"`       //the format of the public key in data and chain
+	Usages []DataState_PublicKey_Usage `protobuf:"varint,3,rep,packed,name=usages,proto3,enum=zt.edge_ctrl.pb.DataState_PublicKey_Usage" json:"usages,omitempty"` // what the public key in data is used for
+	Format DataState_PublicKey_Format  `protobuf:"varint,4,opt,name=format,proto3,enum=zt.edge_ctrl.pb.DataState_PublicKey_Format" json:"format,omitempty"`       //the format of the public key in data and chain
 }
 
 func (x *DataState_PublicKey) Reset() {
@@ -6638,191 +6638,191 @@ func file_edge_ctrl_proto_rawDescGZIP() []byte {
 var file_edge_ctrl_proto_enumTypes = make([]protoimpl.EnumInfo, 11)
 var file_edge_ctrl_proto_msgTypes = make([]protoimpl.MessageInfo, 92)
 var file_edge_ctrl_proto_goTypes = []interface{}{
-	(ContentType)(0),                            // 0: ziti.edge_ctrl.pb.ContentType
-	(SessionType)(0),                            // 1: ziti.edge_ctrl.pb.SessionType
-	(Header)(0),                                 // 2: ziti.edge_ctrl.pb.Header
-	(CacheType)(0),                              // 3: ziti.edge_ctrl.pb.CacheType
-	(PolicyType)(0),                             // 4: ziti.edge_ctrl.pb.PolicyType
-	(ServicePolicyRelatedEntityType)(0),         // 5: ziti.edge_ctrl.pb.ServicePolicyRelatedEntityType
-	(TerminatorPrecedence)(0),                   // 6: ziti.edge_ctrl.pb.TerminatorPrecedence
-	(CreateTerminatorResult)(0),                 // 7: ziti.edge_ctrl.pb.CreateTerminatorResult
-	(DataState_Action)(0),                       // 8: ziti.edge_ctrl.pb.DataState.Action
-	(DataState_PublicKey_Usage)(0),              // 9: ziti.edge_ctrl.pb.DataState.PublicKey.Usage
-	(DataState_PublicKey_Format)(0),             // 10: ziti.edge_ctrl.pb.DataState.PublicKey.Format
-	(*ServerHello)(nil),                         // 11: ziti.edge_ctrl.pb.ServerHello
-	(*Address)(nil),                             // 12: ziti.edge_ctrl.pb.Address
-	(*Listener)(nil),                            // 13: ziti.edge_ctrl.pb.Listener
-	(*ClientHello)(nil),                         // 14: ziti.edge_ctrl.pb.ClientHello
-	(*Error)(nil),                               // 15: ziti.edge_ctrl.pb.Error
-	(*Cache)(nil),                               // 16: ziti.edge_ctrl.pb.Cache
-	(*DataState)(nil),                           // 17: ziti.edge_ctrl.pb.DataState
-	(*ApiSession)(nil),                          // 18: ziti.edge_ctrl.pb.ApiSession
-	(*ApiSessionAdded)(nil),                     // 19: ziti.edge_ctrl.pb.ApiSessionAdded
-	(*ApiSessionUpdated)(nil),                   // 20: ziti.edge_ctrl.pb.ApiSessionUpdated
-	(*ApiSessionRemoved)(nil),                   // 21: ziti.edge_ctrl.pb.ApiSessionRemoved
-	(*ApiSessionHeartbeat)(nil),                 // 22: ziti.edge_ctrl.pb.ApiSessionHeartbeat
-	(*SessionRemoved)(nil),                      // 23: ziti.edge_ctrl.pb.SessionRemoved
-	(*RequestClientReSync)(nil),                 // 24: ziti.edge_ctrl.pb.RequestClientReSync
-	(*CreateCircuitRequest)(nil),                // 25: ziti.edge_ctrl.pb.CreateCircuitRequest
-	(*CreateCircuitResponse)(nil),               // 26: ziti.edge_ctrl.pb.CreateCircuitResponse
-	(*CreateTerminatorV2Request)(nil),           // 27: ziti.edge_ctrl.pb.CreateTerminatorV2Request
-	(*CreateTerminatorV2Response)(nil),          // 28: ziti.edge_ctrl.pb.CreateTerminatorV2Response
-	(*RemoveTerminatorRequest)(nil),             // 29: ziti.edge_ctrl.pb.RemoveTerminatorRequest
-	(*UpdateTerminatorRequest)(nil),             // 30: ziti.edge_ctrl.pb.UpdateTerminatorRequest
-	(*HealthEventRequest)(nil),                  // 31: ziti.edge_ctrl.pb.HealthEventRequest
-	(*ValidateSessionsRequest)(nil),             // 32: ziti.edge_ctrl.pb.ValidateSessionsRequest
-	(*EnvInfo)(nil),                             // 33: ziti.edge_ctrl.pb.EnvInfo
-	(*SdkInfo)(nil),                             // 34: ziti.edge_ctrl.pb.SdkInfo
-	(*CreateApiSessionRequest)(nil),             // 35: ziti.edge_ctrl.pb.CreateApiSessionRequest
-	(*CreateApiSessionResponse)(nil),            // 36: ziti.edge_ctrl.pb.CreateApiSessionResponse
-	(*CreateCircuitForServiceRequest)(nil),      // 37: ziti.edge_ctrl.pb.CreateCircuitForServiceRequest
-	(*CreateSessionResponse)(nil),               // 38: ziti.edge_ctrl.pb.CreateSessionResponse
-	(*CreateCircuitForServiceResponse)(nil),     // 39: ziti.edge_ctrl.pb.CreateCircuitForServiceResponse
-	(*CreateTunnelCircuitV2Request)(nil),        // 40: ziti.edge_ctrl.pb.CreateTunnelCircuitV2Request
-	(*CreateTunnelCircuitV2Response)(nil),       // 41: ziti.edge_ctrl.pb.CreateTunnelCircuitV2Response
-	(*ServicesList)(nil),                        // 42: ziti.edge_ctrl.pb.ServicesList
-	(*TunnelService)(nil),                       // 43: ziti.edge_ctrl.pb.TunnelService
-	(*CreateTunnelTerminatorRequest)(nil),       // 44: ziti.edge_ctrl.pb.CreateTunnelTerminatorRequest
-	(*CreateTunnelTerminatorResponse)(nil),      // 45: ziti.edge_ctrl.pb.CreateTunnelTerminatorResponse
-	(*CreateTunnelTerminatorRequestV2)(nil),     // 46: ziti.edge_ctrl.pb.CreateTunnelTerminatorRequestV2
-	(*CreateTunnelTerminatorResponseV2)(nil),    // 47: ziti.edge_ctrl.pb.CreateTunnelTerminatorResponseV2
-	(*UpdateTunnelTerminatorRequest)(nil),       // 48: ziti.edge_ctrl.pb.UpdateTunnelTerminatorRequest
-	(*EnrollmentExtendRouterRequest)(nil),       // 49: ziti.edge_ctrl.pb.EnrollmentExtendRouterRequest
-	(*EnrollmentCertsResponse)(nil),             // 50: ziti.edge_ctrl.pb.EnrollmentCertsResponse
-	(*EnrollmentExtendRouterVerifyRequest)(nil), // 51: ziti.edge_ctrl.pb.EnrollmentExtendRouterVerifyRequest
-	(*ConnectEvents)(nil),                       // 52: ziti.edge_ctrl.pb.ConnectEvents
-	(*RouterDataModelValidateRequest)(nil),      // 53: ziti.edge_ctrl.pb.RouterDataModelValidateRequest
-	(*RouterDataModelDiff)(nil),                 // 54: ziti.edge_ctrl.pb.RouterDataModelDiff
-	(*RouterDataModelValidateResponse)(nil),     // 55: ziti.edge_ctrl.pb.RouterDataModelValidateResponse
-	(*SubscribeToDataModelRequest)(nil),         // 56: ziti.edge_ctrl.pb.SubscribeToDataModelRequest
-	nil,                                         // 57: ziti.edge_ctrl.pb.ServerHello.DataEntry
-	nil,                                         // 58: ziti.edge_ctrl.pb.ServerHello.ByteDataEntry
-	nil,                                         // 59: ziti.edge_ctrl.pb.ClientHello.DataEntry
-	nil,                                         // 60: ziti.edge_ctrl.pb.Cache.DataEntry
-	nil,                                         // 61: ziti.edge_ctrl.pb.DataState.CachesEntry
-	(*DataState_ConfigType)(nil),                // 62: ziti.edge_ctrl.pb.DataState.ConfigType
-	(*DataState_Config)(nil),                    // 63: ziti.edge_ctrl.pb.DataState.Config
-	(*DataState_ServiceConfigs)(nil),            // 64: ziti.edge_ctrl.pb.DataState.ServiceConfigs
-	(*DataState_Identity)(nil),                  // 65: ziti.edge_ctrl.pb.DataState.Identity
-	(*DataState_Service)(nil),                   // 66: ziti.edge_ctrl.pb.DataState.Service
-	(*DataState_ServicePolicy)(nil),             // 67: ziti.edge_ctrl.pb.DataState.ServicePolicy
-	(*DataState_Revocation)(nil),                // 68: ziti.edge_ctrl.pb.DataState.Revocation
-	(*DataState_ServicePolicyChange)(nil),       // 69: ziti.edge_ctrl.pb.DataState.ServicePolicyChange
-	(*DataState_ChangeSet)(nil),                 // 70: ziti.edge_ctrl.pb.DataState.ChangeSet
-	(*DataState_Event)(nil),                     // 71: ziti.edge_ctrl.pb.DataState.Event
-	(*DataState_PublicKey)(nil),                 // 72: ziti.edge_ctrl.pb.DataState.PublicKey
-	(*DataState_PostureCheck)(nil),              // 73: ziti.edge_ctrl.pb.DataState.PostureCheck
-	nil,                                         // 74: ziti.edge_ctrl.pb.DataState.ServiceConfigs.ConfigsEntry
-	nil,                                         // 75: ziti.edge_ctrl.pb.DataState.Identity.ServiceHostingPrecedencesEntry
-	nil,                                         // 76: ziti.edge_ctrl.pb.DataState.Identity.ServiceHostingCostsEntry
-	nil,                                         // 77: ziti.edge_ctrl.pb.DataState.Identity.ServiceConfigsEntry
-	(*DataState_PostureCheck_Mac)(nil),          // 78: ziti.edge_ctrl.pb.DataState.PostureCheck.Mac
-	(*DataState_PostureCheck_Mfa)(nil),          // 79: ziti.edge_ctrl.pb.DataState.PostureCheck.Mfa
-	(*DataState_PostureCheck_Os)(nil),           // 80: ziti.edge_ctrl.pb.DataState.PostureCheck.Os
-	(*DataState_PostureCheck_OsList)(nil),       // 81: ziti.edge_ctrl.pb.DataState.PostureCheck.OsList
-	(*DataState_PostureCheck_Process)(nil),      // 82: ziti.edge_ctrl.pb.DataState.PostureCheck.Process
-	(*DataState_PostureCheck_ProcessMulti)(nil), // 83: ziti.edge_ctrl.pb.DataState.PostureCheck.ProcessMulti
-	(*DataState_PostureCheck_Domains)(nil),      // 84: ziti.edge_ctrl.pb.DataState.PostureCheck.Domains
-	nil,                                         // 85: ziti.edge_ctrl.pb.CreateCircuitRequest.PeerDataEntry
-	nil,                                         // 86: ziti.edge_ctrl.pb.CreateCircuitResponse.PeerDataEntry
-	nil,                                         // 87: ziti.edge_ctrl.pb.CreateCircuitResponse.TagsEntry
-	nil,                                         // 88: ziti.edge_ctrl.pb.CreateTerminatorV2Request.PeerDataEntry
-	nil,                                         // 89: ziti.edge_ctrl.pb.CreateApiSessionResponse.ServicePrecedencesEntry
-	nil,                                         // 90: ziti.edge_ctrl.pb.CreateApiSessionResponse.ServiceCostsEntry
-	nil,                                         // 91: ziti.edge_ctrl.pb.CreateCircuitForServiceRequest.PeerDataEntry
-	nil,                                         // 92: ziti.edge_ctrl.pb.CreateCircuitForServiceResponse.PeerDataEntry
-	nil,                                         // 93: ziti.edge_ctrl.pb.CreateCircuitForServiceResponse.TagsEntry
-	nil,                                         // 94: ziti.edge_ctrl.pb.CreateTunnelCircuitV2Request.PeerDataEntry
-	nil,                                         // 95: ziti.edge_ctrl.pb.CreateTunnelCircuitV2Response.PeerDataEntry
-	nil,                                         // 96: ziti.edge_ctrl.pb.CreateTunnelCircuitV2Response.TagsEntry
-	nil,                                         // 97: ziti.edge_ctrl.pb.CreateTunnelTerminatorRequest.PeerDataEntry
-	nil,                                         // 98: ziti.edge_ctrl.pb.CreateTunnelTerminatorRequestV2.PeerDataEntry
-	(*ConnectEvents_ConnectDetails)(nil),        // 99: ziti.edge_ctrl.pb.ConnectEvents.ConnectDetails
-	(*ConnectEvents_IdentityConnectEvents)(nil), // 100: ziti.edge_ctrl.pb.ConnectEvents.IdentityConnectEvents
-	nil,                           // 101: ziti.edge_ctrl.pb.RouterDataModelValidateResponse.OrigEntityCountsEntry
-	nil,                           // 102: ziti.edge_ctrl.pb.RouterDataModelValidateResponse.CopyEntityCountsEntry
+	(ContentType)(0),                            // 0: zt.edge_ctrl.pb.ContentType
+	(SessionType)(0),                            // 1: zt.edge_ctrl.pb.SessionType
+	(Header)(0),                                 // 2: zt.edge_ctrl.pb.Header
+	(CacheType)(0),                              // 3: zt.edge_ctrl.pb.CacheType
+	(PolicyType)(0),                             // 4: zt.edge_ctrl.pb.PolicyType
+	(ServicePolicyRelatedEntityType)(0),         // 5: zt.edge_ctrl.pb.ServicePolicyRelatedEntityType
+	(TerminatorPrecedence)(0),                   // 6: zt.edge_ctrl.pb.TerminatorPrecedence
+	(CreateTerminatorResult)(0),                 // 7: zt.edge_ctrl.pb.CreateTerminatorResult
+	(DataState_Action)(0),                       // 8: zt.edge_ctrl.pb.DataState.Action
+	(DataState_PublicKey_Usage)(0),              // 9: zt.edge_ctrl.pb.DataState.PublicKey.Usage
+	(DataState_PublicKey_Format)(0),             // 10: zt.edge_ctrl.pb.DataState.PublicKey.Format
+	(*ServerHello)(nil),                         // 11: zt.edge_ctrl.pb.ServerHello
+	(*Address)(nil),                             // 12: zt.edge_ctrl.pb.Address
+	(*Listener)(nil),                            // 13: zt.edge_ctrl.pb.Listener
+	(*ClientHello)(nil),                         // 14: zt.edge_ctrl.pb.ClientHello
+	(*Error)(nil),                               // 15: zt.edge_ctrl.pb.Error
+	(*Cache)(nil),                               // 16: zt.edge_ctrl.pb.Cache
+	(*DataState)(nil),                           // 17: zt.edge_ctrl.pb.DataState
+	(*ApiSession)(nil),                          // 18: zt.edge_ctrl.pb.ApiSession
+	(*ApiSessionAdded)(nil),                     // 19: zt.edge_ctrl.pb.ApiSessionAdded
+	(*ApiSessionUpdated)(nil),                   // 20: zt.edge_ctrl.pb.ApiSessionUpdated
+	(*ApiSessionRemoved)(nil),                   // 21: zt.edge_ctrl.pb.ApiSessionRemoved
+	(*ApiSessionHeartbeat)(nil),                 // 22: zt.edge_ctrl.pb.ApiSessionHeartbeat
+	(*SessionRemoved)(nil),                      // 23: zt.edge_ctrl.pb.SessionRemoved
+	(*RequestClientReSync)(nil),                 // 24: zt.edge_ctrl.pb.RequestClientReSync
+	(*CreateCircuitRequest)(nil),                // 25: zt.edge_ctrl.pb.CreateCircuitRequest
+	(*CreateCircuitResponse)(nil),               // 26: zt.edge_ctrl.pb.CreateCircuitResponse
+	(*CreateTerminatorV2Request)(nil),           // 27: zt.edge_ctrl.pb.CreateTerminatorV2Request
+	(*CreateTerminatorV2Response)(nil),          // 28: zt.edge_ctrl.pb.CreateTerminatorV2Response
+	(*RemoveTerminatorRequest)(nil),             // 29: zt.edge_ctrl.pb.RemoveTerminatorRequest
+	(*UpdateTerminatorRequest)(nil),             // 30: zt.edge_ctrl.pb.UpdateTerminatorRequest
+	(*HealthEventRequest)(nil),                  // 31: zt.edge_ctrl.pb.HealthEventRequest
+	(*ValidateSessionsRequest)(nil),             // 32: zt.edge_ctrl.pb.ValidateSessionsRequest
+	(*EnvInfo)(nil),                             // 33: zt.edge_ctrl.pb.EnvInfo
+	(*SdkInfo)(nil),                             // 34: zt.edge_ctrl.pb.SdkInfo
+	(*CreateApiSessionRequest)(nil),             // 35: zt.edge_ctrl.pb.CreateApiSessionRequest
+	(*CreateApiSessionResponse)(nil),            // 36: zt.edge_ctrl.pb.CreateApiSessionResponse
+	(*CreateCircuitForServiceRequest)(nil),      // 37: zt.edge_ctrl.pb.CreateCircuitForServiceRequest
+	(*CreateSessionResponse)(nil),               // 38: zt.edge_ctrl.pb.CreateSessionResponse
+	(*CreateCircuitForServiceResponse)(nil),     // 39: zt.edge_ctrl.pb.CreateCircuitForServiceResponse
+	(*CreateTunnelCircuitV2Request)(nil),        // 40: zt.edge_ctrl.pb.CreateTunnelCircuitV2Request
+	(*CreateTunnelCircuitV2Response)(nil),       // 41: zt.edge_ctrl.pb.CreateTunnelCircuitV2Response
+	(*ServicesList)(nil),                        // 42: zt.edge_ctrl.pb.ServicesList
+	(*TunnelService)(nil),                       // 43: zt.edge_ctrl.pb.TunnelService
+	(*CreateTunnelTerminatorRequest)(nil),       // 44: zt.edge_ctrl.pb.CreateTunnelTerminatorRequest
+	(*CreateTunnelTerminatorResponse)(nil),      // 45: zt.edge_ctrl.pb.CreateTunnelTerminatorResponse
+	(*CreateTunnelTerminatorRequestV2)(nil),     // 46: zt.edge_ctrl.pb.CreateTunnelTerminatorRequestV2
+	(*CreateTunnelTerminatorResponseV2)(nil),    // 47: zt.edge_ctrl.pb.CreateTunnelTerminatorResponseV2
+	(*UpdateTunnelTerminatorRequest)(nil),       // 48: zt.edge_ctrl.pb.UpdateTunnelTerminatorRequest
+	(*EnrollmentExtendRouterRequest)(nil),       // 49: zt.edge_ctrl.pb.EnrollmentExtendRouterRequest
+	(*EnrollmentCertsResponse)(nil),             // 50: zt.edge_ctrl.pb.EnrollmentCertsResponse
+	(*EnrollmentExtendRouterVerifyRequest)(nil), // 51: zt.edge_ctrl.pb.EnrollmentExtendRouterVerifyRequest
+	(*ConnectEvents)(nil),                       // 52: zt.edge_ctrl.pb.ConnectEvents
+	(*RouterDataModelValidateRequest)(nil),      // 53: zt.edge_ctrl.pb.RouterDataModelValidateRequest
+	(*RouterDataModelDiff)(nil),                 // 54: zt.edge_ctrl.pb.RouterDataModelDiff
+	(*RouterDataModelValidateResponse)(nil),     // 55: zt.edge_ctrl.pb.RouterDataModelValidateResponse
+	(*SubscribeToDataModelRequest)(nil),         // 56: zt.edge_ctrl.pb.SubscribeToDataModelRequest
+	nil,                                         // 57: zt.edge_ctrl.pb.ServerHello.DataEntry
+	nil,                                         // 58: zt.edge_ctrl.pb.ServerHello.ByteDataEntry
+	nil,                                         // 59: zt.edge_ctrl.pb.ClientHello.DataEntry
+	nil,                                         // 60: zt.edge_ctrl.pb.Cache.DataEntry
+	nil,                                         // 61: zt.edge_ctrl.pb.DataState.CachesEntry
+	(*DataState_ConfigType)(nil),                // 62: zt.edge_ctrl.pb.DataState.ConfigType
+	(*DataState_Config)(nil),                    // 63: zt.edge_ctrl.pb.DataState.Config
+	(*DataState_ServiceConfigs)(nil),            // 64: zt.edge_ctrl.pb.DataState.ServiceConfigs
+	(*DataState_Identity)(nil),                  // 65: zt.edge_ctrl.pb.DataState.Identity
+	(*DataState_Service)(nil),                   // 66: zt.edge_ctrl.pb.DataState.Service
+	(*DataState_ServicePolicy)(nil),             // 67: zt.edge_ctrl.pb.DataState.ServicePolicy
+	(*DataState_Revocation)(nil),                // 68: zt.edge_ctrl.pb.DataState.Revocation
+	(*DataState_ServicePolicyChange)(nil),       // 69: zt.edge_ctrl.pb.DataState.ServicePolicyChange
+	(*DataState_ChangeSet)(nil),                 // 70: zt.edge_ctrl.pb.DataState.ChangeSet
+	(*DataState_Event)(nil),                     // 71: zt.edge_ctrl.pb.DataState.Event
+	(*DataState_PublicKey)(nil),                 // 72: zt.edge_ctrl.pb.DataState.PublicKey
+	(*DataState_PostureCheck)(nil),              // 73: zt.edge_ctrl.pb.DataState.PostureCheck
+	nil,                                         // 74: zt.edge_ctrl.pb.DataState.ServiceConfigs.ConfigsEntry
+	nil,                                         // 75: zt.edge_ctrl.pb.DataState.Identity.ServiceHostingPrecedencesEntry
+	nil,                                         // 76: zt.edge_ctrl.pb.DataState.Identity.ServiceHostingCostsEntry
+	nil,                                         // 77: zt.edge_ctrl.pb.DataState.Identity.ServiceConfigsEntry
+	(*DataState_PostureCheck_Mac)(nil),          // 78: zt.edge_ctrl.pb.DataState.PostureCheck.Mac
+	(*DataState_PostureCheck_Mfa)(nil),          // 79: zt.edge_ctrl.pb.DataState.PostureCheck.Mfa
+	(*DataState_PostureCheck_Os)(nil),           // 80: zt.edge_ctrl.pb.DataState.PostureCheck.Os
+	(*DataState_PostureCheck_OsList)(nil),       // 81: zt.edge_ctrl.pb.DataState.PostureCheck.OsList
+	(*DataState_PostureCheck_Process)(nil),      // 82: zt.edge_ctrl.pb.DataState.PostureCheck.Process
+	(*DataState_PostureCheck_ProcessMulti)(nil), // 83: zt.edge_ctrl.pb.DataState.PostureCheck.ProcessMulti
+	(*DataState_PostureCheck_Domains)(nil),      // 84: zt.edge_ctrl.pb.DataState.PostureCheck.Domains
+	nil,                                         // 85: zt.edge_ctrl.pb.CreateCircuitRequest.PeerDataEntry
+	nil,                                         // 86: zt.edge_ctrl.pb.CreateCircuitResponse.PeerDataEntry
+	nil,                                         // 87: zt.edge_ctrl.pb.CreateCircuitResponse.TagsEntry
+	nil,                                         // 88: zt.edge_ctrl.pb.CreateTerminatorV2Request.PeerDataEntry
+	nil,                                         // 89: zt.edge_ctrl.pb.CreateApiSessionResponse.ServicePrecedencesEntry
+	nil,                                         // 90: zt.edge_ctrl.pb.CreateApiSessionResponse.ServiceCostsEntry
+	nil,                                         // 91: zt.edge_ctrl.pb.CreateCircuitForServiceRequest.PeerDataEntry
+	nil,                                         // 92: zt.edge_ctrl.pb.CreateCircuitForServiceResponse.PeerDataEntry
+	nil,                                         // 93: zt.edge_ctrl.pb.CreateCircuitForServiceResponse.TagsEntry
+	nil,                                         // 94: zt.edge_ctrl.pb.CreateTunnelCircuitV2Request.PeerDataEntry
+	nil,                                         // 95: zt.edge_ctrl.pb.CreateTunnelCircuitV2Response.PeerDataEntry
+	nil,                                         // 96: zt.edge_ctrl.pb.CreateTunnelCircuitV2Response.TagsEntry
+	nil,                                         // 97: zt.edge_ctrl.pb.CreateTunnelTerminatorRequest.PeerDataEntry
+	nil,                                         // 98: zt.edge_ctrl.pb.CreateTunnelTerminatorRequestV2.PeerDataEntry
+	(*ConnectEvents_ConnectDetails)(nil),        // 99: zt.edge_ctrl.pb.ConnectEvents.ConnectDetails
+	(*ConnectEvents_IdentityConnectEvents)(nil), // 100: zt.edge_ctrl.pb.ConnectEvents.IdentityConnectEvents
+	nil,                           // 101: zt.edge_ctrl.pb.RouterDataModelValidateResponse.OrigEntityCountsEntry
+	nil,                           // 102: zt.edge_ctrl.pb.RouterDataModelValidateResponse.CopyEntityCountsEntry
 	(*timestamppb.Timestamp)(nil), // 103: google.protobuf.Timestamp
 }
 var file_edge_ctrl_proto_depIdxs = []int32{
-	57,  // 0: ziti.edge_ctrl.pb.ServerHello.data:type_name -> ziti.edge_ctrl.pb.ServerHello.DataEntry
-	58,  // 1: ziti.edge_ctrl.pb.ServerHello.byteData:type_name -> ziti.edge_ctrl.pb.ServerHello.ByteDataEntry
-	12,  // 2: ziti.edge_ctrl.pb.Listener.address:type_name -> ziti.edge_ctrl.pb.Address
-	12,  // 3: ziti.edge_ctrl.pb.Listener.advertise:type_name -> ziti.edge_ctrl.pb.Address
-	59,  // 4: ziti.edge_ctrl.pb.ClientHello.data:type_name -> ziti.edge_ctrl.pb.ClientHello.DataEntry
-	13,  // 5: ziti.edge_ctrl.pb.ClientHello.listeners:type_name -> ziti.edge_ctrl.pb.Listener
-	60,  // 6: ziti.edge_ctrl.pb.Cache.data:type_name -> ziti.edge_ctrl.pb.Cache.DataEntry
-	71,  // 7: ziti.edge_ctrl.pb.DataState.events:type_name -> ziti.edge_ctrl.pb.DataState.Event
-	61,  // 8: ziti.edge_ctrl.pb.DataState.caches:type_name -> ziti.edge_ctrl.pb.DataState.CachesEntry
-	18,  // 9: ziti.edge_ctrl.pb.ApiSessionAdded.apiSessions:type_name -> ziti.edge_ctrl.pb.ApiSession
-	18,  // 10: ziti.edge_ctrl.pb.ApiSessionUpdated.apiSessions:type_name -> ziti.edge_ctrl.pb.ApiSession
-	85,  // 11: ziti.edge_ctrl.pb.CreateCircuitRequest.peerData:type_name -> ziti.edge_ctrl.pb.CreateCircuitRequest.PeerDataEntry
-	86,  // 12: ziti.edge_ctrl.pb.CreateCircuitResponse.peerData:type_name -> ziti.edge_ctrl.pb.CreateCircuitResponse.PeerDataEntry
-	87,  // 13: ziti.edge_ctrl.pb.CreateCircuitResponse.tags:type_name -> ziti.edge_ctrl.pb.CreateCircuitResponse.TagsEntry
-	88,  // 14: ziti.edge_ctrl.pb.CreateTerminatorV2Request.peerData:type_name -> ziti.edge_ctrl.pb.CreateTerminatorV2Request.PeerDataEntry
-	6,   // 15: ziti.edge_ctrl.pb.CreateTerminatorV2Request.precedence:type_name -> ziti.edge_ctrl.pb.TerminatorPrecedence
-	7,   // 16: ziti.edge_ctrl.pb.CreateTerminatorV2Response.result:type_name -> ziti.edge_ctrl.pb.CreateTerminatorResult
-	6,   // 17: ziti.edge_ctrl.pb.UpdateTerminatorRequest.precedence:type_name -> ziti.edge_ctrl.pb.TerminatorPrecedence
-	33,  // 18: ziti.edge_ctrl.pb.CreateApiSessionRequest.envInfo:type_name -> ziti.edge_ctrl.pb.EnvInfo
-	34,  // 19: ziti.edge_ctrl.pb.CreateApiSessionRequest.sdkInfo:type_name -> ziti.edge_ctrl.pb.SdkInfo
-	6,   // 20: ziti.edge_ctrl.pb.CreateApiSessionResponse.defaultHostingPrecedence:type_name -> ziti.edge_ctrl.pb.TerminatorPrecedence
-	89,  // 21: ziti.edge_ctrl.pb.CreateApiSessionResponse.servicePrecedences:type_name -> ziti.edge_ctrl.pb.CreateApiSessionResponse.ServicePrecedencesEntry
-	90,  // 22: ziti.edge_ctrl.pb.CreateApiSessionResponse.serviceCosts:type_name -> ziti.edge_ctrl.pb.CreateApiSessionResponse.ServiceCostsEntry
-	91,  // 23: ziti.edge_ctrl.pb.CreateCircuitForServiceRequest.peerData:type_name -> ziti.edge_ctrl.pb.CreateCircuitForServiceRequest.PeerDataEntry
-	36,  // 24: ziti.edge_ctrl.pb.CreateCircuitForServiceResponse.apiSession:type_name -> ziti.edge_ctrl.pb.CreateApiSessionResponse
-	38,  // 25: ziti.edge_ctrl.pb.CreateCircuitForServiceResponse.session:type_name -> ziti.edge_ctrl.pb.CreateSessionResponse
-	92,  // 26: ziti.edge_ctrl.pb.CreateCircuitForServiceResponse.peerData:type_name -> ziti.edge_ctrl.pb.CreateCircuitForServiceResponse.PeerDataEntry
-	93,  // 27: ziti.edge_ctrl.pb.CreateCircuitForServiceResponse.tags:type_name -> ziti.edge_ctrl.pb.CreateCircuitForServiceResponse.TagsEntry
-	94,  // 28: ziti.edge_ctrl.pb.CreateTunnelCircuitV2Request.peerData:type_name -> ziti.edge_ctrl.pb.CreateTunnelCircuitV2Request.PeerDataEntry
-	95,  // 29: ziti.edge_ctrl.pb.CreateTunnelCircuitV2Response.peerData:type_name -> ziti.edge_ctrl.pb.CreateTunnelCircuitV2Response.PeerDataEntry
-	96,  // 30: ziti.edge_ctrl.pb.CreateTunnelCircuitV2Response.tags:type_name -> ziti.edge_ctrl.pb.CreateTunnelCircuitV2Response.TagsEntry
-	43,  // 31: ziti.edge_ctrl.pb.ServicesList.services:type_name -> ziti.edge_ctrl.pb.TunnelService
-	97,  // 32: ziti.edge_ctrl.pb.CreateTunnelTerminatorRequest.peerData:type_name -> ziti.edge_ctrl.pb.CreateTunnelTerminatorRequest.PeerDataEntry
-	6,   // 33: ziti.edge_ctrl.pb.CreateTunnelTerminatorRequest.precedence:type_name -> ziti.edge_ctrl.pb.TerminatorPrecedence
-	36,  // 34: ziti.edge_ctrl.pb.CreateTunnelTerminatorResponse.apiSession:type_name -> ziti.edge_ctrl.pb.CreateApiSessionResponse
-	38,  // 35: ziti.edge_ctrl.pb.CreateTunnelTerminatorResponse.session:type_name -> ziti.edge_ctrl.pb.CreateSessionResponse
-	98,  // 36: ziti.edge_ctrl.pb.CreateTunnelTerminatorRequestV2.peerData:type_name -> ziti.edge_ctrl.pb.CreateTunnelTerminatorRequestV2.PeerDataEntry
-	6,   // 37: ziti.edge_ctrl.pb.CreateTunnelTerminatorRequestV2.precedence:type_name -> ziti.edge_ctrl.pb.TerminatorPrecedence
-	7,   // 38: ziti.edge_ctrl.pb.CreateTunnelTerminatorResponseV2.result:type_name -> ziti.edge_ctrl.pb.CreateTerminatorResult
-	6,   // 39: ziti.edge_ctrl.pb.UpdateTunnelTerminatorRequest.precedence:type_name -> ziti.edge_ctrl.pb.TerminatorPrecedence
-	100, // 40: ziti.edge_ctrl.pb.ConnectEvents.events:type_name -> ziti.edge_ctrl.pb.ConnectEvents.IdentityConnectEvents
-	17,  // 41: ziti.edge_ctrl.pb.RouterDataModelValidateRequest.state:type_name -> ziti.edge_ctrl.pb.DataState
-	101, // 42: ziti.edge_ctrl.pb.RouterDataModelValidateResponse.origEntityCounts:type_name -> ziti.edge_ctrl.pb.RouterDataModelValidateResponse.OrigEntityCountsEntry
-	102, // 43: ziti.edge_ctrl.pb.RouterDataModelValidateResponse.copyEntityCounts:type_name -> ziti.edge_ctrl.pb.RouterDataModelValidateResponse.CopyEntityCountsEntry
-	54,  // 44: ziti.edge_ctrl.pb.RouterDataModelValidateResponse.diffs:type_name -> ziti.edge_ctrl.pb.RouterDataModelDiff
-	16,  // 45: ziti.edge_ctrl.pb.DataState.CachesEntry.value:type_name -> ziti.edge_ctrl.pb.Cache
-	74,  // 46: ziti.edge_ctrl.pb.DataState.ServiceConfigs.configs:type_name -> ziti.edge_ctrl.pb.DataState.ServiceConfigs.ConfigsEntry
-	6,   // 47: ziti.edge_ctrl.pb.DataState.Identity.defaultHostingPrecedence:type_name -> ziti.edge_ctrl.pb.TerminatorPrecedence
-	75,  // 48: ziti.edge_ctrl.pb.DataState.Identity.serviceHostingPrecedences:type_name -> ziti.edge_ctrl.pb.DataState.Identity.ServiceHostingPrecedencesEntry
-	76,  // 49: ziti.edge_ctrl.pb.DataState.Identity.serviceHostingCosts:type_name -> ziti.edge_ctrl.pb.DataState.Identity.ServiceHostingCostsEntry
-	77,  // 50: ziti.edge_ctrl.pb.DataState.Identity.serviceConfigs:type_name -> ziti.edge_ctrl.pb.DataState.Identity.ServiceConfigsEntry
-	4,   // 51: ziti.edge_ctrl.pb.DataState.ServicePolicy.policyType:type_name -> ziti.edge_ctrl.pb.PolicyType
-	103, // 52: ziti.edge_ctrl.pb.DataState.Revocation.ExpiresAt:type_name -> google.protobuf.Timestamp
-	5,   // 53: ziti.edge_ctrl.pb.DataState.ServicePolicyChange.relatedEntityType:type_name -> ziti.edge_ctrl.pb.ServicePolicyRelatedEntityType
-	71,  // 54: ziti.edge_ctrl.pb.DataState.ChangeSet.changes:type_name -> ziti.edge_ctrl.pb.DataState.Event
-	8,   // 55: ziti.edge_ctrl.pb.DataState.Event.action:type_name -> ziti.edge_ctrl.pb.DataState.Action
-	65,  // 56: ziti.edge_ctrl.pb.DataState.Event.identity:type_name -> ziti.edge_ctrl.pb.DataState.Identity
-	66,  // 57: ziti.edge_ctrl.pb.DataState.Event.service:type_name -> ziti.edge_ctrl.pb.DataState.Service
-	67,  // 58: ziti.edge_ctrl.pb.DataState.Event.servicePolicy:type_name -> ziti.edge_ctrl.pb.DataState.ServicePolicy
-	73,  // 59: ziti.edge_ctrl.pb.DataState.Event.postureCheck:type_name -> ziti.edge_ctrl.pb.DataState.PostureCheck
-	72,  // 60: ziti.edge_ctrl.pb.DataState.Event.publicKey:type_name -> ziti.edge_ctrl.pb.DataState.PublicKey
-	68,  // 61: ziti.edge_ctrl.pb.DataState.Event.revocation:type_name -> ziti.edge_ctrl.pb.DataState.Revocation
-	69,  // 62: ziti.edge_ctrl.pb.DataState.Event.servicePolicyChange:type_name -> ziti.edge_ctrl.pb.DataState.ServicePolicyChange
-	62,  // 63: ziti.edge_ctrl.pb.DataState.Event.configType:type_name -> ziti.edge_ctrl.pb.DataState.ConfigType
-	63,  // 64: ziti.edge_ctrl.pb.DataState.Event.config:type_name -> ziti.edge_ctrl.pb.DataState.Config
-	9,   // 65: ziti.edge_ctrl.pb.DataState.PublicKey.usages:type_name -> ziti.edge_ctrl.pb.DataState.PublicKey.Usage
-	10,  // 66: ziti.edge_ctrl.pb.DataState.PublicKey.format:type_name -> ziti.edge_ctrl.pb.DataState.PublicKey.Format
-	78,  // 67: ziti.edge_ctrl.pb.DataState.PostureCheck.mac:type_name -> ziti.edge_ctrl.pb.DataState.PostureCheck.Mac
-	79,  // 68: ziti.edge_ctrl.pb.DataState.PostureCheck.mfa:type_name -> ziti.edge_ctrl.pb.DataState.PostureCheck.Mfa
-	81,  // 69: ziti.edge_ctrl.pb.DataState.PostureCheck.osList:type_name -> ziti.edge_ctrl.pb.DataState.PostureCheck.OsList
-	82,  // 70: ziti.edge_ctrl.pb.DataState.PostureCheck.process:type_name -> ziti.edge_ctrl.pb.DataState.PostureCheck.Process
-	83,  // 71: ziti.edge_ctrl.pb.DataState.PostureCheck.processMulti:type_name -> ziti.edge_ctrl.pb.DataState.PostureCheck.ProcessMulti
-	84,  // 72: ziti.edge_ctrl.pb.DataState.PostureCheck.domains:type_name -> ziti.edge_ctrl.pb.DataState.PostureCheck.Domains
-	6,   // 73: ziti.edge_ctrl.pb.DataState.Identity.ServiceHostingPrecedencesEntry.value:type_name -> ziti.edge_ctrl.pb.TerminatorPrecedence
-	64,  // 74: ziti.edge_ctrl.pb.DataState.Identity.ServiceConfigsEntry.value:type_name -> ziti.edge_ctrl.pb.DataState.ServiceConfigs
-	80,  // 75: ziti.edge_ctrl.pb.DataState.PostureCheck.OsList.osList:type_name -> ziti.edge_ctrl.pb.DataState.PostureCheck.Os
-	82,  // 76: ziti.edge_ctrl.pb.DataState.PostureCheck.ProcessMulti.processes:type_name -> ziti.edge_ctrl.pb.DataState.PostureCheck.Process
-	6,   // 77: ziti.edge_ctrl.pb.CreateApiSessionResponse.ServicePrecedencesEntry.value:type_name -> ziti.edge_ctrl.pb.TerminatorPrecedence
-	99,  // 78: ziti.edge_ctrl.pb.ConnectEvents.IdentityConnectEvents.connectTimes:type_name -> ziti.edge_ctrl.pb.ConnectEvents.ConnectDetails
+	57,  // 0: zt.edge_ctrl.pb.ServerHello.data:type_name -> zt.edge_ctrl.pb.ServerHello.DataEntry
+	58,  // 1: zt.edge_ctrl.pb.ServerHello.byteData:type_name -> zt.edge_ctrl.pb.ServerHello.ByteDataEntry
+	12,  // 2: zt.edge_ctrl.pb.Listener.address:type_name -> zt.edge_ctrl.pb.Address
+	12,  // 3: zt.edge_ctrl.pb.Listener.advertise:type_name -> zt.edge_ctrl.pb.Address
+	59,  // 4: zt.edge_ctrl.pb.ClientHello.data:type_name -> zt.edge_ctrl.pb.ClientHello.DataEntry
+	13,  // 5: zt.edge_ctrl.pb.ClientHello.listeners:type_name -> zt.edge_ctrl.pb.Listener
+	60,  // 6: zt.edge_ctrl.pb.Cache.data:type_name -> zt.edge_ctrl.pb.Cache.DataEntry
+	71,  // 7: zt.edge_ctrl.pb.DataState.events:type_name -> zt.edge_ctrl.pb.DataState.Event
+	61,  // 8: zt.edge_ctrl.pb.DataState.caches:type_name -> zt.edge_ctrl.pb.DataState.CachesEntry
+	18,  // 9: zt.edge_ctrl.pb.ApiSessionAdded.apiSessions:type_name -> zt.edge_ctrl.pb.ApiSession
+	18,  // 10: zt.edge_ctrl.pb.ApiSessionUpdated.apiSessions:type_name -> zt.edge_ctrl.pb.ApiSession
+	85,  // 11: zt.edge_ctrl.pb.CreateCircuitRequest.peerData:type_name -> zt.edge_ctrl.pb.CreateCircuitRequest.PeerDataEntry
+	86,  // 12: zt.edge_ctrl.pb.CreateCircuitResponse.peerData:type_name -> zt.edge_ctrl.pb.CreateCircuitResponse.PeerDataEntry
+	87,  // 13: zt.edge_ctrl.pb.CreateCircuitResponse.tags:type_name -> zt.edge_ctrl.pb.CreateCircuitResponse.TagsEntry
+	88,  // 14: zt.edge_ctrl.pb.CreateTerminatorV2Request.peerData:type_name -> zt.edge_ctrl.pb.CreateTerminatorV2Request.PeerDataEntry
+	6,   // 15: zt.edge_ctrl.pb.CreateTerminatorV2Request.precedence:type_name -> zt.edge_ctrl.pb.TerminatorPrecedence
+	7,   // 16: zt.edge_ctrl.pb.CreateTerminatorV2Response.result:type_name -> zt.edge_ctrl.pb.CreateTerminatorResult
+	6,   // 17: zt.edge_ctrl.pb.UpdateTerminatorRequest.precedence:type_name -> zt.edge_ctrl.pb.TerminatorPrecedence
+	33,  // 18: zt.edge_ctrl.pb.CreateApiSessionRequest.envInfo:type_name -> zt.edge_ctrl.pb.EnvInfo
+	34,  // 19: zt.edge_ctrl.pb.CreateApiSessionRequest.sdkInfo:type_name -> zt.edge_ctrl.pb.SdkInfo
+	6,   // 20: zt.edge_ctrl.pb.CreateApiSessionResponse.defaultHostingPrecedence:type_name -> zt.edge_ctrl.pb.TerminatorPrecedence
+	89,  // 21: zt.edge_ctrl.pb.CreateApiSessionResponse.servicePrecedences:type_name -> zt.edge_ctrl.pb.CreateApiSessionResponse.ServicePrecedencesEntry
+	90,  // 22: zt.edge_ctrl.pb.CreateApiSessionResponse.serviceCosts:type_name -> zt.edge_ctrl.pb.CreateApiSessionResponse.ServiceCostsEntry
+	91,  // 23: zt.edge_ctrl.pb.CreateCircuitForServiceRequest.peerData:type_name -> zt.edge_ctrl.pb.CreateCircuitForServiceRequest.PeerDataEntry
+	36,  // 24: zt.edge_ctrl.pb.CreateCircuitForServiceResponse.apiSession:type_name -> zt.edge_ctrl.pb.CreateApiSessionResponse
+	38,  // 25: zt.edge_ctrl.pb.CreateCircuitForServiceResponse.session:type_name -> zt.edge_ctrl.pb.CreateSessionResponse
+	92,  // 26: zt.edge_ctrl.pb.CreateCircuitForServiceResponse.peerData:type_name -> zt.edge_ctrl.pb.CreateCircuitForServiceResponse.PeerDataEntry
+	93,  // 27: zt.edge_ctrl.pb.CreateCircuitForServiceResponse.tags:type_name -> zt.edge_ctrl.pb.CreateCircuitForServiceResponse.TagsEntry
+	94,  // 28: zt.edge_ctrl.pb.CreateTunnelCircuitV2Request.peerData:type_name -> zt.edge_ctrl.pb.CreateTunnelCircuitV2Request.PeerDataEntry
+	95,  // 29: zt.edge_ctrl.pb.CreateTunnelCircuitV2Response.peerData:type_name -> zt.edge_ctrl.pb.CreateTunnelCircuitV2Response.PeerDataEntry
+	96,  // 30: zt.edge_ctrl.pb.CreateTunnelCircuitV2Response.tags:type_name -> zt.edge_ctrl.pb.CreateTunnelCircuitV2Response.TagsEntry
+	43,  // 31: zt.edge_ctrl.pb.ServicesList.services:type_name -> zt.edge_ctrl.pb.TunnelService
+	97,  // 32: zt.edge_ctrl.pb.CreateTunnelTerminatorRequest.peerData:type_name -> zt.edge_ctrl.pb.CreateTunnelTerminatorRequest.PeerDataEntry
+	6,   // 33: zt.edge_ctrl.pb.CreateTunnelTerminatorRequest.precedence:type_name -> zt.edge_ctrl.pb.TerminatorPrecedence
+	36,  // 34: zt.edge_ctrl.pb.CreateTunnelTerminatorResponse.apiSession:type_name -> zt.edge_ctrl.pb.CreateApiSessionResponse
+	38,  // 35: zt.edge_ctrl.pb.CreateTunnelTerminatorResponse.session:type_name -> zt.edge_ctrl.pb.CreateSessionResponse
+	98,  // 36: zt.edge_ctrl.pb.CreateTunnelTerminatorRequestV2.peerData:type_name -> zt.edge_ctrl.pb.CreateTunnelTerminatorRequestV2.PeerDataEntry
+	6,   // 37: zt.edge_ctrl.pb.CreateTunnelTerminatorRequestV2.precedence:type_name -> zt.edge_ctrl.pb.TerminatorPrecedence
+	7,   // 38: zt.edge_ctrl.pb.CreateTunnelTerminatorResponseV2.result:type_name -> zt.edge_ctrl.pb.CreateTerminatorResult
+	6,   // 39: zt.edge_ctrl.pb.UpdateTunnelTerminatorRequest.precedence:type_name -> zt.edge_ctrl.pb.TerminatorPrecedence
+	100, // 40: zt.edge_ctrl.pb.ConnectEvents.events:type_name -> zt.edge_ctrl.pb.ConnectEvents.IdentityConnectEvents
+	17,  // 41: zt.edge_ctrl.pb.RouterDataModelValidateRequest.state:type_name -> zt.edge_ctrl.pb.DataState
+	101, // 42: zt.edge_ctrl.pb.RouterDataModelValidateResponse.origEntityCounts:type_name -> zt.edge_ctrl.pb.RouterDataModelValidateResponse.OrigEntityCountsEntry
+	102, // 43: zt.edge_ctrl.pb.RouterDataModelValidateResponse.copyEntityCounts:type_name -> zt.edge_ctrl.pb.RouterDataModelValidateResponse.CopyEntityCountsEntry
+	54,  // 44: zt.edge_ctrl.pb.RouterDataModelValidateResponse.diffs:type_name -> zt.edge_ctrl.pb.RouterDataModelDiff
+	16,  // 45: zt.edge_ctrl.pb.DataState.CachesEntry.value:type_name -> zt.edge_ctrl.pb.Cache
+	74,  // 46: zt.edge_ctrl.pb.DataState.ServiceConfigs.configs:type_name -> zt.edge_ctrl.pb.DataState.ServiceConfigs.ConfigsEntry
+	6,   // 47: zt.edge_ctrl.pb.DataState.Identity.defaultHostingPrecedence:type_name -> zt.edge_ctrl.pb.TerminatorPrecedence
+	75,  // 48: zt.edge_ctrl.pb.DataState.Identity.serviceHostingPrecedences:type_name -> zt.edge_ctrl.pb.DataState.Identity.ServiceHostingPrecedencesEntry
+	76,  // 49: zt.edge_ctrl.pb.DataState.Identity.serviceHostingCosts:type_name -> zt.edge_ctrl.pb.DataState.Identity.ServiceHostingCostsEntry
+	77,  // 50: zt.edge_ctrl.pb.DataState.Identity.serviceConfigs:type_name -> zt.edge_ctrl.pb.DataState.Identity.ServiceConfigsEntry
+	4,   // 51: zt.edge_ctrl.pb.DataState.ServicePolicy.policyType:type_name -> zt.edge_ctrl.pb.PolicyType
+	103, // 52: zt.edge_ctrl.pb.DataState.Revocation.ExpiresAt:type_name -> google.protobuf.Timestamp
+	5,   // 53: zt.edge_ctrl.pb.DataState.ServicePolicyChange.relatedEntityType:type_name -> zt.edge_ctrl.pb.ServicePolicyRelatedEntityType
+	71,  // 54: zt.edge_ctrl.pb.DataState.ChangeSet.changes:type_name -> zt.edge_ctrl.pb.DataState.Event
+	8,   // 55: zt.edge_ctrl.pb.DataState.Event.action:type_name -> zt.edge_ctrl.pb.DataState.Action
+	65,  // 56: zt.edge_ctrl.pb.DataState.Event.identity:type_name -> zt.edge_ctrl.pb.DataState.Identity
+	66,  // 57: zt.edge_ctrl.pb.DataState.Event.service:type_name -> zt.edge_ctrl.pb.DataState.Service
+	67,  // 58: zt.edge_ctrl.pb.DataState.Event.servicePolicy:type_name -> zt.edge_ctrl.pb.DataState.ServicePolicy
+	73,  // 59: zt.edge_ctrl.pb.DataState.Event.postureCheck:type_name -> zt.edge_ctrl.pb.DataState.PostureCheck
+	72,  // 60: zt.edge_ctrl.pb.DataState.Event.publicKey:type_name -> zt.edge_ctrl.pb.DataState.PublicKey
+	68,  // 61: zt.edge_ctrl.pb.DataState.Event.revocation:type_name -> zt.edge_ctrl.pb.DataState.Revocation
+	69,  // 62: zt.edge_ctrl.pb.DataState.Event.servicePolicyChange:type_name -> zt.edge_ctrl.pb.DataState.ServicePolicyChange
+	62,  // 63: zt.edge_ctrl.pb.DataState.Event.configType:type_name -> zt.edge_ctrl.pb.DataState.ConfigType
+	63,  // 64: zt.edge_ctrl.pb.DataState.Event.config:type_name -> zt.edge_ctrl.pb.DataState.Config
+	9,   // 65: zt.edge_ctrl.pb.DataState.PublicKey.usages:type_name -> zt.edge_ctrl.pb.DataState.PublicKey.Usage
+	10,  // 66: zt.edge_ctrl.pb.DataState.PublicKey.format:type_name -> zt.edge_ctrl.pb.DataState.PublicKey.Format
+	78,  // 67: zt.edge_ctrl.pb.DataState.PostureCheck.mac:type_name -> zt.edge_ctrl.pb.DataState.PostureCheck.Mac
+	79,  // 68: zt.edge_ctrl.pb.DataState.PostureCheck.mfa:type_name -> zt.edge_ctrl.pb.DataState.PostureCheck.Mfa
+	81,  // 69: zt.edge_ctrl.pb.DataState.PostureCheck.osList:type_name -> zt.edge_ctrl.pb.DataState.PostureCheck.OsList
+	82,  // 70: zt.edge_ctrl.pb.DataState.PostureCheck.process:type_name -> zt.edge_ctrl.pb.DataState.PostureCheck.Process
+	83,  // 71: zt.edge_ctrl.pb.DataState.PostureCheck.processMulti:type_name -> zt.edge_ctrl.pb.DataState.PostureCheck.ProcessMulti
+	84,  // 72: zt.edge_ctrl.pb.DataState.PostureCheck.domains:type_name -> zt.edge_ctrl.pb.DataState.PostureCheck.Domains
+	6,   // 73: zt.edge_ctrl.pb.DataState.Identity.ServiceHostingPrecedencesEntry.value:type_name -> zt.edge_ctrl.pb.TerminatorPrecedence
+	64,  // 74: zt.edge_ctrl.pb.DataState.Identity.ServiceConfigsEntry.value:type_name -> zt.edge_ctrl.pb.DataState.ServiceConfigs
+	80,  // 75: zt.edge_ctrl.pb.DataState.PostureCheck.OsList.osList:type_name -> zt.edge_ctrl.pb.DataState.PostureCheck.Os
+	82,  // 76: zt.edge_ctrl.pb.DataState.PostureCheck.ProcessMulti.processes:type_name -> zt.edge_ctrl.pb.DataState.PostureCheck.Process
+	6,   // 77: zt.edge_ctrl.pb.CreateApiSessionResponse.ServicePrecedencesEntry.value:type_name -> zt.edge_ctrl.pb.TerminatorPrecedence
+	99,  // 78: zt.edge_ctrl.pb.ConnectEvents.IdentityConnectEvents.connectTimes:type_name -> zt.edge_ctrl.pb.ConnectEvents.ConnectDetails
 	79,  // [79:79] is the sub-list for method output_type
 	79,  // [79:79] is the sub-list for method input_type
 	79,  // [79:79] is the sub-list for extension type_name

@@ -33,8 +33,8 @@ import (
 	"github.com/Jeffail/gabs"
 	"github.com/google/uuid"
 	"github.com/hanzozt/edge-api/rest_model"
-	"github.com/hanzozt/sdk-golang/ziti"
-	"github.com/hanzozt/ziti/v2/common/eid"
+	"github.com/hanzozt/sdk-golang/zt"
+	"github.com/hanzozt/zt/v2/common/eid"
 )
 
 type entity interface {
@@ -264,7 +264,7 @@ type identity struct {
 	defaultHostingCost        int
 	serviceHostingPrecedences map[string]interface{}
 	serviceHostingCosts       map[string]uint16
-	config                    *ziti.Config
+	config                    *zt.Config
 	authPolicyId              string
 }
 

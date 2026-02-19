@@ -1,11 +1,11 @@
-name: ziti-cli
-description: Get ziti binary and add it to the PATH
+name: zt-cli
+description: Get zt binary and add it to the PATH
 inputs:
   version:
     required: false
     default: stable
     description: |
-      version of ziti CLI to download,
+      version of zt CLI to download,
       use tag (like v1.6.7) or special values:
       'stable' (default) means latest release, 
       `latest` means most recent tagged release
@@ -18,14 +18,14 @@ runs:
       run: |
         ver=${{ inputs.version }}
         if [[ ${{ inputs.version }} == "stable" ]]; then
-           ver=$(gh release view --repo hanzozt/ziti | awk '/^tag/{ print $2 }')
+           ver=$(gh release view --repo hanzozt/zt | awk '/^tag/{ print $2 }')
         elif [[ ${{ inputs.version }} == "latest" ]]; then
-           ver=$(gh release list --limit 1 --repo hanzozt/ziti --json "tagName" --jq ".[0].tagName")
+           ver=$(gh release list --limit 1 --repo hanzozt/zt --json "tagName" --jq ".[0].tagName")
         fi
         echo "using version = $ver"
         echo "ZITI_VERSION=$ver" >> $GITHUB_ENV
 
-    - name: download ziti CLI
+    - name: download zt CLI
       shell: bash
       run: |
         os=${{ runner.os }}
@@ -41,22 +41,22 @@ runs:
         if [[ "${arch}" == "x86_64" ]]; then
            arch="amd64"
         fi
-        echo "downloading ziti-${os}-${arch} ${ZITI_VERSION} tarball"
+        echo "downloading zt-${os}-${arch} ${ZITI_VERSION} tarball"
         mkdir -p '${{ runner.temp }}'
         cd '${{ runner.temp }}'
-        gh release download ${ZITI_VERSION} --repo hanzozt/ziti --pattern "ziti-${os}-${arch}-*" --output ziti.bundle
+        gh release download ${ZITI_VERSION} --repo hanzozt/zt --pattern "zt-${os}-${arch}-*" --output zt.bundle
 
-    - name: extract ziti CLI and add to PATH
+    - name: extract zt CLI and add to PATH
       shell: bash
       run: |
         cd '${{ runner.temp }}'
-        mkdir -p ziti-cli/bin
+        mkdir -p zt-cli/bin
         if [[ ${{ runner.os }} == "Windows" ]]; then
-          mkdir -p ziti-cli/bin
-          unzip -d 'ziti-cli\bin' ziti.bundle
+          mkdir -p zt-cli/bin
+          unzip -d 'zt-cli\bin' zt.bundle
         else
-          tar -xpf ziti.bundle -C ziti-cli/bin
+          tar -xpf zt.bundle -C zt-cli/bin
         fi
-        ./ziti-cli/bin/ziti version
-        echo "${{ runner.temp }}/ziti-cli/bin" >> $GITHUB_PATH
+        ./zt-cli/bin/zt version
+        echo "${{ runner.temp }}/zt-cli/bin" >> $GITHUB_PATH
            

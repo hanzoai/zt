@@ -29,8 +29,8 @@ import (
 	"github.com/hanzozt/foundation/v2/concurrenz"
 	"github.com/hanzozt/foundation/v2/errorz"
 	"github.com/hanzozt/metrics"
-	"github.com/hanzozt/sdk-golang/ziti"
-	"github.com/hanzozt/ziti/v2/controller/apierror"
+	"github.com/hanzozt/sdk-golang/zt"
+	"github.com/hanzozt/zt/v2/controller/apierror"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -209,12 +209,12 @@ func Test_AuthFlood(t *testing.T) {
 		go func() {
 			defer countdown.Done()
 
-			ctx, err := ziti.NewContextFromFile("/home/plorenz/work/demo/zcat.json")
+			ctx, err := zt.NewContextFromFile("/home/plorenz/work/demo/zcat.json")
 			if err != nil {
 				panic(err)
 			}
 
-			ctxImpl := ctx.(*ziti.ContextImpl)
+			ctxImpl := ctx.(*zt.ContextImpl)
 
 			for j := 0; j < 10; j++ {
 				for {

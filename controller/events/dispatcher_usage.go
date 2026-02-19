@@ -21,7 +21,7 @@ import (
 	"time"
 
 	"github.com/hanzozt/metrics/metrics_pb"
-	"github.com/hanzozt/ziti/v2/controller/event"
+	"github.com/hanzozt/zt/v2/controller/event"
 	"github.com/pkg/errors"
 )
 

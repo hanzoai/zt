@@ -23,8 +23,8 @@ import (
 	"github.com/hanzozt/foundation/v2/errorz"
 	nfpem "github.com/hanzozt/foundation/v2/pem"
 	"github.com/hanzozt/storage/boltz"
-	"github.com/hanzozt/ziti/v2/controller/db"
-	"github.com/hanzozt/ziti/v2/controller/models"
+	"github.com/hanzozt/zt/v2/controller/db"
+	"github.com/hanzozt/zt/v2/controller/models"
 	"go.etcd.io/bbolt"
 )
 

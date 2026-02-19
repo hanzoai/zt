@@ -22,9 +22,9 @@ import (
 	"strings"
 
 	"github.com/hanzozt/metrics/metrics_pb"
-	"github.com/hanzozt/ziti/v2/controller/event"
-	"github.com/hanzozt/ziti/v2/controller/events"
-	"github.com/hanzozt/ziti/v2/controller/network"
+	"github.com/hanzozt/zt/v2/controller/event"
+	"github.com/hanzozt/zt/v2/controller/events"
+	"github.com/hanzozt/zt/v2/controller/network"
 	"github.com/pkg/errors"
 )
 

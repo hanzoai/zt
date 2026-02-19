@@ -1,4 +1,4 @@
-module github.com/hanzozt/ziti/v2
+module github.com/hanzozt/zt/v2
 
 go 1.25.3
 
@@ -75,7 +75,7 @@ require (
 	github.com/hanzozt/transport/v2 v2.0.209
 	github.com/hanzozt/x509-claims v1.0.3
 	github.com/hanzozt/xweb/v3 v3.0.3
-	github.com/hanzozt/ziti-db-explorer v1.1.3
+	github.com/hanzozt/zt-db-explorer v1.1.3
 	github.com/orcaman/concurrent-map/v2 v2.0.1
 	github.com/pkg/errors v0.9.1
 	github.com/rabbitmq/amqp091-go v1.10.0

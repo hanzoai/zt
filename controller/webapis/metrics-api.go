@@ -29,7 +29,7 @@ import (
 	"github.com/michaelquigley/pfxlog"
 	"github.com/hanzozt/identity"
 	"github.com/hanzozt/xweb/v3"
-	"github.com/hanzozt/ziti/v2/controller/network"
+	"github.com/hanzozt/zt/v2/controller/network"
 )
 
 var _ xweb.ApiHandlerFactory = &MetricsApiFactory{}
@@ -142,7 +142,7 @@ func (metricsApi *MetricsApiHandler) ServeHTTP(writer http.ResponseWriter, reque
 
 func (metricsApi *MetricsApiHandler) newHandler() http.Handler {
 	handler := http.HandlerFunc(func(rw http.ResponseWriter, r *http.Request) {
-		// Set Content-Type, see https://github.com/hanzozt/ziti/v2/issues/2608
+		// Set Content-Type, see https://github.com/hanzozt/zt/v2/issues/2608
 		rw.Header().Set("Content-Type", "text/plain; version=0.0.4; charset=utf-8")
 
 		if nil != metricsApi.scrapeCert {

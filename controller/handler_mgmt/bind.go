@@ -19,10 +19,10 @@ package handler_mgmt
 import (
 	"github.com/hanzozt/channel/v4"
 	"github.com/hanzozt/foundation/v2/concurrenz"
-	"github.com/hanzozt/ziti/v2/common/trace"
-	"github.com/hanzozt/ziti/v2/controller/env"
-	"github.com/hanzozt/ziti/v2/controller/network"
-	"github.com/hanzozt/ziti/v2/controller/xmgmt"
+	"github.com/hanzozt/zt/v2/common/trace"
+	"github.com/hanzozt/zt/v2/controller/env"
+	"github.com/hanzozt/zt/v2/controller/network"
+	"github.com/hanzozt/zt/v2/controller/xmgmt"
 )
 
 type BindHandler struct {

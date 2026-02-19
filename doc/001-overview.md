@@ -17,7 +17,7 @@ and management of endpoints that make use of the Ziti SDK. The Ziti SDK can be b
 ingress and egress to the Ziti overlay network as well as to provide application specific networking to an individual
 application. Enabling the Edge features is optional.
 
-Both the Fabric and Edge features are built into the ziti binary.
+Both the Fabric and Edge features are built into the zt binary.
 
 ## Ziti Controller
 
@@ -51,8 +51,8 @@ configuration of a Ziti environment.
 
 | Subcommand           | Description|
 |-------------------| -----------|
-| ziti controller   | Runs a central server necessary for Ziti environments|
-| ziti router       | Runs a server capable of ingress'ing and egress'ing Ziti traffic standalone or as a mesh|
+| zt controller   | Runs a central server necessary for Ziti environments|
+| zt router       | Runs a server capable of ingress'ing and egress'ing Ziti traffic standalone or as a mesh|
 
 ### Tools
 
@@ -60,8 +60,8 @@ The following commands provide utility or testing functionality.
 
 | Subcommand           | Description|
 |-------------------| -----------|
-| ziti edge enroll  | Provides enrollment processing features for executables that do not directly support enrollment|
-| ziti fabric inspect | Observe Ziti Fabric runtime values                       |
+| zt edge enroll  | Provides enrollment processing features for executables that do not directly support enrollment|
+| zt fabric inspect | Observe Ziti Fabric runtime values                       |
 
 ### Management
 
@@ -69,8 +69,8 @@ The following binaries are used to configure and manage a Ziti environment via c
 
 | Subcommand           | Description|
 |-------------------| -----------|
-| ziti fabric       | Provides command line access to Ziti Fabric management features|
-| ziti edge         | Provides command line access to Ziti management features|
+| zt fabric       | Provides command line access to Ziti Fabric management features|
+| zt edge         | Provides command line access to Ziti management features|
 
 ## Endpoint Clients
 
@@ -80,9 +80,9 @@ networks.
 
 | Subcommand           | Description|
 |-------------------| -----------|
-| ziti tunnel       | Provides the ability to intercept traffic to route traffic across Ziti|
+| zt tunnel       | Provides the ability to intercept traffic to route traffic across Ziti|
 
-All of the above binaries are cross platform compatible, except `ziti tunnel` which is currently Linux-only.
+All of the above binaries are cross platform compatible, except `zt tunnel` which is currently Linux-only.
 
 ## Further Exploration
 

@@ -23,9 +23,9 @@ import (
 
 	"github.com/gorilla/mux"
 	"github.com/michaelquigley/pfxlog"
-	"github.com/hanzozt/ziti/v2/common"
-	"github.com/hanzozt/ziti/v2/controller/db"
-	"github.com/hanzozt/ziti/v2/controller/model"
+	"github.com/hanzozt/zt/v2/common"
+	"github.com/hanzozt/zt/v2/controller/db"
+	"github.com/hanzozt/zt/v2/controller/model"
 	"github.com/pkg/errors"
 	"github.com/zitadel/oidc/v3/pkg/op"
 	"golang.org/x/text/language"

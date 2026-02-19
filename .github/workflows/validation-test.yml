@@ -42,7 +42,7 @@ jobs:
         uses: ./.github/actions/setup-go
 
       - name: Install Ziti CI
-        uses: hanzozt/ziti-ci@v1
+        uses: hanzozt/zt-ci@v1
 
       - name: Install Terraform CLI
         uses: hashicorp/setup-terraform@v3
@@ -52,20 +52,20 @@ jobs:
       - name: Build and Test
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ziti_ci_gpg_key: ${{ secrets.ZITI_CI_GPG_KEY }}
-          ziti_ci_gpg_key_id: ${{ secrets.ZITI_CI_GPG_KEY_ID }}
+          zt_ci_gpg_key: ${{ secrets.ZITI_CI_GPG_KEY }}
+          zt_ci_gpg_key_id: ${{ secrets.ZITI_CI_GPG_KEY_ID }}
         shell: bash
         run: |
-          $(go env GOPATH)/bin/ziti-ci configure-git
-          $(go env GOPATH)/bin/ziti-ci generate-build-info common/version/info_generated.go version
-          pushd zititest && go mod tidy && go install -tags all ./... && popd
+          $(go env GOPATH)/bin/zt-ci configure-git
+          $(go env GOPATH)/bin/zt-ci generate-build-info common/version/info_generated.go version
+          pushd zttest && go mod tidy && go install -tags all ./... && popd
           go install -tags=all,tests ./...
 
       - name: Create Test Environment
         shell: bash
         run: |
           echo "ZITI_ROOT=$(go env GOPATH)/bin" >> "$GITHUB_ENV"
-          $(go env GOPATH)/bin/${TEST_TYPE} create -d ${TEST_TYPE}-${GITHUB_RUN_NUMBER} -n ${TEST_TYPE}-${GITHUB_RUN_NUMBER} -l environment=gh-fablab-${TEST_TYPE},ziti_version=$($(go env GOPATH)/bin/ziti-ci -q get-current-version)
+          $(go env GOPATH)/bin/${TEST_TYPE} create -d ${TEST_TYPE}-${GITHUB_RUN_NUMBER} -n ${TEST_TYPE}-${GITHUB_RUN_NUMBER} -l environment=gh-fablab-${TEST_TYPE},zt_version=$($(go env GOPATH)/bin/zt-ci -q get-current-version)
           $(go env GOPATH)/bin/${TEST_TYPE} up
           $(go env GOPATH)/bin/${TEST_TYPE} exec validateUp
 

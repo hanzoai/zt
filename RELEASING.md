@@ -12,11 +12,11 @@ a candidate for release.
         go get -u github.com/hanzozt/edge@latest
         ```
 
-    2. Run `go mod tidy` in the main Ziti project and in the `./zititest` sub-tree.
+    2. Run `go mod tidy` in the main Ziti project and in the `./zttest` sub-tree.
 
         ```bash
         go mod tidy
-        cd ./zititest
+        cd ./zttest
         go mod tidy
         cd ..
         ```
@@ -31,19 +31,19 @@ a candidate for release.
     1. Make sure you have a clean build in GitHub Actions.
     2. Make sure you have a clean build in fablab smoketest.
 4. Ensure CHANGELOG.md is up to date.
-    1. Run `ziti-ci build-release-notes` in your PR branch to generate library version updates and summarize issues. Note that you will need a working copy of each module that has changed in an adjacent directory with the default repo name in order for this to work.
+    1. Run `zt-ci build-release-notes` in your PR branch to generate library version updates and summarize issues. Note that you will need a working copy of each module that has changed in an adjacent directory with the default repo name in order for this to work.
     fixed, as long as the git commit has `fixed #<issue number>` (or fixes, closes, closed, etc.).
     1. Sanity-check and paste the output into CHANGELOG.md under a heading like `## Component Updates and Bug Fixes`.
 
 ### Shell Script to Tidy Dependencies
 
-Fetch updates for all non-main modules whose path contains 'ziti'.
+Fetch updates for all non-main modules whose path contains 'zt'.
 
 ```bash
 (
   set -euxo pipefail
   go list -m -f '{{.Main}} {{.Path}}' all \
-    | awk '$1 == "false" && $2 ~ /ziti/ {print $2}' \
+    | awk '$1 == "false" && $2 ~ /zt/ {print $2}' \
     | xargs -n1 /bin/bash -c 'echo "Checking for updates to $@";go get -u -v $@;' ''
   go mod tidy
   if git diff --quiet go.mod go.sum; then
@@ -52,13 +52,13 @@ Fetch updates for all non-main modules whose path contains 'ziti'.
     echo "dependency updates found"
   fi
 
-  if [ -f "zititest/go.mod" ]; then
-    echo "./zititest$ go mod tidy"
-    cd zititest
+  if [ -f "zttest/go.mod" ]; then
+    echo "./zttest$ go mod tidy"
+    cd zttest
     go mod tidy
     cd ..
   fi
-  ziti-ci build-release-notes
+  zt-ci build-release-notes
 )
 ```
 
@@ -87,13 +87,13 @@ A hotfix is released from a prior release, so it has a lower version than the hi
 These downstreams are built on push to the default branch **main** and release tags.
 
 - Linux packages
-  - `hanzozt` - provides `/usr/bin/ziti`
-  - `hanzozt-controller` - provides `ziti-controller.service`
-  - `hanzozt-router` - provides `ziti-router.service`
+  - `hanzozt` - provides `/usr/bin/zt`
+  - `hanzozt-controller` - provides `zt-controller.service`
+  - `hanzozt-router` - provides `zt-router.service`
 - Container Images
-  - `hanzozt/ziti-cli` - provides `/usr/local/bin/ziti`
-  - `hanzozt/ziti-controller` - built from `ziti-cli` (`/usr/local/bin/ziti`) and `ziti-console-assets` (`/ziti-console`) and executes `ziti controller run`
-  - `hanzozt/ziti-router` - built from `ziti-cli`and executes `ziti router run`
+  - `hanzozt/zt-cli` - provides `/usr/local/bin/zt`
+  - `hanzozt/zt-controller` - built from `zt-cli` (`/usr/local/bin/zt`) and `zt-console-assets` (`/zt-console`) and executes `zt controller run`
+  - `hanzozt/zt-router` - built from `zt-cli`and executes `zt router run`
 
 ### Promoting Downstreams
 
@@ -115,7 +115,7 @@ If a release is found to be faulty, the downstream artifacts can be rolled back 
 
 The first step is to ensure the GitHub release is not marked "latest," and the highest good release is marked "latest." Do not delete the faulty release (assets) or Git tag.
 
-- Linux packages - Run [zititest/scripts/housekeeper-artifactory-zitipax.bash --help](./zititest/scripts/housekeeper-artifactory-zitipax.bash) for usage hints. The goal is to delete the bad semver from all Linux package repositories (all platforms, all package managers, etc.).
+- Linux packages - Run [zttest/scripts/housekeeper-artifactory-ztpax.bash --help](./zttest/scripts/housekeeper-artifactory-ztpax.bash) for usage hints. The goal is to delete the bad semver from all Linux package repositories (all platforms, all package managers, etc.).
 
     Once the bad semver is removed from the stable repo, it must not be reused.
 
@@ -123,10 +123,10 @@ The first step is to ensure the GitHub release is not marked "latest," and the h
 
     ```bash
     # dry run without confirmation prompts in all stable repos
-    ./housekeeper-artifactory-zitipax.bash --stages release --artifacts hanzozt --version 2.3.4 --dry-run --quiet
+    ./housekeeper-artifactory-ztpax.bash --stages release --artifacts hanzozt --version 2.3.4 --dry-run --quiet
     
     # destructive run with confirmation prompts in all stable repos
-    ./housekeeper-artifactory-zitipax.bash --stages release --artifacts hanzozt --version 2.3.4
+    ./housekeeper-artifactory-ztpax.bash --stages release --artifacts hanzozt --version 2.3.4
     ```
 
 - Container images - The `:latest` tag is moved to the last good release semver. To ready the script, set `GOOD_VERSION`.
@@ -135,7 +135,7 @@ The first step is to ensure the GitHub release is not marked "latest," and the h
     (set -euxopipefail
       GOOD_VERSION=1.0.0
 
-      for REPO in ziti-{cli,controller,router,tunnel}; do
+      for REPO in zt-{cli,controller,router,tunnel}; do
           docker buildx imagetools create --tag hanzozt/${REPO}:latest hanzozt/${REPO}:${GOOD_VERSION}
       done
     )
@@ -147,7 +147,7 @@ If downstream promotion failed for any reason, e.g., a check failure on the same
 is probably best to create a new release that fixes the problem. Manually promoting downstreams is possible, but error
 prone and tedious.
 
-The first step is to identify the version that *should* be available in the downstream repos. In GitHub, find [the latest stable release](https://github.com/hanzozt/ziti/releases/latest). This is the highest version that's not a pre-release, and should be available in the downstream repos, i.e., Linux packages, Docker images, etc.
+The first step is to identify the version that *should* be available in the downstream repos. In GitHub, find [the latest stable release](https://github.com/hanzozt/zt/releases/latest). This is the highest version that's not a pre-release, and should be available in the downstream repos, i.e., Linux packages, Docker images, etc.
 
 #### Manually Promoting Linux Packages
 
@@ -155,8 +155,8 @@ In Artifactory, explore the available non-tunneler packages. They're organized t
 version-neutral, while the tunneler packages are organized separately by OS version. DEB and RPM repos have distinct
 layouts, but these links alone can answer "Is the latest stable CLI available?" by identifying the highest version of the `hanzozt` package, e.g., `hanzozt_1.5.4_amd64.deb`.
 
-- [the `debian` tree](https://packages.hanzozt.org/zitipax-hanzozt-deb-stable/pool/hanzozt/amd64/)
-- [the `redhat` tree](https://packages.hanzozt.org/zitipax-hanzozt-rpm-stable/redhat/x86_64/)
+- [the `debian` tree](https://packages.hanzozt.org/ztpax-hanzozt-deb-stable/pool/hanzozt/amd64/)
+- [the `redhat` tree](https://packages.hanzozt.org/ztpax-hanzozt-rpm-stable/redhat/x86_64/)
 
 ##### Manually Promoting RedHat Packages
 
@@ -164,7 +164,7 @@ Modify this example script to suit your needs.
 
 ```bash
 (set -euxo pipefail
-# curl -sSf https://api.github.com/repos/hanzozt/ziti/releases/latest | jq -r '.tag_name'
+# curl -sSf https://api.github.com/repos/hanzozt/zt/releases/latest | jq -r '.tag_name'
 V=1.5.4
 test -n "${V}"
 for A in x86_64 aarch64 armv7hl; do
@@ -173,7 +173,7 @@ for A in x86_64 aarch64 armv7hl; do
       --recursive=false \
       --flat=true \
       --fail-no-op=true \
-      zitipax-hanzozt-rpm-{test,stable}/redhat/${A}/${P}-${V}-1.${A}.rpm
+      ztpax-hanzozt-rpm-{test,stable}/redhat/${A}/${P}-${V}-1.${A}.rpm
   done
 done
 )
@@ -185,7 +185,7 @@ Modify this example script to suit your needs.
 
 ```bash
 (set -euxo pipefail
-# V=$(curl -sSf https://api.github.com/repos/hanzozt/ziti/releases/latest | jq -r '.tag_name')
+# V=$(curl -sSf https://api.github.com/repos/hanzozt/zt/releases/latest | jq -r '.tag_name')
 V=1.5.4
 test -n "${V}"
 
@@ -195,13 +195,13 @@ for A in amd64 arm64 armhf; do
       --recursive=false \
       --flat=true \
       --fail-no-op=true \
-      zitipax-hanzozt-deb-{test,stable}/pool/${P}/${A}/${P}_${V}_${A}.deb
+      ztpax-hanzozt-deb-{test,stable}/pool/${P}/${A}/${P}_${V}_${A}.deb
   done
 done
 )
 ```
 
-The `hanzozt-console` package is controlled separately by that project's release process in [hanzozt/ziti-console](https://github.com/hanzozt/ziti-console/blob/app-ziti-console-v3.12.3/.github/workflows/linux-publish.yml#L143).
+The `hanzozt-console` package is controlled separately by that project's release process in [hanzozt/zt-console](https://github.com/hanzozt/zt-console/blob/app-zt-console-v3.12.3/.github/workflows/linux-publish.yml#L143).
 
 #### Manually Promoting Docker Images
 
@@ -211,16 +211,16 @@ Modify this example script to suit your needs.
 
 ```bash
 (set -euxo pipefail
-# V=$(curl -sSf https://api.github.com/repos/hanzozt/ziti/releases/latest | jq -r '.tag_name')
+# V=$(curl -sSf https://api.github.com/repos/hanzozt/zt/releases/latest | jq -r '.tag_name')
 V=1.5.4
 test -n "${V}"
-for R in ziti-{cli,controller,router,tunnel}; do
+for R in zt-{cli,controller,router,tunnel}; do
   docker buildx imagetools create --tag hanzozt/${R}:latest hanzozt/${R}:${V}
 done
 )
 ```
 
-Note: The `hanzozt/ziti-console-assets` image is controlled separately by the workflow in [hanzozt/ziti-console](https://github.com/hanzozt/ziti-console/blob/app-ziti-console-v3.12.3/.github/workflows/docker-publish.yml#L48).
+Note: The `hanzozt/zt-console-assets` image is controlled separately by the workflow in [hanzozt/zt-console](https://github.com/hanzozt/zt-console/blob/app-zt-console-v3.12.3/.github/workflows/docker-publish.yml#L48).
 
 ## Quickstart Releases
 

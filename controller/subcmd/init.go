@@ -24,9 +24,9 @@ import (
 	"github.com/michaelquigley/pfxlog"
 	"github.com/hanzozt/foundation/v2/term"
 	"github.com/hanzozt/foundation/v2/versions"
-	"github.com/hanzozt/ziti/v2/controller"
-	"github.com/hanzozt/ziti/v2/controller/config"
-	"github.com/hanzozt/ziti/v2/controller/server"
+	"github.com/hanzozt/zt/v2/controller"
+	"github.com/hanzozt/zt/v2/controller/config"
+	"github.com/hanzozt/zt/v2/controller/server"
 	"github.com/spf13/cobra"
 )
 
@@ -65,10 +65,10 @@ func NewEdgeInitializeCmd(versionProvider versions.VersionProvider) *cobra.Comma
 	cmd := &cobra.Command{
 		Use:     "init <config> [-p]",
 		Aliases: []string{"initialize"},
-		Example: "ziti controller edge init controller.yml -u admin -p o93wjh5n",
+		Example: "zt controller edge init controller.yml -u admin -p o93wjh5n",
 		Args: func(cmd *cobra.Command, args []string) error {
 			if len(args) != 1 {
-				return errors.New("config file not specified: ziti controller edge init <config>")
+				return errors.New("config file not specified: zt controller edge init <config>")
 			}
 
 			return nil

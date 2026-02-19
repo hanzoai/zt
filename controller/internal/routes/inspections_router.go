@@ -21,11 +21,11 @@ import (
 
 	"github.com/go-openapi/runtime/middleware"
 	"github.com/hanzozt/foundation/v2/stringz"
-	"github.com/hanzozt/ziti/v2/controller/env"
-	"github.com/hanzozt/ziti/v2/controller/permissions"
-	"github.com/hanzozt/ziti/v2/controller/response"
-	"github.com/hanzozt/ziti/v2/controller/rest_model"
-	"github.com/hanzozt/ziti/v2/controller/rest_server/operations/inspect"
+	"github.com/hanzozt/zt/v2/controller/env"
+	"github.com/hanzozt/zt/v2/controller/permissions"
+	"github.com/hanzozt/zt/v2/controller/response"
+	"github.com/hanzozt/zt/v2/controller/rest_model"
+	"github.com/hanzozt/zt/v2/controller/rest_server/operations/inspect"
 )
 
 func init() {

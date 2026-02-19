@@ -12,17 +12,17 @@ grep -Po '^go\s+\K\d+\.\d+(\.\d+)?$' go.mod
 
 ## Build and Install All Applications
 
-This repo contains one main Go application, i.e. `ziti` with many subcommands. The easiest way to build and install `ziti` in `${GOPATH}/bin` is:
+This repo contains one main Go application, i.e. `zt` with many subcommands. The easiest way to build and install `zt` in `${GOPATH}/bin` is:
 
 ```bash
-# build and install ziti CLI
-go install ./ziti
+# build and install zt CLI
+go install ./zt
 ```
 
 If you add `${GOPATH}/bin` to your executable search `${PATH}` then you may immediately run the newly-built binaries. For example,
 
 ```bash
-$ ziti version
+$ zt version
 v0.0.0
 ```
 

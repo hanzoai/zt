@@ -1,12 +1,12 @@
 # All-in-one Docker quickstart
 
-This Docker Compose project runs `ziti edge quickstart` in a container while persisting configs, PKI, database, etc. in
+This Docker Compose project runs `zt edge quickstart` in a container while persisting configs, PKI, database, etc. in
 a Docker named volume.
 
 ## Run Ziti
 
-This is the primary use case for this project: running the `ziti edge quickstart` command in the
-`hanzozt/ziti-controller` container image.
+This is the primary use case for this project: running the `zt edge quickstart` command in the
+`hanzozt/zt-controller` container image.
 
 1. You need only the `compose.yml` file in this directory to run your own Ziti network.
 
@@ -44,7 +44,7 @@ This is the primary use case for this project: running the `ziti edge quickstart
 1. Run the CLI inside the quickstart environment.
 
     ```bash
-    docker compose exec quickstart ziti edge list identities
+    docker compose exec quickstart zt edge list identities
     ```
 
     ```buttonless title="Output"

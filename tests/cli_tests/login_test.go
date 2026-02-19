@@ -25,9 +25,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/hanzozt/ziti/v2/ziti/cmd"
-	"github.com/hanzozt/ziti/v2/ziti/cmd/edge"
-	"github.com/hanzozt/ziti/v2/ziti/util"
+	"github.com/hanzozt/zt/v2/zt/cmd"
+	"github.com/hanzozt/zt/v2/zt/cmd/edge"
+	"github.com/hanzozt/zt/v2/zt/util"
 	"github.com/stretchr/testify/require"
 )
 
@@ -39,7 +39,7 @@ func (s *cliTestState) loginTests(t *testing.T) {
 	t.Run("identity file authentication", s.testIdentityFileAuthentication)
 	t.Run("identity file authentication - ctrl url unset", s.testIdentityFileAuthenticationCtrlUrlUnset)
 	t.Run("external JWT authentication", s.testExternalJWTAuthentication)
-	t.Run("network identity zitified connection", s.testNetworkIdentityZitifiedConnection)
+	t.Run("network identity ztfied connection", s.testNetworkIdentityZitifiedConnection)
 
 	// Edge Cases
 	t.Run("empty username", s.testEmptyUsername)
@@ -361,20 +361,20 @@ func (s *cliTestState) testControllerUnavailable(t *testing.T) {
 
 func (s *cliTestState) reconfigureTargetForZiti(pkiRoot string) error {
 	v2 := cmd.NewRootCommand(os.Stdin, os.Stdout, os.Stderr)
-	v2.SetArgs(strings.Split("pki create server --key-file server --pki-root "+pkiRoot+" --ip 127.0.0.1,::1 --dns localhost,mgmt,mgmt.ziti,mgmt-addressable-terminators --ca-name intermediate-ca-quickstart --server-file mgmt.ziti", " "))
-	if zitiCmdErr := v2.Execute(); zitiCmdErr != nil {
-		return zitiCmdErr
+	v2.SetArgs(strings.Split("pki create server --key-file server --pki-root "+pkiRoot+" --ip 127.0.0.1,::1 --dns localhost,mgmt,mgmt.zt,mgmt-addressable-terminators --ca-name intermediate-ca-quickstart --server-file mgmt.zt", " "))
+	if ztCmdErr := v2.Execute(); ztCmdErr != nil {
+		return ztCmdErr
 	}
 	return nil
 }
 
-func (s *cliTestState) cliTestsOverZiti(t *testing.T, zitiPath string) {
-	t.Run("cli tests over ziti", func(t *testing.T) {
+func (s *cliTestState) cliTestsOverZiti(t *testing.T, ztPath string) {
+	t.Run("cli tests over zt", func(t *testing.T) {
 		util.ReloadConfig() //every iteration needs to call reload to flush/overwrite the cached client in global state
 		cfgDir := filepath.Join(s.homeDir, ".config/overlay")
 		_ = os.Setenv("ZITI_CONFIG_DIR", cfgDir)
 		_ = os.RemoveAll(cfgDir)
-		s.controllerUnderTest.ControllerAddress = "mgmt.ziti"
+		s.controllerUnderTest.ControllerAddress = "mgmt.zt"
 		s.controllerUnderTest.ControllerPort = 443
 		s.updateAdminIdFileForZiti(t, s.controllerUnderTest.ControllerHostPort())
 		s.cliTests(t)
@@ -382,8 +382,8 @@ func (s *cliTestState) cliTestsOverZiti(t *testing.T, zitiPath string) {
 	})
 }
 
-func (s *cliTestState) cliTestsOverAddressableTerminators(t *testing.T, zitiPath string) {
-	t.Run("cli tests over ziti with addressable terminator", func(t *testing.T) {
+func (s *cliTestState) cliTestsOverAddressableTerminators(t *testing.T, ztPath string) {
+	t.Run("cli tests over zt with addressable terminator", func(t *testing.T) {
 		util.ReloadConfig() //every iteration needs to call reload to flush/overwrite the cached client in global state
 		cfgDir := filepath.Join(s.homeDir, ".config/overlay-addressable-terminator")
 		_ = os.Setenv("ZITI_CONFIG_DIR", cfgDir)
@@ -407,7 +407,7 @@ func (s *cliTestState) updateAdminIdFileForZiti(t *testing.T, newAddr string) {
 }
 
 func (s *cliTestState) testZitiThenNot(t *testing.T) {
-	// this test should make sure that after logging in with a zitified login, a subsequent login to a non-zitified
+	// this test should make sure that after logging in with a ztfied login, a subsequent login to a non-ztfied
 	// controller works as expected
 	opts := &edge.LoginOptions{
 		Options:       s.commonOpts,

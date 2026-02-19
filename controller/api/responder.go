@@ -26,8 +26,8 @@ import (
 	"github.com/go-openapi/runtime"
 	"github.com/michaelquigley/pfxlog"
 	"github.com/hanzozt/foundation/v2/errorz"
-	"github.com/hanzozt/ziti/v2/controller/apierror"
-	"github.com/hanzozt/ziti/v2/controller/models"
+	"github.com/hanzozt/zt/v2/controller/apierror"
+	"github.com/hanzozt/zt/v2/controller/models"
 )
 
 func NewResponder(rc RequestContext, mapper ResponseMapper) *ResponderImpl {

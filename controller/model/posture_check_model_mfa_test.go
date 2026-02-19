@@ -449,7 +449,7 @@ func TestPostureCheckModelMfa(t *testing.T) {
 	})
 
 	t.Run("IsLegacyClient", func(t *testing.T) {
-		t.Run("returns false for ziti-sdk-c and  0.25.0", func(t *testing.T) {
+		t.Run("returns false for zt-sdk-c and  0.25.0", func(t *testing.T) {
 			mfaCheck, postureData := newMfaCheckAndPostureData()
 			result := mfaCheck.IsLegacyClient(postureData.ApiSessions[mfaTestApiSessionId])
 
@@ -457,7 +457,7 @@ func TestPostureCheckModelMfa(t *testing.T) {
 			req.False(result)
 		})
 
-		t.Run("returns true for ziti-sdk-c and  0.24.4", func(t *testing.T) {
+		t.Run("returns true for zt-sdk-c and  0.24.4", func(t *testing.T) {
 			mfaCheck, postureData := newMfaCheckAndPostureData()
 			apiSessionData := postureData.ApiSessions[mfaTestApiSessionId]
 			apiSessionData.SdkInfo.Version = "0.24.4"
@@ -467,7 +467,7 @@ func TestPostureCheckModelMfa(t *testing.T) {
 			req.True(result)
 		})
 
-		t.Run("returns true for ziti-sdk-c and  0.24.5", func(t *testing.T) {
+		t.Run("returns true for zt-sdk-c and  0.24.5", func(t *testing.T) {
 			mfaCheck, postureData := newMfaCheckAndPostureData()
 			apiSessionData := postureData.ApiSessions[mfaTestApiSessionId]
 			apiSessionData.SdkInfo.Version = "0.24.5"
@@ -488,7 +488,7 @@ func TestPostureCheckModelMfa(t *testing.T) {
 			req.True(result)
 		})
 
-		t.Run("returns false for ziti-sdk-c and  1.0.0", func(t *testing.T) {
+		t.Run("returns false for zt-sdk-c and  1.0.0", func(t *testing.T) {
 			mfaCheck, postureData := newMfaCheckAndPostureData()
 			apiSessionData := postureData.ApiSessions[mfaTestApiSessionId]
 			apiSessionData.SdkInfo.Version = "1.0.0"
@@ -508,7 +508,7 @@ func TestPostureCheckModelMfa(t *testing.T) {
 			req.True(result)
 		})
 
-		t.Run("returns true if for ziti-sdk-c and an invalid version", func(t *testing.T) {
+		t.Run("returns true if for zt-sdk-c and an invalid version", func(t *testing.T) {
 			mfaCheck, postureData := newMfaCheckAndPostureData()
 			apiSessionData := postureData.ApiSessions[mfaTestApiSessionId]
 			apiSessionData.SdkInfo.Version = "weeeeeee"
@@ -983,7 +983,7 @@ func newMfaCheckAndPostureData() (*PostureCheckMfa, *PostureData) {
 					UnlockedAt:   &unlockedAt,
 				},
 				SdkInfo: &SdkInfo{
-					Type:    "ziti-sdk-c",
+					Type:    "zt-sdk-c",
 					Version: "0.25.0",
 				},
 			},

@@ -7,8 +7,8 @@ import (
 	"github.com/google/uuid"
 	"github.com/hanzozt/edge-api/rest_model"
 	"github.com/hanzozt/foundation/v2/util"
-	"github.com/hanzozt/ziti/v2/tunnel"
-	"github.com/hanzozt/ziti/v2/tunnel/entities"
+	"github.com/hanzozt/zt/v2/tunnel"
+	"github.com/hanzozt/zt/v2/tunnel/entities"
 	"github.com/stretchr/testify/require"
 )
 

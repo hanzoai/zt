@@ -21,9 +21,9 @@ import (
 
 	"github.com/hanzozt/channel/v4"
 	"github.com/hanzozt/metrics"
-	"github.com/hanzozt/ziti/v2/common"
-	"github.com/hanzozt/ziti/v2/common/pb/edge_ctrl_pb"
-	"github.com/hanzozt/ziti/v2/controller/env"
+	"github.com/hanzozt/zt/v2/common"
+	"github.com/hanzozt/zt/v2/common/pb/edge_ctrl_pb"
+	"github.com/hanzozt/zt/v2/controller/env"
 )
 
 type tunnelHealthEventHandler struct {

@@ -27,14 +27,14 @@ import (
 
 	"github.com/michaelquigley/pfxlog"
 	"github.com/hanzozt/edge-api/rest_model"
-	"github.com/hanzozt/sdk-golang/ziti"
+	"github.com/hanzozt/sdk-golang/zt"
 	"github.com/hanzozt/transport/v2"
 	"github.com/hanzozt/transport/v2/proxies"
-	"github.com/hanzozt/ziti/v2/tunnel"
-	"github.com/hanzozt/ziti/v2/tunnel/entities"
-	"github.com/hanzozt/ziti/v2/tunnel/health"
-	"github.com/hanzozt/ziti/v2/tunnel/router"
-	"github.com/hanzozt/ziti/v2/tunnel/utils"
+	"github.com/hanzozt/zt/v2/tunnel"
+	"github.com/hanzozt/zt/v2/tunnel/entities"
+	"github.com/hanzozt/zt/v2/tunnel/health"
+	"github.com/hanzozt/zt/v2/tunnel/router"
+	"github.com/hanzozt/zt/v2/tunnel/utils"
 	"github.com/pkg/errors"
 )
 
@@ -158,7 +158,7 @@ type addrTranslation struct {
 type hostingContext struct {
 	service          *entities.Service
 	terminatorIndex  uint32
-	options          *ziti.ListenOptions
+	options          *zt.ListenOptions
 	proxyConf        *transport.ProxyConfiguration
 	config           *entities.HostV1Config
 	dialTimeout      time.Duration
@@ -188,7 +188,7 @@ func (self *hostingContext) ServiceId() string {
 	return *self.service.ID
 }
 
-func (self *hostingContext) ListenOptions() *ziti.ListenOptions {
+func (self *hostingContext) ListenOptions() *zt.ListenOptions {
 	return self.options
 }
 
@@ -299,7 +299,7 @@ func (self *hostingContext) getHealthChecks(provider healthChecksProvider) []hea
 	return checkDefinitions
 }
 
-func (self *hostingContext) GetInitialHealthState() (ziti.Precedence, uint16) {
+func (self *hostingContext) GetInitialHealthState() (zt.Precedence, uint16) {
 	return self.options.Precedence, self.options.Cost
 }
 
@@ -416,10 +416,10 @@ func (self *hostingContext) Dial(options map[string]interface{}) (net.Conn, bool
 	return self.dialAddress(options, protocol, xAddress+":"+port)
 }
 
-func getDefaultOptions(service *entities.Service, identity *rest_model.IdentityDetail, config *entities.HostV1Config) (*ziti.ListenOptions, error) {
-	options := ziti.DefaultListenOptions()
+func getDefaultOptions(service *entities.Service, identity *rest_model.IdentityDetail, config *entities.HostV1Config) (*zt.ListenOptions, error) {
+	options := zt.DefaultListenOptions()
 	options.ManualStart = true
-	options.Precedence = ziti.GetPrecedenceForLabel(string(identity.DefaultHostingPrecedence))
+	options.Precedence = zt.GetPrecedenceForLabel(string(identity.DefaultHostingPrecedence))
 	options.Cost = uint16(*identity.DefaultHostingCost)
 
 	if config.ListenOptions != nil {
@@ -427,7 +427,7 @@ func getDefaultOptions(service *entities.Service, identity *rest_model.IdentityD
 			options.Cost = *config.ListenOptions.Cost
 		}
 		if config.ListenOptions.Precedence != nil {
-			options.Precedence = ziti.GetPrecedenceForLabel(*config.ListenOptions.Precedence)
+			options.Precedence = zt.GetPrecedenceForLabel(*config.ListenOptions.Precedence)
 		}
 		if config.ListenOptions.MaxConnections > 0 {
 			options.MaxTerminators = config.ListenOptions.MaxConnections
@@ -435,7 +435,7 @@ func getDefaultOptions(service *entities.Service, identity *rest_model.IdentityD
 	}
 
 	if val, ok := identity.ServiceHostingPrecedences[*service.ID]; ok {
-		options.Precedence = ziti.GetPrecedenceForLabel(string(val))
+		options.Precedence = zt.GetPrecedenceForLabel(string(val))
 	}
 
 	if val, ok := identity.ServiceHostingCosts[*service.ID]; ok {

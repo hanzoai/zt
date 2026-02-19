@@ -29,7 +29,7 @@ import (
 
 	"github.com/hanzozt/foundation/v2/concurrenz"
 	"github.com/hanzozt/foundation/v2/versions"
-	"github.com/hanzozt/ziti/v2/controller/event"
+	"github.com/hanzozt/zt/v2/controller/event"
 
 	"github.com/hashicorp/raft"
 	"github.com/michaelquigley/pfxlog"
@@ -451,7 +451,7 @@ func (self *impl) GetOrConnectPeer(address string, timeout time.Duration) (*Peer
 		Endpoint: addr,
 		Headers:  headers,
 		TransportConfig: transport.Configuration{
-			transport.KeyProtocol: "ziti-ctrl",
+			transport.KeyProtocol: "zt-ctrl",
 		},
 	})
 	dialOptions := channel.DefaultOptions()
@@ -578,7 +578,7 @@ func (self *impl) GetPeerInfo(address string, timeout time.Duration) (raft.Serve
 		Endpoint: addr,
 		Headers:  headers,
 		TransportConfig: transport.Configuration{
-			transport.KeyProtocol: "ziti-ctrl",
+			transport.KeyProtocol: "zt-ctrl",
 		},
 	})
 	dialOptions := channel.DefaultOptions()

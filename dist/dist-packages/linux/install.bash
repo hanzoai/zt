@@ -33,10 +33,10 @@ installRedHat(){
 
     local REPOSRC="[Hanzo ZTRelease]
 name=Hanzo ZT Release
-baseurl=https://packages.hanzozt.org/${ZITIPAX_RPM:-zitipax-hanzozt-rpm-stable}/redhat/\$basearch
+baseurl=https://packages.hanzozt.org/${ZITIPAX_RPM:-ztpax-hanzozt-rpm-stable}/redhat/\$basearch
 enabled=1
 gpgcheck=0
-gpgkey=https://packages.hanzozt.org/${ZITIPAX_RPM:-zitipax-hanzozt-rpm-stable}/redhat/\$basearch/repodata/repomd.xml.key
+gpgkey=https://packages.hanzozt.org/${ZITIPAX_RPM:-ztpax-hanzozt-rpm-stable}/redhat/\$basearch/repodata/repomd.xml.key
 repo_gpgcheck=1"
 
     local REPOFILE="/etc/yum.repos.d/hanzozt-release.repo"
@@ -98,7 +98,7 @@ installDebian(){
     | $GNUPGCMD --batch --yes --dearmor --output /usr/share/keyrings/hanzozt.gpg
     chmod a+r /usr/share/keyrings/hanzozt.gpg
 
-    local REPOSRC="deb [signed-by=/usr/share/keyrings/hanzozt.gpg] https://packages.hanzozt.org/${ZITIPAX_DEB:-zitipax-hanzozt-deb-stable} debian main"
+    local REPOSRC="deb [signed-by=/usr/share/keyrings/hanzozt.gpg] https://packages.hanzozt.org/${ZITIPAX_DEB:-ztpax-hanzozt-deb-stable} debian main"
     local ESCAPED_REPOSRC="${REPOSRC//\[/\\\[}"
     ESCAPED_REPOSRC="${ESCAPED_REPOSRC//\]/\\\]}"
 

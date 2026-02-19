@@ -24,8 +24,8 @@ import (
 	"github.com/michaelquigley/pfxlog"
 	"github.com/hanzozt/edge-api/rest_model"
 	"github.com/hanzozt/foundation/v2/errorz"
-	"github.com/hanzozt/ziti/v2/controller/api"
-	"github.com/hanzozt/ziti/v2/controller/apierror"
+	"github.com/hanzozt/zt/v2/controller/api"
+	"github.com/hanzozt/zt/v2/controller/apierror"
 )
 
 // todo: rename to Responder, remove old Responder and RequestResponder

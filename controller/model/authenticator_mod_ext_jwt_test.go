@@ -17,8 +17,8 @@ import (
 	"github.com/golang-jwt/jwt/v5"
 	"github.com/hanzozt/jwks"
 	"github.com/hanzozt/storage/boltz"
-	"github.com/hanzozt/ziti/v2/common/eid"
-	"github.com/hanzozt/ziti/v2/controller/db"
+	"github.com/hanzozt/zt/v2/common/eid"
+	"github.com/hanzozt/zt/v2/controller/db"
 	"github.com/stretchr/testify/require"
 )
 

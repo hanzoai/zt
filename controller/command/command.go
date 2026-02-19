@@ -24,7 +24,7 @@ import (
 	"github.com/hanzozt/foundation/v2/debugz"
 	"github.com/hanzozt/foundation/v2/rate"
 	"github.com/hanzozt/storage/boltz"
-	"github.com/hanzozt/ziti/v2/controller/change"
+	"github.com/hanzozt/zt/v2/controller/change"
 	"github.com/sirupsen/logrus"
 )
 

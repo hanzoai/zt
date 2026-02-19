@@ -24,10 +24,10 @@ import (
 	"github.com/michaelquigley/pfxlog"
 	"github.com/hanzozt/storage/boltz"
 	"github.com/hanzozt/storage/objectz"
-	"github.com/hanzozt/ziti/v2/common/datastructures"
-	"github.com/hanzozt/ziti/v2/common/pb/ctrl_pb"
-	"github.com/hanzozt/ziti/v2/controller/config"
-	"github.com/hanzozt/ziti/v2/controller/models"
+	"github.com/hanzozt/zt/v2/common/datastructures"
+	"github.com/hanzozt/zt/v2/common/pb/ctrl_pb"
+	"github.com/hanzozt/zt/v2/controller/config"
+	"github.com/hanzozt/zt/v2/controller/models"
 	"github.com/orcaman/concurrent-map/v2"
 )
 

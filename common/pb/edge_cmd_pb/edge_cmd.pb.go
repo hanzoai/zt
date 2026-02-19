@@ -5648,181 +5648,181 @@ func file_edge_cmd_proto_rawDescGZIP() []byte {
 var file_edge_cmd_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_edge_cmd_proto_msgTypes = make([]protoimpl.MessageInfo, 76)
 var file_edge_cmd_proto_goTypes = []interface{}{
-	(CommandType)(0),                              // 0: ziti.edge_cmd.pb.CommandType
-	(*ChangeContext)(nil),                         // 1: ziti.edge_cmd.pb.ChangeContext
-	(*CreateEdgeTerminatorCommand)(nil),           // 2: ziti.edge_cmd.pb.CreateEdgeTerminatorCommand
-	(*TagValue)(nil),                              // 3: ziti.edge_cmd.pb.TagValue
-	(*JsonMap)(nil),                               // 4: ziti.edge_cmd.pb.JsonMap
-	(*JsonList)(nil),                              // 5: ziti.edge_cmd.pb.JsonList
-	(*JsonValue)(nil),                             // 6: ziti.edge_cmd.pb.JsonValue
-	(*Authenticator)(nil),                         // 7: ziti.edge_cmd.pb.Authenticator
-	(*AuthPolicy)(nil),                            // 8: ziti.edge_cmd.pb.AuthPolicy
-	(*Ca)(nil),                                    // 9: ziti.edge_cmd.pb.Ca
-	(*Config)(nil),                                // 10: ziti.edge_cmd.pb.Config
-	(*ConfigType)(nil),                            // 11: ziti.edge_cmd.pb.ConfigType
-	(*Controller)(nil),                            // 12: ziti.edge_cmd.pb.Controller
-	(*ApiAddressList)(nil),                        // 13: ziti.edge_cmd.pb.ApiAddressList
-	(*ApiAddress)(nil),                            // 14: ziti.edge_cmd.pb.ApiAddress
-	(*Interface)(nil),                             // 15: ziti.edge_cmd.pb.Interface
-	(*EdgeRouter)(nil),                            // 16: ziti.edge_cmd.pb.EdgeRouter
-	(*ReEnrollEdgeRouterCmd)(nil),                 // 17: ziti.edge_cmd.pb.ReEnrollEdgeRouterCmd
-	(*CreateEdgeRouterCmd)(nil),                   // 18: ziti.edge_cmd.pb.CreateEdgeRouterCmd
-	(*EdgeRouterPolicy)(nil),                      // 19: ziti.edge_cmd.pb.EdgeRouterPolicy
-	(*Enrollment)(nil),                            // 20: ziti.edge_cmd.pb.Enrollment
-	(*ReplaceEnrollmentWithAuthenticatorCmd)(nil), // 21: ziti.edge_cmd.pb.ReplaceEnrollmentWithAuthenticatorCmd
-	(*ExternalJwtSigner)(nil),                     // 22: ziti.edge_cmd.pb.ExternalJwtSigner
-	(*Identity)(nil),                              // 23: ziti.edge_cmd.pb.Identity
-	(*CreateIdentityWithEnrollmentsCmd)(nil),      // 24: ziti.edge_cmd.pb.CreateIdentityWithEnrollmentsCmd
-	(*CreateIdentityWithAuthenticatorsCmd)(nil),   // 25: ziti.edge_cmd.pb.CreateIdentityWithAuthenticatorsCmd
-	(*Mfa)(nil),                                   // 26: ziti.edge_cmd.pb.Mfa
-	(*PostureCheck)(nil),                          // 27: ziti.edge_cmd.pb.PostureCheck
-	(*Revocation)(nil),                            // 28: ziti.edge_cmd.pb.Revocation
-	(*Service)(nil),                               // 29: ziti.edge_cmd.pb.Service
-	(*ServiceEdgeRouterPolicy)(nil),               // 30: ziti.edge_cmd.pb.ServiceEdgeRouterPolicy
-	(*ServicePolicy)(nil),                         // 31: ziti.edge_cmd.pb.ServicePolicy
-	(*TransitRouter)(nil),                         // 32: ziti.edge_cmd.pb.TransitRouter
-	(*CreateTransitRouterCmd)(nil),                // 33: ziti.edge_cmd.pb.CreateTransitRouterCmd
-	(*UpdateServiceConfigsCmd)(nil),               // 34: ziti.edge_cmd.pb.UpdateServiceConfigsCmd
-	nil,                                           // 35: ziti.edge_cmd.pb.ChangeContext.AttributesEntry
-	nil,                                           // 36: ziti.edge_cmd.pb.JsonMap.ValueEntry
-	(*Authenticator_Cert)(nil),                    // 37: ziti.edge_cmd.pb.Authenticator.Cert
-	(*Authenticator_Updb)(nil),                    // 38: ziti.edge_cmd.pb.Authenticator.Updb
-	nil,                                           // 39: ziti.edge_cmd.pb.Authenticator.TagsEntry
-	(*AuthPolicy_Primary)(nil),                    // 40: ziti.edge_cmd.pb.AuthPolicy.Primary
-	(*AuthPolicy_Secondary)(nil),                  // 41: ziti.edge_cmd.pb.AuthPolicy.Secondary
-	nil,                                           // 42: ziti.edge_cmd.pb.AuthPolicy.TagsEntry
-	(*AuthPolicy_Primary_Cert)(nil),               // 43: ziti.edge_cmd.pb.AuthPolicy.Primary.Cert
-	(*AuthPolicy_Primary_Updb)(nil),               // 44: ziti.edge_cmd.pb.AuthPolicy.Primary.Updb
-	(*AuthPolicy_Primary_ExtJwt)(nil),             // 45: ziti.edge_cmd.pb.AuthPolicy.Primary.ExtJwt
-	(*Ca_ExternalIdClaim)(nil),                    // 46: ziti.edge_cmd.pb.Ca.ExternalIdClaim
-	nil,                                           // 47: ziti.edge_cmd.pb.Ca.TagsEntry
-	nil,                                           // 48: ziti.edge_cmd.pb.Config.TagsEntry
-	nil,                                           // 49: ziti.edge_cmd.pb.ConfigType.TagsEntry
-	nil,                                           // 50: ziti.edge_cmd.pb.Controller.TagsEntry
-	nil,                                           // 51: ziti.edge_cmd.pb.Controller.ApiAddressesEntry
-	nil,                                           // 52: ziti.edge_cmd.pb.EdgeRouter.TagsEntry
-	nil,                                           // 53: ziti.edge_cmd.pb.EdgeRouterPolicy.TagsEntry
-	nil,                                           // 54: ziti.edge_cmd.pb.Enrollment.TagsEntry
-	nil,                                           // 55: ziti.edge_cmd.pb.ExternalJwtSigner.TagsEntry
-	(*Identity_EnvInfo)(nil),                      // 56: ziti.edge_cmd.pb.Identity.EnvInfo
-	(*Identity_SdkInfo)(nil),                      // 57: ziti.edge_cmd.pb.Identity.SdkInfo
-	(*Identity_ServiceConfig)(nil),                // 58: ziti.edge_cmd.pb.Identity.ServiceConfig
-	nil,                                           // 59: ziti.edge_cmd.pb.Identity.TagsEntry
-	nil,                                           // 60: ziti.edge_cmd.pb.Identity.ServiceHostingPrecedencesEntry
-	nil,                                           // 61: ziti.edge_cmd.pb.Identity.ServiceHostingCostsEntry
-	nil,                                           // 62: ziti.edge_cmd.pb.Mfa.TagsEntry
-	(*PostureCheck_Mac)(nil),                      // 63: ziti.edge_cmd.pb.PostureCheck.Mac
-	(*PostureCheck_Mfa)(nil),                      // 64: ziti.edge_cmd.pb.PostureCheck.Mfa
-	(*PostureCheck_Os)(nil),                       // 65: ziti.edge_cmd.pb.PostureCheck.Os
-	(*PostureCheck_OsList)(nil),                   // 66: ziti.edge_cmd.pb.PostureCheck.OsList
-	(*PostureCheck_Process)(nil),                  // 67: ziti.edge_cmd.pb.PostureCheck.Process
-	(*PostureCheck_ProcessMulti)(nil),             // 68: ziti.edge_cmd.pb.PostureCheck.ProcessMulti
-	(*PostureCheck_Domains)(nil),                  // 69: ziti.edge_cmd.pb.PostureCheck.Domains
-	nil,                                           // 70: ziti.edge_cmd.pb.PostureCheck.TagsEntry
-	nil,                                           // 71: ziti.edge_cmd.pb.Revocation.TagsEntry
-	nil,                                           // 72: ziti.edge_cmd.pb.Service.TagsEntry
-	nil,                                           // 73: ziti.edge_cmd.pb.ServiceEdgeRouterPolicy.TagsEntry
-	nil,                                           // 74: ziti.edge_cmd.pb.ServicePolicy.TagsEntry
-	nil,                                           // 75: ziti.edge_cmd.pb.TransitRouter.TagsEntry
-	(*UpdateServiceConfigsCmd_ServiceConfig)(nil), // 76: ziti.edge_cmd.pb.UpdateServiceConfigsCmd.ServiceConfig
+	(CommandType)(0),                              // 0: zt.edge_cmd.pb.CommandType
+	(*ChangeContext)(nil),                         // 1: zt.edge_cmd.pb.ChangeContext
+	(*CreateEdgeTerminatorCommand)(nil),           // 2: zt.edge_cmd.pb.CreateEdgeTerminatorCommand
+	(*TagValue)(nil),                              // 3: zt.edge_cmd.pb.TagValue
+	(*JsonMap)(nil),                               // 4: zt.edge_cmd.pb.JsonMap
+	(*JsonList)(nil),                              // 5: zt.edge_cmd.pb.JsonList
+	(*JsonValue)(nil),                             // 6: zt.edge_cmd.pb.JsonValue
+	(*Authenticator)(nil),                         // 7: zt.edge_cmd.pb.Authenticator
+	(*AuthPolicy)(nil),                            // 8: zt.edge_cmd.pb.AuthPolicy
+	(*Ca)(nil),                                    // 9: zt.edge_cmd.pb.Ca
+	(*Config)(nil),                                // 10: zt.edge_cmd.pb.Config
+	(*ConfigType)(nil),                            // 11: zt.edge_cmd.pb.ConfigType
+	(*Controller)(nil),                            // 12: zt.edge_cmd.pb.Controller
+	(*ApiAddressList)(nil),                        // 13: zt.edge_cmd.pb.ApiAddressList
+	(*ApiAddress)(nil),                            // 14: zt.edge_cmd.pb.ApiAddress
+	(*Interface)(nil),                             // 15: zt.edge_cmd.pb.Interface
+	(*EdgeRouter)(nil),                            // 16: zt.edge_cmd.pb.EdgeRouter
+	(*ReEnrollEdgeRouterCmd)(nil),                 // 17: zt.edge_cmd.pb.ReEnrollEdgeRouterCmd
+	(*CreateEdgeRouterCmd)(nil),                   // 18: zt.edge_cmd.pb.CreateEdgeRouterCmd
+	(*EdgeRouterPolicy)(nil),                      // 19: zt.edge_cmd.pb.EdgeRouterPolicy
+	(*Enrollment)(nil),                            // 20: zt.edge_cmd.pb.Enrollment
+	(*ReplaceEnrollmentWithAuthenticatorCmd)(nil), // 21: zt.edge_cmd.pb.ReplaceEnrollmentWithAuthenticatorCmd
+	(*ExternalJwtSigner)(nil),                     // 22: zt.edge_cmd.pb.ExternalJwtSigner
+	(*Identity)(nil),                              // 23: zt.edge_cmd.pb.Identity
+	(*CreateIdentityWithEnrollmentsCmd)(nil),      // 24: zt.edge_cmd.pb.CreateIdentityWithEnrollmentsCmd
+	(*CreateIdentityWithAuthenticatorsCmd)(nil),   // 25: zt.edge_cmd.pb.CreateIdentityWithAuthenticatorsCmd
+	(*Mfa)(nil),                                   // 26: zt.edge_cmd.pb.Mfa
+	(*PostureCheck)(nil),                          // 27: zt.edge_cmd.pb.PostureCheck
+	(*Revocation)(nil),                            // 28: zt.edge_cmd.pb.Revocation
+	(*Service)(nil),                               // 29: zt.edge_cmd.pb.Service
+	(*ServiceEdgeRouterPolicy)(nil),               // 30: zt.edge_cmd.pb.ServiceEdgeRouterPolicy
+	(*ServicePolicy)(nil),                         // 31: zt.edge_cmd.pb.ServicePolicy
+	(*TransitRouter)(nil),                         // 32: zt.edge_cmd.pb.TransitRouter
+	(*CreateTransitRouterCmd)(nil),                // 33: zt.edge_cmd.pb.CreateTransitRouterCmd
+	(*UpdateServiceConfigsCmd)(nil),               // 34: zt.edge_cmd.pb.UpdateServiceConfigsCmd
+	nil,                                           // 35: zt.edge_cmd.pb.ChangeContext.AttributesEntry
+	nil,                                           // 36: zt.edge_cmd.pb.JsonMap.ValueEntry
+	(*Authenticator_Cert)(nil),                    // 37: zt.edge_cmd.pb.Authenticator.Cert
+	(*Authenticator_Updb)(nil),                    // 38: zt.edge_cmd.pb.Authenticator.Updb
+	nil,                                           // 39: zt.edge_cmd.pb.Authenticator.TagsEntry
+	(*AuthPolicy_Primary)(nil),                    // 40: zt.edge_cmd.pb.AuthPolicy.Primary
+	(*AuthPolicy_Secondary)(nil),                  // 41: zt.edge_cmd.pb.AuthPolicy.Secondary
+	nil,                                           // 42: zt.edge_cmd.pb.AuthPolicy.TagsEntry
+	(*AuthPolicy_Primary_Cert)(nil),               // 43: zt.edge_cmd.pb.AuthPolicy.Primary.Cert
+	(*AuthPolicy_Primary_Updb)(nil),               // 44: zt.edge_cmd.pb.AuthPolicy.Primary.Updb
+	(*AuthPolicy_Primary_ExtJwt)(nil),             // 45: zt.edge_cmd.pb.AuthPolicy.Primary.ExtJwt
+	(*Ca_ExternalIdClaim)(nil),                    // 46: zt.edge_cmd.pb.Ca.ExternalIdClaim
+	nil,                                           // 47: zt.edge_cmd.pb.Ca.TagsEntry
+	nil,                                           // 48: zt.edge_cmd.pb.Config.TagsEntry
+	nil,                                           // 49: zt.edge_cmd.pb.ConfigType.TagsEntry
+	nil,                                           // 50: zt.edge_cmd.pb.Controller.TagsEntry
+	nil,                                           // 51: zt.edge_cmd.pb.Controller.ApiAddressesEntry
+	nil,                                           // 52: zt.edge_cmd.pb.EdgeRouter.TagsEntry
+	nil,                                           // 53: zt.edge_cmd.pb.EdgeRouterPolicy.TagsEntry
+	nil,                                           // 54: zt.edge_cmd.pb.Enrollment.TagsEntry
+	nil,                                           // 55: zt.edge_cmd.pb.ExternalJwtSigner.TagsEntry
+	(*Identity_EnvInfo)(nil),                      // 56: zt.edge_cmd.pb.Identity.EnvInfo
+	(*Identity_SdkInfo)(nil),                      // 57: zt.edge_cmd.pb.Identity.SdkInfo
+	(*Identity_ServiceConfig)(nil),                // 58: zt.edge_cmd.pb.Identity.ServiceConfig
+	nil,                                           // 59: zt.edge_cmd.pb.Identity.TagsEntry
+	nil,                                           // 60: zt.edge_cmd.pb.Identity.ServiceHostingPrecedencesEntry
+	nil,                                           // 61: zt.edge_cmd.pb.Identity.ServiceHostingCostsEntry
+	nil,                                           // 62: zt.edge_cmd.pb.Mfa.TagsEntry
+	(*PostureCheck_Mac)(nil),                      // 63: zt.edge_cmd.pb.PostureCheck.Mac
+	(*PostureCheck_Mfa)(nil),                      // 64: zt.edge_cmd.pb.PostureCheck.Mfa
+	(*PostureCheck_Os)(nil),                       // 65: zt.edge_cmd.pb.PostureCheck.Os
+	(*PostureCheck_OsList)(nil),                   // 66: zt.edge_cmd.pb.PostureCheck.OsList
+	(*PostureCheck_Process)(nil),                  // 67: zt.edge_cmd.pb.PostureCheck.Process
+	(*PostureCheck_ProcessMulti)(nil),             // 68: zt.edge_cmd.pb.PostureCheck.ProcessMulti
+	(*PostureCheck_Domains)(nil),                  // 69: zt.edge_cmd.pb.PostureCheck.Domains
+	nil,                                           // 70: zt.edge_cmd.pb.PostureCheck.TagsEntry
+	nil,                                           // 71: zt.edge_cmd.pb.Revocation.TagsEntry
+	nil,                                           // 72: zt.edge_cmd.pb.Service.TagsEntry
+	nil,                                           // 73: zt.edge_cmd.pb.ServiceEdgeRouterPolicy.TagsEntry
+	nil,                                           // 74: zt.edge_cmd.pb.ServicePolicy.TagsEntry
+	nil,                                           // 75: zt.edge_cmd.pb.TransitRouter.TagsEntry
+	(*UpdateServiceConfigsCmd_ServiceConfig)(nil), // 76: zt.edge_cmd.pb.UpdateServiceConfigsCmd.ServiceConfig
 	(*timestamppb.Timestamp)(nil),                 // 77: google.protobuf.Timestamp
 }
 var file_edge_cmd_proto_depIdxs = []int32{
-	35, // 0: ziti.edge_cmd.pb.ChangeContext.attributes:type_name -> ziti.edge_cmd.pb.ChangeContext.AttributesEntry
-	1,  // 1: ziti.edge_cmd.pb.CreateEdgeTerminatorCommand.ctx:type_name -> ziti.edge_cmd.pb.ChangeContext
-	36, // 2: ziti.edge_cmd.pb.JsonMap.value:type_name -> ziti.edge_cmd.pb.JsonMap.ValueEntry
-	6,  // 3: ziti.edge_cmd.pb.JsonList.value:type_name -> ziti.edge_cmd.pb.JsonValue
-	4,  // 4: ziti.edge_cmd.pb.JsonValue.mapValue:type_name -> ziti.edge_cmd.pb.JsonMap
-	5,  // 5: ziti.edge_cmd.pb.JsonValue.listValue:type_name -> ziti.edge_cmd.pb.JsonList
-	39, // 6: ziti.edge_cmd.pb.Authenticator.tags:type_name -> ziti.edge_cmd.pb.Authenticator.TagsEntry
-	37, // 7: ziti.edge_cmd.pb.Authenticator.cert:type_name -> ziti.edge_cmd.pb.Authenticator.Cert
-	38, // 8: ziti.edge_cmd.pb.Authenticator.updb:type_name -> ziti.edge_cmd.pb.Authenticator.Updb
-	40, // 9: ziti.edge_cmd.pb.AuthPolicy.primary:type_name -> ziti.edge_cmd.pb.AuthPolicy.Primary
-	41, // 10: ziti.edge_cmd.pb.AuthPolicy.secondary:type_name -> ziti.edge_cmd.pb.AuthPolicy.Secondary
-	42, // 11: ziti.edge_cmd.pb.AuthPolicy.tags:type_name -> ziti.edge_cmd.pb.AuthPolicy.TagsEntry
-	47, // 12: ziti.edge_cmd.pb.Ca.tags:type_name -> ziti.edge_cmd.pb.Ca.TagsEntry
-	46, // 13: ziti.edge_cmd.pb.Ca.externalIdClaim:type_name -> ziti.edge_cmd.pb.Ca.ExternalIdClaim
-	48, // 14: ziti.edge_cmd.pb.Config.tags:type_name -> ziti.edge_cmd.pb.Config.TagsEntry
-	49, // 15: ziti.edge_cmd.pb.ConfigType.tags:type_name -> ziti.edge_cmd.pb.ConfigType.TagsEntry
-	77, // 16: ziti.edge_cmd.pb.Controller.lastJoinedAt:type_name -> google.protobuf.Timestamp
-	50, // 17: ziti.edge_cmd.pb.Controller.tags:type_name -> ziti.edge_cmd.pb.Controller.TagsEntry
-	51, // 18: ziti.edge_cmd.pb.Controller.apiAddresses:type_name -> ziti.edge_cmd.pb.Controller.ApiAddressesEntry
-	14, // 19: ziti.edge_cmd.pb.ApiAddressList.addresses:type_name -> ziti.edge_cmd.pb.ApiAddress
-	52, // 20: ziti.edge_cmd.pb.EdgeRouter.tags:type_name -> ziti.edge_cmd.pb.EdgeRouter.TagsEntry
-	15, // 21: ziti.edge_cmd.pb.EdgeRouter.interfaces:type_name -> ziti.edge_cmd.pb.Interface
-	1,  // 22: ziti.edge_cmd.pb.ReEnrollEdgeRouterCmd.ctx:type_name -> ziti.edge_cmd.pb.ChangeContext
-	16, // 23: ziti.edge_cmd.pb.CreateEdgeRouterCmd.edgeRouter:type_name -> ziti.edge_cmd.pb.EdgeRouter
-	20, // 24: ziti.edge_cmd.pb.CreateEdgeRouterCmd.enrollment:type_name -> ziti.edge_cmd.pb.Enrollment
-	1,  // 25: ziti.edge_cmd.pb.CreateEdgeRouterCmd.ctx:type_name -> ziti.edge_cmd.pb.ChangeContext
-	53, // 26: ziti.edge_cmd.pb.EdgeRouterPolicy.tags:type_name -> ziti.edge_cmd.pb.EdgeRouterPolicy.TagsEntry
-	54, // 27: ziti.edge_cmd.pb.Enrollment.tags:type_name -> ziti.edge_cmd.pb.Enrollment.TagsEntry
-	77, // 28: ziti.edge_cmd.pb.Enrollment.issuedAt:type_name -> google.protobuf.Timestamp
-	77, // 29: ziti.edge_cmd.pb.Enrollment.expiresAt:type_name -> google.protobuf.Timestamp
-	7,  // 30: ziti.edge_cmd.pb.ReplaceEnrollmentWithAuthenticatorCmd.authenticator:type_name -> ziti.edge_cmd.pb.Authenticator
-	1,  // 31: ziti.edge_cmd.pb.ReplaceEnrollmentWithAuthenticatorCmd.ctx:type_name -> ziti.edge_cmd.pb.ChangeContext
-	55, // 32: ziti.edge_cmd.pb.ExternalJwtSigner.tags:type_name -> ziti.edge_cmd.pb.ExternalJwtSigner.TagsEntry
-	77, // 33: ziti.edge_cmd.pb.ExternalJwtSigner.notAfter:type_name -> google.protobuf.Timestamp
-	77, // 34: ziti.edge_cmd.pb.ExternalJwtSigner.notBefore:type_name -> google.protobuf.Timestamp
-	59, // 35: ziti.edge_cmd.pb.Identity.tags:type_name -> ziti.edge_cmd.pb.Identity.TagsEntry
-	56, // 36: ziti.edge_cmd.pb.Identity.envInfo:type_name -> ziti.edge_cmd.pb.Identity.EnvInfo
-	57, // 37: ziti.edge_cmd.pb.Identity.sdkInfo:type_name -> ziti.edge_cmd.pb.Identity.SdkInfo
-	60, // 38: ziti.edge_cmd.pb.Identity.serviceHostingPrecedences:type_name -> ziti.edge_cmd.pb.Identity.ServiceHostingPrecedencesEntry
-	61, // 39: ziti.edge_cmd.pb.Identity.serviceHostingCosts:type_name -> ziti.edge_cmd.pb.Identity.ServiceHostingCostsEntry
-	77, // 40: ziti.edge_cmd.pb.Identity.disabledAt:type_name -> google.protobuf.Timestamp
-	77, // 41: ziti.edge_cmd.pb.Identity.disabledUntil:type_name -> google.protobuf.Timestamp
-	58, // 42: ziti.edge_cmd.pb.Identity.serviceConfigs:type_name -> ziti.edge_cmd.pb.Identity.ServiceConfig
-	15, // 43: ziti.edge_cmd.pb.Identity.interfaces:type_name -> ziti.edge_cmd.pb.Interface
-	23, // 44: ziti.edge_cmd.pb.CreateIdentityWithEnrollmentsCmd.identity:type_name -> ziti.edge_cmd.pb.Identity
-	20, // 45: ziti.edge_cmd.pb.CreateIdentityWithEnrollmentsCmd.enrollments:type_name -> ziti.edge_cmd.pb.Enrollment
-	1,  // 46: ziti.edge_cmd.pb.CreateIdentityWithEnrollmentsCmd.ctx:type_name -> ziti.edge_cmd.pb.ChangeContext
-	23, // 47: ziti.edge_cmd.pb.CreateIdentityWithAuthenticatorsCmd.identity:type_name -> ziti.edge_cmd.pb.Identity
-	7,  // 48: ziti.edge_cmd.pb.CreateIdentityWithAuthenticatorsCmd.authenticators:type_name -> ziti.edge_cmd.pb.Authenticator
-	1,  // 49: ziti.edge_cmd.pb.CreateIdentityWithAuthenticatorsCmd.ctx:type_name -> ziti.edge_cmd.pb.ChangeContext
-	62, // 50: ziti.edge_cmd.pb.Mfa.tags:type_name -> ziti.edge_cmd.pb.Mfa.TagsEntry
-	70, // 51: ziti.edge_cmd.pb.PostureCheck.tags:type_name -> ziti.edge_cmd.pb.PostureCheck.TagsEntry
-	63, // 52: ziti.edge_cmd.pb.PostureCheck.mac:type_name -> ziti.edge_cmd.pb.PostureCheck.Mac
-	64, // 53: ziti.edge_cmd.pb.PostureCheck.mfa:type_name -> ziti.edge_cmd.pb.PostureCheck.Mfa
-	66, // 54: ziti.edge_cmd.pb.PostureCheck.osList:type_name -> ziti.edge_cmd.pb.PostureCheck.OsList
-	67, // 55: ziti.edge_cmd.pb.PostureCheck.process:type_name -> ziti.edge_cmd.pb.PostureCheck.Process
-	68, // 56: ziti.edge_cmd.pb.PostureCheck.processMulti:type_name -> ziti.edge_cmd.pb.PostureCheck.ProcessMulti
-	69, // 57: ziti.edge_cmd.pb.PostureCheck.domains:type_name -> ziti.edge_cmd.pb.PostureCheck.Domains
-	77, // 58: ziti.edge_cmd.pb.Revocation.expiresAt:type_name -> google.protobuf.Timestamp
-	71, // 59: ziti.edge_cmd.pb.Revocation.tags:type_name -> ziti.edge_cmd.pb.Revocation.TagsEntry
-	72, // 60: ziti.edge_cmd.pb.Service.tags:type_name -> ziti.edge_cmd.pb.Service.TagsEntry
-	73, // 61: ziti.edge_cmd.pb.ServiceEdgeRouterPolicy.tags:type_name -> ziti.edge_cmd.pb.ServiceEdgeRouterPolicy.TagsEntry
-	74, // 62: ziti.edge_cmd.pb.ServicePolicy.tags:type_name -> ziti.edge_cmd.pb.ServicePolicy.TagsEntry
-	75, // 63: ziti.edge_cmd.pb.TransitRouter.tags:type_name -> ziti.edge_cmd.pb.TransitRouter.TagsEntry
-	32, // 64: ziti.edge_cmd.pb.CreateTransitRouterCmd.router:type_name -> ziti.edge_cmd.pb.TransitRouter
-	20, // 65: ziti.edge_cmd.pb.CreateTransitRouterCmd.enrollment:type_name -> ziti.edge_cmd.pb.Enrollment
-	1,  // 66: ziti.edge_cmd.pb.CreateTransitRouterCmd.ctx:type_name -> ziti.edge_cmd.pb.ChangeContext
-	76, // 67: ziti.edge_cmd.pb.UpdateServiceConfigsCmd.serviceConfigs:type_name -> ziti.edge_cmd.pb.UpdateServiceConfigsCmd.ServiceConfig
-	1,  // 68: ziti.edge_cmd.pb.UpdateServiceConfigsCmd.ctx:type_name -> ziti.edge_cmd.pb.ChangeContext
-	6,  // 69: ziti.edge_cmd.pb.JsonMap.ValueEntry.value:type_name -> ziti.edge_cmd.pb.JsonValue
-	77, // 70: ziti.edge_cmd.pb.Authenticator.Cert.extendRequestedAt:type_name -> google.protobuf.Timestamp
-	3,  // 71: ziti.edge_cmd.pb.Authenticator.TagsEntry.value:type_name -> ziti.edge_cmd.pb.TagValue
-	43, // 72: ziti.edge_cmd.pb.AuthPolicy.Primary.cert:type_name -> ziti.edge_cmd.pb.AuthPolicy.Primary.Cert
-	44, // 73: ziti.edge_cmd.pb.AuthPolicy.Primary.updb:type_name -> ziti.edge_cmd.pb.AuthPolicy.Primary.Updb
-	45, // 74: ziti.edge_cmd.pb.AuthPolicy.Primary.extJwt:type_name -> ziti.edge_cmd.pb.AuthPolicy.Primary.ExtJwt
-	3,  // 75: ziti.edge_cmd.pb.AuthPolicy.TagsEntry.value:type_name -> ziti.edge_cmd.pb.TagValue
-	3,  // 76: ziti.edge_cmd.pb.Ca.TagsEntry.value:type_name -> ziti.edge_cmd.pb.TagValue
-	3,  // 77: ziti.edge_cmd.pb.Config.TagsEntry.value:type_name -> ziti.edge_cmd.pb.TagValue
-	3,  // 78: ziti.edge_cmd.pb.ConfigType.TagsEntry.value:type_name -> ziti.edge_cmd.pb.TagValue
-	3,  // 79: ziti.edge_cmd.pb.Controller.TagsEntry.value:type_name -> ziti.edge_cmd.pb.TagValue
-	13, // 80: ziti.edge_cmd.pb.Controller.ApiAddressesEntry.value:type_name -> ziti.edge_cmd.pb.ApiAddressList
-	3,  // 81: ziti.edge_cmd.pb.EdgeRouter.TagsEntry.value:type_name -> ziti.edge_cmd.pb.TagValue
-	3,  // 82: ziti.edge_cmd.pb.EdgeRouterPolicy.TagsEntry.value:type_name -> ziti.edge_cmd.pb.TagValue
-	3,  // 83: ziti.edge_cmd.pb.Enrollment.TagsEntry.value:type_name -> ziti.edge_cmd.pb.TagValue
-	3,  // 84: ziti.edge_cmd.pb.ExternalJwtSigner.TagsEntry.value:type_name -> ziti.edge_cmd.pb.TagValue
-	3,  // 85: ziti.edge_cmd.pb.Identity.TagsEntry.value:type_name -> ziti.edge_cmd.pb.TagValue
-	3,  // 86: ziti.edge_cmd.pb.Mfa.TagsEntry.value:type_name -> ziti.edge_cmd.pb.TagValue
-	65, // 87: ziti.edge_cmd.pb.PostureCheck.OsList.osList:type_name -> ziti.edge_cmd.pb.PostureCheck.Os
-	67, // 88: ziti.edge_cmd.pb.PostureCheck.ProcessMulti.processes:type_name -> ziti.edge_cmd.pb.PostureCheck.Process
-	3,  // 89: ziti.edge_cmd.pb.PostureCheck.TagsEntry.value:type_name -> ziti.edge_cmd.pb.TagValue
-	3,  // 90: ziti.edge_cmd.pb.Revocation.TagsEntry.value:type_name -> ziti.edge_cmd.pb.TagValue
-	3,  // 91: ziti.edge_cmd.pb.Service.TagsEntry.value:type_name -> ziti.edge_cmd.pb.TagValue
-	3,  // 92: ziti.edge_cmd.pb.ServiceEdgeRouterPolicy.TagsEntry.value:type_name -> ziti.edge_cmd.pb.TagValue
-	3,  // 93: ziti.edge_cmd.pb.ServicePolicy.TagsEntry.value:type_name -> ziti.edge_cmd.pb.TagValue
-	3,  // 94: ziti.edge_cmd.pb.TransitRouter.TagsEntry.value:type_name -> ziti.edge_cmd.pb.TagValue
+	35, // 0: zt.edge_cmd.pb.ChangeContext.attributes:type_name -> zt.edge_cmd.pb.ChangeContext.AttributesEntry
+	1,  // 1: zt.edge_cmd.pb.CreateEdgeTerminatorCommand.ctx:type_name -> zt.edge_cmd.pb.ChangeContext
+	36, // 2: zt.edge_cmd.pb.JsonMap.value:type_name -> zt.edge_cmd.pb.JsonMap.ValueEntry
+	6,  // 3: zt.edge_cmd.pb.JsonList.value:type_name -> zt.edge_cmd.pb.JsonValue
+	4,  // 4: zt.edge_cmd.pb.JsonValue.mapValue:type_name -> zt.edge_cmd.pb.JsonMap
+	5,  // 5: zt.edge_cmd.pb.JsonValue.listValue:type_name -> zt.edge_cmd.pb.JsonList
+	39, // 6: zt.edge_cmd.pb.Authenticator.tags:type_name -> zt.edge_cmd.pb.Authenticator.TagsEntry
+	37, // 7: zt.edge_cmd.pb.Authenticator.cert:type_name -> zt.edge_cmd.pb.Authenticator.Cert
+	38, // 8: zt.edge_cmd.pb.Authenticator.updb:type_name -> zt.edge_cmd.pb.Authenticator.Updb
+	40, // 9: zt.edge_cmd.pb.AuthPolicy.primary:type_name -> zt.edge_cmd.pb.AuthPolicy.Primary
+	41, // 10: zt.edge_cmd.pb.AuthPolicy.secondary:type_name -> zt.edge_cmd.pb.AuthPolicy.Secondary
+	42, // 11: zt.edge_cmd.pb.AuthPolicy.tags:type_name -> zt.edge_cmd.pb.AuthPolicy.TagsEntry
+	47, // 12: zt.edge_cmd.pb.Ca.tags:type_name -> zt.edge_cmd.pb.Ca.TagsEntry
+	46, // 13: zt.edge_cmd.pb.Ca.externalIdClaim:type_name -> zt.edge_cmd.pb.Ca.ExternalIdClaim
+	48, // 14: zt.edge_cmd.pb.Config.tags:type_name -> zt.edge_cmd.pb.Config.TagsEntry
+	49, // 15: zt.edge_cmd.pb.ConfigType.tags:type_name -> zt.edge_cmd.pb.ConfigType.TagsEntry
+	77, // 16: zt.edge_cmd.pb.Controller.lastJoinedAt:type_name -> google.protobuf.Timestamp
+	50, // 17: zt.edge_cmd.pb.Controller.tags:type_name -> zt.edge_cmd.pb.Controller.TagsEntry
+	51, // 18: zt.edge_cmd.pb.Controller.apiAddresses:type_name -> zt.edge_cmd.pb.Controller.ApiAddressesEntry
+	14, // 19: zt.edge_cmd.pb.ApiAddressList.addresses:type_name -> zt.edge_cmd.pb.ApiAddress
+	52, // 20: zt.edge_cmd.pb.EdgeRouter.tags:type_name -> zt.edge_cmd.pb.EdgeRouter.TagsEntry
+	15, // 21: zt.edge_cmd.pb.EdgeRouter.interfaces:type_name -> zt.edge_cmd.pb.Interface
+	1,  // 22: zt.edge_cmd.pb.ReEnrollEdgeRouterCmd.ctx:type_name -> zt.edge_cmd.pb.ChangeContext
+	16, // 23: zt.edge_cmd.pb.CreateEdgeRouterCmd.edgeRouter:type_name -> zt.edge_cmd.pb.EdgeRouter
+	20, // 24: zt.edge_cmd.pb.CreateEdgeRouterCmd.enrollment:type_name -> zt.edge_cmd.pb.Enrollment
+	1,  // 25: zt.edge_cmd.pb.CreateEdgeRouterCmd.ctx:type_name -> zt.edge_cmd.pb.ChangeContext
+	53, // 26: zt.edge_cmd.pb.EdgeRouterPolicy.tags:type_name -> zt.edge_cmd.pb.EdgeRouterPolicy.TagsEntry
+	54, // 27: zt.edge_cmd.pb.Enrollment.tags:type_name -> zt.edge_cmd.pb.Enrollment.TagsEntry
+	77, // 28: zt.edge_cmd.pb.Enrollment.issuedAt:type_name -> google.protobuf.Timestamp
+	77, // 29: zt.edge_cmd.pb.Enrollment.expiresAt:type_name -> google.protobuf.Timestamp
+	7,  // 30: zt.edge_cmd.pb.ReplaceEnrollmentWithAuthenticatorCmd.authenticator:type_name -> zt.edge_cmd.pb.Authenticator
+	1,  // 31: zt.edge_cmd.pb.ReplaceEnrollmentWithAuthenticatorCmd.ctx:type_name -> zt.edge_cmd.pb.ChangeContext
+	55, // 32: zt.edge_cmd.pb.ExternalJwtSigner.tags:type_name -> zt.edge_cmd.pb.ExternalJwtSigner.TagsEntry
+	77, // 33: zt.edge_cmd.pb.ExternalJwtSigner.notAfter:type_name -> google.protobuf.Timestamp
+	77, // 34: zt.edge_cmd.pb.ExternalJwtSigner.notBefore:type_name -> google.protobuf.Timestamp
+	59, // 35: zt.edge_cmd.pb.Identity.tags:type_name -> zt.edge_cmd.pb.Identity.TagsEntry
+	56, // 36: zt.edge_cmd.pb.Identity.envInfo:type_name -> zt.edge_cmd.pb.Identity.EnvInfo
+	57, // 37: zt.edge_cmd.pb.Identity.sdkInfo:type_name -> zt.edge_cmd.pb.Identity.SdkInfo
+	60, // 38: zt.edge_cmd.pb.Identity.serviceHostingPrecedences:type_name -> zt.edge_cmd.pb.Identity.ServiceHostingPrecedencesEntry
+	61, // 39: zt.edge_cmd.pb.Identity.serviceHostingCosts:type_name -> zt.edge_cmd.pb.Identity.ServiceHostingCostsEntry
+	77, // 40: zt.edge_cmd.pb.Identity.disabledAt:type_name -> google.protobuf.Timestamp
+	77, // 41: zt.edge_cmd.pb.Identity.disabledUntil:type_name -> google.protobuf.Timestamp
+	58, // 42: zt.edge_cmd.pb.Identity.serviceConfigs:type_name -> zt.edge_cmd.pb.Identity.ServiceConfig
+	15, // 43: zt.edge_cmd.pb.Identity.interfaces:type_name -> zt.edge_cmd.pb.Interface
+	23, // 44: zt.edge_cmd.pb.CreateIdentityWithEnrollmentsCmd.identity:type_name -> zt.edge_cmd.pb.Identity
+	20, // 45: zt.edge_cmd.pb.CreateIdentityWithEnrollmentsCmd.enrollments:type_name -> zt.edge_cmd.pb.Enrollment
+	1,  // 46: zt.edge_cmd.pb.CreateIdentityWithEnrollmentsCmd.ctx:type_name -> zt.edge_cmd.pb.ChangeContext
+	23, // 47: zt.edge_cmd.pb.CreateIdentityWithAuthenticatorsCmd.identity:type_name -> zt.edge_cmd.pb.Identity
+	7,  // 48: zt.edge_cmd.pb.CreateIdentityWithAuthenticatorsCmd.authenticators:type_name -> zt.edge_cmd.pb.Authenticator
+	1,  // 49: zt.edge_cmd.pb.CreateIdentityWithAuthenticatorsCmd.ctx:type_name -> zt.edge_cmd.pb.ChangeContext
+	62, // 50: zt.edge_cmd.pb.Mfa.tags:type_name -> zt.edge_cmd.pb.Mfa.TagsEntry
+	70, // 51: zt.edge_cmd.pb.PostureCheck.tags:type_name -> zt.edge_cmd.pb.PostureCheck.TagsEntry
+	63, // 52: zt.edge_cmd.pb.PostureCheck.mac:type_name -> zt.edge_cmd.pb.PostureCheck.Mac
+	64, // 53: zt.edge_cmd.pb.PostureCheck.mfa:type_name -> zt.edge_cmd.pb.PostureCheck.Mfa
+	66, // 54: zt.edge_cmd.pb.PostureCheck.osList:type_name -> zt.edge_cmd.pb.PostureCheck.OsList
+	67, // 55: zt.edge_cmd.pb.PostureCheck.process:type_name -> zt.edge_cmd.pb.PostureCheck.Process
+	68, // 56: zt.edge_cmd.pb.PostureCheck.processMulti:type_name -> zt.edge_cmd.pb.PostureCheck.ProcessMulti
+	69, // 57: zt.edge_cmd.pb.PostureCheck.domains:type_name -> zt.edge_cmd.pb.PostureCheck.Domains
+	77, // 58: zt.edge_cmd.pb.Revocation.expiresAt:type_name -> google.protobuf.Timestamp
+	71, // 59: zt.edge_cmd.pb.Revocation.tags:type_name -> zt.edge_cmd.pb.Revocation.TagsEntry
+	72, // 60: zt.edge_cmd.pb.Service.tags:type_name -> zt.edge_cmd.pb.Service.TagsEntry
+	73, // 61: zt.edge_cmd.pb.ServiceEdgeRouterPolicy.tags:type_name -> zt.edge_cmd.pb.ServiceEdgeRouterPolicy.TagsEntry
+	74, // 62: zt.edge_cmd.pb.ServicePolicy.tags:type_name -> zt.edge_cmd.pb.ServicePolicy.TagsEntry
+	75, // 63: zt.edge_cmd.pb.TransitRouter.tags:type_name -> zt.edge_cmd.pb.TransitRouter.TagsEntry
+	32, // 64: zt.edge_cmd.pb.CreateTransitRouterCmd.router:type_name -> zt.edge_cmd.pb.TransitRouter
+	20, // 65: zt.edge_cmd.pb.CreateTransitRouterCmd.enrollment:type_name -> zt.edge_cmd.pb.Enrollment
+	1,  // 66: zt.edge_cmd.pb.CreateTransitRouterCmd.ctx:type_name -> zt.edge_cmd.pb.ChangeContext
+	76, // 67: zt.edge_cmd.pb.UpdateServiceConfigsCmd.serviceConfigs:type_name -> zt.edge_cmd.pb.UpdateServiceConfigsCmd.ServiceConfig
+	1,  // 68: zt.edge_cmd.pb.UpdateServiceConfigsCmd.ctx:type_name -> zt.edge_cmd.pb.ChangeContext
+	6,  // 69: zt.edge_cmd.pb.JsonMap.ValueEntry.value:type_name -> zt.edge_cmd.pb.JsonValue
+	77, // 70: zt.edge_cmd.pb.Authenticator.Cert.extendRequestedAt:type_name -> google.protobuf.Timestamp
+	3,  // 71: zt.edge_cmd.pb.Authenticator.TagsEntry.value:type_name -> zt.edge_cmd.pb.TagValue
+	43, // 72: zt.edge_cmd.pb.AuthPolicy.Primary.cert:type_name -> zt.edge_cmd.pb.AuthPolicy.Primary.Cert
+	44, // 73: zt.edge_cmd.pb.AuthPolicy.Primary.updb:type_name -> zt.edge_cmd.pb.AuthPolicy.Primary.Updb
+	45, // 74: zt.edge_cmd.pb.AuthPolicy.Primary.extJwt:type_name -> zt.edge_cmd.pb.AuthPolicy.Primary.ExtJwt
+	3,  // 75: zt.edge_cmd.pb.AuthPolicy.TagsEntry.value:type_name -> zt.edge_cmd.pb.TagValue
+	3,  // 76: zt.edge_cmd.pb.Ca.TagsEntry.value:type_name -> zt.edge_cmd.pb.TagValue
+	3,  // 77: zt.edge_cmd.pb.Config.TagsEntry.value:type_name -> zt.edge_cmd.pb.TagValue
+	3,  // 78: zt.edge_cmd.pb.ConfigType.TagsEntry.value:type_name -> zt.edge_cmd.pb.TagValue
+	3,  // 79: zt.edge_cmd.pb.Controller.TagsEntry.value:type_name -> zt.edge_cmd.pb.TagValue
+	13, // 80: zt.edge_cmd.pb.Controller.ApiAddressesEntry.value:type_name -> zt.edge_cmd.pb.ApiAddressList
+	3,  // 81: zt.edge_cmd.pb.EdgeRouter.TagsEntry.value:type_name -> zt.edge_cmd.pb.TagValue
+	3,  // 82: zt.edge_cmd.pb.EdgeRouterPolicy.TagsEntry.value:type_name -> zt.edge_cmd.pb.TagValue
+	3,  // 83: zt.edge_cmd.pb.Enrollment.TagsEntry.value:type_name -> zt.edge_cmd.pb.TagValue
+	3,  // 84: zt.edge_cmd.pb.ExternalJwtSigner.TagsEntry.value:type_name -> zt.edge_cmd.pb.TagValue
+	3,  // 85: zt.edge_cmd.pb.Identity.TagsEntry.value:type_name -> zt.edge_cmd.pb.TagValue
+	3,  // 86: zt.edge_cmd.pb.Mfa.TagsEntry.value:type_name -> zt.edge_cmd.pb.TagValue
+	65, // 87: zt.edge_cmd.pb.PostureCheck.OsList.osList:type_name -> zt.edge_cmd.pb.PostureCheck.Os
+	67, // 88: zt.edge_cmd.pb.PostureCheck.ProcessMulti.processes:type_name -> zt.edge_cmd.pb.PostureCheck.Process
+	3,  // 89: zt.edge_cmd.pb.PostureCheck.TagsEntry.value:type_name -> zt.edge_cmd.pb.TagValue
+	3,  // 90: zt.edge_cmd.pb.Revocation.TagsEntry.value:type_name -> zt.edge_cmd.pb.TagValue
+	3,  // 91: zt.edge_cmd.pb.Service.TagsEntry.value:type_name -> zt.edge_cmd.pb.TagValue
+	3,  // 92: zt.edge_cmd.pb.ServiceEdgeRouterPolicy.TagsEntry.value:type_name -> zt.edge_cmd.pb.TagValue
+	3,  // 93: zt.edge_cmd.pb.ServicePolicy.TagsEntry.value:type_name -> zt.edge_cmd.pb.TagValue
+	3,  // 94: zt.edge_cmd.pb.TransitRouter.TagsEntry.value:type_name -> zt.edge_cmd.pb.TagValue
 	95, // [95:95] is the sub-list for method output_type
 	95, // [95:95] is the sub-list for method input_type
 	95, // [95:95] is the sub-list for extension type_name

@@ -1,17 +1,17 @@
 name: hanzozt
 version: 0.22.5
 base: core18
-summary: Netfoundry ziti application suite
+summary: Netfoundry zt application suite
 description: |
-  The ziti-tunneler provides access to the NetFoundry network 
+  The zt-tunneler provides access to the NetFoundry network 
 grade: devel
 confinement: strict
 
 parts:
-  ziti:
+  zt:
     source: .
     plugin: go
-    go-importpath: bitbucket.org/netfoundry/ziti
+    go-importpath: bitbucket.org/netfoundry/zt
     go-channel: 1.17/stable
     build-packages:
       - gcc
@@ -21,14 +21,14 @@ parts:
     plugin: dump
 
 apps:
-  ziti:
-    command: bin/ziti
+  zt:
+    command: bin/zt
     plugs:
       - home
       - network
-  ziti-tunnel:
+  zt-tunnel:
     daemon: simple
-    command: bin/ziti-tunnel run $SNAP_COMMON/ziti.json
+    command: bin/zt-tunnel run $SNAP_COMMON/zt.json
     plugs:
       - home
       - network

@@ -12,8 +12,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/hanzozt/sdk-golang/ziti"
-	"github.com/hanzozt/sdk-golang/ziti/edge"
+	"github.com/hanzozt/sdk-golang/zt"
+	"github.com/hanzozt/sdk-golang/zt/edge"
 	"github.com/stretchr/testify/require"
 )
 
@@ -106,7 +106,7 @@ func Test_ManagerWithEventCounts(t *testing.T) {
 
 	et := newEventTracker(t)
 
-	state := NewServiceState("my-service", ziti.PrecedenceRequired, 100, et)
+	state := NewServiceState("my-service", zt.PrecedenceRequired, 100, et)
 
 	failEvents := uint16(3)
 	passEvents := uint16(2)
@@ -186,7 +186,7 @@ func Test_ManagerWithDurations(t *testing.T) {
 
 	et := newEventTracker(t)
 
-	state := NewServiceState("my-service", ziti.PrecedenceDefault, 0, et)
+	state := NewServiceState("my-service", zt.PrecedenceDefault, 0, et)
 
 	failEvents := 3 * time.Second
 	passEvents := 1800 * time.Millisecond
@@ -313,7 +313,7 @@ func Test_ManagerWithSimpleHttp(t *testing.T) {
 
 	req := require.New(t)
 	et := newEventTracker(t)
-	state := NewServiceState("my-service", ziti.PrecedenceDefault, 0, et)
+	state := NewServiceState("my-service", zt.PrecedenceDefault, 0, et)
 
 	healthCheckDef := newHttpCheck()
 
@@ -323,7 +323,7 @@ func Test_ManagerWithSimpleHttp(t *testing.T) {
 
 	mgr.UnregisterServiceChecks("my-service")
 
-	state = NewServiceState("my-service", ziti.PrecedenceDefault, 0, et)
+	state = NewServiceState("my-service", zt.PrecedenceDefault, 0, et)
 	closeF := runHttpCheck(req, func(resp http.ResponseWriter, req *http.Request) {
 		resp.WriteHeader(200)
 	})
@@ -340,7 +340,7 @@ func Test_ManagerWithHttpStatusCode(t *testing.T) {
 
 	req := require.New(t)
 	et := newEventTracker(t)
-	state := NewServiceState("my-service", ziti.PrecedenceDefault, 0, et)
+	state := NewServiceState("my-service", zt.PrecedenceDefault, 0, et)
 
 	healthCheckDef := newHttpCheck()
 	healthCheckDef.ExpectStatus = 201
@@ -358,7 +358,7 @@ func Test_ManagerWithHttpStatusCode(t *testing.T) {
 	closeF()
 	mgr.UnregisterServiceChecks("my-service")
 
-	state = NewServiceState("my-service", ziti.PrecedenceDefault, 0, et)
+	state = NewServiceState("my-service", zt.PrecedenceDefault, 0, et)
 	closeF = runHttpCheck(req, func(resp http.ResponseWriter, req *http.Request) {
 		fmt.Println("second")
 		resp.WriteHeader(201)
@@ -376,7 +376,7 @@ func Test_ManagerWithHttpExpectBody(t *testing.T) {
 
 	req := require.New(t)
 	et := newEventTracker(t)
-	state := NewServiceState("my-service", ziti.PrecedenceDefault, 0, et)
+	state := NewServiceState("my-service", zt.PrecedenceDefault, 0, et)
 
 	healthCheckDef := newHttpCheck()
 	healthCheckDef.ExpectStatus = 201
@@ -395,7 +395,7 @@ func Test_ManagerWithHttpExpectBody(t *testing.T) {
 	closeF()
 	mgr.UnregisterServiceChecks("my-service")
 
-	state = NewServiceState("my-service", ziti.PrecedenceDefault, 0, et)
+	state = NewServiceState("my-service", zt.PrecedenceDefault, 0, et)
 	closeF = runHttpCheck(req, func(resp http.ResponseWriter, req *http.Request) {
 		fmt.Println("second")
 		resp.WriteHeader(201)
@@ -414,7 +414,7 @@ func Test_ManagerWithHttpMethod(t *testing.T) {
 
 	req := require.New(t)
 	et := newEventTracker(t)
-	state := NewServiceState("my-service", ziti.PrecedenceDefault, 0, et)
+	state := NewServiceState("my-service", zt.PrecedenceDefault, 0, et)
 
 	healthCheckDef := newHttpCheck()
 	healthCheckDef.ExpectStatus = 201
@@ -439,7 +439,7 @@ func Test_ManagerWithHttpMethod(t *testing.T) {
 	closeF()
 	mgr.UnregisterServiceChecks("my-service")
 
-	state = NewServiceState("my-service", ziti.PrecedenceDefault, 0, et)
+	state = NewServiceState("my-service", zt.PrecedenceDefault, 0, et)
 	closeF = runHttpCheck(req, func(resp http.ResponseWriter, req *http.Request) {
 		fmt.Println("first")
 		if req.Method != "POST" {
@@ -462,7 +462,7 @@ func Test_ManagerWithHttpBody(t *testing.T) {
 
 	req := require.New(t)
 	et := newEventTracker(t)
-	state := NewServiceState("my-service", ziti.PrecedenceDefault, 0, et)
+	state := NewServiceState("my-service", zt.PrecedenceDefault, 0, et)
 
 	healthCheckDef := newHttpCheck()
 	healthCheckDef.ExpectStatus = 201
@@ -493,7 +493,7 @@ func Test_ManagerWithHttpBody(t *testing.T) {
 	closeF()
 	mgr.UnregisterServiceChecks("my-service")
 
-	state = NewServiceState("my-service", ziti.PrecedenceDefault, 0, et)
+	state = NewServiceState("my-service", zt.PrecedenceDefault, 0, et)
 	closeF = runHttpCheck(req, func(resp http.ResponseWriter, req *http.Request) {
 		fmt.Println("first")
 		buf := &strings.Builder{}
@@ -526,7 +526,7 @@ func Test_ChangeAndHealthSend(t *testing.T) {
 
 	req := require.New(t)
 	et := newEventTracker(t)
-	state := NewServiceState("my-service", ziti.PrecedenceDefault, 0, et)
+	state := NewServiceState("my-service", zt.PrecedenceDefault, 0, et)
 
 	healthCheckDef := &HttpCheckDefinition{
 		BaseCheckDefinition: BaseCheckDefinition{
@@ -544,7 +544,7 @@ func Test_ChangeAndHealthSend(t *testing.T) {
 	et.assertHealthSend(100*time.Millisecond, false)
 	et.assertNoSend(200 * time.Millisecond)
 
-	state = NewServiceState("my-service", ziti.PrecedenceDefault, 0, et)
+	state = NewServiceState("my-service", zt.PrecedenceDefault, 0, et)
 	closeF := runHttpCheck(req, func(resp http.ResponseWriter, req *http.Request) {
 		resp.WriteHeader(200)
 	})

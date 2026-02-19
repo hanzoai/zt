@@ -73,7 +73,7 @@ type resolvConnAddr struct {
 }
 
 func (r *resolvConnAddr) Network() string {
-	return "ziti-resolve"
+	return "zt-resolve"
 }
 
 func (r *resolvConnAddr) String() string {

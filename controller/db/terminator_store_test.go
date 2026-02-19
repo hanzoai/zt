@@ -25,8 +25,8 @@ import (
 	"github.com/google/uuid"
 	"github.com/hanzozt/foundation/v2/stringz"
 	"github.com/hanzozt/storage/boltztest"
-	"github.com/hanzozt/ziti/v2/controller/fields"
-	"github.com/hanzozt/ziti/v2/controller/xt"
+	"github.com/hanzozt/zt/v2/controller/fields"
+	"github.com/hanzozt/zt/v2/controller/xt"
 	"go.etcd.io/bbolt"
 )
 

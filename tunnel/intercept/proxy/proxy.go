@@ -29,12 +29,12 @@ import (
 	"github.com/hanzozt/foundation/v2/info"
 	"github.com/hanzozt/foundation/v2/mempool"
 	"github.com/hanzozt/transport/v2"
-	"github.com/hanzozt/ziti/v2/common/alert"
-	"github.com/hanzozt/ziti/v2/tunnel"
-	"github.com/hanzozt/ziti/v2/tunnel/dns"
-	"github.com/hanzozt/ziti/v2/tunnel/entities"
-	"github.com/hanzozt/ziti/v2/tunnel/intercept"
-	"github.com/hanzozt/ziti/v2/tunnel/udp_vconn"
+	"github.com/hanzozt/zt/v2/common/alert"
+	"github.com/hanzozt/zt/v2/tunnel"
+	"github.com/hanzozt/zt/v2/tunnel/dns"
+	"github.com/hanzozt/zt/v2/tunnel/entities"
+	"github.com/hanzozt/zt/v2/tunnel/intercept"
+	"github.com/hanzozt/zt/v2/tunnel/udp_vconn"
 )
 
 type Service struct {

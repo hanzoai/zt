@@ -30,11 +30,11 @@ import (
 	"github.com/michaelquigley/pfxlog"
 	"github.com/hanzozt/edge-api/rest_model"
 	"github.com/hanzozt/foundation/v2/stringz"
-	"github.com/hanzozt/sdk-golang/ziti"
-	"github.com/hanzozt/ziti/v2/tunnel"
-	"github.com/hanzozt/ziti/v2/tunnel/dns"
-	"github.com/hanzozt/ziti/v2/tunnel/entities"
-	"github.com/hanzozt/ziti/v2/tunnel/health"
+	"github.com/hanzozt/sdk-golang/zt"
+	"github.com/hanzozt/zt/v2/tunnel"
+	"github.com/hanzozt/zt/v2/tunnel/dns"
+	"github.com/hanzozt/zt/v2/tunnel/entities"
+	"github.com/hanzozt/zt/v2/tunnel/health"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 )
@@ -140,7 +140,7 @@ func (self *ServiceListener) HandleProviderReady(provider tunnel.FabricProvider)
 	self.provider = provider
 }
 
-func (self *ServiceListener) HandleServicesChange(eventType ziti.ServiceEventType, service *rest_model.ServiceDetail) {
+func (self *ServiceListener) HandleServicesChange(eventType zt.ServiceEventType, service *rest_model.ServiceDetail) {
 	self.Lock()
 	defer self.Unlock()
 
@@ -152,13 +152,13 @@ func (self *ServiceListener) HandleServicesChange(eventType ziti.ServiceEventTyp
 	log := logrus.WithField("service", *service.Name)
 
 	switch eventType {
-	case ziti.ServiceAdded:
+	case zt.ServiceAdded:
 		log.Info("adding service")
 		self.addService(tunnelerService)
-	case ziti.ServiceRemoved:
+	case zt.ServiceRemoved:
 		log.Info("removing service")
 		self.removeService(tunnelerService)
-	case ziti.ServiceChanged:
+	case zt.ServiceChanged:
 		log.Info("updating service: removing old service")
 		self.removeService(tunnelerService)
 

@@ -18,9 +18,9 @@ package host
 
 import (
 	"github.com/michaelquigley/pfxlog"
-	"github.com/hanzozt/ziti/v2/tunnel/dns"
-	"github.com/hanzozt/ziti/v2/tunnel/entities"
-	"github.com/hanzozt/ziti/v2/tunnel/intercept"
+	"github.com/hanzozt/zt/v2/tunnel/dns"
+	"github.com/hanzozt/zt/v2/tunnel/entities"
+	"github.com/hanzozt/zt/v2/tunnel/intercept"
 	"github.com/pkg/errors"
 )
 

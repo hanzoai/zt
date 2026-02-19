@@ -21,10 +21,10 @@ import (
 
 	"github.com/michaelquigley/pfxlog"
 	"github.com/hanzozt/channel/v4"
-	"github.com/hanzozt/ziti/v2/common/ctrlchan"
-	"github.com/hanzozt/ziti/v2/common/pb/ctrl_pb"
-	"github.com/hanzozt/ziti/v2/controller/network"
-	"github.com/hanzozt/ziti/v2/controller/xctrl"
+	"github.com/hanzozt/zt/v2/common/ctrlchan"
+	"github.com/hanzozt/zt/v2/common/pb/ctrl_pb"
+	"github.com/hanzozt/zt/v2/controller/network"
+	"github.com/hanzozt/zt/v2/controller/xctrl"
 	"github.com/pkg/errors"
 	"google.golang.org/protobuf/proto"
 )

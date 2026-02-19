@@ -22,10 +22,10 @@ import (
 
 	"github.com/michaelquigley/pfxlog"
 	"github.com/hanzozt/foundation/v2/stringz"
-	"github.com/hanzozt/ziti/v2/common/inspect"
-	"github.com/hanzozt/ziti/v2/common/pb/ctrl_pb"
-	"github.com/hanzozt/ziti/v2/controller/idgen"
-	"github.com/hanzozt/ziti/v2/router/xlink"
+	"github.com/hanzozt/zt/v2/common/inspect"
+	"github.com/hanzozt/zt/v2/common/pb/ctrl_pb"
+	"github.com/hanzozt/zt/v2/controller/idgen"
+	"github.com/hanzozt/zt/v2/router/xlink"
 	"github.com/pkg/errors"
 )
 

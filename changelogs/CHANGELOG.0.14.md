@@ -22,8 +22,8 @@ Ziti 0.14.11 includes the following:
     * Ziti enrolment capabilities now supports `plain/text`, `application/x-pem-file`,
       and `application/json` response `accept` and `content-types`
 * CLI Change
-    * ziti-tunnel has learned a new subcommand `enroll`. Usage is identical to the
-      existing `ziti-enroller`
+    * zt-tunnel has learned a new subcommand `enroll`. Usage is identical to the
+      existing `zt-enroller`
 
 # Release 0.14.10
 
@@ -35,9 +35,9 @@ Ziti 0.14.10 includes the following:
 
 Ziti 0.14.9 includes the following:
 
-* [Move ziti edge controller commands to ziti edge](https://github.com/hanzozt/ziti/issues/108)
-    * Note: for now `ziti edge` and `ziti edge controller` will both have edge controller related
-      commands. `ziti edge controller` is deprecated and will be removed in a future release. Please
+* [Move zt edge controller commands to zt edge](https://github.com/hanzozt/zt/issues/108)
+    * Note: for now `zt edge` and `zt edge controller` will both have edge controller related
+      commands. `zt edge controller` is deprecated and will be removed in a future release. Please
       update your scripts.
 
 # Release 0.14.8
@@ -50,8 +50,8 @@ Ziti 0.14.8 includes the following:
 
 Ziti 0.14.7 includes the following:
 
-* [Add CLI support for updating terminators](https://github.com/hanzozt/ziti/issues/106)
-* [Add CLI support for managing identity service config overrides](https://github.com/hanzozt/ziti/issues/105)
+* [Add CLI support for updating terminators](https://github.com/hanzozt/zt/issues/106)
+* [Add CLI support for managing identity service config overrides](https://github.com/hanzozt/zt/issues/105)
 
 NOTE: 0.14.6 was released with the same code as 0.14.5 due to CI re-running
 
@@ -134,9 +134,9 @@ target identities, addresses the root cause, and adds regression tests.
 Ziti 0.14.2 includes the following:
 
 * CLI enhancements
-    * [can't create service policy with @ identity name](https://github.com/hanzozt/ziti/issues/93)
-    * [Add CLI commands to allow updating policies and role attributes](https://github.com/hanzozt/ziti/issues/94)
-    * [CLI: read config/config-type JSON from file](https://github.com/hanzozt/ziti/issues/90)
+    * [can't create service policy with @ identity name](https://github.com/hanzozt/zt/issues/93)
+    * [Add CLI commands to allow updating policies and role attributes](https://github.com/hanzozt/zt/issues/94)
+    * [CLI: read config/config-type JSON from file](https://github.com/hanzozt/zt/issues/90)
 * [Not found errors for assigned/related ids do not say which resource was not found](https://github.com/hanzozt/edge/issues/148)
 * Fixes to connection setup timing
 
@@ -150,11 +150,11 @@ names and replacing them with IDS when they are entered. When policies are liste
 names instead of IDs now as well.
 
 ```shell script
-$ ziti edge controller create service-policy test-names Dial -i '#all' -s '@ssh'
+$ zt edge controller create service-policy test-names Dial -i '#all' -s '@ssh'
 Found services with id db9488ba-d0af-455b-9503-c6df88f228ff for name ssh
 ba233791-8fde-44ba-9509-948275e3e3bb
 
-$ ziti edge controller list service-policies 'name="test-names"'
+$ zt edge controller list service-policies 'name="test-names"'
 id: ba233791-8fde-44ba-9509-948275e3e3bb    name: test-names    type: Dial    service roles: [@ssh]    identity roles: [#all]
 results: 1-1 of 1 
 ```
@@ -167,8 +167,8 @@ services and roles on all three policy types.
 All the update commands also allow changing the entity and policy names.
 
 ```shell script
-$ ziti edge controller update identity jsmith-laptop -a us-east,sales
-$ ziti edge controller update service-policy sales-na -s o365,mattermost
+$ zt edge controller update identity jsmith-laptop -a us-east,sales
+$ zt edge controller update service-policy sales-na -s o365,mattermost
 ```
 
 ### Breaking Change to CLI commands
@@ -202,7 +202,7 @@ Ziti 0.14.1 includes the following:
       costs to jump precedence boundary
     * Fixed type error in failure cost tracker
 * Logging cleanup - many log statements that were error or info have been dropped to debug
-* ziti-probe can now handle partial configs
+* zt-probe can now handle partial configs
 
 ## Graceful SDK Hosted Application Shutdown
 

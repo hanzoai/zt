@@ -27,14 +27,14 @@ import (
 	"github.com/hanzozt/edge-api/rest_client_api_server"
 	"github.com/hanzozt/edge-api/rest_management_api_server"
 	"github.com/hanzozt/xweb/v3"
-	"github.com/hanzozt/ziti/v2/controller/api"
-	"github.com/hanzozt/ziti/v2/controller/apierror"
-	"github.com/hanzozt/ziti/v2/controller/env"
-	"github.com/hanzozt/ziti/v2/controller/response"
+	"github.com/hanzozt/zt/v2/controller/api"
+	"github.com/hanzozt/zt/v2/controller/apierror"
+	"github.com/hanzozt/zt/v2/controller/env"
+	"github.com/hanzozt/zt/v2/controller/response"
 	"github.com/pkg/errors"
 )
 
-const ZitiInstanceId = "ziti-instance-id"
+const ZitiInstanceId = "zt-instance-id"
 
 var _ xweb.ApiHandlerFactory = &ClientApiFactory{}
 

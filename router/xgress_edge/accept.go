@@ -26,9 +26,9 @@ import (
 	"github.com/hanzozt/channel/v4"
 	"github.com/hanzozt/channel/v4/latency"
 	"github.com/hanzozt/metrics"
-	sdkEdge "github.com/hanzozt/sdk-golang/ziti/edge"
-	"github.com/hanzozt/ziti/v2/common/cert"
-	"github.com/hanzozt/ziti/v2/router/state"
+	sdkEdge "github.com/hanzozt/sdk-golang/zt/edge"
+	"github.com/hanzozt/zt/v2/common/cert"
+	"github.com/hanzozt/zt/v2/router/state"
 	cmap "github.com/orcaman/concurrent-map/v2"
 )
 

@@ -10,7 +10,7 @@ set -o pipefail
 : "${PFXLOG_NO_JSON:=true}"; export PFXLOG_NO_JSON  # disable JSON log format
 BASE_TMP_DIR="/tmp/ha-quickstart-test"
 mkdir -p "$BASE_TMP_DIR"
-: "${ziti_home:=$(mktemp -d "$BASE_TMP_DIR/ziti_home_XXXXXX")}"
+: "${zt_home:=$(mktemp -d "$BASE_TMP_DIR/zt_home_XXXXXX")}"
 
 trap 'rm -rf "/tmp/ha-quickstart-test"' EXIT ERR
 trap 'echo "Cleaning up..."; [[ -n "${pid1-}" ]] && kill $pid1 2>/dev/null; [[ -n "${pid2-}" ]] && kill $pid2 2>/dev/null; [[ -n "${pid3-}" ]] && kill $pid3 2>/dev/null' EXIT ERR
@@ -37,7 +37,7 @@ function _wait_for_controller {
     echo "Waiting five seconds for the controller to be chill...."
     sleep 5
     
-    while ! "${BUILD_DIR}/ziti" edge login -u admin -p admin "${advertised_host_port}" -y; do
+    while ! "${BUILD_DIR}/zt" edge login -u admin -p admin "${advertised_host_port}" -y; do
         if (( elapsed >= timeout )); then
             echo "Login failed after $timeout seconds, exiting."
             return 1
@@ -62,7 +62,7 @@ function _wait_for_leader() {
   local elapsed=0
   
   while [ "$elapsed" -lt "$timeout" ]; do
-    if "${BUILD_DIR}/ziti" ops cluster list | awk -F'│' 'NR>3 {print $3, $5}' | grep -q "true"; then
+    if "${BUILD_DIR}/zt" ops cluster list | awk -F'│' 'NR>3 {print $3, $5}' | grep -q "true"; then
       echo "Leader found"
       return 0
     fi
@@ -75,15 +75,15 @@ function _wait_for_leader() {
   return 1
 }
 
-declare -a BINS=(awk grep jq "${BUILD_DIR}/ziti")
+declare -a BINS=(awk grep jq "${BUILD_DIR}/zt")
 for BIN in "${BINS[@]}"; do
     _check_command "$BIN"
 done
 
-"${BUILD_DIR}/ziti" edge quickstart ha \
+"${BUILD_DIR}/zt" edge quickstart ha \
     --ctrl-address="127.0.0.1" \
     --router-address="127.0.0.1" \
-    --home="${ziti_home}" \
+    --home="${zt_home}" \
     --trust-domain="quickstart-ha-test" \
     --instance-id="inst1" \
     --ctrl-port="2001" \
@@ -101,10 +101,10 @@ if ! _wait_for_leader; then
   exit 1
 fi
 
-"${BUILD_DIR}/ziti" edge quickstart join \
+"${BUILD_DIR}/zt" edge quickstart join \
     --ctrl-address="127.0.0.1" \
     --router-address="127.0.0.1" \
-    --home="${ziti_home}" \
+    --home="${zt_home}" \
     --trust-domain="quickstart-ha-test" \
     --ctrl-port="2002" \
     --router-port="3002" \
@@ -125,10 +125,10 @@ if ! _wait_for_leader; then
   exit 1
 fi
 
-"${BUILD_DIR}/ziti" edge quickstart join \
+"${BUILD_DIR}/zt" edge quickstart join \
     --ctrl-address="127.0.0.1" \
     --router-address="127.0.0.1" \
-    --home="${ziti_home}" \
+    --home="${zt_home}" \
     --trust-domain="quickstart-ha-test" \
     --ctrl-port="2003" \
     --router-port="3003" \
@@ -146,12 +146,12 @@ fi
 
 echo "========================================================="
 echo "HA Cluster should now be online"
-"${BUILD_DIR}/ziti" ops cluster list
+"${BUILD_DIR}/zt" ops cluster list
 echo ""
 echo "Building and running quickstart test"
 echo "========================================================="
 
-if ! "${BUILD_DIR}/ziti" ops verify traffic -u admin -p admin --controller-url localhost:2001 -y \
+if ! "${BUILD_DIR}/zt" ops verify traffic -u admin -p admin --controller-url localhost:2001 -y \
   > >(while IFS= read -r line; do echo "traffic: $line"; done) 2>&1; then
   echo "Traffic verification failed" >&2
   exit 1
@@ -160,7 +160,7 @@ fi
 ZITI_CTRL_EDGE_ADVERTISED_ADDRESS=localhost \
 ZITI_CTRL_EDGE_ADVERTISED_PORT=2001 \
 ZITI_ROUTER_NAME="router-inst1" \
-go test -tags "quickstart manual" ziti/run/quickstart_manual_test.go ziti/run/quickstart_shared_test.go
+go test -tags "quickstart manual" zt/run/quickstart_manual_test.go zt/run/quickstart_shared_test.go
 test_exit_code=$?
 
 echo "waiting for processes to exit: $pid1 $pid2 $pid3"

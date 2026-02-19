@@ -11,10 +11,10 @@ To run the automated edge test, execute the following from the project root (env
 
 ```bash
 # From project root
-go test -v -tags "quickstart automated" ./ziti/cmd/edge/... -run TestEdgeQuickstartAutomated
+go test -v -tags "quickstart automated" ./zt/cmd/edge/... -run TestEdgeQuickstartAutomated
 
 # From relative README path
-go test -v -tags "quickstart automated" ../../ziti/cmd/edge/... -run TestEdgeQuickstartAutomated
+go test -v -tags "quickstart automated" ../../zt/cmd/edge/... -run TestEdgeQuickstartAutomated
 ```
 
 ## Manual
@@ -26,9 +26,9 @@ The following environment variables are referenced for network information.
 
 * `ZITI_USER` - defaults to `admin`
 * `ZITI_PWD`  - defaults to `admin`
-* `ZITI_CTRL_EDGE_ADVERTISED_ADDRESS` - defaults to `ziti-edge-controller`
+* `ZITI_CTRL_EDGE_ADVERTISED_ADDRESS` - defaults to `zt-edge-controller`
 * `ZITI_CTRL_EDGE_ADVERTISED_PORT`    - defaults to `1280`
-* `ZITI_ROUTER_NAME` - defaults to `ziti-edge-router`
+* `ZITI_ROUTER_NAME` - defaults to `zt-edge-router`
 
 To run the manual test, edit the environment variables as necessary and execute the following from the project root
 
@@ -36,13 +36,13 @@ To run the manual test, edit the environment variables as necessary and execute 
 # Optionally adjust environment variable values as needed
 ZITI_USER="admin"
 ZITI_PWD="admin"
-ZITI_CTRL_EDGE_ADVERTISED_ADDRESS="ziti-edge-controller"
+ZITI_CTRL_EDGE_ADVERTISED_ADDRESS="zt-edge-controller"
 ZITI_CTRL_EDGE_ADVERTISED_PORT="1280"
-ZITI_ROUTER_NAME="ziti-edge-router"
+ZITI_ROUTER_NAME="zt-edge-router"
 
 # From project root
-go test -v -tags "quickstart manual" ./ziti/cmd/edge/... -run TestEdgeQuickstartManual
+go test -v -tags "quickstart manual" ./zt/cmd/edge/... -run TestEdgeQuickstartManual
 
 # From relative README path
-go test -v -tags "quickstart manual" ../../ziti/cmd/edge/... -run TestEdgeQuickstartManual
+go test -v -tags "quickstart manual" ../../zt/cmd/edge/... -run TestEdgeQuickstartManual
 ```

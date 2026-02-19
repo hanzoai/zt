@@ -27,20 +27,20 @@ import (
 	"github.com/michaelquigley/pfxlog"
 	"github.com/hanzozt/foundation/v2/errorz"
 	nfpem "github.com/hanzozt/foundation/v2/pem"
-	"github.com/hanzozt/ziti/v2/common/cert"
-	"github.com/hanzozt/ziti/v2/controller/apierror"
-	"github.com/hanzozt/ziti/v2/controller/change"
-	"github.com/hanzozt/ziti/v2/controller/db"
-	"github.com/hanzozt/ziti/v2/controller/fields"
-	"github.com/hanzozt/ziti/v2/controller/models"
+	"github.com/hanzozt/zt/v2/common/cert"
+	"github.com/hanzozt/zt/v2/controller/apierror"
+	"github.com/hanzozt/zt/v2/controller/change"
+	"github.com/hanzozt/zt/v2/controller/db"
+	"github.com/hanzozt/zt/v2/controller/fields"
+	"github.com/hanzozt/zt/v2/controller/models"
 )
 
 const (
 	ClientCertHeader       = "X-Client-CertPem"
 	EdgeRouterProxyRequest = "X-Edge-Router-Proxy-Request"
 
-	ZitiAuthenticatorExtendRequested  = "ziti-authenticator-extend-requested"
-	ZitiAuthenticatorRollKeyRequested = "ziti-authenticator-extend-requested"
+	ZitiAuthenticatorExtendRequested  = "zt-authenticator-extend-requested"
+	ZitiAuthenticatorRollKeyRequested = "zt-authenticator-extend-requested"
 
 	internalCertAuthenticatorId = "internal"
 )

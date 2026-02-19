@@ -102,8 +102,8 @@ To enable the Azure Service Bus event logger, add configuration to the controlle
         type: servicebus
         format: json
         connectionString: "Endpoint=sb://your-namespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=your-key"
-        topic: "ziti-events"          # Use 'topic' for Service Bus topic
-        # queue: "ziti-events-queue"  # Or use 'queue' for Service Bus queue
+        topic: "zt-events"          # Use 'topic' for Service Bus topic
+        # queue: "zt-events-queue"  # Or use 'queue' for Service Bus queue
         bufferSize: 100                # Optional, defaults to 50
 ```
 
@@ -141,19 +141,19 @@ To enable the Azure Service Bus event logger, add configuration to the controlle
 * github.com/hanzozt/storage: [v0.4.26 -> v0.4.31](https://github.com/hanzozt/storage/compare/v0.4.26...v0.4.31)
 * github.com/hanzozt/transport/v2: [v2.0.188 -> v2.0.198](https://github.com/hanzozt/transport/compare/v2.0.188...v2.0.198)
 * github.com/hanzozt/go-term-markdown: v1.0.1 (new)
-* github.com/hanzozt/ziti: [v1.6.8 -> v1.7.0](https://github.com/hanzozt/ziti/compare/v1.6.8...v1.7.0)
-    * [Issue #3264](https://github.com/hanzozt/ziti/issues/3264) - Add support for streaming events to Azure Service Bus
-    * [Issue #3321](https://github.com/hanzozt/ziti/issues/3321) - Health Check API missing base path on discovery endpoint
-    * [Issue #3323](https://github.com/hanzozt/ziti/issues/3323) - router/tunnel static services fail to bind unless new param protocol is defined
-    * [Issue #3309](https://github.com/hanzozt/ziti/issues/3309) - Detect link connections meant for another router
-    * [Issue #3286](https://github.com/hanzozt/ziti/issues/3286) - edge-api binding doesn't have the correct path on discovery endpoints
-    * [Issue #3297](https://github.com/hanzozt/ziti/issues/3297) - stop promoting hotfixes downstream
-    * [Issue #3295](https://github.com/hanzozt/ziti/issues/3295) - make ziti tunnel service:port pairs optional
-    * [Issue #3291](https://github.com/hanzozt/ziti/issues/3291) - replace decommissioned bitnami/kubectl
-    * [Issue #3277](https://github.com/hanzozt/ziti/issues/3277) - Router can deadlock on closing a connection if the incoming data channel is full
-    * [Issue #3269](https://github.com/hanzozt/ziti/issues/3269) - Add host-interfaces config type
-    * [Issue #3258](https://github.com/hanzozt/ziti/issues/3258) - Add config type proxy.v1 so proxies can be defined dynamically for the ER/T
-    * [Issue #3259](https://github.com/hanzozt/ziti/issues/3259) - Interfaces config type not added due to wrong name
-    * [Issue #3265](https://github.com/hanzozt/ziti/issues/3265) - Forwarding errors should log at debug, since they are usual part of circuit teardown
-    * [Issue #3261](https://github.com/hanzozt/ziti/issues/3261) - ER/T dialed xgress connections may only half-close when peer is fully closed
-    * [Issue #3207](https://github.com/hanzozt/ziti/issues/3207) - Allow router embedders to customize config before start
+* github.com/hanzozt/zt: [v1.6.8 -> v1.7.0](https://github.com/hanzozt/zt/compare/v1.6.8...v1.7.0)
+    * [Issue #3264](https://github.com/hanzozt/zt/issues/3264) - Add support for streaming events to Azure Service Bus
+    * [Issue #3321](https://github.com/hanzozt/zt/issues/3321) - Health Check API missing base path on discovery endpoint
+    * [Issue #3323](https://github.com/hanzozt/zt/issues/3323) - router/tunnel static services fail to bind unless new param protocol is defined
+    * [Issue #3309](https://github.com/hanzozt/zt/issues/3309) - Detect link connections meant for another router
+    * [Issue #3286](https://github.com/hanzozt/zt/issues/3286) - edge-api binding doesn't have the correct path on discovery endpoints
+    * [Issue #3297](https://github.com/hanzozt/zt/issues/3297) - stop promoting hotfixes downstream
+    * [Issue #3295](https://github.com/hanzozt/zt/issues/3295) - make zt tunnel service:port pairs optional
+    * [Issue #3291](https://github.com/hanzozt/zt/issues/3291) - replace decommissioned bitnami/kubectl
+    * [Issue #3277](https://github.com/hanzozt/zt/issues/3277) - Router can deadlock on closing a connection if the incoming data channel is full
+    * [Issue #3269](https://github.com/hanzozt/zt/issues/3269) - Add host-interfaces config type
+    * [Issue #3258](https://github.com/hanzozt/zt/issues/3258) - Add config type proxy.v1 so proxies can be defined dynamically for the ER/T
+    * [Issue #3259](https://github.com/hanzozt/zt/issues/3259) - Interfaces config type not added due to wrong name
+    * [Issue #3265](https://github.com/hanzozt/zt/issues/3265) - Forwarding errors should log at debug, since they are usual part of circuit teardown
+    * [Issue #3261](https://github.com/hanzozt/zt/issues/3261) - ER/T dialed xgress connections may only half-close when peer is fully closed
+    * [Issue #3207](https://github.com/hanzozt/zt/issues/3207) - Allow router embedders to customize config before start

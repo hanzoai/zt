@@ -25,15 +25,15 @@ import (
 	"github.com/hanzozt/channel/v4/protobufs"
 	"github.com/hanzozt/foundation/v2/concurrenz"
 	"github.com/hanzozt/sdk-golang/xgress"
-	"github.com/hanzozt/sdk-golang/ziti"
-	"github.com/hanzozt/sdk-golang/ziti/edge"
+	"github.com/hanzozt/sdk-golang/zt"
+	"github.com/hanzozt/sdk-golang/zt/edge"
 	"github.com/hanzozt/secretstream/kx"
-	"github.com/hanzozt/ziti/v2/common"
-	"github.com/hanzozt/ziti/v2/common/ctrl_msg"
-	"github.com/hanzozt/ziti/v2/common/pb/edge_ctrl_pb"
-	"github.com/hanzozt/ziti/v2/router/env"
-	"github.com/hanzozt/ziti/v2/router/posture"
-	"github.com/hanzozt/ziti/v2/router/xgress_common"
+	"github.com/hanzozt/zt/v2/common"
+	"github.com/hanzozt/zt/v2/common/ctrl_msg"
+	"github.com/hanzozt/zt/v2/common/pb/edge_ctrl_pb"
+	"github.com/hanzozt/zt/v2/router/env"
+	"github.com/hanzozt/zt/v2/router/posture"
+	"github.com/hanzozt/zt/v2/router/xgress_common"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 )
@@ -90,7 +90,7 @@ func (self *fabricImpl) NotifyServiceChange(state *common.IdentityState, oldServ
 	}
 }
 
-func (self *fabricImpl) TunnelWithOptions(serviceName string, options *ziti.DialOptions, conn net.Conn, halfClose bool) error {
+func (self *fabricImpl) TunnelWithOptions(serviceName string, options *zt.DialOptions, conn net.Conn, halfClose bool) error {
 	service := self.servicesByName.Load()[serviceName]
 	if service == nil {
 		return fmt.Errorf("service %s not found", serviceName)

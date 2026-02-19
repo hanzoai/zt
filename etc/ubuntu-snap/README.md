@@ -8,11 +8,11 @@
     hash -r
 
 * navigate to the root of the git checkout - not the $GOPATH
-* cd ~/git_or_wherever/nf/src/bitbucket.org/netfoundry/ziti
+* cd ~/git_or_wherever/nf/src/bitbucket.org/netfoundry/zt
 * issue `snapcraft` you should see results (in green maybe) like (you may need the `--destructive-mode` flag):
 
-    Cleaning later steps and re-staging ziti ('build' step changed)
-    Priming ziti 
+    Cleaning later steps and re-staging zt ('build' step changed)
+    Priming zt 
     Snapping 'netfoundry' -
     Snapped netfoundry_0.0.1_amd64.snap
 
@@ -29,8 +29,8 @@
 
 * try the enroller out:
 
-    netfoundry.ziti-enroller
+    netfoundry.zt-enroller
 
 * try the tunneler out:
 
-   netfoundry.ziti-tunneler
+   netfoundry.zt-tunneler

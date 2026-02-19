@@ -23,10 +23,10 @@ import (
 	"github.com/hanzozt/identity"
 	"github.com/hanzozt/storage/boltz"
 	"github.com/hanzozt/storage/objectz"
-	"github.com/hanzozt/ziti/v2/common/datastructures"
-	"github.com/hanzozt/ziti/v2/common/logcontext"
-	"github.com/hanzozt/ziti/v2/controller/models"
-	"github.com/hanzozt/ziti/v2/controller/xt"
+	"github.com/hanzozt/zt/v2/common/datastructures"
+	"github.com/hanzozt/zt/v2/common/logcontext"
+	"github.com/hanzozt/zt/v2/controller/models"
+	"github.com/hanzozt/zt/v2/controller/xt"
 	"github.com/orcaman/concurrent-map/v2"
 )
 

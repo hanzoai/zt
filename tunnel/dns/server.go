@@ -122,7 +122,7 @@ func NewResolver(config string, upstreamConfig string, unansweredConfig string) 
 }
 
 func (r *resolver) testSystemResolver() error {
-	const resolverTestHostname = "ziti-tunnel.resolver.test"
+	const resolverTestHostname = "zt-tunnel.resolver.test"
 	resolverTestIP := net.IP{19, 65, 28, 94}
 	log.Debug("testing system resolver configuration")
 

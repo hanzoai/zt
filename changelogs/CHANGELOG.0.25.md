@@ -91,12 +91,12 @@ will be interrogated for new signing keys. The `jwksEndpoint` will only be inter
 ### Bug Fixes
 
 * https://github.com/hanzozt/fabric/issues/406
-* https://github.com/hanzozt/ziti/issues/565 - Moved terminator information to its own field.
+* https://github.com/hanzozt/zt/issues/565 - Moved terminator information to its own field.
 
 ### Metrics API
 
 The following new endpoint has been added:
-- `GET /metrics` - returns metrics for the controller and all routers in the Prometheus text exposition format.  See [https://hanzozt.github.io/ziti/metrics/prometheus.html] for more information and instructions to set it up.
+- `GET /metrics` - returns metrics for the controller and all routers in the Prometheus text exposition format.  See [https://hanzozt.github.io/zt/metrics/prometheus.html] for more information and instructions to set it up.
 
 
 # Release 0.25.10
@@ -109,9 +109,9 @@ The following new endpoint has been added:
 - Ziti CLI
   - CLI support for enrollments/authenticators/re-enrollment
   - Fix prox-c download
-  - ziti-fabric cleanup
+  - zt-fabric cleanup
   - Add public attributes and service policies allowing public access to routers in docker-compose quickstart
-  - Add file overwrite checks for the "Local ziti quickstart" script
+  - Add file overwrite checks for the "Local zt quickstart" script
 - SDK Golang
   - N/A
 
@@ -121,27 +121,27 @@ The following new endpoint has been added:
 
 The CLI has been augmented to support the following commands:
 
-- `ziti edge list authenticators` - to generically list existing authenticators
-- `ziti edge list enrollments` - to generically list existing enrollments
-- `ziti edge delete enrollment <id>` - to generically delete existing enrollments
-- `ziti edge delete authenticator <id>` - to generically delete existing authenticator
-- `ziti edge create enrollment ott ...` - to create a new one-time-token enrollment for an existing identity
-- `ziti edge create enrollment ottca ...` - to create a new one-time-token enrollment for an existing identity for a 3rd party CA issued certificate
-- `ziti edge create enrollment updb ...` - to create a new updb (username/password) enrollment for an existing identity
+- `zt edge list authenticators` - to generically list existing authenticators
+- `zt edge list enrollments` - to generically list existing enrollments
+- `zt edge delete enrollment <id>` - to generically delete existing enrollments
+- `zt edge delete authenticator <id>` - to generically delete existing authenticator
+- `zt edge create enrollment ott ...` - to create a new one-time-token enrollment for an existing identity
+- `zt edge create enrollment ottca ...` - to create a new one-time-token enrollment for an existing identity for a 3rd party CA issued certificate
+- `zt edge create enrollment updb ...` - to create a new updb (username/password) enrollment for an existing identity
 
 These commands, specifically the enrollment related ones, can be used to re-enroll existing identities. See the 0.25.9 changeFor all arguments and options, please see their CLI related `-h`.
 
-Also note that the `ziti edge delete authenticator updb` command has been supplanted by `ziti edge delete authenticator <authenticator id>`
+Also note that the `zt edge delete authenticator updb` command has been supplanted by `zt edge delete authenticator <authenticator id>`
 
 ### Fix prox-c download
 
 The prox-c releases on GitHub now include the architecture in the download URL. 
-`ziti install ziti-prox-c` has been updated to take this into account.
+`zt install zt-prox-c` has been updated to take this into account.
 
-### ziti-fabric cleanup
+### zt-fabric cleanup
 
-Ziti CLI install/upgrade/remove commands related to `ziti-fabric` have been
-removed since `ziti-fabric` was deprecated and is not being published anymore.
+Ziti CLI install/upgrade/remove commands related to `zt-fabric` have been
+removed since `zt-fabric` was deprecated and is not being published anymore.
 
 # Release 0.25.9
 
@@ -324,26 +324,26 @@ Example:
 }
 ```
 
-### Remove ziti-fabric CLI command
-The previously deprecated ziti-fabric command will no longer be published as part of Ziti releases. 
-All of ziti-fabric's functionality is available in the `ziti` CLI under `ziti fabric`.
+### Remove zt-fabric CLI command
+The previously deprecated zt-fabric command will no longer be published as part of Ziti releases. 
+All of zt-fabric's functionality is available in the `zt` CLI under `zt fabric`.
 
 ### Add link delete
 If a link gets in a bad state (see bug below for how this could happen), you can now use 
-`ziti fabric delete link <link id>`. This will remove the link from the controller as well
+`zt fabric delete link <link id>`. This will remove the link from the controller as well
 as send link faults to associated routers. If the link is not known to the controller, a 
 link fault will be sent to all connected routers.
 
 ## Miscellaneous
 
-The `ziti-probe` tool will no longer be built and published as part of Ziti releases.
+The `zt-probe` tool will no longer be built and published as part of Ziti releases.
 
 ### Bug Fixes
 
 * https://github.com/hanzozt/fabric/issues/393
 * https://github.com/hanzozt/fabric/issues/395
 * https://github.com/hanzozt/channel/issues/50
-* `ziti fabric list circuits` was showing the router id instead of the link id in the circuit path
+* `zt fabric list circuits` was showing the router id instead of the link id in the circuit path
 
 # Release 0.25.6
 
@@ -370,28 +370,28 @@ The `ziti-probe` tool will no longer be built and published as part of Ziti rele
 
 * Bug fix: Fixes an issue where Edge administrator checks would not take default admin flag into account
 * Bug fix: Fix an issue with docker-compose quickstart not properly loading env vars
-* Enhancement: Add support for Apple M1 using the ziti quickstart CLI script
+* Enhancement: Add support for Apple M1 using the zt quickstart CLI script
 * Enhancement: Use an env file for docker-compose quickstart for easier version changes and other duplicated field values
-* Enhancement: Allow for version override using the ziti quickstart CLI script
+* Enhancement: Allow for version override using the zt quickstart CLI script
 * Change: Renamed `pushDevBuild.sh` to `buildLocalDev.sh`, the script used for building a local dev version of the docker quickstart image
 * Bug fix: Fixes an issues where `isAdmin` would always default to false on updates (put/patch)
 * Bug fix: Identity property `externalId` was not properly rendering on `GET` and not handled consistently on `PUT` and `PATCH`
 * Enhancement: External JWT Signer Issuer & Audience Validation
 * Enhancement: Add ability to define local interface binding for link and controller dial
 * Bug fix: Edge Management REST API Doc shows Edge Client REST API Doc
-* Enhancement: `ziti db explore <ctrl.db>` command has been added to explore offline database files
-* Enhancement: The mgmt API is now available via websocket. The stream commands are now available on `ziti fabric`
+* Enhancement: `zt db explore <ctrl.db>` command has been added to explore offline database files
+* Enhancement: The mgmt API is now available via websocket. The stream commands are now available on `zt fabric`
 * Enhancement: Most list commands have been updated with tabular output
-* Enhancement: `ziti edge show` is now available with subcommands `config` and `config-type`
-    * `ziti edge list configs` no longer shows the associated json. It can be viewed using `ziti edge show config <config name or id>`
-* Enhancement: `ziti edge update config-type` is now available
-* Enhancement: `ziti edge create|update identity` now supports `--external-id`
+* Enhancement: `zt edge show` is now available with subcommands `config` and `config-type`
+    * `zt edge list configs` no longer shows the associated json. It can be viewed using `zt edge show config <config name or id>`
+* Enhancement: `zt edge update config-type` is now available
+* Enhancement: `zt edge create|update identity` now supports `--external-id`
 * Bug fix: Fixes an issue where the router config would use hostname instead of the DNS name
 * Bug fix: When establishing links, a link could be closed while being registered, leading the controller and router to get out of sync
 * Enhancement: Add min router cost. Helps to minimize unnecessary hops.
     * Defaults to 10, configurable in the controller config with the minRouterCost value under `network:`
 * Enhancement: Can now see xgress instance and link send buffer pointer values in circuit inspections. This allows correlating to stackdumps
-* Enhancement: Can now see xgress related goroutines by using `ziti fabric inspect '.*' circuitAndStacks:<circuitId>`
+* Enhancement: Can now see xgress related goroutines by using `zt fabric inspect '.*' circuitAndStacks:<circuitId>`
 * Enhancement: If a router connects to the controller but is already connected, the new connection now takes precedence
     * There is a configurable churn limit, which limits how often this can happen. 
     * The default is 1 minute and is settable via `routerConnectChurnLimit` under `network`
@@ -444,7 +444,7 @@ link:
 * Bug fix: Fix router panic which can happen if the router shuts down before it's fully up an running
 * Enhancement: Avoid router warning like `destination exists for [p57a]` by not sending egress in route, since egress will always already be established
 * Enhancement: Change default dial retries to 3 from 2
-* Enhancement: Add circuit inspect. `ziti fabric inspect .* circuit:<circuit-id>` will now return information about the circuit from the routers. This will include routing information as well as flow control data from the initiator and terminator.
+* Enhancement: Add circuit inspect. `zt fabric inspect .* circuit:<circuit-id>` will now return information about the circuit from the routers. This will include routing information as well as flow control data from the initiator and terminator.
 * Change: Support for link types removed
 
 ## Authentication Policies
@@ -694,7 +694,7 @@ an existing completed enrollment.
 Here is an example of the kind of information you can get with the new circuit inspection factility
 
 ```
-$ ziti fabric inspect .* circuit:GrtfcCjzD -j | jq
+$ zt fabric inspect .* circuit:GrtfcCjzD -j | jq
 {
   "errors": null,
   "success": true,
@@ -809,11 +809,11 @@ available under fabric, they will be removed from the edge APIs in a future rele
 
 ## What's New
 
-* Enhancement: Only translate router ids -> names in `ziti edge traceroute` when requested to with flag
+* Enhancement: Only translate router ids -> names in `zt edge traceroute` when requested to with flag
 * Enhancement: Add the /database rest API from edge to fabric, where they below
-    * `ziti fabric db` now as the same commands as `ziti edge db`
-* Enhancement: Add `ziti agent` command for sending IPC commands. Contains copy of what was under `ziti ps`.
-* Enhancement: Add `ziti agent controller snapshot-db <name or pid>` IPC command
+    * `zt fabric db` now as the same commands as `zt edge db`
+* Enhancement: Add `zt agent` command for sending IPC commands. Contains copy of what was under `zt ps`.
+* Enhancement: Add `zt agent controller snapshot-db <name or pid>` IPC command
 
 
 # Release 0.25.1
@@ -832,7 +832,7 @@ a single link between routers, unless you use the new link types feature.
 
 ## What's New
 
-* Bug fix: Fixed an issue with the ziti CLI quickstart routine which also affected router and controller config generation leaving many config fields blank or incorrect.
+* Bug fix: Fixed an issue with the zt CLI quickstart routine which also affected router and controller config generation leaving many config fields blank or incorrect.
     * Note: This fix was previously reported to have been fixed in 0.24.13 but the fix was actually applied to this release.
 * Enhancement: Router Link Refactor
     * Support for multiple link types
@@ -841,7 +841,7 @@ a single link between routers, unless you use the new link types feature.
     * Inspect and ps support for links
     * Router version dissemination
     * Distributed control preparation
-* Enhancement: `ziti fabric list routers` now includes the link listener types and advertise addresses
+* Enhancement: `zt fabric list routers` now includes the link listener types and advertise addresses
 
 ## Router Link Refactor
 
@@ -867,7 +867,7 @@ The first listener will have a type of `tls` and the second listener will have a
 
 Routers will now try to maintain one link of each type available on the target router.
 
-When using `ziti fabric list links` the link type will now be shown.
+When using `zt fabric list links` the link type will now be shown.
 
 ### Existing link notifications
 As the controller doesn't persist links, when the controller restarts or loses connection it loses all information about router links. Routers can now notify the controller about existing links when they reconnect. If they receive a link dial request for a link that they already have (based on the target router and link type), they can now report back the existing link. This should prevent the number of links to remain relatively constant.
@@ -882,12 +882,12 @@ Previously link.latency include both queue and network time. Now that it only ha
 
 ### Inspect and ps support for links
 
-`ziti fabric inspect .* links` can now be used to see what links each router knows about. This can be useful to determine if/how the controller and routers may have gotten out of sync.
+`zt fabric inspect .* links` can now be used to see what links each router knows about. This can be useful to determine if/how the controller and routers may have gotten out of sync.
 
-Router can also be interrogated directly for their links via IPC, using `ziti ps`. 
+Router can also be interrogated directly for their links via IPC, using `zt ps`. 
 
 ```
-$ ziti ps router dump-links 275061
+$ zt ps router dump-links 275061
 id: 4sYO18tZ1Fz4HByXuIp1Dq dest: o.oVU2Qm. type: tls
 id: 19V7yhjBpHAc2prTDiTihQ dest: hBjIP2wmxj type: tls
 ```

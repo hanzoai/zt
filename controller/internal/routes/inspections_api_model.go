@@ -20,9 +20,9 @@ import (
 	"encoding/json"
 	"strings"
 
-	"github.com/hanzozt/ziti/v2/controller/network"
-	"github.com/hanzozt/ziti/v2/controller/rest_model"
-	"github.com/hanzozt/ziti/v2/controller/webapis"
+	"github.com/hanzozt/zt/v2/controller/network"
+	"github.com/hanzozt/zt/v2/controller/rest_model"
+	"github.com/hanzozt/zt/v2/controller/webapis"
 )
 
 const EntityNameInspect = "inspections"

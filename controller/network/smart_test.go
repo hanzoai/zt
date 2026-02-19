@@ -4,13 +4,13 @@ import (
 	"testing"
 	"time"
 
-	"github.com/hanzozt/ziti/v2/controller/model"
+	"github.com/hanzozt/zt/v2/controller/model"
 
 	"github.com/google/uuid"
 	"github.com/hanzozt/transport/v2/tcp"
-	"github.com/hanzozt/ziti/v2/common/logcontext"
-	"github.com/hanzozt/ziti/v2/controller/models"
-	"github.com/hanzozt/ziti/v2/controller/xt"
+	"github.com/hanzozt/zt/v2/common/logcontext"
+	"github.com/hanzozt/zt/v2/controller/models"
+	"github.com/hanzozt/zt/v2/controller/xt"
 	"github.com/stretchr/testify/assert"
 )
 

@@ -8,7 +8,7 @@ import (
 	"github.com/hanzozt/foundation/v2/stringz"
 	"github.com/hanzozt/storage/ast"
 	"github.com/hanzozt/storage/boltz"
-	"github.com/hanzozt/ziti/v2/common/eid"
+	"github.com/hanzozt/zt/v2/common/eid"
 )
 
 func newServiceEdgeRouterPolicy(name string) *ServiceEdgeRouterPolicy {

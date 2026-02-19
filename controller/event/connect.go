@@ -33,7 +33,7 @@ const (
 	ConnectDestinationRouter     ConnectDestination = "router"
 )
 
-// A ConnectEvent is emitted when a connection is made to a ziti controller or router.
+// A ConnectEvent is emitted when a connection is made to a zt controller or router.
 //
 // Valid source types are:
 //   - router - router connecting to a controller or another router)

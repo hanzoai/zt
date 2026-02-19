@@ -27,7 +27,7 @@ import (
 	"github.com/google/uuid"
 	"github.com/hanzozt/edge-api/rest_model"
 	"github.com/hanzozt/foundation/v2/errorz"
-	"github.com/hanzozt/ziti/v2/common/eid"
+	"github.com/hanzozt/zt/v2/common/eid"
 )
 
 func Test_Configs(t *testing.T) {
@@ -253,7 +253,7 @@ func Test_Configs(t *testing.T) {
 		ctx.testContextChanged(t)
 		configType := ctx.newConfigType()
 		configType.Schema = map[string]interface{}{
-			"$id":                  "http://ziti-edge.netfoundry.io/schemas/test.config.json",
+			"$id":                  "http://zt-edge.netfoundry.io/schemas/test.config.json",
 			"type":                 "object",
 			"additionalProperties": false,
 			"required": []interface{}{

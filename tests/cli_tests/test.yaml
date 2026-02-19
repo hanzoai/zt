@@ -138,7 +138,7 @@ configs:
       port: 546
     name: service2-host-config
     tags: {}
-  - configType: '@ziti-tunneler-client.v1'
+  - configType: '@zt-tunneler-client.v1'
     data:
       hostname: 192.168.242.2
       port: 502
@@ -147,7 +147,7 @@ configs:
   - configType: '@intercept.v1'
     data:
       addresses:
-        - simplesvctest1.ziti
+        - simplesvctest1.zt
       portRanges:
         - high: 321
           low: 321
@@ -159,7 +159,7 @@ configs:
   - configType: '@intercept.v1'
     data:
       addresses:
-        - simplesvctest1.ziti
+        - simplesvctest1.zt
       portRanges:
         - high: 123
           low: 123
@@ -214,7 +214,7 @@ edgeRouterPolicies:
     semantic: AnyOf
     tags: {}
 externalJwtSigners:
-  - audience: https://gateway.staging.netfoundry.io/cloudziti/25ba1aa3-4468-445a-910e-93f5b425f2c1
+  - audience: https://gateway.staging.netfoundry.io/cloudzt/25ba1aa3-4468-445a-910e-93f5b425f2c1
     certPem: null
     claimsProperty: sub
     clientId: null

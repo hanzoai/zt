@@ -47,7 +47,7 @@ jobs:
         uses: ./.github/actions/setup-go
 
       - name: Install Ziti CI
-        uses: hanzozt/ziti-ci@v1
+        uses: hanzozt/zt-ci@v1
 
       - name: Build and Test
         shell: bash
@@ -57,9 +57,9 @@ jobs:
 
           go install github.com/mitchellh/gox@latest
 
-          $(go env GOPATH)/bin/gox -ldflags "$($(go env GOPATH)/bin/ziti-ci -q go-build-flags -n)" -cgo -os=darwin -arch=amd64 -output=$GOX_OUTPUT ./...
+          $(go env GOPATH)/bin/gox -ldflags "$($(go env GOPATH)/bin/zt-ci -q go-build-flags -n)" -cgo -os=darwin -arch=amd64 -output=$GOX_OUTPUT ./...
 
-          $(go env GOPATH)/bin/gox -ldflags "$($(go env GOPATH)/bin/ziti-ci -q go-build-flags -n)" -cgo -os=darwin -arch=arm64 -output=$GOX_OUTPUT ./...
+          $(go env GOPATH)/bin/gox -ldflags "$($(go env GOPATH)/bin/zt-ci -q go-build-flags -n)" -cgo -os=darwin -arch=arm64 -output=$GOX_OUTPUT ./...
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v6
@@ -83,7 +83,7 @@ jobs:
         uses: ./.github/actions/setup-go
 
       - name: Install Ziti CI
-        uses: hanzozt/ziti-ci@v1
+        uses: hanzozt/zt-ci@v1
 
       - name: Build and Test
         shell: bash
@@ -93,7 +93,7 @@ jobs:
 
           go install github.com/mitchellh/gox@latest
 
-          $(go env GOPATH)/bin/gox -ldflags "$($(go env GOPATH)/bin/ziti-ci -q go-build-flags -n)" -cgo -os=windows -arch=amd64 -output=$GOX_OUTPUT ./...
+          $(go env GOPATH)/bin/gox -ldflags "$($(go env GOPATH)/bin/zt-ci -q go-build-flags -n)" -cgo -os=windows -arch=amd64 -output=$GOX_OUTPUT ./...
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v6
@@ -105,7 +105,7 @@ jobs:
   linux-build:
     name: Build Linux binaries
     runs-on: ubuntu-22.04  # pin oldest available Docker host for ABI compatibility
-    container: hanzozt/ziti-builder:v2  # pin v2 (Ubuntu Focal) for glibc compatibility while leveraging Actions's Node.js
+    container: hanzozt/zt-builder:v2  # pin v2 (Ubuntu Focal) for glibc compatibility while leveraging Actions's Node.js
     steps:
       - name: Git Checkout
         uses: actions/checkout@v6
@@ -116,7 +116,7 @@ jobs:
         uses: ./.github/actions/setup-go
 
       - name: Install Ziti CI
-        uses: hanzozt/ziti-ci@v1
+        uses: hanzozt/zt-ci@v1
 
       - name: Build and Test
         shell: bash
@@ -126,13 +126,13 @@ jobs:
 
           go install github.com/mitchellh/gox@latest
 
-          $(go env GOPATH)/bin/gox -ldflags "$($(go env GOPATH)/bin/ziti-ci -q go-build-flags -n)" -cgo -os=linux -arch=amd64 -output=$GOX_OUTPUT ./...
+          $(go env GOPATH)/bin/gox -ldflags "$($(go env GOPATH)/bin/zt-ci -q go-build-flags -n)" -cgo -os=linux -arch=amd64 -output=$GOX_OUTPUT ./...
 
           CC=arm-linux-gnueabihf-gcc \
-          $(go env GOPATH)/bin/gox -ldflags "$($(go env GOPATH)/bin/ziti-ci -q go-build-flags -n)" -cgo -os=linux -arch=arm -output=$GOX_OUTPUT ./...
+          $(go env GOPATH)/bin/gox -ldflags "$($(go env GOPATH)/bin/zt-ci -q go-build-flags -n)" -cgo -os=linux -arch=arm -output=$GOX_OUTPUT ./...
 
           CC=aarch64-linux-gnu-gcc \
-          $(go env GOPATH)/bin/gox -ldflags "$($(go env GOPATH)/bin/ziti-ci -q go-build-flags -n)" -cgo -os=linux -arch=arm64 -output=$GOX_OUTPUT ./...
+          $(go env GOPATH)/bin/gox -ldflags "$($(go env GOPATH)/bin/zt-ci -q go-build-flags -n)" -cgo -os=linux -arch=arm64 -output=$GOX_OUTPUT ./...
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v6
@@ -154,13 +154,13 @@ jobs:
         uses: ./.github/actions/setup-go
 
       - name: Install Ziti CI
-        uses: hanzozt/ziti-ci@v1
+        uses: hanzozt/zt-ci@v1
 
       - name: Run Go Quickstart Test
         timeout-minutes: 5
         shell: bash
         run: |
-          go test -v -tags "quickstart automated" ./ziti/cmd/edge/...;
+          go test -v -tags "quickstart automated" ./zt/cmd/edge/...;
 
       - name: Run Unit and Integration Tests
         if: ${{ vars.ZITI_SKIP_INTEGRATION_TESTS != 'true' }}
@@ -176,7 +176,7 @@ jobs:
         run: |
           mkdir cli_tests_bin
           go build -o cli_tests_bin ./... 
-          ZITI_CLI_TEST_ZITI_BIN="$PWD/cli_tests_bin/ziti" go test ./... --tags cli_tests
+          ZITI_CLI_TEST_ZITI_BIN="$PWD/cli_tests_bin/zt" go test ./... --tags cli_tests
 
       - name: Upload CLI test logs
         uses: actions/upload-artifact@v6
@@ -203,7 +203,7 @@ jobs:
         uses: ./.github/actions/setup-go
 
       - name: Install Ziti CI
-        uses: hanzozt/ziti-ci@v1
+        uses: hanzozt/zt-ci@v1
 
       - name: Install Terraform CLI
         uses: hashicorp/setup-terraform@v3
@@ -213,13 +213,13 @@ jobs:
       - name: Build and Test
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ziti_ci_gpg_key: ${{ secrets.ZITI_CI_GPG_KEY }}
-          ziti_ci_gpg_key_id: ${{ secrets.ZITI_CI_GPG_KEY_ID }}
+          zt_ci_gpg_key: ${{ secrets.ZITI_CI_GPG_KEY }}
+          zt_ci_gpg_key_id: ${{ secrets.ZITI_CI_GPG_KEY_ID }}
         shell: bash
         run: |
-          $(go env GOPATH)/bin/ziti-ci configure-git
-          $(go env GOPATH)/bin/ziti-ci generate-build-info common/version/info_generated.go version
-          pushd zititest && go mod tidy && go install ./... && popd
+          $(go env GOPATH)/bin/zt-ci configure-git
+          $(go env GOPATH)/bin/zt-ci generate-build-info common/version/info_generated.go version
+          pushd zttest && go mod tidy && go install ./... && popd
           go install -tags=all,tests ./...
 
       - name: Create Test Environment
@@ -228,14 +228,14 @@ jobs:
         shell: bash
         run: |
           echo "ZITI_ROOT=$(go env GOPATH)/bin" >> "$GITHUB_ENV"
-          $(go env GOPATH)/bin/smoketest create -d smoketest-${GITHUB_RUN_NUMBER} -n smoketest-${GITHUB_RUN_NUMBER} -l environment=gh-fablab-smoketest,ziti_version=$($(go env GOPATH)/bin/ziti-ci -q get-current-version)
+          $(go env GOPATH)/bin/smoketest create -d smoketest-${GITHUB_RUN_NUMBER} -n smoketest-${GITHUB_RUN_NUMBER} -l environment=gh-fablab-smoketest,zt_version=$($(go env GOPATH)/bin/zt-ci -q get-current-version)
           $(go env GOPATH)/bin/smoketest up
 
       - name: Test Ziti Command
         shell: bash
         run: |
           echo "ZITI_ROOT=$(go env GOPATH)/bin" >> "$GITHUB_ENV"
-          pushd zititest && go test -timeout 30m -v ./tests/... 2>&1 | tee test.out && popd
+          pushd zttest && go test -timeout 30m -v ./tests/... 2>&1 | tee test.out && popd
 
       - name: Create fablab instance archive
         # always create, even if cancelled, because the teardown job needs it to destroy the created test environment
@@ -248,7 +248,7 @@ jobs:
           cp $(go env GOPATH)/bin/smoketest smoketest-${GITHUB_RUN_NUMBER}
           cp ~/.fablab/config.yml smoketest-${GITHUB_RUN_NUMBER}/
           tar --exclude *terraform-provider-aws* -czvf - smoketest-${GITHUB_RUN_NUMBER}/ | gpg --symmetric --cipher-algo aes256 --batch --quiet --passphrase ${FABLAB_PASSPHRASE} -o smoketest-${GITHUB_RUN_NUMBER}.tar.gz.gpg
-          aws s3 cp ./smoketest-${GITHUB_RUN_NUMBER}.tar.gz.gpg s3://ziti-smoketest-fablab-instances/
+          aws s3 cp ./smoketest-${GITHUB_RUN_NUMBER}.tar.gz.gpg s3://zt-smoketest-fablab-instances/
 
       - name: Create Logs Archive
         if: always()
@@ -269,7 +269,7 @@ jobs:
         shell: bash
         run: |
           go install github.com/jstemmer/go-junit-report/v2@latest
-          $(go env GOPATH)/bin/go-junit-report -in zititest/test.out -out test-report.xml
+          $(go env GOPATH)/bin/go-junit-report -in zttest/test.out -out test-report.xml
 
       - name: Test Summary
         uses: test-summary/action@v2
@@ -300,15 +300,15 @@ jobs:
         shell: bash
         run: |
           if aws s3api head-object \
-            --bucket ziti-smoketest-fablab-instances \
+            --bucket zt-smoketest-fablab-instances \
             --key smoketest-${GITHUB_RUN_NUMBER}.tar.gz.gpg
           then
-            aws s3 cp s3://ziti-smoketest-fablab-instances/smoketest-${GITHUB_RUN_NUMBER}.tar.gz.gpg .
+            aws s3 cp s3://zt-smoketest-fablab-instances/smoketest-${GITHUB_RUN_NUMBER}.tar.gz.gpg .
             gpg --quiet --batch --yes --decrypt --passphrase=${FABLAB_PASSPHRASE} --output smoketest-${GITHUB_RUN_NUMBER}.tar.gz smoketest-${GITHUB_RUN_NUMBER}.tar.gz.gpg
             tar -xzf smoketest-${GITHUB_RUN_NUMBER}.tar.gz 
             ./smoketest-${GITHUB_RUN_NUMBER}/smoketest import smoketest-${GITHUB_RUN_NUMBER}
             ./smoketest-${GITHUB_RUN_NUMBER}/smoketest dispose
-            aws s3 rm s3://ziti-smoketest-fablab-instances/smoketest-${GITHUB_RUN_NUMBER}.tar.gz.gpg
+            aws s3 rm s3://zt-smoketest-fablab-instances/smoketest-${GITHUB_RUN_NUMBER}.tar.gz.gpg
           else
             echo "WARN: No instance archive found for smoketest-${GITHUB_RUN_NUMBER}.tar.gz.gpg" >&2
           fi
@@ -328,7 +328,7 @@ jobs:
         uses: ./.github/actions/setup-go
 
       - name: Install Ziti CI
-        uses: hanzozt/ziti-ci@v1
+        uses: hanzozt/zt-ci@v1
 
       - name: Install Terraform CLI
         uses: hashicorp/setup-terraform@v3
@@ -338,13 +338,13 @@ jobs:
       - name: Build and Test
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ziti_ci_gpg_key: ${{ secrets.ZITI_CI_GPG_KEY }}
-          ziti_ci_gpg_key_id: ${{ secrets.ZITI_CI_GPG_KEY_ID }}
+          zt_ci_gpg_key: ${{ secrets.ZITI_CI_GPG_KEY }}
+          zt_ci_gpg_key_id: ${{ secrets.ZITI_CI_GPG_KEY_ID }}
         shell: bash
         run: |
-          $(go env GOPATH)/bin/ziti-ci configure-git
-          $(go env GOPATH)/bin/ziti-ci generate-build-info common/version/info_generated.go version ${ZITI_BASE_VERSION:+--base-version $ZITI_BASE_VERSION}
-          pushd zititest && go mod tidy && go install ./... && popd
+          $(go env GOPATH)/bin/zt-ci configure-git
+          $(go env GOPATH)/bin/zt-ci generate-build-info common/version/info_generated.go version ${ZITI_BASE_VERSION:+--base-version $ZITI_BASE_VERSION}
+          pushd zttest && go mod tidy && go install ./... && popd
           go install -tags=all,tests ./...
 
       - name: Create Test Environment
@@ -353,14 +353,14 @@ jobs:
         shell: bash
         run: |
           echo "ZITI_ROOT=$(go env GOPATH)/bin" >> "$GITHUB_ENV"
-          $(go env GOPATH)/bin/smoketest create -d smoketest-ha-${GITHUB_RUN_NUMBER} -n smoketest-ha-${GITHUB_RUN_NUMBER} -l ha=true,environment=gh-fablab-ha-smoketest,ziti_version=$($(go env GOPATH)/bin/ziti-ci -q get-current-version)
+          $(go env GOPATH)/bin/smoketest create -d smoketest-ha-${GITHUB_RUN_NUMBER} -n smoketest-ha-${GITHUB_RUN_NUMBER} -l ha=true,environment=gh-fablab-ha-smoketest,zt_version=$($(go env GOPATH)/bin/zt-ci -q get-current-version)
           $(go env GOPATH)/bin/smoketest up
 
       - name: Test Ziti Command
         shell: bash
         run: |
           echo "ZITI_ROOT=$(go env GOPATH)/bin" >> "$GITHUB_ENV"
-          pushd zititest && go test -timeout 30m -v ./tests/... 2>&1 | tee test.out && popd
+          pushd zttest && go test -timeout 30m -v ./tests/... 2>&1 | tee test.out && popd
 
       - name: Create fablab instance archive
         if: always()
@@ -372,7 +372,7 @@ jobs:
           cp $(go env GOPATH)/bin/smoketest smoketest-ha-${GITHUB_RUN_NUMBER}
           cp ~/.fablab/config.yml smoketest-ha-${GITHUB_RUN_NUMBER}/
           tar --exclude *terraform-provider-aws* -czvf - smoketest-ha-${GITHUB_RUN_NUMBER}/ | gpg --symmetric --cipher-algo aes256 --batch --quiet --passphrase ${FABLAB_PASSPHRASE} -o smoketest-ha-${GITHUB_RUN_NUMBER}.tar.gz.gpg
-          aws s3 cp ./smoketest-ha-${GITHUB_RUN_NUMBER}.tar.gz.gpg s3://ziti-smoketest-fablab-instances/
+          aws s3 cp ./smoketest-ha-${GITHUB_RUN_NUMBER}.tar.gz.gpg s3://zt-smoketest-fablab-instances/
 
       - name: Create Logs Archive
         if: always()
@@ -393,7 +393,7 @@ jobs:
         shell: bash
         run: |
           go install github.com/jstemmer/go-junit-report/v2@latest
-          $(go env GOPATH)/bin/go-junit-report -in zititest/test.out -out test-report.xml
+          $(go env GOPATH)/bin/go-junit-report -in zttest/test.out -out test-report.xml
 
       - name: Test Summary
         uses: test-summary/action@v2
@@ -423,15 +423,15 @@ jobs:
         shell: bash
         run: |
           if aws s3api head-object \
-            --bucket ziti-smoketest-fablab-instances \
+            --bucket zt-smoketest-fablab-instances \
             --key smoketest-ha-${GITHUB_RUN_NUMBER}.tar.gz.gpg
           then
-            aws s3 cp s3://ziti-smoketest-fablab-instances/smoketest-ha-${GITHUB_RUN_NUMBER}.tar.gz.gpg .
+            aws s3 cp s3://zt-smoketest-fablab-instances/smoketest-ha-${GITHUB_RUN_NUMBER}.tar.gz.gpg .
             gpg --quiet --batch --yes --decrypt --passphrase=${FABLAB_PASSPHRASE} --output smoketest-ha-${GITHUB_RUN_NUMBER}.tar.gz smoketest-ha-${GITHUB_RUN_NUMBER}.tar.gz.gpg
             tar -xzf smoketest-ha-${GITHUB_RUN_NUMBER}.tar.gz 
             ./smoketest-ha-${GITHUB_RUN_NUMBER}/smoketest import smoketest-ha-${GITHUB_RUN_NUMBER}
             ./smoketest-ha-${GITHUB_RUN_NUMBER}/smoketest dispose
-            aws s3 rm s3://ziti-smoketest-fablab-instances/smoketest-ha-${GITHUB_RUN_NUMBER}.tar.gz.gpg
+            aws s3 rm s3://zt-smoketest-fablab-instances/smoketest-ha-${GITHUB_RUN_NUMBER}.tar.gz.gpg
           else
             echo "WARN: No instance archive found for smoketest-ha-${GITHUB_RUN_NUMBER}.tar.gz.gpg" >&2
           fi
@@ -468,7 +468,7 @@ jobs:
           python-version: '3.13'
 
       - name: Install Ziti CI
-        uses: hanzozt/ziti-ci@v1
+        uses: hanzozt/zt-ci@v1
 
       - name: Download linux release artifact
         uses: actions/download-artifact@v7
@@ -501,12 +501,12 @@ jobs:
           find  ./release \
                 -type f \
                 -print0 \
-                -path "./release/*/darwin/ziti" \
+                -path "./release/*/darwin/zt" \
                 -o \
-                -path "./release/*/linux/ziti*" \
+                -path "./release/*/linux/zt*" \
           | xargs -0 chmod -c +x
 
-      # only ziti-ci computed version for release branches and {version}-{run_id} for non-release branches
+      # only zt-ci computed version for release branches and {version}-{run_id} for non-release branches
       - name: Get next version for downstream release candidates
         id: get_version
         env:
@@ -526,7 +526,7 @@ jobs:
           (set -x; git remote -v show;)
 
           # compute next release candidate version on non-release branches
-          ZITI_VERSION="$($(go env GOPATH)/bin/ziti-ci -q get-next-version ${ZITI_BASE_VERSION:+--base-version $ZITI_BASE_VERSION})"
+          ZITI_VERSION="$($(go env GOPATH)/bin/zt-ci -q get-next-version ${ZITI_BASE_VERSION:+--base-version $ZITI_BASE_VERSION})"
 
           validateSemver "${ZITI_VERSION}"
 
@@ -548,7 +548,7 @@ jobs:
     uses: ./.github/workflows/publish-docker-images.yml
     secrets: inherit
     with:
-      ziti-tag: main
+      zt-tag: main
 
   # call on default branch "main" to publish linux packages to "testing" package repos in Artifactory
   call-publish-linux-packages:
@@ -564,4 +564,4 @@ jobs:
     uses: ./.github/workflows/publish-linux-packages.yml
     secrets: inherit
     with:
-      ziti-version: ${{ needs.publish.outputs.ZITI_VERSION }}
+      zt-version: ${{ needs.publish.outputs.ZITI_VERSION }}

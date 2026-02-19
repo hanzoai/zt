@@ -21,7 +21,7 @@ import (
 	"time"
 
 	"github.com/hanzozt/foundation/v2/versions"
-	"github.com/hanzozt/ziti/v2/common/ctrlchan"
+	"github.com/hanzozt/zt/v2/common/ctrlchan"
 
 	"github.com/hanzozt/channel/v4"
 )

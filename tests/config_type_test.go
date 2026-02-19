@@ -24,7 +24,7 @@ import (
 	"time"
 
 	"github.com/hanzozt/foundation/v2/errorz"
-	"github.com/hanzozt/ziti/v2/common/eid"
+	"github.com/hanzozt/zt/v2/common/eid"
 )
 
 func Test_ConfigTypes(t *testing.T) {
@@ -62,7 +62,7 @@ func Test_ConfigTypes(t *testing.T) {
 		ctx.testContextChanged(t)
 		configType := ctx.newConfigType()
 		configType.Schema = map[string]interface{}{
-			"$id":                  "http://ziti-edge.netfoundry.io/schemas/test.config.json",
+			"$id":                  "http://zt-edge.netfoundry.io/schemas/test.config.json",
 			"type":                 "objectionable", // not a valid type
 			"additionalProperties": false,
 			"required": []interface{}{
@@ -84,7 +84,7 @@ func Test_ConfigTypes(t *testing.T) {
 		now := time.Now()
 		configType := ctx.newConfigType()
 		configType.Schema = map[string]interface{}{
-			"$id":                  "http://ziti-edge.netfoundry.io/schemas/test.config.json",
+			"$id":                  "http://zt-edge.netfoundry.io/schemas/test.config.json",
 			"$schema":              "http://json-schema.org/draft-07/schema#",
 			"type":                 "object",
 			"additionalProperties": false,
@@ -134,7 +134,7 @@ func Test_ConfigTypes(t *testing.T) {
 		time.Sleep(time.Millisecond * 10)
 		now = time.Now()
 		configType.Schema = map[string]interface{}{
-			"$id":                  "http://ziti-edge.netfoundry.io/schemas/test.config.json",
+			"$id":                  "http://zt-edge.netfoundry.io/schemas/test.config.json",
 			"type":                 "object",
 			"additionalProperties": false,
 			"required": []interface{}{
@@ -168,7 +168,7 @@ func Test_ConfigTypes(t *testing.T) {
 		time.Sleep(time.Millisecond * 10)
 		now = time.Now()
 		configType.Schema = map[string]interface{}{
-			"$id":                  "http://ziti-edge.netfoundry.io/schemas/test.config.json",
+			"$id":                  "http://zt-edge.netfoundry.io/schemas/test.config.json",
 			"type":                 "object",
 			"additionalProperties": false,
 			"required": []interface{}{

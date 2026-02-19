@@ -1,11 +1,11 @@
 <#
 .SYNOPSIS
-Gets the latest ziti from github and adds it to your path
+Gets the latest zt from github and adds it to your path
 
 .DESCRIPTION
 This script will:
-    - detect the latest version of ziti
-    - download the latest version of ziti into the folder of your choice, defaulting to $env:userprofile.ziti\bin)
+    - detect the latest version of zt
+    - download the latest version of zt into the folder of your choice, defaulting to $env:userprofile.zt\bin)
     - unzip the downloaded file
     - optionally add the extracted path to your path if executed with a "dot" as in: . getLatestZiti.ps1
 
@@ -29,26 +29,26 @@ if($arch -match "x64") {
 }
 
 if($osDescription.ToLower() -match "windows") {
-  $matchFilter="ziti-windows-$arch"
+  $matchFilter="zt-windows-$arch"
 } elseif($osDescription.ToLower() -match "darwin") {
-  $matchFilter="ziti-darwin-amd64"
+  $matchFilter="zt-darwin-amd64"
   #todo: replace $arch some day
 } elseif($osDescription.ToLower() -match "linux") {
-  $matchFilter="ziti-linux-$arch"
+  $matchFilter="zt-linux-$arch"
 } else {
   Write-Error "An error occurred. os not detected from osDescription: $osDescription"
   return
 }
 $dirSeparator = [System.IO.Path]::DirectorySeparatorChar
 $pathSeparator = [System.IO.Path]::PathSeparator
-$latestFromGitHub=(irm https://api.github.com/repos/hanzozt/ziti/releases/latest)
+$latestFromGitHub=(irm https://api.github.com/repos/hanzozt/zt/releases/latest)
 $version=($latestFromGitHub.tag_name)
-$zitidl=($latestFromGitHub).assets | where {$_.browser_download_url -Match "$matchFilter.*"}
-$downloadUrl=($zitidl.browser_download_url)
-$name=$zitidl.name
+$ztdl=($latestFromGitHub).assets | where {$_.browser_download_url -Match "$matchFilter.*"}
+$downloadUrl=($ztdl.browser_download_url)
+$name=$ztdl.name
 $homeDirectory = [System.Environment]::GetFolderPath([System.Environment+SpecialFolder]::UserProfile)
-$defaultFolder="$homeDirectory${dirSeparator}.ziti${dirSeparator}bin"
-$toDir=$(Read-Host "Where should ziti be installed? [default: ${defaultfolder}]")
+$defaultFolder="$homeDirectory${dirSeparator}.zt${dirSeparator}bin"
+$toDir=$(Read-Host "Where should zt be installed? [default: ${defaultfolder}]")
 if($toDir.Trim() -eq "") {
     $toDir=("${defaultfolder}")
 }
@@ -76,14 +76,14 @@ if($osDescription.ToLower() -match "windows") {
 }
 
 Write-Output " "
-Write-Output "Extracted binaries to ${toDir}${dirSeparator}${version}${dirSeparator}ziti"
+Write-Output "Extracted binaries to ${toDir}${dirSeparator}${version}${dirSeparator}zt"
 Write-Output " "
-$addToPath=$(Read-Host "Would you like to add ziti to this session's path? [default: Y]")
+$addToPath=$(Read-Host "Would you like to add zt to this session's path? [default: Y]")
 if($addToPath.Trim() -eq "") {
     $addToPath=("Y")
 }
 
 if($addToPath -ilike "y*") {
   $env:PATH+="$pathSeparator${toDir}${dirSeparator}${version}"
-  Write-Output "ziti added to your path!"
+  Write-Output "zt added to your path!"
 }

@@ -19,7 +19,7 @@ package response
 import (
 	"strconv"
 
-	"github.com/hanzozt/ziti/v2/common/build"
+	"github.com/hanzozt/zt/v2/common/build"
 )
 
 const (
@@ -31,7 +31,7 @@ const (
 func AddHeaders(rc *RequestContext) {
 	buildInfo := build.GetBuildInfo()
 	if buildInfo != nil {
-		rc.ResponseWriter.Header().Set(ServerHeader, "ziti-controller/"+buildInfo.Version())
+		rc.ResponseWriter.Header().Set(ServerHeader, "zt-controller/"+buildInfo.Version())
 	}
 
 	AddSessionHeaders(rc)

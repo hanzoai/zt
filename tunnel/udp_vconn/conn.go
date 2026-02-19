@@ -47,15 +47,15 @@ func (conn *udpConn) Service() string {
 
 func (conn *udpConn) Accept(buffer mempool.PooledBuffer) {
 	log := logrus.WithField("udpConnId", conn.srcAddr.String())
-	log.Debugf("udp->ziti: queuing")
+	log.Debugf("udp->zt: queuing")
 	select {
 	case conn.readC <- buffer:
 	case <-conn.closeNotify:
 		buffer.Release()
-		log.Debugf("udp->ziti: closed, cancelling accept")
+		log.Debugf("udp->zt: closed, cancelling accept")
 	default:
 		buffer.Release()
-		log.Warnf("udp->ziti: read buffer full, dropping packet")
+		log.Warnf("udp->zt: read buffer full, dropping packet")
 	}
 }
 
@@ -87,7 +87,7 @@ func (conn *udpConn) WriteTo(w io.Writer) (n int64, err error) {
 		}
 
 		payload := buf.GetPayload()
-		pfxlog.Logger().WithField("udpConnId", conn.srcAddr.String()).Debugf("udp->ziti: %v bytes", len(payload))
+		pfxlog.Logger().WithField("udpConnId", conn.srcAddr.String()).Debugf("udp->zt: %v bytes", len(payload))
 		n, err := w.Write(payload)
 		buf.Release()
 		conn.markUsed()
@@ -151,7 +151,7 @@ func (conn *udpConn) Read(b []byte) (n int, err error) {
 }
 
 func (conn *udpConn) Write(b []byte) (int, error) {
-	pfxlog.Logger().WithField("udpConnId", conn.srcAddr.String()).Debugf("ziti->udp: %v bytes", len(b))
+	pfxlog.Logger().WithField("udpConnId", conn.srcAddr.String()).Debugf("zt->udp: %v bytes", len(b))
 	// TODO: UDP chunking, MTU chunking?
 	n, err := conn.writeConn.WriteTo(b, conn.srcAddr)
 	conn.markUsed()

@@ -18,8 +18,8 @@ package handler_xgress
 
 import (
 	"github.com/hanzozt/sdk-golang/xgress"
-	"github.com/hanzozt/ziti/v2/router/env"
-	"github.com/hanzozt/ziti/v2/router/metrics"
+	"github.com/hanzozt/zt/v2/router/env"
+	"github.com/hanzozt/zt/v2/router/metrics"
 )
 
 type bindHandler struct {

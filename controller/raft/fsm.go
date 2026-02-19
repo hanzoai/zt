@@ -31,10 +31,10 @@ import (
 	"github.com/hashicorp/raft"
 	"github.com/michaelquigley/pfxlog"
 	"github.com/hanzozt/storage/boltz"
-	"github.com/hanzozt/ziti/v2/controller/change"
-	"github.com/hanzozt/ziti/v2/controller/command"
-	"github.com/hanzozt/ziti/v2/controller/db"
-	"github.com/hanzozt/ziti/v2/controller/event"
+	"github.com/hanzozt/zt/v2/controller/change"
+	"github.com/hanzozt/zt/v2/controller/command"
+	"github.com/hanzozt/zt/v2/controller/db"
+	"github.com/hanzozt/zt/v2/controller/event"
 	"github.com/sirupsen/logrus"
 	"go.etcd.io/bbolt"
 	bbolterrors "go.etcd.io/bbolt/errors"
@@ -134,9 +134,9 @@ func (self *BoltDbFsm) loadCurrentIndex() (uint64, error) {
 	return self.loadDbIndex(self.db)
 }
 
-func (self *BoltDbFsm) loadDbIndex(zitiDb boltz.Db) (uint64, error) {
+func (self *BoltDbFsm) loadDbIndex(ztDb boltz.Db) (uint64, error) {
 	var result uint64
-	err := zitiDb.View(func(tx *bbolt.Tx) error {
+	err := ztDb.View(func(tx *bbolt.Tx) error {
 		result = db.LoadCurrentRaftIndex(tx)
 		return nil
 	})

@@ -29,17 +29,17 @@ import (
 
 	"github.com/antchfx/jsonquery"
 	"github.com/michaelquigley/pfxlog"
-	"github.com/hanzozt/ziti/v2/tests/testutil"
-	"github.com/hanzozt/ziti/v2/ziti/cmd/ascode/exporter"
-	"github.com/hanzozt/ziti/v2/ziti/cmd/ascode/importer"
+	"github.com/hanzozt/zt/v2/tests/testutil"
+	"github.com/hanzozt/zt/v2/zt/cmd/ascode/exporter"
+	"github.com/hanzozt/zt/v2/zt/cmd/ascode/importer"
 	"github.com/stretchr/testify/assert"
 )
 
 var log = pfxlog.Logger()
 
 func TestYamlUploadAndDownload(t *testing.T) {
-	zitiPath := os.Getenv("ZITI_CLI_TEST_ZITI_BIN")
-	if zitiPath == "" {
+	ztPath := os.Getenv("ZITI_CLI_TEST_ZITI_BIN")
+	if ztPath == "" {
 		t.Fatalf("ZITI_CLI_TEST_ZITI_BIN not set")
 	}
 	ctx, cancel := context.WithCancel(context.Background())
@@ -54,10 +54,10 @@ func TestYamlUploadAndDownload(t *testing.T) {
 	}
 
 	// set ZITI_CONFIG_DIR so that anything here forth is not corrupting local stuff
-	_ = os.Setenv("ZITI_CONFIG_DIR", filepath.Join(testRunHome, ".config/ziti"))
+	_ = os.Setenv("ZITI_CONFIG_DIR", filepath.Join(testRunHome, ".config/zt"))
 	overlay := testutil.CreateOverlay(t, ctx, 60*time.Second, testRunHome, "import", false)
 	targetDone := make(chan error)
-	go overlay.StartExternal(zitiPath, targetDone)
+	go overlay.StartExternal(ztPath, targetDone)
 
 	defer func() {
 		if !t.Failed() {
@@ -153,7 +153,7 @@ func performAllTest(t *testing.T, url string) {
 	externalJwtSigner1 := jsonquery.FindOne(doc, "//externalJwtSigners/*[name='NetFoundry Console Integration External JWT Signer']")
 	assert.NotNil(t, externalJwtSigner1)
 	assert.Equal(t, "https://gateway.staging.netfoundry.io/network-auth/v1/public/.well-known/NYFw7IGJKNP9AaG45iwCj/jwks.json", jsonquery.FindOne(externalJwtSigner1, "/jwksEndpoint").Value())
-	assert.Equal(t, "https://gateway.staging.netfoundry.io/cloudziti/25ba1aa3-4468-445a-910e-93f5b425f2c1", jsonquery.FindOne(externalJwtSigner1, "/audience").Value())
+	assert.Equal(t, "https://gateway.staging.netfoundry.io/cloudzt/25ba1aa3-4468-445a-910e-93f5b425f2c1", jsonquery.FindOne(externalJwtSigner1, "/audience").Value())
 
 	authPolicy1 := jsonquery.FindOne(doc, "//authPolicies/*[name='NetFoundry Console Integration Auth Policy']")
 	assert.NotNil(t, authPolicy1)

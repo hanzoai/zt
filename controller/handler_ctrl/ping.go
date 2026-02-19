@@ -18,7 +18,7 @@ package handler_ctrl
 
 import (
 	"github.com/hanzozt/channel/v4"
-	"github.com/hanzozt/ziti/v2/common/handler_common"
+	"github.com/hanzozt/zt/v2/common/handler_common"
 )
 
 type pingHandler struct{}

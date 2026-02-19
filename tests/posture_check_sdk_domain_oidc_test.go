@@ -22,9 +22,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/hanzozt/sdk-golang/ziti"
-	"github.com/hanzozt/ziti/v2/common/eid"
-	"github.com/hanzozt/ziti/v2/controller/xt_smartrouting"
+	"github.com/hanzozt/sdk-golang/zt"
+	"github.com/hanzozt/zt/v2/common/eid"
+	"github.com/hanzozt/zt/v2/controller/xt_smartrouting"
 )
 
 func Test_PostureCheck_SDK_Domain_OIDC(t *testing.T) {
@@ -80,16 +80,16 @@ func Test_PostureCheck_SDK_Domain_OIDC(t *testing.T) {
 	t.Run("a client sdk", func(t *testing.T) {
 		ctx.testContextChanged(t)
 
-		var clientContext *ziti.ContextImpl
+		var clientContext *zt.ContextImpl
 
 		t.Run("can be created", func(t *testing.T) {
 			ctx.testContextChanged(t)
 			_, ztx := ctx.AdminManagementSession.RequireCreateSdkContext(dialIdentityRole)
 
 			// Force OIDC checking true so we use API sessions
-			ztx.(*ziti.ContextImpl).CtrlClt.SetAllowOidcDynamicallyEnabled(true)
+			ztx.(*zt.ContextImpl).CtrlClt.SetAllowOidcDynamicallyEnabled(true)
 			var ok bool
-			clientContext, ok = ztx.(*ziti.ContextImpl)
+			clientContext, ok = ztx.(*zt.ContextImpl)
 			ctx.Req.True(ok)
 		})
 

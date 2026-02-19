@@ -22,12 +22,12 @@ import (
 	"strings"
 
 	"github.com/hanzozt/storage/boltz"
-	"github.com/hanzozt/ziti/v2/controller/db"
-	"github.com/hanzozt/ziti/v2/controller/event"
+	"github.com/hanzozt/zt/v2/controller/db"
+	"github.com/hanzozt/zt/v2/controller/event"
 
 	"github.com/michaelquigley/pfxlog"
 	"github.com/hanzozt/foundation/v2/concurrenz"
-	"github.com/hanzozt/ziti/v2/controller/network"
+	"github.com/hanzozt/zt/v2/controller/network"
 	"github.com/pkg/errors"
 )
 
@@ -213,7 +213,7 @@ events:
     handler:
       type: file
       format: json
-      path: /tmp/ziti-events.log
+      path: /tmp/zt-events.log
 
 */
 func (self *Dispatcher) WireEventHandlers(eventHandlerConfigs []*EventHandlerConfig) error {

@@ -29,10 +29,10 @@ import (
 	"github.com/hanzozt/foundation/v2/concurrenz"
 	"github.com/hanzozt/foundation/v2/versions"
 	"github.com/hanzozt/transport/v2"
-	"github.com/hanzozt/ziti/v2/common/capabilities"
-	"github.com/hanzozt/ziti/v2/common/ctrlchan"
-	"github.com/hanzozt/ziti/v2/common/inspect"
-	"github.com/hanzozt/ziti/v2/common/pb/edge_ctrl_pb"
+	"github.com/hanzozt/zt/v2/common/capabilities"
+	"github.com/hanzozt/zt/v2/common/ctrlchan"
+	"github.com/hanzozt/zt/v2/common/inspect"
+	"github.com/hanzozt/zt/v2/common/pb/edge_ctrl_pb"
 	cmap "github.com/orcaman/concurrent-map/v2"
 	"github.com/sirupsen/logrus"
 )
@@ -252,7 +252,7 @@ func (self *networkControllers) connectToController(endpoint string, addr transp
 		LocalBinding: config.Ctrl.LocalBinding,
 		Headers:      headers,
 		TransportConfig: transport.Configuration{
-			transport.KeyProtocol:                 "ziti-ctrl",
+			transport.KeyProtocol:                 "zt-ctrl",
 			transport.KeyCachedProxyConfiguration: config.Proxy,
 		},
 	})

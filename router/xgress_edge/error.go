@@ -5,7 +5,7 @@ import (
 	"fmt"
 
 	"github.com/hanzozt/channel/v4"
-	sdk "github.com/hanzozt/sdk-golang/ziti/edge"
+	sdk "github.com/hanzozt/sdk-golang/zt/edge"
 )
 
 var _ error = (*EdgeError)(nil)

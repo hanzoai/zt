@@ -55,24 +55,24 @@ import (
 	idlib "github.com/hanzozt/identity"
 	"github.com/hanzozt/identity/certtools"
 	edgeApis "github.com/hanzozt/sdk-golang/edge-apis"
-	"github.com/hanzozt/sdk-golang/ziti"
-	"github.com/hanzozt/sdk-golang/ziti/edge"
-	sdkEnroll "github.com/hanzozt/sdk-golang/ziti/enroll"
+	"github.com/hanzozt/sdk-golang/zt"
+	"github.com/hanzozt/sdk-golang/zt/edge"
+	sdkEnroll "github.com/hanzozt/sdk-golang/zt/enroll"
 	"github.com/hanzozt/transport/v2"
 	"github.com/hanzozt/transport/v2/tcp"
 	"github.com/hanzozt/transport/v2/tls"
-	"github.com/hanzozt/ziti/v2/common/eid"
-	"github.com/hanzozt/ziti/v2/controller"
-	"github.com/hanzozt/ziti/v2/controller/config"
-	"github.com/hanzozt/ziti/v2/controller/env"
-	restClientRouter "github.com/hanzozt/ziti/v2/controller/rest_client/router"
-	fabricRestModel "github.com/hanzozt/ziti/v2/controller/rest_model"
-	"github.com/hanzozt/ziti/v2/controller/server"
-	"github.com/hanzozt/ziti/v2/controller/xt_smartrouting"
-	"github.com/hanzozt/ziti/v2/router"
-	"github.com/hanzozt/ziti/v2/router/enroll"
-	routerEnv "github.com/hanzozt/ziti/v2/router/env"
-	"github.com/hanzozt/ziti/v2/zitirest"
+	"github.com/hanzozt/zt/v2/common/eid"
+	"github.com/hanzozt/zt/v2/controller"
+	"github.com/hanzozt/zt/v2/controller/config"
+	"github.com/hanzozt/zt/v2/controller/env"
+	restClientRouter "github.com/hanzozt/zt/v2/controller/rest_client/router"
+	fabricRestModel "github.com/hanzozt/zt/v2/controller/rest_model"
+	"github.com/hanzozt/zt/v2/controller/server"
+	"github.com/hanzozt/zt/v2/controller/xt_smartrouting"
+	"github.com/hanzozt/zt/v2/router"
+	"github.com/hanzozt/zt/v2/router/enroll"
+	routerEnv "github.com/hanzozt/zt/v2/router/env"
+	"github.com/hanzozt/zt/v2/ztrest"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 	"gopkg.in/resty.v1"
@@ -117,7 +117,7 @@ type TestContext struct {
 	AdminAuthenticator     *updbAuthenticator
 	AdminManagementSession *session
 	AdminClientSession     *session
-	RestClients            *zitirest.Clients
+	RestClients            *ztrest.Clients
 	fabricController       *controller.Controller
 	EdgeController         *server.Controller
 	Req                    *CustomAssertions
@@ -481,7 +481,7 @@ func (ctx *TestContext) requireEnrollEdgeRouter(tunneler bool, routerId string) 
 	ctx.Req.NoError(err)
 
 	enroller := enroll.NewRestEnroller(routerConfig)
-	var keyAlg ziti.KeyAlgVar
+	var keyAlg zt.KeyAlgVar
 	_ = keyAlg.Set("RSA")
 	ctx.Req.NoError(enroller.Enroll([]byte(jwt), true, "", keyAlg))
 }
@@ -502,7 +502,7 @@ func (ctx *TestContext) createAndEnrollTransitRouter() *transitRouter {
 	ctx.Req.NoError(err)
 
 	enroller := enroll.NewRestEnroller(routerConfig)
-	var keyAlg ziti.KeyAlgVar
+	var keyAlg zt.KeyAlgVar
 	_ = keyAlg.Set("RSA")
 	ctx.Req.NoError(enroller.Enroll([]byte(jwt), true, "", keyAlg))
 
@@ -563,7 +563,7 @@ func (ctx *TestContext) startEdgeRouter(cfgTweaks func(*routerEnv.Config)) *rout
 	return newRouter
 }
 
-func (ctx *TestContext) EnrollIdentity(identityId string) *ziti.Config {
+func (ctx *TestContext) EnrollIdentity(identityId string) *zt.Config {
 	jwt := ctx.AdminManagementSession.getIdentityJwt(identityId)
 	tkn, _, err := sdkEnroll.ParseToken(jwt)
 	ctx.Req.NoError(err)
@@ -609,7 +609,7 @@ func (ctx *TestContext) RequireAdminManagementApiLogin() {
 	var err error
 	ctx.AdminManagementSession, err = ctx.AdminAuthenticator.AuthenticateManagementApi(ctx)
 	ctx.Req.NoError(err)
-	ctx.RestClients, err = zitirest.NewManagementClients(ctx.ApiHost)
+	ctx.RestClients, err = ztrest.NewManagementClients(ctx.ApiHost)
 	ctx.Req.NoError(err)
 	ctx.RestClients.SetSessionToken(*ctx.AdminManagementSession.AuthResponse.Token)
 }

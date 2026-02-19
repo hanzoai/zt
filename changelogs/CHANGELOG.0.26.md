@@ -11,23 +11,23 @@ This is mainly a bugfix release.
 ## Ziti CLI
 
 ### Added CLI flags for setting router tunneler capability
-Ziti CLI `ziti create config router edge` now has two new flags; `--tunnelerMode` and `--lanInterface`
+Ziti CLI `zt create config router edge` now has two new flags; `--tunnelerMode` and `--lanInterface`
 #### --tunnelerMode
 The `--tunnelerMode` flag enables tunneling and sets the tunneler mode. Currently, there are `none`, `host` and `tproxy`
 modes. The default tunneler mode is `host` mode, choosing `none` will disable tunnel capabilities for the router.
 
 Examples:
 ```shell
-ziti create config router edge --routerName myRouter --tunnelerMode tproxy
+zt create config router edge --routerName myRouter --tunnelerMode tproxy
 
-ziti create config router edge --routerName myRouter --tunnelerMode none
+zt create config router edge --routerName myRouter --tunnelerMode none
 ```
 #### --lanInterface
 If using the `tproxy` tunneler mode, there is an optional `lanIf` section in the config to identify an interface to use.
 
 Example:
 ```shell
-ziti create config router edge --routerName myRouter --tunnelerMode tproxy --lanInterface tun0
+zt create config router edge --routerName myRouter --tunnelerMode tproxy --lanInterface tun0
 ```
 
 ## Component Updates and Bug Fixes
@@ -50,9 +50,9 @@ ziti create config router edge --routerName myRouter --tunnelerMode tproxy --lan
 * github.com/hanzozt/storage: [v0.1.25 -> v0.1.26](https://github.com/hanzozt/storage/compare/v0.1.25...v0.1.26)
 * github.com/hanzozt/transport/v2: [v2.0.36 -> v2.0.38](https://github.com/hanzozt/transport/compare/v2.0.36...v2.0.38)
 * github.com/hanzozt/metrics: [v1.1.4 -> v1.1.5](https://github.com/hanzozt/metrics/compare/v1.1.4...v1.1.5)
-* github.com/hanzozt/ziti: [v0.26.10 -> v0.26.11](https://github.com/hanzozt/ziti/compare/v0.26.10...v0.26.11)
-    * [Issue 868](https://github.com/hanzozt/ziti/issues/868): `ZITI_EDGE_ROUTER_IP_OVERRIDE` does not override the edge router advertise hostname
-    * [Issue 882](https://github.com/hanzozt/ziti/issues/882): `ZITI_EDGE_ROUTER_RAWNAME` not stored in quickstart .env file
+* github.com/hanzozt/zt: [v0.26.10 -> v0.26.11](https://github.com/hanzozt/zt/compare/v0.26.10...v0.26.11)
+    * [Issue 868](https://github.com/hanzozt/zt/issues/868): `ZITI_EDGE_ROUTER_IP_OVERRIDE` does not override the edge router advertise hostname
+    * [Issue 882](https://github.com/hanzozt/zt/issues/882): `ZITI_EDGE_ROUTER_RAWNAME` not stored in quickstart .env file
 
 # Release 0.26.10
 
@@ -73,7 +73,7 @@ The only other changes are build updates.
 * github.com/hanzozt/storage: [v0.1.23 -> v0.1.25](https://github.com/hanzozt/storage/compare/v0.1.23...v0.1.25)
 * github.com/hanzozt/transport/v2: [v2.0.33 -> v2.0.36](https://github.com/hanzozt/transport/compare/v2.0.33...v2.0.36)
 * github.com/hanzozt/metrics: [v1.1.2 -> v1.1.4](https://github.com/hanzozt/metrics/compare/v1.1.2...v1.1.4)
-* github.com/hanzozt/ziti: [v0.26.9 -> v0.26.10](https://github.com/hanzozt/ziti/compare/v0.26.9...v0.26.10)
+* github.com/hanzozt/zt: [v0.26.9 -> v0.26.10](https://github.com/hanzozt/zt/compare/v0.26.9...v0.26.10)
 
 # Release 0.26.9
 
@@ -110,9 +110,9 @@ precedence, followed by the value of the environment variable (noted above), and
 Example:
 ```shell
 # Create a controller config with an identity enrollment duration of 60 minutes
-ziti create config controller --identityEnrollmentDuration 60m
+zt create config controller --identityEnrollmentDuration 60m
 # OR
-ziti create config controller --identityEnrollmentDuration 1h
+zt create config controller --identityEnrollmentDuration 1h
 ```
 #### Router Enrollment Duration
 Setting the environment variable `ZITI_EDGE_ROUTER_ENROLLMENT_DURATION` to some value **in minutes** will override the default router enrollment duration configuration
@@ -132,9 +132,9 @@ precedence, followed by the value of the environment variable (noted above), and
 Example:
 ```shell
 # Create a controller config with a router enrollment duration of 60 minutes
-ziti create config controller --routerEnrollmentDuration 60m
+zt create config controller --routerEnrollmentDuration 60m
 # OR
-ziti create config controller --routerEnrollmentDuration 1h
+zt create config controller --routerEnrollmentDuration 1h
 ```
 
 ### Ziti Component Updates and Bug Fixes
@@ -157,8 +157,8 @@ ziti create config controller --routerEnrollmentDuration 1h
 * github.com/hanzozt/jwks: [v1.0.1 -> v1.0.2](https://github.com/hanzozt/jwks/compare/v1.0.1...v1.0.2)
 * github.com/hanzozt/metrics: [v1.1.0 -> v1.1.2](https://github.com/hanzozt/metrics/compare/v1.1.0...v1.1.2)
 * github.com/hanzozt/x509-claims: [v1.0.2 -> v1.0.3](https://github.com/hanzozt/x509-claims/compare/v1.0.2...v1.0.3)
-* github.com/hanzozt/ziti: [0.26.8 -> 0.26.9](https://github.com/hanzozt/ziti/compare/0.26.8...0.26.9)
-    * [Issue #845](https://github.com/hanzozt/ziti/issues/845) - Setting ZITI_EDGE_ROUTER_IP_OVERRIDE now adds the IP to the CSR SANs of the router config
+* github.com/hanzozt/zt: [0.26.8 -> 0.26.9](https://github.com/hanzozt/zt/compare/0.26.8...0.26.9)
+    * [Issue #845](https://github.com/hanzozt/zt/issues/845) - Setting ZITI_EDGE_ROUTER_IP_OVERRIDE now adds the IP to the CSR SANs of the router config
 
 # Release 0.26.8
 
@@ -171,21 +171,21 @@ ziti create config controller --routerEnrollmentDuration 1h
 - Edge
   - Bug Fixes
 - Ziti CLI
-  - `ziti edge create|update ca` now supports `externalIdClaim`
+  - `zt edge create|update ca` now supports `externalIdClaim`
   - Improved List CAs
 - Identity
   - Automatic File Reloads
 
 ## General
 Model entities can now be filtered by tags. This works via the fabric and edge REST APIs and can be 
-used from the `ziti` CLI.
+used from the `zt` CLI.
 
 Example:
 
 ```
-$ ziti edge update service demo --tags location=PA 
-$ ziti edge update service echo --tags location=NY 
-$ ziti edge ls services 'limit 4'
+$ zt edge update service demo --tags location=PA 
+$ zt edge update service echo --tags location=NY 
+$ zt edge ls services 'limit 4'
 ╭────────────────────────┬──────────────┬────────────┬─────────────────────┬────────────╮
 │ ID                     │ NAME         │ ENCRYPTION │ TERMINATOR STRATEGY │ ATTRIBUTES │
 │                        │              │  REQUIRED  │                     │            │
@@ -197,7 +197,7 @@ $ ziti edge ls services 'limit 4'
 ╰────────────────────────┴──────────────┴────────────┴─────────────────────┴────────────╯
 results: 1-4 of 13
 
-$ ziti edge ls services 'tags.location != null'
+$ zt edge ls services 'tags.location != null'
 ╭────────────────────────┬──────┬────────────┬─────────────────────┬────────────╮
 │ ID                     │ NAME │ ENCRYPTION │ TERMINATOR STRATEGY │ ATTRIBUTES │
 │                        │      │  REQUIRED  │                     │            │
@@ -207,7 +207,7 @@ $ ziti edge ls services 'tags.location != null'
 ╰────────────────────────┴──────┴────────────┴─────────────────────┴────────────╯
 results: 1-2 of 2
 
-$ ziti edge ls services 'tags.location = "NY"'
+$ zt edge ls services 'tags.location = "NY"'
 ╭────────────────────────┬──────┬────────────┬─────────────────────┬────────────╮
 │ ID                     │ NAME │ ENCRYPTION │ TERMINATOR STRATEGY │ ATTRIBUTES │
 │                        │      │  REQUIRED  │                     │            │
@@ -282,7 +282,7 @@ In the example above the event has tags for `clientId`, `hostId` and `serviceId`
 
 ## Ziti CLI
 
-### `ziti edge create|update ca` now support `externalIdClaim
+### `zt edge create|update ca` now support `externalIdClaim
 
 Identities now have a field named `externalId` that can be used with 3rd Party CAs in addition to the existing
 External JWT Signer support. 3rd Party CAs now support the following optional fields:
@@ -320,11 +320,11 @@ identity's `externalId` and then use the following `externalIdClaim` configurati
 #### Ziti CLI
 
 ```
-ziti edge create ca myCa ca.pem -l SAN_URI -m SCHEME -x spiffe -p "NONE"
+zt edge create ca myCa ca.pem -l SAN_URI -m SCHEME -x spiffe -p "NONE"
 ```
 
 ```
-ziti edge update ca myCa -l SAN_URI -m SCHEME -x spiffe -p "NONE"
+zt edge update ca myCa -l SAN_URI -m SCHEME -x spiffe -p "NONE"
 ```
 
 ### Improved List CAs Output
@@ -381,8 +381,8 @@ Example:
     * [Issue #21](https://github.com/hanzozt/storage/issues/21) - Support querying tags by default
 
 * github.com/hanzozt/transport/v2: [v2.0.28 -> v2.0.29](https://github.com/hanzozt/transport/compare/v2.0.28...v2.0.29)
-* github.com/hanzozt/ziti: [0.26.7 -> 0.26.8](https://github.com/hanzozt/ziti/compare/0.26.7...0.26.8)
-    * [Issue #835](https://github.com/hanzozt/ziti/issues/835) - Ensure model entity tags can be updated via CLI where appropriate
+* github.com/hanzozt/zt: [0.26.7 -> 0.26.8](https://github.com/hanzozt/zt/compare/0.26.7...0.26.8)
+    * [Issue #835](https://github.com/hanzozt/zt/issues/835) - Ensure model entity tags can be updated via CLI where appropriate
 
 # Release 0.26.7
 
@@ -450,7 +450,7 @@ Example:
 ## Ziti CLI
 ### Bug Fixes
 
-* [Issue 823](https://github.com/hanzozt/ziti/issues/843): Fixed quickstart bug with architecture detection not supporting `aarch64`
+* [Issue 823](https://github.com/hanzozt/zt/issues/843): Fixed quickstart bug with architecture detection not supporting `aarch64`
 
 ## Identity
 
@@ -485,7 +485,7 @@ Identity is a low-level library within Ziti and affects all Ziti components.
 * github.com/hanzozt/sdk-golang: [v0.16.104 -> v0.16.119](https://github.com/hanzozt/sdk-golang/compare/v0.16.104...v0.16.119)
 * github.com/hanzozt/storage: [v0.1.16 -> v0.1.20](https://github.com/hanzozt/storage/compare/v0.1.16...v0.1.20)
 * github.com/hanzozt/transport/v2: [v2.0.20 -> v2.0.28](https://github.com/hanzozt/transport/compare/v2.0.20...v2.0.28)
-* github.com/hanzozt/ziti: [0.26.5 -> 0.26.6](https://github.com/hanzozt/ziti/compare/0.26.5...0.26.6)
+* github.com/hanzozt/zt: [0.26.5 -> 0.26.6](https://github.com/hanzozt/zt/compare/0.26.5...0.26.6)
 
 # Release 0.26.5
 
@@ -501,7 +501,7 @@ for details
 * MacOS builds are now done on the macos-11 github builder
 * Linux builds are now done on the ubuntu-20.04 builder
 
-This changes the oldest supported operating system versions for ziti-controller and ziti-router to those 
+This changes the oldest supported operating system versions for zt-controller and zt-router to those 
 listed above, due to dependencies on system shared libraries that may not be available on older operating 
 system versions.
 
@@ -516,7 +516,7 @@ If this change negatively impacts you, please let us on [Discourse](https://hanz
 - Fabric
   - Bug Fixes
 - Ziti CLI
-  - `ziti fabric inspect` can now emit results to individual files using the `-f` flag 
+  - `zt fabric inspect` can now emit results to individual files using the `-f` flag 
 - SDK Golang
   - N/A
 
@@ -558,7 +558,7 @@ events:
     handler:
       type: file
       format: json
-      path: /var/log/ziti-events.log
+      path: /var/log/zt-events.log
 ```
 
 #### Link Event Types
@@ -731,7 +731,7 @@ identitied.
 - Fabric
   - N/A
 - Ziti CLI
-  - Improvements to `ziti edge list posture-check` output
+  - Improvements to `zt edge list posture-check` output
 - SDK Golang
   - N/A
 
@@ -820,15 +820,15 @@ JSON Example:
 
 ```json
 {
-  "cert": "./ziti/etc/ca/intermediate/certs/ctrl-client.cert.pem",
-  "key": "./ziti/etc/ca/intermediate/private/ctrl.key.pem",
-  "server_cert": "./ziti/etc/ca/intermediate/certs/ctrl-server.cert.pem",
-  "server_key": "./ziti/etc/ca/intermediate/certs/ctrl-server.key.pem",
-  "ca": "./ziti/etc/ca/intermediate/certs/ca-chain.cert.pem",
+  "cert": "./zt/etc/ca/intermediate/certs/ctrl-client.cert.pem",
+  "key": "./zt/etc/ca/intermediate/private/ctrl.key.pem",
+  "server_cert": "./zt/etc/ca/intermediate/certs/ctrl-server.cert.pem",
+  "server_key": "./zt/etc/ca/intermediate/certs/ctrl-server.key.pem",
+  "ca": "./zt/etc/ca/intermediate/certs/ca-chain.cert.pem",
   "alt_server_certs": [
     {
-      "server_cert": "./ziti/etc/ca/intermediate/certs/alt01-ctrl-server.cert.pem",
-      "server_key": "./ziti/etc/ca/intermediate/certs/alt01-ctrl-server.key.pem"
+      "server_cert": "./zt/etc/ca/intermediate/certs/alt01-ctrl-server.cert.pem",
+      "server_key": "./zt/etc/ca/intermediate/certs/alt01-ctrl-server.key.pem"
     },
     {
       "server_cert": "pem:-----BEGIN CERTIFICATE-----\nIIGBjCCA+6gAwIBAgICEAAwDQYJKoZIhvcNAQELBQAwgZcxCzAJBgNVBAYTAlVT...",
@@ -841,14 +841,14 @@ JSON Example:
 YAML Example:
 
 ```yaml
-cert: "./ziti/etc/ca/intermediate/certs/ctrl-client.cert.pem"
-key: "./ziti/etc/ca/intermediate/private/ctrl.key.pem"
-server_cert: "./ziti/etc/ca/intermediate/certs/ctrl-server.cert.pem"
-server_key: "./ziti/etc/ca/intermediate/certs/ctrl-server.key.pem"
-ca: "./ziti/etc/ca/intermediate/certs/ca-chain.cert.pem"
+cert: "./zt/etc/ca/intermediate/certs/ctrl-client.cert.pem"
+key: "./zt/etc/ca/intermediate/private/ctrl.key.pem"
+server_cert: "./zt/etc/ca/intermediate/certs/ctrl-server.cert.pem"
+server_key: "./zt/etc/ca/intermediate/certs/ctrl-server.key.pem"
+ca: "./zt/etc/ca/intermediate/certs/ca-chain.cert.pem"
 alt_server_certs:
- - server_cert: "./ziti/etc/ca/intermediate/certs/alt01-ctrl-server.cert.pem"
-   server_key: "./ziti/etc/ca/intermediate/certs/alt01-ctrl-server.key.pem"
+ - server_cert: "./zt/etc/ca/intermediate/certs/alt01-ctrl-server.cert.pem"
+   server_key: "./zt/etc/ca/intermediate/certs/alt01-ctrl-server.key.pem"
  - server_cert: "pem:-----BEGIN CERTIFICATE-----\nIIGBjCCA+6gAwIBAgICEAAwDQYJKoZIhvcNAQELBQAwgZcxCzAJBgNVBAYTAlVT..."
    server_key: "pem:-----BEGIN CERTIFICATE-----\nMIIEuDCCAqCgAwIBAgICEAAwDQYJKoZIhvcNAQELBQAwgYsxCzAJBgNVBAYTAlVT..."
 ```
@@ -976,8 +976,8 @@ Circuit inspect will now gather more information.
 
 ### Management channel removed
 
-The management channel has been removed. The ziti-fabric cli, which used to use the management channel,
-has been absorbed into the ziti CLI, and now used the fabric REST API and/or websockets where appropriate.
+The management channel has been removed. The zt-fabric cli, which used to use the management channel,
+has been absorbed into the zt CLI, and now used the fabric REST API and/or websockets where appropriate.
 
 The `mgmt:` stanza in configuration files, which used to be required, will now be ignored.
 
@@ -999,9 +999,9 @@ Circuits now have a createdAt field, visible via the REST API.
 
 ## Ziti CLI
 ### Terminator Field Name Changes
-The `ziti fabric create terminator` operation now takes a `--instance-id` flag instead of an `--identity` flag.
+The `zt fabric create terminator` operation now takes a `--instance-id` flag instead of an `--identity` flag.
 
-The `ziti fabric list terminators` operation now shows `InstanceId` instead of `Identity`. 
+The `zt fabric list terminators` operation now shows `InstanceId` instead of `Identity`. 
 
 ### Bug Fixes
 

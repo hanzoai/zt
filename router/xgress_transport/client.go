@@ -21,7 +21,7 @@ import (
 
 	"github.com/hanzozt/identity"
 	"github.com/hanzozt/transport/v2"
-	"github.com/hanzozt/ziti/v2/router/xgress_router"
+	"github.com/hanzozt/zt/v2/router/xgress_router"
 )
 
 // ClientDial dials the given xgress address and handles authentication, returning an authed connection or an error

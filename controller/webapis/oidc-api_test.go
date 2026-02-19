@@ -31,7 +31,7 @@ import (
 
 	"github.com/hanzozt/identity"
 	"github.com/hanzozt/xweb/v3"
-	"github.com/hanzozt/ziti/v2/common/bindpoints"
+	"github.com/hanzozt/zt/v2/common/bindpoints"
 	"github.com/stretchr/testify/require"
 )
 

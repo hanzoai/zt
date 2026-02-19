@@ -23,7 +23,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/hanzozt/sdk-golang/ziti"
+	"github.com/hanzozt/sdk-golang/zt"
 	"github.com/rcrowley/go-metrics"
 )
 
@@ -44,7 +44,7 @@ func Test_AuthPerformance(t *testing.T) {
 	identity := ctx.AdminManagementSession.RequireNewIdentityWithOtt(false)
 	config := ctx.AdminManagementSession.testContext.EnrollIdentity(identity.Id)
 
-	context, err := ziti.NewContext(config)
+	context, err := zt.NewContext(config)
 	ctx.Req.NoError(err)
 
 	for i := 0; i < 25; i++ {
@@ -88,13 +88,13 @@ func Test_CombinedSessionCreatePerformance(t *testing.T) {
 	identity := ctx.AdminManagementSession.RequireNewIdentityWithOtt(false)
 	config := ctx.AdminManagementSession.testContext.EnrollIdentity(identity.Id)
 
-	context, err := ziti.NewContext(config)
+	context, err := zt.NewContext(config)
 	ctx.Req.NoError(err)
 
 	err = context.Authenticate()
 	ctx.Req.NoError(err)
 
-	client := context.(*ziti.ContextImpl).CtrlClt
+	client := context.(*zt.ContextImpl).CtrlClt
 
 	service := ctx.AdminManagementSession.RequireNewServiceAccessibleToAll("smartrouting")
 
@@ -111,7 +111,7 @@ func Test_CombinedSessionCreatePerformance(t *testing.T) {
 
 				start = time.Now()
 
-				_, err = client.CreateSession(service.Id, ziti.SessionType(ziti.SessionDial))
+				_, err = client.CreateSession(service.Id, zt.SessionType(zt.SessionDial))
 				ctx.Req.NoError(err)
 				sessionCreateMeter.Mark(1)
 				done = time.Now()
@@ -145,19 +145,19 @@ func Test_SessionCreatePerformance(t *testing.T) {
 	identity := ctx.AdminManagementSession.RequireNewIdentityWithOtt(false)
 	config := ctx.AdminManagementSession.testContext.EnrollIdentity(identity.Id)
 
-	context, err := ziti.NewContext(config)
+	context, err := zt.NewContext(config)
 	ctx.Req.NoError(err)
 
 	err = context.Authenticate()
 	ctx.Req.NoError(err)
 
-	client := context.(*ziti.ContextImpl).CtrlClt
+	client := context.(*zt.ContextImpl).CtrlClt
 
 	for i := 0; i < 50; i++ {
 		go func() {
 			for {
 				start := time.Now()
-				_, err := client.CreateSession(service.Id, ziti.SessionType(ziti.SessionDial))
+				_, err := client.CreateSession(service.Id, zt.SessionType(zt.SessionDial))
 				ctx.Req.NoError(err)
 				meter.Mark(1)
 				done := time.Now()

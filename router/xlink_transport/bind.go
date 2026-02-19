@@ -18,7 +18,7 @@ package xlink_transport
 
 import (
 	"github.com/hanzozt/channel/v4"
-	"github.com/hanzozt/ziti/v2/router/xlink"
+	"github.com/hanzozt/zt/v2/router/xlink"
 )
 
 // BindHandlerFactory can be implemented and provided to the factory to perform channel binding and other channel setup

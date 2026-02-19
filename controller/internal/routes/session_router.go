@@ -26,10 +26,10 @@ import (
 	managementSession "github.com/hanzozt/edge-api/rest_management_api_server/operations/session"
 	"github.com/hanzozt/edge-api/rest_model"
 	"github.com/hanzozt/metrics"
-	"github.com/hanzozt/ziti/v2/controller/env"
-	"github.com/hanzozt/ziti/v2/controller/model"
-	"github.com/hanzozt/ziti/v2/controller/permissions"
-	"github.com/hanzozt/ziti/v2/controller/response"
+	"github.com/hanzozt/zt/v2/controller/env"
+	"github.com/hanzozt/zt/v2/controller/model"
+	"github.com/hanzozt/zt/v2/controller/permissions"
+	"github.com/hanzozt/zt/v2/controller/response"
 )
 
 func init() {

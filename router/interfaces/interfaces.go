@@ -26,8 +26,8 @@ import (
 	"github.com/hanzozt/channel/v4"
 	"github.com/hanzozt/channel/v4/protobufs"
 	"github.com/hanzozt/foundation/v2/stringz"
-	"github.com/hanzozt/ziti/v2/common/pb/ctrl_pb"
-	"github.com/hanzozt/ziti/v2/router/env"
+	"github.com/hanzozt/zt/v2/common/pb/ctrl_pb"
+	"github.com/hanzozt/zt/v2/router/env"
 )
 
 func StartInterfaceReporter(ctrls env.NetworkControllers, closeNotify <-chan struct{}, config env.InterfaceDiscoveryConfig) {

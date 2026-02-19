@@ -21,7 +21,7 @@ import (
 	"reflect"
 
 	"github.com/hanzozt/foundation/v2/stringz"
-	"github.com/hanzozt/ziti/v2/controller/event"
+	"github.com/hanzozt/zt/v2/controller/event"
 	"github.com/pkg/errors"
 )
 

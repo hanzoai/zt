@@ -17,7 +17,7 @@
 package ctrl_pb
 
 import (
-	"github.com/hanzozt/ziti/v2/controller/xt"
+	"github.com/hanzozt/zt/v2/controller/xt"
 )
 
 func (request *CircuitConfirmation) GetContentType() int32 {

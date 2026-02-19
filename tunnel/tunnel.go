@@ -27,7 +27,7 @@ import (
 	"net"
 	"strings"
 
-	"github.com/hanzozt/sdk-golang/ziti/edge"
+	"github.com/hanzozt/sdk-golang/zt/edge"
 	"github.com/sirupsen/logrus"
 )
 
@@ -83,11 +83,11 @@ func GetAppInfo(protocol, dstHostname, dstIp, dstPort, sourceAddr string) map[st
 	return result
 }
 
-func Run(zitiConn edge.Conn, clientConn net.Conn, halfClose bool) {
+func Run(ztConn edge.Conn, clientConn net.Conn, halfClose bool) {
 	loggerFields := logrus.Fields{
 		"src-remote": clientConn.RemoteAddr().String(), "src-local": clientConn.LocalAddr().String(),
-		"dst-local": zitiConn.LocalAddr().String(), "dst-remote": zitiConn.RemoteAddr().String(),
-		"circuitId": zitiConn.GetCircuitId()}
+		"dst-local": ztConn.LocalAddr().String(), "dst-remote": ztConn.RemoteAddr().String(),
+		"circuitId": ztConn.GetCircuitId()}
 
 	log := pfxlog.Logger().WithFields(loggerFields)
 	log.Info("tunnel started")
@@ -95,13 +95,13 @@ func Run(zitiConn edge.Conn, clientConn net.Conn, halfClose bool) {
 	doneSend := make(chan int64)
 	doneRecv := make(chan int64)
 
-	go myCopy(clientConn, zitiConn, doneSend, halfClose, zitiConn.GetCircuitId())
+	go myCopy(clientConn, ztConn, doneSend, halfClose, ztConn.GetCircuitId())
 
-	go myCopy(zitiConn, clientConn, doneRecv, halfClose, zitiConn.GetRouterId())
+	go myCopy(ztConn, clientConn, doneRecv, halfClose, ztConn.GetRouterId())
 
 	defer func() {
 		_ = clientConn.Close()
-		_ = zitiConn.Close()
+		_ = ztConn.Close()
 	}()
 
 	var n1, n2 int64

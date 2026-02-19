@@ -3,8 +3,8 @@ package tests
 import (
 	"testing"
 
-	"github.com/hanzozt/sdk-golang/ziti"
-	"github.com/hanzozt/ziti/v2/common/eid"
+	"github.com/hanzozt/sdk-golang/zt"
+	"github.com/hanzozt/zt/v2/common/eid"
 )
 
 func Test_SDK_API_Session_Token_Update(t *testing.T) {
@@ -21,8 +21,8 @@ func Test_SDK_API_Session_Token_Update(t *testing.T) {
 	_, hostContextIface := ctx.AdminManagementSession.RequireCreateSdkContext(sdkRole)
 	defer hostContextIface.Close()
 
-	sdkContext, ok := hostContextIface.(*ziti.ContextImpl)
-	ctx.Req.True(ok, "sdkContext should be of type *ziti.ContextImpl")
+	sdkContext, ok := hostContextIface.(*zt.ContextImpl)
+	ctx.Req.True(ok, "sdkContext should be of type *zt.ContextImpl")
 	ctx.Req.NotNil(sdkContext)
 
 	err := sdkContext.Authenticate()

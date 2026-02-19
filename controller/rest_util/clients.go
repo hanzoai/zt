@@ -24,7 +24,7 @@ import (
 	"github.com/go-openapi/runtime"
 	httptransport "github.com/go-openapi/runtime/client"
 	"github.com/hanzozt/identity"
-	fabric_rest_client "github.com/hanzozt/ziti/v2/controller/rest_client"
+	fabric_rest_client "github.com/hanzozt/zt/v2/controller/rest_client"
 )
 
 // TransportConfig provides information about how to access a REST API
@@ -89,7 +89,7 @@ func (self *TransportConfigImpl) GetSchemes() []string {
 }
 
 // NewZitiFabricTransportConfig will create a TransportConfig using the given API address and
-// the default ziti fabric rest client values for base path and schema.
+// the default zt fabric rest client values for base path and schema.
 func NewZitiFabricTransportConfig(apiAddress string) TransportConfig {
 	return &TransportConfigImpl{
 		ApiAddress: apiAddress,

@@ -11,6 +11,6 @@ specified. It is now required.
   semantic
 * Bug fix: Additional concurrency fix in posture data
 * Feature: Ziti CLI now supports a comprehensive set of `ca` and `cas` options
-* Feature: `ziti ps` now supports `set-channel-log-level` and `clear-channel-log-level` operations
+* Feature: `zt ps` now supports `set-channel-log-level` and `clear-channel-log-level` operations
 * Change: Previouxly semantic was optional when creating or updating policies (POST or PUT), defaulting to `AllOf` when
   not specified. It is now required.

@@ -8,9 +8,9 @@ import (
 	"time"
 
 	"github.com/hanzozt/edge-api/rest_model"
-	"github.com/hanzozt/sdk-golang/ziti"
-	"github.com/hanzozt/sdk-golang/ziti/edge"
-	"github.com/hanzozt/ziti/v2/tunnel/health"
+	"github.com/hanzozt/sdk-golang/zt"
+	"github.com/hanzozt/sdk-golang/zt/edge"
+	"github.com/hanzozt/zt/v2/tunnel/health"
 	"github.com/sirupsen/logrus"
 )
 
@@ -46,10 +46,10 @@ type HostingContext interface {
 	ServiceId() string
 	GetTerminatorIdCacheKey() string
 	ServiceName() string
-	ListenOptions() *ziti.ListenOptions
+	ListenOptions() *zt.ListenOptions
 	Dial(options map[string]interface{}) (net.Conn, bool, error)
 	GetHealthChecks() []health.CheckDefinition
-	GetInitialHealthState() (ziti.Precedence, uint16)
+	GetInitialHealthState() (zt.Precedence, uint16)
 	OnClose()
 	SetCloseCallback(func())
 	GetAllowConfig() AllowConfig
@@ -82,14 +82,14 @@ func AppDataToMap(appData []byte) (map[string]interface{}, error) {
 	return result, nil
 }
 
-func NewContextProvider(context ziti.Context) FabricProvider {
+func NewContextProvider(context zt.Context) FabricProvider {
 	return &contextProvider{
 		Context: context,
 	}
 }
 
 type contextProvider struct {
-	ziti.Context
+	zt.Context
 }
 
 func (self *contextProvider) PrepForUse(serviceId string) {
@@ -101,18 +101,18 @@ func (self *contextProvider) PrepForUse(serviceId string) {
 }
 
 func (self *contextProvider) TunnelService(service Service, identity string, conn net.Conn, halfClose bool, appData []byte) error {
-	options := &ziti.DialOptions{
+	options := &zt.DialOptions{
 		ConnectTimeout: service.GetDialTimeout(),
 		AppData:        appData,
 		Identity:       identity,
 	}
 
-	zitiConn, err := self.DialWithOptions(service.GetName(), options)
+	ztConn, err := self.DialWithOptions(service.GetName(), options)
 	if err != nil {
 		return err
 	}
 
-	Run(zitiConn, conn, halfClose)
+	Run(ztConn, conn, halfClose)
 	return nil
 }
 
@@ -146,7 +146,7 @@ func (self *contextProvider) accept(listener edge.Listener, hostCtx HostingConte
 			logger.WithError(err).Error("dial failed")
 			conn.CompleteAcceptFailed(err)
 			if closeErr := conn.Close(); closeErr != nil {
-				logger.WithError(closeErr).Error("close of ziti connection failed")
+				logger.WithError(closeErr).Error("close of zt connection failed")
 			}
 			continue
 		}
@@ -156,7 +156,7 @@ func (self *contextProvider) accept(listener edge.Listener, hostCtx HostingConte
 			logger.WithError(err).Error("dial failed")
 			conn.CompleteAcceptFailed(err)
 			if closeErr := conn.Close(); closeErr != nil {
-				logger.WithError(closeErr).Error("close of ziti connection failed")
+				logger.WithError(closeErr).Error("close of zt connection failed")
 			}
 			continue
 		}
@@ -167,7 +167,7 @@ func (self *contextProvider) accept(listener edge.Listener, hostCtx HostingConte
 			logger.WithError(err).Error("complete accept success failed")
 
 			if closeErr := conn.Close(); closeErr != nil {
-				logger.WithError(closeErr).Error("close of ziti connection failed")
+				logger.WithError(closeErr).Error("close of zt connection failed")
 			}
 
 			if closeErr := externalConn.Close(); closeErr != nil {

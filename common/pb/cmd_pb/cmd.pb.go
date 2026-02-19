@@ -1518,46 +1518,46 @@ func file_cmd_proto_rawDescGZIP() []byte {
 var file_cmd_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
 var file_cmd_proto_msgTypes = make([]protoimpl.MessageInfo, 20)
 var file_cmd_proto_goTypes = []interface{}{
-	(ContentType)(0),                      // 0: ziti.cmd.pb.ContentType
-	(CommandType)(0),                      // 1: ziti.cmd.pb.CommandType
-	(*ChangeContext)(nil),                 // 2: ziti.cmd.pb.ChangeContext
-	(*AddPeerRequest)(nil),                // 3: ziti.cmd.pb.AddPeerRequest
-	(*RemovePeerRequest)(nil),             // 4: ziti.cmd.pb.RemovePeerRequest
-	(*TransferLeadershipRequest)(nil),     // 5: ziti.cmd.pb.TransferLeadershipRequest
-	(*CreateEntityCommand)(nil),           // 6: ziti.cmd.pb.CreateEntityCommand
-	(*UpdateEntityCommand)(nil),           // 7: ziti.cmd.pb.UpdateEntityCommand
-	(*DeleteEntityCommand)(nil),           // 8: ziti.cmd.pb.DeleteEntityCommand
-	(*SyncSnapshotCommand)(nil),           // 9: ziti.cmd.pb.SyncSnapshotCommand
-	(*InitClusterIdCommand)(nil),          // 10: ziti.cmd.pb.InitClusterIdCommand
-	(*DeleteTerminatorsBatchCommand)(nil), // 11: ziti.cmd.pb.DeleteTerminatorsBatchCommand
-	(*TagValue)(nil),                      // 12: ziti.cmd.pb.TagValue
-	(*Service)(nil),                       // 13: ziti.cmd.pb.Service
-	(*Router)(nil),                        // 14: ziti.cmd.pb.Router
-	(*Terminator)(nil),                    // 15: ziti.cmd.pb.Terminator
-	(*Interface)(nil),                     // 16: ziti.cmd.pb.Interface
-	nil,                                   // 17: ziti.cmd.pb.ChangeContext.AttributesEntry
-	nil,                                   // 18: ziti.cmd.pb.Service.TagsEntry
-	nil,                                   // 19: ziti.cmd.pb.Router.TagsEntry
-	nil,                                   // 20: ziti.cmd.pb.Terminator.PeerDataEntry
-	nil,                                   // 21: ziti.cmd.pb.Terminator.TagsEntry
+	(ContentType)(0),                      // 0: zt.cmd.pb.ContentType
+	(CommandType)(0),                      // 1: zt.cmd.pb.CommandType
+	(*ChangeContext)(nil),                 // 2: zt.cmd.pb.ChangeContext
+	(*AddPeerRequest)(nil),                // 3: zt.cmd.pb.AddPeerRequest
+	(*RemovePeerRequest)(nil),             // 4: zt.cmd.pb.RemovePeerRequest
+	(*TransferLeadershipRequest)(nil),     // 5: zt.cmd.pb.TransferLeadershipRequest
+	(*CreateEntityCommand)(nil),           // 6: zt.cmd.pb.CreateEntityCommand
+	(*UpdateEntityCommand)(nil),           // 7: zt.cmd.pb.UpdateEntityCommand
+	(*DeleteEntityCommand)(nil),           // 8: zt.cmd.pb.DeleteEntityCommand
+	(*SyncSnapshotCommand)(nil),           // 9: zt.cmd.pb.SyncSnapshotCommand
+	(*InitClusterIdCommand)(nil),          // 10: zt.cmd.pb.InitClusterIdCommand
+	(*DeleteTerminatorsBatchCommand)(nil), // 11: zt.cmd.pb.DeleteTerminatorsBatchCommand
+	(*TagValue)(nil),                      // 12: zt.cmd.pb.TagValue
+	(*Service)(nil),                       // 13: zt.cmd.pb.Service
+	(*Router)(nil),                        // 14: zt.cmd.pb.Router
+	(*Terminator)(nil),                    // 15: zt.cmd.pb.Terminator
+	(*Interface)(nil),                     // 16: zt.cmd.pb.Interface
+	nil,                                   // 17: zt.cmd.pb.ChangeContext.AttributesEntry
+	nil,                                   // 18: zt.cmd.pb.Service.TagsEntry
+	nil,                                   // 19: zt.cmd.pb.Router.TagsEntry
+	nil,                                   // 20: zt.cmd.pb.Terminator.PeerDataEntry
+	nil,                                   // 21: zt.cmd.pb.Terminator.TagsEntry
 }
 var file_cmd_proto_depIdxs = []int32{
-	17, // 0: ziti.cmd.pb.ChangeContext.attributes:type_name -> ziti.cmd.pb.ChangeContext.AttributesEntry
-	2,  // 1: ziti.cmd.pb.AddPeerRequest.ctx:type_name -> ziti.cmd.pb.ChangeContext
-	2,  // 2: ziti.cmd.pb.RemovePeerRequest.ctx:type_name -> ziti.cmd.pb.ChangeContext
-	2,  // 3: ziti.cmd.pb.TransferLeadershipRequest.ctx:type_name -> ziti.cmd.pb.ChangeContext
-	2,  // 4: ziti.cmd.pb.CreateEntityCommand.ctx:type_name -> ziti.cmd.pb.ChangeContext
-	2,  // 5: ziti.cmd.pb.UpdateEntityCommand.ctx:type_name -> ziti.cmd.pb.ChangeContext
-	2,  // 6: ziti.cmd.pb.DeleteEntityCommand.ctx:type_name -> ziti.cmd.pb.ChangeContext
-	2,  // 7: ziti.cmd.pb.DeleteTerminatorsBatchCommand.ctx:type_name -> ziti.cmd.pb.ChangeContext
-	18, // 8: ziti.cmd.pb.Service.tags:type_name -> ziti.cmd.pb.Service.TagsEntry
-	19, // 9: ziti.cmd.pb.Router.tags:type_name -> ziti.cmd.pb.Router.TagsEntry
-	16, // 10: ziti.cmd.pb.Router.interfaces:type_name -> ziti.cmd.pb.Interface
-	20, // 11: ziti.cmd.pb.Terminator.peerData:type_name -> ziti.cmd.pb.Terminator.PeerDataEntry
-	21, // 12: ziti.cmd.pb.Terminator.tags:type_name -> ziti.cmd.pb.Terminator.TagsEntry
-	12, // 13: ziti.cmd.pb.Service.TagsEntry.value:type_name -> ziti.cmd.pb.TagValue
-	12, // 14: ziti.cmd.pb.Router.TagsEntry.value:type_name -> ziti.cmd.pb.TagValue
-	12, // 15: ziti.cmd.pb.Terminator.TagsEntry.value:type_name -> ziti.cmd.pb.TagValue
+	17, // 0: zt.cmd.pb.ChangeContext.attributes:type_name -> zt.cmd.pb.ChangeContext.AttributesEntry
+	2,  // 1: zt.cmd.pb.AddPeerRequest.ctx:type_name -> zt.cmd.pb.ChangeContext
+	2,  // 2: zt.cmd.pb.RemovePeerRequest.ctx:type_name -> zt.cmd.pb.ChangeContext
+	2,  // 3: zt.cmd.pb.TransferLeadershipRequest.ctx:type_name -> zt.cmd.pb.ChangeContext
+	2,  // 4: zt.cmd.pb.CreateEntityCommand.ctx:type_name -> zt.cmd.pb.ChangeContext
+	2,  // 5: zt.cmd.pb.UpdateEntityCommand.ctx:type_name -> zt.cmd.pb.ChangeContext
+	2,  // 6: zt.cmd.pb.DeleteEntityCommand.ctx:type_name -> zt.cmd.pb.ChangeContext
+	2,  // 7: zt.cmd.pb.DeleteTerminatorsBatchCommand.ctx:type_name -> zt.cmd.pb.ChangeContext
+	18, // 8: zt.cmd.pb.Service.tags:type_name -> zt.cmd.pb.Service.TagsEntry
+	19, // 9: zt.cmd.pb.Router.tags:type_name -> zt.cmd.pb.Router.TagsEntry
+	16, // 10: zt.cmd.pb.Router.interfaces:type_name -> zt.cmd.pb.Interface
+	20, // 11: zt.cmd.pb.Terminator.peerData:type_name -> zt.cmd.pb.Terminator.PeerDataEntry
+	21, // 12: zt.cmd.pb.Terminator.tags:type_name -> zt.cmd.pb.Terminator.TagsEntry
+	12, // 13: zt.cmd.pb.Service.TagsEntry.value:type_name -> zt.cmd.pb.TagValue
+	12, // 14: zt.cmd.pb.Router.TagsEntry.value:type_name -> zt.cmd.pb.TagValue
+	12, // 15: zt.cmd.pb.Terminator.TagsEntry.value:type_name -> zt.cmd.pb.TagValue
 	16, // [16:16] is the sub-list for method output_type
 	16, // [16:16] is the sub-list for method input_type
 	16, // [16:16] is the sub-list for extension type_name

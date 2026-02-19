@@ -6,7 +6,7 @@ import (
 	openApiErrors "github.com/go-openapi/errors"
 	"github.com/michaelquigley/pfxlog"
 	"github.com/hanzozt/foundation/v2/errorz"
-	"github.com/hanzozt/ziti/v2/controller/apierror"
+	"github.com/hanzozt/zt/v2/controller/apierror"
 )
 
 // ServeError is a wrapper for the OpenAPI REST server to allow the Edge API Error message responses to be used

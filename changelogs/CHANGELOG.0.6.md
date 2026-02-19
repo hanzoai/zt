@@ -41,7 +41,7 @@ Ziti 0.5.x UPDB enrolling entity
         "enrollment": {
             "updb": {
                 "username": "asdf",
-                "url": "https://demo.ziti.netfoundry.io:1080/enroll?method=updb&token=911e6562-0c83-11ea-a81a-000d3a1b4b17&username=asdf"
+                "url": "https://demo.zt.netfoundry.io:1080/enroll?method=updb&token=911e6562-0c83-11ea-a81a-000d3a1b4b17&username=asdf"
             }
         },
         "permissions": []

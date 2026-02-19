@@ -19,8 +19,8 @@ package model
 import (
 	"time"
 
-	"github.com/hanzozt/ziti/v2/common/pb/edge_cmd_pb"
-	"github.com/hanzozt/ziti/v2/controller/change"
+	"github.com/hanzozt/zt/v2/common/pb/edge_cmd_pb"
+	"github.com/hanzozt/zt/v2/controller/change"
 	"google.golang.org/protobuf/types/known/timestamppb"
 )
 

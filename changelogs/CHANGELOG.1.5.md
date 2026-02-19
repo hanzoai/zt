@@ -6,9 +6,9 @@
 
 ## Component Updates and Bug Fixes
 
-* github.com/hanzozt/ziti: [v1.5.3 -> v1.5.4](https://github.com/hanzozt/ziti/compare/v1.5.3...v1.5.4)
-    * [Issue #2947](https://github.com/hanzozt/ziti/issues/2947) - Panic on router started up if edge/tunnel bindings not configured
-    * [Issue #2948](https://github.com/hanzozt/ziti/issues/2948) - Allow ER/T to run without edge listener
+* github.com/hanzozt/zt: [v1.5.3 -> v1.5.4](https://github.com/hanzozt/zt/compare/v1.5.3...v1.5.4)
+    * [Issue #2947](https://github.com/hanzozt/zt/issues/2947) - Panic on router started up if edge/tunnel bindings not configured
+    * [Issue #2948](https://github.com/hanzozt/zt/issues/2948) - Allow ER/T to run without edge listener
 
 # Release 1.5.3
 
@@ -33,10 +33,10 @@
 * github.com/hanzozt/sdk-golang: [v0.25.0 -> v0.25.1](https://github.com/hanzozt/sdk-golang/compare/v0.25.0...v0.25.1)
   * [Issue #699](https://github.com/hanzozt/sdk-golang/issues/699) - SDK UPDB enrollment
 
-* github.com/hanzozt/ziti: [v1.5.0 -> v1.5.1](https://github.com/hanzozt/ziti/compare/v1.5.0...v1.5.1)
-  * [Issue #2931](https://github.com/hanzozt/ziti/issues/2931) - help ext-jwt-signer auth by logging incoming jwt audience
-  * [Issue #2934](https://github.com/hanzozt/ziti/issues/2934) - API Session Certs in HA not connect to ERs in all scenarios
-  * [Issue #2926](https://github.com/hanzozt/ziti/issues/2926) - Implement minimal Xgress SDK
+* github.com/hanzozt/zt: [v1.5.0 -> v1.5.1](https://github.com/hanzozt/zt/compare/v1.5.0...v1.5.1)
+  * [Issue #2931](https://github.com/hanzozt/zt/issues/2931) - help ext-jwt-signer auth by logging incoming jwt audience
+  * [Issue #2934](https://github.com/hanzozt/zt/issues/2934) - API Session Certs in HA not connect to ERs in all scenarios
+  * [Issue #2926](https://github.com/hanzozt/zt/issues/2926) - Implement minimal Xgress SDK
 
 
 # Release 1.5.0
@@ -129,20 +129,20 @@ metrics:
 * github.com/hanzozt/secretstream: [v0.1.31 -> v0.1.32](https://github.com/hanzozt/secretstream/compare/v0.1.31...v0.1.32)
 * github.com/hanzozt/storage: [v0.4.5 -> v0.4.7](https://github.com/hanzozt/storage/compare/v0.4.5...v0.4.7)
 * github.com/hanzozt/transport/v2: [v2.0.165 -> v2.0.167](https://github.com/hanzozt/transport/compare/v2.0.165...v2.0.167)
-* github.com/hanzozt/ziti: [v1.4.3 -> v1.5.0](https://github.com/hanzozt/ziti/compare/v1.4.3...v1.5.0)
-    * [Issue #2910](https://github.com/hanzozt/ziti/issues/2910) - Add additional metrics for visibility into flow control backpressure
-    * [Issue #2608](https://github.com/hanzozt/ziti/issues/2608) - Verify latest Prometheus server
-    * [Issue #2899](https://github.com/hanzozt/ziti/issues/2899) - Allow configuring size of router metrics event queue size
-    * [Issue #2896](https://github.com/hanzozt/ziti/issues/2896) - `ziti router run --extend` does not function
-    * [Issue #2796](https://github.com/hanzozt/ziti/issues/2796) - Generated API client enrollment operations fail
-    * [Issue #2889](https://github.com/hanzozt/ziti/issues/2889) - Ensure identity online/offline statuses work correctly for ER/Ts
-    * [Issue #2891](https://github.com/hanzozt/ziti/issues/2891) - Restore can panic if using import from db
-    * [Issue #2835](https://github.com/hanzozt/ziti/issues/2835) - Add mechanism for selecting CLI layout
-    * [Issue #2836](https://github.com/hanzozt/ziti/issues/2836) - Add run subcommand
-    * [Issue #2837](https://github.com/hanzozt/ziti/issues/2837) - Add enroll subcommand
-    * [Issue #2851](https://github.com/hanzozt/ziti/issues/2851) - Change terminator failure cost crediting to be exponential based on time since last failure
-    * [Issue #2854](https://github.com/hanzozt/ziti/issues/2854) - Fix controller online status
-    * [Issue #2829](https://github.com/hanzozt/ziti/issues/2829) - Update Raft Configuration Defaults
-    * [Issue #2849](https://github.com/hanzozt/ziti/issues/2849) - Router endpoints file should have .yml extension by default
-    * [Issue #2875](https://github.com/hanzozt/ziti/issues/2875) - add --authenticate to `verify ext-jwt-signer oidc`
-    * [Issue #2873](https://github.com/hanzozt/ziti/issues/2873) - updates to `verify ext-jwt-signer oidc`
+* github.com/hanzozt/zt: [v1.4.3 -> v1.5.0](https://github.com/hanzozt/zt/compare/v1.4.3...v1.5.0)
+    * [Issue #2910](https://github.com/hanzozt/zt/issues/2910) - Add additional metrics for visibility into flow control backpressure
+    * [Issue #2608](https://github.com/hanzozt/zt/issues/2608) - Verify latest Prometheus server
+    * [Issue #2899](https://github.com/hanzozt/zt/issues/2899) - Allow configuring size of router metrics event queue size
+    * [Issue #2896](https://github.com/hanzozt/zt/issues/2896) - `zt router run --extend` does not function
+    * [Issue #2796](https://github.com/hanzozt/zt/issues/2796) - Generated API client enrollment operations fail
+    * [Issue #2889](https://github.com/hanzozt/zt/issues/2889) - Ensure identity online/offline statuses work correctly for ER/Ts
+    * [Issue #2891](https://github.com/hanzozt/zt/issues/2891) - Restore can panic if using import from db
+    * [Issue #2835](https://github.com/hanzozt/zt/issues/2835) - Add mechanism for selecting CLI layout
+    * [Issue #2836](https://github.com/hanzozt/zt/issues/2836) - Add run subcommand
+    * [Issue #2837](https://github.com/hanzozt/zt/issues/2837) - Add enroll subcommand
+    * [Issue #2851](https://github.com/hanzozt/zt/issues/2851) - Change terminator failure cost crediting to be exponential based on time since last failure
+    * [Issue #2854](https://github.com/hanzozt/zt/issues/2854) - Fix controller online status
+    * [Issue #2829](https://github.com/hanzozt/zt/issues/2829) - Update Raft Configuration Defaults
+    * [Issue #2849](https://github.com/hanzozt/zt/issues/2849) - Router endpoints file should have .yml extension by default
+    * [Issue #2875](https://github.com/hanzozt/zt/issues/2875) - add --authenticate to `verify ext-jwt-signer oidc`
+    * [Issue #2873](https://github.com/hanzozt/zt/issues/2873) - updates to `verify ext-jwt-signer oidc`

@@ -213,7 +213,7 @@ func (store *authenticatorStoreImpl) FillEntity(entity *Authenticator, bucket *b
 		authCert.IsIssuedByNetwork = bucket.GetBoolWithDefault(FieldAuthenticatorCertIsIssuedByNetwork, false)
 
 		if authCert.IsIssuedByNetwork {
-			// can only request extension for ziti issued certs, can only have roll keys if extension is also requested
+			// can only request extension for zt issued certs, can only have roll keys if extension is also requested
 			authCert.IsExtendRequested = bucket.GetBoolWithDefault(FieldAuthenticatorCertIsExtendRequested, false)
 			authCert.ExtendRequestedAt = bucket.GetTime(FieldAuthenticatorCertExtendRequestedAt)
 			if authCert.IsExtendRequested {

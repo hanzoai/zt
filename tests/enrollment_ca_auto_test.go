@@ -27,7 +27,7 @@ import (
 	"testing"
 
 	"github.com/hanzozt/edge-api/rest_model"
-	"github.com/hanzozt/ziti/v2/common/eid"
+	"github.com/hanzozt/zt/v2/common/eid"
 )
 
 // Test_EnrollmetnCaAuto uses the generic enrollment endpoint

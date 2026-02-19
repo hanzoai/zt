@@ -24,8 +24,8 @@ import (
 	"github.com/hanzozt/channel/v4/latency"
 	"github.com/hanzozt/foundation/v2/concurrenz"
 	"github.com/hanzozt/metrics"
-	"github.com/hanzozt/ziti/v2/controller/network"
-	"github.com/hanzozt/ziti/v2/controller/raft"
+	"github.com/hanzozt/zt/v2/controller/network"
+	"github.com/hanzozt/zt/v2/controller/raft"
 	"github.com/sirupsen/logrus"
 )
 

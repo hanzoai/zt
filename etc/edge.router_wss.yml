@@ -11,7 +11,7 @@ v: 3
 #
 # The 'cert', 'server_cert', and 'ca' files will be overwritten with the results of the enrollment process.
 #
-# When running the ziti router the files/values in this section will be read and used. The 'cert' value will be used
+# When running the zt router the files/values in this section will be read and used. The 'cert' value will be used
 # as the client certificate to connect to the controller. The 'server_cert' is used for all servers/listeners. The
 # 'ca' value is used to populate an internally Trusted CA pool.
 identity:
@@ -36,7 +36,7 @@ link:
   dialers:
     - binding:          transport
 
-# By having an 'edge' section defined, the ziti router will attempt to parse the edge configuration. Removing this
+# By having an 'edge' section defined, the zt router will attempt to parse the edge configuration. Removing this
 # section, commenting out, or altering the name of the section will cause the router to no longer operate as an Edge
 # Router.
 edge:
@@ -58,20 +58,20 @@ edge:
         - "localhost"
         - "test-network"
         - "test-network.localhost"
-        - "ziti-dev-ingress01"
+        - "zt-dev-ingress01"
       email:
         - "admin@example.com"
       ip:
         - "127.0.0.1"
       uri:
-        - "ziti://ziti-dev-router01/made/up/example"
+        - "zt://zt-dev-router01/made/up/example"
 
   # (optional) Configuration specific to the controller's API that is proxied through this process. If not defined
   # the API Proxy will not run.
   apiProxy:
     # (required) The interface and port that the Edge API should be served on.
     listener: 0.0.0.0:1080
-    # (required) The hostname and port combination to the ziti-controller hosted Edge API
+    # (required) The hostname and port combination to the zt-controller hosted Edge API
     upstream: 127.0.0.1:1280
 
 dialers:

@@ -685,7 +685,7 @@ type StreamCircuitsEvent struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	EventType        StreamCircuitEventType `protobuf:"varint,1,opt,name=eventType,proto3,enum=ziti.mgmt_pb.StreamCircuitEventType" json:"eventType,omitempty"`
+	EventType        StreamCircuitEventType `protobuf:"varint,1,opt,name=eventType,proto3,enum=zt.mgmt_pb.StreamCircuitEventType" json:"eventType,omitempty"`
 	CircuitId        string                 `protobuf:"bytes,2,opt,name=circuitId,proto3" json:"circuitId,omitempty"`
 	ClientId         string                 `protobuf:"bytes,3,opt,name=clientId,proto3" json:"clientId,omitempty"`
 	ServiceId        string                 `protobuf:"bytes,4,opt,name=serviceId,proto3" json:"serviceId,omitempty"`
@@ -844,7 +844,7 @@ type StreamTracesRequest struct {
 	unknownFields protoimpl.UnknownFields
 
 	EnabledFilter bool            `protobuf:"varint,1,opt,name=enabledFilter,proto3" json:"enabledFilter,omitempty"`
-	FilterType    TraceFilterType `protobuf:"varint,2,opt,name=filterType,proto3,enum=ziti.mgmt_pb.TraceFilterType" json:"filterType,omitempty"`
+	FilterType    TraceFilterType `protobuf:"varint,2,opt,name=filterType,proto3,enum=zt.mgmt_pb.TraceFilterType" json:"filterType,omitempty"`
 	ContentTypes  []int32         `protobuf:"varint,3,rep,packed,name=contentTypes,proto3" json:"contentTypes,omitempty"`
 }
 
@@ -1310,7 +1310,7 @@ type TerminatorDetail struct {
 	Address      string          `protobuf:"bytes,7,opt,name=address,proto3" json:"address,omitempty"`
 	HostId       string          `protobuf:"bytes,8,opt,name=hostId,proto3" json:"hostId,omitempty"`
 	CreateDate   string          `protobuf:"bytes,9,opt,name=createDate,proto3" json:"createDate,omitempty"`
-	State        TerminatorState `protobuf:"varint,10,opt,name=state,proto3,enum=ziti.mgmt_pb.TerminatorState" json:"state,omitempty"`
+	State        TerminatorState `protobuf:"varint,10,opt,name=state,proto3,enum=zt.mgmt_pb.TerminatorState" json:"state,omitempty"`
 	Fixed        bool            `protobuf:"varint,11,opt,name=fixed,proto3" json:"fixed,omitempty"`
 	Detail       string          `protobuf:"bytes,12,opt,name=detail,proto3" json:"detail,omitempty"`
 }
@@ -1689,8 +1689,8 @@ type RouterLinkDetail struct {
 	unknownFields protoimpl.UnknownFields
 
 	LinkId        string    `protobuf:"bytes,1,opt,name=linkId,proto3" json:"linkId,omitempty"`
-	CtrlState     LinkState `protobuf:"varint,2,opt,name=ctrlState,proto3,enum=ziti.mgmt_pb.LinkState" json:"ctrlState,omitempty"`
-	RouterState   LinkState `protobuf:"varint,3,opt,name=routerState,proto3,enum=ziti.mgmt_pb.LinkState" json:"routerState,omitempty"`
+	CtrlState     LinkState `protobuf:"varint,2,opt,name=ctrlState,proto3,enum=zt.mgmt_pb.LinkState" json:"ctrlState,omitempty"`
+	RouterState   LinkState `protobuf:"varint,3,opt,name=routerState,proto3,enum=zt.mgmt_pb.LinkState" json:"routerState,omitempty"`
 	DestConnected bool      `protobuf:"varint,4,opt,name=destConnected,proto3" json:"destConnected,omitempty"`
 	IsValid       bool      `protobuf:"varint,5,opt,name=isValid,proto3" json:"isValid,omitempty"`
 	DestRouterId  string    `protobuf:"bytes,6,opt,name=destRouterId,proto3" json:"destRouterId,omitempty"`
@@ -1981,7 +1981,7 @@ type RouterSdkTerminatorDetail struct {
 	unknownFields protoimpl.UnknownFields
 
 	TerminatorId    string          `protobuf:"bytes,1,opt,name=terminatorId,proto3" json:"terminatorId,omitempty"`
-	CtrlState       TerminatorState `protobuf:"varint,2,opt,name=ctrlState,proto3,enum=ziti.mgmt_pb.TerminatorState" json:"ctrlState,omitempty"`
+	CtrlState       TerminatorState `protobuf:"varint,2,opt,name=ctrlState,proto3,enum=zt.mgmt_pb.TerminatorState" json:"ctrlState,omitempty"`
 	RouterState     string          `protobuf:"bytes,3,opt,name=routerState,proto3" json:"routerState,omitempty"`
 	IsValid         bool            `protobuf:"varint,4,opt,name=isValid,proto3" json:"isValid,omitempty"`
 	OperationActive bool            `protobuf:"varint,5,opt,name=operationActive,proto3" json:"operationActive,omitempty"`
@@ -2265,7 +2265,7 @@ type RouterErtTerminatorDetail struct {
 	unknownFields protoimpl.UnknownFields
 
 	TerminatorId string          `protobuf:"bytes,1,opt,name=terminatorId,proto3" json:"terminatorId,omitempty"`
-	CtrlState    TerminatorState `protobuf:"varint,2,opt,name=ctrlState,proto3,enum=ziti.mgmt_pb.TerminatorState" json:"ctrlState,omitempty"`
+	CtrlState    TerminatorState `protobuf:"varint,2,opt,name=ctrlState,proto3,enum=zt.mgmt_pb.TerminatorState" json:"ctrlState,omitempty"`
 	RouterState  string          `protobuf:"bytes,3,opt,name=routerState,proto3" json:"routerState,omitempty"`
 	IsValid      bool            `protobuf:"varint,4,opt,name=isValid,proto3" json:"isValid,omitempty"`
 }
@@ -3875,88 +3875,88 @@ func file_mgmt_proto_rawDescGZIP() []byte {
 var file_mgmt_proto_enumTypes = make([]protoimpl.EnumInfo, 6)
 var file_mgmt_proto_msgTypes = make([]protoimpl.MessageInfo, 47)
 var file_mgmt_proto_goTypes = []interface{}{
-	(ContentType)(0),                                   // 0: ziti.mgmt_pb.ContentType
-	(Header)(0),                                        // 1: ziti.mgmt_pb.Header
-	(StreamCircuitEventType)(0),                        // 2: ziti.mgmt_pb.StreamCircuitEventType
-	(TraceFilterType)(0),                               // 3: ziti.mgmt_pb.TraceFilterType
-	(TerminatorState)(0),                               // 4: ziti.mgmt_pb.TerminatorState
-	(LinkState)(0),                                     // 5: ziti.mgmt_pb.LinkState
-	(*StreamMetricsRequest)(nil),                       // 6: ziti.mgmt_pb.StreamMetricsRequest
-	(*StreamMetricsEvent)(nil),                         // 7: ziti.mgmt_pb.StreamMetricsEvent
-	(*Path)(nil),                                       // 8: ziti.mgmt_pb.Path
-	(*StreamCircuitsEvent)(nil),                        // 9: ziti.mgmt_pb.StreamCircuitsEvent
-	(*ToggleCircuitTracesRequest)(nil),                 // 10: ziti.mgmt_pb.ToggleCircuitTracesRequest
-	(*StreamTracesRequest)(nil),                        // 11: ziti.mgmt_pb.StreamTracesRequest
-	(*InspectRequest)(nil),                             // 12: ziti.mgmt_pb.InspectRequest
-	(*InspectResponse)(nil),                            // 13: ziti.mgmt_pb.InspectResponse
-	(*RaftMember)(nil),                                 // 14: ziti.mgmt_pb.RaftMember
-	(*RaftMemberListResponse)(nil),                     // 15: ziti.mgmt_pb.RaftMemberListResponse
-	(*ValidateTerminatorsRequest)(nil),                 // 16: ziti.mgmt_pb.ValidateTerminatorsRequest
-	(*ValidateTerminatorsResponse)(nil),                // 17: ziti.mgmt_pb.ValidateTerminatorsResponse
-	(*TerminatorDetail)(nil),                           // 18: ziti.mgmt_pb.TerminatorDetail
-	(*InvalidTerminatorHostState)(nil),                 // 19: ziti.mgmt_pb.InvalidTerminatorHostState
-	(*ValidateRouterLinksRequest)(nil),                 // 20: ziti.mgmt_pb.ValidateRouterLinksRequest
-	(*ValidateRouterLinksResponse)(nil),                // 21: ziti.mgmt_pb.ValidateRouterLinksResponse
-	(*RouterLinkDetails)(nil),                          // 22: ziti.mgmt_pb.RouterLinkDetails
-	(*RouterLinkDetail)(nil),                           // 23: ziti.mgmt_pb.RouterLinkDetail
-	(*ValidateRouterSdkTerminatorsRequest)(nil),        // 24: ziti.mgmt_pb.ValidateRouterSdkTerminatorsRequest
-	(*ValidateRouterSdkTerminatorsResponse)(nil),       // 25: ziti.mgmt_pb.ValidateRouterSdkTerminatorsResponse
-	(*RouterSdkTerminatorsDetails)(nil),                // 26: ziti.mgmt_pb.RouterSdkTerminatorsDetails
-	(*RouterSdkTerminatorDetail)(nil),                  // 27: ziti.mgmt_pb.RouterSdkTerminatorDetail
-	(*ValidateRouterErtTerminatorsRequest)(nil),        // 28: ziti.mgmt_pb.ValidateRouterErtTerminatorsRequest
-	(*ValidateRouterErtTerminatorsResponse)(nil),       // 29: ziti.mgmt_pb.ValidateRouterErtTerminatorsResponse
-	(*RouterErtTerminatorsDetails)(nil),                // 30: ziti.mgmt_pb.RouterErtTerminatorsDetails
-	(*RouterErtTerminatorDetail)(nil),                  // 31: ziti.mgmt_pb.RouterErtTerminatorDetail
-	(*ValidateRouterDataModelRequest)(nil),             // 32: ziti.mgmt_pb.ValidateRouterDataModelRequest
-	(*ValidateRouterDataModelResponse)(nil),            // 33: ziti.mgmt_pb.ValidateRouterDataModelResponse
-	(*RouterDataModelDetails)(nil),                     // 34: ziti.mgmt_pb.RouterDataModelDetails
-	(*ValidateIdentityConnectionStatusesRequest)(nil),  // 35: ziti.mgmt_pb.ValidateIdentityConnectionStatusesRequest
-	(*ValidateIdentityConnectionStatusesResponse)(nil), // 36: ziti.mgmt_pb.ValidateIdentityConnectionStatusesResponse
-	(*RouterIdentityConnectionStatusesDetails)(nil),    // 37: ziti.mgmt_pb.RouterIdentityConnectionStatusesDetails
-	(*InitRequest)(nil),                                // 38: ziti.mgmt_pb.InitRequest
-	(*ValidateCircuitsRequest)(nil),                    // 39: ziti.mgmt_pb.ValidateCircuitsRequest
-	(*ValidateCircuitsResponse)(nil),                   // 40: ziti.mgmt_pb.ValidateCircuitsResponse
-	(*RouterCircuitDetails)(nil),                       // 41: ziti.mgmt_pb.RouterCircuitDetails
-	(*RouterCircuitDetail)(nil),                        // 42: ziti.mgmt_pb.RouterCircuitDetail
-	(*StreamMetricsRequest_MetricMatcher)(nil),         // 43: ziti.mgmt_pb.StreamMetricsRequest.MetricMatcher
-	nil, // 44: ziti.mgmt_pb.StreamMetricsEvent.TagsEntry
-	nil, // 45: ziti.mgmt_pb.StreamMetricsEvent.IntMetricsEntry
-	nil, // 46: ziti.mgmt_pb.StreamMetricsEvent.FloatMetricsEntry
-	(*StreamMetricsEvent_IntervalMetric)(nil), // 47: ziti.mgmt_pb.StreamMetricsEvent.IntervalMetric
-	nil,                                  // 48: ziti.mgmt_pb.StreamMetricsEvent.MetricGroupEntry
-	nil,                                  // 49: ziti.mgmt_pb.StreamMetricsEvent.IntervalMetric.ValuesEntry
-	(*InspectResponse_InspectValue)(nil), // 50: ziti.mgmt_pb.InspectResponse.InspectValue
-	nil,                                  // 51: ziti.mgmt_pb.RouterCircuitDetails.DetailsEntry
-	nil,                                  // 52: ziti.mgmt_pb.RouterCircuitDetail.DestinationsEntry
+	(ContentType)(0),                                   // 0: zt.mgmt_pb.ContentType
+	(Header)(0),                                        // 1: zt.mgmt_pb.Header
+	(StreamCircuitEventType)(0),                        // 2: zt.mgmt_pb.StreamCircuitEventType
+	(TraceFilterType)(0),                               // 3: zt.mgmt_pb.TraceFilterType
+	(TerminatorState)(0),                               // 4: zt.mgmt_pb.TerminatorState
+	(LinkState)(0),                                     // 5: zt.mgmt_pb.LinkState
+	(*StreamMetricsRequest)(nil),                       // 6: zt.mgmt_pb.StreamMetricsRequest
+	(*StreamMetricsEvent)(nil),                         // 7: zt.mgmt_pb.StreamMetricsEvent
+	(*Path)(nil),                                       // 8: zt.mgmt_pb.Path
+	(*StreamCircuitsEvent)(nil),                        // 9: zt.mgmt_pb.StreamCircuitsEvent
+	(*ToggleCircuitTracesRequest)(nil),                 // 10: zt.mgmt_pb.ToggleCircuitTracesRequest
+	(*StreamTracesRequest)(nil),                        // 11: zt.mgmt_pb.StreamTracesRequest
+	(*InspectRequest)(nil),                             // 12: zt.mgmt_pb.InspectRequest
+	(*InspectResponse)(nil),                            // 13: zt.mgmt_pb.InspectResponse
+	(*RaftMember)(nil),                                 // 14: zt.mgmt_pb.RaftMember
+	(*RaftMemberListResponse)(nil),                     // 15: zt.mgmt_pb.RaftMemberListResponse
+	(*ValidateTerminatorsRequest)(nil),                 // 16: zt.mgmt_pb.ValidateTerminatorsRequest
+	(*ValidateTerminatorsResponse)(nil),                // 17: zt.mgmt_pb.ValidateTerminatorsResponse
+	(*TerminatorDetail)(nil),                           // 18: zt.mgmt_pb.TerminatorDetail
+	(*InvalidTerminatorHostState)(nil),                 // 19: zt.mgmt_pb.InvalidTerminatorHostState
+	(*ValidateRouterLinksRequest)(nil),                 // 20: zt.mgmt_pb.ValidateRouterLinksRequest
+	(*ValidateRouterLinksResponse)(nil),                // 21: zt.mgmt_pb.ValidateRouterLinksResponse
+	(*RouterLinkDetails)(nil),                          // 22: zt.mgmt_pb.RouterLinkDetails
+	(*RouterLinkDetail)(nil),                           // 23: zt.mgmt_pb.RouterLinkDetail
+	(*ValidateRouterSdkTerminatorsRequest)(nil),        // 24: zt.mgmt_pb.ValidateRouterSdkTerminatorsRequest
+	(*ValidateRouterSdkTerminatorsResponse)(nil),       // 25: zt.mgmt_pb.ValidateRouterSdkTerminatorsResponse
+	(*RouterSdkTerminatorsDetails)(nil),                // 26: zt.mgmt_pb.RouterSdkTerminatorsDetails
+	(*RouterSdkTerminatorDetail)(nil),                  // 27: zt.mgmt_pb.RouterSdkTerminatorDetail
+	(*ValidateRouterErtTerminatorsRequest)(nil),        // 28: zt.mgmt_pb.ValidateRouterErtTerminatorsRequest
+	(*ValidateRouterErtTerminatorsResponse)(nil),       // 29: zt.mgmt_pb.ValidateRouterErtTerminatorsResponse
+	(*RouterErtTerminatorsDetails)(nil),                // 30: zt.mgmt_pb.RouterErtTerminatorsDetails
+	(*RouterErtTerminatorDetail)(nil),                  // 31: zt.mgmt_pb.RouterErtTerminatorDetail
+	(*ValidateRouterDataModelRequest)(nil),             // 32: zt.mgmt_pb.ValidateRouterDataModelRequest
+	(*ValidateRouterDataModelResponse)(nil),            // 33: zt.mgmt_pb.ValidateRouterDataModelResponse
+	(*RouterDataModelDetails)(nil),                     // 34: zt.mgmt_pb.RouterDataModelDetails
+	(*ValidateIdentityConnectionStatusesRequest)(nil),  // 35: zt.mgmt_pb.ValidateIdentityConnectionStatusesRequest
+	(*ValidateIdentityConnectionStatusesResponse)(nil), // 36: zt.mgmt_pb.ValidateIdentityConnectionStatusesResponse
+	(*RouterIdentityConnectionStatusesDetails)(nil),    // 37: zt.mgmt_pb.RouterIdentityConnectionStatusesDetails
+	(*InitRequest)(nil),                                // 38: zt.mgmt_pb.InitRequest
+	(*ValidateCircuitsRequest)(nil),                    // 39: zt.mgmt_pb.ValidateCircuitsRequest
+	(*ValidateCircuitsResponse)(nil),                   // 40: zt.mgmt_pb.ValidateCircuitsResponse
+	(*RouterCircuitDetails)(nil),                       // 41: zt.mgmt_pb.RouterCircuitDetails
+	(*RouterCircuitDetail)(nil),                        // 42: zt.mgmt_pb.RouterCircuitDetail
+	(*StreamMetricsRequest_MetricMatcher)(nil),         // 43: zt.mgmt_pb.StreamMetricsRequest.MetricMatcher
+	nil, // 44: zt.mgmt_pb.StreamMetricsEvent.TagsEntry
+	nil, // 45: zt.mgmt_pb.StreamMetricsEvent.IntMetricsEntry
+	nil, // 46: zt.mgmt_pb.StreamMetricsEvent.FloatMetricsEntry
+	(*StreamMetricsEvent_IntervalMetric)(nil), // 47: zt.mgmt_pb.StreamMetricsEvent.IntervalMetric
+	nil,                                  // 48: zt.mgmt_pb.StreamMetricsEvent.MetricGroupEntry
+	nil,                                  // 49: zt.mgmt_pb.StreamMetricsEvent.IntervalMetric.ValuesEntry
+	(*InspectResponse_InspectValue)(nil), // 50: zt.mgmt_pb.InspectResponse.InspectValue
+	nil,                                  // 51: zt.mgmt_pb.RouterCircuitDetails.DetailsEntry
+	nil,                                  // 52: zt.mgmt_pb.RouterCircuitDetail.DestinationsEntry
 	(*timestamppb.Timestamp)(nil),        // 53: google.protobuf.Timestamp
 }
 var file_mgmt_proto_depIdxs = []int32{
-	43, // 0: ziti.mgmt_pb.StreamMetricsRequest.matchers:type_name -> ziti.mgmt_pb.StreamMetricsRequest.MetricMatcher
-	53, // 1: ziti.mgmt_pb.StreamMetricsEvent.timestamp:type_name -> google.protobuf.Timestamp
-	44, // 2: ziti.mgmt_pb.StreamMetricsEvent.tags:type_name -> ziti.mgmt_pb.StreamMetricsEvent.TagsEntry
-	45, // 3: ziti.mgmt_pb.StreamMetricsEvent.intMetrics:type_name -> ziti.mgmt_pb.StreamMetricsEvent.IntMetricsEntry
-	46, // 4: ziti.mgmt_pb.StreamMetricsEvent.floatMetrics:type_name -> ziti.mgmt_pb.StreamMetricsEvent.FloatMetricsEntry
-	47, // 5: ziti.mgmt_pb.StreamMetricsEvent.intervalMetrics:type_name -> ziti.mgmt_pb.StreamMetricsEvent.IntervalMetric
-	48, // 6: ziti.mgmt_pb.StreamMetricsEvent.metricGroup:type_name -> ziti.mgmt_pb.StreamMetricsEvent.MetricGroupEntry
-	2,  // 7: ziti.mgmt_pb.StreamCircuitsEvent.eventType:type_name -> ziti.mgmt_pb.StreamCircuitEventType
-	8,  // 8: ziti.mgmt_pb.StreamCircuitsEvent.path:type_name -> ziti.mgmt_pb.Path
-	3,  // 9: ziti.mgmt_pb.StreamTracesRequest.filterType:type_name -> ziti.mgmt_pb.TraceFilterType
-	50, // 10: ziti.mgmt_pb.InspectResponse.values:type_name -> ziti.mgmt_pb.InspectResponse.InspectValue
-	14, // 11: ziti.mgmt_pb.RaftMemberListResponse.members:type_name -> ziti.mgmt_pb.RaftMember
-	4,  // 12: ziti.mgmt_pb.TerminatorDetail.state:type_name -> ziti.mgmt_pb.TerminatorState
-	23, // 13: ziti.mgmt_pb.RouterLinkDetails.linkDetails:type_name -> ziti.mgmt_pb.RouterLinkDetail
-	5,  // 14: ziti.mgmt_pb.RouterLinkDetail.ctrlState:type_name -> ziti.mgmt_pb.LinkState
-	5,  // 15: ziti.mgmt_pb.RouterLinkDetail.routerState:type_name -> ziti.mgmt_pb.LinkState
-	27, // 16: ziti.mgmt_pb.RouterSdkTerminatorsDetails.details:type_name -> ziti.mgmt_pb.RouterSdkTerminatorDetail
-	4,  // 17: ziti.mgmt_pb.RouterSdkTerminatorDetail.ctrlState:type_name -> ziti.mgmt_pb.TerminatorState
-	31, // 18: ziti.mgmt_pb.RouterErtTerminatorsDetails.details:type_name -> ziti.mgmt_pb.RouterErtTerminatorDetail
-	4,  // 19: ziti.mgmt_pb.RouterErtTerminatorDetail.ctrlState:type_name -> ziti.mgmt_pb.TerminatorState
-	51, // 20: ziti.mgmt_pb.RouterCircuitDetails.details:type_name -> ziti.mgmt_pb.RouterCircuitDetails.DetailsEntry
-	52, // 21: ziti.mgmt_pb.RouterCircuitDetail.destinations:type_name -> ziti.mgmt_pb.RouterCircuitDetail.DestinationsEntry
-	53, // 22: ziti.mgmt_pb.StreamMetricsEvent.IntervalMetric.intervalStartUTC:type_name -> google.protobuf.Timestamp
-	53, // 23: ziti.mgmt_pb.StreamMetricsEvent.IntervalMetric.intervalEndUTC:type_name -> google.protobuf.Timestamp
-	49, // 24: ziti.mgmt_pb.StreamMetricsEvent.IntervalMetric.values:type_name -> ziti.mgmt_pb.StreamMetricsEvent.IntervalMetric.ValuesEntry
-	42, // 25: ziti.mgmt_pb.RouterCircuitDetails.DetailsEntry.value:type_name -> ziti.mgmt_pb.RouterCircuitDetail
+	43, // 0: zt.mgmt_pb.StreamMetricsRequest.matchers:type_name -> zt.mgmt_pb.StreamMetricsRequest.MetricMatcher
+	53, // 1: zt.mgmt_pb.StreamMetricsEvent.timestamp:type_name -> google.protobuf.Timestamp
+	44, // 2: zt.mgmt_pb.StreamMetricsEvent.tags:type_name -> zt.mgmt_pb.StreamMetricsEvent.TagsEntry
+	45, // 3: zt.mgmt_pb.StreamMetricsEvent.intMetrics:type_name -> zt.mgmt_pb.StreamMetricsEvent.IntMetricsEntry
+	46, // 4: zt.mgmt_pb.StreamMetricsEvent.floatMetrics:type_name -> zt.mgmt_pb.StreamMetricsEvent.FloatMetricsEntry
+	47, // 5: zt.mgmt_pb.StreamMetricsEvent.intervalMetrics:type_name -> zt.mgmt_pb.StreamMetricsEvent.IntervalMetric
+	48, // 6: zt.mgmt_pb.StreamMetricsEvent.metricGroup:type_name -> zt.mgmt_pb.StreamMetricsEvent.MetricGroupEntry
+	2,  // 7: zt.mgmt_pb.StreamCircuitsEvent.eventType:type_name -> zt.mgmt_pb.StreamCircuitEventType
+	8,  // 8: zt.mgmt_pb.StreamCircuitsEvent.path:type_name -> zt.mgmt_pb.Path
+	3,  // 9: zt.mgmt_pb.StreamTracesRequest.filterType:type_name -> zt.mgmt_pb.TraceFilterType
+	50, // 10: zt.mgmt_pb.InspectResponse.values:type_name -> zt.mgmt_pb.InspectResponse.InspectValue
+	14, // 11: zt.mgmt_pb.RaftMemberListResponse.members:type_name -> zt.mgmt_pb.RaftMember
+	4,  // 12: zt.mgmt_pb.TerminatorDetail.state:type_name -> zt.mgmt_pb.TerminatorState
+	23, // 13: zt.mgmt_pb.RouterLinkDetails.linkDetails:type_name -> zt.mgmt_pb.RouterLinkDetail
+	5,  // 14: zt.mgmt_pb.RouterLinkDetail.ctrlState:type_name -> zt.mgmt_pb.LinkState
+	5,  // 15: zt.mgmt_pb.RouterLinkDetail.routerState:type_name -> zt.mgmt_pb.LinkState
+	27, // 16: zt.mgmt_pb.RouterSdkTerminatorsDetails.details:type_name -> zt.mgmt_pb.RouterSdkTerminatorDetail
+	4,  // 17: zt.mgmt_pb.RouterSdkTerminatorDetail.ctrlState:type_name -> zt.mgmt_pb.TerminatorState
+	31, // 18: zt.mgmt_pb.RouterErtTerminatorsDetails.details:type_name -> zt.mgmt_pb.RouterErtTerminatorDetail
+	4,  // 19: zt.mgmt_pb.RouterErtTerminatorDetail.ctrlState:type_name -> zt.mgmt_pb.TerminatorState
+	51, // 20: zt.mgmt_pb.RouterCircuitDetails.details:type_name -> zt.mgmt_pb.RouterCircuitDetails.DetailsEntry
+	52, // 21: zt.mgmt_pb.RouterCircuitDetail.destinations:type_name -> zt.mgmt_pb.RouterCircuitDetail.DestinationsEntry
+	53, // 22: zt.mgmt_pb.StreamMetricsEvent.IntervalMetric.intervalStartUTC:type_name -> google.protobuf.Timestamp
+	53, // 23: zt.mgmt_pb.StreamMetricsEvent.IntervalMetric.intervalEndUTC:type_name -> google.protobuf.Timestamp
+	49, // 24: zt.mgmt_pb.StreamMetricsEvent.IntervalMetric.values:type_name -> zt.mgmt_pb.StreamMetricsEvent.IntervalMetric.ValuesEntry
+	42, // 25: zt.mgmt_pb.RouterCircuitDetails.DetailsEntry.value:type_name -> zt.mgmt_pb.RouterCircuitDetail
 	26, // [26:26] is the sub-list for method output_type
 	26, // [26:26] is the sub-list for method input_type
 	26, // [26:26] is the sub-list for extension type_name

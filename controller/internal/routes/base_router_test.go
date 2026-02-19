@@ -21,8 +21,8 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/hanzozt/ziti/v2/controller/api"
-	"github.com/hanzozt/ziti/v2/controller/fields"
+	"github.com/hanzozt/zt/v2/controller/api"
+	"github.com/hanzozt/zt/v2/controller/fields"
 
 	"github.com/stretchr/testify/require"
 )

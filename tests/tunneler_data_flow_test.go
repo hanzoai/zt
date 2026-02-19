@@ -29,7 +29,7 @@ import (
 	"time"
 
 	"github.com/hanzozt/foundation/v2/info"
-	"github.com/hanzozt/sdk-golang/ziti/edge"
+	"github.com/hanzozt/sdk-golang/zt/edge"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 )

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# exec this script with BASH v4+ on Linux to test the checked-out ziti repo's Docker controller and router deployments
+# exec this script with BASH v4+ on Linux to test the checked-out zt repo's Docker controller and router deployments
 
 set -o errexit
 set -o nounset
@@ -60,7 +60,7 @@ done
 : "${ZIGGY_UID:=$(id -u)}"
 : "${ZITI_GO_VERSION:=$(grep -E '^go \d+\.\d*' "./go.mod" | cut -d " " -f2)}"
 
-COMPOSE_FILE_VALUE="${REPOROOT}/dist/docker-images/ziti-controller/compose.yml:${REPOROOT}/dist/docker-images/ziti-controller/compose.test.yml:${REPOROOT}/dist/docker-images/ziti-router/compose.yml:${REPOROOT}/dist/docker-images/ziti-router/compose.test.yml"
+COMPOSE_FILE_VALUE="${REPOROOT}/dist/docker-images/zt-controller/compose.yml:${REPOROOT}/dist/docker-images/zt-controller/compose.test.yml:${REPOROOT}/dist/docker-images/zt-router/compose.yml:${REPOROOT}/dist/docker-images/zt-router/compose.test.yml"
 
 if (( eval_mode )); then
     printf 'export COMPOSE_FILE=%q\n' "${COMPOSE_FILE_VALUE}"
@@ -74,8 +74,8 @@ ZITI_CTRL_ADVERTISED_PORT="12800"
 ZITI_CLUSTER_NODE_NAME="${ZITI_CTRL_ADVERTISED_ADDRESS%%.*}"
 ZITI_CLUSTER_TRUST_DOMAIN="${ZITI_CTRL_ADVERTISED_ADDRESS#*.}"
 ZITI_ROUTER_PORT="30222"
-ZITI_CONTROLLER_IMAGE="ziti-controller:local"
-ZITI_ROUTER_IMAGE="ziti-router:local"
+ZITI_CONTROLLER_IMAGE="zt-controller:local"
+ZITI_ROUTER_IMAGE="zt-router:local"
 ZITI_ROUTER_NAME="router1"
 
 export COMPOSE_FILE="${COMPOSE_FILE_VALUE}" \
@@ -93,7 +93,7 @@ ZITI_ROUTER_IMAGE \
 ZITI_ROUTER_NAME
 
 export ZITI_ROUTER_ADVERTISED_ADDRESS="${ZITI_ROUTER_NAME}.127.0.0.1.sslip.io" \
-ZITI_ENROLL_TOKEN="/home/ziggy/.config/ziti/${ZITI_ROUTER_NAME}.jwt" \
+ZITI_ENROLL_TOKEN="/home/ziggy/.config/zt/${ZITI_ROUTER_NAME}.jwt" \
 ZITI_ROUTER_LISTENER_BIND_PORT="${ZITI_ROUTER_PORT}"
 
 cleanup
@@ -109,42 +109,42 @@ arch="$(go env GOARCH)"
 mkdir -p "./release/$arch/$os"
 go build -o "./release/$arch/$os" ./...
 
-ZITI_CLI_IMAGE="ziti-cli"
+ZITI_CLI_IMAGE="zt-cli"
 ZITI_CLI_TAG="local"
 
 docker build \
---build-arg "DOCKER_BUILD_DIR=./dist/docker-images/ziti-cli" \
+--build-arg "DOCKER_BUILD_DIR=./dist/docker-images/zt-cli" \
 --tag "${ZITI_CLI_IMAGE}:${ZITI_CLI_TAG}" \
---file "./dist/docker-images/ziti-cli/Dockerfile" \
+--file "./dist/docker-images/zt-cli/Dockerfile" \
 "${PWD}"
 
 docker build \
---build-arg "DOCKER_BUILD_DIR=./dist/docker-images/ziti-controller" \
+--build-arg "DOCKER_BUILD_DIR=./dist/docker-images/zt-controller" \
 --build-arg "ZITI_CLI_IMAGE=${ZITI_CLI_IMAGE}" \
 --build-arg "ZITI_CLI_TAG=${ZITI_CLI_TAG}" \
 --tag "${ZITI_CONTROLLER_IMAGE}" \
---file "./dist/docker-images/ziti-controller/Dockerfile" \
+--file "./dist/docker-images/zt-controller/Dockerfile" \
 "${PWD}"
 
 docker build \
---build-arg "DOCKER_BUILD_DIR=./dist/docker-images/ziti-router" \
+--build-arg "DOCKER_BUILD_DIR=./dist/docker-images/zt-router" \
 --build-arg "ZITI_CLI_IMAGE=${ZITI_CLI_IMAGE}" \
 --build-arg "ZITI_CLI_TAG=${ZITI_CLI_TAG}" \
 --tag "${ZITI_ROUTER_IMAGE}" \
---file "./dist/docker-images/ziti-router/Dockerfile" \
+--file "./dist/docker-images/zt-router/Dockerfile" \
 "${PWD}"
 
 # entrypoint.bash now handles cluster initialization automatically when
 # ZITI_BOOTSTRAP_CLUSTER=true and ZITI_PWD is set
 docker compose up wait-for-controller
 
-docker compose exec -T --env ZITI_ROUTER_NAME ziti-controller /bin/bash -euxc '
+docker compose exec -T --env ZITI_ROUTER_NAME zt-controller /bin/bash -euxc '
 
 ATTEMPTS=10
 DELAY=2
-until ziti edge login \
+until zt edge login \
 ${ZITI_CTRL_ADVERTISED_ADDRESS}:${ZITI_CTRL_ADVERTISED_PORT} \
---ca=/ziti-controller/pki/root/certs/root.cert \
+--ca=/zt-controller/pki/root/certs/root.cert \
 --username=${ZITI_USER} \
 --password=${ZITI_PWD} \
 --timeout=1 \
@@ -156,10 +156,10 @@ do
   sleep ${DELAY}
 done
 
-ziti edge create edge-router "${ZITI_ROUTER_NAME}" -to ~ziggy/.config/ziti/"${ZITI_ROUTER_NAME}.jwt";
+zt edge create edge-router "${ZITI_ROUTER_NAME}" -to ~ziggy/.config/zt/"${ZITI_ROUTER_NAME}.jwt";
 '
 
-docker compose up ziti-router --detach
+docker compose up zt-router --detach
 
 unset GOOS
 export \
@@ -168,13 +168,13 @@ ZITI_CTRL_EDGE_ADVERTISED_PORT=${ZITI_CTRL_ADVERTISED_PORT}
 
 ATTEMPTS=10
 DELAY=3
-until ! ((ATTEMPTS)) || [[ $(docker compose exec -T ziti-controller ziti edge list edge-routers -j | jq -r '.data[0].isOnline') == "true" ]]
+until ! ((ATTEMPTS)) || [[ $(docker compose exec -T zt-controller zt edge list edge-routers -j | jq -r '.data[0].isOnline') == "true" ]]
 do
     (( ATTEMPTS-- ))
     echo "INFO: waiting for router to be online"
     sleep ${DELAY}
 done
-if [[ $(docker compose exec -T ziti-controller ziti edge list edge-routers -j | jq -r '.data[0].isOnline') == "true" ]]
+if [[ $(docker compose exec -T zt-controller zt edge list edge-routers -j | jq -r '.data[0].isOnline') == "true" ]]
 then
     echo "INFO: router is online"
 else
@@ -182,7 +182,7 @@ else
     exit 1
 fi
 
-_test_result=$(go test -v -count=1 -tags="quickstart manual" ./ziti/run/...)
+_test_result=$(go test -v -count=1 -tags="quickstart manual" ./zt/run/...)
 
 # check for failure modes that don't result in an error exit code
 if [[ "${_test_result}" =~ "no tests to run" ]]

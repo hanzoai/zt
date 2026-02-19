@@ -21,7 +21,7 @@ import (
 
 	"github.com/hanzozt/channel/v4"
 	"github.com/hanzozt/channel/v4/protobufs"
-	"github.com/hanzozt/ziti/v2/common/pb/ctrl_pb"
+	"github.com/hanzozt/zt/v2/common/pb/ctrl_pb"
 )
 
 type Capabilities struct {
@@ -58,5 +58,5 @@ func (capabilities *Capabilities) Has(capability string, timeout time.Duration) 
 }
 
 func (capabilities *Capabilities) IsEdgeCapable(timeout time.Duration) (bool, error) {
-	return capabilities.Has("ziti.edge", timeout)
+	return capabilities.Has("zt.edge", timeout)
 }

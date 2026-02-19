@@ -10,8 +10,8 @@ import (
 
 	health "github.com/AppsFlyer/go-sundheit"
 	"github.com/michaelquigley/pfxlog"
-	"github.com/hanzozt/sdk-golang/ziti"
-	"github.com/hanzozt/sdk-golang/ziti/edge"
+	"github.com/hanzozt/sdk-golang/zt"
+	"github.com/hanzozt/sdk-golang/zt/edge"
 	"github.com/sirupsen/logrus"
 )
 
@@ -35,11 +35,11 @@ type Action interface {
 	Description() string
 }
 
-func NewServiceState(service string, precedence ziti.Precedence, cost uint16, updater ServiceUpdater) *ServiceState {
+func NewServiceState(service string, precedence zt.Precedence, cost uint16, updater ServiceUpdater) *ServiceState {
 	return NewServiceStateWithContext("0", service, precedence, cost, updater)
 }
 
-func NewServiceStateWithContext(service, hostContext string, precedence ziti.Precedence, cost uint16, updater ServiceUpdater) *ServiceState {
+func NewServiceStateWithContext(service, hostContext string, precedence zt.Precedence, cost uint16, updater ServiceUpdater) *ServiceState {
 	return &ServiceState{
 		Service:            service,
 		HostContext:        hostContext,

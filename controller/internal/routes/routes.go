@@ -24,8 +24,8 @@ import (
 	"github.com/go-openapi/strfmt"
 	edgeRestModel "github.com/hanzozt/edge-api/rest_model"
 	"github.com/hanzozt/foundation/v2/errorz"
-	"github.com/hanzozt/ziti/v2/controller/models"
-	fabricRestModel "github.com/hanzozt/ziti/v2/controller/rest_model"
+	"github.com/hanzozt/zt/v2/controller/models"
+	fabricRestModel "github.com/hanzozt/zt/v2/controller/rest_model"
 )
 
 func GetModelQueryOptionsFromRequest(r *http.Request) (*PublicQueryOptions, error) {

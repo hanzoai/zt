@@ -24,7 +24,7 @@ import (
 	"github.com/michaelquigley/pfxlog"
 	"github.com/hanzozt/channel/v4"
 	"github.com/hanzozt/metrics/metrics_pb"
-	"github.com/hanzozt/ziti/v2/common/ctrl_msg"
+	"github.com/hanzozt/zt/v2/common/ctrl_msg"
 	"google.golang.org/protobuf/proto"
 )
 

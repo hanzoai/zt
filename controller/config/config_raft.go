@@ -5,7 +5,7 @@ import (
 
 	"github.com/hashicorp/go-hclog"
 	"github.com/hanzozt/transport/v2"
-	"github.com/hanzozt/ziti/v2/controller/command"
+	"github.com/hanzozt/zt/v2/controller/command"
 )
 
 type RaftConfig struct {

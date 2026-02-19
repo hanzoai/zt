@@ -39,7 +39,7 @@ import (
 	"github.com/go-openapi/runtime/middleware"
 	"github.com/go-openapi/validate"
 
-	"github.com/hanzozt/ziti/v2/controller/rest_model"
+	"github.com/hanzozt/zt/v2/controller/rest_model"
 )
 
 // NewCreateDatabaseSnapshotWithPathParams creates a new CreateDatabaseSnapshotWithPathParams object

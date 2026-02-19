@@ -36,11 +36,11 @@ import (
 	"github.com/hanzozt/edge-api/rest_model"
 	nfPem "github.com/hanzozt/foundation/v2/pem"
 	edge_apis "github.com/hanzozt/sdk-golang/edge-apis"
-	"github.com/hanzozt/ziti/v2/common/cert"
-	"github.com/hanzozt/ziti/v2/common/eid"
-	"github.com/hanzozt/ziti/v2/controller/change"
-	"github.com/hanzozt/ziti/v2/controller/env"
-	"github.com/hanzozt/ziti/v2/controller/model"
+	"github.com/hanzozt/zt/v2/common/cert"
+	"github.com/hanzozt/zt/v2/common/eid"
+	"github.com/hanzozt/zt/v2/controller/change"
+	"github.com/hanzozt/zt/v2/controller/env"
+	"github.com/hanzozt/zt/v2/controller/model"
 	"github.com/stretchr/testify/require"
 )
 
@@ -146,7 +146,7 @@ func (test *authCertTests) testAuthenticateValidCertValidClientInfoBody(t *testi
 
 	bodyJson := `{
   "envInfo": {"os": "windows", "arch": "amd64", "osRelease": "6.2.9200", "osVersion": "6.2.9200", "domain": "domain1", "hostname": "hostname1"},
-  "sdkInfo": {"type": "ziti-sdk-golang", "branch": "unknown", "version": "0.0.0", "revision": "unknown"}
+  "sdkInfo": {"type": "zt-sdk-golang", "branch": "unknown", "version": "0.0.0", "revision": "unknown"}
 }`
 	resp, err := testClient.NewRequest().
 		SetHeader("content-type", "application/json").
@@ -298,7 +298,7 @@ func (test *authCertTests) testAuthenticateValidCertInvalidJson(t *testing.T) {
 
 	standardErrorJsonResponseTests(resp, "COULD_NOT_PARSE_BODY", http.StatusBadRequest, t)
 
-	t.Run("returns without a ziti session header", func(t *testing.T) {
+	t.Run("returns without a zt session header", func(t *testing.T) {
 		require.New(t).Equal("", resp.Header().Get(env.ZitiSession))
 	})
 }
@@ -309,7 +309,7 @@ func (test *authCertTests) testAuthenticateValidCertValidClientInfoWithExtraProp
 	transport.TLSClientConfig.Certificates = test.certAuthenticator.TLSCertificates()
 
 	bodyJson := `{"envInfo": {"os": "windows", "arch": "amd64", "osRelease": "6.2.9200", "osVersion": "6.2.9200", "extraProp1":"extraVal1"},
-  "sdkInfo": {"type": "ziti-sdk-golang", "branch": "unknown", "version": "0.0.0", "revision": "unknown", "extraProp2":"extraVal2"},
+  "sdkInfo": {"type": "zt-sdk-golang", "branch": "unknown", "version": "0.0.0", "revision": "unknown", "extraProp2":"extraVal2"},
   "extraProp3": "extraVal3"}`
 	resp, err := testClient.NewRequest().
 		SetHeader("content-type", "application/json").
@@ -381,7 +381,7 @@ rv1CXRECfHglY+vO0CFumQOV5bec2R8=
 
 	standardErrorJsonResponseTests(resp, "INVALID_AUTH", http.StatusUnauthorized, t)
 
-	t.Run("returns without a ziti session header", func(t *testing.T) {
+	t.Run("returns without a zt session header", func(t *testing.T) {
 		require.New(t).Equal("", resp.Header().Get(env.ZitiSession))
 	})
 }

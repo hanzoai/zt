@@ -23,10 +23,10 @@ import (
 	"github.com/golang-jwt/jwt/v5"
 	"github.com/google/uuid"
 	"github.com/hanzozt/foundation/v2/errorz"
-	"github.com/hanzozt/sdk-golang/ziti"
+	"github.com/hanzozt/sdk-golang/zt"
 	"github.com/hanzozt/storage/boltz"
-	"github.com/hanzozt/ziti/v2/controller/db"
-	"github.com/hanzozt/ziti/v2/controller/models"
+	"github.com/hanzozt/zt/v2/controller/db"
+	"github.com/hanzozt/zt/v2/controller/models"
 	"go.etcd.io/bbolt"
 )
 
@@ -93,7 +93,7 @@ func (entity *Enrollment) FillJwtInfoWithExpiresAt(env Env, subject string, expi
 		}
 	}
 
-	enrollmentClaims := &ziti.EnrollmentClaims{
+	enrollmentClaims := &zt.EnrollmentClaims{
 		EnrollmentMethod: entity.Method,
 		Controllers:      controllers,
 		RegisteredClaims: jwt.RegisteredClaims{

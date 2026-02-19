@@ -3,24 +3,24 @@ FROM ubuntu:20.04
 RUN apt update && \
     apt install jq curl vim psmisc -y
 
-RUN useradd -ms /bin/bash ziti && \
-    mkdir /persistent && chown ziti:ziti /persistent && \
-    mkdir /persistent/scripts && chown ziti:ziti /persistent/scripts
+RUN useradd -ms /bin/bash zt && \
+    mkdir /persistent && chown zt:zt /persistent && \
+    mkdir /persistent/scripts && chown zt:zt /persistent/scripts
 
-USER ziti
+USER zt
 WORKDIR /persistent
 
 ENV ZITI_HOME=/persistent
 ENV ZITI_SHARED="${ZITI_HOME}/shared"
-ENV ENV_FILE="${ZITI_HOME}/ziti.env"
-ENV ZITI_NETWORK=ziti
-# Don't put these paths on shared volume in docker-compose deployment (https://github.com/hanzozt/ziti/issues/912)
-ENV ZITI_BIN_DIR=/var/hanzozt/ziti-bin
+ENV ENV_FILE="${ZITI_HOME}/zt.env"
+ENV ZITI_NETWORK=zt
+# Don't put these paths on shared volume in docker-compose deployment (https://github.com/hanzozt/zt/issues/912)
+ENV ZITI_BIN_DIR=/var/hanzozt/zt-bin
 ENV ZITI_SCRIPTS=/var/hanzozt/scripts
 
-COPY --chown=ziti ziti.ignore "${ZITI_BIN_DIR}"
-COPY --chown=ziti ziti-cli-functions.sh "${ZITI_SCRIPTS}/"
-COPY --chown=ziti dockerTestEntrypoint.sh "${ZITI_SCRIPTS}/"
+COPY --chown=zt zt.ignore "${ZITI_BIN_DIR}"
+COPY --chown=zt zt-cli-functions.sh "${ZITI_SCRIPTS}/"
+COPY --chown=zt dockerTestEntrypoint.sh "${ZITI_SCRIPTS}/"
 
 ENTRYPOINT /bin/bash -c '${ZITI_SCRIPTS}/dockerTestEntrypoint.sh'
 # && while :; do sleep 1; done'

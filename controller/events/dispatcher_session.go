@@ -23,8 +23,8 @@ import (
 
 	"github.com/hanzozt/foundation/v2/stringz"
 	"github.com/hanzozt/storage/boltz"
-	"github.com/hanzozt/ziti/v2/controller/db"
-	"github.com/hanzozt/ziti/v2/controller/event"
+	"github.com/hanzozt/zt/v2/controller/db"
+	"github.com/hanzozt/zt/v2/controller/event"
 	"github.com/pkg/errors"
 )
 

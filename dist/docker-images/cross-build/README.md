@@ -12,9 +12,9 @@ This article supports local development by providing a local containerized metho
 You only need to build the container image once unless you change the Dockerfile or `./linux-build.sh` (the container's entrypoint).
 
 ```bash
-# build a container image named "ziti-go-builder"
+# build a container image named "zt-go-builder"
 docker buildx build \
-    --tag=ziti-go-builder \
+    --tag=zt-go-builder \
     --build-arg uid=$UID \
     --build-arg gid=$GID \
     --load \
@@ -33,16 +33,16 @@ Executing the following `docker run` command will:
 # build for all three architectures: amd64 arm arm64
 docker run \
     --rm \
-    --name=ziti-go-builder \
+    --name=zt-go-builder \
     --volume=$PWD:/mnt \
-    ziti-go-builder
+    zt-go-builder
 
 # build only amd64 
 docker run \
     --rm \
-    --name=ziti-go-builder \
+    --name=zt-go-builder \
     --volume=$PWD:/mnt \
-    ziti-go-builder \
+    zt-go-builder \
         amd64
 ```
 
@@ -52,7 +52,7 @@ You will find the built artifacts in `./release`.
 
 ```bash
  ❯ docker buildx build \
-    --tag=ziti-go-builder \
+    --tag=zt-go-builder \
     --build-arg uid=$UID \
     --build-arg gid=$GID \
     --load \
@@ -87,18 +87,18 @@ You will find the built artifacts in `./release`.
 
  ❯ docker run \                                        
     --rm \
-    --name=ziti-go-builder \
+    --name=zt-go-builder \
     --volume=$PWD:/mnt \
-    ziti-go-builder           
+    zt-go-builder           
 Number of parallel builds: 4
 
--->       linux/arm: github.com/hanzozt/ziti/ziti
+-->       linux/arm: github.com/hanzozt/zt/zt
 Number of parallel builds: 4
 
--->     linux/arm64: github.com/hanzozt/ziti/ziti
+-->     linux/arm64: github.com/hanzozt/zt/zt
 Number of parallel builds: 4
 
--->     linux/amd64: github.com/hanzozt/ziti/ziti
+-->     linux/amd64: github.com/hanzozt/zt/zt
 Building for amd64 finished with result 0
 Building for arm64 finished with result 0
 Building for arm finished with result 0
@@ -106,22 +106,22 @@ Building for arm finished with result 0
  ❯ ll release/*/linux/
 release/amd64/linux/:
 total 96M
--rwxr-xr-x 1 kbingham kbingham 96M Feb  6 11:20 ziti*
+-rwxr-xr-x 1 kbingham kbingham 96M Feb  6 11:20 zt*
 
 release/arm64/linux/:
 total 101M
--rwxr-xr-x 1 kbingham kbingham 101M Feb  6 11:20 ziti*
+-rwxr-xr-x 1 kbingham kbingham 101M Feb  6 11:20 zt*
 
 release/arm/linux/:
 total 95M
--rwxr-xr-x 1 kbingham kbingham 95M Feb  6 11:20 ziti*
+-rwxr-xr-x 1 kbingham kbingham 95M Feb  6 11:20 zt*
 
- ❯ ./release/amd64/linux/ziti version
+ ❯ ./release/amd64/linux/zt version
 NAME             VERSION
-ziti             v0.0.0
-ziti-controller  v0.0.0
-ziti-prox-c      not installed
-ziti-router      v0.0.0
-ziti-tunnel      v0.0.0
-ziti-edge-tunnel v0.20.18-local
+zt             v0.0.0
+zt-controller  v0.0.0
+zt-prox-c      not installed
+zt-router      v0.0.0
+zt-tunnel      v0.0.0
+zt-edge-tunnel v0.20.18-local
 ```

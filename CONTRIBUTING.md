@@ -8,6 +8,6 @@ If you are eager to contribute to a NetFoundry-managed open source project pleas
 Some bookkeeping needs to be done for contributions.
 
 - Log an issue and tie your commits to it. Make sure the issue title clearly describes the problem, and the body of the issue explains what is happening, what is expected, and how to reproduce it.
-- Ensure your commit messages in Git include `fix hanzozt/ziti#<issuer-number>` as the first line of the commit message, followed by a blank line, and then whatever detail you want to provide.
-- Include in the pull request the same text, `fix hanzozt/ziti#<issue-number>` either in the title or body.
+- Ensure your commit messages in Git include `fix hanzozt/zt#<issuer-number>` as the first line of the commit message, followed by a blank line, and then whatever detail you want to provide.
+- Include in the pull request the same text, `fix hanzozt/zt#<issue-number>` either in the title or body.
 - Ensure commits are signed by a key you've associated with your GitHub handle.

@@ -22,7 +22,7 @@ import (
 	"sort"
 	"testing"
 
-	"github.com/hanzozt/ziti/v2/common/eid"
+	"github.com/hanzozt/zt/v2/common/eid"
 )
 
 func Test_ApiSession(t *testing.T) {

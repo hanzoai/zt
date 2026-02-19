@@ -23,7 +23,7 @@ import (
 	"testing"
 
 	"github.com/hanzozt/edge-api/rest_model"
-	"github.com/hanzozt/ziti/v2/controller/permissions"
+	"github.com/hanzozt/zt/v2/controller/permissions"
 )
 
 func Test_Permissions_ServiceEdgeRouterPolicy(t *testing.T) {

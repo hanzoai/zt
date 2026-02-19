@@ -26,9 +26,9 @@ import (
 	"time"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/hanzozt/sdk-golang/ziti"
-	"github.com/hanzozt/sdk-golang/ziti/edge"
-	"github.com/hanzozt/ziti/v2/common/eid"
+	"github.com/hanzozt/sdk-golang/zt"
+	"github.com/hanzozt/sdk-golang/zt/edge"
+	"github.com/hanzozt/zt/v2/common/eid"
 	"github.com/pkg/errors"
 )
 
@@ -68,9 +68,9 @@ func testClientFirstWithStrategy(t *testing.T, strategy string) {
 
 	service := ctx.AdminManagementSession.RequireNewServiceAccessibleToAll(strategy)
 
-	serverContextC := make(chan ziti.Context, 3)
+	serverContextC := make(chan zt.Context, 3)
 	doneC := make(chan struct{}, 1)
-	var serverContexts []ziti.Context
+	var serverContexts []zt.Context
 	for i := 0; i < 3; i++ {
 		_, context := ctx.AdminManagementSession.RequireCreateSdkContext()
 		defer context.Close()
@@ -123,7 +123,7 @@ func testClientFirstWithStrategy(t *testing.T, strategy string) {
 	clientIdentity := ctx.AdminManagementSession.RequireNewIdentityWithOtt(false)
 	clientConfig := ctx.EnrollIdentity(clientIdentity.Id)
 
-	clientContext, err := ziti.NewContext(clientConfig)
+	clientContext, err := zt.NewContext(clientConfig)
 	ctx.Req.NoError(err)
 
 	logger := pfxlog.Logger()
@@ -214,9 +214,9 @@ func testServerFirstWithStrategy(t *testing.T, strategy string) {
 
 	service := ctx.AdminManagementSession.RequireNewServiceAccessibleToAll(strategy)
 
-	serverContextC := make(chan ziti.Context, 3)
+	serverContextC := make(chan zt.Context, 3)
 	doneC := make(chan struct{}, 1)
-	var serverContexts []ziti.Context
+	var serverContexts []zt.Context
 
 	var dialCount int32
 	servers := make(chan *testServer, 1000)
@@ -268,7 +268,7 @@ func testServerFirstWithStrategy(t *testing.T, strategy string) {
 	clientIdentity := ctx.AdminManagementSession.RequireNewIdentityWithOtt(false)
 	clientConfig := ctx.EnrollIdentity(clientIdentity.Id)
 
-	clientContext, err := ziti.NewContext(clientConfig)
+	clientContext, err := zt.NewContext(clientConfig)
 	ctx.Req.NoError(err)
 
 	ticker := time.NewTicker(time.Millisecond * 500)

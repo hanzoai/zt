@@ -28,8 +28,8 @@ import (
 	"github.com/hanzozt/identity"
 	"github.com/hanzozt/sdk-golang/xgress"
 	"github.com/hanzozt/transport/v2"
-	"github.com/hanzozt/ziti/v2/common/pb/ctrl_pb"
-	"github.com/hanzozt/ziti/v2/router/xlink"
+	"github.com/hanzozt/zt/v2/common/pb/ctrl_pb"
+	"github.com/hanzozt/zt/v2/router/xlink"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 )
@@ -300,7 +300,7 @@ func (self *dialer) dialMulti(linkId *identity.TokenId, address transport.Addres
 		}
 		_, err = channel.NewMultiChannel(multiChannelConfig)
 	} else {
-		_, err = channel.NewChannelWithUnderlay(fmt.Sprintf("ziti-link[router=%v]", address.String()), underlay, bindHandler, self.config.options)
+		_, err = channel.NewChannelWithUnderlay(fmt.Sprintf("zt-link[router=%v]", address.String()), underlay, bindHandler, self.config.options)
 	}
 
 	if err != nil {

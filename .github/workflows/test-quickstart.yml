@@ -39,7 +39,7 @@ jobs:
     env:
       ZITI_CLI_TAG: local  # override default :latest since we're not pulling from registry
       ARTIFACTS_DIR: ./build  # output dir for `go build`, input dir for `compose up --build`
-      DOCKER_BUILD_DIR: ./dist/docker-images/ziti-cli
+      DOCKER_BUILD_DIR: ./dist/docker-images/zt-cli
       ZIGGY_UID: 1001  # let container EUID run-as GHA "runner" user to share cache, etc.
     steps:
       - name: Shallow checkout
@@ -49,13 +49,13 @@ jobs:
         id: setup-go
         uses: ./.github/actions/setup-go
 
-      - name: Build ziti executable
+      - name: Build zt executable
         shell: bash
         run: |
           mkdir -pv ${ARTIFACTS_DIR}/amd64/linux
           go build -o ${ARTIFACTS_DIR}/amd64/linux ${GITHUB_WORKSPACE}/...
 
-      - name: Run the all-in-one quickstart with locally-built ziti executable
+      - name: Run the all-in-one quickstart with locally-built zt executable
         shell: bash
         working-directory: ./quickstart/docker/all-in-one
         run: |
@@ -86,7 +86,7 @@ jobs:
     name: Test HA Quickstart
     runs-on: ubuntu-24.04
     env:
-      BUILD_DIR: /tmp/build  # dir is created by build step and env var used by test script to find ziti executable
+      BUILD_DIR: /tmp/build  # dir is created by build step and env var used by test script to find zt executable
     steps:
       - name: Shallow checkout
         uses: actions/checkout@v6
@@ -104,7 +104,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-go-
 
-      - name: Build ziti executable
+      - name: Build zt executable
         shell: bash
         run: |
           mkdir -pv ${BUILD_DIR}

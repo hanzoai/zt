@@ -1,14 +1,14 @@
 services:
   quickstart:
     build:
-      # the build context is the root of the ziti repo so that BuildKit can access the built ziti executable in /build
+      # the build context is the root of the zt repo so that BuildKit can access the built zt executable in /build
       # and the Dockerfile
       context: ../../../ 
-      dockerfile: ./dist/docker-images/ziti-cli/Dockerfile
+      dockerfile: ./dist/docker-images/zt-cli/Dockerfile
       args:
-        # path of the directory containing the locally-built ziti executable; relative to the build context
+        # path of the directory containing the locally-built zt executable; relative to the build context
         ARTIFACTS_DIR: ${ARTIFACTS_DIR:-./build}
-        DOCKER_BUILD_DIR: ${DOCKER_BUILD_DIR:-./dist/docker-images/ziti-cli}
+        DOCKER_BUILD_DIR: ${DOCKER_BUILD_DIR:-./dist/docker-images/zt-cli}
   quickstart-test:
     profiles:
       - test
@@ -21,7 +21,7 @@ services:
     # run as the same user as the host, so we can use the host's GOCACHE
     user: ${ZIGGY_UID:-1000}
     volumes:
-      # mount the parent dir of the quickstart, which is the top-level of the ziti repo working copy, as /mnt, so we can
+      # mount the parent dir of the quickstart, which is the top-level of the zt repo working copy, as /mnt, so we can
       # run the tests in the "edge" Go package
       - ../../../:/mnt
       # re-run tests if significant changes from last result in GOCACHE
@@ -43,20 +43,20 @@ services:
       ZITI_ROUTER_ADVERTISED_ADDRESS: ${ZITI_CTRL_ADVERTISED_ADDRESS:-quickstart}
       ZITI_ROUTER_PORT: ${ZITI_ROUTER_PORT:-3022}
       ZITI_ROUTER_NAME: ${ZITI_ROUTER_NAME:-quickstart-router}
-    command: go test -v ./ziti/cmd/edge/...
+    command: go test -v ./zt/cmd/edge/...
       
   wait-for-login:
     profiles:
       - test
-    image: ${ZITI_CLI_IMAGE:-docker.io/hanzozt/ziti-controller}:${ZITI_CLI_TAG:-latest}
+    image: ${ZITI_CLI_IMAGE:-docker.io/hanzozt/zt-controller}:${ZITI_CLI_TAG:-latest}
     networks:
       - quickstart
-    # run as the same user as the host, so we can write in ~/.config/ziti
+    # run as the same user as the host, so we can write in ~/.config/zt
     user: ${ZIGGY_UID:-1000}
     environment:
       HOME: /home/ziggy
     volumes:
-      - ${ZITI_HOME:-ziti_home}:/home/ziggy
+      - ${ZITI_HOME:-zt_home}:/home/ziggy
     entrypoint:
       - bash
       - -euxc
@@ -64,12 +64,12 @@ services:
         set -o pipefail
         ATTEMPTS=10
         DELAY=3
-        until ! (( --ATTEMPTS )) || ziti $${@}
+        until ! (( --ATTEMPTS )) || zt $${@}
         do
           echo "Waiting for controller to start"
           sleep $${DELAY}
         done
-        ziti $${@}
+        zt $${@}
     command: >
       -- edge login
       ${ZITI_CTRL_ADVERTISED_ADDRESS:-quickstart}:${ZITI_CTRL_ADVERTISED_PORT:-1280}

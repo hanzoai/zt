@@ -19,7 +19,7 @@
 * github.com/hanzozt/storage: [v0.1.46 -> v0.1.49](https://github.com/hanzozt/storage/compare/v0.1.46...v0.1.49)
 * github.com/hanzozt/transport/v2: [v2.0.68 -> v2.0.72](https://github.com/hanzozt/transport/compare/v2.0.68...v2.0.72)
 * github.com/hanzozt/metrics: [v1.2.16 -> v1.2.19](https://github.com/hanzozt/metrics/compare/v1.2.16...v1.2.19)
-* github.com/hanzozt/ziti: [v0.27.8 -> v0.27.9](https://github.com/hanzozt/ziti/compare/v0.27.8...v0.27.9)
+* github.com/hanzozt/zt: [v0.27.8 -> v0.27.9](https://github.com/hanzozt/zt/compare/v0.27.8...v0.27.9)
 
 # Release 0.27.8
 
@@ -36,10 +36,10 @@
 
 * github.com/hanzozt/fabric: [v0.22.76 -> v0.22.77](https://github.com/hanzozt/fabric/compare/v0.22.76...v0.22.77)
 * github.com/hanzozt/storage: [v0.1.45 -> v0.1.46](https://github.com/hanzozt/storage/compare/v0.1.45...v0.1.46)
-* github.com/hanzozt/ziti: [v0.27.7 -> v0.27.8](https://github.com/hanzozt/ziti/compare/v0.27.7...v0.27.8)
-    * [Issue #1064](https://github.com/hanzozt/ziti/issues/1064) - Support auth-policy assignments on identities via the CLI
-    * [Issue #1058](https://github.com/hanzozt/ziti/issues/1058) - Allow Auth Policy Create/Update/Delete via CLI
-    * [Issue #1059](https://github.com/hanzozt/ziti/issues/1059) - Expose Delete for Ext JWT Signers in CLI
+* github.com/hanzozt/zt: [v0.27.7 -> v0.27.8](https://github.com/hanzozt/zt/compare/v0.27.7...v0.27.8)
+    * [Issue #1064](https://github.com/hanzozt/zt/issues/1064) - Support auth-policy assignments on identities via the CLI
+    * [Issue #1058](https://github.com/hanzozt/zt/issues/1058) - Allow Auth Policy Create/Update/Delete via CLI
+    * [Issue #1059](https://github.com/hanzozt/zt/issues/1059) - Expose Delete for Ext JWT Signers in CLI
 
 # Release 0.27.7
 
@@ -52,15 +52,15 @@
 ## What's New
 
 * Makes inspect CLI more discoverable by adding subcommands for inspectable values
-* Adds new inspection allowing configs to be retrieved: `ziti fabric inspect config`
+* Adds new inspection allowing configs to be retrieved: `zt fabric inspect config`
 * Many improvements to edge-router/tunneler hosting performance with large numbers of hosted services
     * Routers should no longer overwhelm controller while setting up or reestablishing hosting
 * Adds ability to disable router
-* Adds CLI command to compact offline bbolt database: `ziti ops db compact <src> <dst>`
-* Adds CLI command to re-enroll edge routers: `ziti edge re-enroll edge-router`
+* Adds CLI command to compact offline bbolt database: `zt ops db compact <src> <dst>`
+* Adds CLI command to re-enroll edge routers: `zt edge re-enroll edge-router`
 * Routers can now be disabled. Connections to the controller from disabled routers will be rejected.
-    * Disable with: `ziti fabric update router <router-id> --disabled`
-    * Enable with:  `ziti fabric update router <router-id> --disabled=false`
+    * Disable with: `zt fabric update router <router-id> --disabled`
+    * Enable with:  `zt fabric update router <router-id> --disabled=false`
 
 ## Component Updates and Bug Fixes
 
@@ -108,18 +108,18 @@
 * github.com/hanzozt/transport/v2: [v2.0.51 -> v2.0.68](https://github.com/hanzozt/transport/compare/v2.0.51...v2.0.68)
 * github.com/hanzozt/jwks: [v1.0.2 -> v1.0.3](https://github.com/hanzozt/jwks/compare/v1.0.2...v1.0.3)
 * github.com/hanzozt/metrics: [v1.2.3 -> v1.2.16](https://github.com/hanzozt/metrics/compare/v1.2.3...v1.2.16)
-* github.com/hanzozt/ziti: [v0.27.5 -> v0.27.6](https://github.com/hanzozt/ziti/compare/v0.27.5...v0.27.6)
-    * [Issue #1041](https://github.com/hanzozt/ziti/issues/1041) - Add ziti compact command to CLI
-    * [Issue #1032](https://github.com/hanzozt/ziti/issues/1032) - ziti edge create service fails silently if config names don't exist
-    * [Issue #1031](https://github.com/hanzozt/ziti/issues/1031) - Fixed quickstart bug with arm and arm64 ambiguity when running quickstart on arm architecture
+* github.com/hanzozt/zt: [v0.27.5 -> v0.27.6](https://github.com/hanzozt/zt/compare/v0.27.5...v0.27.6)
+    * [Issue #1041](https://github.com/hanzozt/zt/issues/1041) - Add zt compact command to CLI
+    * [Issue #1032](https://github.com/hanzozt/zt/issues/1032) - zt edge create service fails silently if config names don't exist
+    * [Issue #1031](https://github.com/hanzozt/zt/issues/1031) - Fixed quickstart bug with arm and arm64 ambiguity when running quickstart on arm architecture
 
 # Release 0.27.5
 
 ## What's New
 
-* Fixes an issue with `ziti` CLI when using a globally trusted CA
-* Fixes bug where `ziti agent stack` was calling `ziti agent stats`
-* ziti controller/router no longer compare the running version with 
+* Fixes an issue with `zt` CLI when using a globally trusted CA
+* Fixes bug where `zt agent stack` was calling `zt agent stats`
+* zt controller/router no longer compare the running version with 
   the latest from github by default. Set ZITI_CHECK_VERSION=true to
   enable this behavior
 
@@ -132,7 +132,7 @@
 
 * github.com/hanzozt/sdk-golang: [v0.18.27 -> v0.18.28](https://github.com/hanzozt/sdk-golang/compare/v0.18.27...v0.18.28)
 * github.com/hanzozt/storage: [v0.1.33 -> v0.1.34](https://github.com/hanzozt/storage/compare/v0.1.33...v0.1.34)
-* github.com/hanzozt/ziti: [v0.27.4 -> v0.27.5](https://github.com/hanzozt/ziti/compare/v0.27.4...v0.27.5)
+* github.com/hanzozt/zt: [v0.27.4 -> v0.27.5](https://github.com/hanzozt/zt/compare/v0.27.4...v0.27.5)
 
 # Release 0.27.4
 
@@ -149,13 +149,13 @@ This release contains a fix for a controller deadlock
 * github.com/hanzozt/fabric: [v0.22.19 -> v0.22.20](https://github.com/hanzozt/fabric/compare/v0.22.19...v0.22.20)
 * github.com/hanzozt/sdk-golang: [v0.18.26 -> v0.18.27](https://github.com/hanzozt/sdk-golang/compare/v0.18.26...v0.18.27)
 * github.com/hanzozt/transport/v2: [v2.0.50 -> v2.0.51](https://github.com/hanzozt/transport/compare/v2.0.50...v2.0.51)
-* github.com/hanzozt/ziti: [v0.27.3 -> v0.27.4](https://github.com/hanzozt/ziti/compare/v0.27.3...v0.27.4)
+* github.com/hanzozt/zt: [v0.27.3 -> v0.27.4](https://github.com/hanzozt/zt/compare/v0.27.3...v0.27.4)
 
 # Release 0.27.3
 
 ## What's New
 
-* Docker images for `ziti` CLI
+* Docker images for `zt` CLI
 
 * New Raft interaction commands
     * `raft-leave` allows removal of controllers from the raft cluster
@@ -181,9 +181,9 @@ This release contains a fix for a controller deadlock
 * github.com/hanzozt/sdk-golang: [v0.18.21 -> v0.18.26](https://github.com/hanzozt/sdk-golang/compare/v0.18.21...v0.18.26)
 * github.com/hanzozt/storage: [v0.1.31 -> v0.1.33](https://github.com/hanzozt/storage/compare/v0.1.31...v0.1.33)
 * github.com/hanzozt/transport/v2: [v2.0.49 -> v2.0.50](https://github.com/hanzozt/transport/compare/v2.0.49...v2.0.50)
-* github.com/hanzozt/ziti: [v0.27.2 -> v0.27.3](https://github.com/hanzozt/ziti/compare/v0.27.2...v0.27.3)
-    * [Issue #974](https://github.com/hanzozt/ziti/issues/974) - tunnel "host" and "proxy" modes shouldn't run the nameserver
-    * [Issue #972](https://github.com/hanzozt/ziti/issues/972) - tunnel segfault
+* github.com/hanzozt/zt: [v0.27.2 -> v0.27.3](https://github.com/hanzozt/zt/compare/v0.27.2...v0.27.3)
+    * [Issue #974](https://github.com/hanzozt/zt/issues/974) - tunnel "host" and "proxy" modes shouldn't run the nameserver
+    * [Issue #972](https://github.com/hanzozt/zt/issues/972) - tunnel segfault
 
 # Release 0.27.2
 
@@ -212,8 +212,8 @@ This release contains a fix for a controller deadlock
 * github.com/hanzozt/storage: [v0.1.30 -> v0.1.31](https://github.com/hanzozt/storage/compare/v0.1.30...v0.1.31)
 * github.com/hanzozt/transport/v2: [v2.0.48 -> v2.0.49](https://github.com/hanzozt/transport/compare/v2.0.48...v2.0.49)
 * github.com/hanzozt/metrics: [v1.2.2 -> v1.2.3](https://github.com/hanzozt/metrics/compare/v1.2.2...v1.2.3)
-* github.com/hanzozt/ziti: [v0.27.1 -> v0.27.2](https://github.com/hanzozt/ziti/compare/v0.27.1...v0.27.2)
-    * [Issue #916](https://github.com/hanzozt/ziti/issues/916) - Allow defining resource tags via json in the cli
+* github.com/hanzozt/zt: [v0.27.1 -> v0.27.2](https://github.com/hanzozt/zt/compare/v0.27.1...v0.27.2)
+    * [Issue #916](https://github.com/hanzozt/zt/issues/916) - Allow defining resource tags via json in the cli
 
 
 # Release 0.27.1
@@ -221,7 +221,7 @@ This release contains a fix for a controller deadlock
 ## What's New
 
 * Event streaming over websocket
-    * `ziti fabric stream events`
+    * `zt fabric stream events`
     * Events use same JSON formatting as the file based streaming
     * Plain Text formatting removed
     * Individual streaming of metrics/circuits removed in favor of unified events streaming
@@ -242,9 +242,9 @@ This release contains a fix for a controller deadlock
     * [Issue #552](https://github.com/hanzozt/fabric/issues/552) - Add minimum cost delta for smart routing
     * [Issue #558](https://github.com/hanzozt/fabric/issues/558) - Allow terminators to be marked as system entities
 
-* github.com/hanzozt/ziti: [v0.27.0 -> v0.27.1](https://github.com/hanzozt/ziti/compare/v0.27.0...v0.27.1)
-    * [Issue #928](https://github.com/hanzozt/ziti/issues/928) - ziti fabric update terminator should not require setting router
-    * [Issue #929](https://github.com/hanzozt/ziti/issues/929) - zit fabric list terminators isn't showing cost or dynamic cost 
+* github.com/hanzozt/zt: [v0.27.0 -> v0.27.1](https://github.com/hanzozt/zt/compare/v0.27.0...v0.27.1)
+    * [Issue #928](https://github.com/hanzozt/zt/issues/928) - zt fabric update terminator should not require setting router
+    * [Issue #929](https://github.com/hanzozt/zt/issues/929) - zit fabric list terminators isn't showing cost or dynamic cost 
 
 # Release 0.27.0
 
@@ -253,28 +253,28 @@ This release contains a fix for a controller deadlock
 * Ziti CLI
     * The CLI has been cleaned up and unused, unusable and underused components have been removed or hidden
     * Add create/delete transit-router CLI commands
-    * [Issue-706](https://github.com/hanzozt/ziti/issues/706) - Add port check to quickstart
+    * [Issue-706](https://github.com/hanzozt/zt/issues/706) - Add port check to quickstart
 
 ## Ziti CLI
 
 * The update command has been removed. It was non-functional, so this should not affect anyone 
 * The adhoc, ping and playbook commands have been removed. These were ansible and vagrant commands that were not widely used.
 * Make the art command hidden, doesn't need to be removed, leave it as an easter egg
-* Move ziti ps command under ziti agent. Remove all ziti ps subcommands, as they already exist as ziti agent subcommands
-* Add `ziti controller` and `ziti router` commands
-    * They should work exactly the same as `ziti-controller` and `ziti router` 
-    * The standalone binaries for `ziti-controller` and `ziti-router` are deprecated and will be removed in a future release
-* Add hidden `ziti tunnel` command
-    * Should work exactly the same as `ziti-tunnel`
-    * Is hidden as `ziti-edge-tunnel` is the preferred tunnelling application
-    * The standalone binary `ziti-tunnel` is deprecated and will be removed in a future release
+* Move zt ps command under zt agent. Remove all zt ps subcommands, as they already exist as zt agent subcommands
+* Add `zt controller` and `zt router` commands
+    * They should work exactly the same as `zt-controller` and `zt router` 
+    * The standalone binaries for `zt-controller` and `zt-router` are deprecated and will be removed in a future release
+* Add hidden `zt tunnel` command
+    * Should work exactly the same as `zt-tunnel`
+    * Is hidden as `zt-edge-tunnel` is the preferred tunnelling application
+    * The standalone binary `zt-tunnel` is deprecated and will be removed in a future release
 * The db, log-format and unwrap commands have been moved under a new ops command
-* ziti executable download management has been deprecated
+* zt executable download management has been deprecated
     * The init and uninstall commands have been removed
     * The install, upgrade, use and version commands have been hidden and will be hidden once tests using them are updated or replaced
 * The demo and tutorial commands have been moved under the new learn subcommand
-* `ziti edge enroll` now has a verbose option for additional debugging
-* The `ziti edge` CLI now support create/delete transit-router. This allows transit/fabric routers to be provisioned using an enrollment process, rather than requiring certs to be created externally. Note that this requires that the fabric router config file has a `csr` section.
+* `zt edge enroll` now has a verbose option for additional debugging
+* The `zt edge` CLI now support create/delete transit-router. This allows transit/fabric routers to be provisioned using an enrollment process, rather than requiring certs to be created externally. Note that this requires that the fabric router config file has a `csr` section.
 
 ## Component Updates and Bug Fixes
 
@@ -296,12 +296,12 @@ This release contains a fix for a controller deadlock
 * github.com/hanzozt/storage: [v0.1.26 -> v0.1.30](https://github.com/hanzozt/storage/compare/v0.1.26...v0.1.30)
 * github.com/hanzozt/transport/v2: [v2.0.38 -> v2.0.48](https://github.com/hanzozt/transport/compare/v2.0.38...v2.0.48)
 * github.com/hanzozt/metrics: [v1.1.5 -> v1.2.2](https://github.com/hanzozt/metrics/compare/v1.1.5...v1.2.2)
-* github.com/hanzozt/ziti: [v0.26.11 -> v0.26.12](https://github.com/hanzozt/ziti/compare/v0.26.11...v0.26.12)
-    * [Issue #892](https://github.com/hanzozt/ziti/issues/892) - Add timeout to ziti agent controller snapshot-db command
-    * [Issue #917](https://github.com/hanzozt/ziti/issues/917) - ZITI_BIN_ROOT is incorrect in docker env
-    * [Issue #912](https://github.com/hanzozt/ziti/issues/912) - Binaries not updated in docker-compose env with new image
-    * [Issue #897](https://github.com/hanzozt/ziti/issues/897) - Add CLI options to manage  /edge/v1/transit-routers
-    * [Issue #706](https://github.com/hanzozt/ziti/issues/706) - Add port check to quickstart
+* github.com/hanzozt/zt: [v0.26.11 -> v0.26.12](https://github.com/hanzozt/zt/compare/v0.26.11...v0.26.12)
+    * [Issue #892](https://github.com/hanzozt/zt/issues/892) - Add timeout to zt agent controller snapshot-db command
+    * [Issue #917](https://github.com/hanzozt/zt/issues/917) - ZITI_BIN_ROOT is incorrect in docker env
+    * [Issue #912](https://github.com/hanzozt/zt/issues/912) - Binaries not updated in docker-compose env with new image
+    * [Issue #897](https://github.com/hanzozt/zt/issues/897) - Add CLI options to manage  /edge/v1/transit-routers
+    * [Issue #706](https://github.com/hanzozt/zt/issues/706) - Add port check to quickstart
 
 # Older Changelogs
 

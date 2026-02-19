@@ -25,8 +25,8 @@ import (
 	"time"
 
 	"github.com/michaelquigley/pfxlog"
-	"github.com/hanzozt/sdk-golang/ziti"
-	"github.com/hanzozt/ziti/v2/common/eid"
+	"github.com/hanzozt/sdk-golang/zt"
+	"github.com/hanzozt/zt/v2/common/eid"
 )
 
 func Test_TerminatorCloseOnBindPermissionLoss(t *testing.T) {
@@ -96,7 +96,7 @@ func Test_TerminatorCloseOnBindPermissionLoss(t *testing.T) {
 	// Verify both services are working
 	clientIdentity := ctx.AdminManagementSession.RequireNewIdentityWithOtt(false)
 	clientConfig := ctx.EnrollIdentity(clientIdentity.Id)
-	clientContext, err := ziti.NewContext(clientConfig)
+	clientContext, err := zt.NewContext(clientConfig)
 	ctx.Req.NoError(err)
 	defer clientContext.Close()
 
@@ -213,13 +213,13 @@ func Test_CircuitCloseOnDialPermissionLoss(t *testing.T) {
 	// Create two client identities with distinct roles
 	client1Identity := ctx.AdminManagementSession.RequireNewIdentityWithOtt(false, clientRole1)
 	client1Config := ctx.EnrollIdentity(client1Identity.Id)
-	client1Context, err := ziti.NewContext(client1Config)
+	client1Context, err := zt.NewContext(client1Config)
 	ctx.Req.NoError(err)
 	defer client1Context.Close()
 
 	client2Identity := ctx.AdminManagementSession.RequireNewIdentityWithOtt(false, clientRole2)
 	client2Config := ctx.EnrollIdentity(client2Identity.Id)
-	client2Context, err := ziti.NewContext(client2Config)
+	client2Context, err := zt.NewContext(client2Config)
 	ctx.Req.NoError(err)
 	defer client2Context.Close()
 

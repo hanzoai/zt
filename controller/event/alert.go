@@ -27,7 +27,7 @@ const (
 	AlertSourceTypeRouter = "router"
 )
 
-// An AlertEvent is emitted when a ziti component generates an alert. Alerts are expected to be something that
+// An AlertEvent is emitted when a zt component generates an alert. Alerts are expected to be something that
 // a network operator can fix, such as a problem with a service configuration.
 //
 // Valid values for alert source type:

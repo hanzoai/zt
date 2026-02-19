@@ -12,10 +12,10 @@ import (
 	enrollment_client "github.com/hanzozt/edge-api/rest_client_api_server/operations/enrollment"
 	enrollment_management "github.com/hanzozt/edge-api/rest_management_api_server/operations/enrollment"
 	"github.com/hanzozt/edge-api/rest_model"
-	"github.com/hanzozt/sdk-golang/ziti"
-	"github.com/hanzozt/ziti/v2/controller/env"
-	"github.com/hanzozt/ziti/v2/controller/permissions"
-	"github.com/hanzozt/ziti/v2/controller/response"
+	"github.com/hanzozt/sdk-golang/zt"
+	"github.com/hanzozt/zt/v2/controller/env"
+	"github.com/hanzozt/zt/v2/controller/permissions"
+	"github.com/hanzozt/zt/v2/controller/response"
 )
 
 func init() {
@@ -60,7 +60,7 @@ func (r *NetworkJwtRoute) List(ae *env.AppEnv, rc *response.RequestContext) {
 	if networkJwt == "" {
 		issuer := fmt.Sprintf(`https://%s/`, ae.GetConfig().Edge.Api.Address)
 
-		claims := &ziti.EnrollmentClaims{
+		claims := &zt.EnrollmentClaims{
 			EnrollmentMethod: EnrollmentMethodNetwork,
 			RegisteredClaims: jwt.RegisteredClaims{
 				Audience: jwt.ClaimStrings{env.JwtAudEnrollment},

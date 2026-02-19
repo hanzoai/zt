@@ -1,4 +1,4 @@
-name: mattermost-ziti-nodejs-webhook
+name: mattermost-zt-nodejs-webhook
 on:
   create:
   delete:
@@ -12,7 +12,7 @@ on:
   release:
 
 jobs:
-  mattermost-ziti-nodejs-webhook:
+  mattermost-zt-nodejs-webhook:
     continue-on-error: true
     runs-on: ubuntu-24.04
     name: POST Webhook with NodeJS
@@ -21,9 +21,9 @@ jobs:
       ZITI_LOG: 99
       ZITI_NODEJS_LOG: 99
     steps:
-      - uses: hanzozt/ziti-webhook-action@main
+      - uses: hanzozt/zt-webhook-action@main
         with:
-          ziti-id: ${{ secrets.ZITI_MATTERMOST_IDENTITY }}
+          zt-id: ${{ secrets.ZITI_MATTERMOST_IDENTITY }}
           webhook-url: ${{ secrets.ZITI_MATTERMOST_WEBHOOK_URL }}
           webhook-secret: ${{ secrets.ZITI_MATTERMOSTI_WEBHOOK_SECRET }}
 

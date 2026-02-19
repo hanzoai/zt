@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 #
-# this script tests the quickstart's ziti-cli-functions.sh, container image creation process, and Compose project by
+# this script tests the quickstart's zt-cli-functions.sh, container image creation process, and Compose project by
 # gathering files from a particular GitHub repo ref or a filesystem path and running the quickstart's Go test suite
 # against the running Compose project
 #
@@ -61,7 +61,7 @@ declare -a QUICK_FILES=(
     test/compose.override.yml
     docker/{simplified-docker-compose.yml,.env}
 )
-        # TODO: re-add cert checks files after https://github.com/hanzozt/ziti/pull/1278
+        # TODO: re-add cert checks files after https://github.com/hanzozt/zt/pull/1278
     # test/{quickstart_test.go,compose.override.yml,check-cert-chains.zsh}
 # download the quickstart Go test suite files from GitHub unless a local dir is specified
 if [[ -n "${ZITI_QUICK_DIR:-}" ]]; then
@@ -103,7 +103,7 @@ fi
 sed -E \
     -e  "s/^(#[[:space:]]*)?(ZITI_PWD)=.*/\2=${ZITI_PWD}/" \
     -e  "s/^(#[[:space:]]*)?(ZITI_ROUTER_NAME)=.*/\2=${ZITI_ROUTER_NAME:=quickstart-router}/" \
-    -e  "s/^(#[[:space:]]*)?(ZITI_ROUTER_ADVERTISED_ADDRESS)=.*/\2=${ZITI_ROUTER_ADVERTISED_ADDRESS:=ziti-edge-router}/" \
+    -e  "s/^(#[[:space:]]*)?(ZITI_ROUTER_ADVERTISED_ADDRESS)=.*/\2=${ZITI_ROUTER_ADVERTISED_ADDRESS:=zt-edge-router}/" \
     -e  "s/^(#[[:space:]]*)?(ZITI_INTERFACE)=.*/\2=${ZITI_INTERFACE:-127.0.0.1}/" ./.env > ./.env.tmp
 mv ./.env.tmp ./.env
 
@@ -139,27 +139,27 @@ fi
 # for FILE in \
     # ""
     # check-cert-chains.zsh
-    # TODO: re-add cert checks to cp list after https://github.com/hanzozt/ziti/pull/1278
+    # TODO: re-add cert checks to cp list after https://github.com/hanzozt/zt/pull/1278
 # do
     # docker compose cp \
     #     "./${FILE}" \
-    #     "ziti-controller:/persistent/${FILE}" &>/dev/null
+    #     "zt-controller:/persistent/${FILE}" &>/dev/null
 # done
 # TODO: build these executables into the container image?
 
 # wait for the controller and router to be ready and run the certificate check script; NOUNSET option is enabled after
 # sourcing quickstart functions and env because there are some unset variables in those
-docker compose exec ziti-controller \
+docker compose exec zt-controller \
     bash -eo pipefail -c '
-        source "${ZITI_SCRIPTS}/ziti-cli-functions.sh" >/dev/null;
+        source "${ZITI_SCRIPTS}/zt-cli-functions.sh" >/dev/null;
         echo "INFO: waiting for controller";
-        source /persistent/ziti.env >/dev/null;
+        source /persistent/zt.env >/dev/null;
         _wait_for_controller >/dev/null;
         echo "INFO: waiting for public router";
-        source /persistent/ziti.env >/dev/null;
+        source /persistent/zt.env >/dev/null;
         _wait_for_public_router >/dev/null;
     '
-        # TODO: re-add cert checks to above test suite after https://github.com/hanzozt/ziti/pull/1278
+        # TODO: re-add cert checks to above test suite after https://github.com/hanzozt/zt/pull/1278
         # zsh /persistent/check-cert-chains.zsh;
 docker compose --profile test run --rm quickstart-test
 

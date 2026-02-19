@@ -20,8 +20,8 @@ import (
 	"path"
 
 	"github.com/hanzozt/edge-api/rest_model"
-	"github.com/hanzozt/ziti/v2/controller/model"
-	"github.com/hanzozt/ziti/v2/controller/models"
+	"github.com/hanzozt/zt/v2/controller/model"
+	"github.com/hanzozt/zt/v2/controller/models"
 )
 
 var CurrentIdentityAuthenticatorLinkFactory LinksFactory = NewCurrentIdentityAuthenticatorLinkFactory()

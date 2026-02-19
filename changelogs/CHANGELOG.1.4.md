@@ -6,8 +6,8 @@
 
 ## Component Updates and Bug Fixes
 
-* github.com/hanzozt/ziti: [v1.4.2 -> v1.4.3](https://github.com/hanzozt/ziti/compare/v1.4.2...v1.4.3)
-  * [Issue #2865](https://github.com/hanzozt/ziti/issues/2865) - Connections w/ API Session Certs Fail To Dial
+* github.com/hanzozt/zt: [v1.4.2 -> v1.4.3](https://github.com/hanzozt/zt/compare/v1.4.2...v1.4.3)
+  * [Issue #2865](https://github.com/hanzozt/zt/issues/2865) - Connections w/ API Session Certs Fail To Dial
 
 # Release 1.4.2
 
@@ -15,8 +15,8 @@
 
 ## Component Updates and Bug Fixes
 
-* github.com/hanzozt/ziti: [v1.4.1 -> v1.4.2](https://github.com/hanzozt/ziti/compare/v1.4.1...v1.4.2)
-    * [Issue #2860](https://github.com/hanzozt/ziti/issues/2860) - router healtcheck with invalid address logs error but still doesn't listen
+* github.com/hanzozt/zt: [v1.4.1 -> v1.4.2](https://github.com/hanzozt/zt/compare/v1.4.1...v1.4.2)
+    * [Issue #2860](https://github.com/hanzozt/zt/issues/2860) - router healtcheck with invalid address logs error but still doesn't listen
     
 # Release 1.4.1
 
@@ -26,10 +26,10 @@
 
 ## Component Updates and Bug Fixes
 
-* github.com/hanzozt/ziti: [v1.4.1 -> v1.5.0](https://github.com/hanzozt/ziti/compare/v1.4.1...v1.5.0)
-    * [Issue #2854](https://github.com/hanzozt/ziti/issues/2854) - Fix controller online status
-    * [Issue #2829](https://github.com/hanzozt/ziti/issues/2829) - Update Raft Configuration Defaults
-    * [Issue #2849](https://github.com/hanzozt/ziti/issues/2849) - Router endpoints file should have .yml extension by default
+* github.com/hanzozt/zt: [v1.4.1 -> v1.5.0](https://github.com/hanzozt/zt/compare/v1.4.1...v1.5.0)
+    * [Issue #2854](https://github.com/hanzozt/zt/issues/2854) - Fix controller online status
+    * [Issue #2829](https://github.com/hanzozt/zt/issues/2829) - Update Raft Configuration Defaults
+    * [Issue #2849](https://github.com/hanzozt/zt/issues/2849) - Router endpoints file should have .yml extension by default
 
 # Release 1.4.0
 
@@ -38,11 +38,11 @@
 * Changes to backup/restore and standalone to HA migrations
 * Use `cluster` consistently for cluster operations
 * Event Doc and Consistency
-* ziti ops verify changes
-    * Moved `ziti ops verify-network` to `ziti ops verify network`
-    * Moved `ziti ops verify traffic` to `ziti ops verify traffic`
-    * Added `ziti ops verify ext-jwt-signer oidc` to help users with configuring OIDC external auth
-    * Added `ziti ops verify ext-jwt-signer oidc` to help users with configuring OIDC external auth 
+* zt ops verify changes
+    * Moved `zt ops verify-network` to `zt ops verify network`
+    * Moved `zt ops verify traffic` to `zt ops verify traffic`
+    * Added `zt ops verify ext-jwt-signer oidc` to help users with configuring OIDC external auth
+    * Added `zt ops verify ext-jwt-signer oidc` to help users with configuring OIDC external auth 
 * Router Controller Endpoint Changes
 * Bug fixes
 
@@ -96,7 +96,7 @@ which emitted the event. This may be useful in HA environments, during event pro
 
 ## Cluster Operations Naming
 
-The CLI tools under `ziti fabric raft` are now found at `ziti ops cluster`.
+The CLI tools under `zt fabric raft` are now found at `zt ops cluster`.
 
 The Raft APIs available in the fabric management API are now namespaced under Cluster instead.
 
@@ -125,13 +125,13 @@ In general this is all handled behind the scenes. The current data model index a
 timeline identifier can be inspected on controllers and routers using:
 
 ```
-ziti fabric inspect router-data-model-index
+zt fabric inspect router-data-model-index
 ```
 
 **Example**
 
 ```
-$ ziti fabric inspect router-data-model-index
+$ zt fabric inspect router-data-model-index
 Results: (3)
 ctrl1.router-data-model-index
 index: 25
@@ -158,7 +158,7 @@ timeline id.
 There's a new command to restore an HA cluster to an older DB snapshot.
 
 ```
-ziti agent controller restore-from-db </path/to/database.file>
+zt agent controller restore-from-db </path/to/database.file>
 ```
 
 Note that when a controller is already up and running and receives a snapshot to apply, it
@@ -203,7 +203,7 @@ Example
 ctrl:
   listener: tls:0.0.0.0:6262
   options:
-    advertiseAddress: tls:ctrl1.ziti.example.com
+    advertiseAddress: tls:ctrl1.zt.example.com
 ```
 
 This means that the controller no longer needs to be set manually in the config
@@ -233,34 +233,34 @@ file, enrollment should handle initializing the value appropriately.
 * github.com/hanzozt/xweb/v2: [v2.1.3 -> v2.2.1](https://github.com/hanzozt/xweb/compare/v2.1.3...v2.2.1)
     * [Issue #18](https://github.com/hanzozt/xweb/issues/18) - verify advertised host/ip has a certificate defined in the identity block
 
-* github.com/hanzozt/ziti: [v1.3.3 -> v1.4.0](https://github.com/hanzozt/ziti/compare/v1.3.3...v1.4.0)
-    * [Issue #2807](https://github.com/hanzozt/ziti/issues/2807) - Cache ER/T terminator ids in the router for faster restarts
-    * [Issue #2288](https://github.com/hanzozt/ziti/issues/2288) - Edge router/tunneler hosting Chaos Test
-    * [Issue #2821](https://github.com/hanzozt/ziti/issues/2821) - Add --human-readable and --max-depth options to ziti ops db du
-    * [Issue #2742](https://github.com/hanzozt/ziti/issues/2742) - Add event when non-member peer connects and doesn't join
-    * [Issue #2738](https://github.com/hanzozt/ziti/issues/2738) - Cluster operations should return 503 not 500 if there's no leader
-    * [Issue #2712](https://github.com/hanzozt/ziti/issues/2712) - /version is missing OIDC API
-    * [Issue #2785](https://github.com/hanzozt/ziti/issues/2785) - Peer data model state not always updated
-    * [Issue #2737](https://github.com/hanzozt/ziti/issues/2737) - OIDC issue mismatch with alt server certs
-    * [Issue #2774](https://github.com/hanzozt/ziti/issues/2774) - API Session Certificate SPIFFE IDs fail validation in Routers
-    * [Issue #2672](https://github.com/hanzozt/ziti/issues/2672) - [Bug] Posture check PUT method doesn't update nested structures but works fine with PATCH
-    * [Issue #2668](https://github.com/hanzozt/ziti/issues/2668) - [Feature Request] Filterable field for posture check type
-    * [Issue #2681](https://github.com/hanzozt/ziti/issues/2681) - Support specifying which token to use on external jwt signers
-    * [Issue #2756](https://github.com/hanzozt/ziti/issues/2756) - Remove ziti agent cluster init-from-db command
-    * [Issue #2723](https://github.com/hanzozt/ziti/pull/2723) - attempts to probe advertise address on startup to ensure the SANS is correct
-    * [Issue #2722](https://github.com/hanzozt/ziti/issues/2722) - router: check advertised address on startup
-    * [Issue #2745](https://github.com/hanzozt/ziti/issues/2745) - Remove cluster initialMembers config
-    * [Issue #2746](https://github.com/hanzozt/ziti/issues/2746) - Move agent controller commands to agent cluster
-    * [Issue #2743](https://github.com/hanzozt/ziti/issues/2743) - Agent and rest cluster command names should match
-    * [Issue #2731](https://github.com/hanzozt/ziti/issues/2731) - Rename raft controller config section to cluster
-    * [Issue #2724](https://github.com/hanzozt/ziti/issues/2724) - Allow configuring endpoints file full path instead of directory
-    * [Issue #2728](https://github.com/hanzozt/ziti/issues/2728) - Write initial router endpoints file based on ctrls in JWT
-    * [Issue #2108](https://github.com/hanzozt/ziti/issues/2108) - Add `ctrls` property to non-ha router enrollment
-    * [Issue #2729](https://github.com/hanzozt/ziti/issues/2729) - Enrollment doesn't contain controller which created the enrollment
-    * [Issue #2549](https://github.com/hanzozt/ziti/issues/2549) - Handle Index Non HA to HA Transitions During Upgrades
-    * [Issue #2649](https://github.com/hanzozt/ziti/issues/2649) - Make restoring an HA cluster from a DB backup easier
-    * [Issue #2707](https://github.com/hanzozt/ziti/issues/2707) - Ensure database restores work with RDM enabled routers
-    * [Issue #2593](https://github.com/hanzozt/ziti/issues/2593) - Update event documentation with missing event types
-    * [Issue #2720](https://github.com/hanzozt/ziti/issues/2720) - new verify oidc command on prints usage
-    * [Issue #2546](https://github.com/hanzozt/ziti/issues/2546) - Use consistent terminology for HA
-    * [Issue #2713](https://github.com/hanzozt/ziti/issues/2713) - Routers with no edge components shouldn't subscribe to RDM updates
+* github.com/hanzozt/zt: [v1.3.3 -> v1.4.0](https://github.com/hanzozt/zt/compare/v1.3.3...v1.4.0)
+    * [Issue #2807](https://github.com/hanzozt/zt/issues/2807) - Cache ER/T terminator ids in the router for faster restarts
+    * [Issue #2288](https://github.com/hanzozt/zt/issues/2288) - Edge router/tunneler hosting Chaos Test
+    * [Issue #2821](https://github.com/hanzozt/zt/issues/2821) - Add --human-readable and --max-depth options to zt ops db du
+    * [Issue #2742](https://github.com/hanzozt/zt/issues/2742) - Add event when non-member peer connects and doesn't join
+    * [Issue #2738](https://github.com/hanzozt/zt/issues/2738) - Cluster operations should return 503 not 500 if there's no leader
+    * [Issue #2712](https://github.com/hanzozt/zt/issues/2712) - /version is missing OIDC API
+    * [Issue #2785](https://github.com/hanzozt/zt/issues/2785) - Peer data model state not always updated
+    * [Issue #2737](https://github.com/hanzozt/zt/issues/2737) - OIDC issue mismatch with alt server certs
+    * [Issue #2774](https://github.com/hanzozt/zt/issues/2774) - API Session Certificate SPIFFE IDs fail validation in Routers
+    * [Issue #2672](https://github.com/hanzozt/zt/issues/2672) - [Bug] Posture check PUT method doesn't update nested structures but works fine with PATCH
+    * [Issue #2668](https://github.com/hanzozt/zt/issues/2668) - [Feature Request] Filterable field for posture check type
+    * [Issue #2681](https://github.com/hanzozt/zt/issues/2681) - Support specifying which token to use on external jwt signers
+    * [Issue #2756](https://github.com/hanzozt/zt/issues/2756) - Remove zt agent cluster init-from-db command
+    * [Issue #2723](https://github.com/hanzozt/zt/pull/2723) - attempts to probe advertise address on startup to ensure the SANS is correct
+    * [Issue #2722](https://github.com/hanzozt/zt/issues/2722) - router: check advertised address on startup
+    * [Issue #2745](https://github.com/hanzozt/zt/issues/2745) - Remove cluster initialMembers config
+    * [Issue #2746](https://github.com/hanzozt/zt/issues/2746) - Move agent controller commands to agent cluster
+    * [Issue #2743](https://github.com/hanzozt/zt/issues/2743) - Agent and rest cluster command names should match
+    * [Issue #2731](https://github.com/hanzozt/zt/issues/2731) - Rename raft controller config section to cluster
+    * [Issue #2724](https://github.com/hanzozt/zt/issues/2724) - Allow configuring endpoints file full path instead of directory
+    * [Issue #2728](https://github.com/hanzozt/zt/issues/2728) - Write initial router endpoints file based on ctrls in JWT
+    * [Issue #2108](https://github.com/hanzozt/zt/issues/2108) - Add `ctrls` property to non-ha router enrollment
+    * [Issue #2729](https://github.com/hanzozt/zt/issues/2729) - Enrollment doesn't contain controller which created the enrollment
+    * [Issue #2549](https://github.com/hanzozt/zt/issues/2549) - Handle Index Non HA to HA Transitions During Upgrades
+    * [Issue #2649](https://github.com/hanzozt/zt/issues/2649) - Make restoring an HA cluster from a DB backup easier
+    * [Issue #2707](https://github.com/hanzozt/zt/issues/2707) - Ensure database restores work with RDM enabled routers
+    * [Issue #2593](https://github.com/hanzozt/zt/issues/2593) - Update event documentation with missing event types
+    * [Issue #2720](https://github.com/hanzozt/zt/issues/2720) - new verify oidc command on prints usage
+    * [Issue #2546](https://github.com/hanzozt/zt/issues/2546) - Use consistent terminology for HA
+    * [Issue #2713](https://github.com/hanzozt/zt/issues/2713) - Routers with no edge components shouldn't subscribe to RDM updates

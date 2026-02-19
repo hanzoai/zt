@@ -36,13 +36,13 @@ import (
 
 	"github.com/hanzozt/edge-api/rest_util"
 	edge_apis "github.com/hanzozt/sdk-golang/edge-apis"
-	"github.com/hanzozt/ziti/v2/ziti/cmd"
-	"github.com/hanzozt/ziti/v2/ziti/cmd/api"
-	"github.com/hanzozt/ziti/v2/ziti/cmd/common"
-	"github.com/hanzozt/ziti/v2/ziti/cmd/edge"
-	"github.com/hanzozt/ziti/v2/ziti/cmd/ops"
-	"github.com/hanzozt/ziti/v2/ziti/run"
-	"github.com/hanzozt/ziti/v2/ziti/util"
+	"github.com/hanzozt/zt/v2/zt/cmd"
+	"github.com/hanzozt/zt/v2/zt/cmd/api"
+	"github.com/hanzozt/zt/v2/zt/cmd/common"
+	"github.com/hanzozt/zt/v2/zt/cmd/edge"
+	"github.com/hanzozt/zt/v2/zt/cmd/ops"
+	"github.com/hanzozt/zt/v2/zt/run"
+	"github.com/hanzozt/zt/v2/zt/util"
 	"github.com/stretchr/testify/require"
 )
 
@@ -64,8 +64,8 @@ type loginCreds struct {
 type Overlay struct {
 	loginCreds
 	ControllerName       string
-	NetworkBindingIdFile string // a ziti identity file to use when starting the controller which will bind a given service over an overlay
-	NetworkDialingIdFile string // a ziti identity file used to dial mgmt services hosted/bound by a controller using a ziti overlay
+	NetworkBindingIdFile string // a zt identity file to use when starting the controller which will bind a given service over an overlay
+	NetworkDialingIdFile string // a zt identity file used to dial mgmt services hosted/bound by a controller using a zt overlay
 	t                    *testing.T
 	Ctx                  context.Context
 	StartTimeout         time.Duration
@@ -124,7 +124,7 @@ func (o *Overlay) ReplaceConfig(newServerCertPath string) error {
 	newContent = reServerCert.ReplaceAllString(newContent, "$1#$2\n${1}server_cert: "+newServerCertPath)
 
 	newContent = newContent + `
-  - name: secured-by-ziti-http
+  - name: secured-by-zt-http
     bindPoints:
       - identity:
           file: ` + o.NetworkBindingIdFile + `
@@ -141,7 +141,7 @@ func (o *Overlay) ReplaceConfig(newServerCertPath string) error {
         options: { }
       - binding: zac
         options:
-          location: "/ctrl/zac/ziti-console-v3.12.5"
+          location: "/ctrl/zac/zt-console-v3.12.5"
           indexFile: index.html`
 	if we := os.WriteFile(o.QuickstartOpts.ConfigFile, []byte(newContent), 0644); we != nil {
 		return fmt.Errorf("failed to write new content to target controller file: %v", we)
@@ -153,35 +153,35 @@ func (o *Overlay) ReplaceConfig(newServerCertPath string) error {
 
 func (o *Overlay) PrintLoginCommand(t *testing.T) {
 	if o.NetworkDialingIdFile == "" {
-		t.Logf("overlay login: ziti edge login %s -y -u admin -p admin\n\n", o.ControllerHostPort())
+		t.Logf("overlay login: zt edge login %s -y -u admin -p admin\n\n", o.ControllerHostPort())
 	} else {
-		t.Logf("overlay login: ziti edge login %s -y -u admin -p admin --network-identity %s\n\n", o.ControllerHostPort(), o.NetworkDialingIdFile)
+		t.Logf("overlay login: zt edge login %s -y -u admin -p admin --network-identity %s\n\n", o.ControllerHostPort(), o.NetworkDialingIdFile)
 	}
 }
 
-func (o *Overlay) StartExternal(zitiPath string, done chan error) {
+func (o *Overlay) StartExternal(ztPath string, done chan error) {
 	args := []string{"edge", "quickstart"}
 	if o.IsHA {
 		args = append(args, "ha")
 	}
 	args = append(args, o.startArgs()...)
-	o.RunZiti(zitiPath, args, done)
+	o.RunZiti(ztPath, args, done)
 }
 
-func (o *Overlay) StartJoin(zitiPath string, done chan error) {
+func (o *Overlay) StartJoin(ztPath string, done chan error) {
 	if !o.IsHA {
 		panic("test incorrect. calling join without HA")
 	}
 	args := append([]string{"edge", "quickstart", "join"}, o.startArgs()...)
-	o.RunZiti(zitiPath, args, done)
+	o.RunZiti(ztPath, args, done)
 }
 
-func (o *Overlay) RunZiti(zitiPath string, args []string, done chan error) {
+func (o *Overlay) RunZiti(ztPath string, args []string, done chan error) {
 	fmt.Println("========================================================")
-	fmt.Printf("%s overlay command: %s %s\n", o.Name, zitiPath, strings.Join(args, " "))
+	fmt.Printf("%s overlay command: %s %s\n", o.Name, ztPath, strings.Join(args, " "))
 	o.extCmd = exec.CommandContext(
 		o.Ctx,
-		zitiPath,
+		ztPath,
 		args...,
 	)
 	o.extCmd.Env = append(os.Environ(), "PFXLOG_NO_JSON=true")
@@ -207,7 +207,7 @@ func (o *Overlay) RunZiti(zitiPath string, args []string, done chan error) {
 		return
 	}
 
-	fmt.Printf("started ziti quickstart (pid=%d)\n", o.extCmd.Process.Pid)
+	fmt.Printf("started zt quickstart (pid=%d)\n", o.extCmd.Process.Pid)
 	o.trackPid(o.extCmd.Process.Pid)
 
 	go func() {
@@ -231,14 +231,14 @@ func (o *Overlay) CreateAdminIdentity(t *testing.T, now, baseDir string) error {
 	}
 	adminIdName := fmt.Sprintf("test-admin-%s", now)
 	adminJwtPath := filepath.Join(baseDir, adminIdName+".jwt")
-	zitiCmd := edge.NewCmdEdge(os.Stdout, os.Stderr, common.NewOptionsProvider(os.Stdout, os.Stderr))
-	zitiCmd.SetArgs(strings.Split("create identity "+adminIdName+" -o "+adminJwtPath+" --admin", " "))
-	if zitiCmdErr := zitiCmd.Execute(); zitiCmdErr != nil {
-		t.Fatalf("unable to create identity: %v", zitiCmdErr)
+	ztCmd := edge.NewCmdEdge(os.Stdout, os.Stderr, common.NewOptionsProvider(os.Stdout, os.Stderr))
+	ztCmd.SetArgs(strings.Split("create identity "+adminIdName+" -o "+adminJwtPath+" --admin", " "))
+	if ztCmdErr := ztCmd.Execute(); ztCmdErr != nil {
+		t.Fatalf("unable to create identity: %v", ztCmdErr)
 	}
-	zitiCmd.SetArgs([]string{"enroll", adminJwtPath})
-	if zitiCmdErr := zitiCmd.Execute(); zitiCmdErr != nil {
-		t.Fatalf("unable to create identity: %v", zitiCmdErr)
+	ztCmd.SetArgs([]string{"enroll", adminJwtPath})
+	if ztCmdErr := ztCmd.Execute(); ztCmdErr != nil {
+		t.Fatalf("unable to create identity: %v", ztCmdErr)
 	}
 	o.AdminIdFile = strings.TrimSuffix(adminJwtPath, ".jwt") + ".json"
 	t.Logf("identity file should exist at: %v", o.AdminIdFile)
@@ -266,28 +266,28 @@ func (o *Overlay) CreateOverlayIdentities(t *testing.T, now string) error {
 
 	o.ControllerName = fmt.Sprintf("controller-binder-%s", now)
 	controllerJwtPath := filepath.Join(o.Home, o.ControllerName+".jwt")
-	zitiCmd1 := edge.NewCmdEdge(os.Stdout, os.Stderr, p)
-	zitiCmd1.SetArgs(strings.Split("create identity "+o.ControllerName+" -o "+controllerJwtPath+" --admin -a mgmtservers", " "))
-	if zitiCmdErr := zitiCmd1.Execute(); zitiCmdErr != nil {
-		t.Fatalf("unable to create identity: %v", zitiCmdErr)
+	ztCmd1 := edge.NewCmdEdge(os.Stdout, os.Stderr, p)
+	ztCmd1.SetArgs(strings.Split("create identity "+o.ControllerName+" -o "+controllerJwtPath+" --admin -a mgmtservers", " "))
+	if ztCmdErr := ztCmd1.Execute(); ztCmdErr != nil {
+		t.Fatalf("unable to create identity: %v", ztCmdErr)
 	}
-	zitiCmd1.SetArgs([]string{"enroll", controllerJwtPath})
-	if zitiCmdErr := zitiCmd1.Execute(); zitiCmdErr != nil {
-		t.Fatalf("unable to create identity: %v", zitiCmdErr)
+	ztCmd1.SetArgs([]string{"enroll", controllerJwtPath})
+	if ztCmdErr := ztCmd1.Execute(); ztCmdErr != nil {
+		t.Fatalf("unable to create identity: %v", ztCmdErr)
 	}
 	o.NetworkBindingIdFile = strings.TrimSuffix(controllerJwtPath, ".jwt") + ".json"
 	t.Logf("networkBindingIdFile should exist at: %v", o.NetworkBindingIdFile)
 
 	clientIdName := fmt.Sprintf("controller-client-%s", now)
 	clientJwtPath := filepath.Join(o.Home, clientIdName+".jwt")
-	zitiCmd1 = edge.NewCmdEdge(os.Stdout, os.Stderr, p)
-	zitiCmd1.SetArgs(strings.Split("create identity "+clientIdName+" -o "+clientJwtPath+" -a mgmtclients", " "))
-	if zitiCmdErr := zitiCmd1.Execute(); zitiCmdErr != nil {
-		t.Fatalf("unable to create identity: %v", zitiCmdErr)
+	ztCmd1 = edge.NewCmdEdge(os.Stdout, os.Stderr, p)
+	ztCmd1.SetArgs(strings.Split("create identity "+clientIdName+" -o "+clientJwtPath+" -a mgmtclients", " "))
+	if ztCmdErr := ztCmd1.Execute(); ztCmdErr != nil {
+		t.Fatalf("unable to create identity: %v", ztCmdErr)
 	}
-	zitiCmd1.SetArgs([]string{"enroll", clientJwtPath})
-	if zitiCmdErr := zitiCmd1.Execute(); zitiCmdErr != nil {
-		t.Fatalf("unable to create identity: %v", zitiCmdErr)
+	ztCmd1.SetArgs([]string{"enroll", clientJwtPath})
+	if ztCmdErr := ztCmd1.Execute(); ztCmdErr != nil {
+		t.Fatalf("unable to create identity: %v", ztCmdErr)
 	}
 	o.NetworkDialingIdFile = strings.TrimSuffix(clientJwtPath, ".jwt") + ".json"
 	t.Logf("networkDialingIdFile should exist at: %v", o.NetworkDialingIdFile)
@@ -297,7 +297,7 @@ func (o *Overlay) CreateOverlayIdentities(t *testing.T, now string) error {
 	v2 := cmd.NewRootCommand(os.Stdin, os.Stdout, os.Stderr)
 	v2.SetArgs(strings.Split("ops import --username "+o.Username+" --password "+o.Password+" "+yamlToImport, " "))
 	if v2Err := v2.Execute(); v2Err != nil {
-		t.Fatalf("unable to import zitified-login-test.yml: %v", v2Err)
+		t.Fatalf("unable to import ztfied-login-test.yml: %v", v2Err)
 	}
 	return nil
 }

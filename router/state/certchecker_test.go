@@ -17,8 +17,8 @@ import (
 	"github.com/hanzozt/foundation/v2/tlz"
 	"github.com/hanzozt/foundation/v2/versions"
 	"github.com/hanzozt/identity"
-	"github.com/hanzozt/ziti/v2/common/eid"
-	"github.com/hanzozt/ziti/v2/router/env"
+	"github.com/hanzozt/zt/v2/common/eid"
+	"github.com/hanzozt/zt/v2/router/env"
 	"github.com/pkg/errors"
 	"github.com/stretchr/testify/require"
 )

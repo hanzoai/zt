@@ -19,14 +19,14 @@
 
 * github.com/hanzozt/storage: [v0.2.28 -> v0.2.30](https://github.com/hanzozt/storage/compare/v0.2.28...v0.2.30)
 * github.com/hanzozt/transport/v2: [v2.0.121 -> v2.0.122](https://github.com/hanzozt/transport/compare/v2.0.121...v2.0.122)
-* github.com/hanzozt/ziti: [v0.32.1 -> v0.32.2](https://github.com/hanzozt/ziti/compare/v0.32.1...v0.32.2)
-    * [Issue #1741](https://github.com/hanzozt/ziti/issues/1741) - Prevent stuck links
-    * [Issue #1736](https://github.com/hanzozt/ziti/issues/1736) - controller crashes generating create circuit responses
-    * [Issue #1733](https://github.com/hanzozt/ziti/issues/1733) - Improve terminator creation performance
-    * [Issue #1734](https://github.com/hanzozt/ziti/issues/1734) - Make API rate limiter enabled by default
-    * [Issue #1726](https://github.com/hanzozt/ziti/issues/1726) - Fix some sdk hosting logging
-    * [Issue #1725](https://github.com/hanzozt/ziti/issues/1725) - Fix panic in entity event processing
-    * [Issue #652](https://github.com/hanzozt/ziti/issues/652) - CI support for MacOS arm64
+* github.com/hanzozt/zt: [v0.32.1 -> v0.32.2](https://github.com/hanzozt/zt/compare/v0.32.1...v0.32.2)
+    * [Issue #1741](https://github.com/hanzozt/zt/issues/1741) - Prevent stuck links
+    * [Issue #1736](https://github.com/hanzozt/zt/issues/1736) - controller crashes generating create circuit responses
+    * [Issue #1733](https://github.com/hanzozt/zt/issues/1733) - Improve terminator creation performance
+    * [Issue #1734](https://github.com/hanzozt/zt/issues/1734) - Make API rate limiter enabled by default
+    * [Issue #1726](https://github.com/hanzozt/zt/issues/1726) - Fix some sdk hosting logging
+    * [Issue #1725](https://github.com/hanzozt/zt/issues/1725) - Fix panic in entity event processing
+    * [Issue #652](https://github.com/hanzozt/zt/issues/652) - CI support for MacOS arm64
 
 # Release 0.32.1
 
@@ -54,11 +54,11 @@ ctrl:
 
 * github.com/hanzozt/edge-api: [v0.26.8 -> v0.26.10](https://github.com/hanzozt/edge-api/compare/v0.26.8...v0.26.10)
 * github.com/hanzozt/sdk-golang: [v0.22.17 -> v0.22.21](https://github.com/hanzozt/sdk-golang/compare/v0.22.17...v0.22.21)
-* github.com/hanzozt/ziti: [v0.32.0 -> v0.32.1](https://github.com/hanzozt/ziti/compare/v0.32.0...v0.32.1)
-    * [Issue #1709](https://github.com/hanzozt/ziti/issues/1709) - Fix link management race conditions found by chaos testing
-    * [Issue #1715](https://github.com/hanzozt/ziti/issues/1715) - Ensure controller raft peers don't end up with duplicate connections 
-    * [Issue #1702](https://github.com/hanzozt/ziti/issues/1702) - Add link management chaos test
-    * [Issue #1691](https://github.com/hanzozt/ziti/issues/1691) multiple er re-enrolls creates multiple enrollments
+* github.com/hanzozt/zt: [v0.32.0 -> v0.32.1](https://github.com/hanzozt/zt/compare/v0.32.0...v0.32.1)
+    * [Issue #1709](https://github.com/hanzozt/zt/issues/1709) - Fix link management race conditions found by chaos testing
+    * [Issue #1715](https://github.com/hanzozt/zt/issues/1715) - Ensure controller raft peers don't end up with duplicate connections 
+    * [Issue #1702](https://github.com/hanzozt/zt/issues/1702) - Add link management chaos test
+    * [Issue #1691](https://github.com/hanzozt/zt/issues/1691) multiple er re-enrolls creates multiple enrollments
 
 # Release 0.32.0
 
@@ -66,7 +66,7 @@ ctrl:
 
 * Auth Rate Limiter
 * Link Management Fixes
-* ziti edge quickstart command deprecates redundant --already-initialized flag. The identical behavior is implied by --home.
+* zt edge quickstart command deprecates redundant --already-initialized flag. The identical behavior is implied by --home.
 
 ## Backwards compatibility
 
@@ -140,11 +140,11 @@ tls:
 * github.com/hanzozt/transport/v2: [v2.0.119 -> v2.0.121](https://github.com/hanzozt/transport/compare/v2.0.119...v2.0.121)
     * [Issue #73](https://github.com/hanzozt/transport/issues/73) - Allow overriding shared TLS/ALPN listener SSL handshake timeout
 
-* github.com/hanzozt/ziti: [v0.31.4 -> v0.32.0](https://github.com/hanzozt/ziti/compare/v0.31.4...v0.32.0)
-    * [Issue #1692](https://github.com/hanzozt/ziti/issues/1692) - Improve link stability with long lived link ids
-    * [Issue #1693](https://github.com/hanzozt/ziti/issues/1693) - Make links owned by the dialing router
-    * [Issue #1685](https://github.com/hanzozt/ziti/issues/1685) - Race condition where we try to create terminator after client connection is closed
-    * [Issue #1678](https://github.com/hanzozt/ziti/issues/1678) - Add link validation utility
-    * [Issue #1673](https://github.com/hanzozt/ziti/issues/1673) - xgress dialers not getting passed xgress config
-    * [Issue #1669](https://github.com/hanzozt/ziti/issues/1669) - Make sure link accepts are not single threaded
-    * [Issue #1657](https://github.com/hanzozt/ziti/issues/1657) - Add api session rate limiter
+* github.com/hanzozt/zt: [v0.31.4 -> v0.32.0](https://github.com/hanzozt/zt/compare/v0.31.4...v0.32.0)
+    * [Issue #1692](https://github.com/hanzozt/zt/issues/1692) - Improve link stability with long lived link ids
+    * [Issue #1693](https://github.com/hanzozt/zt/issues/1693) - Make links owned by the dialing router
+    * [Issue #1685](https://github.com/hanzozt/zt/issues/1685) - Race condition where we try to create terminator after client connection is closed
+    * [Issue #1678](https://github.com/hanzozt/zt/issues/1678) - Add link validation utility
+    * [Issue #1673](https://github.com/hanzozt/zt/issues/1673) - xgress dialers not getting passed xgress config
+    * [Issue #1669](https://github.com/hanzozt/zt/issues/1669) - Make sure link accepts are not single threaded
+    * [Issue #1657](https://github.com/hanzozt/zt/issues/1657) - Add api session rate limiter

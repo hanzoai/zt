@@ -19,7 +19,7 @@ package common
 import (
 	"testing"
 
-	"github.com/hanzozt/ziti/v2/common/pb/edge_ctrl_pb"
+	"github.com/hanzozt/zt/v2/common/pb/edge_ctrl_pb"
 	"github.com/stretchr/testify/require"
 )
 

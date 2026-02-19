@@ -15,7 +15,7 @@ if [ -z "$ZITI_CLI_TEST_ZITI_BIN" ]; then
   echo "building binary for use in tests"
   mkdir -p cli_tests_bin
   go build -o cli_tests_bin ./...
-  export ZITI_CLI_TEST_ZITI_BIN="$ROOT_DIR/cli_tests_bin/ziti"
+  export ZITI_CLI_TEST_ZITI_BIN="$ROOT_DIR/cli_tests_bin/zt"
 else
   echo "using pre-defined ZITI_CLI_TEST_ZITI_BIN at: $ZITI_CLI_TEST_ZITI_BIN"
 fi

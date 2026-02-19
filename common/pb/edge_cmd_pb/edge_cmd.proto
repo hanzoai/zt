@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package ziti.edge_cmd.pb;
+package zt.edge_cmd.pb;
 option go_package = "github.com/hanzozt/edge/pb/edge_cmd_pb";
 
 import "google/protobuf/timestamp.proto";

@@ -1,23 +1,23 @@
 # Release 0.15.3
 
 * What's New:
-    * Add example docker compose for ziti-tunnel
+    * Add example docker compose for zt-tunnel
 
 # Release 0.15.2
 
 * What's New:
-    * [#140](https://github.com/hanzozt/ziti/issues/140) - Allow logging JSON request for Ziti CLI
-    * [#148](https://github.com/hanzozt/ziti/issues/148) - Show isOnline in ziti edge list
+    * [#140](https://github.com/hanzozt/zt/issues/140) - Allow logging JSON request for Ziti CLI
+    * [#148](https://github.com/hanzozt/zt/issues/148) - Show isOnline in zt edge list
       edge-routers
-    * [#144](https://github.com/hanzozt/ziti/issues/144) - Allow ziti-fabric list to use queries.
+    * [#144](https://github.com/hanzozt/zt/issues/144) - Allow zt-fabric list to use queries.
       Default to `true limit none`
 
 * Bug Fixes:
-    * [#142](https://github.com/hanzozt/ziti/issues/142) - fix CLI ca create not defaulting
+    * [#142](https://github.com/hanzozt/zt/issues/142) - fix CLI ca create not defaulting
       identity roles
-    * [#146](https://github.com/hanzozt/ziti/issues/146) - Export edge router JWT fails sometimes
+    * [#146](https://github.com/hanzozt/zt/issues/146) - Export edge router JWT fails sometimes
       when there are more than 10 edge routers
-    * [#147](https://github.com/hanzozt/ziti/issues/147) - Fix paging output when using 'limit
+    * [#147](https://github.com/hanzozt/zt/issues/147) - Fix paging output when using 'limit
       none'
     * [edge#243](https://github.com/hanzozt/edge/issue/243) - Session creation only returns 10 edge
       routers
@@ -34,11 +34,11 @@
   No new functionality introduced.
 
 * Bug fixes
-    * [#129](https://github.com/hanzozt/ziti/issues/129) - minor issue with `ziti-tunnel enroll`
+    * [#129](https://github.com/hanzozt/zt/issues/129) - minor issue with `zt-tunnel enroll`
       outputting the success message at ERROR level
-    * [#131](https://github.com/hanzozt/ziti/issues/131) - issues w/ creating identities, CAs and
+    * [#131](https://github.com/hanzozt/zt/issues/131) - issues w/ creating identities, CAs and
       validating CAs
-    * [#133](https://github.com/hanzozt/ziti/issues/133) - fix service lookup by name when creating
+    * [#133](https://github.com/hanzozt/zt/issues/133) - fix service lookup by name when creating
       service edge router policies
     * [edge#191](https://github.com/hanzozt/edge/issues/191) - updating self password via CLI would
       error with 404 not found
@@ -66,10 +66,10 @@ Ziti 0.15.0 includes the following:
   see [Unverified Edge Routers Cannot Be Used For Terminators](https://github.com/hanzozt/edge/issues/144)
 * Fabric services and routers now have names
     * see [Add name to service and router](https://github.com/hanzozt/fabric/issues/101)
-* cosmetic changes to the ziti-enroller binary
-* cosmetic changes to the ziti-tunnel binary when running the enroll subcommand
+* cosmetic changes to the zt-enroller binary
+* cosmetic changes to the zt-tunnel binary when running the enroll subcommand
 * Memory leak remediation in the `PayloadBuffer` subsystem. Corrects unbounded memory growth
-  in `ziti-router`.
+  in `zt-router`.
 * Edge REST API Enhancements
     * [OpenApi 2.0/Swagger](https://github.com/hanzozt/edge/issues/108)
     * [Changes to support Fabric REST API](https://github.com/hanzozt/edge/issues/101)
@@ -82,10 +82,10 @@ from a pre-0.9 version you should first update to 0.14.12, then to new versions.
 ## Database Snapshots
 
 Database snapshots can now be triggered in a variety of ways to cause the creation of a database
-backup/snapshot. This can be done from the ziti-fabric CLI, the ziti CLI and the REST API
+backup/snapshot. This can be done from the zt-fabric CLI, the zt CLI and the REST API
 
-    $ ziti-fabric snapshot-db
-    $ ziti edge snapshot-db
+    $ zt-fabric snapshot-db
+    $ zt edge snapshot-db
 
 The REST API is available by POSTing to `/edge/v1/database/snapshot`. This ability is only available
 to administrators.

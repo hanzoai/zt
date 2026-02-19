@@ -84,7 +84,7 @@ db:                     /tmp/devctrl.db
 # Overlay Tracing
 #
 # Record message traces of all messages captured on any channel (`ctrl` or `mgmt`) in "dump" format to the
-# specified path. The `ziti-fabric trace dump` utility will convert this binary dump file into a human-readable
+# specified path. The `zt-fabric trace dump` utility will convert this binary dump file into a human-readable
 # explanation of the messages that were sent and received by the controller.
 #
 #trace:
@@ -152,7 +152,7 @@ mgmt:
 #metrics:
   #influxdb:
     #url:                http://localhost:8086
-    #database:           ziti
+    #database:           zt
     #
     
 
@@ -179,10 +179,10 @@ web:
     # identity - optional
     # Allows the webListener to have a specific identity instead of defaulting to the root `identity` section.
     #    identity:
-    #      cert:                 ${ZITI_SOURCE}/ziti/etc/ca/intermediate/certs/ctrl-client.cert.pem
-    #      server_cert:          ${ZITI_SOURCE}/ziti/etc/ca/intermediate/certs/ctrl-server.cert.pem
-    #      key:                  ${ZITI_SOURCE}/ziti/etc/ca/intermediate/private/ctrl.key.pem
-    #      ca:                   ${ZITI_SOURCE}/ziti/etc/ca/intermediate/certs/ca-chain.cert.pem
+    #      cert:                 ${ZITI_SOURCE}/zt/etc/ca/intermediate/certs/ctrl-client.cert.pem
+    #      server_cert:          ${ZITI_SOURCE}/zt/etc/ca/intermediate/certs/ctrl-server.cert.pem
+    #      key:                  ${ZITI_SOURCE}/zt/etc/ca/intermediate/private/ctrl.key.pem
+    #      ca:                   ${ZITI_SOURCE}/zt/etc/ca/intermediate/certs/ca-chain.cert.pem
     # options - optional
     # Allows the specification of webListener level options - mainly dealing with HTTP/TLS settings. These options are
     # used for all http servers started by the current webListener.

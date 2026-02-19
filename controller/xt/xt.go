@@ -21,7 +21,7 @@ import (
 	"time"
 
 	"github.com/hanzozt/identity"
-	"github.com/hanzozt/ziti/v2/common/logcontext"
+	"github.com/hanzozt/zt/v2/common/logcontext"
 )
 
 type Registry interface {

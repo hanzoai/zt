@@ -3,8 +3,8 @@ name: Publish Docker Images
 on:
   workflow_call:
     inputs:
-      ziti-tag:
-        description: Image tag to publish for ziti container images
+      zt-tag:
+        description: Image tag to publish for zt container images
         type: string
         required: true
 
@@ -16,11 +16,11 @@ jobs:
       attestations: write  # need write to create attestations
     env:
       REGISTRY: docker.io
-      ZITI_CLI_TAG:          ${{ inputs.ziti-tag || github.event.inputs.ziti-tag }}
-      ZITI_CLI_IMAGE:        ${{ vars.ZITI_CLI_IMAGE || 'hanzozt/ziti-cli' }}
-      ZITI_CONTROLLER_IMAGE: ${{ vars.ZITI_CONTROLLER_IMAGE || 'hanzozt/ziti-controller' }}
-      ZITI_ROUTER_IMAGE:     ${{ vars.ZITI_ROUTER_IMAGE || 'hanzozt/ziti-router' }}
-      ZITI_TUNNEL_IMAGE:     ${{ vars.ZITI_TUNNEL_IMAGE || 'hanzozt/ziti-tunnel' }}
+      ZITI_CLI_TAG:          ${{ inputs.zt-tag || github.event.inputs.zt-tag }}
+      ZITI_CLI_IMAGE:        ${{ vars.ZITI_CLI_IMAGE || 'hanzozt/zt-cli' }}
+      ZITI_CONTROLLER_IMAGE: ${{ vars.ZITI_CONTROLLER_IMAGE || 'hanzozt/zt-controller' }}
+      ZITI_ROUTER_IMAGE:     ${{ vars.ZITI_ROUTER_IMAGE || 'hanzozt/zt-router' }}
+      ZITI_TUNNEL_IMAGE:     ${{ vars.ZITI_TUNNEL_IMAGE || 'hanzozt/zt-tunnel' }}
     steps:
       - name: Checkout Workspace
         uses: actions/checkout@v6
@@ -62,11 +62,11 @@ jobs:
         with:
           builder: ${{ steps.buildx.outputs.name }}
           context: ${{ github.workspace }}/
-          file: ${{ github.workspace }}/dist/docker-images/ziti-cli/Dockerfile
+          file: ${{ github.workspace }}/dist/docker-images/zt-cli/Dockerfile
           platforms: linux/amd64,linux/arm64
           tags: ${{ steps.tagprep_cli.outputs.DOCKER_TAGS }}
           build-args: |
-            DOCKER_BUILD_DIR=./dist/docker-images/ziti-cli
+            DOCKER_BUILD_DIR=./dist/docker-images/zt-cli
           provenance: mode=max
           sbom: true
           push: true
@@ -93,13 +93,13 @@ jobs:
         with:
           builder: ${{ steps.buildx.outputs.name }}
           context: ${{ github.workspace }}/
-          file: ${{ github.workspace }}/dist/docker-images/ziti-controller/Dockerfile
+          file: ${{ github.workspace }}/dist/docker-images/zt-controller/Dockerfile
           platforms: linux/amd64,linux/arm64
           tags: ${{ steps.tagprep_ctrl.outputs.DOCKER_TAGS }}
           build-args: |
             ZITI_CLI_TAG=${{ env.ZITI_CLI_TAG }}
             ZITI_CLI_IMAGE=${{ env.REGISTRY }}/${{ env.ZITI_CLI_IMAGE }}
-            DOCKER_BUILD_DIR=./dist/docker-images/ziti-controller
+            DOCKER_BUILD_DIR=./dist/docker-images/zt-controller
           provenance: mode=max
           sbom: true
           push: true
@@ -126,13 +126,13 @@ jobs:
         with:
           builder: ${{ steps.buildx.outputs.name }}
           context: ${{ github.workspace }}/
-          file: ${{ github.workspace }}/dist/docker-images/ziti-router/Dockerfile
+          file: ${{ github.workspace }}/dist/docker-images/zt-router/Dockerfile
           platforms: linux/amd64,linux/arm64
           tags: ${{ steps.tagprep_router.outputs.DOCKER_TAGS }}
           build-args: |
             ZITI_CLI_TAG=${{ env.ZITI_CLI_TAG }}
             ZITI_CLI_IMAGE=${{ env.REGISTRY }}/${{ env.ZITI_CLI_IMAGE }}
-            DOCKER_BUILD_DIR=./dist/docker-images/ziti-router
+            DOCKER_BUILD_DIR=./dist/docker-images/zt-router
           provenance: mode=max
           sbom: true
           push: true
@@ -159,7 +159,7 @@ jobs:
         with:
           builder: ${{ steps.buildx.outputs.name }}
           context: ${{ github.workspace }}/
-          file: ${{ github.workspace }}/dist/docker-images/ziti-tunnel/Dockerfile
+          file: ${{ github.workspace }}/dist/docker-images/zt-tunnel/Dockerfile
           platforms: linux/amd64,linux/arm64
           tags: ${{ steps.tagprep_tun.outputs.DOCKER_TAGS }}
           build-args: |
